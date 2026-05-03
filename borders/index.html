@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BORDERS — 越境して生きてみる</title>
+<meta name="description" content="日本の標準ルートに違和感を持つ20-30代のための、進行中の越境実行レポート。26歳の複業経営者が、海外・国際恋愛・副業・経営参謀の同時進行をリアルに記録する。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Shippori+Mincho+B1:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f1ebdf;
+  --bg-deep: #e8dfcc;
+  --bg-card: #ede5d4;
+  --ink: #1a1612;
+  --ink-soft: #4a423a;
+  --ink-faint: #7a7062;
+  --accent: #7a2e2a;
+  --accent-soft: #b06650;
+  --rule: #c9bda6;
+  --rule-soft: #d8cdb6;
+
+  --serif-en: 'Fraunces', Georgia, serif;
+  --serif-jp: 'Shippori Mincho B1', 'Yu Mincho', serif;
+  --mono: 'JetBrains Mono', 'SF Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif-jp);
+  font-size: 16px;
+  line-height: 1.85;
+  font-feature-settings: "palt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Subtle paper texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at top left, rgba(122,46,42,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(176,102,80,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+}
+
+main, header, footer { position: relative; z-index: 2; }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ========== HEADER ========== */
+.site-header {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  background: rgba(241, 235, 223, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.18em;
+  font-variation-settings: "SOFT" 30, "opsz" 144;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.logo-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.logo-issue {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.nav {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.nav a {
+  font-family: var(--serif-jp);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav a:hover { color: var(--accent); }
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after { width: 100%; }
+
+.subscribe-btn {
+  padding: 10px 22px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--serif-jp);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background 0.2s ease;
+}
+
+.subscribe-btn:hover { background: var(--accent); }
+
+/* ========== HERO ========== */
+.hero {
+  padding: 120px 0 100px;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  max-width: 200px;
+}
+
+.hero-title {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 84px);
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  margin-bottom: 48px;
+  max-width: 18ch;
+}
+
+.hero-title em {
+  font-style: normal;
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  color: var(--accent);
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: end;
+  border-top: 1px solid var(--rule);
+  padding-top: 32px;
+}
+
+.hero-tagline {
+  font-family: var(--serif-jp);
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+.hero-tagline strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+}
+
+.stat {
+  text-align: right;
+}
+
+.stat-num {
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144;
+}
+
+.stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 8px;
+}
+
+/* ========== MANIFESTO ========== */
+.manifesto {
+  padding: 100px 0;
+  border-top: 1px solid var(--rule);
+  position: relative;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 80px;
+}
+
+.section-marker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.section-marker-num {
+  display: block;
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-size: 64px;
+  color: var(--ink);
+  line-height: 1;
+  margin-top: 12px;
+  font-variation-settings: "opsz" 144;
+}
+
+.manifesto-body {
+  font-family: var(--serif-jp);
+  font-size: 19px;
+  line-height: 2.0;
+  color: var(--ink);
+}
+
+.manifesto-body p { margin-bottom: 1.4em; }
+
+.manifesto-body p:first-child::first-letter {
+  font-family: var(--serif-en);
+  font-weight: 600;
+  font-size: 4.6em;
+  float: left;
+  line-height: 0.85;
+  margin: 0.08em 0.12em -0.05em -0.02em;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+
+.manifesto-body em {
+  font-style: italic;
+  font-family: var(--serif-en);
+  color: var(--accent);
+}
+
+.manifesto-quote {
+  margin-top: 48px;
+  padding-left: 28px;
+  border-left: 2px solid var(--accent);
+  font-size: 21px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+/* ========== READER ========== */
+.reader {
+  padding: 100px 0;
+  background: var(--bg-deep);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.reader-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.3;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.section-title em {
+  font-style: normal;
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: "SOFT" 100;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0 auto;
+  line-height: 1.85;
+}
+
+.reader-checklist {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0;
+}
+
+.checklist-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 28px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+
+.checklist-item:last-child { border-bottom: 1px solid var(--rule); }
+
+.checklist-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  padding-top: 6px;
+}
+
+.checklist-text {
+  font-family: var(--serif-jp);
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.checklist-text-sub {
+  font-size: 14px;
+  color: var(--ink-faint);
+  margin-top: 8px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.reader-footnote {
+  text-align: center;
+  margin-top: 64px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink-soft);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+
+/* ========== AXES ========== */
+.axes {
+  padding: 120px 0;
+  position: relative;
+}
+
+.axes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.axes-intro {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  max-width: 50ch;
+}
+
+.axes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.axis {
+  padding: 56px 48px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-card);
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.axis:nth-child(2n) { border-right: none; }
+.axis:nth-child(n+3) { border-bottom: none; }
+
+.axis:hover { background: var(--bg-deep); }
+
+.axis-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.axis-title {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.axis-title-en {
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--accent);
+  display: block;
+  margin-top: 6px;
+  font-variation-settings: "SOFT" 100;
+}
+
+.axis-desc {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+
+.axis-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.05em;
+}
+
+.axis-tags span::before {
+  content: '/';
+  margin-right: 6px;
+  color: var(--rule);
+}
+
+.axis-tags span:first-child::before { content: ''; margin: 0; }
+
+/* ========== ARTICLES ========== */
+.articles {
+  padding: 120px 0;
+  background: var(--bg-deep);
+  border-top: 1px solid var(--rule);
+}
+
+.articles-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 64px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.articles-title {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+}
+
+.articles-title em {
+  font-style: italic;
+  font-family: var(--serif-en);
+  font-weight: 300;
+  color: var(--accent);
+  font-variation-settings: "SOFT" 100;
+}
+
+.articles-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+/* Featured article */
+.article-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 64px;
+  margin-bottom: 64px;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+
+.article-featured-visual {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #5a3d2c 0%, #2d1b14 60%, #1a1612 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.article-featured-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0, transparent 18px, rgba(176,102,80,0.08) 18px, rgba(176,102,80,0.08) 19px);
+}
+
+.article-featured-visual::after {
+  content: 'BORDERS';
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  right: 32px;
+  font-family: var(--serif-en);
+  font-weight: 200;
+  font-size: 84px;
+  letter-spacing: 0.05em;
+  color: rgba(241, 235, 223, 0.12);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  line-height: 1;
+}
+
+.article-featured-stamp {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 130px;
+  height: 130px;
+  border: 1.5px solid rgba(241, 235, 223, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgba(241, 235, 223, 0.7);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: rotate(-12deg);
+  text-align: center;
+}
+
+.article-featured-stamp .stamp-big {
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  margin: 4px 0;
+  color: rgba(241, 235, 223, 0.85);
+}
+
+.article-featured-content {
+  padding-top: 16px;
+}
+
+.article-featured .article-cat {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.article-featured h3 {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.35;
+  margin-bottom: 24px;
+  letter-spacing: 0.01em;
+}
+
+.article-featured-excerpt {
+  font-family: var(--serif-jp);
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+}
+
+.article-byline {
+  display: flex;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+/* Article grid */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.article-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover { transform: translateY(-4px); }
+
+.article-card-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-card-cat {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.article-card h4 {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.article-card:hover h4 { color: var(--accent); }
+
+.article-card-excerpt {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.article-card-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-card-soon {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.article-featured-soon {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 4px 10px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* ========== AUTHOR ========== */
+.author {
+  padding: 120px 0;
+  position: relative;
+}
+
+.author-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.author-card {
+  border: 1px solid var(--rule);
+  padding: 48px 40px;
+  background: var(--bg-card);
+  position: relative;
+}
+
+.author-card::before {
+  content: 'B / 01';
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+}
+
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5a3d2c, #1a1612);
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.author-avatar::after {
+  content: '匿';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-jp);
+  color: rgba(241, 235, 223, 0.4);
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.author-name {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.author-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.author-attrs {
+  display: grid;
+  gap: 16px;
+}
+
+.author-attr {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.author-attr-key {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+
+.author-attr-val { color: var(--ink); }
+
+.author-content h2 {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.35;
+  margin-bottom: 32px;
+}
+
+.author-content h2 em {
+  font-style: italic;
+  font-family: var(--serif-en);
+  font-weight: 300;
+  color: var(--accent);
+  font-variation-settings: "SOFT" 100;
+}
+
+.author-content p {
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--ink);
+  margin-bottom: 1.4em;
+}
+
+.author-content p:first-of-type::first-letter {
+  font-family: var(--serif-en);
+  font-weight: 600;
+  font-size: 4.2em;
+  float: left;
+  line-height: 0.85;
+  margin: 0.08em 0.12em -0.05em -0.02em;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144;
+}
+
+.author-content em {
+  font-style: italic;
+  color: var(--accent);
+  font-family: var(--serif-en);
+}
+
+/* ========== SUBSCRIBE ========== */
+.subscribe {
+  padding: 120px 0;
+  background: var(--ink);
+  color: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.subscribe::before {
+  content: 'BORDERS';
+  position: absolute;
+  bottom: -60px;
+  left: -40px;
+  font-family: var(--serif-en);
+  font-weight: 200;
+  font-size: 320px;
+  letter-spacing: 0.05em;
+  color: rgba(241, 235, 223, 0.04);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.subscribe-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.subscribe-content h2 {
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  color: var(--bg);
+}
+
+.subscribe-content h2 em {
+  font-style: italic;
+  font-family: var(--serif-en);
+  font-weight: 300;
+  color: var(--accent-soft);
+  font-variation-settings: "SOFT" 100;
+}
+
+.subscribe-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(241, 235, 223, 0.7);
+  max-width: 42ch;
+}
+
+.subscribe-form {
+  display: grid;
+  gap: 16px;
+}
+
+.subscribe-channels {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(241, 235, 223, 0.15);
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(241, 235, 223, 0.15);
+  text-decoration: none;
+  color: var(--bg);
+  transition: padding-left 0.3s ease;
+}
+
+.channel:hover { padding-left: 12px; }
+
+.channel-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--accent-soft);
+}
+
+.channel-info { line-height: 1.4; }
+
+.channel-name {
+  font-family: var(--serif-en);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+.channel-desc {
+  font-size: 12px;
+  color: rgba(241, 235, 223, 0.5);
+  margin-top: 4px;
+  font-family: var(--serif-jp);
+}
+
+.channel-arrow {
+  font-family: var(--serif-en);
+  font-size: 20px;
+  color: var(--accent-soft);
+  font-weight: 300;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--rule);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+.footer-inner a {
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-inner a:hover { color: var(--accent); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .container { padding: 0 24px; }
+  .nav { display: none; }
+
+  .hero { padding: 80px 0 60px; }
+  .hero-meta { grid-template-columns: 1fr; gap: 40px; }
+  .hero-stats { justify-content: flex-start; gap: 32px; }
+  .stat { text-align: left; }
+
+  .manifesto, .reader, .axes, .articles, .author, .subscribe { padding: 80px 0; }
+  .manifesto-grid, .axes-header, .author-grid, .subscribe-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .article-featured { grid-template-columns: 1fr; gap: 40px; }
+  .article-featured h3 { font-size: 28px; }
+  .article-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .axes-grid { grid-template-columns: 1fr; }
+  .axis { border-right: none !important; border-bottom: 1px solid var(--rule) !important; }
+  .axis:last-child { border-bottom: none !important; }
+  .axis { padding: 40px 32px; }
+
+  .author-content h2 { font-size: 28px; }
+  .subscribe-content h2 { font-size: 32px; }
+
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow, .hero-title, .hero-meta {
+  animation: fadeUp 0.9s ease forwards;
+  opacity: 0;
+}
+
+.hero-title { animation-delay: 0.1s; }
+.hero-meta { animation-delay: 0.25s; }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/borders/" class="logo">
+        BORDERS<span class="logo-dot"></span><span class="logo-issue">ISSUE 001 — 2026</span>
+      </a>
+      <nav class="nav">
+        <a href="#manifesto">記録について</a>
+        <a href="#reader">読者像</a>
+        <a href="#axes">4つの軸</a>
+        <a href="#articles">記事</a>
+        <a href="#author">著者</a>
+      </nav>
+      <a href="#subscribe" class="subscribe-btn">購読する</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">A Field Report on Crossing Lines · 越境実行レポート</div>
+    <h1 class="hero-title">
+      越境して、<br>
+      生きてみる。<br>
+      <em>in progress.</em>
+    </h1>
+    <div class="hero-meta">
+      <p class="hero-tagline">
+        日本の標準ルートに違和感を持ちながら、踏み出せずにいる二十代後半へ。<br>
+        <strong>26歳の複業経営者が、海外・国際恋愛・副業・経営参謀の同時進行を、成功談ではなく実行中の記録として残す。</strong>
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">20</div><div class="stat-label">Countries</div></div>
+        <div class="stat"><div class="stat-num">04</div><div class="stat-label">Borders</div></div>
+        <div class="stat"><div class="stat-num">01</div><div class="stat-label">Author</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MANIFESTO ========== -->
+<section class="manifesto" id="manifesto">
+  <div class="container">
+    <div class="manifesto-grid">
+      <div>
+        <div class="section-marker">
+          About this record
+          <span class="section-marker-num">01</span>
+        </div>
+      </div>
+      <div class="manifesto-body">
+        <p>
+          越境という言葉が軽く扱われすぎている。海外旅行に行くこと、外国人と付き合うこと、副業を始めること、独立すること。これらは「越境」と呼ばれるが、実際にやってみると、線を一本越えるたびに自分の輪郭が変わる。<em>言語の線、文化の線、組織の線、肩書きの線。</em>
+        </p>
+        <p>
+          Bordersは、26歳の現役複業経営者が、複数の越境を同時進行で記録するメディアである。日本の大手企業に勤めながら、副業として小さな会社を持ち、中小企業の経営参謀として動き、韓国人パートナーと日韓の真ん中にいる。20カ国を歩き、30カ国を歩く前に止まろうとしている。
+        </p>
+        <p>
+          ここに書かれるのは成功談ではない。<em>判断の前にあった迷い、踏み出した後の代償、想定通りに進まなかった現実、それでも続ける理由。</em>進行中だから書ける生々しさを、そのまま残す。
+        </p>
+        <div class="manifesto-quote">
+          「やってみたい」と「やる」の間にある、見えない一線を越えるための、判断材料として。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== READER ========== -->
+<section class="reader" id="reader">
+  <div class="container">
+    <div class="reader-header">
+      <div class="section-eyebrow">02 — Who this is for</div>
+      <h2 class="section-title">こういう人に、書いている。<br><em>For those who hesitate.</em></h2>
+      <p class="section-subtitle">
+        Bordersは万人のためのメディアではない。次の状態にいる人にだけ、深く刺さるよう設計している。
+      </p>
+    </div>
+
+    <div class="reader-checklist">
+      <div class="checklist-item">
+        <div class="checklist-num">01 / 06</div>
+        <div>
+          <div class="checklist-text">25-32歳。仕事は安定しているが、このままでいいのか自問が始まっている。</div>
+          <div class="checklist-text-sub">転職、独立、海外、国際恋愛、副業。複数の選択肢が頭にあるが、どれも踏み出せていない。</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-num">02 / 06</div>
+        <div>
+          <div class="checklist-text">同質的な環境にいて、本気で相談できる人がいない。</div>
+          <div class="checklist-text-sub">周囲は結婚・住宅購入・昇進という標準ルートを進む。違和感を語ると浮く。</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-num">03 / 06</div>
+        <div>
+          <div class="checklist-text">SNSの成功談が嘘くさく感じる。書籍は古い。コンサルは怪しい。</div>
+          <div class="checklist-text-sub">「月収1000万」「3ヶ月で独立」のような語り口に疲れた。等身大の声を探している。</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-num">04 / 06</div>
+        <div>
+          <div class="checklist-text">海外、複業、独立、国際恋愛のいずれかに、強い興味がある。</div>
+          <div class="checklist-text-sub">情報は集めている。しかしリアルな判断材料が足りず、最後の一歩が踏み出せない。</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-num">05 / 06</div>
+        <div>
+          <div class="checklist-text">「成功者の本」より「実行中の人の記録」を読みたい。</div>
+          <div class="checklist-text-sub">完成された物語より、迷いと判断の途中経過にこそ、自分の判断のヒントがあると感じている。</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-num">06 / 06</div>
+        <div>
+          <div class="checklist-text">急がない。じっくり考えながら、自分の越境の輪郭を描きたい。</div>
+          <div class="checklist-text-sub">速く稼ぐ方法より、長く続けられる生き方の設計図を求めている。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reader-footnote">— もし三つ以上当てはまるなら、ここに居場所がある。</div>
+  </div>
+</section>
+
+<!-- ========== AXES ========== -->
+<section class="axes" id="axes">
+  <div class="container">
+    <div class="axes-header">
+      <div>
+        <div class="section-eyebrow">03 — Four axes</div>
+        <h2 class="section-title">越境の、<br>4つの線について。</h2>
+      </div>
+      <p class="axes-intro">
+        Bordersが扱う越境は、表面が違うだけで、根は同じである。「ここまで」と「ここから」を分ける線を、自分で引き直す行為。
+        その線を、四つの軸で記録していく。
+      </p>
+    </div>
+
+    <div class="axes-grid">
+      <div class="axis">
+        <div class="axis-num">AXIS / 01</div>
+        <h3 class="axis-title">国境を越える<span class="axis-title-en">Travel & Stay</span></h3>
+        <p class="axis-desc">
+          観光ではなく、生活密着の滞在を記録する。20カ国の比較から見えてきた、日本の便利さが奪っているもの。海外で働くこと、住むこと、ただ通り過ぎることの違い。
+        </p>
+        <div class="axis-tags">
+          <span>滞在記</span><span>国別カルチャー</span><span>移住検討</span><span>生活と観光の境界</span>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="axis-num">AXIS / 02</div>
+        <h3 class="axis-title">文化と言語を越える<span class="axis-title-en">Across Languages</span></h3>
+        <p class="axis-desc">
+          日韓カップルとして、文化差・価値観の衝突・察する文化の崩壊を、進行中で書く。国際恋愛のリアルは、楽しさの奥に判断と覚悟がある。
+        </p>
+        <div class="axis-tags">
+          <span>国際恋愛</span><span>日韓比較</span><span>同調圧力からの逃走</span><span>パートナーシップ</span>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="axis-num">AXIS / 03</div>
+        <h3 class="axis-title">組織と肩書きを越える<span class="axis-title-en">Beyond Titles</span></h3>
+        <p class="axis-desc">
+          大企業に勤めながら、業界外から経営参謀として中小企業に入る。複業の本質は時間配分ではなく、思考の混ざりにある。
+        </p>
+        <div class="axis-tags">
+          <span>副業経営</span><span>複業</span><span>経営参謀</span><span>独立準備</span>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="axis-num">AXIS / 04</div>
+        <h3 class="axis-title">標準ルートを越える<span class="axis-title-en">Off the Map</span></h3>
+        <p class="axis-desc">
+          越境することの代償と孤独。tatemae文化からの距離。「密度ゼロの豊かさ」とは何か。複数の選択を同時に持つことの本当の重さを、自分への問いとして書く。
+        </p>
+        <div class="axis-tags">
+          <span>越境的視点</span><span>密度ゼロの豊かさ</span><span>選択の代償</span><span>26歳の問い</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ARTICLES ========== -->
+<section class="articles" id="articles">
+  <div class="container">
+    <div class="articles-header">
+      <h2 class="articles-title">最新の<em>Field Notes</em></h2>
+      <div class="articles-meta">Issue 001 · Coming May 2026</div>
+    </div>
+
+    <!-- Featured article -->
+    <article class="article-featured">
+      <div class="article-featured-visual">
+        <div class="article-featured-stamp">
+          Issue<span class="stamp-big">No. 01</span>2026
+        </div>
+      </div>
+      <div class="article-featured-content">
+        <span class="article-cat">Axis 02 — Across Languages</span>
+        <h3>韓国人パートナーとの「察する/察しない」文化のぶつかり合い<span class="article-featured-soon">Coming Soon</span></h3>
+        <p class="article-featured-excerpt">
+          付き合って半年が過ぎた頃、私の「察する」が、彼女には「言わないことの不誠実」に見えていたと知った。日本のtatemae文化は、海外との関係に持ち込んだ瞬間、相手を傷つける武器になる。それでも私たちは、毎日少しずつ、線を引き直している。
+        </p>
+        <div class="article-byline">
+          <span>By the Author</span>
+          <span>2026.05.02</span>
+          <span>14 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article grid -->
+    <div class="article-grid">
+      <a class="article-card">
+        <div class="article-card-num"><span>FN — 002</span><span>Axis 03</span></div>
+        <span class="article-card-cat">Beyond Titles</span>
+        <h4>副業で会社を作って、最初の3ヶ月で起きた現実</h4>
+        <p class="article-card-excerpt">
+          登記から実際の運用、税務、想定外の手間。「会社を作る前に知りたかったこと」を、進行中で時系列で書く。
+        </p>
+        <div class="article-card-date"><span>Planned · 2026</span><span class="article-card-soon">Soon</span></div>
+      </a>
+
+      <a class="article-card">
+        <div class="article-card-num"><span>FN — 003</span><span>Axis 01</span></div>
+        <span class="article-card-cat">Travel & Stay</span>
+        <h4>ホーチミンで気づいた、日本の便利さが奪っているもの</h4>
+        <p class="article-card-excerpt">
+          二週間の生活密着滞在で見えた、不便であることが生む人間関係の密度。20カ国の比較から日本を相対化する。
+        </p>
+        <div class="article-card-date"><span>Planned · 2026</span><span class="article-card-soon">Soon</span></div>
+      </a>
+
+      <a class="article-card">
+        <div class="article-card-num"><span>FN — 004</span><span>Axis 04</span></div>
+        <span class="article-card-cat">Off the Map</span>
+        <h4>「20カ国行きました」が、何の意味も持たないと気づいた日</h4>
+        <p class="article-card-excerpt">
+          数を語ることは、深さを語れないことの裏返しかもしれない。経験のカウントから、経験の質への移行について。
+        </p>
+        <div class="article-card-date"><span>Planned · 2026</span><span class="article-card-soon">Soon</span></div>
+      </a>
+
+      <a class="article-card">
+        <div class="article-card-num"><span>FN — 005</span><span>Axis 03</span></div>
+        <span class="article-card-cat">Beyond Titles</span>
+        <h4>本業を続けながら副業で月20万を稼ぐリアル</h4>
+        <p class="article-card-excerpt">
+          時間管理・体力・精神コストの実情。きれいごとなしの複業中継。何を犠牲にしているか、を含めて書く。
+        </p>
+        <div class="article-card-date"><span>Planned · 2026</span><span class="article-card-soon">Soon</span></div>
+      </a>
+
+      <a class="article-card">
+        <div class="article-card-num"><span>FN — 006</span><span>Axis 02</span></div>
+        <span class="article-card-cat">Across Languages</span>
+        <h4>国際恋愛で消える、同調圧力という名の重力</h4>
+        <p class="article-card-excerpt">
+          共通の社会規範がない関係の自由さと不安定さ。日本の同質性から外れた場所で、何で繋がっていられるのか。
+        </p>
+        <div class="article-card-date"><span>Planned · 2026</span><span class="article-card-soon">Soon</span></div>
+      </a>
+
+      <a class="article-card">
+        <div class="article-card-num"><span>FN — 007</span><span>Axis 04</span></div>
+        <span class="article-card-cat">Off the Map</span>
+        <h4>tatemaeを越える、ということについて</h4>
+        <p class="article-card-excerpt">
+          日本の建前文化への違和感を、海外経験から言語化する試み。「密度ゼロの豊かさ」が指している方角の話。
+        </p>
+        <div class="article-card-date"><span>Planned · 2026</span><span class="article-card-soon">Soon</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AUTHOR ========== -->
+<section class="author" id="author">
+  <div class="container">
+    <div class="author-grid">
+      <div class="author-card">
+        <div class="author-avatar"></div>
+        <div class="author-name">Author</div>
+        <div class="author-tag">Anonymous</div>
+
+        <div class="author-attrs">
+          <div class="author-attr">
+            <div class="author-attr-key">AGE</div>
+            <div class="author-attr-val">26</div>
+          </div>
+          <div class="author-attr">
+            <div class="author-attr-key">WORK</div>
+            <div class="author-attr-val">日系大手 + 副業 + 経営参謀</div>
+          </div>
+          <div class="author-attr">
+            <div class="author-attr-key">VISITED</div>
+            <div class="author-attr-val">20 countries</div>
+          </div>
+          <div class="author-attr">
+            <div class="author-attr-key">PARTNER</div>
+            <div class="author-attr-val">Korean</div>
+          </div>
+          <div class="author-attr">
+            <div class="author-attr-key">STAGE</div>
+            <div class="author-attr-val">独立準備中 (2028 target)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="author-content">
+        <h2>なぜ、匿名で書くのか。<br><em>On staying nameless.</em></h2>
+        <p>
+          名前を出さないのは、隠したいからではない。<em>立場を背負った言葉ではなく、進行中の事実だけを書きたい</em>からだ。本業の文脈、業界の文脈、肩書きの文脈を一度すべて外して、26歳の一人の人間として記録する。
+        </p>
+        <p>
+          属性は最小限だけ示す。日系大手企業に勤めながら、副業として中小企業の経営参謀をしている。20カ国を歩き、現在は韓国人パートナーがいる。月の労働時間の三分の一は副業に使い、残りで本業と私生活を回している。
+        </p>
+        <p>
+          これらの事実が、書く内容の品質保証になるとは思っていない。ただ、Bordersに書くすべての言葉が、どこかの会議室や講演ではなく、平日深夜のキッチンと、移動中のメモから来ていることを、読む側に知ってほしい。
+        </p>
+        <p>
+          書き続ける期間は、独立する2028年までと一旦決めている。それまでに線を一本越え、二本越え、三本越えていく実況を残す。<em>「成功した後の振り返り」ではなく「実行中のリアル」だけが、踏み出せずにいる人の判断材料になる</em>と信じているから。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SUBSCRIBE ========== -->
+<section class="subscribe" id="subscribe">
+  <div class="container">
+    <div class="subscribe-inner">
+      <div class="subscribe-content">
+        <h2>越境の途中で、<br><em>並走する。</em></h2>
+        <p>
+          月1本のnoteと、週3-5本のX投稿で、越境の進行を更新していく。フォロワー数を追わない。広告も貼らない。届くべき人にだけ、ゆっくり届く設計にしている。
+        </p>
+      </div>
+      <div class="subscribe-form">
+        <div class="subscribe-channels">
+          <a href="#" class="channel">
+            <div class="channel-num">CH / 01</div>
+            <div class="channel-info">
+              <div class="channel-name">X — short notes</div>
+              <div class="channel-desc">週3-5本の観察・比較・自問メモ</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+          <a href="#" class="channel">
+            <div class="channel-num">CH / 02</div>
+            <div class="channel-info">
+              <div class="channel-name">note — long form</div>
+              <div class="channel-desc">月1本の長文フィールドノート</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+          <a href="#" class="channel">
+            <div class="channel-num">CH / 03</div>
+            <div class="channel-info">
+              <div class="channel-name">Newsletter</div>
+              <div class="channel-desc">月1回、まとめてメールで届く</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>BORDERS · A Field Report on Crossing Lines · Issue 001</div>
+      <div>© 2026 BORDERS</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

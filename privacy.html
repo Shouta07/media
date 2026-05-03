@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー — バイタリティデザイン合同会社</title>
+<meta name="description" content="バイタリティデザイン合同会社のプライバシーポリシー。個人情報の取り扱いについて。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1ECE2;
+  --ink:#14100D;
+  --vermilion:#C8392B;
+  --sub:#7A7066;
+  --jp-display:'Shippori Mincho B1', 'Noto Serif JP', serif;
+  --en-display:'Cormorant Garamond', 'Shippori Mincho B1', serif;
+  --body:'Noto Sans JP', 'Helvetica Neue', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-weight:300;
+  line-height:1.95;letter-spacing:0.025em;
+  font-size:15px;
+}
+::selection{background:var(--vermilion);color:var(--bg);}
+
+.nav{
+  padding:18px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(20,16,13,0.08);
+  background:rgba(241,236,226,0.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  position:sticky;top:0;z-index:100;
+}
+.nav a.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;}
+.brand-name{display:flex;flex-direction:column;line-height:1.1;}
+.brand-name .jp{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.14em;}
+.brand-name .en{font-family:var(--en-display);font-style:italic;font-weight:400;font-size:11px;letter-spacing:0.18em;color:var(--vermilion);margin-top:2px;}
+.brand .mark{width:32px;height:32px;}
+.brand .mark svg{display:block;width:100%;height:100%;}
+.nav .back{
+  font-family:var(--en-display);font-style:italic;font-size:13px;
+  letter-spacing:0.14em;color:var(--ink);text-decoration:none;
+  border-bottom:1px solid rgba(20,16,13,0.18);padding-bottom:2px;
+  transition:color 0.3s, border-color 0.3s;
+}
+.nav .back:hover{color:var(--vermilion);border-color:var(--vermilion);}
+
+main{max-width:880px;margin:0 auto;padding:120px 48px 100px;}
+
+.eyebrow{
+  font-family:var(--en-display);font-style:italic;
+  font-size:13px;color:var(--vermilion);
+  letter-spacing:0.22em;text-transform:uppercase;
+  margin-bottom:28px;
+  display:flex;align-items:center;gap:14px;
+}
+.eyebrow .bar{width:32px;height:1px;background:var(--vermilion);}
+
+h1{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:clamp(40px,5.4vw,64px);
+  line-height:1.25;letter-spacing:0.02em;
+  margin-bottom:24px;
+}
+h1 .en{
+  display:block;margin-top:12px;
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:0.4em;color:var(--sub);letter-spacing:0.04em;
+}
+
+.lead{
+  font-size:15px;line-height:2.05;color:rgba(20,16,13,0.78);
+  padding-bottom:32px;border-bottom:1px solid rgba(20,16,13,0.18);
+  margin-bottom:64px;
+}
+.lead .meta{
+  display:flex;justify-content:space-between;
+  font-family:var(--en-display);font-style:italic;
+  font-size:12px;letter-spacing:0.18em;
+  color:var(--sub);text-transform:uppercase;
+  margin-top:24px;padding-top:20px;
+  border-top:1px solid rgba(20,16,13,0.12);
+}
+
+article section{margin-bottom:56px;}
+article h2{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:22px;letter-spacing:0.04em;
+  margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(20,16,13,0.18);
+  display:flex;align-items:baseline;gap:14px;
+}
+article h2 .num{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  color:var(--vermilion);font-size:14px;letter-spacing:0.16em;
+  min-width:36px;
+}
+article h3{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:15px;letter-spacing:0.06em;
+  margin-top:28px;margin-bottom:8px;color:var(--ink);
+}
+article p{margin-bottom:1.2em;color:rgba(20,16,13,0.82);}
+article ul{margin:0 0 1.2em 1.6em;}
+article li{margin-bottom:0.5em;color:rgba(20,16,13,0.82);}
+article a{color:var(--vermilion);text-decoration:none;border-bottom:1px solid rgba(200,57,43,0.4);transition:border-color 0.3s;}
+article a:hover{border-color:var(--vermilion);}
+
+.contact-block{
+  margin-top:80px;padding:32px;
+  border:1px solid rgba(20,16,13,0.18);
+}
+.contact-block .label{
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--vermilion);
+  margin-bottom:8px;display:block;
+}
+.contact-block strong{
+  font-family:var(--jp-display);font-weight:500;font-size:16px;
+  display:block;margin-bottom:4px;
+}
+.contact-block .email{
+  font-family:var(--en-display);font-style:italic;font-size:18px;
+  color:var(--ink);text-decoration:none;
+  border-bottom:1px solid rgba(20,16,13,0.3);padding-bottom:1px;
+}
+.contact-block .email:hover{color:var(--vermilion);border-color:var(--vermilion);}
+
+footer{
+  background:var(--ink);color:var(--bg);
+  padding:48px;
+  text-align:center;
+  font-family:var(--en-display);font-style:italic;
+  font-size:11px;letter-spacing:0.18em;
+  color:rgba(248,244,235,0.5);
+}
+footer a{color:rgba(248,244,235,0.7);text-decoration:none;margin:0 16px;}
+footer a:hover{color:var(--bg);}
+
+@media (max-width:700px){
+  .nav{padding:14px 24px;}
+  main{padding:80px 24px 60px;}
+  .lead .meta{flex-direction:column;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;">
+  <defs>
+    <symbol id="vd-mark" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
+      <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="44" cy="18" r="3.5" fill="#C8392B"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="mark"><svg><use href="#vd-mark"/></svg></span>
+    <span class="brand-name">
+      <span class="jp">バイタリティデザイン合同会社</span>
+      <span class="en">Vitality Design LLC.</span>
+    </span>
+  </a>
+  <a href="/" class="back">← Back to Home</a>
+</nav>
+
+<main>
+  <div class="eyebrow"><span class="bar"></span>Privacy Policy</div>
+  <h1>プライバシーポリシー<span class="en">On the handling of personal information.</span></h1>
+
+  <div class="lead">
+    バイタリティデザイン合同会社（以下「当社」）は、お問い合わせ・取引・取材その他の関係において取得する個人情報について、以下の方針に基づき適切に取り扱います。
+    <div class="meta">
+      <span>VD / Privacy / v1.0</span>
+      <span>Effective: 2026.04.02</span>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2><span class="num">01</span>取得する情報</h2>
+      <p>当社は、業務遂行上必要な範囲で、以下の個人情報を取得することがあります。</p>
+      <ul>
+        <li>氏名、所属組織、役職、連絡先（メールアドレス、電話番号、住所等）</li>
+        <li>お問い合わせ・取材・契約交渉の過程で当社に提供されたその他の情報</li>
+        <li>ウェブサイト閲覧時のアクセスログ、Cookie 等の技術情報</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span>利用目的</h2>
+      <p>取得した個人情報は、以下の目的の範囲内でのみ利用します。</p>
+      <ul>
+        <li>お問い合わせ・ご相談への対応</li>
+        <li>業務委託契約・取引にかかる連絡および履行</li>
+        <li>取材・寄稿・採用に関する連絡</li>
+        <li>当社サービスの品質向上、統計分析（個人を特定しない形に限る）</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span>第三者提供</h2>
+      <p>法令に基づく場合、または本人の同意を得た場合を除き、取得した個人情報を第三者に提供することはありません。業務委託先に取り扱いを委託する場合は、必要かつ適切な監督を行います。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span>安全管理措置</h2>
+      <p>個人情報への不正アクセス、紛失、改ざん、漏えい等を防止するため、合理的かつ適切な技術的・組織的安全管理措置を講じます。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span>Cookie 等の利用</h2>
+      <p>当ウェブサイトでは、利用状況の把握およびサイト改善のために Cookie および同等の技術を利用することがあります。ブラウザの設定により Cookie の受け取りを拒否することが可能ですが、その場合一部機能が利用できなくなる可能性があります。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span>開示・訂正・削除等のご請求</h2>
+      <p>本人または代理人からの個人情報の開示・訂正・利用停止・削除のご請求については、ご本人確認の上、合理的な範囲で速やかに対応します。下記のお問い合わせ先までご連絡ください。</p>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span>本ポリシーの改定</h2>
+      <p>当社は、法令の改正、業務内容の変更その他の事由により、本ポリシーを改定することがあります。改定後の内容は、本ページ上での掲載をもって効力を生じます。</p>
+    </section>
+  </article>
+
+  <div class="contact-block">
+    <span class="label">お問い合わせ窓口</span>
+    <strong>バイタリティデザイン合同会社</strong>
+    <a href="mailto:contact@vitality-design.jp" class="email">contact@vitality-design.jp</a>
+  </div>
+</main>
+
+<footer>
+  <div>
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+  <div style="margin-top:14px;">© 2026 Vitality Design LLC. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

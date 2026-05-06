@@ -7,865 +7,872 @@
 <meta name="description" content="電気工事業向け採用ブランディングの制作例。下請けイメージで若手応募ゼロが続く中堅電気工事業者を想定した架空ケース。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#EEF2F6;
-  --paper-deep:#E0E6EE;
-  --paper-light:#F5F8FB;
-  --ink:#0A1A2A;
-  --ink-soft:#283848;
-  --ink-faint:#7388A0;
-  --blue:#1F6FB7;
-  --blue-deep:#0A3A6E;
-  --gold:#C9A961;
+  --bg:#F8FAFC;
+  --bg-card:#FFFFFF;
+  --ink:#0F172A;
+  --ink-soft:#334155;
+  --ink-faint:#64748B;
+  --ink-mute:#94A3B8;
+  --line:#E2E8F0;
+  --line-soft:#F1F5F9;
+  --blue:#1D4ED8;
+  --blue-soft:#3B82F6;
+  --blue-bg:#DBEAFE;
+  --gold:#D97706;
   --vermilion:#C8392B;
-  --grid:rgba(31,111,183,0.12);
-  --grid-strong:rgba(31,111,183,0.24);
-  --rule:rgba(10,26,42,0.16);
-  --mono:'IBM Plex Mono','SF Mono',monospace;
-  --sans:'IBM Plex Sans','Helvetica Neue',sans-serif;
+  --shadow-sm:0 1px 2px rgba(15,23,42,0.04),0 1px 3px rgba(15,23,42,0.06);
+  --shadow-md:0 4px 6px -1px rgba(15,23,42,0.06),0 10px 24px -8px rgba(15,23,42,0.1);
+  --shadow-lg:0 20px 40px -12px rgba(15,23,42,0.18);
+  --sans:'Inter','Helvetica Neue',sans-serif;
   --jp:'Shippori Mincho B1','Noto Serif JP',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
 html{scroll-behavior:smooth;}
 body{
-  background:var(--paper);color:var(--ink);
-  font-family:var(--sans);font-weight:400;font-size:14px;
-  line-height:1.65;letter-spacing:0;
-  font-feature-settings:"tnum" 1;
-  position:relative;overflow-x:hidden;
+  background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;
+  letter-spacing:-0.005em;
 }
-body::before{
-  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    linear-gradient(var(--grid) 1px,transparent 1px),
-    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:32px 32px;
-}
-main, header, footer{position:relative;z-index:1;}
-::selection{background:var(--blue);color:var(--paper);}
+::selection{background:var(--blue-soft);color:#fff;}
 
 /* === BRAND BAR === */
 .brand-bar{
+  position:sticky;top:0;z-index:100;
   display:flex;justify-content:space-between;align-items:center;
-  padding:10px 32px;
-  border-bottom:1px solid var(--ink);
-  background:var(--ink);color:var(--paper);
-  font-family:var(--mono);font-weight:400;font-size:11px;
-  letter-spacing:0.06em;text-transform:uppercase;
+  padding:14px 32px;
+  background:rgba(248,250,252,0.85);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
 }
-.brand-bar .lhs{display:flex;align-items:center;gap:10px;}
+.brand-bar .lhs{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-soft);font-weight:500;}
 .brand-bar .vd-mark{
-  width:6px;height:6px;background:var(--vermilion);border-radius:50%;
-}
-.brand-bar a{color:var(--paper);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px;}
-.brand-bar a:hover{border-color:var(--gold);}
-
-/* === TITLE BLOCK (engineering drawing header) === */
-.title-block{
-  display:grid;grid-template-columns:160px 1fr 200px 200px;gap:0;
-  border-bottom:1px solid var(--ink);
-  background:var(--paper-light);
-  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink);
-}
-.tb-cell{padding:14px 20px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:4px;}
-.tb-cell:last-child{border-right:none;}
-.tb-cell .key{font-size:9px;letter-spacing:0.16em;color:var(--ink-faint);text-transform:uppercase;}
-.tb-cell .val{font-size:13px;font-weight:500;}
-.tb-cell.sample .val{color:var(--vermilion);}
-.tb-drawing-no{background:var(--ink);color:var(--paper);}
-.tb-drawing-no .key{color:rgba(238,242,246,0.5);}
-.tb-drawing-no .val{font-size:18px;font-weight:600;letter-spacing:0.08em;}
-
-/* === HERO — split panel + spec sheet === */
-.hero{
-  display:grid;grid-template-columns:340px 1fr;gap:0;
-  border-bottom:1px solid var(--ink);min-height:540px;
-}
-.hero-spec{
-  background:var(--ink);color:var(--paper);
-  padding:48px 32px;
-  border-right:1px solid var(--ink);
-  font-family:var(--mono);font-size:12px;
-  display:flex;flex-direction:column;gap:24px;
-}
-.hero-spec h2{
-  font-family:var(--mono);font-weight:500;font-size:11px;
-  letter-spacing:0.32em;color:var(--gold);text-transform:uppercase;
-  border-bottom:1px solid rgba(238,242,246,0.2);padding-bottom:14px;
-}
-.spec-row{display:grid;grid-template-columns:90px 1fr;gap:16px;font-size:11px;}
-.spec-row .k{color:rgba(238,242,246,0.5);text-transform:uppercase;letter-spacing:0.12em;font-size:9.5px;}
-.spec-row .v{color:var(--paper);font-weight:500;}
-.spec-row .v em{color:var(--gold);font-style:normal;}
-
-.hero-main{
-  padding:64px 56px;position:relative;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.hero-main::before{
-  content:"";position:absolute;top:24px;right:24px;
-  width:48px;height:48px;
-  background:
-    linear-gradient(var(--ink) 1px,transparent 1px) 0 0/100% 50%,
-    linear-gradient(90deg,var(--ink) 1px,transparent 1px) 0 0/50% 100%,
-    linear-gradient(var(--ink) 1px,transparent 1px) 0 100%/100% 50%,
-    linear-gradient(90deg,var(--ink) 1px,transparent 1px) 100% 0/50% 100%;
-  background-repeat:no-repeat;
-}
-.hero-eyebrow{
-  font-family:var(--mono);font-weight:500;font-size:11px;
-  letter-spacing:0.18em;color:var(--blue);text-transform:uppercase;
-  margin-bottom:24px;display:flex;align-items:center;gap:12px;
-}
-.hero-eyebrow::before{content:"▸";color:var(--vermilion);}
-
-.hero h1{
-  font-family:var(--jp);font-weight:600;
-  font-size:clamp(40px,5.4vw,72px);line-height:1.2;letter-spacing:0;
-  margin-bottom:32px;
-}
-.hero h1 em{font-style:normal;color:var(--blue);font-weight:700;}
-.hero h1 .dim-mark{
-  display:inline-block;font-family:var(--mono);font-size:0.18em;
-  color:var(--ink-faint);font-weight:400;vertical-align:super;letter-spacing:0;
-  margin-left:8px;
-}
-
-.hero-lead{
-  max-width:540px;font-size:14px;line-height:1.85;color:var(--ink-soft);
-  border-top:1px dashed var(--rule);padding-top:24px;
-  font-family:var(--sans);
-}
-.hero-lead strong{color:var(--ink);font-weight:600;}
-
-.hero-callout{
-  display:inline-flex;align-items:center;gap:10px;
-  margin-top:32px;padding:8px 14px;
-  background:var(--ink);color:var(--gold);
-  font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
-  text-transform:uppercase;
-}
-.hero-callout::before{content:"●";color:var(--vermilion);font-size:8px;}
-
-/* === SECTION HEADER (drawing-style) === */
-.drawing-section{padding:80px 56px;border-bottom:1px solid var(--rule);}
-.drawing-header{
-  display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:end;
-  border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:48px;
-}
-.drawing-id{
-  font-family:var(--mono);font-weight:500;
-}
-.drawing-id .ref{
-  font-size:11px;letter-spacing:0.16em;color:var(--ink-faint);text-transform:uppercase;
-  display:block;margin-bottom:6px;
-}
-.drawing-id .no{font-size:36px;font-weight:600;color:var(--blue-deep);letter-spacing:0;}
-.drawing-id .scale{
-  font-size:10px;color:var(--ink-faint);letter-spacing:0.16em;
-  text-transform:uppercase;margin-top:6px;
-}
-.drawing-title h2{
-  font-family:var(--jp);font-weight:600;
-  font-size:clamp(28px,3.4vw,42px);line-height:1.3;letter-spacing:0;
-  margin-bottom:8px;
-}
-.drawing-title h2 em{font-style:normal;color:var(--blue);font-weight:700;}
-.drawing-title .desc{
-  font-family:var(--mono);font-size:12px;color:var(--ink-faint);
-  letter-spacing:0.04em;
-}
-
-/* === PARTS LIST (replaces case-meta) === */
-.parts-list{
-  font-family:var(--mono);font-size:13px;border:1px solid var(--ink);
-  background:var(--paper-light);
-}
-.parts-list-head{
-  display:grid;grid-template-columns:60px 1fr 200px 180px;
-  background:var(--ink);color:var(--paper);
-  font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;
-}
-.parts-list-head > div{padding:10px 16px;border-right:1px solid rgba(238,242,246,0.18);}
-.parts-list-head > div:last-child{border-right:none;}
-.parts-row{
-  display:grid;grid-template-columns:60px 1fr 200px 180px;
-  border-bottom:1px solid var(--rule);
-}
-.parts-row:last-child{border-bottom:none;}
-.parts-row > div{padding:14px 16px;border-right:1px solid var(--rule);}
-.parts-row > div:last-child{border-right:none;}
-.parts-row .pn{color:var(--vermilion);font-weight:500;font-size:12px;}
-.parts-row .desc{font-family:var(--sans);font-weight:500;}
-.parts-row .desc-en{display:block;font-size:11px;color:var(--ink-faint);font-family:var(--mono);margin-top:2px;}
-.parts-row .qty{color:var(--blue);font-weight:500;}
-
-/* === BRIEF (technical memo style) === */
-.brief-memo{
-  font-family:var(--sans);max-width:880px;margin:0 auto;
-  border:1px solid var(--rule);background:var(--paper-light);
-}
-.brief-memo-head{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  background:var(--ink);color:var(--paper);
-  font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
-}
-.brief-memo-head > div{padding:10px 16px;border-right:1px solid rgba(238,242,246,0.18);}
-.brief-memo-head > div:last-child{border-right:none;}
-.brief-memo-head .k{color:rgba(238,242,246,0.5);display:block;font-size:9px;}
-.brief-memo-head .v{color:var(--paper);}
-.brief-memo-body{padding:40px 56px;}
-.brief-memo-body p{
-  display:grid;grid-template-columns:48px 1fr;gap:24px;
-  margin-bottom:1.6em;font-size:14.5px;line-height:1.85;color:var(--ink);
-}
-.brief-memo-body p .ref{
-  font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:500;
-  letter-spacing:0.08em;padding-top:5px;
-}
-.brief-memo-body strong{font-weight:600;color:var(--ink);}
-.brief-memo-quote{
-  display:grid;grid-template-columns:48px 1fr;gap:24px;
-  margin:48px 0 0;padding:24px;
-  border:1px solid var(--blue);background:rgba(31,111,183,0.06);
-}
-.brief-memo-quote .ref{
-  font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:500;letter-spacing:0.08em;
-}
-.brief-memo-quote .text{
-  font-family:var(--jp);font-weight:600;font-size:18px;line-height:1.7;color:var(--ink);letter-spacing:0;
-}
-.brief-memo-quote .by{
-  display:block;margin-top:14px;font-family:var(--mono);font-size:10px;
-  color:var(--ink-faint);letter-spacing:0.12em;text-transform:uppercase;
-}
-
-/* === DELIVERABLES — drawing sheet grid === */
-.deliv-section{padding:80px 56px;border-bottom:1px solid var(--rule);background:var(--paper-light);}
-.deliv-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  border:1px solid var(--ink);
-}
-.deliv-cell{
-  padding:0;border-right:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
-  background:var(--paper);
+  width:28px;height:28px;border-radius:6px;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
   position:relative;
 }
-.deliv-cell:nth-child(3n){border-right:none;}
-.deliv-cell:nth-last-child(-n+3){border-bottom:none;}
-
-.dc-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:8px 14px;background:var(--ink);color:var(--paper);
-  font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+.brand-bar .vd-mark::after{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--vermilion);
+  position:absolute;top:6px;right:6px;
 }
-.dc-header .pn{color:var(--gold);font-weight:500;}
-.dc-header .rev{color:rgba(238,242,246,0.5);}
+.brand-bar .badge-sample{
+  background:rgba(200,57,43,0.1);color:var(--vermilion);
+  padding:3px 10px;border-radius:99px;font-size:11px;
+  font-weight:600;letter-spacing:0.04em;text-transform:uppercase;
+  border:1px solid rgba(200,57,43,0.2);
+}
+.brand-bar a{color:var(--ink-soft);text-decoration:none;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:6px;}
+.brand-bar a:hover{color:var(--ink);}
 
-.dc-canvas{
-  aspect-ratio:210/297;background:var(--paper-light);
-  position:relative;padding:24px 20px;
-  display:flex;flex-direction:column;
+/* === HERO === */
+.hero{
+  background:linear-gradient(180deg,#0F172A 0%,#1E293B 100%);
+  color:#F8FAFC;
+  position:relative;overflow:hidden;
+  padding:96px 32px 120px;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(31,111,183,0.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(31,111,183,0.06) 1px,transparent 1px);
-  background-size:14px 14px;
-  border-bottom:1px solid var(--rule);
+    linear-gradient(rgba(59,130,246,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(59,130,246,0.06) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse at 70% 40%,black 30%,transparent 80%);
 }
-.dc-canvas::before, .dc-canvas::after{
-  content:"";position:absolute;width:14px;height:14px;
-  border:1.5px solid var(--ink);
+.hero::after{
+  content:"";position:absolute;
+  top:-200px;right:-100px;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(59,130,246,0.18) 0%,transparent 60%);
+  filter:blur(40px);
 }
-.dc-canvas::before{top:8px;left:8px;border-right:none;border-bottom:none;}
-.dc-canvas::after{bottom:8px;right:8px;border-left:none;border-top:none;}
+.hero-inner{
+  max-width:1200px;margin:0 auto;position:relative;z-index:2;
+  display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:center;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:6px 14px;
+  background:rgba(59,130,246,0.12);
+  border:1px solid rgba(59,130,246,0.25);
+  border-radius:99px;
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  color:#93C5FD;letter-spacing:0.02em;
+  margin-bottom:32px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#3B82F6;box-shadow:0 0 8px #3B82F6;}
+
+.hero h1{
+  font-family:var(--jp);font-weight:700;
+  font-size:clamp(40px,5.4vw,72px);line-height:1.18;letter-spacing:-0.01em;
+  margin-bottom:24px;color:#F8FAFC;
+}
+.hero h1 em{
+  font-style:normal;color:#60A5FA;font-weight:700;
+  background:linear-gradient(135deg,#60A5FA,#3B82F6);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+.hero p.lead{
+  font-size:17px;line-height:1.75;color:#CBD5E1;
+  margin-bottom:40px;max-width:520px;font-weight:400;
+}
+.hero p.lead strong{color:#F8FAFC;font-weight:600;}
+
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.hero-tag{
+  padding:6px 12px;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);border-radius:6px;
+  font-size:12px;color:#CBD5E1;font-weight:500;
+}
+
+/* hero visual right side — schematic-ish but elegant */
+.hero-visual{
+  background:linear-gradient(160deg,rgba(59,130,246,0.1) 0%,rgba(15,23,42,0.6) 100%);
+  border:1px solid rgba(255,255,255,0.1);border-radius:16px;
+  padding:32px;
+  backdrop-filter:blur(12px);
+  position:relative;overflow:hidden;
+}
+.hero-visual::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(59,130,246,0.08) 1px,transparent 1px);
+  background-size:16px 16px;
+  pointer-events:none;
+}
+.hv-doc-id{
+  font-family:var(--mono);font-size:11px;color:#93C5FD;
+  letter-spacing:0.06em;display:flex;justify-content:space-between;
+  padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.1);
+  margin-bottom:18px;text-transform:uppercase;
+  position:relative;z-index:2;
+}
+.hv-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  position:relative;z-index:2;
+}
+.hv-stat{padding:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;}
+.hv-stat .v{
+  font-family:var(--jp);font-weight:600;font-size:32px;line-height:1;
+  background:linear-gradient(135deg,#60A5FA,#FBBF24);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:-0.01em;
+}
+.hv-stat .v sup{font-size:14px;font-weight:500;margin-left:2px;}
+.hv-stat .k{
+  font-size:11px;color:#94A3B8;margin-top:6px;
+  letter-spacing:0.04em;font-weight:500;
+}
+.hv-stat .d{font-size:11px;color:#CBD5E1;margin-top:2px;font-family:var(--jp);font-weight:500;}
+
+/* === SECTION === */
+section.block{padding:96px 32px;}
+.wrap{max-width:1200px;margin:0 auto;}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:12px;font-weight:600;
+  color:var(--blue);letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.eyebrow::before{
+  content:"";width:24px;height:1px;background:var(--blue);
+}
+h2.section-title{
+  font-family:var(--jp);font-weight:700;
+  font-size:clamp(32px,3.8vw,48px);line-height:1.25;letter-spacing:-0.01em;
+  margin-bottom:18px;color:var(--ink);
+}
+h2.section-title em{font-style:normal;color:var(--blue);font-weight:700;}
+.section-sub{
+  font-size:17px;color:var(--ink-soft);line-height:1.7;max-width:640px;
+}
+
+/* === CLIENT STATS — instead of plain table === */
+.client-card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow-sm);
+  margin-top:48px;overflow:hidden;
+}
+.client-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 28px;background:var(--line-soft);border-bottom:1px solid var(--line);
+}
+.client-head .name{
+  font-family:var(--jp);font-weight:700;font-size:20px;color:var(--ink);
+}
+.client-head .name .en{
+  display:block;font-family:var(--sans);font-weight:500;font-size:12px;
+  color:var(--ink-faint);letter-spacing:0.04em;margin-top:2px;text-transform:uppercase;
+}
+.client-head .badge{
+  background:rgba(200,57,43,0.08);color:var(--vermilion);
+  padding:4px 12px;border-radius:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;border:1px solid rgba(200,57,43,0.2);
+}
+.client-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.client-stat{
+  padding:32px 28px;border-right:1px solid var(--line);
+}
+.client-stat:last-child{border-right:none;}
+.client-stat .v{
+  font-family:var(--jp);font-weight:700;font-size:32px;color:var(--ink);
+  line-height:1.1;letter-spacing:-0.01em;
+}
+.client-stat .v sup, .client-stat .v .unit{
+  font-size:14px;font-weight:500;color:var(--ink-faint);margin-left:4px;font-family:var(--sans);
+}
+.client-stat .k{
+  font-size:12px;color:var(--ink-faint);margin-top:8px;
+  letter-spacing:0.06em;font-weight:600;text-transform:uppercase;
+}
+
+/* === BRIEF — story format === */
+.brief-block{
+  display:grid;grid-template-columns:340px 1fr;gap:80px;align-items:start;
+  margin-top:48px;
+}
+.brief-aside{
+  position:sticky;top:96px;
+  padding:24px;background:#fff;border:1px solid var(--line);border-radius:12px;
+  box-shadow:var(--shadow-sm);
+}
+.brief-aside .label{
+  font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;
+}
+.brief-aside .quote{
+  font-family:var(--jp);font-weight:700;font-size:20px;line-height:1.65;
+  color:var(--ink);letter-spacing:0;margin-bottom:18px;
+}
+.brief-aside .by{
+  font-size:12px;color:var(--ink-faint);font-weight:500;
+  padding-top:14px;border-top:1px solid var(--line);
+}
+.brief-content p{
+  font-size:16px;line-height:1.85;color:var(--ink-soft);
+  margin-bottom:1.4em;
+}
+.brief-content strong{color:var(--ink);font-weight:600;}
+.brief-content p:first-child::first-letter{
+  font-family:var(--jp);font-weight:700;font-size:3em;float:left;
+  line-height:0.9;margin:0.05em 0.15em -0.05em 0;color:var(--blue);
+}
+
+/* === DELIVERABLES === */
+.deliv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-top:48px;
+}
+.deliv-card{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;box-shadow:var(--shadow-sm);
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.deliv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.deliv-tag{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 18px;border-bottom:1px solid var(--line);
+  background:var(--line-soft);
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:0.04em;text-transform:uppercase;
+}
+.deliv-tag .pn{color:var(--blue);}
+.deliv-tag .rev{color:var(--ink-mute);}
+
+.deliv-canvas{
+  aspect-ratio:210/297;position:relative;
+  background:linear-gradient(180deg,#F8FAFC 0%,#FFFFFF 100%);
+  padding:28px 22px;display:flex;flex-direction:column;
+  border-bottom:1px solid var(--line);
+}
 
 /* P1 cover */
 .dc-cover{justify-content:flex-end;align-items:center;text-align:center;}
-.dc-cover svg{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);width:60%;}
-.dc-cover .h{
-  font-family:var(--jp);font-weight:600;font-size:16px;line-height:1.3;color:var(--ink);
-  position:relative;z-index:2;letter-spacing:0;
+.dc-cover-art{
+  position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);width:62%;
+  opacity:0.85;
 }
-.dc-cover .h em{color:var(--blue);font-style:normal;font-weight:700;}
+.dc-cover-art svg{width:100%;}
+.dc-cover .h{
+  font-family:var(--jp);font-weight:700;font-size:18px;line-height:1.4;
+  color:var(--ink);letter-spacing:-0.005em;
+  position:relative;z-index:2;
+}
+.dc-cover .h em{
+  font-style:normal;color:var(--blue);font-weight:700;
+}
 .dc-cover .sub{
-  font-family:var(--mono);font-size:10px;color:var(--ink-faint);
-  margin-top:8px;letter-spacing:0.16em;text-transform:uppercase;
+  font-family:var(--sans);font-size:11px;color:var(--ink-faint);
+  margin-top:8px;letter-spacing:0.06em;font-weight:500;
 }
 
 /* P2 philosophy */
+.dc-philo{justify-content:space-between;}
 .dc-philo .h{
-  font-family:var(--jp);font-weight:600;font-size:14px;line-height:1.45;
-  letter-spacing:0;text-align:center;
+  font-family:var(--jp);font-weight:700;font-size:15px;line-height:1.5;color:var(--ink);
 }
 .dc-philo .h em{color:var(--blue);font-style:normal;font-weight:700;}
 .dc-philo .body{
-  font-family:var(--sans);font-size:8.5px;line-height:1.7;letter-spacing:0;
-  margin-top:16px;color:var(--ink-soft);
+  font-size:8.5px;line-height:1.7;color:var(--ink-soft);margin-top:14px;
 }
-.dc-philo .symbol{
-  margin-top:auto;display:flex;align-items:center;gap:6px;justify-content:center;
-  font-family:var(--mono);font-size:9px;color:var(--blue);letter-spacing:0.08em;
+.dc-philo .pill-row{
+  display:flex;gap:6px;align-items:center;margin-top:auto;justify-content:center;
 }
+.dc-philo .pill{
+  font-size:8px;padding:3px 8px;border-radius:99px;
+  background:var(--blue-bg);color:var(--blue);font-weight:600;
+  font-family:var(--mono);letter-spacing:0.02em;
+}
+.dc-philo .pill.gold{background:rgba(217,119,6,0.12);color:var(--gold);}
+.dc-philo .arrow{color:var(--ink-mute);font-size:10px;}
 
 /* P3 timeline */
 .dc-time .h{
-  font-family:var(--jp);font-weight:600;font-size:13px;letter-spacing:0;
-  text-align:center;margin-bottom:14px;
+  font-family:var(--jp);font-weight:700;font-size:14px;text-align:center;
+  margin-bottom:14px;color:var(--ink);
 }
 .dc-time .h em{color:var(--gold);font-style:normal;font-weight:700;}
 .dc-time .row{
-  display:grid;grid-template-columns:24px 1fr 56px;gap:8px;
-  padding:5px 0;font-family:var(--mono);font-size:8.5px;
-  border-bottom:1px solid rgba(31,111,183,0.18);
+  display:grid;grid-template-columns:24px 1fr 56px;gap:10px;
+  padding:6px 0;border-bottom:1px solid var(--line);
   align-items:center;
 }
-.dc-time .row .n{color:var(--vermilion);font-weight:500;}
-.dc-time .row .l{font-family:var(--sans);font-weight:500;color:var(--ink);font-size:9px;letter-spacing:0;}
-.dc-time .row .d{color:var(--ink-faint);text-align:right;font-size:8px;}
+.dc-time .row .n{
+  font-family:var(--mono);font-size:10px;color:var(--blue);font-weight:600;
+  background:var(--blue-bg);text-align:center;border-radius:4px;padding:2px 0;
+}
+.dc-time .row .l{font-size:9.5px;color:var(--ink);font-weight:500;}
+.dc-time .row .d{font-family:var(--mono);font-size:9px;color:var(--ink-faint);text-align:right;font-weight:500;}
 
 /* P4 career */
 .dc-career .h{
-  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;
+  font-family:var(--jp);font-weight:700;font-size:14px;text-align:center;
+  margin-bottom:18px;color:var(--ink);
 }
 .dc-career .h em{color:var(--gold);font-style:normal;font-weight:700;}
 .dc-career .axis{
-  font-family:var(--mono);font-size:7.5px;color:var(--ink-faint);
-  display:grid;grid-template-columns:repeat(5,1fr);text-align:center;letter-spacing:0;margin-bottom:14px;
-  border-top:1.5px solid var(--blue);padding-top:8px;position:relative;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
+  position:relative;padding-top:14px;margin-bottom:14px;
 }
 .dc-career .axis::before{
-  content:"▼";position:absolute;top:-12px;left:0;color:var(--blue);font-size:8px;
+  content:"";position:absolute;top:18px;left:8%;right:8%;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:2px;
 }
-.dc-career .axis::after{
-  content:"▼";position:absolute;top:-12px;right:0;color:var(--gold);font-size:8px;
+.dc-career .axis div{
+  text-align:center;font-family:var(--sans);font-size:8.5px;color:var(--ink-faint);
+  letter-spacing:0;font-weight:500;position:relative;
 }
-.dc-career .axis div .yr{display:block;color:var(--blue);font-weight:500;font-size:9px;}
+.dc-career .axis div::after{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:8px;height:8px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 0 2px #fff;
+}
+.dc-career .axis div:first-child::after{background:var(--blue);}
+.dc-career .axis div .yr{
+  display:block;color:var(--blue);font-family:var(--mono);font-weight:600;font-size:9px;
+  margin-top:6px;
+}
 .dc-career .row{
-  display:grid;grid-template-columns:60px 1fr 50px;gap:8px;
-  padding:5px 0;font-family:var(--mono);font-size:8.5px;
-  border-bottom:1px solid rgba(31,111,183,0.15);
+  display:grid;grid-template-columns:60px 1fr 50px;gap:10px;
+  padding:5px 0;border-bottom:1px solid var(--line);font-size:8.5px;
 }
-.dc-career .row .stage{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:9px;}
-.dc-career .row .skill{color:var(--ink-soft);font-size:8.5px;}
-.dc-career .row .salary{text-align:right;color:var(--gold);font-weight:500;font-family:var(--mono);}
+.dc-career .row .stage{font-weight:600;color:var(--ink);}
+.dc-career .row .skill{color:var(--ink-soft);}
+.dc-career .row .salary{
+  text-align:right;font-family:var(--mono);color:var(--gold);font-weight:600;font-size:9px;
+}
 
 /* P5 voices */
 .dc-voices .h{
-  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:14px;letter-spacing:0;
+  font-family:var(--jp);font-weight:700;font-size:14px;text-align:center;
+  margin-bottom:14px;color:var(--ink);
 }
 .dc-voices .h em{color:var(--blue);font-style:normal;font-weight:700;}
-.dc-voices .v{padding:8px 0;border-bottom:1px solid rgba(31,111,183,0.15);}
+.dc-voices .v{padding:8px 0;border-bottom:1px solid var(--line);}
 .dc-voices .v:last-child{border-bottom:none;}
 .dc-voices .meta{
-  display:flex;justify-content:space-between;
-  font-family:var(--mono);font-size:8px;color:var(--ink-faint);letter-spacing:0.04em;margin-bottom:3px;
+  display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.5px;
+  color:var(--ink-faint);margin-bottom:3px;letter-spacing:0.02em;
 }
 .dc-voices .meta .name{font-family:var(--sans);font-weight:600;color:var(--blue);font-size:9px;}
-.dc-voices .quote{
-  font-family:var(--sans);font-size:8.5px;line-height:1.55;color:var(--ink-soft);
-}
+.dc-voices .quote{font-size:8.5px;line-height:1.6;color:var(--ink-soft);}
 
 /* P6 recruit */
 .dc-recruit .h{
-  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;
+  font-family:var(--jp);font-weight:700;font-size:14px;text-align:center;
+  margin-bottom:14px;color:var(--ink);
 }
 .dc-recruit .h em{color:var(--blue);font-style:normal;font-weight:700;}
 .dc-recruit .row{
-  display:grid;grid-template-columns:1fr auto;gap:10px;
-  padding:6px 0;font-family:var(--mono);font-size:9px;
-  border-bottom:1px solid rgba(31,111,183,0.15);
+  display:grid;grid-template-columns:1fr auto;gap:10px;padding:5px 0;
+  border-bottom:1px solid var(--line);font-size:8.5px;
 }
-.dc-recruit .row .key{color:var(--ink-faint);font-size:8.5px;}
-.dc-recruit .row .val{font-weight:500;color:var(--ink);text-align:right;}
-.dc-recruit .row .val em{color:var(--gold);font-style:normal;font-weight:600;}
+.dc-recruit .row .key{color:var(--ink-faint);}
+.dc-recruit .row .val{font-weight:600;color:var(--ink);text-align:right;}
+.dc-recruit .row .val em{color:var(--gold);font-style:normal;font-weight:700;font-family:var(--mono);}
 .dc-recruit .foot{
-  margin-top:auto;padding:10px;background:var(--ink);color:var(--paper);
-  font-family:var(--sans);font-size:9px;line-height:1.6;text-align:center;
-  font-weight:500;
+  margin-top:auto;padding:12px;background:var(--ink);color:#F8FAFC;
+  border-radius:6px;font-size:9px;line-height:1.5;text-align:center;
+  font-family:var(--jp);font-weight:500;
 }
-.dc-recruit .foot em{color:var(--gold);font-style:normal;display:block;margin-top:4px;font-size:8.5px;}
+.dc-recruit .foot em{color:#FBBF24;font-style:normal;display:block;margin-top:4px;font-size:8.5px;}
 
-/* deliv caption */
-.dc-caption{
-  padding:14px 16px;font-family:var(--sans);
-  background:var(--paper);
+.deliv-meta{padding:18px 22px;}
+.deliv-meta .label{
+  font-family:var(--mono);font-size:10px;color:var(--blue);font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;
 }
-.dc-caption .label{
-  font-family:var(--mono);font-size:9px;letter-spacing:0.16em;color:var(--vermilion);
-  text-transform:uppercase;margin-bottom:8px;
+.deliv-meta h4{
+  font-family:var(--jp);font-weight:700;font-size:15px;line-height:1.5;
+  color:var(--ink);margin-bottom:8px;letter-spacing:-0.005em;
 }
-.dc-caption h4{
-  font-family:var(--jp);font-weight:600;font-size:14px;line-height:1.5;letter-spacing:0;
-  margin-bottom:6px;color:var(--ink);
-}
-.dc-caption p{font-size:11.5px;line-height:1.7;color:var(--ink-soft);}
+.deliv-meta p{font-size:13px;line-height:1.65;color:var(--ink-soft);}
 
-/* === OTHERS — index table === */
-.others-section{padding:80px 56px;border-bottom:1px solid var(--rule);}
-.others-table{border:1px solid var(--ink);font-family:var(--mono);}
-.others-table .h{
-  display:grid;grid-template-columns:80px 1fr 1fr 80px;
-  background:var(--ink);color:var(--paper);
-  font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+/* === OTHERS === */
+.others-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+  margin-top:48px;
 }
-.others-table .h > div{padding:10px 16px;border-right:1px solid rgba(238,242,246,0.18);}
-.others-table .h > div:last-child{border-right:none;}
-.others-table .r{
-  display:grid;grid-template-columns:80px 1fr 1fr 80px;
-  border-bottom:1px solid var(--rule);text-decoration:none;color:inherit;
-  transition:background 0.2s;
+.others-card{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 28px;background:#fff;border:1px solid var(--line);border-radius:12px;
+  text-decoration:none;color:inherit;
+  transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
+  box-shadow:var(--shadow-sm);
 }
-.others-table .r:last-child{border-bottom:none;}
-.others-table .r:hover{background:var(--paper-deep);}
-.others-table .r > div{padding:14px 16px;border-right:1px solid var(--rule);}
-.others-table .r > div:last-child{border-right:none;text-align:right;color:var(--blue);}
-.others-table .r .pn{color:var(--vermilion);font-weight:500;}
-.others-table .r .name{font-family:var(--sans);font-weight:600;color:var(--ink);}
-.others-table .r .name .en{display:block;font-family:var(--mono);font-size:10px;color:var(--ink-faint);font-weight:400;margin-top:2px;}
-.others-table .r .desc{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);}
+.others-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.others-card .lhs{display:flex;align-items:center;gap:18px;}
+.others-card .pn{
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--blue);
+  background:var(--blue-bg);padding:4px 10px;border-radius:6px;letter-spacing:0.04em;
+}
+.others-card .name{
+  font-family:var(--jp);font-weight:700;font-size:17px;color:var(--ink);
+}
+.others-card .name .en{
+  display:block;font-family:var(--sans);font-weight:500;font-size:12px;
+  color:var(--ink-faint);margin-top:2px;letter-spacing:0.02em;
+}
+.others-card .arrow{color:var(--blue);font-size:18px;transition:transform 0.2s;}
+.others-card:hover .arrow{transform:translateX(4px);}
 
-/* === CTA terminal === */
-.cta{
-  padding:96px 56px;background:var(--ink);color:var(--paper);
-  border-top:1px solid var(--ink);
+/* === CTA === */
+.cta-block{
+  background:linear-gradient(135deg,#0F172A 0%,#1E40AF 100%);
+  color:#F8FAFC;border-radius:24px;
+  padding:80px 64px;text-align:center;
+  margin:80px auto;max-width:1200px;
+  position:relative;overflow:hidden;
 }
-.cta-frame{
-  max-width:880px;margin:0 auto;border:1px solid var(--gold);background:rgba(238,242,246,0.04);
-  padding:48px;font-family:var(--mono);
+.cta-block::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
 }
-.cta-prompt{
-  font-size:11px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;
-  margin-bottom:24px;display:flex;align-items:center;gap:10px;
+.cta-block::after{
+  content:"";position:absolute;
+  bottom:-100px;right:-50px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(96,165,250,0.3) 0%,transparent 60%);
+  filter:blur(40px);
 }
-.cta-prompt::before{content:"$";color:var(--vermilion);font-weight:500;}
-.cta h2{
-  font-family:var(--jp);font-weight:600;font-size:clamp(28px,4vw,52px);
-  line-height:1.3;letter-spacing:0;margin-bottom:24px;color:var(--paper);
+.cta-block > *{position:relative;z-index:2;}
+.cta-tag{
+  display:inline-block;padding:6px 14px;
+  background:rgba(96,165,250,0.16);border:1px solid rgba(96,165,250,0.3);
+  border-radius:99px;font-family:var(--mono);font-size:12px;font-weight:600;
+  color:#93C5FD;letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:24px;
 }
-.cta h2 em{font-style:normal;color:var(--gold);font-weight:700;}
-.cta p{font-family:var(--mono);font-size:13px;color:rgba(238,242,246,0.7);margin-bottom:36px;line-height:1.65;}
-.cta-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.cta-block h2{
+  font-family:var(--jp);font-weight:700;
+  font-size:clamp(32px,4vw,52px);line-height:1.25;letter-spacing:-0.01em;
+  margin-bottom:18px;color:#F8FAFC;
+}
+.cta-block h2 em{
+  font-style:normal;
+  background:linear-gradient(135deg,#60A5FA,#FBBF24);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.cta-block p{font-size:17px;color:#CBD5E1;max-width:520px;margin:0 auto 40px;line-height:1.65;}
+.cta-actions{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;}
 .cta-btn{
   display:inline-flex;align-items:center;gap:10px;
-  padding:14px 24px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;
-  text-transform:uppercase;text-decoration:none;
-  border:1px solid var(--gold);color:var(--paper);
-  transition:background 0.2s,color 0.2s;
+  padding:14px 28px;border-radius:10px;
+  font-size:15px;font-weight:600;letter-spacing:-0.005em;
+  text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;
 }
-.cta-btn::before{content:"▸";color:var(--gold);}
-.cta-btn:hover{background:var(--gold);color:var(--ink);}
-.cta-btn:hover::before{color:var(--ink);}
-.cta-btn.alt{border-color:rgba(238,242,246,0.3);}
-.cta-btn.alt::before{color:rgba(238,242,246,0.6);}
-.cta-btn.alt:hover{background:rgba(238,242,246,0.1);color:var(--paper);}
-.cta-btn.alt:hover::before{color:var(--gold);}
+.cta-btn.primary{
+  background:#fff;color:var(--ink);
+  box-shadow:0 1px 0 rgba(15,23,42,0.05),0 8px 16px rgba(0,0,0,0.18);
+}
+.cta-btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.25);}
+.cta-btn.alt{
+  background:rgba(255,255,255,0.06);color:#F8FAFC;border:1px solid rgba(255,255,255,0.18);
+}
+.cta-btn.alt:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.3);}
+.cta-btn .arrow{transition:transform 0.2s;}
+.cta-btn:hover .arrow{transform:translateX(3px);}
 
-/* === FOOTER (title block) === */
+/* === FOOTER === */
 footer{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--ink);
-  font-family:var(--mono);font-size:10px;letter-spacing:0.06em;
-  background:var(--paper-light);
+  padding:48px 32px 36px;
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;color:var(--ink-faint);flex-wrap:wrap;gap:16px;
 }
-footer > div{
-  padding:20px 24px;border-right:1px solid var(--rule);
-  display:flex;flex-direction:column;gap:4px;
-}
-footer > div:last-child{border-right:none;}
-footer .k{font-size:9px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.16em;}
-footer .v{font-size:11px;color:var(--ink);font-weight:500;}
-footer .v a{color:var(--blue);text-decoration:none;}
-footer .v a:hover{border-bottom:1px solid var(--blue);}
+footer .nav{display:flex;gap:24px;}
+footer .nav a{color:var(--ink-faint);text-decoration:none;}
+footer .nav a:hover{color:var(--ink);}
 
-@media (max-width:1100px){
+@media (max-width:1024px){
   .deliv-grid{grid-template-columns:repeat(2,1fr);}
-  .deliv-cell:nth-child(3n){border-right:1px solid var(--rule);}
-  .deliv-cell:nth-child(2n){border-right:none;}
-  .deliv-cell:nth-last-child(-n+3){border-bottom:1px solid var(--rule);}
-  .deliv-cell:nth-last-child(-n+2){border-bottom:none;}
+  .brief-block{grid-template-columns:1fr;gap:32px;}
+  .brief-aside{position:static;}
+  .hero-inner{grid-template-columns:1fr;gap:48px;}
+  .client-stats{grid-template-columns:repeat(2,1fr);}
+  .client-stat:nth-child(2){border-right:none;}
+  .client-stat:nth-child(1),.client-stat:nth-child(2){border-bottom:1px solid var(--line);}
 }
-@media (max-width:760px){
-  .brand-bar{padding:10px 16px;}
-  .title-block{grid-template-columns:1fr 1fr;}
-  .tb-cell{border-bottom:1px solid var(--rule);}
-  .hero{grid-template-columns:1fr;}
-  .hero-spec{border-right:none;border-bottom:1px solid var(--ink);}
-  .hero-main{padding:48px 24px;}
-  .drawing-section,.deliv-section,.others-section{padding:48px 16px;}
-  .drawing-header{grid-template-columns:1fr;gap:16px;}
-  .parts-list-head, .parts-row{grid-template-columns:60px 1fr;}
-  .parts-list-head > div:nth-child(n+3),.parts-row > div:nth-child(n+3){display:none;}
-  .brief-memo-head{grid-template-columns:repeat(2,1fr);}
-  .brief-memo-body{padding:24px 16px;}
-  .brief-memo-body p,.brief-memo-quote{grid-template-columns:1fr;gap:8px;}
+@media (max-width:680px){
+  .brand-bar{padding:12px 16px;}
+  .hero{padding:64px 20px 80px;}
+  section.block{padding:64px 20px;}
   .deliv-grid{grid-template-columns:1fr;}
-  .deliv-cell{border-right:none;}
-  .others-table .h, .others-table .r{grid-template-columns:60px 1fr 60px;}
-  .others-table .h > div:nth-child(3),.others-table .r > div:nth-child(3){display:none;}
-  .cta{padding:60px 16px;}
-  .cta-frame{padding:32px 24px;}
-  footer{grid-template-columns:1fr 1fr;}
-  footer > div{border-bottom:1px solid var(--rule);}
+  .others-grid{grid-template-columns:1fr;}
+  .client-stats{grid-template-columns:1fr;}
+  .client-stat{border-right:none;border-bottom:1px solid var(--line);}
+  .client-stat:last-child{border-bottom:none;}
+  .cta-block{padding:48px 24px;border-radius:16px;}
+  footer{flex-direction:column;align-items:flex-start;}
 }
 </style>
 </head>
 <body>
 
-<div class="brand-bar">
-  <div class="lhs"><span class="vd-mark"></span><span>Vitality Design LLC. ／ Engineering Document</span></div>
+<header class="brand-bar">
+  <div class="lhs">
+    <span class="vd-mark"></span>
+    <span>Vitality Design LLC.</span>
+    <span class="badge-sample">Sample 02</span>
+  </div>
   <a href="/services/recruitment-branding.html">← Service Overview</a>
-</div>
-
-<div class="title-block">
-  <div class="tb-cell">
-    <span class="key">Document Type</span>
-    <span class="val">SAMPLE PITCH</span>
-  </div>
-  <div class="tb-cell">
-    <span class="key">Title</span>
-    <span class="val">Recruitment Pitch — Electrical Contractor</span>
-  </div>
-  <div class="tb-cell sample">
-    <span class="key">Status</span>
-    <span class="val">▲ DEMONSTRATION (架空クライアント)</span>
-  </div>
-  <div class="tb-cell tb-drawing-no">
-    <span class="key">Drawing No.</span>
-    <span class="val">VD-S02-002</span>
-  </div>
-</div>
+</header>
 
 <section class="hero">
-  <aside class="hero-spec">
-    <h2>Specification Sheet</h2>
-    <div class="spec-row"><span class="k">Industry</span><span class="v">Electrical Contracting</span></div>
-    <div class="spec-row"><span class="k">Client</span><span class="v">Chihaya Denki K.K.<br><em>(Fictional)</em></span></div>
-    <div class="spec-row"><span class="k">Founded</span><span class="v">1998 (28th yr)</span></div>
-    <div class="spec-row"><span class="k">Staff</span><span class="v">35</span></div>
-    <div class="spec-row"><span class="k">Revenue</span><span class="v">¥980M / yr</span></div>
-    <div class="spec-row"><span class="k">Engagement</span><span class="v">6 weeks</span></div>
-    <div class="spec-row"><span class="k">Deliverable</span><span class="v">A4 × 6 pages</span></div>
-    <div class="spec-row"><span class="k">Tolerance</span><span class="v">±2 days schedule</span></div>
-    <div style="border-top:1px solid rgba(238,242,246,0.2);padding-top:18px;margin-top:auto;">
-      <div class="spec-row"><span class="k">Issue Date</span><span class="v">2026.05</span></div>
-      <div class="spec-row"><span class="k">Revision</span><span class="v">A.1</span></div>
-      <div class="spec-row"><span class="k">Drawn By</span><span class="v">VD/SHO</span></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span><span>SAMPLE CASE 02 ／ SPECIALTY TRADES — ELECTRICAL</span></div>
+      <h1>見えない場所こそ、<br><em>丁寧に。</em></h1>
+      <p class="lead">
+        自社施工率8割、創業28期。技術と労働環境では業界平均を上回るのに、第一種電気工事士の若手応募が<strong>3年連続でゼロ</strong>。「電気工事＝下請け」のイメージに、自社の強みが構造的に飲まれていた中堅電気工事業者を想定した架空ケーススタディです。
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">業種：商業電気工事</span>
+        <span class="hero-tag">関与：6週間</span>
+        <span class="hero-tag">納品：A4 × 6ページ</span>
+        <span class="hero-tag">クライアント：架空</span>
+      </div>
     </div>
-  </aside>
 
-  <div class="hero-main">
-    <div class="hero-eyebrow">Sample Case 02 ／ Specialty Trades — Electrical</div>
-    <h1>見えない場所こそ、<em>丁寧</em>に。<span class="dim-mark">[D-001]</span></h1>
-    <p class="hero-lead">
-      自社施工率8割、創業28期。技術と労働環境では業界平均を上回るのに、第一種電気工事士の若手応募が<strong>3年連続でゼロ</strong>。「電気工事業＝下請け＝きつい」のイメージに、自社の強みが構造的に飲まれていた中堅電気工事業者を想定した、架空のケーススタディです。
-    </p>
-    <span class="hero-callout">REV A.1 ／ 6 WEEKS ／ A4 × 6PG ／ DEMONSTRATION</span>
+    <aside class="hero-visual">
+      <div class="hv-doc-id"><span>VD-S02-002</span><span>REV A.1 / 2026</span></div>
+      <div class="hv-stats">
+        <div class="hv-stat">
+          <div class="v">28<sup>期</sup></div>
+          <div class="k">FOUNDED</div>
+          <div class="d">1998年創業</div>
+        </div>
+        <div class="hv-stat">
+          <div class="v">35<sup>名</sup></div>
+          <div class="k">STAFF</div>
+          <div class="d">職人 + 設計</div>
+        </div>
+        <div class="hv-stat">
+          <div class="v">9.8<sup>億</sup></div>
+          <div class="k">REVENUE</div>
+          <div class="d">年商</div>
+        </div>
+        <div class="hv-stat">
+          <div class="v">80<sup>%</sup></div>
+          <div class="k">SELF-BUILD</div>
+          <div class="d">自社施工率</div>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
-<!-- DRAWING-A: PARTS LIST -->
-<section class="drawing-section">
-  <div class="drawing-header">
-    <div class="drawing-id">
-      <span class="ref">Drawing N°</span>
-      <span class="no">A.01</span>
-      <span class="scale">SCALE 1:1 ／ CLIENT SCHEDULE</span>
-    </div>
-    <div class="drawing-title">
-      <h2>架空<em>クライアント像</em>。</h2>
-      <div class="desc">parts list of the fictional client we built this case around</div>
-    </div>
-  </div>
+<!-- Client info -->
+<section class="block">
+  <div class="wrap">
+    <div class="eyebrow">CLIENT</div>
+    <h2 class="section-title">仮の<em>クライアント像</em>。</h2>
+    <p class="section-sub">本ケースは、商談用に設計した架空クライアントです。実案件では、御社の業種・規模・歴史にあわせてゼロから設計します。</p>
 
-  <div class="parts-list">
-    <div class="parts-list-head">
-      <div>P/N</div><div>Description</div><div>Specification</div><div>Notes</div>
-    </div>
-    <div class="parts-row">
-      <div class="pn">001</div>
-      <div class="desc">商号<span class="desc-en">Company name</span></div>
-      <div>株式会社 千早電気工事</div>
-      <div class="qty">FICTIONAL</div>
-    </div>
-    <div class="parts-row">
-      <div class="pn">002</div>
-      <div class="desc">業種<span class="desc-en">Industry segment</span></div>
-      <div>商業電気工事</div>
-      <div class="qty">B2B</div>
-    </div>
-    <div class="parts-row">
-      <div class="pn">003</div>
-      <div class="desc">創業<span class="desc-en">Founded</span></div>
-      <div>1998年（28期）</div>
-      <div class="qty">28 yrs</div>
-    </div>
-    <div class="parts-row">
-      <div class="pn">004</div>
-      <div class="desc">人員<span class="desc-en">Headcount</span></div>
-      <div>35名</div>
-      <div class="qty">35 ppl</div>
-    </div>
-    <div class="parts-row">
-      <div class="pn">005</div>
-      <div class="desc">年商<span class="desc-en">Annual revenue</span></div>
-      <div>9.8億円</div>
-      <div class="qty">¥980M</div>
-    </div>
-    <div class="parts-row">
-      <div class="pn">006</div>
-      <div class="desc">関与<span class="desc-en">Engagement</span></div>
-      <div>6週間／ピッチ資料一式</div>
-      <div class="qty">6 wks</div>
-    </div>
-  </div>
-</section>
-
-<!-- DRAWING-B: BRIEF AS MEMO -->
-<section class="drawing-section">
-  <div class="drawing-header">
-    <div class="drawing-id">
-      <span class="ref">Drawing N°</span>
-      <span class="no">B.02</span>
-      <span class="scale">TECHNICAL MEMO ／ BRIEF</span>
-    </div>
-    <div class="drawing-title">
-      <h2>ご依頼の<em>背景</em>。</h2>
-      <div class="desc">technical memo — what brought us together</div>
-    </div>
-  </div>
-
-  <div class="brief-memo">
-    <div class="brief-memo-head">
-      <div><span class="k">FROM</span><span class="v">REPRESENTATIVE</span></div>
-      <div><span class="k">SUBJECT</span><span class="v">RECRUITMENT BREAKDOWN</span></div>
-      <div><span class="k">REVISION</span><span class="v">A.1 ／ 2026-05</span></div>
-      <div><span class="k">CLASSIFICATION</span><span class="v">DEMO CASE</span></div>
-    </div>
-    <div class="brief-memo-body">
-      <p><span class="ref">[1]</span><span>創業28期目、商業施設・オフィスビルの電気工事を中心に、自社施工率8割で運営してきた中堅電気工事業者。有給消化率100%、資格取得支援、移動車支給など、業界としては例外的な労働環境を実装している。</span></p>
-      <p><span class="ref">[2]</span><span>しかし、Indeedとハローワークの掲載原稿では、これらの強みが他社のテンプレートに混ざって埋没。<strong>第一種電気工事士の若手応募は3年連続ゼロ</strong>、第二種の有資格者からも「下請けっぽい会社」と読まれていた。</span></p>
-      <p><span class="ref">[3]</span><span>私たちは、代表のヒアリングで繰り返し出てきた「壁の裏に消える仕事だからこそ、20年後も動く配線を残せる職人を育てたい」というフレーズを軸に、採用ピッチを設計し直した。</span></p>
-
-      <div class="brief-memo-quote">
-        <span class="ref">QUOTE<br>[REP]</span>
-        <div>
-          <div class="text">電気工事は、完成すれば壁の裏に消える。だからこそ、見えない場所で何をするか、で人を選びたい。</div>
-          <span class="by">— Representative ／ Hearing #2</span>
+    <div class="client-card">
+      <div class="client-head">
+        <div class="name">株式会社 千早電気工事<span class="en">Chihaya Denki Koji Inc.</span></div>
+        <span class="badge">FICTIONAL</span>
+      </div>
+      <div class="client-stats">
+        <div class="client-stat">
+          <div class="v">28<span class="unit">期</span></div>
+          <div class="k">創業</div>
+        </div>
+        <div class="client-stat">
+          <div class="v">35<span class="unit">名</span></div>
+          <div class="k">人員</div>
+        </div>
+        <div class="client-stat">
+          <div class="v">¥9.8<span class="unit">億</span></div>
+          <div class="k">年商</div>
+        </div>
+        <div class="client-stat">
+          <div class="v">100<span class="unit">%</span></div>
+          <div class="k">有給消化率</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DRAWING-C: 6 PAGES -->
-<section class="drawing-section deliv-section">
-  <div class="drawing-header">
-    <div class="drawing-id">
-      <span class="ref">Drawing N°</span>
-      <span class="no">C.03</span>
-      <span class="scale">DELIVERABLE SHEETS ／ A4 × 6</span>
-    </div>
-    <div class="drawing-title">
-      <h2>納品物 ／ <em>6枚</em>のピッチ資料。</h2>
-      <div class="desc">six engineering sheets — pitch document in PDF + print-ready</div>
-    </div>
-  </div>
+<!-- Brief -->
+<section class="block" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="eyebrow">BRIEF ／ ご依頼の背景</div>
+    <h2 class="section-title">「電気工事＝下請け」<br>という<em>業界イメージ</em>に、自社の差別化が飲まれていた。</h2>
 
-  <div class="deliv-grid">
-
-    <div class="deliv-cell">
-      <div class="dc-header"><span class="pn">P/N 01</span><span class="rev">REV A.1</span></div>
-      <div class="dc-canvas dc-cover">
-        <svg viewBox="0 0 200 140" fill="none">
-          <rect x="40" y="20" width="120" height="100" fill="none" stroke="#0A1A2A" stroke-width="0.8"/>
-          <line x1="60" y1="20" x2="60" y2="120" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
-          <line x1="100" y1="20" x2="100" y2="120" stroke="#C9A961" stroke-width="0.6"/>
-          <line x1="140" y1="20" x2="140" y2="120" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
-          <line x1="40" y1="50" x2="160" y2="50" stroke="#C9A961" stroke-width="0.6"/>
-          <line x1="40" y1="80" x2="160" y2="80" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
-          <circle cx="100" cy="50" r="3" fill="#C9A961"/>
-          <circle cx="60" cy="80" r="2" fill="#1F6FB7"/>
-          <circle cx="140" cy="80" r="2" fill="#1F6FB7"/>
-        </svg>
-        <div class="h">見えない場所こそ、<br><em>丁寧</em>に。</div>
-        <div class="sub">2027 / RECRUITMENT</div>
-      </div>
-      <div class="dc-caption">
-        <div class="label">P · 01 ／ Cover Sheet</div>
-        <h4>表紙：配線の幾何で、業界を語る。</h4>
-        <p>配線・分岐・接点を抽象化した幾何構成。完成後に壁の裏に消える仕事の本質を、線とドットだけで表現。</p>
+    <div class="brief-block">
+      <aside class="brief-aside">
+        <div class="label">— Representative ／ Hearing #2</div>
+        <p class="quote">電気工事は、完成すれば壁の裏に消える。だからこそ、見えない場所で何をするか、で人を選びたい。</p>
+        <div class="by">代表ヒアリング 第2回</div>
+      </aside>
+      <div class="brief-content">
+        <p>創業28期目、商業施設・オフィスビルの電気工事を中心に、自社施工率8割で運営してきた中堅電気工事業者。<strong>有給消化率100%、資格取得支援、移動車支給</strong>など、業界としては例外的な労働環境を実装していた。</p>
+        <p>しかし、Indeedとハローワークの掲載原稿では、これらの強みが他社のテンプレートに混ざって埋没。<strong>第一種電気工事士の若手応募は3年連続ゼロ</strong>、第二種の有資格者からも「下請けっぽい会社」と読まれていた。</p>
+        <p>私たちは、代表のヒアリングで繰り返し出てきた「壁の裏に消える仕事だからこそ、20年後も動く配線を残せる職人を育てたい」というフレーズを軸に、採用ピッチを設計し直した。</p>
       </div>
     </div>
-
-    <div class="deliv-cell">
-      <div class="dc-header"><span class="pn">P/N 02</span><span class="rev">REV A.1</span></div>
-      <div class="dc-canvas dc-philo">
-        <div class="h">建物の20年後を、<br><em>配線</em>が決める。</div>
-        <div class="body">電気工事は、完成すれば壁の裏に消える仕事です。だからこそ、見えない場所で何をするかが、その建物の20年後を決めます。私たちは、自分の手で施工した配線が、20年後も問題なく動いていることを誇りに思える職人を育てたいと考えています。</div>
-        <div class="symbol">FACTORY ▸ PART ▸ <strong style="color:var(--vermilion);">LIFE</strong></div>
-      </div>
-      <div class="dc-caption">
-        <div class="label">P · 02 ／ Philosophy</div>
-        <h4>哲学：見えない仕事の、見える誇り。</h4>
-        <p>「下請けっぽい」と読まれていた既存原稿を捨て、自社施工が支える20年後の建物の話に書き換える。</p>
-      </div>
-    </div>
-
-    <div class="deliv-cell">
-      <div class="dc-header"><span class="pn">P/N 03</span><span class="rev">REV A.1</span></div>
-      <div class="dc-canvas dc-time">
-        <div class="h">1案件 / <em>3ヶ月</em>の見えない仕事</div>
-        <div class="row"><span class="n">01</span><span class="l">設計協議</span><span class="d">1 wk</span></div>
-        <div class="row"><span class="n">02</span><span class="l">図面作成</span><span class="d">2 wk</span></div>
-        <div class="row"><span class="n">03</span><span class="l">仮設工事</span><span class="d">2 wk</span></div>
-        <div class="row"><span class="n">04</span><span class="l">配線・配管</span><span class="d">6 wk</span></div>
-        <div class="row"><span class="n">05</span><span class="l">試験・検査</span><span class="d">1 wk</span></div>
-        <div class="row"><span class="n">06</span><span class="l">引渡し・記録</span><span class="d">1 wk</span></div>
-      </div>
-      <div class="dc-caption">
-        <div class="label">P · 03 ／ Process</div>
-        <h4>工程：6フェーズで、3ヶ月の現場を可視化。</h4>
-        <p>商業施設1案件の標準工期を、職人の関わり方ごとに分解。応募者が「自分の入る場所」を読み取れる粒度に。</p>
-      </div>
-    </div>
-
-    <div class="deliv-cell">
-      <div class="dc-header"><span class="pn">P/N 04</span><span class="rev">REV A.1</span></div>
-      <div class="dc-canvas dc-career">
-        <div class="h">未経験から<em>主任技術者</em>まで。</div>
-        <div class="axis">
-          <div>1y<span class="yr">240</span></div>
-          <div>3y<span class="yr">320</span></div>
-          <div>5y<span class="yr">420</span></div>
-          <div>7y<span class="yr">520</span></div>
-          <div>8y+<span class="yr">620+</span></div>
-        </div>
-        <div class="row"><span class="stage">見習い</span><span class="skill">工具・資材</span><span class="salary">¥240</span></div>
-        <div class="row"><span class="stage">第二種</span><span class="skill">一般住宅</span><span class="salary">¥320</span></div>
-        <div class="row"><span class="stage">第一種</span><span class="skill">商業施設</span><span class="salary">¥420</span></div>
-        <div class="row"><span class="stage">主任</span><span class="skill">現場全責任</span><span class="salary">¥520</span></div>
-        <div class="row"><span class="stage">監理</span><span class="skill">大型案件</span><span class="salary">¥620+</span></div>
-      </div>
-      <div class="dc-caption">
-        <div class="label">P · 04 ／ Career</div>
-        <h4>道のり：資格軸で8年に圧縮。</h4>
-        <p>「下請けで一生」のイメージを、第一種→主任→監理の昇格パスで明確に解く。</p>
-      </div>
-    </div>
-
-    <div class="deliv-cell">
-      <div class="dc-header"><span class="pn">P/N 05</span><span class="rev">REV A.1</span></div>
-      <div class="dc-canvas dc-voices">
-        <div class="h">先輩の<em>声</em>。</div>
-        <div class="v">
-          <div class="meta"><span class="name">木下 航平</span><span>29 / 6Y / 電気工</span></div>
-          <div class="quote">飲食店からの転職。配線図が読めなかった僕に、先輩は怒らずに毎日教えてくれた。今は第一種を取って、後輩に教えています。</div>
-        </div>
-        <div class="v">
-          <div class="meta"><span class="name">上原 愛梨</span><span>24 / 3Y / 設計</span></div>
-          <div class="quote">工業高校出身で、女性は私だけでした。でもここは図面さえ正確なら、性別も年齢も関係ない。それが嬉しい。</div>
-        </div>
-        <div class="v">
-          <div class="meta"><span class="name">高橋 誠</span><span>45 / 18Y / 主任</span></div>
-          <div class="quote">親方制度の現場から転職。怒鳴らなくても技術は伝わる。それを18年やってきました。</div>
-        </div>
-      </div>
-      <div class="dc-caption">
-        <div class="label">P · 05 ／ Voices</div>
-        <h4>先輩の声：転職経由の3名で「異業種からも来られる」を示す。</h4>
-        <p>飲食出身・工業高校卒女性・親方制度脱出組。応募候補の典型ペルソナを3人でカバー。</p>
-      </div>
-    </div>
-
-    <div class="deliv-cell">
-      <div class="dc-header"><span class="pn">P/N 06</span><span class="rev">REV A.1</span></div>
-      <div class="dc-canvas dc-recruit">
-        <div class="h">募集要項 ／ <em>電気工事 見習い</em></div>
-        <div class="row"><span class="key">給与</span><span class="val">月給 <em>¥240,000</em>〜</span></div>
-        <div class="row"><span class="key">第一種</span><span class="val">月給 <em>¥350,000</em>〜</span></div>
-        <div class="row"><span class="key">休日</span><span class="val">完全週休2日＋祝</span></div>
-        <div class="row"><span class="key">社保</span><span class="val">完備</span></div>
-        <div class="row"><span class="key">資格支援</span><span class="val">第一種／施工管理</span></div>
-        <div class="row"><span class="key">移動車</span><span class="val">入社時 全員支給</span></div>
-        <div class="foot">まずは、現場を見にきてください。<em>配線が消える前の、見えるうちに。</em></div>
-      </div>
-      <div class="dc-caption">
-        <div class="label">P · 06 ／ Recruit</div>
-        <h4>募集要項：移動車支給を強調。</h4>
-        <p>業界平均との差を、給与だけでなく工具・移動・資格支援の三軸で先に開示する。</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- DRAWING-D: OTHERS -->
-<section class="drawing-section others-section">
-  <div class="drawing-header">
-    <div class="drawing-id">
-      <span class="ref">Drawing N°</span>
-      <span class="no">D.04</span>
-      <span class="scale">RELATED INDUSTRY SAMPLES</span>
-    </div>
-    <div class="drawing-title">
-      <h2>他業界の<em>制作例</em>。</h2>
-      <div class="desc">index of related industry sample drawings</div>
+<!-- Deliverables -->
+<section class="block">
+  <div class="wrap">
+    <div class="eyebrow">DELIVERABLES</div>
+    <h2 class="section-title">納品物 ／ <em>6ページ</em>のピッチ資料。</h2>
+    <p class="section-sub">ヒアリングから設計、制作、印刷データ納品まで6週間。御社の規模と要件に合わせて、ページ数とフォーマットは調整します。</p>
+
+    <div class="deliv-grid">
+
+      <article class="deliv-card">
+        <div class="deliv-tag"><span class="pn">P/N 01 ／ COVER</span><span class="rev">REV A.1</span></div>
+        <div class="deliv-canvas dc-cover">
+          <div class="dc-cover-art">
+            <svg viewBox="0 0 200 140" fill="none">
+              <rect x="40" y="20" width="120" height="100" fill="none" stroke="#0F172A" stroke-width="0.8"/>
+              <line x1="60" y1="20" x2="60" y2="120" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2,3"/>
+              <line x1="100" y1="20" x2="100" y2="120" stroke="#D97706" stroke-width="0.7"/>
+              <line x1="140" y1="20" x2="140" y2="120" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2,3"/>
+              <line x1="40" y1="50" x2="160" y2="50" stroke="#D97706" stroke-width="0.7"/>
+              <line x1="40" y1="80" x2="160" y2="80" stroke="#3B82F6" stroke-width="0.6" stroke-dasharray="2,3"/>
+              <circle cx="100" cy="50" r="3.5" fill="#D97706"/>
+              <circle cx="60" cy="80" r="2.5" fill="#3B82F6"/>
+              <circle cx="140" cy="80" r="2.5" fill="#3B82F6"/>
+            </svg>
+          </div>
+          <div class="h">見えない場所こそ、<br><em>丁寧に。</em></div>
+          <div class="sub">2027 RECRUITMENT</div>
+        </div>
+        <div class="deliv-meta">
+          <div class="label">P · 01 ／ COVER</div>
+          <h4>表紙：配線の幾何で、業界を語る。</h4>
+          <p>配線・分岐・接点を抽象化した幾何構成で、完成後に壁の裏に消える仕事の本質を、線とドットだけで表現する。</p>
+        </div>
+      </article>
+
+      <article class="deliv-card">
+        <div class="deliv-tag"><span class="pn">P/N 02 ／ PHILOSOPHY</span><span class="rev">REV A.1</span></div>
+        <div class="deliv-canvas dc-philo">
+          <div class="h">建物の20年後を、<br><em>配線</em>が決める。</div>
+          <div class="body">電気工事は、完成すれば壁の裏に消える仕事です。だからこそ、見えない場所で何をするかが、その建物の20年後を決めます。私たちは、自分の手で施工した配線が、20年後も問題なく動いていることを誇りに思える職人を育てたいと考えています。</div>
+          <div class="pill-row">
+            <span class="pill">FACTORY</span><span class="arrow">▸</span>
+            <span class="pill">PART</span><span class="arrow">▸</span>
+            <span class="pill gold">LIFE</span>
+          </div>
+        </div>
+        <div class="deliv-meta">
+          <div class="label">P · 02 ／ PHILOSOPHY</div>
+          <h4>哲学：見えない仕事の、見える誇り。</h4>
+          <p>「下請けっぽい」と読まれていた既存原稿を捨て、自社施工が支える20年後の建物の話に書き換える。</p>
+        </div>
+      </article>
+
+      <article class="deliv-card">
+        <div class="deliv-tag"><span class="pn">P/N 03 ／ PROCESS</span><span class="rev">REV A.1</span></div>
+        <div class="deliv-canvas dc-time">
+          <div class="h">1案件 / <em>3ヶ月</em>の見えない仕事</div>
+          <div class="row"><span class="n">01</span><span class="l">設計協議</span><span class="d">1 wk</span></div>
+          <div class="row"><span class="n">02</span><span class="l">図面作成</span><span class="d">2 wk</span></div>
+          <div class="row"><span class="n">03</span><span class="l">仮設工事</span><span class="d">2 wk</span></div>
+          <div class="row"><span class="n">04</span><span class="l">配線・配管</span><span class="d">6 wk</span></div>
+          <div class="row"><span class="n">05</span><span class="l">試験・検査</span><span class="d">1 wk</span></div>
+          <div class="row"><span class="n">06</span><span class="l">引渡し・記録</span><span class="d">1 wk</span></div>
+        </div>
+        <div class="deliv-meta">
+          <div class="label">P · 03 ／ PROCESS</div>
+          <h4>工程：6フェーズで、3ヶ月の現場を可視化。</h4>
+          <p>商業施設1案件の標準工期を、職人の関わり方ごとに分解。応募者が「自分の入る場所」を読み取れる粒度に。</p>
+        </div>
+      </article>
+
+      <article class="deliv-card">
+        <div class="deliv-tag"><span class="pn">P/N 04 ／ CAREER</span><span class="rev">REV A.1</span></div>
+        <div class="deliv-canvas dc-career">
+          <div class="h">未経験から<em>主任技術者</em>まで。</div>
+          <div class="axis">
+            <div>1y<span class="yr">240</span></div>
+            <div>3y<span class="yr">320</span></div>
+            <div>5y<span class="yr">420</span></div>
+            <div>7y<span class="yr">520</span></div>
+            <div>8y+<span class="yr">620+</span></div>
+          </div>
+          <div class="row"><span class="stage">見習い</span><span class="skill">工具・資材</span><span class="salary">¥240</span></div>
+          <div class="row"><span class="stage">第二種</span><span class="skill">一般住宅</span><span class="salary">¥320</span></div>
+          <div class="row"><span class="stage">第一種</span><span class="skill">商業施設</span><span class="salary">¥420</span></div>
+          <div class="row"><span class="stage">主任</span><span class="skill">現場全責任</span><span class="salary">¥520</span></div>
+          <div class="row"><span class="stage">監理</span><span class="skill">大型案件</span><span class="salary">¥620+</span></div>
+        </div>
+        <div class="deliv-meta">
+          <div class="label">P · 04 ／ CAREER</div>
+          <h4>道のり：資格軸で8年に圧縮。</h4>
+          <p>「下請けで一生」のイメージを、第一種→主任→監理の昇格パスで明確に解く。</p>
+        </div>
+      </article>
+
+      <article class="deliv-card">
+        <div class="deliv-tag"><span class="pn">P/N 05 ／ VOICES</span><span class="rev">REV A.1</span></div>
+        <div class="deliv-canvas dc-voices">
+          <div class="h">先輩の<em>声</em>。</div>
+          <div class="v">
+            <div class="meta"><span class="name">木下 航平</span><span>29 / 6Y / 電気工</span></div>
+            <div class="quote">飲食店からの転職。配線図が読めなかった僕に、先輩は怒らずに毎日教えてくれた。今は第一種を取って、後輩に教えています。</div>
+          </div>
+          <div class="v">
+            <div class="meta"><span class="name">上原 愛梨</span><span>24 / 3Y / 設計</span></div>
+            <div class="quote">工業高校出身で、女性は私だけでした。でもここは図面さえ正確なら、性別も年齢も関係ない。それが嬉しい。</div>
+          </div>
+          <div class="v">
+            <div class="meta"><span class="name">高橋 誠</span><span>45 / 18Y / 主任</span></div>
+            <div class="quote">親方制度の現場から転職。怒鳴らなくても技術は伝わる。それを18年やってきました。</div>
+          </div>
+        </div>
+        <div class="deliv-meta">
+          <div class="label">P · 05 ／ VOICES</div>
+          <h4>先輩の声：転職経由3名で「異業種からも来られる」を示す。</h4>
+          <p>飲食出身・工業高校卒女性・親方制度脱出組。応募候補の典型ペルソナを3人でカバー。</p>
+        </div>
+      </article>
+
+      <article class="deliv-card">
+        <div class="deliv-tag"><span class="pn">P/N 06 ／ RECRUIT</span><span class="rev">REV A.1</span></div>
+        <div class="deliv-canvas dc-recruit">
+          <div class="h">募集要項 ／ <em>電気工事 見習い</em></div>
+          <div class="row"><span class="key">給与</span><span class="val">月給 <em>¥240,000</em>〜</span></div>
+          <div class="row"><span class="key">第一種</span><span class="val">月給 <em>¥350,000</em>〜</span></div>
+          <div class="row"><span class="key">休日</span><span class="val">完全週休2日＋祝</span></div>
+          <div class="row"><span class="key">社保</span><span class="val">完備</span></div>
+          <div class="row"><span class="key">資格支援</span><span class="val">第一種／施工管理</span></div>
+          <div class="row"><span class="key">移動車</span><span class="val">入社時 全員支給</span></div>
+          <div class="foot">まずは、現場を見にきてください。<em>配線が消える前の、見えるうちに。</em></div>
+        </div>
+        <div class="deliv-meta">
+          <div class="label">P · 06 ／ RECRUIT</div>
+          <h4>募集要項：移動車支給を強調。</h4>
+          <p>業界平均との差を、給与だけでなく工具・移動・資格支援の三軸で先に開示する。</p>
+        </div>
+      </article>
+
     </div>
   </div>
+</section>
 
-  <div class="others-table">
-    <div class="h">
-      <div>Drawing</div><div>Industry</div><div>Headline</div><div>View</div>
+<!-- Others -->
+<section class="block" style="background:#fff;border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="eyebrow">OTHER SAMPLES</div>
+    <h2 class="section-title">他業界の<em>制作例</em>。</h2>
+    <p class="section-sub">業界によって、求職者の不安・哲学の翻訳点・キャリアパスはまったく異なります。</p>
+
+    <div class="others-grid">
+      <a href="/services/recruitment-branding.html#case" class="others-card">
+        <div class="lhs">
+          <span class="pn">S/N 01</span>
+          <span class="name">注文住宅・建設業<span class="en">Custom Home Construction</span></span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/services/samples/woodwork.html" class="others-card">
+        <div class="lhs">
+          <span class="pn">S/N 03</span>
+          <span class="name">伝統工芸・指物<span class="en">Traditional Woodwork</span></span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/services/samples/precision.html" class="others-card">
+        <div class="lhs">
+          <span class="pn">S/N 04</span>
+          <span class="name">精密金属加工<span class="en">Precision Metalwork</span></span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/services/samples/funeral.html" class="others-card">
+        <div class="lhs">
+          <span class="pn">S/N 05</span>
+          <span class="name">葬儀社・葬祭<span class="en">Funeral Services</span></span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
     </div>
-    <a href="/services/recruitment-branding.html#case" class="r">
-      <div class="pn">S/N 01</div>
-      <div class="name">注文住宅・建設業<span class="en">CUSTOM HOME / CONSTRUCTION</span></div>
-      <div class="desc">密度ゼロの豊かさを、住まいに。</div>
-      <div>OPEN ▸</div>
-    </a>
-    <a href="/services/samples/woodwork.html" class="r">
-      <div class="pn">S/N 03</div>
-      <div class="name">伝統工芸・指物<span class="en">TRADITIONAL WOODWORK</span></div>
-      <div class="desc">百年使える家具を、つくる人を、育てる。</div>
-      <div>OPEN ▸</div>
-    </a>
-    <a href="/services/samples/precision.html" class="r">
-      <div class="pn">S/N 04</div>
-      <div class="name">精密金属加工<span class="en">PRECISION METALWORK</span></div>
-      <div class="desc">ミクロン単位で、命を支える。</div>
-      <div>OPEN ▸</div>
-    </a>
-    <a href="/services/samples/funeral.html" class="r">
-      <div class="pn">S/N 05</div>
-      <div class="name">葬儀社・葬祭<span class="en">FUNERAL SERVICES</span></div>
-      <div class="desc">最後の時間に、丁寧を。</div>
-      <div>OPEN ▸</div>
-    </a>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta">
-  <div class="cta-frame">
-    <div class="cta-prompt">VD-CONSULT &nbsp;&gt;&nbsp; INITIAL_CONSULTATION_FREE.exe</div>
-    <h2>御社の採用ピッチを、<br>この<em>仕様</em>で。</h2>
-    <p>30分の初回相談からはじめます。御社の状況を伺い、設計の方向性をその場で提示します。料金発生は、見積もり合意後から。</p>
-    <div class="cta-actions">
-      <a class="cta-btn" href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（電気工事業サンプル経由）">Book Consultation</a>
-      <a class="cta-btn alt" href="/services/recruitment-branding.html">Service Overview</a>
-    </div>
+<div class="cta-block">
+  <div class="cta-tag">Initial Consultation ／ Free</div>
+  <h2>御社の採用ピッチを、<br>この<em>仕様</em>で。</h2>
+  <p>30分の無料相談からはじめます。御社の状況を伺い、設計の方向性をその場で提示します。料金発生は、見積もり合意後から。</p>
+  <div class="cta-actions">
+    <a class="cta-btn primary" href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（電気工事業サンプル経由）">
+      無料相談を申し込む <span class="arrow">→</span>
+    </a>
+    <a class="cta-btn alt" href="/services/recruitment-branding.html">
+      サービス概要を見る <span class="arrow">→</span>
+    </a>
   </div>
-</section>
+</div>
 
-<!-- FOOTER (title block) -->
 <footer>
-  <div><span class="k">Document ID</span><span class="v">VD-S02-002 / REV A.1</span></div>
-  <div><span class="k">Issue</span><span class="v">2026 ／ TOKYO</span></div>
-  <div><span class="k">Drawn By</span><span class="v">Vitality Design LLC.</span></div>
-  <div><span class="k">References</span><span class="v"><a href="/">HOME</a> ／ <a href="/services/recruitment-branding.html">SVC</a> ／ <a href="/privacy.html">PRIV</a></span></div>
+  <div>© 2026 Vitality Design LLC. ／ VD-S02-002</div>
+  <div class="nav">
+    <a href="/">Home</a>
+    <a href="/services/recruitment-branding.html">Service</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
 </footer>
 
 </body>

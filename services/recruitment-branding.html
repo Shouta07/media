@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>採用ブランディング — バイタリティデザイン合同会社</title>
+<meta name="description" content="中小企業のための、思想からの採用リブランド。ヒアリング・哲学の言語化・ビジュアル設計・採用導線への実装まで、外部COOが一気通貫で並走します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1ECE2;
+  --ink:#14100D;
+  --vermilion:#C8392B;
+  --sub:#7A7066;
+  --indigo:#1F3A5F;
+  --wood:#B85C1F;
+  --rule:rgba(20,16,13,0.12);
+  --rule-strong:rgba(20,16,13,0.22);
+
+  --jp-display:'Shippori Mincho B1', 'Noto Serif JP', serif;
+  --en-display:'Cormorant Garamond', 'Shippori Mincho B1', serif;
+  --body:'Noto Sans JP', 'Helvetica Neue', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-weight:300;
+  line-height:1.85;
+  letter-spacing:0.025em;
+  font-size:15px;
+  position:relative;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.05 0 0 0 0.13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.5;
+  pointer-events:none;
+  z-index:1;
+  mix-blend-mode:multiply;
+}
+
+main, header, footer{position:relative;z-index:2;}
+
+::selection{background:var(--vermilion);color:var(--bg);}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;
+  padding:18px 48px;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  z-index:100;
+  background:rgba(241,236,226,0.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(20,16,13,0.08);
+}
+.nav-brand a{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;}
+.nav-name{display:flex;flex-direction:column;line-height:1.1;}
+.nav-name .jp{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.14em;}
+.nav-name .en{font-family:var(--en-display);font-style:italic;font-weight:400;font-size:11px;letter-spacing:0.18em;color:var(--vermilion);margin-top:2px;}
+.mark{width:32px;height:32px;}
+.mark svg{display:block;width:100%;height:100%;}
+.nav-center{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:13px;letter-spacing:0.22em;color:var(--sub);
+  text-transform:uppercase;
+}
+.nav-center strong{color:var(--vermilion);font-weight:500;font-style:normal;margin-right:6px;}
+.nav-back{
+  display:flex;justify-content:flex-end;
+  font-family:var(--en-display);font-style:italic;font-size:13px;
+  letter-spacing:0.14em;
+}
+.nav-back a{
+  color:var(--ink);text-decoration:none;
+  border-bottom:1px solid rgba(20,16,13,0.18);padding-bottom:2px;
+  transition:color 0.3s, border-color 0.3s;
+}
+.nav-back a:hover{color:var(--vermilion);border-color:var(--vermilion);}
+
+/* ============ HERO ============ */
+.hero{
+  padding:120px 48px 100px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-watermark{
+  position:absolute;
+  top:50%;right:-60px;
+  transform:translateY(-50%);
+  font-family:var(--jp-display);font-weight:800;
+  font-size:clamp(280px,38vw,520px);
+  line-height:0.85;color:var(--ink);
+  opacity:0.04;pointer-events:none;
+  letter-spacing:-0.05em;z-index:0;
+}
+
+.hero-meta{
+  max-width:1280px;margin:0 auto 48px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;
+  font-family:var(--en-display);font-style:italic;font-size:12px;
+  letter-spacing:0.16em;color:var(--sub);
+  padding-bottom:24px;border-bottom:1px solid var(--rule);
+  position:relative;z-index:2;
+}
+.hero-meta .cell{display:flex;flex-direction:column;gap:4px;}
+.hero-meta .cell strong{
+  color:var(--ink);font-style:normal;
+  font-family:var(--en-display);font-weight:500;letter-spacing:0.18em;
+}
+.hero-meta .center{text-align:center;}
+.hero-meta .right{text-align:right;}
+
+.hero-inner{
+  max-width:1280px;margin:0 auto;
+  position:relative;z-index:2;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:14px;color:var(--vermilion);
+  margin-bottom:36px;letter-spacing:0.16em;text-transform:uppercase;
+}
+.hero-eyebrow .bar{width:32px;height:1px;background:var(--vermilion);}
+.hero-eyebrow .num{color:var(--vermilion);font-weight:500;font-style:normal;}
+
+.hero h1{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:clamp(48px,7.5vw,120px);
+  line-height:1.05;letter-spacing:0.005em;
+  margin-bottom:48px;
+}
+.hero h1 em{
+  font-style:normal;color:var(--vermilion);font-weight:600;
+}
+.hero h1 .en{
+  display:block;margin-top:18px;
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:0.32em;color:var(--sub);letter-spacing:0.04em;
+}
+.hero-lead{
+  max-width:680px;
+  font-family:var(--jp-display);font-weight:400;
+  font-size:clamp(17px,1.4vw,20px);
+  line-height:2.1;color:rgba(20,16,13,0.78);
+  letter-spacing:0.04em;
+  border-top:1px solid var(--rule);padding-top:40px;margin-top:48px;
+}
+
+/* ============ SECTION COMMON ============ */
+section{padding:120px 48px;position:relative;z-index:2;}
+.wrap{max-width:1280px;margin:0 auto;}
+
+.section-head{
+  display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:end;
+  padding-bottom:32px;border-bottom:1px solid var(--ink);
+  margin-bottom:80px;
+}
+.section-meta{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--en-display);font-style:italic;font-size:12px;
+  letter-spacing:0.18em;color:var(--sub);
+  margin-bottom:20px;text-transform:uppercase;
+}
+.section-meta .num{color:var(--vermilion);font-weight:500;}
+.section-meta .bar{width:24px;height:1px;background:var(--vermilion);}
+
+.section-h{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:clamp(36px,4.6vw,60px);line-height:1.2;letter-spacing:0.01em;
+}
+.section-h em{font-style:normal;color:var(--vermilion);font-weight:600;}
+.section-h .en{
+  display:block;margin-top:14px;
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:0.36em;color:var(--sub);letter-spacing:0.04em;
+}
+.section-intro{
+  font-size:15px;line-height:2.05;color:rgba(20,16,13,0.7);
+  max-width:560px;
+}
+
+/* ============ PROBLEM ============ */
+.problem-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid var(--ink);
+}
+.problem-cell{
+  padding:48px 32px 0 0;
+  border-right:1px solid var(--rule);
+  position:relative;
+}
+.problem-cell:not(:first-child){padding-left:32px;}
+.problem-cell:last-child{border-right:none;padding-right:0;}
+.problem-num{
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:64px;line-height:1;color:var(--vermilion);
+  margin-bottom:24px;letter-spacing:-0.02em;
+}
+.problem-h{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:18px;letter-spacing:0.06em;line-height:1.55;
+  margin-bottom:16px;
+}
+.problem-body{
+  font-size:13.5px;line-height:1.95;color:rgba(20,16,13,0.7);
+}
+
+/* ============ APPROACH ============ */
+.approach-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--ink);
+}
+.approach-step{
+  padding:64px 28px 0 0;
+  border-right:1px solid var(--rule);
+  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.approach-step:not(:first-child){padding-left:28px;}
+.approach-step:last-child{border-right:none;padding-right:0;}
+.approach-step:hover{transform:translateY(-6px);}
+.approach-num{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:13px;letter-spacing:0.18em;color:var(--sub);
+  margin-bottom:24px;display:block;
+}
+.approach-num strong{color:var(--vermilion);font-weight:500;font-style:normal;margin-right:8px;}
+.approach-kanji{
+  font-family:var(--jp-display);font-weight:600;
+  font-size:clamp(80px,10vw,140px);
+  line-height:0.85;color:var(--ink);
+  margin-bottom:24px;letter-spacing:-0.04em;
+  transition:color 0.6s ease;
+}
+.approach-step:hover .approach-kanji{color:var(--vermilion);}
+.approach-h{
+  font-family:var(--jp-display);font-weight:500;font-size:17px;
+  letter-spacing:0.06em;margin-bottom:4px;
+}
+.approach-en{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:13px;color:var(--vermilion);margin-bottom:18px;letter-spacing:0.04em;
+}
+.approach-body{font-size:13px;line-height:1.95;color:rgba(20,16,13,0.7);}
+
+/* ============ CASE STUDY ============ */
+.case-study{
+  background:#EFE7D6;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:120px 48px;
+}
+
+.sample-banner{
+  max-width:1280px;margin:0 auto 64px;
+  display:flex;align-items:center;gap:20px;
+  padding:20px 28px;
+  background:var(--ink);color:var(--bg);
+  font-family:var(--en-display);font-style:italic;
+  font-size:13px;letter-spacing:0.18em;
+}
+.sample-banner .badge{
+  background:var(--vermilion);color:var(--bg);
+  font-family:var(--en-display);font-style:italic;font-weight:500;
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  padding:6px 12px;
+}
+.sample-banner .text{flex:1;line-height:1.6;}
+.sample-banner .text strong{
+  font-family:var(--jp-display);font-style:normal;font-weight:500;
+  letter-spacing:0.08em;display:block;margin-bottom:2px;color:var(--bg);
+}
+.sample-banner .text span{color:rgba(248,244,235,0.65);font-size:12px;}
+
+.case-meta{
+  max-width:1280px;margin:0 auto 80px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+}
+.case-meta-cell{
+  padding:24px 20px;border-right:1px solid var(--rule);
+}
+.case-meta-cell:last-child{border-right:none;}
+.case-meta-cell .key{
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  letter-spacing:0.2em;color:var(--vermilion);text-transform:uppercase;
+  margin-bottom:8px;
+}
+.case-meta-cell .val{
+  font-family:var(--jp-display);font-weight:500;font-size:14px;
+  letter-spacing:0.04em;line-height:1.5;
+}
+.case-meta-cell .val .en{
+  display:block;
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:12px;color:var(--sub);letter-spacing:0.06em;margin-top:2px;
+}
+
+.case-brief{
+  max-width:1280px;margin:0 auto 80px;
+  display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;
+  padding-top:48px;
+}
+.case-brief-meta{
+  font-family:var(--en-display);font-style:italic;font-size:12px;
+  letter-spacing:0.18em;color:var(--vermilion);text-transform:uppercase;
+  margin-bottom:14px;
+}
+.case-brief-h{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:clamp(28px,3.6vw,44px);line-height:1.35;
+  letter-spacing:0.02em;
+}
+.case-brief-h em{font-style:normal;color:var(--vermilion);font-weight:600;}
+.case-brief-body{font-size:14.5px;line-height:2.1;color:rgba(20,16,13,0.78);}
+.case-brief-body p+p{margin-top:1.2em;}
+
+.brief-quote{
+  margin-top:32px;padding-left:24px;
+  border-left:2px solid var(--vermilion);
+  font-family:var(--jp-display);font-weight:500;
+  font-size:16px;line-height:1.85;color:var(--ink);
+}
+.brief-quote .by{
+  display:block;margin-top:12px;
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  letter-spacing:0.14em;color:var(--sub);text-transform:uppercase;
+}
+
+/* ============ DELIVERABLE PAGES ============ */
+.pages-head{
+  max-width:1280px;margin:0 auto 48px;
+  display:flex;justify-content:space-between;align-items:end;
+  padding-bottom:24px;border-bottom:1px solid var(--rule-strong);
+}
+.pages-h{
+  font-family:var(--jp-display);font-weight:500;font-size:32px;
+  letter-spacing:0.04em;line-height:1.3;
+}
+.pages-h em{font-style:normal;color:var(--vermilion);}
+.pages-meta{
+  font-family:var(--en-display);font-style:italic;font-size:12px;
+  letter-spacing:0.16em;color:var(--sub);text-transform:uppercase;
+}
+
+.pages-grid{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+}
+
+.page-preview{
+  background:var(--bg);
+  border:1px solid var(--rule-strong);
+  position:relative;
+  display:flex;flex-direction:column;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s ease;
+}
+.page-preview:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 48px -20px rgba(20,16,13,0.18);
+}
+
+.page-canvas{
+  aspect-ratio:210/297;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+.page-num{
+  position:absolute;top:16px;left:16px;
+  font-family:var(--en-display);font-style:italic;font-size:10px;
+  letter-spacing:0.18em;color:var(--vermilion);
+  text-transform:uppercase;z-index:5;
+}
+.page-num strong{color:var(--vermilion);font-weight:500;}
+
+/* P1 — COVER */
+.canvas-cover{
+  background:#F8F5EE;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:32px;
+}
+.cover-art{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);
+  width:75%;height:55%;
+  display:flex;align-items:center;justify-content:center;
+}
+.cover-art svg{width:100%;height:100%;}
+.cover-h{
+  font-family:var(--jp-display);font-weight:500;font-size:18px;
+  line-height:1.4;letter-spacing:0.04em;color:#2E2B26;
+  position:relative;z-index:2;
+}
+.cover-h em{font-style:normal;color:#1F3A5F;font-weight:600;}
+.cover-sub{
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  color:var(--sub);margin-top:8px;letter-spacing:0.06em;
+}
+
+/* P2 — PHILOSOPHY */
+.canvas-philosophy{
+  background:#F8F5EE;padding:32px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.philo-headline{
+  font-family:var(--jp-display);font-weight:500;font-size:16px;
+  line-height:1.55;letter-spacing:0.04em;color:#2E2B26;
+}
+.philo-headline em{font-style:normal;color:#1F3A5F;font-weight:600;}
+.philo-body{
+  font-family:var(--jp-display);font-size:8.5px;line-height:1.85;
+  color:rgba(46,43,38,0.72);margin-top:16px;
+}
+.philo-svg{
+  margin-top:20px;height:60px;
+  display:flex;align-items:center;justify-content:center;
+}
+.philo-svg svg{width:80%;height:100%;}
+
+/* P3 — INFOGRAPHIC TIMELINE */
+.canvas-timeline{
+  background:#F8F5EE;padding:24px;
+  display:flex;flex-direction:column;
+}
+.timeline-h{
+  font-family:var(--jp-display);font-weight:500;font-size:13px;
+  letter-spacing:0.04em;color:#2E2B26;margin-bottom:16px;
+}
+.timeline-h em{font-style:normal;color:#B85C1F;font-weight:600;}
+.timeline-row{
+  display:grid;grid-template-columns:18px 1fr;gap:8px;
+  padding:7px 0;border-bottom:1px solid rgba(46,43,38,0.12);
+  align-items:center;
+}
+.timeline-row:last-child{border-bottom:none;}
+.timeline-num{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  color:#B85C1F;font-size:9px;
+}
+.timeline-step{
+  font-family:var(--jp-display);font-weight:500;font-size:8.5px;
+  color:#2E2B26;letter-spacing:0.02em;
+}
+.timeline-step .sub{
+  display:block;font-weight:400;color:rgba(46,43,38,0.6);
+  font-size:7.5px;margin-top:1px;
+}
+
+/* P4 — CAREER PATH */
+.canvas-career{
+  background:#F8F5EE;padding:24px;
+}
+.career-h{
+  font-family:var(--jp-display);font-weight:500;font-size:13px;
+  letter-spacing:0.04em;color:#2E2B26;margin-bottom:16px;
+}
+.career-h em{font-style:normal;color:#B85C1F;font-weight:600;}
+.career-bar{
+  height:1px;background:rgba(46,43,38,0.18);margin:14px 0 8px;position:relative;
+}
+.career-bar::after{
+  content:"";position:absolute;left:0;top:50%;width:80%;height:2px;
+  background:linear-gradient(to right, #1F3A5F, #B85C1F);
+  transform:translateY(-50%);
+}
+.career-stops{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:4px;
+  font-family:var(--en-display);font-style:italic;
+  font-size:8px;letter-spacing:0.06em;color:#2E2B26;text-align:center;
+}
+.career-stops div{padding-top:8px;position:relative;}
+.career-stops div::before{
+  content:"●";position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  color:#B85C1F;font-size:9px;
+}
+.career-stops div:first-child::before{color:#1F3A5F;}
+.career-stops .yr{
+  font-weight:500;font-style:normal;color:#1F3A5F;font-size:7px;
+}
+.career-rows{margin-top:16px;}
+.career-row{
+  display:grid;grid-template-columns:48px 1fr 56px;gap:10px;
+  padding:6px 0;border-bottom:1px solid rgba(46,43,38,0.12);
+  font-family:var(--jp-display);font-size:8px;line-height:1.4;
+  align-items:center;
+}
+.career-row .stage{font-weight:500;color:#2E2B26;}
+.career-row .skill{color:rgba(46,43,38,0.7);font-weight:400;}
+.career-row .salary{
+  text-align:right;font-family:var(--en-display);font-style:italic;
+  color:#B85C1F;font-weight:500;
+}
+
+/* P5 — VOICES */
+.canvas-voices{
+  background:#F8F5EE;padding:20px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.voices-h{
+  font-family:var(--jp-display);font-weight:500;font-size:13px;
+  letter-spacing:0.04em;color:#2E2B26;margin-bottom:14px;
+}
+.voices-h em{font-style:normal;color:#1F3A5F;font-weight:600;}
+.voice-card{
+  padding:10px 0;border-bottom:1px solid rgba(46,43,38,0.12);
+}
+.voice-card:last-child{border-bottom:none;}
+.voice-meta{
+  display:flex;justify-content:space-between;
+  font-family:var(--en-display);font-style:italic;font-size:7.5px;
+  letter-spacing:0.08em;color:#1F3A5F;margin-bottom:4px;
+}
+.voice-meta .name{font-weight:500;font-style:normal;font-family:var(--jp-display);color:#2E2B26;font-size:8px;letter-spacing:0.06em;}
+.voice-quote{
+  font-family:var(--jp-display);font-size:8px;line-height:1.65;
+  color:rgba(46,43,38,0.78);font-weight:400;
+}
+
+/* P6 — RECRUIT */
+.canvas-recruit{
+  background:#F8F5EE;padding:24px;
+  display:flex;flex-direction:column;
+}
+.recruit-h{
+  font-family:var(--jp-display);font-weight:500;font-size:13px;
+  letter-spacing:0.04em;color:#2E2B26;margin-bottom:14px;
+}
+.recruit-h em{font-style:normal;color:#1F3A5F;font-weight:600;}
+.recruit-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  padding:8px 0;border-bottom:1px solid rgba(46,43,38,0.12);
+  font-family:var(--jp-display);font-size:8px;line-height:1.4;
+}
+.recruit-row .label{color:rgba(46,43,38,0.6);font-weight:400;}
+.recruit-row .val{color:#2E2B26;font-weight:500;text-align:right;}
+.recruit-row .val em{font-style:normal;color:#B85C1F;font-weight:600;}
+.recruit-foot{
+  margin-top:auto;padding-top:14px;
+  font-family:var(--jp-display);font-size:9px;line-height:1.55;
+  color:#1F3A5F;font-weight:500;text-align:center;
+  letter-spacing:0.06em;
+}
+.recruit-foot em{font-style:normal;color:#B85C1F;font-weight:600;display:block;margin-top:4px;}
+
+/* page caption */
+.page-caption{
+  padding:20px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.page-caption .label{
+  font-family:var(--en-display);font-style:italic;font-size:10px;
+  letter-spacing:0.2em;color:var(--vermilion);text-transform:uppercase;
+}
+.page-caption .title{
+  font-family:var(--jp-display);font-weight:500;font-size:14px;
+  letter-spacing:0.04em;line-height:1.5;
+}
+.page-caption .desc{
+  font-size:11.5px;line-height:1.7;color:rgba(20,16,13,0.65);
+  margin-top:2px;
+}
+
+/* ============ DELIVERABLES ============ */
+.deliv-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid var(--ink);
+}
+.deliv-cell{
+  padding:48px 32px 0 0;
+  border-right:1px solid var(--rule);
+}
+.deliv-cell:last-child{border-right:none;padding-left:32px;padding-right:0;}
+.deliv-cell h3{
+  font-family:var(--jp-display);font-weight:500;font-size:22px;
+  letter-spacing:0.04em;margin-bottom:8px;
+}
+.deliv-cell .en{
+  font-family:var(--en-display);font-style:italic;font-size:13px;
+  color:var(--vermilion);margin-bottom:24px;letter-spacing:0.04em;
+}
+.deliv-list{list-style:none;border-top:1px solid var(--rule);}
+.deliv-list li{
+  padding:14px 0;border-bottom:1px solid var(--rule);
+  font-family:var(--jp-display);font-weight:500;font-size:14px;
+  letter-spacing:0.04em;line-height:1.6;
+  display:flex;align-items:baseline;gap:14px;
+}
+.deliv-list li .num{
+  font-family:var(--en-display);font-style:italic;color:var(--vermilion);
+  font-size:11px;letter-spacing:0.1em;min-width:22px;
+}
+
+/* ============ PRICING ============ */
+.pricing{background:var(--ink);color:var(--bg);}
+.pricing .section-meta{color:rgba(248,244,235,0.5);}
+.pricing .section-meta .num{color:var(--vermilion);}
+.pricing .section-meta .bar{background:var(--vermilion);}
+.pricing .section-h{color:var(--bg);}
+.pricing .section-h em{color:var(--vermilion);}
+.pricing .section-h .en{color:rgba(248,244,235,0.5);}
+.pricing .section-intro{color:rgba(248,244,235,0.7);}
+.pricing .section-head{border-bottom-color:rgba(248,244,235,0.18);}
+
+.plans{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid rgba(248,244,235,0.18);
+}
+.plan{
+  padding:48px 32px 32px 0;
+  border-right:1px solid rgba(248,244,235,0.12);
+  position:relative;
+  transition:transform 0.5s ease;
+}
+.plan:not(:first-child){padding-left:32px;}
+.plan:last-child{border-right:none;padding-right:0;}
+.plan.recommended{
+  background:linear-gradient(180deg, rgba(200,57,43,0.08) 0%, transparent 80%);
+}
+.plan.recommended::before{
+  content:"Recommended";
+  position:absolute;top:24px;right:24px;
+  font-family:var(--en-display);font-style:italic;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--bg);background:var(--vermilion);
+  padding:4px 10px;
+}
+.plan-num{
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:48px;line-height:1;color:var(--vermilion);
+  margin-bottom:12px;letter-spacing:-0.02em;
+}
+.plan-name{
+  font-family:var(--jp-display);font-weight:500;font-size:22px;
+  letter-spacing:0.06em;margin-bottom:4px;color:var(--bg);
+}
+.plan-name-en{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:13px;color:rgba(248,244,235,0.5);
+  margin-bottom:24px;letter-spacing:0.04em;
+}
+.plan-price{
+  padding:18px 0;border-top:1px solid rgba(248,244,235,0.18);
+  border-bottom:1px solid rgba(248,244,235,0.18);
+  margin-bottom:24px;
+}
+.plan-price .amount{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:32px;line-height:1;color:var(--bg);
+  letter-spacing:0.01em;
+}
+.plan-price .amount .yen{font-family:var(--jp-display);font-style:normal;font-size:0.7em;margin-right:2px;}
+.plan-price .amount .from{
+  font-family:var(--jp-display);font-style:normal;font-size:0.4em;
+  color:rgba(248,244,235,0.5);margin-left:8px;
+}
+.plan-price .note{
+  display:block;margin-top:8px;
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  color:rgba(248,244,235,0.5);letter-spacing:0.1em;
+}
+.plan-meta{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.plan-meta-row{
+  display:grid;grid-template-columns:80px 1fr;gap:14px;
+  font-size:12px;line-height:1.6;
+}
+.plan-meta-key{
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  color:var(--vermilion);letter-spacing:0.14em;text-transform:uppercase;
+}
+.plan-meta-val{color:rgba(248,244,235,0.85);font-family:var(--jp-display);font-weight:400;letter-spacing:0.04em;}
+.plan-list{list-style:none;}
+.plan-list li{
+  padding:10px 0;border-bottom:1px solid rgba(248,244,235,0.12);
+  font-family:var(--jp-display);font-weight:400;font-size:13px;
+  line-height:1.6;color:rgba(248,244,235,0.85);letter-spacing:0.04em;
+  display:flex;align-items:baseline;gap:12px;
+}
+.plan-list li::before{
+  content:"";width:6px;height:1px;background:var(--vermilion);
+  flex-shrink:0;margin-top:9px;
+}
+
+.pricing-foot{
+  margin-top:48px;padding-top:24px;
+  border-top:1px solid rgba(248,244,235,0.18);
+  display:flex;justify-content:space-between;
+  font-family:var(--en-display);font-style:italic;font-size:12px;
+  letter-spacing:0.14em;color:rgba(248,244,235,0.5);
+  flex-wrap:wrap;gap:16px;
+}
+.pricing-foot strong{color:var(--bg);font-style:normal;font-family:var(--jp-display);font-weight:500;letter-spacing:0.06em;}
+
+/* ============ TIMELINE ============ */
+.timeline-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  border-top:1px solid var(--ink);
+}
+.timeline-week{
+  padding:48px 24px 0 0;
+  border-right:1px solid var(--rule);
+}
+.timeline-week:not(:first-child){padding-left:24px;}
+.timeline-week:last-child{border-right:none;padding-right:0;}
+.tl-week{
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:48px;line-height:1;color:var(--vermilion);
+  margin-bottom:16px;letter-spacing:-0.02em;
+}
+.tl-h{
+  font-family:var(--jp-display);font-weight:500;font-size:15px;
+  letter-spacing:0.04em;margin-bottom:8px;
+}
+.tl-en{
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  color:var(--sub);margin-bottom:14px;letter-spacing:0.04em;
+}
+.tl-body{font-size:12px;line-height:1.85;color:rgba(20,16,13,0.7);}
+
+/* ============ FAQ ============ */
+.faq-grid{
+  display:grid;gap:0;
+  border-top:1px solid var(--ink);
+}
+.faq-item{
+  padding:32px 0;
+  border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:48px 1fr;gap:24px;
+}
+.faq-q{
+  font-family:var(--jp-display);font-weight:500;font-size:18px;
+  letter-spacing:0.04em;line-height:1.55;margin-bottom:16px;
+}
+.faq-a{
+  font-size:14px;line-height:2;color:rgba(20,16,13,0.78);
+}
+.faq-num{
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:32px;line-height:1;color:var(--vermilion);
+}
+
+/* ============ CTA ============ */
+.cta{
+  background:var(--ink);color:var(--bg);
+  padding:140px 48px;text-align:center;position:relative;
+  overflow:hidden;border-top:1px solid var(--ink);
+}
+.cta::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:32px;height:1px;background:var(--vermilion);
+}
+.cta-tag{
+  font-family:var(--en-display);font-style:italic;
+  font-size:13px;letter-spacing:0.32em;text-transform:uppercase;
+  color:rgba(248,244,235,0.5);margin-bottom:32px;
+}
+.cta-tag em{font-style:normal;color:var(--vermilion);}
+.cta-h{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:clamp(40px,6vw,84px);line-height:1.15;
+  letter-spacing:0.02em;margin-bottom:32px;
+}
+.cta-h em{font-style:normal;color:var(--vermilion);font-weight:600;}
+.cta-en{
+  font-family:var(--en-display);font-style:italic;font-weight:300;
+  font-size:18px;color:rgba(248,244,235,0.6);
+  margin-bottom:64px;letter-spacing:0.02em;
+}
+.cta-actions{
+  display:flex;justify-content:center;gap:24px;flex-wrap:wrap;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:18px 32px;text-decoration:none;
+  font-family:var(--en-display);font-style:italic;font-size:15px;
+  letter-spacing:0.08em;
+  border:1px solid rgba(248,244,235,0.4);color:var(--bg);
+  transition:background 0.4s, border-color 0.4s, padding 0.4s;
+}
+.cta-btn .jp{font-family:var(--jp-display);font-style:normal;font-weight:500;font-size:13px;letter-spacing:0.12em;}
+.cta-btn.primary{background:var(--vermilion);border-color:var(--vermilion);}
+.cta-btn:hover{padding-right:40px;}
+.cta-btn.primary:hover{background:var(--bg);color:var(--vermilion);}
+.cta-btn:not(.primary):hover{border-color:var(--vermilion);color:var(--vermilion);}
+.cta-btn .arrow{font-size:16px;transition:transform 0.3s ease;}
+.cta-btn:hover .arrow{transform:translateX(8px);}
+
+/* ============ FOOTER ============ */
+footer{
+  background:var(--ink);color:var(--bg);
+  padding:60px 48px 32px;
+  border-top:1px solid rgba(248,244,235,0.1);
+}
+.footer-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--en-display);font-style:italic;font-size:11px;
+  letter-spacing:0.18em;color:rgba(248,244,235,0.5);
+  flex-wrap:wrap;gap:16px;
+}
+.footer-inner a{color:rgba(248,244,235,0.7);text-decoration:none;margin:0 12px;}
+.footer-inner a:hover{color:var(--bg);}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1100px){
+  .pages-grid{grid-template-columns:repeat(2,1fr);}
+  .approach-grid,.problem-grid,.timeline-grid,.plans{grid-template-columns:repeat(2,1fr);}
+  .approach-step:nth-child(2),.problem-cell:nth-child(2),.timeline-week:nth-child(2),.plan:nth-child(2){border-right:none;}
+  .approach-step:nth-child(1),.approach-step:nth-child(2),
+  .problem-cell:nth-child(1),.problem-cell:nth-child(2),
+  .timeline-week:nth-child(1),.timeline-week:nth-child(2),
+  .plan:nth-child(1),.plan:nth-child(2){border-bottom:1px solid var(--rule);padding-bottom:32px;}
+  .plan:nth-child(1),.plan:nth-child(2){border-bottom-color:rgba(248,244,235,0.12);}
+  .case-meta{grid-template-columns:repeat(2,1fr);}
+  .case-meta-cell:nth-child(2){border-right:none;}
+  .case-meta-cell:nth-child(1),.case-meta-cell:nth-child(2){border-bottom:1px solid var(--rule);}
+}
+
+@media (max-width:760px){
+  .nav{padding:14px 20px;grid-template-columns:1fr auto;}
+  .nav-center{display:none;}
+  .hero{padding:80px 24px 60px;}
+  .hero-meta{grid-template-columns:1fr;gap:8px;}
+  .hero-meta .center,.hero-meta .right{text-align:left;}
+  section{padding:80px 24px;}
+  .case-study{padding:80px 24px;}
+  .cta{padding:96px 24px;}
+  .section-head{grid-template-columns:1fr;gap:32px;}
+  .pages-grid{grid-template-columns:1fr;}
+  .approach-grid,.problem-grid,.timeline-grid,.plans{grid-template-columns:1fr;}
+  .approach-step,.problem-cell,.timeline-week,.plan{
+    border-right:none !important;border-bottom:1px solid var(--rule);
+    padding:48px 0 32px !important;
+  }
+  .plan{border-bottom-color:rgba(248,244,235,0.12) !important;}
+  .approach-step:last-child,.problem-cell:last-child,.timeline-week:last-child,.plan:last-child{border-bottom:none;}
+  .deliv-grid{grid-template-columns:1fr;}
+  .deliv-cell{border-right:none;border-bottom:1px solid var(--rule);padding:48px 0 !important;}
+  .deliv-cell:last-child{border-bottom:none;}
+  .case-brief{grid-template-columns:1fr;gap:40px;}
+  .case-meta{grid-template-columns:1fr;}
+  .case-meta-cell{border-right:none;border-bottom:1px solid var(--rule);}
+  .case-meta-cell:last-child{border-bottom:none;}
+  .pages-head{flex-direction:column;align-items:flex-start;gap:12px;}
+  .sample-banner{flex-direction:column;align-items:flex-start;gap:12px;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .faq-item{grid-template-columns:1fr;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGO MARK -->
+<svg width="0" height="0" style="position:absolute;">
+  <defs>
+    <symbol id="vd-mark" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
+      <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="44" cy="18" r="3.5" fill="#C8392B"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <a href="/">
+      <span class="mark"><svg><use href="#vd-mark"/></svg></span>
+      <span class="nav-name">
+        <span class="jp">バイタリティデザイン合同会社</span>
+        <span class="en">Vitality Design LLC.</span>
+      </span>
+    </a>
+  </div>
+  <div class="nav-center"><strong>§</strong>Service N°02 — Recruitment Branding</div>
+  <div class="nav-back"><a href="/">← Back to Corporate</a></div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-watermark">採用</div>
+
+  <div class="hero-meta">
+    <div class="cell">
+      <span>Service Document</span>
+      <strong>VD / SVC / 02</strong>
+    </div>
+    <div class="cell center">
+      <span>Category</span>
+      <strong>RECRUITMENT BRANDING</strong>
+    </div>
+    <div class="cell right">
+      <span>Last Updated</span>
+      <strong>2026 — TOKYO</strong>
+    </div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="bar"></span>
+      <span><span class="num">§ 01</span> &nbsp; Service Overview</span>
+    </div>
+
+    <h1>
+      募集要項では、<br>
+      もう人は<em>動かない</em>。
+      <span class="en">Recruitment Branding for SMBs — by Vitality Design.</span>
+    </h1>
+
+    <p class="hero-lead">
+      中小企業の採用がうまくいかない理由は、給与でも、立地でも、業界でもない。<br>
+      <strong>「自社の哲学を、求職者の言葉で書けていない」</strong>。これだけだ。
+      バイタリティデザインの採用ブランディングは、経営者の頭の中にしかなかった哲学を、ヒアリングを通じて言語化し、ビジュアル化し、採用導線へ実装するまでを一気通貫で並走する設計支援です。
+    </p>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 02</span><span class="bar"></span><span>Problem</span></div>
+        <h2 class="section-h">中小企業の採用が、<em>滞る</em>三つの理由。<span class="en">Why your hiring stalls.</span></h2>
+      </div>
+      <p class="section-intro">給与を上げても、媒体を増やしても、母集団が増えない。中小企業の経営者に共通する三つの構造的な詰まりです。私たちは、その詰まりを一段ずつ解いていく仕事をします。</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-cell">
+        <div class="problem-num">01</div>
+        <h3 class="problem-h">哲学が、社内にしかない。</h3>
+        <p class="problem-body">創業者・現経営者の頭の中にある「うちはこういう会社だ」が、採用ページや募集要項に一切落ちていない。社外の人が読んだとき、競合との違いが見えない。</p>
+      </div>
+      <div class="problem-cell">
+        <div class="problem-num">02</div>
+        <h3 class="problem-h">求人媒体の、テンプレに飲まれる。</h3>
+        <p class="problem-body">Indeed・ハローワーク・採用サイト。どれも書ける文字数とフォーマットが決まっており、結果として「どこの会社も同じ顔」になる。差別化のしようがない。</p>
+      </div>
+      <div class="problem-cell">
+        <div class="problem-num">03</div>
+        <h3 class="problem-h">「人」を見せる手段が、写真しかない。</h3>
+        <p class="problem-body">社員写真と現場写真の羅列。同業他社も同じことをしているので、求職者の目には残らない。会社の温度を伝えるための表現の引き出しが、不足している。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 03</span><span class="bar"></span><span>Approach</span></div>
+        <h2 class="section-h">経営の<em>言語化</em>から、はじめる。<span class="en">Articulate, Translate, Visualize, Implement.</span></h2>
+      </div>
+      <p class="section-intro">クリエイティブから始めません。経営者の中にある「自社の核」を、第三者の問いで掘り起こし、求職者の言葉に翻訳する作業を最初に行います。</p>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-step">
+        <span class="approach-num"><strong>01</strong>Step One</span>
+        <div class="approach-kanji">問</div>
+        <h3 class="approach-h">経営者に、問う。</h3>
+        <div class="approach-en">Articulate</div>
+        <p class="approach-body">三回×二時間のヒアリング。「なぜこの会社を続けているか」「他社と何が違うか」「どんな人と働きたいか」。創業の文脈から現在地までを、第三者の視点で掘り出します。</p>
+      </div>
+      <div class="approach-step">
+        <span class="approach-num"><strong>02</strong>Step Two</span>
+        <div class="approach-kanji">訳</div>
+        <h3 class="approach-h">求職者の言葉に、訳す。</h3>
+        <div class="approach-en">Translate</div>
+        <p class="approach-body">経営者の言葉を、20代-30代の求職者の語彙に翻訳します。社内用語・業界用語を抜き、「彼らが自分のこととして読める文体」に書き換える編集作業です。</p>
+      </div>
+      <div class="approach-step">
+        <span class="approach-num"><strong>03</strong>Step Three</span>
+        <div class="approach-kanji">図</div>
+        <h3 class="approach-h">図と余白で、見せる。</h3>
+        <div class="approach-en">Visualize</div>
+        <p class="approach-body">テキストの羅列ではなく、インフォグラフィック・線画イラスト・余白設計で、会社の温度を伝える誌面を作ります。同業他社のテンプレ感から、構造で差別化します。</p>
+      </div>
+      <div class="approach-step">
+        <span class="approach-num"><strong>04</strong>Step Four</span>
+        <div class="approach-kanji">渡</div>
+        <h3 class="approach-h">採用導線に、渡す。</h3>
+        <div class="approach-en">Implement</div>
+        <p class="approach-body">作って終わりにしません。採用LP、媒体掲載、面接時の配布資料、入社後のオンボーディングまで、設計した世界観を一貫して使える状態でお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY ============ -->
+<section class="case-study">
+  <div class="sample-banner">
+    <span class="badge">Sample</span>
+    <div class="text">
+      <strong>本ページに掲載の制作例は、架空クライアントを想定したサンプルです。</strong>
+      <span>This is a demonstration case built on a fictional client. Actual engagement output is created based on hearings.</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 04</span><span class="bar"></span><span>Sample Case</span></div>
+        <h2 class="section-h">制作例 ／ <em>建設業</em>の採用パンフレット。<span class="en">A Recruitment Pitch — for SMB Construction.</span></h2>
+      </div>
+      <p class="section-intro">中小工務店向けに、ヒアリングから完成まで6週間で制作した採用ピッチ資料の構成例です。御社の業界と人員に合わせて、構成・表現・分量はすべて作り直します。</p>
+    </div>
+
+    <div class="case-meta">
+      <div class="case-meta-cell">
+        <div class="key">Client</div>
+        <div class="val">株式会社 バイタリティデザイン建設<span class="en">Vitality Design Construction Inc.<br>※ 架空クライアント</span></div>
+      </div>
+      <div class="case-meta-cell">
+        <div class="key">Industry</div>
+        <div class="val">注文住宅・リノベーション<span class="en">Custom Homes &amp; Renovation</span></div>
+      </div>
+      <div class="case-meta-cell">
+        <div class="key">Scale</div>
+        <div class="val">従業員 28名／年商 7.2億円<span class="en">Founded 2016 — 10th year</span></div>
+      </div>
+      <div class="case-meta-cell">
+        <div class="key">Engagement</div>
+        <div class="val">6週間／ピッチ資料一式<span class="en">6 weeks · pitch document</span></div>
+      </div>
+    </div>
+
+    <div class="case-brief">
+      <div>
+        <div class="case-brief-meta">— Brief</div>
+        <h3 class="case-brief-h">大工の応募が<em>2年ゼロ</em>。「他の工務店と何が違うのか分からない」と求職者から言われる、その状態をどう解くか。</h3>
+      </div>
+      <div class="case-brief-body">
+        <p>創業10期目の建設会社。代表は元高級ホスピタリティ出身、茶道と建築の感性を経営に持ち込み、「年間着工15-20棟、量より深さ」のスタンスで小さく長く続けてきた。週休2日制・離職率3%と、業界としては例外的な労働条件を実装している。</p>
+        <p>しかし採用の現場では、これらの強みが一切伝わっていなかった。Indeed・ハローワーク掲載文では「業界平均より少し良い工務店」にしか見えず、若手大工の応募が2年ゼロ。設計の中途応募者からも「なぜここで働くべきか分からない」と言われる状態。</p>
+        <p>私たちは、代表が普段口にしていた「住まいに余白を、暮らしに余白を」というフレーズを起点に、会社の哲学を6ページに圧縮し直しました。</p>
+        <div class="brief-quote">
+          うちは技術だけじゃなく、人の暮らしを設計している。<br>この感性に共感してくれる若手と、一緒に働きたい。
+          <span class="by">— 代表のヒアリング初回より</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pages-head">
+      <h3 class="pages-h">納品物 ／ <em>6ページ</em>のピッチ資料。</h3>
+      <span class="pages-meta">A4 / 6 spreads · PDF + Print-ready</span>
+    </div>
+
+    <div class="pages-grid">
+
+      <!-- P1 COVER -->
+      <div class="page-preview">
+        <div class="page-canvas canvas-cover">
+          <span class="page-num"><strong>P · 01</strong> Cover</span>
+          <div class="cover-art">
+            <svg viewBox="0 0 200 140" fill="none">
+              <line x1="50" y1="20" x2="50" y2="120" stroke="#B85C1F" stroke-width="1.2"/>
+              <line x1="150" y1="20" x2="150" y2="120" stroke="#B85C1F" stroke-width="1.2"/>
+              <line x1="30" y1="40" x2="170" y2="40" stroke="#1F3A5F" stroke-width="1.2"/>
+              <line x1="20" y1="60" x2="180" y2="60" stroke="#2E2B26" stroke-width="0.5"/>
+              <circle cx="170" cy="30" r="10" fill="#F0D5A0" opacity="0.6"/>
+              <line x1="50" y1="70" x2="80" y2="55" stroke="#1F3A5F" stroke-width="0.6"/>
+              <line x1="150" y1="70" x2="120" y2="55" stroke="#1F3A5F" stroke-width="0.6"/>
+            </svg>
+          </div>
+          <div class="cover-h">密度ゼロの<em>豊かさ</em>を、<br>住まいに。</div>
+          <div class="cover-sub">2027 Recruitment</div>
+        </div>
+        <div class="page-caption">
+          <span class="label">Page 01 — Cover</span>
+          <span class="title">表紙：哲学の一行に、すべてを賭ける。</span>
+          <span class="desc">余白を最大限取った構図。木造住宅の柱と梁を線画で抽象化し、朝日のニュアンスだけで会社の温度を伝える。</span>
+        </div>
+      </div>
+
+      <!-- P2 PHILOSOPHY -->
+      <div class="page-preview">
+        <div class="page-canvas canvas-philosophy">
+          <span class="page-num"><strong>P · 02</strong> Philosophy</span>
+          <div>
+            <div class="philo-headline">建てるだけじゃない。<br><em>暮らしを設計</em>している。</div>
+            <p class="philo-body">私たちは、ただ家を建てる工務店ではありません。茶道で言う「余白の美」、建築で言う「間の取り方」、ホスピタリティで言う「気配りの距離」。暮らしには、密度を詰め込むことより、余白を残すことで生まれる豊かさがあります。</p>
+          </div>
+          <div class="philo-svg">
+            <svg viewBox="0 0 200 50" fill="none">
+              <circle cx="40" cy="25" r="14" fill="none" stroke="#1F3A5F" stroke-width="0.8"/>
+              <line x1="54" y1="25" x2="86" y2="25" stroke="#2E2B26" stroke-width="0.4" stroke-dasharray="2,2"/>
+              <circle cx="100" cy="25" r="14" fill="none" stroke="#B85C1F" stroke-width="0.8"/>
+              <line x1="114" y1="25" x2="146" y2="25" stroke="#2E2B26" stroke-width="0.4" stroke-dasharray="2,2"/>
+              <circle cx="160" cy="25" r="14" fill="none" stroke="#1F3A5F" stroke-width="0.8"/>
+              <text x="40" y="29" font-family="serif" font-size="6" text-anchor="middle" fill="#1F3A5F">茶</text>
+              <text x="100" y="29" font-family="serif" font-size="6" text-anchor="middle" fill="#B85C1F">築</text>
+              <text x="160" y="29" font-family="serif" font-size="6" text-anchor="middle" fill="#1F3A5F">人</text>
+            </svg>
+          </div>
+        </div>
+        <div class="page-caption">
+          <span class="label">Page 02 — Philosophy</span>
+          <span class="title">哲学：会社の核を、200字で言い切る。</span>
+          <span class="desc">経営者の頭の中にあった抽象を、求職者が一読で輪郭を掴める200-250字に圧縮。茶・築・人の三要素を抽象図で接続。</span>
+        </div>
+      </div>
+
+      <!-- P3 TIMELINE -->
+      <div class="page-preview">
+        <div class="page-canvas canvas-timeline">
+          <span class="page-num"><strong>P · 03</strong> Timeline</span>
+          <div class="timeline-h">1棟ができるまで、<em>6ヶ月</em>の物語。</div>
+          <div class="timeline-row"><span class="timeline-num">01</span><span class="timeline-step">ヒアリング<span class="sub">1ヶ月 / 営業＋設計＋施主</span></span></div>
+          <div class="timeline-row"><span class="timeline-num">02</span><span class="timeline-step">設計<span class="sub">1.5ヶ月 / 設計＋大工棟梁</span></span></div>
+          <div class="timeline-row"><span class="timeline-num">03</span><span class="timeline-step">着工<span class="sub">2週間 / 現場監督＋職人 5名</span></span></div>
+          <div class="timeline-row"><span class="timeline-num">04</span><span class="timeline-step">構造<span class="sub">1.5ヶ月 / 大工＋上棟式</span></span></div>
+          <div class="timeline-row"><span class="timeline-num">05</span><span class="timeline-step">仕上げ<span class="sub">1ヶ月 / 内装＋造作家具</span></span></div>
+          <div class="timeline-row"><span class="timeline-num">06</span><span class="timeline-step">引渡し<span class="sub">2週間 / 立ち会い＋アフター</span></span></div>
+        </div>
+        <div class="page-caption">
+          <span class="label">Page 03 — Process Infographic</span>
+          <span class="title">工程：6つのフェーズで、家ができるまでを可視化。</span>
+          <span class="desc">職人の関わり方を、応募者が「自分の入る場所」として読めるレベルまで分解。各フェーズに人数と時間を明示。</span>
+        </div>
+      </div>
+
+      <!-- P4 CAREER -->
+      <div class="page-preview">
+        <div class="page-canvas canvas-career">
+          <span class="page-num"><strong>P · 04</strong> Career Path</span>
+          <div class="career-h">未経験から、<em>棟梁まで</em>。10年の道のり。</div>
+          <div class="career-bar"></div>
+          <div class="career-stops">
+            <div>1y<br><span class="yr">300</span></div>
+            <div>3y<br><span class="yr">400</span></div>
+            <div>5y<br><span class="yr">500</span></div>
+            <div>7y<br><span class="yr">600</span></div>
+            <div>10y<br><span class="yr">700+</span></div>
+          </div>
+          <div class="career-rows">
+            <div class="career-row"><span class="stage">見習い</span><span class="skill">道具と材料／現場マナー</span><span class="salary">¥300</span></div>
+            <div class="career-row"><span class="stage">3年目</span><span class="skill">基礎工事／構造の理解</span><span class="salary">¥400</span></div>
+            <div class="career-row"><span class="stage">5年目</span><span class="skill">造作・1級施工管理</span><span class="salary">¥500</span></div>
+            <div class="career-row"><span class="stage">7年目</span><span class="skill">後輩指導／設計連携</span><span class="salary">¥600</span></div>
+            <div class="career-row"><span class="stage">棟梁</span><span class="skill">1棟全責任／施主対話</span><span class="salary">¥700+</span></div>
+          </div>
+        </div>
+        <div class="page-caption">
+          <span class="label">Page 04 — Career Infographic</span>
+          <span class="title">道のり：5段階のキャリアパスを、年収と技術で可視化。</span>
+          <span class="desc">応募者最大の不安「ここで何年でどうなるか」を、給与・取得資格・任される仕事の3軸で先に見せる。</span>
+        </div>
+      </div>
+
+      <!-- P5 VOICES -->
+      <div class="page-preview">
+        <div class="page-canvas canvas-voices">
+          <span class="page-num"><strong>P · 05</strong> Voices</span>
+          <div class="voices-h">先輩の<em>声</em>。</div>
+          <div class="voice-card">
+            <div class="voice-meta"><span class="name">山口 悠真</span><span>28 / 入社6年目 / 大工</span></div>
+            <div class="voice-quote">異業種からの転職でした。最初は道具の名前も知らなかった。先輩が急かさず教えてくれた。今、自分が後輩を教える立場になって、その意味が分かります。</div>
+          </div>
+          <div class="voice-card">
+            <div class="voice-meta"><span class="name">田中 美咲</span><span>26 / 入社4年目 / 設計</span></div>
+            <div class="voice-quote">女性が現場にいることを、当たり前にしたかった。ここは年齢も性別も関係なく意見を言える。それが嬉しい。</div>
+          </div>
+          <div class="voice-card">
+            <div class="voice-meta"><span class="name">佐藤 健司</span><span>38 / 入社11年目 / 棟梁</span></div>
+            <div class="voice-quote">他社で大工をやっていましたが、1棟に向き合う時間がここは違う。施主と話して、考えて、また話す。それが家づくりだと思います。</div>
+          </div>
+        </div>
+        <div class="page-caption">
+          <span class="label">Page 05 — Voices</span>
+          <span class="title">先輩の声：3名×3-4文の、密度のある独白。</span>
+          <span class="desc">写真ではなく抽象的な肖像線画＋短い独白で、人の温度を伝える。社員写真の羅列との明確な差別化点。</span>
+        </div>
+      </div>
+
+      <!-- P6 RECRUIT -->
+      <div class="page-preview">
+        <div class="page-canvas canvas-recruit">
+          <span class="page-num"><strong>P · 06</strong> Recruit</span>
+          <div class="recruit-h">募集要項 ／ <em>大工見習い</em></div>
+          <div class="recruit-row"><span class="label">給与</span><span class="val">月給 <em>¥250,000</em>〜</span></div>
+          <div class="recruit-row"><span class="label">賞与</span><span class="val">年2回（業績連動）</span></div>
+          <div class="recruit-row"><span class="label">休日</span><span class="val">完全週休2日＋祝日</span></div>
+          <div class="recruit-row"><span class="label">社会保険</span><span class="val">完備</span></div>
+          <div class="recruit-row"><span class="label">資格支援</span><span class="val">建築大工技能士／1級施工管理</span></div>
+          <div class="recruit-row"><span class="label">工具</span><span class="val">入社時 全貸与</span></div>
+          <div class="recruit-foot">まずは、現場を見にきてください。<em>面接の前に、私たちが何を作っているか、肌で感じてほしい。</em></div>
+        </div>
+        <div class="page-caption">
+          <span class="label">Page 06 — Recruit</span>
+          <span class="title">募集要項：表ではなく、対話の入口として。</span>
+          <span class="desc">数値情報をインフォグラフィック化。最後の一文で「面接前の現場見学」を提案し、選考プロセスから差別化する。</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLES ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 05</span><span class="bar"></span><span>Deliverables</span></div>
+        <h2 class="section-h">納品物と、<em>制作工程</em>。<span class="en">What you get.</span></h2>
+      </div>
+      <p class="section-intro">採用ピッチ資料を中核に、御社の現状とゴールに合わせて、以下を組み合わせて納品します。最小構成は資料1点、最大構成は採用導線の全領域です。</p>
+    </div>
+
+    <div class="deliv-grid">
+      <div class="deliv-cell">
+        <h3>クリエイティブ納品物</h3>
+        <div class="en">Design Deliverables</div>
+        <ul class="deliv-list">
+          <li><span class="num">i.</span> 採用ピッチ資料（6-12ページ／A4）</li>
+          <li><span class="num">ii.</span> 採用LP 1ページ（HTML or Notion）</li>
+          <li><span class="num">iii.</span> SNS／媒体用バナー素材一式</li>
+          <li><span class="num">iv.</span> 線画イラスト（オリジナル制作）</li>
+          <li><span class="num">v.</span> 印刷データ（PDF / 入稿可）</li>
+          <li><span class="num">vi.</span> 採用ロゴ・メインビジュアル設計</li>
+        </ul>
+      </div>
+      <div class="deliv-cell">
+        <h3>戦略・運用ドキュメント</h3>
+        <div class="en">Strategy &amp; Operations</div>
+        <ul class="deliv-list">
+          <li><span class="num">i.</span> 採用ペルソナ設計書</li>
+          <li><span class="num">ii.</span> 採用メッセージ階層図</li>
+          <li><span class="num">iii.</span> 媒体別 出稿原稿テンプレート</li>
+          <li><span class="num">iv.</span> 面接時 配布資料スクリプト</li>
+          <li><span class="num">v.</span> 入社後オンボーディング設計</li>
+          <li><span class="num">vi.</span> 採用KPI ダッシュボード設計</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 06</span><span class="bar"></span><span>Timeline</span></div>
+        <h2 class="section-h">標準は、<em>6週間</em>。<span class="en">A six-week build.</span></h2>
+      </div>
+      <p class="section-intro">採用ピッチ資料の標準制作期間は6週間。御社の意思決定スピードと素材提供のリズムに合わせて、4週間〜10週間の範囲で調整します。</p>
+    </div>
+
+    <div class="timeline-grid">
+      <div class="timeline-week">
+        <div class="tl-week">W1</div>
+        <h3 class="tl-h">深掘りヒアリング</h3>
+        <div class="tl-en">Week 1 — Articulate</div>
+        <p class="tl-body">代表＋現場リーダー＋若手社員 への計3回の対話。録音と書き起こしから、自社の核を抽出。</p>
+      </div>
+      <div class="timeline-week">
+        <div class="tl-week">W2</div>
+        <h3 class="tl-h">戦略・骨子設計</h3>
+        <div class="tl-en">Week 2 — Strategy</div>
+        <p class="tl-body">ペルソナ・採用メッセージ階層・誌面構成案を提出。経営者と一度すり合わせ、骨子を確定。</p>
+      </div>
+      <div class="timeline-week">
+        <div class="tl-week">W3-4</div>
+        <h3 class="tl-h">原稿・初稿制作</h3>
+        <div class="tl-en">Weeks 3-4 — Draft</div>
+        <p class="tl-body">テキスト原稿、ビジュアル方向性、インフォグラフィック設計を並行制作。中盤で第二回確認。</p>
+      </div>
+      <div class="timeline-week">
+        <div class="tl-week">W5</div>
+        <h3 class="tl-h">仕上げ・修正</h3>
+        <div class="tl-en">Week 5 — Refine</div>
+        <p class="tl-body">細部の調整、現場社員への共有、修正反映。印刷データの校正を並行で行う。</p>
+      </div>
+      <div class="timeline-week">
+        <div class="tl-week">W6</div>
+        <h3 class="tl-h">納品・展開</h3>
+        <div class="tl-en">Week 6 — Deliver</div>
+        <p class="tl-body">最終データ納品、採用導線への配置、面接時運用方法のレクチャー。必要に応じ追加伴走。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 07</span><span class="bar"></span><span>Pricing</span></div>
+        <h2 class="section-h">料金<em>体系</em>。<span class="en">Three plans.</span></h2>
+      </div>
+      <p class="section-intro">最小構成・標準構成・伴走構成の三段階で、御社の現状と意思決定範囲に合わせて選んでいただけます。下記は税別の参考価格、最終見積もりはヒアリング後にお出しします。</p>
+    </div>
+
+    <div class="plans">
+
+      <div class="plan">
+        <div class="plan-num">01</div>
+        <h3 class="plan-name">Pitch</h3>
+        <div class="plan-name-en">採用ピッチ資料単体</div>
+        <div class="plan-price">
+          <span class="amount"><span class="yen">¥</span>380,000<span class="from">〜</span></span>
+          <span class="note">Excl. tax / Pitch only</span>
+        </div>
+        <div class="plan-meta">
+          <div class="plan-meta-row"><span class="plan-meta-key">Period</span><span class="plan-meta-val">4-6週間</span></div>
+          <div class="plan-meta-row"><span class="plan-meta-key">Hearing</span><span class="plan-meta-val">2回 × 90分</span></div>
+          <div class="plan-meta-row"><span class="plan-meta-key">Pages</span><span class="plan-meta-val">6-8ページ</span></div>
+        </div>
+        <ul class="plan-list">
+          <li>採用ピッチ資料（A4 6-8ページ）</li>
+          <li>線画イラスト 含む</li>
+          <li>印刷データ＋PDF 納品</li>
+          <li>採用ペルソナ設計書</li>
+          <li>修正 2回まで含む</li>
+        </ul>
+      </div>
+
+      <div class="plan recommended">
+        <div class="plan-num">02</div>
+        <h3 class="plan-name">Branding</h3>
+        <div class="plan-name-en">採用ブランディング設計＋資料一式</div>
+        <div class="plan-price">
+          <span class="amount"><span class="yen">¥</span>980,000<span class="from">〜</span></span>
+          <span class="note">Excl. tax / Recommended</span>
+        </div>
+        <div class="plan-meta">
+          <div class="plan-meta-row"><span class="plan-meta-key">Period</span><span class="plan-meta-val">8-10週間</span></div>
+          <div class="plan-meta-row"><span class="plan-meta-key">Hearing</span><span class="plan-meta-val">3回 × 120分＋現場見学</span></div>
+          <div class="plan-meta-row"><span class="plan-meta-key">Scope</span><span class="plan-meta-val">資料＋LP＋運用</span></div>
+        </div>
+        <ul class="plan-list">
+          <li>Pitch プランの全納品物</li>
+          <li>採用LP 1ページ（HTML / Notion）</li>
+          <li>SNS／媒体バナー素材一式</li>
+          <li>採用メッセージ階層図</li>
+          <li>媒体別 出稿原稿テンプレート</li>
+          <li>面接時 配布資料スクリプト</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <div class="plan-num">03</div>
+        <h3 class="plan-name">Operating</h3>
+        <div class="plan-name-en">採用導線伴走（6ヶ月）</div>
+        <div class="plan-price">
+          <span class="amount"><span class="yen">¥</span>280,000<span class="from"> /月</span></span>
+          <span class="note">Excl. tax / 6 months retainer</span>
+        </div>
+        <div class="plan-meta">
+          <div class="plan-meta-row"><span class="plan-meta-key">Period</span><span class="plan-meta-val">6ヶ月（要 Branding）</span></div>
+          <div class="plan-meta-row"><span class="plan-meta-key">Cadence</span><span class="plan-meta-val">月次レビュー＋随時</span></div>
+          <div class="plan-meta-row"><span class="plan-meta-key">Total</span><span class="plan-meta-val">¥1,680,000〜</span></div>
+        </div>
+        <ul class="plan-list">
+          <li>応募データの月次分析</li>
+          <li>掲載媒体・原稿の継続調整</li>
+          <li>面接同席（最大月2回）</li>
+          <li>採用KPI ダッシュボード運用</li>
+          <li>入社後オンボーディング設計</li>
+          <li>第二期コンテンツ追加制作</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pricing-foot">
+      <span>* All prices excl. tax. Final estimate after initial hearing.</span>
+      <strong>初回相談は30分／無料です。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 08</span><span class="bar"></span><span>FAQ</span></div>
+        <h2 class="section-h">よくある<em>質問</em>。<span class="en">Frequently asked.</span></h2>
+      </div>
+      <p class="section-intro">商談前にいただく頻度の高い質問を、五つだけ事前に回答しておきます。これ以外のご質問は、初回相談で承ります。</p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-num">01</div>
+        <div>
+          <div class="faq-q">建設業以外の業界でも、対応できますか。</div>
+          <div class="faq-a">はい。本ページ掲載の制作例はサンプル設定上 建設業ですが、本質はヒアリングから哲学を引き出して言語化する作業のため、業界を問いません。実際の関与は、採用、SaaS、ホスピタリティ、医療、士業 等、複数業界での実装経験があります。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">02</div>
+        <div>
+          <div class="faq-q">採用専門の代理店との違いは何ですか。</div>
+          <div class="faq-a">採用代理店は「媒体運用」が出発点ですが、私たちは「経営の言語化」が出発点です。媒体を回す前に、自社の核を再定義し、その上で必要な施策を最小構成で組みます。結果として、媒体掲載量は増やさずに応募の質が上がる、という設計を意図しています。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">03</div>
+        <div>
+          <div class="faq-q">経営者ヒアリングで、何を聞かれますか。</div>
+          <div class="faq-a">創業の文脈、事業の構造、過去の採用判断の振り返り、社内で言語化されていない暗黙のルール、共に働きたくない人物像、などが中心です。創業者向けの質問が多く、構えていただく必要はありません。むしろ、社内の人には聞かれたことのない問いに、一度向き合っていただく時間になります。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">04</div>
+        <div>
+          <div class="faq-q">並行して受けられる案件数に上限はありますか。</div>
+          <div class="faq-a">あります。同時に並行する案件は、原則として三社までと自らに課しています。一件あたりの密度を保つための内的な合意です。タイミングが重なる場合、開始時期を調整させていただくことがあります。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">05</div>
+        <div>
+          <div class="faq-q">支払いと、契約の形式は。</div>
+          <div class="faq-a">業務委託契約（月次／単発いずれも対応）。Pitchプランは着手時50%／納品時50%の二回払い、Brandingプランは三分割、Operatingプランは月次請求が標準です。請求書発行はバイタリティデザイン合同会社名義、振込は法人口座のみ。インボイス登録済みです。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="cta-tag"><em>§ 09</em> &nbsp;— Next Step</div>
+  <h2 class="cta-h">まず<em>30分</em>、<br>話しませんか。</h2>
+  <div class="cta-en">Initial 30-minute consultation — free of charge.</div>
+  <div class="cta-actions">
+    <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談" class="cta-btn primary">
+      <span class="jp">無料相談を申し込む</span>
+      <span>·</span>
+      <span>Book consultation</span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/" class="cta-btn">
+      <span class="jp">会社概要を見る</span>
+      <span>·</span>
+      <span>About Us</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>VD / SVC / 02 — Recruitment Branding</span>
+    <span>
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:contact@vitality-design.jp">Contact</a>
+    </span>
+    <span>© 2026 Vitality Design LLC.</span>
+  </div>
+</footer>
+
+</body>
+</html>

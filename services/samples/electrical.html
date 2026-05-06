@@ -4,320 +4,868 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>制作例：電気工事業 — 採用ブランディング — バイタリティデザイン合同会社</title>
-<meta name="description" content="電気工事業向け採用ブランディングの制作例。下請けイメージで若手応募ゼロが続く中堅電気工事業者を想定し、自社施工率と技術継承を軸にピッチ資料を再設計した架空ケース。">
+<meta name="description" content="電気工事業向け採用ブランディングの制作例。下請けイメージで若手応募ゼロが続く中堅電気工事業者を想定した架空ケース。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/services/css/sample.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF2F6;
+  --paper-deep:#E0E6EE;
+  --paper-light:#F5F8FB;
+  --ink:#0A1A2A;
+  --ink-soft:#283848;
+  --ink-faint:#7388A0;
+  --blue:#1F6FB7;
+  --blue-deep:#0A3A6E;
+  --gold:#C9A961;
+  --vermilion:#C8392B;
+  --grid:rgba(31,111,183,0.12);
+  --grid-strong:rgba(31,111,183,0.24);
+  --rule:rgba(10,26,42,0.16);
+  --mono:'IBM Plex Mono','SF Mono',monospace;
+  --sans:'IBM Plex Sans','Helvetica Neue',sans-serif;
+  --jp:'Shippori Mincho B1','Noto Serif JP',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-weight:400;font-size:14px;
+  line-height:1.65;letter-spacing:0;
+  font-feature-settings:"tnum" 1;
+  position:relative;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+main, header, footer{position:relative;z-index:1;}
+::selection{background:var(--blue);color:var(--paper);}
+
+/* === BRAND BAR === */
+.brand-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 32px;
+  border-bottom:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-weight:400;font-size:11px;
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+.brand-bar .lhs{display:flex;align-items:center;gap:10px;}
+.brand-bar .vd-mark{
+  width:6px;height:6px;background:var(--vermilion);border-radius:50%;
+}
+.brand-bar a{color:var(--paper);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px;}
+.brand-bar a:hover{border-color:var(--gold);}
+
+/* === TITLE BLOCK (engineering drawing header) === */
+.title-block{
+  display:grid;grid-template-columns:160px 1fr 200px 200px;gap:0;
+  border-bottom:1px solid var(--ink);
+  background:var(--paper-light);
+  font-family:var(--mono);font-size:11px;letter-spacing:0;color:var(--ink);
+}
+.tb-cell{padding:14px 20px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:4px;}
+.tb-cell:last-child{border-right:none;}
+.tb-cell .key{font-size:9px;letter-spacing:0.16em;color:var(--ink-faint);text-transform:uppercase;}
+.tb-cell .val{font-size:13px;font-weight:500;}
+.tb-cell.sample .val{color:var(--vermilion);}
+.tb-drawing-no{background:var(--ink);color:var(--paper);}
+.tb-drawing-no .key{color:rgba(238,242,246,0.5);}
+.tb-drawing-no .val{font-size:18px;font-weight:600;letter-spacing:0.08em;}
+
+/* === HERO — split panel + spec sheet === */
+.hero{
+  display:grid;grid-template-columns:340px 1fr;gap:0;
+  border-bottom:1px solid var(--ink);min-height:540px;
+}
+.hero-spec{
+  background:var(--ink);color:var(--paper);
+  padding:48px 32px;
+  border-right:1px solid var(--ink);
+  font-family:var(--mono);font-size:12px;
+  display:flex;flex-direction:column;gap:24px;
+}
+.hero-spec h2{
+  font-family:var(--mono);font-weight:500;font-size:11px;
+  letter-spacing:0.32em;color:var(--gold);text-transform:uppercase;
+  border-bottom:1px solid rgba(238,242,246,0.2);padding-bottom:14px;
+}
+.spec-row{display:grid;grid-template-columns:90px 1fr;gap:16px;font-size:11px;}
+.spec-row .k{color:rgba(238,242,246,0.5);text-transform:uppercase;letter-spacing:0.12em;font-size:9.5px;}
+.spec-row .v{color:var(--paper);font-weight:500;}
+.spec-row .v em{color:var(--gold);font-style:normal;}
+
+.hero-main{
+  padding:64px 56px;position:relative;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.hero-main::before{
+  content:"";position:absolute;top:24px;right:24px;
+  width:48px;height:48px;
+  background:
+    linear-gradient(var(--ink) 1px,transparent 1px) 0 0/100% 50%,
+    linear-gradient(90deg,var(--ink) 1px,transparent 1px) 0 0/50% 100%,
+    linear-gradient(var(--ink) 1px,transparent 1px) 0 100%/100% 50%,
+    linear-gradient(90deg,var(--ink) 1px,transparent 1px) 100% 0/50% 100%;
+  background-repeat:no-repeat;
+}
+.hero-eyebrow{
+  font-family:var(--mono);font-weight:500;font-size:11px;
+  letter-spacing:0.18em;color:var(--blue);text-transform:uppercase;
+  margin-bottom:24px;display:flex;align-items:center;gap:12px;
+}
+.hero-eyebrow::before{content:"▸";color:var(--vermilion);}
+
+.hero h1{
+  font-family:var(--jp);font-weight:600;
+  font-size:clamp(40px,5.4vw,72px);line-height:1.2;letter-spacing:0;
+  margin-bottom:32px;
+}
+.hero h1 em{font-style:normal;color:var(--blue);font-weight:700;}
+.hero h1 .dim-mark{
+  display:inline-block;font-family:var(--mono);font-size:0.18em;
+  color:var(--ink-faint);font-weight:400;vertical-align:super;letter-spacing:0;
+  margin-left:8px;
+}
+
+.hero-lead{
+  max-width:540px;font-size:14px;line-height:1.85;color:var(--ink-soft);
+  border-top:1px dashed var(--rule);padding-top:24px;
+  font-family:var(--sans);
+}
+.hero-lead strong{color:var(--ink);font-weight:600;}
+
+.hero-callout{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:32px;padding:8px 14px;
+  background:var(--ink);color:var(--gold);
+  font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.hero-callout::before{content:"●";color:var(--vermilion);font-size:8px;}
+
+/* === SECTION HEADER (drawing-style) === */
+.drawing-section{padding:80px 56px;border-bottom:1px solid var(--rule);}
+.drawing-header{
+  display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:end;
+  border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:48px;
+}
+.drawing-id{
+  font-family:var(--mono);font-weight:500;
+}
+.drawing-id .ref{
+  font-size:11px;letter-spacing:0.16em;color:var(--ink-faint);text-transform:uppercase;
+  display:block;margin-bottom:6px;
+}
+.drawing-id .no{font-size:36px;font-weight:600;color:var(--blue-deep);letter-spacing:0;}
+.drawing-id .scale{
+  font-size:10px;color:var(--ink-faint);letter-spacing:0.16em;
+  text-transform:uppercase;margin-top:6px;
+}
+.drawing-title h2{
+  font-family:var(--jp);font-weight:600;
+  font-size:clamp(28px,3.4vw,42px);line-height:1.3;letter-spacing:0;
+  margin-bottom:8px;
+}
+.drawing-title h2 em{font-style:normal;color:var(--blue);font-weight:700;}
+.drawing-title .desc{
+  font-family:var(--mono);font-size:12px;color:var(--ink-faint);
+  letter-spacing:0.04em;
+}
+
+/* === PARTS LIST (replaces case-meta) === */
+.parts-list{
+  font-family:var(--mono);font-size:13px;border:1px solid var(--ink);
+  background:var(--paper-light);
+}
+.parts-list-head{
+  display:grid;grid-template-columns:60px 1fr 200px 180px;
+  background:var(--ink);color:var(--paper);
+  font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;
+}
+.parts-list-head > div{padding:10px 16px;border-right:1px solid rgba(238,242,246,0.18);}
+.parts-list-head > div:last-child{border-right:none;}
+.parts-row{
+  display:grid;grid-template-columns:60px 1fr 200px 180px;
+  border-bottom:1px solid var(--rule);
+}
+.parts-row:last-child{border-bottom:none;}
+.parts-row > div{padding:14px 16px;border-right:1px solid var(--rule);}
+.parts-row > div:last-child{border-right:none;}
+.parts-row .pn{color:var(--vermilion);font-weight:500;font-size:12px;}
+.parts-row .desc{font-family:var(--sans);font-weight:500;}
+.parts-row .desc-en{display:block;font-size:11px;color:var(--ink-faint);font-family:var(--mono);margin-top:2px;}
+.parts-row .qty{color:var(--blue);font-weight:500;}
+
+/* === BRIEF (technical memo style) === */
+.brief-memo{
+  font-family:var(--sans);max-width:880px;margin:0 auto;
+  border:1px solid var(--rule);background:var(--paper-light);
+}
+.brief-memo-head{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+}
+.brief-memo-head > div{padding:10px 16px;border-right:1px solid rgba(238,242,246,0.18);}
+.brief-memo-head > div:last-child{border-right:none;}
+.brief-memo-head .k{color:rgba(238,242,246,0.5);display:block;font-size:9px;}
+.brief-memo-head .v{color:var(--paper);}
+.brief-memo-body{padding:40px 56px;}
+.brief-memo-body p{
+  display:grid;grid-template-columns:48px 1fr;gap:24px;
+  margin-bottom:1.6em;font-size:14.5px;line-height:1.85;color:var(--ink);
+}
+.brief-memo-body p .ref{
+  font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:500;
+  letter-spacing:0.08em;padding-top:5px;
+}
+.brief-memo-body strong{font-weight:600;color:var(--ink);}
+.brief-memo-quote{
+  display:grid;grid-template-columns:48px 1fr;gap:24px;
+  margin:48px 0 0;padding:24px;
+  border:1px solid var(--blue);background:rgba(31,111,183,0.06);
+}
+.brief-memo-quote .ref{
+  font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:500;letter-spacing:0.08em;
+}
+.brief-memo-quote .text{
+  font-family:var(--jp);font-weight:600;font-size:18px;line-height:1.7;color:var(--ink);letter-spacing:0;
+}
+.brief-memo-quote .by{
+  display:block;margin-top:14px;font-family:var(--mono);font-size:10px;
+  color:var(--ink-faint);letter-spacing:0.12em;text-transform:uppercase;
+}
+
+/* === DELIVERABLES — drawing sheet grid === */
+.deliv-section{padding:80px 56px;border-bottom:1px solid var(--rule);background:var(--paper-light);}
+.deliv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:1px solid var(--ink);
+}
+.deliv-cell{
+  padding:0;border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  background:var(--paper);
+  position:relative;
+}
+.deliv-cell:nth-child(3n){border-right:none;}
+.deliv-cell:nth-last-child(-n+3){border-bottom:none;}
+
+.dc-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 14px;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+}
+.dc-header .pn{color:var(--gold);font-weight:500;}
+.dc-header .rev{color:rgba(238,242,246,0.5);}
+
+.dc-canvas{
+  aspect-ratio:210/297;background:var(--paper-light);
+  position:relative;padding:24px 20px;
+  display:flex;flex-direction:column;
+  background-image:
+    linear-gradient(rgba(31,111,183,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(31,111,183,0.06) 1px,transparent 1px);
+  background-size:14px 14px;
+  border-bottom:1px solid var(--rule);
+}
+.dc-canvas::before, .dc-canvas::after{
+  content:"";position:absolute;width:14px;height:14px;
+  border:1.5px solid var(--ink);
+}
+.dc-canvas::before{top:8px;left:8px;border-right:none;border-bottom:none;}
+.dc-canvas::after{bottom:8px;right:8px;border-left:none;border-top:none;}
+
+/* P1 cover */
+.dc-cover{justify-content:flex-end;align-items:center;text-align:center;}
+.dc-cover svg{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);width:60%;}
+.dc-cover .h{
+  font-family:var(--jp);font-weight:600;font-size:16px;line-height:1.3;color:var(--ink);
+  position:relative;z-index:2;letter-spacing:0;
+}
+.dc-cover .h em{color:var(--blue);font-style:normal;font-weight:700;}
+.dc-cover .sub{
+  font-family:var(--mono);font-size:10px;color:var(--ink-faint);
+  margin-top:8px;letter-spacing:0.16em;text-transform:uppercase;
+}
+
+/* P2 philosophy */
+.dc-philo .h{
+  font-family:var(--jp);font-weight:600;font-size:14px;line-height:1.45;
+  letter-spacing:0;text-align:center;
+}
+.dc-philo .h em{color:var(--blue);font-style:normal;font-weight:700;}
+.dc-philo .body{
+  font-family:var(--sans);font-size:8.5px;line-height:1.7;letter-spacing:0;
+  margin-top:16px;color:var(--ink-soft);
+}
+.dc-philo .symbol{
+  margin-top:auto;display:flex;align-items:center;gap:6px;justify-content:center;
+  font-family:var(--mono);font-size:9px;color:var(--blue);letter-spacing:0.08em;
+}
+
+/* P3 timeline */
+.dc-time .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;letter-spacing:0;
+  text-align:center;margin-bottom:14px;
+}
+.dc-time .h em{color:var(--gold);font-style:normal;font-weight:700;}
+.dc-time .row{
+  display:grid;grid-template-columns:24px 1fr 56px;gap:8px;
+  padding:5px 0;font-family:var(--mono);font-size:8.5px;
+  border-bottom:1px solid rgba(31,111,183,0.18);
+  align-items:center;
+}
+.dc-time .row .n{color:var(--vermilion);font-weight:500;}
+.dc-time .row .l{font-family:var(--sans);font-weight:500;color:var(--ink);font-size:9px;letter-spacing:0;}
+.dc-time .row .d{color:var(--ink-faint);text-align:right;font-size:8px;}
+
+/* P4 career */
+.dc-career .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;
+}
+.dc-career .h em{color:var(--gold);font-style:normal;font-weight:700;}
+.dc-career .axis{
+  font-family:var(--mono);font-size:7.5px;color:var(--ink-faint);
+  display:grid;grid-template-columns:repeat(5,1fr);text-align:center;letter-spacing:0;margin-bottom:14px;
+  border-top:1.5px solid var(--blue);padding-top:8px;position:relative;
+}
+.dc-career .axis::before{
+  content:"▼";position:absolute;top:-12px;left:0;color:var(--blue);font-size:8px;
+}
+.dc-career .axis::after{
+  content:"▼";position:absolute;top:-12px;right:0;color:var(--gold);font-size:8px;
+}
+.dc-career .axis div .yr{display:block;color:var(--blue);font-weight:500;font-size:9px;}
+.dc-career .row{
+  display:grid;grid-template-columns:60px 1fr 50px;gap:8px;
+  padding:5px 0;font-family:var(--mono);font-size:8.5px;
+  border-bottom:1px solid rgba(31,111,183,0.15);
+}
+.dc-career .row .stage{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:9px;}
+.dc-career .row .skill{color:var(--ink-soft);font-size:8.5px;}
+.dc-career .row .salary{text-align:right;color:var(--gold);font-weight:500;font-family:var(--mono);}
+
+/* P5 voices */
+.dc-voices .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:14px;letter-spacing:0;
+}
+.dc-voices .h em{color:var(--blue);font-style:normal;font-weight:700;}
+.dc-voices .v{padding:8px 0;border-bottom:1px solid rgba(31,111,183,0.15);}
+.dc-voices .v:last-child{border-bottom:none;}
+.dc-voices .meta{
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:8px;color:var(--ink-faint);letter-spacing:0.04em;margin-bottom:3px;
+}
+.dc-voices .meta .name{font-family:var(--sans);font-weight:600;color:var(--blue);font-size:9px;}
+.dc-voices .quote{
+  font-family:var(--sans);font-size:8.5px;line-height:1.55;color:var(--ink-soft);
+}
+
+/* P6 recruit */
+.dc-recruit .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;
+}
+.dc-recruit .h em{color:var(--blue);font-style:normal;font-weight:700;}
+.dc-recruit .row{
+  display:grid;grid-template-columns:1fr auto;gap:10px;
+  padding:6px 0;font-family:var(--mono);font-size:9px;
+  border-bottom:1px solid rgba(31,111,183,0.15);
+}
+.dc-recruit .row .key{color:var(--ink-faint);font-size:8.5px;}
+.dc-recruit .row .val{font-weight:500;color:var(--ink);text-align:right;}
+.dc-recruit .row .val em{color:var(--gold);font-style:normal;font-weight:600;}
+.dc-recruit .foot{
+  margin-top:auto;padding:10px;background:var(--ink);color:var(--paper);
+  font-family:var(--sans);font-size:9px;line-height:1.6;text-align:center;
+  font-weight:500;
+}
+.dc-recruit .foot em{color:var(--gold);font-style:normal;display:block;margin-top:4px;font-size:8.5px;}
+
+/* deliv caption */
+.dc-caption{
+  padding:14px 16px;font-family:var(--sans);
+  background:var(--paper);
+}
+.dc-caption .label{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.16em;color:var(--vermilion);
+  text-transform:uppercase;margin-bottom:8px;
+}
+.dc-caption h4{
+  font-family:var(--jp);font-weight:600;font-size:14px;line-height:1.5;letter-spacing:0;
+  margin-bottom:6px;color:var(--ink);
+}
+.dc-caption p{font-size:11.5px;line-height:1.7;color:var(--ink-soft);}
+
+/* === OTHERS — index table === */
+.others-section{padding:80px 56px;border-bottom:1px solid var(--rule);}
+.others-table{border:1px solid var(--ink);font-family:var(--mono);}
+.others-table .h{
+  display:grid;grid-template-columns:80px 1fr 1fr 80px;
+  background:var(--ink);color:var(--paper);
+  font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+}
+.others-table .h > div{padding:10px 16px;border-right:1px solid rgba(238,242,246,0.18);}
+.others-table .h > div:last-child{border-right:none;}
+.others-table .r{
+  display:grid;grid-template-columns:80px 1fr 1fr 80px;
+  border-bottom:1px solid var(--rule);text-decoration:none;color:inherit;
+  transition:background 0.2s;
+}
+.others-table .r:last-child{border-bottom:none;}
+.others-table .r:hover{background:var(--paper-deep);}
+.others-table .r > div{padding:14px 16px;border-right:1px solid var(--rule);}
+.others-table .r > div:last-child{border-right:none;text-align:right;color:var(--blue);}
+.others-table .r .pn{color:var(--vermilion);font-weight:500;}
+.others-table .r .name{font-family:var(--sans);font-weight:600;color:var(--ink);}
+.others-table .r .name .en{display:block;font-family:var(--mono);font-size:10px;color:var(--ink-faint);font-weight:400;margin-top:2px;}
+.others-table .r .desc{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);}
+
+/* === CTA terminal === */
+.cta{
+  padding:96px 56px;background:var(--ink);color:var(--paper);
+  border-top:1px solid var(--ink);
+}
+.cta-frame{
+  max-width:880px;margin:0 auto;border:1px solid var(--gold);background:rgba(238,242,246,0.04);
+  padding:48px;font-family:var(--mono);
+}
+.cta-prompt{
+  font-size:11px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;
+  margin-bottom:24px;display:flex;align-items:center;gap:10px;
+}
+.cta-prompt::before{content:"$";color:var(--vermilion);font-weight:500;}
+.cta h2{
+  font-family:var(--jp);font-weight:600;font-size:clamp(28px,4vw,52px);
+  line-height:1.3;letter-spacing:0;margin-bottom:24px;color:var(--paper);
+}
+.cta h2 em{font-style:normal;color:var(--gold);font-weight:700;}
+.cta p{font-family:var(--mono);font-size:13px;color:rgba(238,242,246,0.7);margin-bottom:36px;line-height:1.65;}
+.cta-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;
+  text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--gold);color:var(--paper);
+  transition:background 0.2s,color 0.2s;
+}
+.cta-btn::before{content:"▸";color:var(--gold);}
+.cta-btn:hover{background:var(--gold);color:var(--ink);}
+.cta-btn:hover::before{color:var(--ink);}
+.cta-btn.alt{border-color:rgba(238,242,246,0.3);}
+.cta-btn.alt::before{color:rgba(238,242,246,0.6);}
+.cta-btn.alt:hover{background:rgba(238,242,246,0.1);color:var(--paper);}
+.cta-btn.alt:hover::before{color:var(--gold);}
+
+/* === FOOTER (title block) === */
+footer{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--ink);
+  font-family:var(--mono);font-size:10px;letter-spacing:0.06em;
+  background:var(--paper-light);
+}
+footer > div{
+  padding:20px 24px;border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;gap:4px;
+}
+footer > div:last-child{border-right:none;}
+footer .k{font-size:9px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.16em;}
+footer .v{font-size:11px;color:var(--ink);font-weight:500;}
+footer .v a{color:var(--blue);text-decoration:none;}
+footer .v a:hover{border-bottom:1px solid var(--blue);}
+
+@media (max-width:1100px){
+  .deliv-grid{grid-template-columns:repeat(2,1fr);}
+  .deliv-cell:nth-child(3n){border-right:1px solid var(--rule);}
+  .deliv-cell:nth-child(2n){border-right:none;}
+  .deliv-cell:nth-last-child(-n+3){border-bottom:1px solid var(--rule);}
+  .deliv-cell:nth-last-child(-n+2){border-bottom:none;}
+}
+@media (max-width:760px){
+  .brand-bar{padding:10px 16px;}
+  .title-block{grid-template-columns:1fr 1fr;}
+  .tb-cell{border-bottom:1px solid var(--rule);}
+  .hero{grid-template-columns:1fr;}
+  .hero-spec{border-right:none;border-bottom:1px solid var(--ink);}
+  .hero-main{padding:48px 24px;}
+  .drawing-section,.deliv-section,.others-section{padding:48px 16px;}
+  .drawing-header{grid-template-columns:1fr;gap:16px;}
+  .parts-list-head, .parts-row{grid-template-columns:60px 1fr;}
+  .parts-list-head > div:nth-child(n+3),.parts-row > div:nth-child(n+3){display:none;}
+  .brief-memo-head{grid-template-columns:repeat(2,1fr);}
+  .brief-memo-body{padding:24px 16px;}
+  .brief-memo-body p,.brief-memo-quote{grid-template-columns:1fr;gap:8px;}
+  .deliv-grid{grid-template-columns:1fr;}
+  .deliv-cell{border-right:none;}
+  .others-table .h, .others-table .r{grid-template-columns:60px 1fr 60px;}
+  .others-table .h > div:nth-child(3),.others-table .r > div:nth-child(3){display:none;}
+  .cta{padding:60px 16px;}
+  .cta-frame{padding:32px 24px;}
+  footer{grid-template-columns:1fr 1fr;}
+  footer > div{border-bottom:1px solid var(--rule);}
+}
+</style>
 </head>
-<body class="theme-electrical">
+<body>
 
-<svg width="0" height="0" style="position:absolute;">
-  <defs>
-    <symbol id="vd-mark" viewBox="0 0 60 60">
-      <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
-      <circle cx="44" cy="18" r="3.5" fill="#C8392B"/>
-    </symbol>
-  </defs>
-</svg>
+<div class="brand-bar">
+  <div class="lhs"><span class="vd-mark"></span><span>Vitality Design LLC. ／ Engineering Document</span></div>
+  <a href="/services/recruitment-branding.html">← Service Overview</a>
+</div>
 
-<nav class="nav">
-  <div class="nav-brand">
-    <a href="/">
-      <span class="mark"><svg><use href="#vd-mark"/></svg></span>
-      <span class="nav-name">
-        <span class="jp">バイタリティデザイン合同会社</span>
-        <span class="en">Vitality Design LLC.</span>
-      </span>
-    </a>
+<div class="title-block">
+  <div class="tb-cell">
+    <span class="key">Document Type</span>
+    <span class="val">SAMPLE PITCH</span>
   </div>
-  <div class="nav-center"><strong>§</strong>Sample N°02 — Electrical Contractor</div>
-  <div class="nav-back"><a href="/services/recruitment-branding.html">← Service Overview</a></div>
-</nav>
-
-<div class="sample-banner">
-  <span class="badge">Sample</span>
-  <div class="text">
-    <strong>架空クライアントを想定した制作例です。</strong>
-    <span>This is a demonstration case built on a fictional client. Output for actual engagements is created from hearings.</span>
+  <div class="tb-cell">
+    <span class="key">Title</span>
+    <span class="val">Recruitment Pitch — Electrical Contractor</span>
+  </div>
+  <div class="tb-cell sample">
+    <span class="key">Status</span>
+    <span class="val">▲ DEMONSTRATION (架空クライアント)</span>
+  </div>
+  <div class="tb-cell tb-drawing-no">
+    <span class="key">Drawing No.</span>
+    <span class="val">VD-S02-002</span>
   </div>
 </div>
 
 <section class="hero">
-  <div class="hero-watermark">電気</div>
+  <aside class="hero-spec">
+    <h2>Specification Sheet</h2>
+    <div class="spec-row"><span class="k">Industry</span><span class="v">Electrical Contracting</span></div>
+    <div class="spec-row"><span class="k">Client</span><span class="v">Chihaya Denki K.K.<br><em>(Fictional)</em></span></div>
+    <div class="spec-row"><span class="k">Founded</span><span class="v">1998 (28th yr)</span></div>
+    <div class="spec-row"><span class="k">Staff</span><span class="v">35</span></div>
+    <div class="spec-row"><span class="k">Revenue</span><span class="v">¥980M / yr</span></div>
+    <div class="spec-row"><span class="k">Engagement</span><span class="v">6 weeks</span></div>
+    <div class="spec-row"><span class="k">Deliverable</span><span class="v">A4 × 6 pages</span></div>
+    <div class="spec-row"><span class="k">Tolerance</span><span class="v">±2 days schedule</span></div>
+    <div style="border-top:1px solid rgba(238,242,246,0.2);padding-top:18px;margin-top:auto;">
+      <div class="spec-row"><span class="k">Issue Date</span><span class="v">2026.05</span></div>
+      <div class="spec-row"><span class="k">Revision</span><span class="v">A.1</span></div>
+      <div class="spec-row"><span class="k">Drawn By</span><span class="v">VD/SHO</span></div>
+    </div>
+  </aside>
 
-  <div class="hero-meta">
-    <div class="cell"><span>Industry Sample</span><strong>VD / SVC02 / SAMPLE 02</strong></div>
-    <div class="cell center"><span>Category</span><strong>SPECIALTY TRADES — ELECTRICAL</strong></div>
-    <div class="cell right"><span>Engagement</span><strong>6 WEEKS · A4 6 PAGES</strong></div>
-  </div>
-
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="bar"></span><span>Sample Case 02 ／ 電気工事業</span></div>
-    <h1>
-      見えない場所こそ、<br>
-      <em>丁寧</em>に。
-      <span class="en">For a specialty electrical contractor — a recruitment pitch.</span>
-    </h1>
+  <div class="hero-main">
+    <div class="hero-eyebrow">Sample Case 02 ／ Specialty Trades — Electrical</div>
+    <h1>見えない場所こそ、<em>丁寧</em>に。<span class="dim-mark">[D-001]</span></h1>
     <p class="hero-lead">
-      自社施工率8割、創業28期。技術と労働環境では業界平均を上回るのに、第一種電気工事士の若手応募が<strong>3年連続でゼロ</strong>。「電気工事業＝下請け＝きつい」のイメージに、自社の強みが飲まれていた中堅電気工事業者を想定し、創業者の哲学を軸に採用ピッチを再設計した架空ケースです。
+      自社施工率8割、創業28期。技術と労働環境では業界平均を上回るのに、第一種電気工事士の若手応募が<strong>3年連続でゼロ</strong>。「電気工事業＝下請け＝きつい」のイメージに、自社の強みが構造的に飲まれていた中堅電気工事業者を想定した、架空のケーススタディです。
     </p>
+    <span class="hero-callout">REV A.1 ／ 6 WEEKS ／ A4 × 6PG ／ DEMONSTRATION</span>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="case-meta">
-      <div class="case-meta-cell"><div class="key">Client</div><div class="val">株式会社 千早電気工事<span class="en">Chihaya Denki Koji Inc.<br>※ 架空クライアント</span></div></div>
-      <div class="case-meta-cell"><div class="key">Industry</div><div class="val">電気工事業<span class="en">Commercial Electrical Contracting</span></div></div>
-      <div class="case-meta-cell"><div class="key">Scale</div><div class="val">35名／年商 9.8億円<span class="en">Founded 1998 — 28th year</span></div></div>
-      <div class="case-meta-cell"><div class="key">Engagement</div><div class="val">6週間／ピッチ資料一式<span class="en">6 weeks · pitch document</span></div></div>
+<!-- DRAWING-A: PARTS LIST -->
+<section class="drawing-section">
+  <div class="drawing-header">
+    <div class="drawing-id">
+      <span class="ref">Drawing N°</span>
+      <span class="no">A.01</span>
+      <span class="scale">SCALE 1:1 ／ CLIENT SCHEDULE</span>
     </div>
-
-    <div class="case-brief">
-      <div>
-        <div class="case-brief-meta">— Brief</div>
-        <h3 class="case-brief-h">「電気工事＝下請け」という<em>業界イメージ</em>に、自社の差別化ポイントが飲み込まれていた。</h3>
-      </div>
-      <div class="case-brief-body">
-        <p>創業28期目、商業施設・オフィスビルの電気工事を中心に、自社施工率8割で運営してきた中堅電気工事業者。有給消化率100%、資格取得支援、移動車支給など、業界としては例外的な労働環境を実装している。</p>
-        <p>しかし、Indeedとハローワークの掲載原稿では、これらの強みが他社のテンプレートに混ざって埋没。第一種電気工事士の若手応募は3年連続ゼロ、第二種の有資格者からも「下請けっぽい会社」と読まれていた。</p>
-        <p>私たちは、代表のヒアリングで繰り返し出てきた「壁の裏に消える仕事だからこそ、20年後も動く配線を残せる職人を育てたい」というフレーズを軸に、採用ピッチを設計し直しました。</p>
-        <div class="brief-quote">
-          電気工事は、完成すれば壁の裏に消える。<br>だからこそ、見えない場所で何をするか、で人を選びたい。
-          <span class="by">— 代表ヒアリング 第2回</span>
-        </div>
-      </div>
+    <div class="drawing-title">
+      <h2>架空<em>クライアント像</em>。</h2>
+      <div class="desc">parts list of the fictional client we built this case around</div>
     </div>
+  </div>
 
-    <div class="pages-head">
-      <h3 class="pages-h">納品物 ／ <em>6ページ</em>のピッチ資料。</h3>
-      <span class="pages-meta">A4 / 6 spreads · PDF + Print-ready</span>
+  <div class="parts-list">
+    <div class="parts-list-head">
+      <div>P/N</div><div>Description</div><div>Specification</div><div>Notes</div>
     </div>
-
-    <div class="pages-grid">
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-cover">
-          <span class="page-num"><strong>P · 01</strong> Cover</span>
-          <div class="cover-art">
-            <svg viewBox="0 0 200 140" fill="none">
-              <rect x="40" y="20" width="120" height="100" fill="none" stroke="#0F1B2A" stroke-width="0.8"/>
-              <line x1="60" y1="20" x2="60" y2="120" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
-              <line x1="100" y1="20" x2="100" y2="120" stroke="#C9A961" stroke-width="0.6"/>
-              <line x1="140" y1="20" x2="140" y2="120" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
-              <line x1="40" y1="50" x2="160" y2="50" stroke="#C9A961" stroke-width="0.6"/>
-              <line x1="40" y1="80" x2="160" y2="80" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
-              <circle cx="100" cy="50" r="3" fill="#C9A961"/>
-              <circle cx="60" cy="80" r="2" fill="#1F6FB7"/>
-              <circle cx="140" cy="80" r="2" fill="#1F6FB7"/>
-            </svg>
-          </div>
-          <div class="cover-h">見えない場所こそ、<br><em>丁寧</em>に。</div>
-          <div class="cover-sub">2027 Recruitment</div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 01 — Cover</span>
-          <span class="title">表紙：哲学の一行と、配線の幾何。</span>
-          <span class="desc">配線・分岐・接点を抽象化した幾何構成。完成後に壁の裏に消える仕事の本質を、線とドットだけで表現する。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-philosophy">
-          <span class="page-num"><strong>P · 02</strong> Philosophy</span>
-          <div>
-            <div class="philo-headline">建物の20年後を、<br><em>配線</em>が決める。</div>
-            <p class="philo-body">電気工事は、完成すれば壁の裏に消える仕事です。だからこそ、見えない場所で何をするかが、その建物の20年後を決めます。私たちは、自分の手で施工した配線が、20年後も問題なく動いていることを誇りに思える職人を育てたいと考えています。</p>
-          </div>
-          <div class="philo-svg">
-            <svg viewBox="0 0 200 50" fill="none">
-              <line x1="20" y1="25" x2="60" y2="25" stroke="#1F6FB7" stroke-width="0.8"/>
-              <line x1="60" y1="25" x2="80" y2="10" stroke="#C9A961" stroke-width="0.8"/>
-              <line x1="60" y1="25" x2="80" y2="40" stroke="#C9A961" stroke-width="0.8"/>
-              <circle cx="60" cy="25" r="3" fill="#1F6FB7"/>
-              <circle cx="80" cy="10" r="2" fill="#C9A961"/>
-              <circle cx="80" cy="40" r="2" fill="#C9A961"/>
-              <line x1="100" y1="25" x2="180" y2="25" stroke="#1F6FB7" stroke-width="0.8" stroke-dasharray="3,2"/>
-              <text x="140" y="20" font-family="serif" font-size="6" text-anchor="middle" fill="#0F1B2A" font-style="italic">20 years</text>
-            </svg>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 02 — Philosophy</span>
-          <span class="title">哲学：見えない仕事の、見える誇り。</span>
-          <span class="desc">「下請けっぽい」と読まれていた既存原稿を捨て、自社施工が支える20年後の建物の話に書き換える。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-timeline">
-          <span class="page-num"><strong>P · 03</strong> Timeline</span>
-          <div class="timeline-h">1案件が完成するまで、<em>3ヶ月</em>の見えない仕事。</div>
-          <div class="timeline-row"><span class="timeline-num">01</span><span class="timeline-step">設計協議<span class="sub">1週間 / 営業＋技術</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">02</span><span class="timeline-step">図面作成<span class="sub">2週間 / CAD技術者</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">03</span><span class="timeline-step">仮設工事<span class="sub">2週間 / 現場監督＋3名</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">04</span><span class="timeline-step">配線・配管<span class="sub">6週間 / 職人 5-8名</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">05</span><span class="timeline-step">試験・検査<span class="sub">1週間 / 主任技術者</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">06</span><span class="timeline-step">引渡し・記録<span class="sub">1週間 / 全員</span></span></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 03 — Process Infographic</span>
-          <span class="title">工程：6フェーズで、3ヶ月の現場を可視化。</span>
-          <span class="desc">商業施設1案件の標準工期を、職人の関わり方ごとに分解。応募者が自分の入る場所を読み取れる粒度に。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-career">
-          <span class="page-num"><strong>P · 04</strong> Career Path</span>
-          <div class="career-h">未経験から、<em>主任技術者</em>まで。8年の道のり。</div>
-          <div class="career-bar"></div>
-          <div class="career-stops">
-            <div>1y<br><span class="yr">240</span></div>
-            <div>3y<br><span class="yr">320</span></div>
-            <div>5y<br><span class="yr">420</span></div>
-            <div>7y<br><span class="yr">520</span></div>
-            <div>8y+<br><span class="yr">620+</span></div>
-          </div>
-          <div class="career-rows">
-            <div class="career-row"><span class="stage">見習い</span><span class="skill">工具・資材／現場マナー</span><span class="salary">¥240</span></div>
-            <div class="career-row"><span class="stage">第二種</span><span class="skill">一般住宅施工</span><span class="salary">¥320</span></div>
-            <div class="career-row"><span class="stage">第一種</span><span class="skill">商業施設施工</span><span class="salary">¥420</span></div>
-            <div class="career-row"><span class="stage">主任技術者</span><span class="skill">現場全責任／後輩指導</span><span class="salary">¥520</span></div>
-            <div class="career-row"><span class="stage">監理技術者</span><span class="skill">大型案件／設計連携</span><span class="salary">¥620+</span></div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 04 — Career Infographic</span>
-          <span class="title">道のり：資格軸でキャリアを8年に圧縮。</span>
-          <span class="desc">「下請けで一生終わる」イメージを、第一種→主任技術者→監理技術者の昇格パスで明確に解く。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-voices">
-          <span class="page-num"><strong>P · 05</strong> Voices</span>
-          <div class="voices-h">先輩の<em>声</em>。</div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">木下 航平</span><span>29 / 入社6年目 / 電気工</span></div>
-            <div class="voice-quote">飲食店からの転職でした。配線図が読めなかった僕を、先輩は怒らずに毎日教えてくれた。今は第一種を取って、後輩に教える側です。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">上原 愛梨</span><span>24 / 入社3年目 / 設計</span></div>
-            <div class="voice-quote">工業高校出身で、女性は私だけでした。でもここは図面さえ正確なら、性別も年齢も関係なく扱われる。それが嬉しい。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">高橋 誠</span><span>45 / 入社18年目 / 主任技術者</span></div>
-            <div class="voice-quote">親方制度の現場から転職しました。怒鳴らなくても、技術は伝わる。それを18年、ここでやってきました。</div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 05 — Voices</span>
-          <span class="title">先輩の声：転職経由の3名で「異業種からも来られる」を示す。</span>
-          <span class="desc">飲食出身・工業高校卒女性・親方制度脱出組。応募候補の典型ペルソナをカバーする3人選定。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-recruit">
-          <span class="page-num"><strong>P · 06</strong> Recruit</span>
-          <div class="recruit-h">募集要項 ／ <em>電気工事 見習い</em></div>
-          <div class="recruit-row"><span class="label">給与</span><span class="val">月給 <em>¥240,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">第一種有資格者</span><span class="val">月給 <em>¥350,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">休日</span><span class="val">完全週休2日＋祝日</span></div>
-          <div class="recruit-row"><span class="label">社会保険</span><span class="val">完備</span></div>
-          <div class="recruit-row"><span class="label">資格支援</span><span class="val">第一種／施工管理技士</span></div>
-          <div class="recruit-row"><span class="label">移動車</span><span class="val">入社時 全員に支給</span></div>
-          <div class="recruit-foot">まずは、現場を見にきてください。<em>配線が消える前の、見えるうちに。</em></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 06 — Recruit</span>
-          <span class="title">募集要項：他社が出さない「移動車支給」を強調。</span>
-          <span class="desc">業界平均との差を、給与だけでなく工具・移動・資格支援の三軸で先に開示する。</span>
-        </div>
-      </div>
-
+    <div class="parts-row">
+      <div class="pn">001</div>
+      <div class="desc">商号<span class="desc-en">Company name</span></div>
+      <div>株式会社 千早電気工事</div>
+      <div class="qty">FICTIONAL</div>
+    </div>
+    <div class="parts-row">
+      <div class="pn">002</div>
+      <div class="desc">業種<span class="desc-en">Industry segment</span></div>
+      <div>商業電気工事</div>
+      <div class="qty">B2B</div>
+    </div>
+    <div class="parts-row">
+      <div class="pn">003</div>
+      <div class="desc">創業<span class="desc-en">Founded</span></div>
+      <div>1998年（28期）</div>
+      <div class="qty">28 yrs</div>
+    </div>
+    <div class="parts-row">
+      <div class="pn">004</div>
+      <div class="desc">人員<span class="desc-en">Headcount</span></div>
+      <div>35名</div>
+      <div class="qty">35 ppl</div>
+    </div>
+    <div class="parts-row">
+      <div class="pn">005</div>
+      <div class="desc">年商<span class="desc-en">Annual revenue</span></div>
+      <div>9.8億円</div>
+      <div class="qty">¥980M</div>
+    </div>
+    <div class="parts-row">
+      <div class="pn">006</div>
+      <div class="desc">関与<span class="desc-en">Engagement</span></div>
+      <div>6週間／ピッチ資料一式</div>
+      <div class="qty">6 wks</div>
     </div>
   </div>
 </section>
 
-<section class="others">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-meta"><span class="num">§</span><span class="bar"></span><span>More Samples</span></div>
-        <h2 class="section-h">他業界の<em>制作例</em>。<span class="en">Other industry samples.</span></h2>
-      </div>
-      <p class="section-intro">業界によって、求職者の不安・哲学の翻訳点・キャリアパスはまったく異なります。御社の業界に最も近いサンプルから、ご覧ください。</p>
+<!-- DRAWING-B: BRIEF AS MEMO -->
+<section class="drawing-section">
+  <div class="drawing-header">
+    <div class="drawing-id">
+      <span class="ref">Drawing N°</span>
+      <span class="no">B.02</span>
+      <span class="scale">TECHNICAL MEMO ／ BRIEF</span>
+    </div>
+    <div class="drawing-title">
+      <h2>ご依頼の<em>背景</em>。</h2>
+      <div class="desc">technical memo — what brought us together</div>
     </div>
   </div>
 
-  <div class="others-grid">
-    <a href="/services/recruitment-branding.html#case" class="others-card">
-      <div>
-        <div class="num">Sample 01</div>
-        <div class="industry-jp">注文住宅・建設業</div>
-        <div class="industry-en">Custom Home Construction</div>
-        <div class="desc">「密度ゼロの豊かさを、住まいに」。1棟ずつ丁寧に作る工務店向けの採用ピッチ。</div>
+  <div class="brief-memo">
+    <div class="brief-memo-head">
+      <div><span class="k">FROM</span><span class="v">REPRESENTATIVE</span></div>
+      <div><span class="k">SUBJECT</span><span class="v">RECRUITMENT BREAKDOWN</span></div>
+      <div><span class="k">REVISION</span><span class="v">A.1 ／ 2026-05</span></div>
+      <div><span class="k">CLASSIFICATION</span><span class="v">DEMO CASE</span></div>
+    </div>
+    <div class="brief-memo-body">
+      <p><span class="ref">[1]</span><span>創業28期目、商業施設・オフィスビルの電気工事を中心に、自社施工率8割で運営してきた中堅電気工事業者。有給消化率100%、資格取得支援、移動車支給など、業界としては例外的な労働環境を実装している。</span></p>
+      <p><span class="ref">[2]</span><span>しかし、Indeedとハローワークの掲載原稿では、これらの強みが他社のテンプレートに混ざって埋没。<strong>第一種電気工事士の若手応募は3年連続ゼロ</strong>、第二種の有資格者からも「下請けっぽい会社」と読まれていた。</span></p>
+      <p><span class="ref">[3]</span><span>私たちは、代表のヒアリングで繰り返し出てきた「壁の裏に消える仕事だからこそ、20年後も動く配線を残せる職人を育てたい」というフレーズを軸に、採用ピッチを設計し直した。</span></p>
+
+      <div class="brief-memo-quote">
+        <span class="ref">QUOTE<br>[REP]</span>
+        <div>
+          <div class="text">電気工事は、完成すれば壁の裏に消える。だからこそ、見えない場所で何をするか、で人を選びたい。</div>
+          <span class="by">— Representative ／ Hearing #2</span>
+        </div>
       </div>
-      <div class="arrow">View →</div>
+    </div>
+  </div>
+</section>
+
+<!-- DRAWING-C: 6 PAGES -->
+<section class="drawing-section deliv-section">
+  <div class="drawing-header">
+    <div class="drawing-id">
+      <span class="ref">Drawing N°</span>
+      <span class="no">C.03</span>
+      <span class="scale">DELIVERABLE SHEETS ／ A4 × 6</span>
+    </div>
+    <div class="drawing-title">
+      <h2>納品物 ／ <em>6枚</em>のピッチ資料。</h2>
+      <div class="desc">six engineering sheets — pitch document in PDF + print-ready</div>
+    </div>
+  </div>
+
+  <div class="deliv-grid">
+
+    <div class="deliv-cell">
+      <div class="dc-header"><span class="pn">P/N 01</span><span class="rev">REV A.1</span></div>
+      <div class="dc-canvas dc-cover">
+        <svg viewBox="0 0 200 140" fill="none">
+          <rect x="40" y="20" width="120" height="100" fill="none" stroke="#0A1A2A" stroke-width="0.8"/>
+          <line x1="60" y1="20" x2="60" y2="120" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
+          <line x1="100" y1="20" x2="100" y2="120" stroke="#C9A961" stroke-width="0.6"/>
+          <line x1="140" y1="20" x2="140" y2="120" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
+          <line x1="40" y1="50" x2="160" y2="50" stroke="#C9A961" stroke-width="0.6"/>
+          <line x1="40" y1="80" x2="160" y2="80" stroke="#1F6FB7" stroke-width="0.5" stroke-dasharray="2,3"/>
+          <circle cx="100" cy="50" r="3" fill="#C9A961"/>
+          <circle cx="60" cy="80" r="2" fill="#1F6FB7"/>
+          <circle cx="140" cy="80" r="2" fill="#1F6FB7"/>
+        </svg>
+        <div class="h">見えない場所こそ、<br><em>丁寧</em>に。</div>
+        <div class="sub">2027 / RECRUITMENT</div>
+      </div>
+      <div class="dc-caption">
+        <div class="label">P · 01 ／ Cover Sheet</div>
+        <h4>表紙：配線の幾何で、業界を語る。</h4>
+        <p>配線・分岐・接点を抽象化した幾何構成。完成後に壁の裏に消える仕事の本質を、線とドットだけで表現。</p>
+      </div>
+    </div>
+
+    <div class="deliv-cell">
+      <div class="dc-header"><span class="pn">P/N 02</span><span class="rev">REV A.1</span></div>
+      <div class="dc-canvas dc-philo">
+        <div class="h">建物の20年後を、<br><em>配線</em>が決める。</div>
+        <div class="body">電気工事は、完成すれば壁の裏に消える仕事です。だからこそ、見えない場所で何をするかが、その建物の20年後を決めます。私たちは、自分の手で施工した配線が、20年後も問題なく動いていることを誇りに思える職人を育てたいと考えています。</div>
+        <div class="symbol">FACTORY ▸ PART ▸ <strong style="color:var(--vermilion);">LIFE</strong></div>
+      </div>
+      <div class="dc-caption">
+        <div class="label">P · 02 ／ Philosophy</div>
+        <h4>哲学：見えない仕事の、見える誇り。</h4>
+        <p>「下請けっぽい」と読まれていた既存原稿を捨て、自社施工が支える20年後の建物の話に書き換える。</p>
+      </div>
+    </div>
+
+    <div class="deliv-cell">
+      <div class="dc-header"><span class="pn">P/N 03</span><span class="rev">REV A.1</span></div>
+      <div class="dc-canvas dc-time">
+        <div class="h">1案件 / <em>3ヶ月</em>の見えない仕事</div>
+        <div class="row"><span class="n">01</span><span class="l">設計協議</span><span class="d">1 wk</span></div>
+        <div class="row"><span class="n">02</span><span class="l">図面作成</span><span class="d">2 wk</span></div>
+        <div class="row"><span class="n">03</span><span class="l">仮設工事</span><span class="d">2 wk</span></div>
+        <div class="row"><span class="n">04</span><span class="l">配線・配管</span><span class="d">6 wk</span></div>
+        <div class="row"><span class="n">05</span><span class="l">試験・検査</span><span class="d">1 wk</span></div>
+        <div class="row"><span class="n">06</span><span class="l">引渡し・記録</span><span class="d">1 wk</span></div>
+      </div>
+      <div class="dc-caption">
+        <div class="label">P · 03 ／ Process</div>
+        <h4>工程：6フェーズで、3ヶ月の現場を可視化。</h4>
+        <p>商業施設1案件の標準工期を、職人の関わり方ごとに分解。応募者が「自分の入る場所」を読み取れる粒度に。</p>
+      </div>
+    </div>
+
+    <div class="deliv-cell">
+      <div class="dc-header"><span class="pn">P/N 04</span><span class="rev">REV A.1</span></div>
+      <div class="dc-canvas dc-career">
+        <div class="h">未経験から<em>主任技術者</em>まで。</div>
+        <div class="axis">
+          <div>1y<span class="yr">240</span></div>
+          <div>3y<span class="yr">320</span></div>
+          <div>5y<span class="yr">420</span></div>
+          <div>7y<span class="yr">520</span></div>
+          <div>8y+<span class="yr">620+</span></div>
+        </div>
+        <div class="row"><span class="stage">見習い</span><span class="skill">工具・資材</span><span class="salary">¥240</span></div>
+        <div class="row"><span class="stage">第二種</span><span class="skill">一般住宅</span><span class="salary">¥320</span></div>
+        <div class="row"><span class="stage">第一種</span><span class="skill">商業施設</span><span class="salary">¥420</span></div>
+        <div class="row"><span class="stage">主任</span><span class="skill">現場全責任</span><span class="salary">¥520</span></div>
+        <div class="row"><span class="stage">監理</span><span class="skill">大型案件</span><span class="salary">¥620+</span></div>
+      </div>
+      <div class="dc-caption">
+        <div class="label">P · 04 ／ Career</div>
+        <h4>道のり：資格軸で8年に圧縮。</h4>
+        <p>「下請けで一生」のイメージを、第一種→主任→監理の昇格パスで明確に解く。</p>
+      </div>
+    </div>
+
+    <div class="deliv-cell">
+      <div class="dc-header"><span class="pn">P/N 05</span><span class="rev">REV A.1</span></div>
+      <div class="dc-canvas dc-voices">
+        <div class="h">先輩の<em>声</em>。</div>
+        <div class="v">
+          <div class="meta"><span class="name">木下 航平</span><span>29 / 6Y / 電気工</span></div>
+          <div class="quote">飲食店からの転職。配線図が読めなかった僕に、先輩は怒らずに毎日教えてくれた。今は第一種を取って、後輩に教えています。</div>
+        </div>
+        <div class="v">
+          <div class="meta"><span class="name">上原 愛梨</span><span>24 / 3Y / 設計</span></div>
+          <div class="quote">工業高校出身で、女性は私だけでした。でもここは図面さえ正確なら、性別も年齢も関係ない。それが嬉しい。</div>
+        </div>
+        <div class="v">
+          <div class="meta"><span class="name">高橋 誠</span><span>45 / 18Y / 主任</span></div>
+          <div class="quote">親方制度の現場から転職。怒鳴らなくても技術は伝わる。それを18年やってきました。</div>
+        </div>
+      </div>
+      <div class="dc-caption">
+        <div class="label">P · 05 ／ Voices</div>
+        <h4>先輩の声：転職経由の3名で「異業種からも来られる」を示す。</h4>
+        <p>飲食出身・工業高校卒女性・親方制度脱出組。応募候補の典型ペルソナを3人でカバー。</p>
+      </div>
+    </div>
+
+    <div class="deliv-cell">
+      <div class="dc-header"><span class="pn">P/N 06</span><span class="rev">REV A.1</span></div>
+      <div class="dc-canvas dc-recruit">
+        <div class="h">募集要項 ／ <em>電気工事 見習い</em></div>
+        <div class="row"><span class="key">給与</span><span class="val">月給 <em>¥240,000</em>〜</span></div>
+        <div class="row"><span class="key">第一種</span><span class="val">月給 <em>¥350,000</em>〜</span></div>
+        <div class="row"><span class="key">休日</span><span class="val">完全週休2日＋祝</span></div>
+        <div class="row"><span class="key">社保</span><span class="val">完備</span></div>
+        <div class="row"><span class="key">資格支援</span><span class="val">第一種／施工管理</span></div>
+        <div class="row"><span class="key">移動車</span><span class="val">入社時 全員支給</span></div>
+        <div class="foot">まずは、現場を見にきてください。<em>配線が消える前の、見えるうちに。</em></div>
+      </div>
+      <div class="dc-caption">
+        <div class="label">P · 06 ／ Recruit</div>
+        <h4>募集要項：移動車支給を強調。</h4>
+        <p>業界平均との差を、給与だけでなく工具・移動・資格支援の三軸で先に開示する。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DRAWING-D: OTHERS -->
+<section class="drawing-section others-section">
+  <div class="drawing-header">
+    <div class="drawing-id">
+      <span class="ref">Drawing N°</span>
+      <span class="no">D.04</span>
+      <span class="scale">RELATED INDUSTRY SAMPLES</span>
+    </div>
+    <div class="drawing-title">
+      <h2>他業界の<em>制作例</em>。</h2>
+      <div class="desc">index of related industry sample drawings</div>
+    </div>
+  </div>
+
+  <div class="others-table">
+    <div class="h">
+      <div>Drawing</div><div>Industry</div><div>Headline</div><div>View</div>
+    </div>
+    <a href="/services/recruitment-branding.html#case" class="r">
+      <div class="pn">S/N 01</div>
+      <div class="name">注文住宅・建設業<span class="en">CUSTOM HOME / CONSTRUCTION</span></div>
+      <div class="desc">密度ゼロの豊かさを、住まいに。</div>
+      <div>OPEN ▸</div>
     </a>
-    <a href="/services/samples/woodwork.html" class="others-card">
-      <div>
-        <div class="num">Sample 03</div>
-        <div class="industry-jp">伝統工芸・指物</div>
-        <div class="industry-en">Traditional Woodwork</div>
-        <div class="desc">「百年使える家具を、つくる人を、育てる」。後継者育成補助金活用前提の伝統工芸サンプル。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/woodwork.html" class="r">
+      <div class="pn">S/N 03</div>
+      <div class="name">伝統工芸・指物<span class="en">TRADITIONAL WOODWORK</span></div>
+      <div class="desc">百年使える家具を、つくる人を、育てる。</div>
+      <div>OPEN ▸</div>
     </a>
-    <a href="/services/samples/precision.html" class="others-card">
-      <div>
-        <div class="num">Sample 04</div>
-        <div class="industry-jp">精密金属加工</div>
-        <div class="industry-en">Precision Metalwork</div>
-        <div class="desc">「ミクロン単位で、命を支える」。医療・航空のニッチトップ製造業向けピッチ。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/precision.html" class="r">
+      <div class="pn">S/N 04</div>
+      <div class="name">精密金属加工<span class="en">PRECISION METALWORK</span></div>
+      <div class="desc">ミクロン単位で、命を支える。</div>
+      <div>OPEN ▸</div>
     </a>
-    <a href="/services/samples/funeral.html" class="others-card">
-      <div>
-        <div class="num">Sample 05</div>
-        <div class="industry-jp">葬儀社・葬祭</div>
-        <div class="industry-en">Funeral Services</div>
-        <div class="desc">「最後の時間に、丁寧を」。地域密着型葬儀社の業界忌避を解くピッチ。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/funeral.html" class="r">
+      <div class="pn">S/N 05</div>
+      <div class="name">葬儀社・葬祭<span class="en">FUNERAL SERVICES</span></div>
+      <div class="desc">最後の時間に、丁寧を。</div>
+      <div>OPEN ▸</div>
     </a>
   </div>
 </section>
 
-<section class="cta-strip">
-  <h2>この粒度で、御社の<em>採用ピッチ</em>を作ります。</h2>
-  <p>Initial 30-minute consultation — free of charge.</p>
-  <div class="cta-strip-actions">
-    <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（電気工事業サンプル経由）" class="cta-strip-btn primary">
-      <span class="jp">無料相談を申し込む</span><span class="arrow">→</span>
-    </a>
-    <a href="/services/recruitment-branding.html" class="cta-strip-btn">
-      <span class="jp">サービス概要に戻る</span><span class="arrow">→</span>
-    </a>
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-frame">
+    <div class="cta-prompt">VD-CONSULT &nbsp;&gt;&nbsp; INITIAL_CONSULTATION_FREE.exe</div>
+    <h2>御社の採用ピッチを、<br>この<em>仕様</em>で。</h2>
+    <p>30分の初回相談からはじめます。御社の状況を伺い、設計の方向性をその場で提示します。料金発生は、見積もり合意後から。</p>
+    <div class="cta-actions">
+      <a class="cta-btn" href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（電気工事業サンプル経由）">Book Consultation</a>
+      <a class="cta-btn alt" href="/services/recruitment-branding.html">Service Overview</a>
+    </div>
   </div>
 </section>
 
+<!-- FOOTER (title block) -->
 <footer>
-  <div class="footer-inner">
-    <span>VD / SVC02 / SAMPLE 02 — Electrical Contractor</span>
-    <span>
-      <a href="/">Home</a>
-      <a href="/services/recruitment-branding.html">Service</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-    </span>
-    <span>© 2026 Vitality Design LLC.</span>
-  </div>
+  <div><span class="k">Document ID</span><span class="v">VD-S02-002 / REV A.1</span></div>
+  <div><span class="k">Issue</span><span class="v">2026 ／ TOKYO</span></div>
+  <div><span class="k">Drawn By</span><span class="v">Vitality Design LLC.</span></div>
+  <div><span class="k">References</span><span class="v"><a href="/">HOME</a> ／ <a href="/services/recruitment-branding.html">SVC</a> ／ <a href="/privacy.html">PRIV</a></span></div>
 </footer>
 
 </body>

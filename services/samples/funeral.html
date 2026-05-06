@@ -7,314 +7,679 @@
 <meta name="description" content="葬儀社向け採用ブランディングの制作例。若者の業界忌避と3Kイメージを、地域密着型の中堅葬儀社の哲学から再設計した架空ケース。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/services/css/sample.css">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECE7DC;
+  --ink:#1C1A18;
+  --ink-soft:#3E3A36;
+  --ink-faint:#7E776B;
+  --accent:#3D3550;
+  --sand:#8E7E6A;
+  --vermilion:#C8392B;
+  --rule:rgba(28,26,24,0.1);
+  --rule-strong:rgba(28,26,24,0.2);
+  --serif:'Shippori Mincho B1', 'Yu Mincho', serif;
+  --serif-en:'Cormorant Garamond', 'Shippori Mincho B1', serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--serif);font-weight:300;
+  font-size:15px;line-height:2.4;letter-spacing:0.04em;
+  font-feature-settings:"palt" 1;
+}
+::selection{background:var(--accent);color:var(--bg);}
+
+/* === thin VD top bar (parent brand) === */
+.brand-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 48px;border-bottom:0.5px solid var(--rule);
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.18em;color:var(--ink-faint);text-transform:uppercase;
+}
+.brand-bar .lhs{display:flex;align-items:center;gap:12px;}
+.brand-bar .vd-mark{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--vermilion);
+}
+.brand-bar a{color:var(--ink-soft);text-decoration:none;}
+.brand-bar a:hover{color:var(--accent);}
+
+/* === document marker — small label, not a banner === */
+.doc-marker{
+  text-align:center;padding:80px 48px 0;
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:12px;letter-spacing:0.32em;color:var(--ink-faint);
+  text-transform:uppercase;
+}
+.doc-marker .sample{color:var(--vermilion);font-weight:400;}
+
+/* === CENTER VERTICAL RULE — primary visual element === */
+.center-rule{
+  position:fixed;top:60px;bottom:60px;left:50%;width:0.5px;
+  background:var(--rule);z-index:0;pointer-events:none;
+}
+
+/* === HERO (very spacious) === */
+.hero{
+  padding:200px 48px 240px;text-align:center;
+  position:relative;
+}
+.hero .industry-en{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:13px;letter-spacing:0.42em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:120px;
+}
+.hero h1{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(40px,6vw,76px);
+  line-height:1.65;letter-spacing:0.16em;
+  color:var(--ink);margin-bottom:96px;
+}
+.hero h1 em{
+  font-style:normal;color:var(--accent);font-weight:400;
+}
+.hero .lead{
+  max-width:520px;margin:0 auto;
+  font-family:var(--serif);font-weight:400;font-size:14px;
+  line-height:2.6;letter-spacing:0.05em;
+  color:var(--ink-soft);
+}
+.hero-sigil{
+  display:inline-flex;flex-direction:column;align-items:center;gap:48px;
+  margin-bottom:96px;
+}
+.hero-sigil .line{width:0.5px;height:80px;background:var(--rule-strong);}
+.hero-sigil .kanji{
+  font-family:var(--serif);font-weight:400;font-size:32px;
+  color:var(--accent);letter-spacing:0.2em;
+}
+
+/* === SECTION RHYTHM === */
+.chapter{
+  padding:160px 48px;text-align:center;position:relative;
+}
+.chapter-num{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:13px;letter-spacing:0.42em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:80px;
+}
+.chapter-num span{display:inline-block;padding:0 16px;background:var(--bg);position:relative;z-index:1;}
+.chapter-num::before{
+  content:"";position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);width:200px;height:0.5px;
+  background:var(--rule);z-index:0;
+}
+.chapter h2{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(28px,3.6vw,46px);
+  line-height:1.7;letter-spacing:0.1em;margin-bottom:32px;
+}
+.chapter h2 em{font-style:normal;color:var(--accent);font-weight:400;}
+.chapter .chapter-en{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:14px;color:var(--ink-faint);letter-spacing:0.16em;
+}
+
+/* === META block (centered, sparse) === */
+.meta{
+  max-width:640px;margin:0 auto;padding:120px 48px;
+  text-align:center;
+}
+.meta-row{
+  display:grid;grid-template-columns:120px 1fr;gap:48px;
+  padding:18px 0;text-align:left;
+}
+.meta-row + .meta-row{border-top:0.5px solid var(--rule);}
+.meta-key{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:11px;letter-spacing:0.28em;color:var(--ink-faint);
+  text-transform:uppercase;padding-top:6px;
+}
+.meta-val{
+  font-family:var(--serif);font-weight:400;font-size:15px;
+  letter-spacing:0.06em;line-height:1.85;color:var(--ink);
+}
+.meta-val .en{
+  display:block;margin-top:4px;
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:12px;letter-spacing:0.08em;color:var(--ink-faint);
+}
+
+/* === BRIEF — long form essay style === */
+.brief{
+  max-width:560px;margin:0 auto;padding:80px 48px 160px;
+}
+.brief p{
+  font-family:var(--serif);font-weight:400;font-size:15.5px;
+  line-height:2.4;letter-spacing:0.06em;color:var(--ink);
+  margin-bottom:1.8em;
+  text-indent:1em;
+}
+.brief p:first-of-type{text-indent:0;}
+.brief p:first-of-type::first-letter{
+  font-family:var(--serif);font-size:3em;float:left;
+  line-height:1;margin:0.05em 0.15em -0.05em 0;
+  color:var(--accent);font-weight:400;
+}
+.brief-quote{
+  margin:64px auto;text-align:center;
+  font-family:var(--serif);font-weight:400;
+  font-size:18px;line-height:2;letter-spacing:0.08em;
+  color:var(--accent);max-width:480px;
+  padding:32px 0;
+  border-top:0.5px solid var(--rule-strong);
+  border-bottom:0.5px solid var(--rule-strong);
+}
+.brief-quote .by{
+  display:block;margin-top:18px;
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:11px;letter-spacing:0.18em;color:var(--ink-faint);
+  text-transform:uppercase;
+}
+
+/* === PAGES — one per row, each with massive whitespace === */
+.pages{padding:120px 0 80px;}
+.pages-intro{
+  text-align:center;max-width:520px;margin:0 auto 96px;
+  padding:0 48px;
+}
+.pages-intro h3{
+  font-family:var(--serif);font-weight:300;
+  font-size:24px;letter-spacing:0.1em;line-height:1.7;
+  margin-bottom:18px;
+}
+.pages-intro h3 em{font-style:normal;color:var(--accent);font-weight:400;}
+.pages-intro .meta-en{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:12px;letter-spacing:0.18em;color:var(--ink-faint);
+  text-transform:uppercase;
+}
+
+.page-row{
+  max-width:980px;margin:0 auto 96px;
+  padding:0 48px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.page-row:nth-child(even){direction:rtl;}
+.page-row:nth-child(even) > *{direction:ltr;}
+
+.page-canvas{
+  aspect-ratio:210/297;
+  background:#F2EDDF;
+  border:0.5px solid var(--rule-strong);
+  position:relative;
+  display:flex;flex-direction:column;
+  padding:48px 36px;
+}
+.page-canvas::before{
+  content:"";position:absolute;
+  left:50%;top:30px;bottom:30px;width:0.5px;
+  background:rgba(28,26,24,0.06);
+}
+.page-canvas .pg-num{
+  position:absolute;top:24px;left:24px;
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:10px;letter-spacing:0.22em;color:var(--accent);
+  text-transform:uppercase;
+}
+.page-canvas .pg-num strong{font-weight:400;}
+
+/* P1 cover */
+.p-cover{justify-content:flex-end;align-items:center;text-align:center;}
+.p-cover .h{
+  font-family:var(--serif);font-weight:400;font-size:18px;
+  line-height:1.7;letter-spacing:0.12em;color:var(--ink);margin-bottom:16px;
+}
+.p-cover .h em{color:var(--accent);font-style:normal;font-weight:500;}
+.p-cover .sub{
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.16em;color:var(--ink-faint);
+}
+
+/* P2 philosophy */
+.p-philo{justify-content:center;}
+.p-philo .h{
+  font-family:var(--serif);font-weight:300;font-size:18px;
+  line-height:2;letter-spacing:0.12em;text-align:center;
+  color:var(--ink);
+}
+.p-philo .h em{color:var(--accent);font-style:normal;font-weight:500;}
+.p-philo .body{
+  margin-top:24px;font-size:9px;line-height:2.2;letter-spacing:0.04em;
+  color:var(--ink-soft);text-align:center;
+  max-width:240px;margin-left:auto;margin-right:auto;
+}
+
+/* P3 timeline */
+.p-time{justify-content:flex-start;}
+.p-time .h{
+  text-align:center;font-family:var(--serif);font-weight:400;
+  font-size:13px;letter-spacing:0.14em;line-height:1.7;margin-bottom:32px;
+}
+.p-time .h em{color:var(--accent);font-style:normal;font-weight:500;}
+.p-time .stops{display:flex;flex-direction:column;gap:14px;}
+.p-time .stop{
+  display:grid;grid-template-columns:24px 1fr;gap:14px;align-items:baseline;
+  font-size:9px;line-height:1.4;
+}
+.p-time .stop .n{
+  font-family:var(--serif-en);font-style:italic;color:var(--accent);
+  font-size:10px;
+}
+.p-time .stop .label{font-family:var(--serif);font-weight:500;color:var(--ink);}
+.p-time .stop .when{
+  display:block;font-weight:300;color:var(--ink-faint);
+  font-size:8.5px;margin-top:2px;
+}
+
+/* P4 career */
+.p-career .h{
+  text-align:center;font-family:var(--serif);font-weight:400;
+  font-size:13px;letter-spacing:0.14em;line-height:1.7;margin-bottom:32px;
+}
+.p-career .h em{color:var(--accent);font-style:normal;font-weight:500;}
+.p-career .grid{display:flex;flex-direction:column;gap:0;}
+.p-career .row{
+  display:grid;grid-template-columns:50px 1fr 50px;gap:10px;
+  padding:8px 0;font-size:9px;line-height:1.5;
+  border-bottom:0.5px solid rgba(28,26,24,0.08);
+}
+.p-career .row:last-child{border-bottom:none;}
+.p-career .row .stage{font-family:var(--serif);font-weight:500;color:var(--ink);}
+.p-career .row .skill{font-family:var(--serif);font-weight:300;color:var(--ink-soft);font-size:8.5px;}
+.p-career .row .salary{font-family:var(--serif-en);font-style:italic;text-align:right;color:var(--accent);font-size:10px;}
+
+/* P5 voices */
+.p-voices{justify-content:flex-start;padding-top:56px;}
+.p-voices .h{
+  text-align:center;font-family:var(--serif);font-weight:400;
+  font-size:13px;letter-spacing:0.14em;margin-bottom:24px;
+}
+.p-voices .h em{color:var(--accent);font-style:normal;font-weight:500;}
+.p-voices .v{padding:14px 0;border-bottom:0.5px solid rgba(28,26,24,0.08);}
+.p-voices .v:last-child{border-bottom:none;}
+.p-voices .v .who{
+  display:block;font-family:var(--serif);font-size:9.5px;font-weight:500;
+  color:var(--accent);margin-bottom:4px;letter-spacing:0.06em;
+}
+.p-voices .v .who span{font-weight:300;color:var(--ink-faint);margin-left:8px;font-style:italic;}
+.p-voices .v .quote{
+  font-family:var(--serif);font-size:8.5px;line-height:1.85;
+  color:var(--ink-soft);font-weight:400;
+}
+
+/* P6 recruit */
+.p-recruit .h{
+  text-align:center;font-family:var(--serif);font-weight:400;
+  font-size:13px;letter-spacing:0.14em;margin-bottom:24px;
+}
+.p-recruit .h em{color:var(--accent);font-style:normal;font-weight:500;}
+.p-recruit .row{
+  display:grid;grid-template-columns:1fr auto;gap:10px;
+  padding:7px 0;font-size:9px;
+  border-bottom:0.5px solid rgba(28,26,24,0.08);
+}
+.p-recruit .row .key{color:var(--ink-faint);font-weight:300;}
+.p-recruit .row .val{font-weight:500;color:var(--ink);text-align:right;}
+.p-recruit .row .val em{color:var(--accent);font-style:normal;font-weight:500;}
+.p-recruit .foot{
+  text-align:center;margin-top:auto;padding-top:18px;
+  font-size:9.5px;line-height:1.7;color:var(--accent);
+  font-weight:400;letter-spacing:0.05em;
+}
+.p-recruit .foot em{display:block;margin-top:6px;font-style:italic;color:var(--sand);font-weight:300;}
+
+/* page caption */
+.page-caption{padding:0 16px;}
+.page-caption .label{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:11px;letter-spacing:0.32em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:18px;
+}
+.page-caption h4{
+  font-family:var(--serif);font-weight:400;font-size:22px;
+  line-height:1.7;letter-spacing:0.06em;margin-bottom:18px;
+  color:var(--ink);
+}
+.page-caption p{
+  font-family:var(--serif);font-weight:400;font-size:14px;
+  line-height:2.2;letter-spacing:0.04em;color:var(--ink-soft);
+}
+
+/* === OTHERS — vertical list === */
+.others{
+  padding:160px 48px;text-align:center;background:transparent;
+  border-top:0.5px solid var(--rule);
+}
+.others h2{
+  font-family:var(--serif);font-weight:300;
+  font-size:24px;letter-spacing:0.16em;margin-bottom:64px;
+  color:var(--ink);
+}
+.others h2 em{color:var(--accent);font-style:normal;font-weight:400;}
+.others-list{max-width:520px;margin:0 auto;}
+.others-row{
+  display:grid;grid-template-columns:32px 1fr 24px;gap:18px;
+  padding:24px 0;align-items:baseline;
+  border-bottom:0.5px solid var(--rule);
+  text-decoration:none;color:inherit;
+  transition:padding-left 0.4s ease;
+}
+.others-row:first-child{border-top:0.5px solid var(--rule);}
+.others-row:hover{padding-left:12px;}
+.others-row .n{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:11px;color:var(--accent);letter-spacing:0.16em;
+}
+.others-row .name{
+  font-family:var(--serif);font-weight:400;font-size:15px;
+  letter-spacing:0.08em;color:var(--ink);text-align:left;
+}
+.others-row .name .en{
+  display:block;font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:11px;color:var(--ink-faint);letter-spacing:0.06em;margin-top:2px;
+}
+.others-row .arrow{
+  font-family:var(--serif-en);font-style:italic;color:var(--accent);
+  font-size:14px;
+}
+
+/* === CTA === */
+.cta{
+  padding:200px 48px;text-align:center;background:transparent;
+  border-top:0.5px solid var(--rule);
+}
+.cta h2{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(28px,4vw,52px);line-height:1.65;letter-spacing:0.12em;
+  margin-bottom:48px;color:var(--ink);
+}
+.cta h2 em{font-style:normal;color:var(--accent);font-weight:400;}
+.cta .small{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:13px;letter-spacing:0.16em;color:var(--ink-faint);
+  margin-bottom:64px;text-transform:uppercase;
+}
+.cta a{
+  font-family:var(--serif);font-weight:400;font-size:15px;
+  letter-spacing:0.16em;color:var(--accent);
+  border-bottom:0.5px solid var(--accent);
+  text-decoration:none;padding-bottom:6px;
+  transition:letter-spacing 0.4s ease;
+}
+.cta a:hover{letter-spacing:0.22em;}
+.cta a + a{margin-left:64px;}
+
+/* === FOOTER === */
+footer{
+  padding:48px;text-align:center;
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:11px;letter-spacing:0.18em;color:var(--ink-faint);
+  text-transform:uppercase;border-top:0.5px solid var(--rule);
+}
+footer a{color:var(--ink-faint);text-decoration:none;margin:0 14px;}
+footer a:hover{color:var(--accent);}
+
+@media (max-width:760px){
+  .brand-bar{padding:14px 24px;}
+  .doc-marker{padding:60px 24px 0;}
+  .center-rule{display:none;}
+  .hero{padding:120px 24px 160px;}
+  .hero-sigil .line{height:48px;}
+  .chapter{padding:100px 24px;}
+  .meta,.brief,.pages-intro{padding-left:24px;padding-right:24px;}
+  .page-row{grid-template-columns:1fr;gap:40px;padding:0 24px;}
+  .page-row:nth-child(even){direction:ltr;}
+  .others,.cta{padding:100px 24px;}
+  .cta a + a{display:block;margin:24px 0 0;}
+}
+</style>
 </head>
-<body class="theme-funeral">
+<body>
 
-<svg width="0" height="0" style="position:absolute;">
-  <defs>
-    <symbol id="vd-mark" viewBox="0 0 60 60">
-      <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
-      <circle cx="44" cy="18" r="3.5" fill="#C8392B"/>
-    </symbol>
-  </defs>
-</svg>
+<div class="brand-bar">
+  <div class="lhs"><span class="vd-mark"></span><span>Vitality Design LLC.</span></div>
+  <a href="/services/recruitment-branding.html">← Service Overview</a>
+</div>
 
-<nav class="nav">
-  <div class="nav-brand">
-    <a href="/">
-      <span class="mark"><svg><use href="#vd-mark"/></svg></span>
-      <span class="nav-name">
-        <span class="jp">バイタリティデザイン合同会社</span>
-        <span class="en">Vitality Design LLC.</span>
-      </span>
-    </a>
-  </div>
-  <div class="nav-center"><strong>§</strong>Sample N°05 — Funeral Services</div>
-  <div class="nav-back"><a href="/services/recruitment-branding.html">← Service Overview</a></div>
-</nav>
+<div class="center-rule"></div>
 
-<div class="sample-banner">
-  <span class="badge">Sample</span>
-  <div class="text">
-    <strong>架空クライアントを想定した制作例です。</strong>
-    <span>This is a demonstration case built on a fictional client. Output for actual engagements is created from hearings.</span>
-  </div>
+<div class="doc-marker">
+  <span class="sample">Sample</span> &nbsp;／&nbsp; Field N°05 ／ Funeral Services ／ Architectural Demonstration Case
 </div>
 
 <section class="hero">
-  <div class="hero-watermark">送</div>
+  <div class="industry-en">Sample Case 05 ／ Funeral Services</div>
 
-  <div class="hero-meta">
-    <div class="cell"><span>Industry Sample</span><strong>VD / SVC02 / SAMPLE 05</strong></div>
-    <div class="cell center"><span>Category</span><strong>FUNERAL SERVICES — REGIONAL</strong></div>
-    <div class="cell right"><span>Engagement</span><strong>8 WEEKS · A4 6 PAGES + LP</strong></div>
+  <div class="hero-sigil">
+    <span class="line"></span>
+    <span class="kanji">送</span>
+    <span class="line"></span>
   </div>
 
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="bar"></span><span>Sample Case 05 ／ 葬儀社・葬祭</span></div>
-    <h1>
-      最後の時間に、<br>
-      <em>丁寧</em>を。
-      <span class="en">For a regional funeral services firm — a recruitment pitch.</span>
-    </h1>
-    <p class="hero-lead">
-      創業74期、地域密着型の中堅葬儀社。葬祭ディレクターの<strong>有資格者は5名のみ、若手の応募は3年で2名</strong>。「3Kの仕事」「死を扱う暗い業界」というイメージに、地域からの厚い信頼と、ご遺族からの深い感謝の手紙という事実が、まったく届いていなかった──そんな業界構造を想定した架空ケースです。
-    </p>
-  </div>
+  <h1>最後の時間に、<br><em>丁寧</em>を。</h1>
+
+  <p class="lead">
+    創業七十四期、地域密着型の中堅葬儀社。<br>
+    若者の業界忌避と「3K」のイメージの裏で、<br>
+    ご遺族からの感謝の手紙が、毎月十通届いていた。<br>
+    その事実を、誌面の中核に据え直すための制作例。
+  </p>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="case-meta">
-      <div class="case-meta-cell"><div class="key">Client</div><div class="val">株式会社 静庵葬祭<span class="en">Seian Sosai Inc.<br>※ 架空クライアント</span></div></div>
-      <div class="case-meta-cell"><div class="key">Industry</div><div class="val">葬儀・葬祭・仏具<span class="en">Funeral &amp; Buddhist Services</span></div></div>
-      <div class="case-meta-cell"><div class="key">Scale</div><div class="val">50名／年商 6.8億円<span class="en">Founded 1952 — 74th year</span></div></div>
-      <div class="case-meta-cell"><div class="key">Engagement</div><div class="val">8週間／資料＋採用LP<span class="en">8 weeks · pitch + landing page</span></div></div>
+<section class="chapter">
+  <div class="chapter-num"><span>§ 一</span></div>
+  <h2>仮の<em>クライアント像</em>。</h2>
+  <div class="chapter-en">A fictional client we built this case around.</div>
+</section>
+
+<div class="meta">
+  <div class="meta-row">
+    <div class="meta-key">Client</div>
+    <div class="meta-val">株式会社 静庵葬祭<span class="en">Seian Sosai Inc. ／ 架空クライアント</span></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-key">Industry</div>
+    <div class="meta-val">葬儀・葬祭・仏具<span class="en">Funeral &amp; Buddhist Services</span></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-key">Founded</div>
+    <div class="meta-val">一九五二年（七十四期目）<span class="en">Founded 1952 — 74th year</span></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-key">Scale</div>
+    <div class="meta-val">五十名／年商 六億八千万円<span class="en">50 staff ／ ¥680M revenue</span></div>
+  </div>
+  <div class="meta-row">
+    <div class="meta-key">Engagement</div>
+    <div class="meta-val">八週間／資料＋採用LP<span class="en">8 weeks · pitch &amp; landing page</span></div>
+  </div>
+</div>
+
+<section class="chapter">
+  <div class="chapter-num"><span>§ 二</span></div>
+  <h2>ご依頼の<em>背景</em>。</h2>
+  <div class="chapter-en">Brief — what brought us together.</div>
+</section>
+
+<div class="brief">
+  <p>創業七十四期目、千葉県内で家族葬・社葬・法要・仏壇仏具を扱う地域密着型葬儀社。地元での認知度は高く、年間施行件数は五百件を超えていた。喪主の世代交代に合わせて、家族葬への対応を十年前から強化してきた、歴史と実装の両方を持つ会社だった。</p>
+  <p>採用面では、業界全体の「3K」「夜間勤務がきつい」「死を扱う」というネガティブイメージが強く、若手の応募が三年で二名のみ。葬祭ディレクター一級の有資格者は五名（うち四名が五十代）。技術継承の時間が、確実に減っていた。</p>
+  <p>私たちは、社内で見せていただいたご遺族からの感謝の手紙ファイル——毎月十通超、二十年分の蓄積——を起点に、この仕事の本質を「人生最後の余白を整える職業」として再定義した上で、採用ピッチを設計しました。</p>
+
+  <div class="brief-quote">
+    派手さは要らない。ご遺族の隣に、何時間でも黙って座っていられる強さと、必要な瞬間に必要な一言だけを差し出せる繊細さで、人を選びたい。
+    <span class="by">— 代表 ヒアリング 第二回</span>
+  </div>
+</div>
+
+<section class="pages">
+  <div class="pages-intro">
+    <h3>納品物 ／ <em>六枚</em>のピッチ資料。</h3>
+    <div class="meta-en">A4 ／ Six spreads ／ PDF + Landing page</div>
+  </div>
+
+  <!-- P1 -->
+  <div class="page-row">
+    <div class="page-canvas p-cover">
+      <span class="pg-num"><strong>P · 一</strong> Cover</span>
+      <div class="h">最後の時間に、<br><em>丁寧</em>を。</div>
+      <div class="sub">2027 Recruitment</div>
     </div>
-
-    <div class="case-brief">
-      <div>
-        <div class="case-brief-meta">— Brief</div>
-        <h3 class="case-brief-h">「3Kの仕事」というイメージの裏で、<em>感謝の手紙</em>が毎月10通届いている。</h3>
-      </div>
-      <div class="case-brief-body">
-        <p>創業74期目、千葉県内で家族葬・社葬・法要・仏壇仏具を扱う地域密着型葬儀社。地元での認知度は高く、年間施行件数は500件超。喪主の世代交代に合わせて、家族葬への対応を10年前から強化してきた。</p>
-        <p>採用面では、業界全体の「3K」「夜間勤務がきつい」「死を扱う」というネガティブイメージが強く、若手の応募が3年で2名のみ。葬祭ディレクター1級の有資格者は5名（うち4名が50代）。技術継承の時間が、確実に減っている。</p>
-        <p>私たちは、社内で見せていただいたご遺族からの感謝の手紙ファイル（毎月10通超、20年分の蓄積）を起点に、この仕事の本質を「人生最後の余白を整える職業」として再定義した上で、採用ピッチを設計しました。</p>
-        <div class="brief-quote">
-          派手さは要らない。ご遺族の隣に、何時間でも黙って座っていられる強さと、<br>必要な瞬間に必要な一言だけを差し出せる繊細さで、人を選びたい。
-          <span class="by">— 代表 ヒアリング 第2回</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="pages-head">
-      <h3 class="pages-h">納品物 ／ <em>6ページ</em>のピッチ資料 ＋ 採用LP。</h3>
-      <span class="pages-meta">A4 / 6 spreads · PDF + LP 1page</span>
-    </div>
-
-    <div class="pages-grid">
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-cover">
-          <span class="page-num"><strong>P · 01</strong> Cover</span>
-          <div class="cover-art">
-            <svg viewBox="0 0 200 140" fill="none">
-              <line x1="100" y1="20" x2="100" y2="120" stroke="#3D3550" stroke-width="0.4"/>
-              <circle cx="100" cy="55" r="18" fill="none" stroke="#3D3550" stroke-width="0.5"/>
-              <circle cx="100" cy="55" r="8" fill="none" stroke="#8E7E6A" stroke-width="0.6"/>
-              <path d="M 90 75 Q 100 88 110 75" stroke="#3D3550" stroke-width="0.5" fill="none"/>
-              <path d="M 92 80 Q 100 92 108 80" stroke="#3D3550" stroke-width="0.4" fill="none"/>
-              <line x1="60" y1="100" x2="140" y2="100" stroke="#8E7E6A" stroke-width="0.4"/>
-              <line x1="80" y1="105" x2="120" y2="105" stroke="#3D3550" stroke-width="0.3"/>
-            </svg>
-          </div>
-          <div class="cover-h">最後の時間に、<br><em>丁寧</em>を。</div>
-          <div class="cover-sub">2027 Recruitment</div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 01 — Cover</span>
-          <span class="title">表紙：蓮華と線香のニュアンスだけで、業界を伝える。</span>
-          <span class="desc">過剰な象徴を排し、線対称の静謐な構図で「最後の時間」のトーンを設計する。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-philosophy">
-          <span class="page-num"><strong>P · 02</strong> Philosophy</span>
-          <div>
-            <div class="philo-headline">サービス業ではない。<br><em>余白を整える</em>仕事。</div>
-            <p class="philo-body">葬儀の仕事は、人生で最も静かな時間に立ち会う職業です。派手な技術も、声の大きさも要りません。求められるのは、ご遺族の隣に、何時間でも黙って座っていられる強さと、必要な瞬間に必要な一言だけを差し出せる繊細さです。</p>
-          </div>
-          <div class="philo-svg">
-            <svg viewBox="0 0 200 50" fill="none">
-              <line x1="20" y1="25" x2="180" y2="25" stroke="#1C1A18" stroke-width="0.3"/>
-              <circle cx="60" cy="25" r="3" fill="#3D3550"/>
-              <circle cx="100" cy="25" r="6" fill="none" stroke="#8E7E6A" stroke-width="0.6"/>
-              <circle cx="140" cy="25" r="3" fill="#3D3550"/>
-              <text x="60" y="42" font-family="serif" font-size="5" text-anchor="middle" fill="#3D3550" font-style="italic">family</text>
-              <text x="100" y="42" font-family="serif" font-size="5" text-anchor="middle" fill="#8E7E6A" font-style="italic">us</text>
-              <text x="140" y="42" font-family="serif" font-size="5" text-anchor="middle" fill="#3D3550" font-style="italic">final</text>
-            </svg>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 02 — Philosophy</span>
-          <span class="title">哲学：業界の「3K」イメージを、最初に裏返す。</span>
-          <span class="desc">ご遺族・私たち・最後の時間。三点だけを残し、職業の本質を200字で言い切る構成。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-timeline">
-          <span class="page-num"><strong>P · 03</strong> Timeline</span>
-          <div class="timeline-h">お通夜から、<em>四十九日</em>まで。50日の伴走。</div>
-          <div class="timeline-row"><span class="timeline-num">01</span><span class="timeline-step">受付・初回打合せ<span class="sub">当日〜2日 / ディレクター</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">02</span><span class="timeline-step">通夜・葬儀準備<span class="sub">2日 / 全員</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">03</span><span class="timeline-step">葬儀執行<span class="sub">1日 / 全員</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">04</span><span class="timeline-step">火葬・収骨<span class="sub">1日 / ディレクター</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">05</span><span class="timeline-step">初七日〜四十九日<span class="sub">49日 / 担当者</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">06</span><span class="timeline-step">アフターフォロー<span class="sub">1年 / 担当者</span></span></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 03 — Process Infographic</span>
-          <span class="title">工程：「葬儀1日」のイメージを、50日の伴走に書き直す。</span>
-          <span class="desc">仕事の射程を、当日のオペレーションから1年のアフターまで広げ、職業としての奥行きを伝える。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-career">
-          <span class="page-num"><strong>P · 04</strong> Career Path</span>
-          <div class="career-h">未経験から、<em>葬祭ディレクター</em>まで。7年の道のり。</div>
-          <div class="career-bar"></div>
-          <div class="career-stops">
-            <div>1y<br><span class="yr">230</span></div>
-            <div>2y<br><span class="yr">280</span></div>
-            <div>4y<br><span class="yr">350</span></div>
-            <div>5y<br><span class="yr">450</span></div>
-            <div>7y+<br><span class="yr">550+</span></div>
-          </div>
-          <div class="career-rows">
-            <div class="career-row"><span class="stage">アシスタント</span><span class="skill">受付／祭壇準備</span><span class="salary">¥230</span></div>
-            <div class="career-row"><span class="stage">補助スタッフ</span><span class="skill">通夜サポート／搬送</span><span class="salary">¥280</span></div>
-            <div class="career-row"><span class="stage">D見習い</span><span class="skill">担当を持つ／施行責任</span><span class="salary">¥350</span></div>
-            <div class="career-row"><span class="stage">1級D</span><span class="skill">全責任／喪主対応</span><span class="salary">¥450</span></div>
-            <div class="career-row"><span class="stage">エリアM</span><span class="skill">複数案件管理</span><span class="salary">¥550+</span></div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 04 — Career Infographic</span>
-          <span class="title">道のり：1級葬祭ディレクター取得を、7年に圧縮。</span>
-          <span class="desc">国家検定資格までの道筋を年単位で開示。「資格が取れる」職業としての位置付けを明確化。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-voices">
-          <span class="page-num"><strong>P · 05</strong> Voices</span>
-          <div class="voices-h">先輩の<em>声</em>。</div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">千葉 圭</span><span>28 / 入社3年目 / D見習い</span></div>
-            <div class="voice-quote">前職は法人営業でした。営業のときは、相手に売り込んでいました。今は、相手の言葉を黙って聞く方が長い。これが本当の対人の仕事だと、入ってから知りました。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">飯田 美月</span><span>24 / 入社2年目 / アシスタント</span></div>
-            <div class="voice-quote">看護師から転職しました。看取りの場に立ち会うことには慣れていたつもりでしたが、ここはご家族の側に立つ仕事。看護師では見られなかった景色があります。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">静田 清子</span><span>47 / 入社22年目 / エリアM</span></div>
-            <div class="voice-quote">22年やってきて、ご遺族から「あなたで良かった」と言われた瞬間が、何度もあります。それを若い人に体験してほしくて、教育に時間を使うようになりました。</div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 05 — Voices</span>
-          <span class="title">先輩の声：営業職・看護師・女性管理職。</span>
-          <span class="desc">「業界が暗い」イメージを、対人の専門性として捉え直した3名の独白で解く。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-recruit">
-          <span class="page-num"><strong>P · 06</strong> Recruit</span>
-          <div class="recruit-h">募集要項 ／ <em>アシスタント 見習い</em></div>
-          <div class="recruit-row"><span class="label">給与</span><span class="val">月給 <em>¥230,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">D経験者</span><span class="val">月給 <em>¥360,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">休日</span><span class="val">シフト制 週休2日</span></div>
-          <div class="recruit-row"><span class="label">夜勤</span><span class="val">月3-4回（手当別途）</span></div>
-          <div class="recruit-row"><span class="label">資格支援</span><span class="val">1級葬祭ディレクター取得支援</span></div>
-          <div class="recruit-row"><span class="label">制服</span><span class="val">入社時 全貸与・メンテ会社負担</span></div>
-          <div class="recruit-foot">まずは、施行を一日見にきてください。<em>ご遺族の隣に立てるか、自分の身体に聞いてみてほしい。</em></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 06 — Recruit</span>
-          <span class="title">募集要項：夜勤の頻度を、隠さず先に開示。</span>
-          <span class="desc">業界の不都合な事実（夜勤・シフト）を最初に出し、その上で資格支援・手当を伝える誠実構成。</span>
-        </div>
-      </div>
-
+    <div class="page-caption">
+      <div class="label">Page 一 ／ Cover</div>
+      <h4>表紙：余白に、業界を語らせる。</h4>
+      <p>葬儀の写真や仏具のシンボルを使わず、極端な余白と中央の縦線一本で「静謐」を視覚化する。装飾を加えるたびに、業界が想起させる重さが増す——その引き算を最初に提示。</p>
     </div>
   </div>
+
+  <!-- P2 -->
+  <div class="page-row">
+    <div class="page-canvas p-philo">
+      <span class="pg-num"><strong>P · 二</strong> Philosophy</span>
+      <div class="h">サービス業ではない。<br><em>余白を整える</em>仕事。</div>
+      <div class="body">葬儀の仕事は、人生で最も静かな時間に立ち会う職業です。派手な技術も、声の大きさも要りません。求められるのは、ご遺族の隣に、何時間でも黙って座っていられる強さと、必要な瞬間に必要な一言だけを差し出せる繊細さです。</div>
+    </div>
+    <div class="page-caption">
+      <div class="label">Page 二 ／ Philosophy</div>
+      <h4>哲学：業界の「3K」を、最初に裏返す。</h4>
+      <p>「サービス業ではない」と言い切ることで、求職者の中の業界連想を、入口で断ち切る。誇張のない200字で、職業の輪郭を示す。</p>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="page-row">
+    <div class="page-canvas p-time">
+      <span class="pg-num"><strong>P · 三</strong> Timeline</span>
+      <div class="h">お通夜から、<em>四十九日</em>まで。<br>五十日の伴走。</div>
+      <div class="stops">
+        <div class="stop"><span class="n">一</span><span><span class="label">受付・初回打合せ</span><span class="when">当日〜2日 ／ ディレクター</span></span></div>
+        <div class="stop"><span class="n">二</span><span><span class="label">通夜・葬儀準備</span><span class="when">2日 ／ 全員</span></span></div>
+        <div class="stop"><span class="n">三</span><span><span class="label">葬儀執行</span><span class="when">1日 ／ 全員</span></span></div>
+        <div class="stop"><span class="n">四</span><span><span class="label">火葬・収骨</span><span class="when">1日 ／ ディレクター</span></span></div>
+        <div class="stop"><span class="n">五</span><span><span class="label">初七日〜四十九日</span><span class="when">49日 ／ 担当者</span></span></div>
+        <div class="stop"><span class="n">六</span><span><span class="label">アフターフォロー</span><span class="when">1年 ／ 担当者</span></span></div>
+      </div>
+    </div>
+    <div class="page-caption">
+      <div class="label">Page 三 ／ Process</div>
+      <h4>工程：「葬儀一日」を、五十日の伴走に書き直す。</h4>
+      <p>仕事の射程を、当日のオペレーションから一年のアフターまで広げる。職業としての奥行きを、時間軸で示す。</p>
+    </div>
+  </div>
+
+  <!-- P4 -->
+  <div class="page-row">
+    <div class="page-canvas p-career">
+      <span class="pg-num"><strong>P · 四</strong> Career</span>
+      <div class="h">未経験から、<em>葬祭ディレクター</em>まで。<br>七年の道のり。</div>
+      <div class="grid">
+        <div class="row"><span class="stage">アシスタント</span><span class="skill">受付／祭壇準備</span><span class="salary">¥230</span></div>
+        <div class="row"><span class="stage">補助スタッフ</span><span class="skill">通夜サポート／搬送</span><span class="salary">¥280</span></div>
+        <div class="row"><span class="stage">D見習い</span><span class="skill">担当を持つ</span><span class="salary">¥350</span></div>
+        <div class="row"><span class="stage">1級D</span><span class="skill">全責任／喪主対応</span><span class="salary">¥450</span></div>
+        <div class="row"><span class="stage">エリアM</span><span class="skill">複数案件管理</span><span class="salary">¥550+</span></div>
+      </div>
+    </div>
+    <div class="page-caption">
+      <div class="label">Page 四 ／ Career</div>
+      <h4>道のり：一級葬祭ディレクター取得を、七年で。</h4>
+      <p>国家検定資格までの道筋を、年単位で開示。「資格が取れる」職業としての位置付けを明確にする。</p>
+    </div>
+  </div>
+
+  <!-- P5 -->
+  <div class="page-row">
+    <div class="page-canvas p-voices">
+      <span class="pg-num"><strong>P · 五</strong> Voices</span>
+      <div class="h">先輩の<em>声</em>。</div>
+      <div class="v">
+        <span class="who">千葉 圭 <span>28 ／ 入社3年目</span></span>
+        <p class="quote">前職は法人営業でした。営業のときは、相手に売り込んでいました。今は、相手の言葉を黙って聞く方が長い。これが本当の対人の仕事だと、入ってから知りました。</p>
+      </div>
+      <div class="v">
+        <span class="who">飯田 美月 <span>24 ／ 入社2年目</span></span>
+        <p class="quote">看護師から転職しました。看取りの場に立ち会うことには慣れていたつもりでしたが、ここはご家族の側に立つ仕事。看護師では見られなかった景色があります。</p>
+      </div>
+      <div class="v">
+        <span class="who">静田 清子 <span>47 ／ 入社22年目</span></span>
+        <p class="quote">二十二年やってきて、ご遺族から「あなたで良かった」と言われた瞬間が、何度もあります。それを若い人に体験してほしくて、教育に時間を使うようになりました。</p>
+      </div>
+    </div>
+    <div class="page-caption">
+      <div class="label">Page 五 ／ Voices</div>
+      <h4>先輩の声：営業職・看護師・女性管理職。</h4>
+      <p>「業界が暗い」イメージを、対人の専門性として捉え直した三名の独白で解く。</p>
+    </div>
+  </div>
+
+  <!-- P6 -->
+  <div class="page-row">
+    <div class="page-canvas p-recruit">
+      <span class="pg-num"><strong>P · 六</strong> Recruit</span>
+      <div class="h">募集要項 ／ <em>アシスタント見習い</em>。</div>
+      <div class="row"><span class="key">給与</span><span class="val">月給 <em>¥230,000</em>〜</span></div>
+      <div class="row"><span class="key">D経験者</span><span class="val">月給 <em>¥360,000</em>〜</span></div>
+      <div class="row"><span class="key">休日</span><span class="val">シフト制 週休2日</span></div>
+      <div class="row"><span class="key">夜勤</span><span class="val">月3-4回（手当別途）</span></div>
+      <div class="row"><span class="key">資格支援</span><span class="val">1級葬祭ディレクター</span></div>
+      <div class="row"><span class="key">制服</span><span class="val">入社時 全貸与</span></div>
+      <div class="foot">まずは、施行を一日見にきてください。<em>ご遺族の隣に立てるか、自分の身体に聞いてみてほしい。</em></div>
+    </div>
+    <div class="page-caption">
+      <div class="label">Page 六 ／ Recruit</div>
+      <h4>募集要項：夜勤の頻度を、隠さず先に開示。</h4>
+      <p>業界の不都合な事実（夜勤・シフト）を最初に出した上で、資格支援と制服貸与を伝える誠実構成。</p>
+    </div>
+  </div>
+
 </section>
 
 <section class="others">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-meta"><span class="num">§</span><span class="bar"></span><span>More Samples</span></div>
-        <h2 class="section-h">他業界の<em>制作例</em>。<span class="en">Other industry samples.</span></h2>
-      </div>
-      <p class="section-intro">業界によって、求職者の不安・哲学の翻訳点・キャリアパスはまったく異なります。御社の業界に最も近いサンプルから、ご覧ください。</p>
-    </div>
-  </div>
-
-  <div class="others-grid">
-    <a href="/services/recruitment-branding.html#case" class="others-card">
-      <div>
-        <div class="num">Sample 01</div>
-        <div class="industry-jp">注文住宅・建設業</div>
-        <div class="industry-en">Custom Home Construction</div>
-        <div class="desc">「密度ゼロの豊かさを、住まいに」。1棟ずつ丁寧に作る工務店向けの採用ピッチ。</div>
-      </div>
-      <div class="arrow">View →</div>
+  <h2>他業界の<em>制作例</em>。</h2>
+  <div class="others-list">
+    <a href="/services/recruitment-branding.html#case" class="others-row">
+      <span class="n">一</span>
+      <span class="name">注文住宅・建設業<span class="en">Custom Home Construction</span></span>
+      <span class="arrow">→</span>
     </a>
-    <a href="/services/samples/electrical.html" class="others-card">
-      <div>
-        <div class="num">Sample 02</div>
-        <div class="industry-jp">電気工事業</div>
-        <div class="industry-en">Electrical Contractor</div>
-        <div class="desc">「見えない場所こそ、丁寧に」。下請けイメージで応募ゼロが続く専門工事業向け。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/electrical.html" class="others-row">
+      <span class="n">二</span>
+      <span class="name">電気工事業<span class="en">Electrical Contractor</span></span>
+      <span class="arrow">→</span>
     </a>
-    <a href="/services/samples/woodwork.html" class="others-card">
-      <div>
-        <div class="num">Sample 03</div>
-        <div class="industry-jp">伝統工芸・指物</div>
-        <div class="industry-en">Traditional Woodwork</div>
-        <div class="desc">「百年使える家具を、つくる人を、育てる」。後継者育成補助金活用前提のサンプル。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/woodwork.html" class="others-row">
+      <span class="n">三</span>
+      <span class="name">伝統工芸・指物<span class="en">Traditional Woodwork</span></span>
+      <span class="arrow">→</span>
     </a>
-    <a href="/services/samples/precision.html" class="others-card">
-      <div>
-        <div class="num">Sample 04</div>
-        <div class="industry-jp">精密金属加工</div>
-        <div class="industry-en">Precision Metalwork</div>
-        <div class="desc">「ミクロン単位で、命を支える」。医療・航空のニッチトップ製造業向けピッチ。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/precision.html" class="others-row">
+      <span class="n">四</span>
+      <span class="name">精密金属加工<span class="en">Precision Metalwork</span></span>
+      <span class="arrow">→</span>
     </a>
   </div>
 </section>
 
-<section class="cta-strip">
-  <h2>この粒度で、御社の<em>採用ピッチ</em>を作ります。</h2>
-  <p>Initial 30-minute consultation — free of charge.</p>
-  <div class="cta-strip-actions">
-    <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（葬儀社サンプル経由）" class="cta-strip-btn primary">
-      <span class="jp">無料相談を申し込む</span><span class="arrow">→</span>
-    </a>
-    <a href="/services/recruitment-branding.html" class="cta-strip-btn">
-      <span class="jp">サービス概要に戻る</span><span class="arrow">→</span>
-    </a>
-  </div>
+<section class="cta">
+  <div class="small">— Initial Consultation</div>
+  <h2>御社の採用ピッチも、<br>この<em>静けさ</em>で。</h2>
+  <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（葬儀社サンプル経由）">無料相談を申し込む</a>
+  <a href="/services/recruitment-branding.html">サービス概要に戻る</a>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <span>VD / SVC02 / SAMPLE 05 — Funeral Services</span>
-    <span>
-      <a href="/">Home</a>
-      <a href="/services/recruitment-branding.html">Service</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-    </span>
-    <span>© 2026 Vitality Design LLC.</span>
+  <div>VD ／ SVC02 ／ Sample 五 — Funeral Services</div>
+  <div style="margin-top:12px;">
+    <a href="/">Home</a>
+    <a href="/services/recruitment-branding.html">Service</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
   </div>
+  <div style="margin-top:14px;">© 2026 Vitality Design LLC.</div>
 </footer>
 
 </body>

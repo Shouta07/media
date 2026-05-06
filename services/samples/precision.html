@@ -4,322 +4,959 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>制作例：精密金属加工 — 採用ブランディング — バイタリティデザイン合同会社</title>
-<meta name="description" content="精密金属加工（医療機器・航空機部品）向け採用ブランディングの制作例。地方立地・熟練工高齢化・若手応募ゼロのニッチトップ製造業を想定した架空ケース。">
+<meta name="description" content="精密金属加工（医療機器・航空機部品）向け採用ブランディングの制作例。地方立地・熟練工高齢化のニッチトップ製造業を想定した架空ケース。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/services/css/sample.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F5F7;
+  --paper-deep:#E5E7EB;
+  --paper-light:#FCFCFD;
+  --steel:#1A1D21;
+  --steel-soft:#2C3138;
+  --steel-faint:#6B7280;
+  --blue:#3B5269;
+  --blue-light:#5C7693;
+  --rule:rgba(26,29,33,0.12);
+  --rule-strong:rgba(26,29,33,0.24);
+  --tol-red:#B7392B;
+  --datum:#0A2540;
+  --vermilion:#C8392B;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+  --sans:'Inter','Helvetica Neue',sans-serif;
+  --jp:'Shippori Mincho B1','Noto Serif JP',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);color:var(--steel);
+  font-family:var(--sans);font-weight:400;font-size:14px;line-height:1.6;
+  letter-spacing:0;font-feature-settings:"tnum" 1, "ss01" 1;
+  position:relative;overflow-x:hidden;
+}
+::selection{background:var(--tol-red);color:var(--paper);}
+
+/* fine grid background */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(59,82,105,0.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(59,82,105,0.05) 1px,transparent 1px),
+    linear-gradient(rgba(59,82,105,0.12) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(59,82,105,0.12) 1px,transparent 1px);
+  background-size:8px 8px,8px 8px,80px 80px,80px 80px;
+}
+main, header, footer{position:relative;z-index:1;}
+
+/* === BRAND BAR === */
+.brand-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 24px;
+  background:var(--steel);color:var(--paper);
+  font-family:var(--mono);font-weight:400;font-size:10px;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border-bottom:1px solid var(--steel);
+}
+.brand-bar .lhs{display:flex;align-items:center;gap:10px;}
+.brand-bar .vd-mark{
+  width:6px;height:6px;background:var(--vermilion);border-radius:50%;
+}
+.brand-bar a{color:var(--paper);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px;}
+.brand-bar a:hover{border-color:var(--tol-red);}
+
+/* === ISO DRAWING FRAME — wraps the entire content === */
+.iso-frame{
+  margin:24px;border:1.5px solid var(--steel);
+  background:var(--paper-light);position:relative;
+}
+.iso-frame::before, .iso-frame::after,
+.iso-frame > .corner-tl, .iso-frame > .corner-tr,
+.iso-frame > .corner-bl, .iso-frame > .corner-br{
+  position:absolute;width:24px;height:24px;
+  border:2px solid var(--steel);
+}
+.iso-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+.iso-frame::after{top:-1px;right:-1px;border-left:none;border-bottom:none;}
+.iso-frame .corner-bl{bottom:-1px;left:-1px;border-right:none;border-top:none;}
+.iso-frame .corner-br{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+.iso-frame .corner-tl, .iso-frame .corner-tr{display:none;}
+
+/* dimension labels around frame edges */
+.dim-edge{
+  position:absolute;font-family:var(--mono);font-size:9px;
+  letter-spacing:0.12em;color:var(--blue);text-transform:uppercase;
+}
+.dim-edge.top{top:-15px;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 8px;}
+.dim-edge.left{top:50%;left:-30px;transform:rotate(-90deg) translateX(50%);transform-origin:right;background:var(--paper);padding:0 8px;}
+
+/* === TITLE BLOCK (drawing header) === */
+.tb{
+  display:grid;grid-template-columns:140px 1fr 200px 200px 160px;
+  border-bottom:1.5px solid var(--steel);
+  font-family:var(--mono);font-size:10px;
+}
+.tb-cell{padding:10px 14px;border-right:1px solid var(--rule-strong);}
+.tb-cell:last-child{border-right:none;}
+.tb-cell .k{display:block;font-size:8.5px;letter-spacing:0.16em;color:var(--steel-faint);text-transform:uppercase;margin-bottom:3px;}
+.tb-cell .v{font-size:11px;font-weight:500;color:var(--steel);}
+.tb-cell.dn{background:var(--steel);color:var(--paper);}
+.tb-cell.dn .k{color:rgba(244,245,247,0.5);}
+.tb-cell.dn .v{font-size:14px;font-weight:600;letter-spacing:0.04em;color:var(--paper);}
+.tb-cell.tol{background:var(--tol-red);color:var(--paper);}
+.tb-cell.tol .k{color:rgba(255,255,255,0.65);}
+.tb-cell.tol .v{color:var(--paper);}
+
+/* === HERO === */
+.hero{
+  display:grid;grid-template-columns:1fr 360px;
+  border-bottom:1.5px solid var(--steel);min-height:560px;
+}
+.hero-main{
+  padding:80px 64px;position:relative;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1.5px solid var(--steel);
+}
+.hero-eyebrow{
+  font-family:var(--mono);font-weight:500;font-size:10px;
+  letter-spacing:0.18em;color:var(--blue);text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero-eyebrow::before{content:"⌖ ";color:var(--tol-red);}
+
+.hero h1{
+  font-family:var(--jp);font-weight:600;
+  font-size:clamp(40px,5.6vw,76px);line-height:1.18;letter-spacing:0;
+  margin-bottom:32px;position:relative;
+}
+.hero h1 em{font-style:normal;color:var(--blue);font-weight:600;}
+.hero h1 .tol{
+  position:absolute;top:-8px;right:0;
+  font-family:var(--mono);font-size:11px;color:var(--tol-red);
+  letter-spacing:0.04em;font-weight:500;
+  border:1px solid var(--tol-red);padding:3px 8px;
+}
+
+/* dimension callout under headline */
+.hero-dim{
+  display:flex;align-items:center;gap:12px;margin-bottom:24px;
+  font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:0.08em;
+}
+.hero-dim .arrow-l, .hero-dim .arrow-r{font-weight:500;}
+.hero-dim .line{flex:1;max-width:200px;height:1px;background:var(--blue);}
+
+.hero-lead{
+  max-width:560px;font-size:14.5px;line-height:1.85;color:var(--steel-soft);
+  border-top:1px solid var(--rule);padding-top:24px;
+}
+.hero-lead strong{color:var(--steel);font-weight:600;}
+
+/* dimension stack on the right */
+.hero-side{
+  background:var(--paper-light);padding:48px 32px;
+  display:flex;flex-direction:column;gap:0;
+  font-family:var(--mono);font-size:11px;
+  position:relative;
+}
+.hero-side::before{
+  content:"";position:absolute;top:32px;bottom:32px;left:18px;width:1px;
+  background:var(--blue);
+}
+.hero-side h3{
+  font-family:var(--mono);font-weight:500;font-size:10px;
+  letter-spacing:0.18em;color:var(--steel-faint);text-transform:uppercase;
+  margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--rule-strong);
+}
+.dim-row{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:12px 0 12px 24px;border-bottom:1px dashed var(--rule);position:relative;
+}
+.dim-row::before{
+  content:"";position:absolute;left:14px;top:18px;width:8px;height:1px;background:var(--blue);
+}
+.dim-row .k{font-size:9px;color:var(--steel-faint);letter-spacing:0.12em;text-transform:uppercase;font-weight:500;min-width:80px;padding-top:1px;}
+.dim-row .v{font-weight:500;color:var(--steel);font-size:12px;}
+.dim-row .v em{color:var(--tol-red);font-style:normal;}
+.hero-tol-stamp{
+  margin-top:auto;padding:14px 0 0;border-top:1px solid var(--rule-strong);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.hero-tol-stamp .k{font-family:var(--mono);font-size:9px;color:var(--steel-faint);letter-spacing:0.12em;text-transform:uppercase;}
+.hero-tol-stamp .v{font-family:var(--mono);font-size:13px;color:var(--tol-red);font-weight:600;border:1px solid var(--tol-red);padding:3px 8px;}
+
+/* === SECTION === */
+.section{
+  padding:64px 56px;border-bottom:1.5px solid var(--steel);
+  position:relative;
+}
+.section .crosshair{
+  position:absolute;width:14px;height:14px;
+  background:
+    linear-gradient(var(--blue) 1px,transparent 1px) center / 100% 1px no-repeat,
+    linear-gradient(90deg,var(--blue) 1px,transparent 1px) center / 1px 100% no-repeat;
+}
+.section .ch-tl{top:14px;left:14px;}
+.section .ch-tr{top:14px;right:14px;}
+.section .ch-bl{bottom:14px;left:14px;}
+.section .ch-br{bottom:14px;right:14px;}
+
+.section-head{
+  display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;
+  border-bottom:1px solid var(--rule-strong);padding-bottom:24px;margin-bottom:48px;
+  position:relative;
+}
+.section-head::before{
+  content:"";position:absolute;left:0;right:0;bottom:-7px;
+  height:2px;background:repeating-linear-gradient(90deg,var(--steel) 0,var(--steel) 6px,transparent 6px,transparent 12px);
+}
+.sh-tag{
+  font-family:var(--mono);font-weight:500;
+}
+.sh-tag .ref{
+  font-size:9.5px;color:var(--steel-faint);letter-spacing:0.18em;text-transform:uppercase;
+  display:block;margin-bottom:8px;
+}
+.sh-tag .no{
+  font-family:var(--mono);font-size:36px;font-weight:600;color:var(--datum);
+  letter-spacing:0;line-height:1;
+}
+.sh-tag .meta{font-size:10px;color:var(--steel-faint);letter-spacing:0.12em;text-transform:uppercase;margin-top:8px;}
+.sh-meta{
+  display:flex;flex-direction:column;gap:6px;
+  margin-top:14px;font-family:var(--mono);font-size:10px;
+}
+.sh-meta .row{display:flex;justify-content:space-between;border-top:1px dashed var(--rule);padding-top:6px;}
+.sh-meta .row .k{color:var(--steel-faint);text-transform:uppercase;letter-spacing:0.1em;font-size:9px;}
+.sh-meta .row .v{color:var(--steel);font-weight:500;}
+
+.sh-title h2{
+  font-family:var(--jp);font-weight:600;
+  font-size:clamp(28px,3.4vw,42px);line-height:1.3;letter-spacing:0;
+  margin-bottom:8px;
+}
+.sh-title h2 em{font-style:normal;color:var(--blue);font-weight:600;}
+.sh-title .desc{
+  font-family:var(--mono);font-size:11.5px;color:var(--steel-faint);letter-spacing:0;
+}
+
+/* === GD&T spec table === */
+.gdt-table{
+  font-family:var(--mono);font-size:12px;
+  border:1.5px solid var(--steel);background:var(--paper-light);
+}
+.gdt-row{display:grid;grid-template-columns:60px 60px 1fr 1fr 80px;border-bottom:1px solid var(--rule);}
+.gdt-row:last-child{border-bottom:none;}
+.gdt-row > div{padding:12px 14px;border-right:1px solid var(--rule);display:flex;align-items:center;}
+.gdt-row > div:last-child{border-right:none;}
+.gdt-row.head{background:var(--steel);color:var(--paper);}
+.gdt-row.head > div{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;border-right-color:rgba(244,245,247,0.18);}
+.gdt-row .datum-letter{
+  width:34px;height:34px;background:var(--datum);color:var(--paper);
+  font-weight:600;font-size:13px;letter-spacing:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:50%;
+}
+.gdt-row .pn{color:var(--tol-red);font-weight:500;}
+.gdt-row .desc{font-family:var(--sans);font-weight:500;color:var(--steel);}
+.gdt-row .desc-en{display:block;font-size:10px;color:var(--steel-faint);font-family:var(--mono);margin-top:2px;font-weight:400;}
+.gdt-row .v{color:var(--steel);font-weight:500;}
+.gdt-row .tol{color:var(--tol-red);font-weight:500;text-align:right;}
+
+/* === BRIEF — measurement-style === */
+.brief{
+  background:var(--paper-light);border:1.5px solid var(--steel);position:relative;
+}
+.brief-numbers{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-bottom:1.5px solid var(--steel);
+}
+.brief-numbers > div{padding:24px;border-right:1px solid var(--rule-strong);text-align:center;}
+.brief-numbers > div:last-child{border-right:none;}
+.brief-numbers .v{
+  font-family:var(--mono);font-size:42px;font-weight:600;color:var(--datum);
+  letter-spacing:0;line-height:1;
+}
+.brief-numbers .unit{font-family:var(--mono);font-size:13px;color:var(--steel-faint);font-weight:400;margin-left:4px;}
+.brief-numbers .k{
+  font-family:var(--mono);font-size:10px;color:var(--steel-faint);letter-spacing:0.16em;
+  text-transform:uppercase;margin-top:10px;
+}
+.brief-body{padding:48px 56px;}
+.brief-body p{
+  font-size:14.5px;line-height:1.85;color:var(--steel);
+  margin-bottom:1.4em;
+}
+.brief-body p strong{color:var(--steel);font-weight:600;}
+.brief-body p .ref{
+  font-family:var(--mono);font-size:11px;color:var(--blue);font-weight:500;
+  letter-spacing:0.08em;margin-right:14px;
+}
+
+.brief-quote{
+  margin-top:32px;padding:24px 32px;background:var(--steel);color:var(--paper);
+  position:relative;
+}
+.brief-quote::before{
+  content:"❝";position:absolute;top:8px;left:14px;
+  font-family:var(--jp);font-size:36px;color:var(--tol-red);font-weight:600;line-height:1;
+}
+.brief-quote .text{
+  font-family:var(--jp);font-weight:600;font-size:18px;line-height:1.7;letter-spacing:0;
+  padding-left:36px;
+}
+.brief-quote .by{
+  display:block;margin-top:14px;padding-left:36px;
+  font-family:var(--mono);font-size:10px;color:rgba(244,245,247,0.6);
+  letter-spacing:0.14em;text-transform:uppercase;
+}
+
+/* === DELIVERABLES === */
+.deliv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.deliv-cell{
+  border:1.5px solid var(--steel);background:var(--paper-light);
+  position:relative;
+}
+.deliv-cell::before{
+  content:attr(data-pn);position:absolute;top:-1px;left:-1px;
+  background:var(--steel);color:var(--paper);
+  font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.12em;
+  padding:4px 8px;text-transform:uppercase;
+}
+.deliv-cell::after{
+  content:attr(data-tol);position:absolute;top:-1px;right:-1px;
+  background:var(--tol-red);color:var(--paper);
+  font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.06em;
+  padding:4px 8px;
+}
+
+.dc-canvas{
+  aspect-ratio:210/297;background:var(--paper);
+  position:relative;padding:32px 24px 24px;margin:24px;
+  border:1px solid var(--rule-strong);
+  display:flex;flex-direction:column;
+}
+/* dimension marks at corners of canvas */
+.dc-canvas::before, .dc-canvas::after{
+  content:"";position:absolute;width:10px;height:10px;border:1px solid var(--blue);
+}
+.dc-canvas::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+.dc-canvas::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+/* P1 cover */
+.dc-cover{justify-content:flex-end;align-items:center;text-align:center;}
+.dc-cover svg{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);width:60%;}
+.dc-cover .h{
+  font-family:var(--jp);font-weight:600;font-size:16px;line-height:1.3;
+  position:relative;z-index:2;letter-spacing:0;color:var(--steel);
+}
+.dc-cover .h em{color:var(--blue);font-style:normal;font-weight:600;}
+.dc-cover .sub{
+  font-family:var(--mono);font-size:9.5px;color:var(--steel-faint);
+  margin-top:6px;letter-spacing:0.14em;text-transform:uppercase;
+}
+.dc-cover .tolerance{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:9px;color:var(--tol-red);
+  letter-spacing:0.06em;border:1px solid var(--tol-red);padding:2px 6px;
+}
+
+/* P2 philosophy */
+.dc-philo .h{
+  font-family:var(--jp);font-weight:600;font-size:14px;line-height:1.45;letter-spacing:0;
+  text-align:center;color:var(--steel);
+}
+.dc-philo .h em{color:var(--blue);font-style:normal;font-weight:600;}
+.dc-philo .body{
+  font-family:var(--sans);font-size:8.5px;line-height:1.7;
+  margin-top:14px;color:var(--steel-soft);
+}
+.dc-philo .chain{
+  margin-top:auto;display:flex;align-items:center;gap:6px;justify-content:space-between;
+  font-family:var(--mono);font-size:8.5px;color:var(--blue);letter-spacing:0.06em;
+}
+.dc-philo .chain .step{padding:3px 6px;border:0.5px solid var(--blue);}
+.dc-philo .chain .arrow{color:var(--steel-faint);}
+
+/* P3 timeline */
+.dc-time .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;color:var(--steel);
+}
+.dc-time .h em{color:var(--tol-red);font-style:normal;font-weight:600;}
+.dc-time .row{
+  display:grid;grid-template-columns:24px 1fr 60px;gap:8px;
+  padding:5px 0;font-family:var(--mono);font-size:8.5px;
+  border-bottom:1px solid rgba(59,82,105,0.18);
+  align-items:center;
+}
+.dc-time .row .n{color:var(--datum);font-weight:600;background:rgba(10,37,64,0.06);text-align:center;}
+.dc-time .row .l{font-family:var(--sans);color:var(--steel);font-size:9px;font-weight:500;letter-spacing:0;}
+.dc-time .row .d{color:var(--blue);text-align:right;font-size:8px;font-weight:500;}
+
+/* P4 career */
+.dc-career .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;
+}
+.dc-career .h em{color:var(--tol-red);font-style:normal;font-weight:600;}
+.dc-career .axis{
+  font-family:var(--mono);font-size:7.5px;color:var(--steel-faint);
+  display:grid;grid-template-columns:repeat(5,1fr);text-align:center;letter-spacing:0;margin-bottom:14px;
+  padding:8px 0;border-top:1.5px solid var(--blue);border-bottom:1.5px solid var(--blue);
+  position:relative;
+}
+.dc-career .axis div{position:relative;padding-top:8px;}
+.dc-career .axis div::before{
+  content:"●";position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  color:var(--tol-red);font-size:8px;
+}
+.dc-career .axis div:first-child::before{color:var(--datum);}
+.dc-career .axis div .yr{display:block;color:var(--blue);font-weight:600;font-size:9px;font-family:var(--mono);}
+.dc-career .row{
+  display:grid;grid-template-columns:60px 1fr 50px;gap:8px;
+  padding:5px 0;font-family:var(--mono);font-size:8.5px;
+  border-bottom:1px solid rgba(59,82,105,0.18);
+}
+.dc-career .row .stage{font-family:var(--sans);font-weight:600;color:var(--steel);font-size:9px;}
+.dc-career .row .skill{color:var(--steel-soft);font-size:8.5px;}
+.dc-career .row .salary{text-align:right;color:var(--tol-red);font-weight:600;font-family:var(--mono);}
+
+/* P5 voices */
+.dc-voices .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;
+}
+.dc-voices .h em{color:var(--blue);font-style:normal;font-weight:600;}
+.dc-voices .v{padding:8px 0;border-bottom:1px solid rgba(59,82,105,0.15);}
+.dc-voices .v:last-child{border-bottom:none;}
+.dc-voices .meta{
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:8px;color:var(--steel-faint);letter-spacing:0.04em;margin-bottom:3px;
+}
+.dc-voices .meta .name{font-family:var(--sans);font-weight:600;color:var(--datum);font-size:9px;}
+.dc-voices .quote{font-family:var(--sans);font-size:8.5px;line-height:1.55;color:var(--steel-soft);}
+
+/* P6 recruit */
+.dc-recruit .h{
+  font-family:var(--jp);font-weight:600;font-size:13px;text-align:center;margin-bottom:12px;letter-spacing:0;
+}
+.dc-recruit .h em{color:var(--blue);font-style:normal;font-weight:600;}
+.dc-recruit .row{
+  display:grid;grid-template-columns:1fr auto;gap:10px;
+  padding:6px 0;font-family:var(--mono);font-size:9px;
+  border-bottom:1px solid rgba(59,82,105,0.15);
+}
+.dc-recruit .row .key{color:var(--steel-faint);font-size:8.5px;}
+.dc-recruit .row .val{font-weight:600;color:var(--steel);text-align:right;}
+.dc-recruit .row .val em{color:var(--tol-red);font-style:normal;font-weight:600;}
+.dc-recruit .foot{
+  margin-top:auto;padding:10px;background:var(--datum);color:var(--paper);
+  font-family:var(--sans);font-size:9px;line-height:1.55;text-align:center;
+  font-weight:500;
+}
+.dc-recruit .foot em{color:#C9A961;font-style:normal;display:block;margin-top:4px;font-size:8.5px;}
+
+.dc-caption{
+  padding:20px 24px;border-top:1px solid var(--rule);
+  background:var(--paper-deep);
+}
+.dc-caption .label{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.16em;color:var(--tol-red);
+  text-transform:uppercase;margin-bottom:6px;
+}
+.dc-caption h4{
+  font-family:var(--jp);font-weight:600;font-size:13px;line-height:1.5;letter-spacing:0;
+  margin-bottom:6px;color:var(--steel);
+}
+.dc-caption p{font-size:11.5px;line-height:1.65;color:var(--steel-soft);}
+
+/* === OTHERS — drawing index table === */
+.others-table{
+  font-family:var(--mono);font-size:11px;
+  border:1.5px solid var(--steel);background:var(--paper-light);
+}
+.others-table .h{
+  display:grid;grid-template-columns:80px 1fr 1.5fr 80px;
+  background:var(--steel);color:var(--paper);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;
+}
+.others-table .h > div{padding:10px 14px;border-right:1px solid rgba(244,245,247,0.18);}
+.others-table .h > div:last-child{border-right:none;}
+.others-table .r{
+  display:grid;grid-template-columns:80px 1fr 1.5fr 80px;
+  border-bottom:1px solid var(--rule);text-decoration:none;color:inherit;transition:background 0.2s;
+}
+.others-table .r:last-child{border-bottom:none;}
+.others-table .r:hover{background:var(--paper-deep);}
+.others-table .r > div{padding:14px 14px;border-right:1px solid var(--rule);display:flex;align-items:center;}
+.others-table .r > div:last-child{border-right:none;justify-content:flex-end;color:var(--blue);font-weight:500;}
+.others-table .r .pn{color:var(--tol-red);font-weight:500;}
+.others-table .r .name{font-family:var(--sans);font-weight:600;color:var(--steel);font-size:13.5px;}
+.others-table .r .name .en{display:block;font-family:var(--mono);font-size:9.5px;color:var(--steel-faint);font-weight:400;margin-top:2px;}
+.others-table .r .desc{font-family:var(--sans);font-size:13px;color:var(--steel-soft);}
+
+/* === CTA — measurement frame === */
+.cta-section{padding:80px 56px;border-bottom:1.5px solid var(--steel);}
+.cta{
+  border:2px solid var(--steel);background:var(--paper-light);position:relative;
+  padding:64px 56px;text-align:center;
+}
+.cta::before, .cta::after{
+  content:"";position:absolute;width:24px;height:24px;
+  border:2px solid var(--tol-red);
+}
+.cta::before{top:-2px;left:-2px;border-right:none;border-bottom:none;}
+.cta::after{bottom:-2px;right:-2px;border-left:none;border-top:none;}
+
+.cta-tag{
+  display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;
+  color:var(--tol-red);text-transform:uppercase;background:var(--paper);
+  padding:4px 12px;border:1px solid var(--tol-red);margin-bottom:32px;
+}
+.cta h2{
+  font-family:var(--jp);font-weight:600;font-size:clamp(28px,4vw,52px);line-height:1.3;
+  margin-bottom:24px;color:var(--steel);letter-spacing:0;
+}
+.cta h2 em{font-style:normal;color:var(--blue);font-weight:600;}
+.cta p{font-family:var(--mono);font-size:12px;color:var(--steel-faint);margin-bottom:36px;letter-spacing:0;line-height:1.65;}
+.cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;
+  text-transform:uppercase;text-decoration:none;font-weight:500;
+  border:1.5px solid var(--steel);color:var(--paper);background:var(--steel);
+  transition:all 0.2s;
+}
+.cta-btn::before{content:"⌖";color:var(--tol-red);font-size:14px;}
+.cta-btn:hover{background:var(--tol-red);border-color:var(--tol-red);}
+.cta-btn:hover::before{color:var(--paper);}
+.cta-btn.alt{background:transparent;color:var(--steel);}
+.cta-btn.alt::before{color:var(--steel-faint);}
+.cta-btn.alt:hover{background:var(--steel);color:var(--paper);}
+.cta-btn.alt:hover::before{color:var(--tol-red);}
+
+/* === FOOTER (title block) === */
+.footer-block{
+  display:grid;grid-template-columns:140px 1fr 200px 200px 160px;
+  font-family:var(--mono);font-size:10px;
+  background:var(--paper-light);
+}
+.footer-block > div{padding:12px 14px;border-right:1px solid var(--rule);}
+.footer-block > div:last-child{border-right:none;}
+.footer-block .k{display:block;font-size:8.5px;letter-spacing:0.16em;color:var(--steel-faint);text-transform:uppercase;margin-bottom:3px;}
+.footer-block .v{font-size:11px;font-weight:500;color:var(--steel);}
+.footer-block .v a{color:var(--blue);text-decoration:none;}
+
+@media (max-width:1100px){
+  .deliv-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:760px){
+  .iso-frame{margin:12px;}
+  .tb,.footer-block{grid-template-columns:1fr 1fr;}
+  .tb-cell,.footer-block > div{border-bottom:1px solid var(--rule);}
+  .hero{grid-template-columns:1fr;}
+  .hero-main{padding:48px 24px;border-right:none;border-bottom:1.5px solid var(--steel);}
+  .hero-side{padding:32px 24px;}
+  .section,.cta-section{padding:40px 16px;}
+  .section-head{grid-template-columns:1fr;gap:24px;}
+  .gdt-row{grid-template-columns:50px 50px 1fr;}
+  .gdt-row > div:nth-child(n+4){display:none;}
+  .brief-numbers{grid-template-columns:1fr;}
+  .brief-numbers > div{border-right:none;border-bottom:1px solid var(--rule);}
+  .brief-body{padding:24px 16px;}
+  .deliv-grid{grid-template-columns:1fr;}
+  .others-table .h, .others-table .r{grid-template-columns:60px 1fr 60px;}
+  .others-table .h > div:nth-child(3),.others-table .r > div:nth-child(3){display:none;}
+  .cta{padding:40px 24px;}
+}
+</style>
 </head>
-<body class="theme-precision">
+<body>
 
-<svg width="0" height="0" style="position:absolute;">
-  <defs>
-    <symbol id="vd-mark" viewBox="0 0 60 60">
-      <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
-      <circle cx="44" cy="18" r="3.5" fill="#C8392B"/>
-    </symbol>
-  </defs>
-</svg>
-
-<nav class="nav">
-  <div class="nav-brand">
-    <a href="/">
-      <span class="mark"><svg><use href="#vd-mark"/></svg></span>
-      <span class="nav-name">
-        <span class="jp">バイタリティデザイン合同会社</span>
-        <span class="en">Vitality Design LLC.</span>
-      </span>
-    </a>
-  </div>
-  <div class="nav-center"><strong>§</strong>Sample N°04 — Precision Metalwork</div>
-  <div class="nav-back"><a href="/services/recruitment-branding.html">← Service Overview</a></div>
-</nav>
-
-<div class="sample-banner">
-  <span class="badge">Sample</span>
-  <div class="text">
-    <strong>架空クライアントを想定した制作例です。</strong>
-    <span>This is a demonstration case built on a fictional client. Output for actual engagements is created from hearings.</span>
-  </div>
+<div class="brand-bar">
+  <div class="lhs"><span class="vd-mark"></span><span>Vitality Design LLC. ／ Tolerance Sheet — ISO 8015</span></div>
+  <a href="/services/recruitment-branding.html">← Service Overview</a>
 </div>
 
-<section class="hero">
-  <div class="hero-watermark">精</div>
+<div class="iso-frame">
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+  <span class="dim-edge top">SHEET 1 / 1 ／ A4 ／ SCALE 1:1</span>
 
-  <div class="hero-meta">
-    <div class="cell"><span>Industry Sample</span><strong>VD / SVC02 / SAMPLE 04</strong></div>
-    <div class="cell center"><span>Category</span><strong>NICHE MANUFACTURING — PRECISION</strong></div>
-    <div class="cell right"><span>Engagement</span><strong>6 WEEKS · A4 6 PAGES</strong></div>
-  </div>
-
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="bar"></span><span>Sample Case 04 ／ 精密金属加工</span></div>
-    <h1>
-      ミクロン単位で、<br>
-      <em>命</em>を支える。
-      <span class="en">For a precision metalworks manufacturer — a recruitment pitch.</span>
-    </h1>
-    <p class="hero-lead">
-      営業利益率18%、医療機器・航空機部品の精密金属加工。<strong>創業50期、35名のニッチトップ製造業</strong>。技術は世界水準なのに、地方立地と「町工場」イメージで若手応募ゼロ。50代以上の熟練工が半数を占め、技術継承の時間が残り少ない──そんな実在しがちな状況を想定した架空ケースです。
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="case-meta">
-      <div class="case-meta-cell"><div class="key">Client</div><div class="val">株式会社 大栗精機<span class="en">Oguri Seiki Inc.<br>※ 架空クライアント</span></div></div>
-      <div class="case-meta-cell"><div class="key">Industry</div><div class="val">精密金属加工<span class="en">Medical &amp; Aerospace Components</span></div></div>
-      <div class="case-meta-cell"><div class="key">Scale</div><div class="val">35名／年商 14億円<span class="en">Founded 1976 — 50th year</span></div></div>
-      <div class="case-meta-cell"><div class="key">Engagement</div><div class="val">6週間／ピッチ資料一式<span class="en">6 weeks · pitch document</span></div></div>
+  <!-- title block -->
+  <div class="tb">
+    <div class="tb-cell">
+      <span class="k">Document</span>
+      <span class="v">SAMPLE</span>
     </div>
-
-    <div class="case-brief">
-      <div>
-        <div class="case-brief-meta">— Brief</div>
-        <h3 class="case-brief-h">手術ロボットの先端部品を作っている。<em>世界水準の技術</em>が、求人原稿では「町工場」に見える。</h3>
-      </div>
-      <div class="case-brief-body">
-        <p>創業50期目、医療機器メーカー2社・航空機メーカー1社への直納で年商14億円。営業利益率18%、ROEも業界平均を大きく上回る。納入先は秘匿契約のため社外公開できないが、手術ロボットの先端、人工心臓の弁、ジェットエンジンの部品など、ミクロン単位の精度が要求される領域で長期供給を続けている。</p>
-        <p>採用面では、地方立地（埼玉県川口市の郊外）と「金属加工」というカテゴリーが、求職者には「古い町工場」と読まれる。営業利益率18%・大手取引・賞与年4ヶ月分というファクトが、媒体の文字数制限に飲まれて伝わらない。</p>
-        <p>私たちは、社内でしか語られていなかった「自分の手で作った部品が、どこかの誰かの命を支えている」という現場の誇りを、誌面の中核に据え直しました。</p>
-        <div class="brief-quote">
-          手術台で、私たちが作った部品が動いている。<br>その緊張感を、楽しめる人と働きたい。
-          <span class="by">— 工場長 ヒアリング 第3回</span>
-        </div>
-      </div>
+    <div class="tb-cell">
+      <span class="k">Title</span>
+      <span class="v">Recruitment Pitch ／ Precision Metalwork</span>
     </div>
-
-    <div class="pages-head">
-      <h3 class="pages-h">納品物 ／ <em>6ページ</em>のピッチ資料。</h3>
-      <span class="pages-meta">A4 / 6 spreads · PDF + Print-ready</span>
+    <div class="tb-cell tol">
+      <span class="k">Tolerance</span>
+      <span class="v">±0.001 mm</span>
     </div>
-
-    <div class="pages-grid">
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-cover">
-          <span class="page-num"><strong>P · 01</strong> Cover</span>
-          <div class="cover-art">
-            <svg viewBox="0 0 200 140" fill="none">
-              <circle cx="100" cy="70" r="38" fill="none" stroke="#3B5269" stroke-width="0.6"/>
-              <circle cx="100" cy="70" r="26" fill="none" stroke="#3B5269" stroke-width="0.4"/>
-              <circle cx="100" cy="70" r="14" fill="none" stroke="#B7392B" stroke-width="0.8"/>
-              <circle cx="100" cy="70" r="3" fill="#B7392B"/>
-              <line x1="60" y1="70" x2="80" y2="70" stroke="#1A1D21" stroke-width="0.4"/>
-              <line x1="120" y1="70" x2="140" y2="70" stroke="#1A1D21" stroke-width="0.4"/>
-              <line x1="100" y1="30" x2="100" y2="50" stroke="#1A1D21" stroke-width="0.4"/>
-              <line x1="100" y1="90" x2="100" y2="110" stroke="#1A1D21" stroke-width="0.4"/>
-              <text x="100" y="125" font-family="serif" font-size="6" text-anchor="middle" fill="#B7392B" font-style="italic">±0.001mm</text>
-            </svg>
-          </div>
-          <div class="cover-h">ミクロン単位で、<br><em>命</em>を支える。</div>
-          <div class="cover-sub">2027 Recruitment</div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 01 — Cover</span>
-          <span class="title">表紙：精度の数値を、ビジュアルの中核に。</span>
-          <span class="desc">同心円と±0.001mm の表記で、抽象的な「精密」を具体的な技術スペックに翻訳する。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-philosophy">
-          <span class="page-num"><strong>P · 02</strong> Philosophy</span>
-          <div>
-            <div class="philo-headline">手術台の<br><em>その先</em>に、<br>私たちの仕事がある。</div>
-            <p class="philo-body">私たちが作る部品の多くは、人の命に関わる場所に組み込まれます。手術ロボットの先端、人工心臓の弁、航空機のエンジン部品。1ミクロンの誤差が、人の命を左右する。この緊張感を、毎日扱える人間を育てるのが、私たちの仕事です。</p>
-          </div>
-          <div class="philo-svg">
-            <svg viewBox="0 0 200 50" fill="none">
-              <rect x="20" y="20" width="20" height="10" fill="none" stroke="#3B5269" stroke-width="0.6"/>
-              <line x1="40" y1="25" x2="80" y2="25" stroke="#1A1D21" stroke-width="0.4" stroke-dasharray="2,2"/>
-              <circle cx="100" cy="25" r="8" fill="none" stroke="#B7392B" stroke-width="0.8"/>
-              <line x1="120" y1="25" x2="160" y2="25" stroke="#1A1D21" stroke-width="0.4" stroke-dasharray="2,2"/>
-              <path d="M 165 18 Q 175 25 165 32" stroke="#3B5269" stroke-width="0.6" fill="none"/>
-              <path d="M 170 18 Q 180 25 170 32" stroke="#3B5269" stroke-width="0.6" fill="none"/>
-              <text x="30" y="44" font-family="serif" font-size="5" text-anchor="middle" fill="#3B5269" font-style="italic">factory</text>
-              <text x="100" y="44" font-family="serif" font-size="5" text-anchor="middle" fill="#B7392B" font-style="italic">part</text>
-              <text x="170" y="44" font-family="serif" font-size="5" text-anchor="middle" fill="#3B5269" font-style="italic">life</text>
-            </svg>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 02 — Philosophy</span>
-          <span class="title">哲学：作業の先に、誰の命があるかを描く。</span>
-          <span class="desc">機械加工の抽象を、最終的に「誰のための仕事か」まで一気に接続する論理構成。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-timeline">
-          <span class="page-num"><strong>P · 03</strong> Timeline</span>
-          <div class="timeline-h">1ロットができるまで、<em>6週間</em>の工程。</div>
-          <div class="timeline-row"><span class="timeline-num">01</span><span class="timeline-step">図面解析<span class="sub">1週間 / 工程設計</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">02</span><span class="timeline-step">治具製作<span class="sub">1週間 / 工具室</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">03</span><span class="timeline-step">段取り<span class="sub">3日 / 段取り工</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">04</span><span class="timeline-step">加工<span class="sub">2週間 / オペレーター</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">05</span><span class="timeline-step">検査・測定<span class="sub">1週間 / 検査技術者</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">06</span><span class="timeline-step">出荷準備<span class="sub">3日 / 全員</span></span></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 03 — Process Infographic</span>
-          <span class="title">工程：6フェーズで、技術の中身を可視化。</span>
-          <span class="desc">「機械が勝手に作る」イメージを、人が関わる6工程に分解。検査と段取りの重みを伝える。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-career">
-          <span class="page-num"><strong>P · 04</strong> Career Path</span>
-          <div class="career-h">未経験から、<em>工程設計</em>まで。10年の道のり。</div>
-          <div class="career-bar"></div>
-          <div class="career-stops">
-            <div>1y<br><span class="yr">260</span></div>
-            <div>3y<br><span class="yr">340</span></div>
-            <div>5y<br><span class="yr">430</span></div>
-            <div>7y<br><span class="yr">530</span></div>
-            <div>10y+<br><span class="yr">650+</span></div>
-          </div>
-          <div class="career-rows">
-            <div class="career-row"><span class="stage">オペレーター</span><span class="skill">機械操作／材料管理</span><span class="salary">¥260</span></div>
-            <div class="career-row"><span class="stage">段取り工</span><span class="skill">治具と工具／プログラム</span><span class="salary">¥340</span></div>
-            <div class="career-row"><span class="stage">検査技術者</span><span class="skill">精度管理／三次元測定</span><span class="salary">¥430</span></div>
-            <div class="career-row"><span class="stage">多品種対応工</span><span class="skill">全工程／後輩指導</span><span class="salary">¥530</span></div>
-            <div class="career-row"><span class="stage">工程設計</span><span class="skill">技術全責任／顧客対応</span><span class="salary">¥650+</span></div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 04 — Career Infographic</span>
-          <span class="title">道のり：「町工場のおじさん」のイメージを解体。</span>
-          <span class="desc">10年で工程設計（年収650+）まで到達できる、技術職としての明確なはしごを提示。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-voices">
-          <span class="page-num"><strong>P · 05</strong> Voices</span>
-          <div class="voices-h">先輩の<em>声</em>。</div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">黒田 大輝</span><span>26 / 入社4年目 / オペレーター</span></div>
-            <div class="voice-quote">工業高校卒で入社しました。最初は機械を回すだけだと思っていた。今は、自分が作った部品が手術ロボットの一部になっていると知って、工場に来る朝の気持ちが変わりました。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">川島 玲</span><span>30 / 入社2年目 / 検査</span></div>
-            <div class="voice-quote">前職は製薬の研究員でした。実験と精密加工は、似ています。0.001ミリの誤差を許さない仕事は、研究者の文法でも読み解けます。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">大栗 誠</span><span>52 / 工場長 / 2代目</span></div>
-            <div class="voice-quote">熟練工はいずれ引退する。でも、技術は人にしか宿らない。だから、若い人を育てる時間を、私はこれからの10年に置いています。</div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 05 — Voices</span>
-          <span class="title">先輩の声：高卒・研究職転職・2代目工場長。</span>
-          <span class="desc">「町工場の若手」のステレオタイプを、研究職経歴の女性で解体。教育意欲のある工場長で安心感。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-recruit">
-          <span class="page-num"><strong>P · 06</strong> Recruit</span>
-          <div class="recruit-h">募集要項 ／ <em>オペレーター 見習い</em></div>
-          <div class="recruit-row"><span class="label">給与</span><span class="val">月給 <em>¥260,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">検査経験者</span><span class="val">月給 <em>¥380,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">賞与</span><span class="val">年4ヶ月分（業績連動）</span></div>
-          <div class="recruit-row"><span class="label">休日</span><span class="val">完全週休2日＋祝日</span></div>
-          <div class="recruit-row"><span class="label">寮</span><span class="val">単身寮 完備（家賃補助）</span></div>
-          <div class="recruit-row"><span class="label">資格支援</span><span class="val">機械加工技能士／三次元測定士</span></div>
-          <div class="recruit-foot">まずは、工場を見にきてください。<em>機械の音と、誰のための仕事かを、肌で感じてほしい。</em></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 06 — Recruit</span>
-          <span class="title">募集要項：賞与年4ヶ月分を、最初に開示。</span>
-          <span class="desc">利益率18%だからこそ可能な好待遇を、媒体テンプレートで隠さず先に出す。差別化点として機能。</span>
-        </div>
-      </div>
-
+    <div class="tb-cell">
+      <span class="k">Drawn ／ Checked</span>
+      <span class="v">VD ／ SHO ／ A.1</span>
+    </div>
+    <div class="tb-cell dn">
+      <span class="k">Drawing N°</span>
+      <span class="v">VD-S02-004</span>
     </div>
   </div>
-</section>
 
-<section class="others">
-  <div class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-eyebrow">Sample Case 04 ／ Niche Manufacturing — Precision Metalwork</div>
+      <h1>ミクロン単位で、<br><em>命</em>を支える。<span class="tol">±0.001</span></h1>
+      <div class="hero-dim"><span class="arrow-l">|◀</span><span class="line"></span><span>6 WEEKS</span><span class="line"></span><span class="arrow-r">▶|</span></div>
+      <p class="hero-lead">
+        営業利益率18%、医療機器・航空機部品の精密金属加工。<strong>創業50期、35名のニッチトップ製造業</strong>。技術は世界水準なのに、地方立地と「町工場」イメージで若手応募ゼロ、50代以上が熟練工の半数を占めていた——という構造を想定した架空のケーススタディです。
+      </p>
+    </div>
+    <aside class="hero-side">
+      <h3>⌖ Specifications</h3>
+      <div class="dim-row"><span class="k">Industry</span><span class="v">Precision Metal</span></div>
+      <div class="dim-row"><span class="k">Client</span><span class="v">Oguri Seiki K.K. <em>(fictional)</em></span></div>
+      <div class="dim-row"><span class="k">Founded</span><span class="v">1976 ／ 50 yrs</span></div>
+      <div class="dim-row"><span class="k">Staff</span><span class="v">35</span></div>
+      <div class="dim-row"><span class="k">Revenue</span><span class="v">¥1.4B ／ yr</span></div>
+      <div class="dim-row"><span class="k">Op. Margin</span><span class="v"><em>18%</em></span></div>
+      <div class="dim-row"><span class="k">Engagement</span><span class="v">6 weeks</span></div>
+      <div class="hero-tol-stamp"><span class="k">Issue</span><span class="v">REV A.1</span></div>
+    </aside>
+  </section>
+
+  <!-- DRAWING A: GD&T client spec -->
+  <section class="section">
+    <span class="crosshair ch-tl"></span><span class="crosshair ch-tr"></span>
+    <span class="crosshair ch-bl"></span><span class="crosshair ch-br"></span>
+
     <div class="section-head">
-      <div>
-        <div class="section-meta"><span class="num">§</span><span class="bar"></span><span>More Samples</span></div>
-        <h2 class="section-h">他業界の<em>制作例</em>。<span class="en">Other industry samples.</span></h2>
+      <div class="sh-tag">
+        <span class="ref">Drawing N°</span>
+        <span class="no">A.01</span>
+        <span class="meta">CLIENT GD&amp;T</span>
+        <div class="sh-meta">
+          <div class="row"><span class="k">Datum</span><span class="v">A · B · C</span></div>
+          <div class="row"><span class="k">Scale</span><span class="v">1:1</span></div>
+          <div class="row"><span class="k">Sheet</span><span class="v">1 / 4</span></div>
+        </div>
       </div>
-      <p class="section-intro">業界によって、求職者の不安・哲学の翻訳点・キャリアパスはまったく異なります。御社の業界に最も近いサンプルから、ご覧ください。</p>
+      <div class="sh-title">
+        <h2>架空<em>クライアント像</em>。</h2>
+        <div class="desc">geometric tolerancing of the fictional client — datum reference frame</div>
+      </div>
     </div>
-  </div>
 
-  <div class="others-grid">
-    <a href="/services/recruitment-branding.html#case" class="others-card">
-      <div>
-        <div class="num">Sample 01</div>
-        <div class="industry-jp">注文住宅・建設業</div>
-        <div class="industry-en">Custom Home Construction</div>
-        <div class="desc">「密度ゼロの豊かさを、住まいに」。1棟ずつ丁寧に作る工務店向けの採用ピッチ。</div>
+    <div class="gdt-table">
+      <div class="gdt-row head">
+        <div>DATUM</div><div>P/N</div><div>FEATURE</div><div>VALUE</div><div>TOL</div>
       </div>
-      <div class="arrow">View →</div>
-    </a>
-    <a href="/services/samples/electrical.html" class="others-card">
-      <div>
-        <div class="num">Sample 02</div>
-        <div class="industry-jp">電気工事業</div>
-        <div class="industry-en">Electrical Contractor</div>
-        <div class="desc">「見えない場所こそ、丁寧に」。下請けイメージで応募ゼロが続く専門工事業向け。</div>
+      <div class="gdt-row">
+        <div><span class="datum-letter">A</span></div>
+        <div class="pn">001</div>
+        <div class="desc">商号<span class="desc-en">company</span></div>
+        <div class="v">株式会社 大栗精機</div>
+        <div class="tol">FICT.</div>
       </div>
-      <div class="arrow">View →</div>
-    </a>
-    <a href="/services/samples/woodwork.html" class="others-card">
-      <div>
-        <div class="num">Sample 03</div>
-        <div class="industry-jp">伝統工芸・指物</div>
-        <div class="industry-en">Traditional Woodwork</div>
-        <div class="desc">「百年使える家具を、つくる人を、育てる」。後継者育成補助金活用前提のサンプル。</div>
+      <div class="gdt-row">
+        <div><span class="datum-letter">B</span></div>
+        <div class="pn">002</div>
+        <div class="desc">業種<span class="desc-en">segment</span></div>
+        <div class="v">医療・航空 精密加工</div>
+        <div class="tol">B2B</div>
       </div>
-      <div class="arrow">View →</div>
-    </a>
-    <a href="/services/samples/funeral.html" class="others-card">
-      <div>
-        <div class="num">Sample 05</div>
-        <div class="industry-jp">葬儀社・葬祭</div>
-        <div class="industry-en">Funeral Services</div>
-        <div class="desc">「最後の時間に、丁寧を」。地域密着型葬儀社の業界忌避を解くピッチ。</div>
+      <div class="gdt-row">
+        <div><span class="datum-letter">C</span></div>
+        <div class="pn">003</div>
+        <div class="desc">創業<span class="desc-en">founded</span></div>
+        <div class="v">1976年（50期）</div>
+        <div class="tol">50 yr</div>
       </div>
-      <div class="arrow">View →</div>
-    </a>
-  </div>
-</section>
+      <div class="gdt-row">
+        <div><span class="datum-letter">D</span></div>
+        <div class="pn">004</div>
+        <div class="desc">人員<span class="desc-en">headcount</span></div>
+        <div class="v">35名</div>
+        <div class="tol">35 ppl</div>
+      </div>
+      <div class="gdt-row">
+        <div><span class="datum-letter">E</span></div>
+        <div class="pn">005</div>
+        <div class="desc">利益率<span class="desc-en">op. margin</span></div>
+        <div class="v">18%</div>
+        <div class="tol">+12 vs avg</div>
+      </div>
+      <div class="gdt-row">
+        <div><span class="datum-letter">F</span></div>
+        <div class="pn">006</div>
+        <div class="desc">関与<span class="desc-en">engagement</span></div>
+        <div class="v">6週間／ピッチ資料</div>
+        <div class="tol">6 wks</div>
+      </div>
+    </div>
+  </section>
 
-<section class="cta-strip">
-  <h2>この粒度で、御社の<em>採用ピッチ</em>を作ります。</h2>
-  <p>Initial 30-minute consultation — free of charge.</p>
-  <div class="cta-strip-actions">
-    <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（精密加工サンプル経由）" class="cta-strip-btn primary">
-      <span class="jp">無料相談を申し込む</span><span class="arrow">→</span>
-    </a>
-    <a href="/services/recruitment-branding.html" class="cta-strip-btn">
-      <span class="jp">サービス概要に戻る</span><span class="arrow">→</span>
-    </a>
-  </div>
-</section>
+  <!-- DRAWING B: Brief -->
+  <section class="section">
+    <span class="crosshair ch-tl"></span><span class="crosshair ch-tr"></span>
+    <span class="crosshair ch-bl"></span><span class="crosshair ch-br"></span>
 
-<footer>
-  <div class="footer-inner">
-    <span>VD / SVC02 / SAMPLE 04 — Precision Metalwork</span>
-    <span>
-      <a href="/">Home</a>
-      <a href="/services/recruitment-branding.html">Service</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-    </span>
-    <span>© 2026 Vitality Design LLC.</span>
-  </div>
-</footer>
+    <div class="section-head">
+      <div class="sh-tag">
+        <span class="ref">Drawing N°</span>
+        <span class="no">B.02</span>
+        <span class="meta">BRIEF — TECHNICAL MEMO</span>
+        <div class="sh-meta">
+          <div class="row"><span class="k">From</span><span class="v">Plant Mgr</span></div>
+          <div class="row"><span class="k">Date</span><span class="v">2026-04</span></div>
+          <div class="row"><span class="k">Class.</span><span class="v">DEMO</span></div>
+        </div>
+      </div>
+      <div class="sh-title">
+        <h2>ご依頼の<em>背景</em>。</h2>
+        <div class="desc">tolerance breakdown — what brought us together</div>
+      </div>
+    </div>
+
+    <div class="brief">
+      <div class="brief-numbers">
+        <div><div class="v">±0.001<span class="unit">mm</span></div><div class="k">Required Precision</div></div>
+        <div><div class="v">18<span class="unit">%</span></div><div class="k">Op. Margin</div></div>
+        <div><div class="v">0<span class="unit">/3yr</span></div><div class="k">Young Applicants</div></div>
+      </div>
+      <div class="brief-body">
+        <p><span class="ref">[1]</span>創業50期目、医療機器メーカー2社・航空機メーカー1社への直納で年商14億円。営業利益率18%、ROEも業界平均を大きく上回る。納入先は秘匿契約のため社外公開できないが、手術ロボットの先端、人工心臓の弁、ジェットエンジンの部品など、ミクロン単位の精度が要求される領域で長期供給を続けていた。</p>
+        <p><span class="ref">[2]</span>採用面では、地方立地（埼玉県川口市の郊外）と「金属加工」というカテゴリーが、求職者には「古い町工場」と読まれる。<strong>営業利益率18%・大手取引・賞与年4ヶ月分</strong>というファクトが、媒体の文字数制限に飲まれて伝わらない。</p>
+        <p><span class="ref">[3]</span>私たちは、社内でしか語られていなかった「自分の手で作った部品が、どこかの誰かの命を支えている」という現場の誇りを、誌面の中核に据え直した。</p>
+
+        <div class="brief-quote">
+          <div class="text">手術台で、私たちが作った部品が動いている。その緊張感を、楽しめる人と働きたい。</div>
+          <span class="by">— Plant Manager ／ Hearing #3</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRAWING C: 6 pages -->
+  <section class="section">
+    <span class="crosshair ch-tl"></span><span class="crosshair ch-tr"></span>
+    <span class="crosshair ch-bl"></span><span class="crosshair ch-br"></span>
+
+    <div class="section-head">
+      <div class="sh-tag">
+        <span class="ref">Drawing N°</span>
+        <span class="no">C.03</span>
+        <span class="meta">DELIVERABLE SHEETS</span>
+        <div class="sh-meta">
+          <div class="row"><span class="k">Sheets</span><span class="v">A4 × 6</span></div>
+          <div class="row"><span class="k">Format</span><span class="v">PDF + Print</span></div>
+          <div class="row"><span class="k">Tol.</span><span class="v">±2 days</span></div>
+        </div>
+      </div>
+      <div class="sh-title">
+        <h2>納品物 ／ <em>6枚</em>のピッチ資料。</h2>
+        <div class="desc">six engineering sheets — pitch document</div>
+      </div>
+    </div>
+
+    <div class="deliv-grid">
+
+      <div class="deliv-cell" data-pn="P/N 01" data-tol="REV A.1">
+        <div class="dc-canvas dc-cover">
+          <svg viewBox="0 0 200 140" fill="none">
+            <circle cx="100" cy="70" r="38" fill="none" stroke="#3B5269" stroke-width="0.6"/>
+            <circle cx="100" cy="70" r="26" fill="none" stroke="#3B5269" stroke-width="0.4"/>
+            <circle cx="100" cy="70" r="14" fill="none" stroke="#B7392B" stroke-width="0.8"/>
+            <circle cx="100" cy="70" r="3" fill="#B7392B"/>
+            <line x1="60" y1="70" x2="80" y2="70" stroke="#1A1D21" stroke-width="0.4"/>
+            <line x1="120" y1="70" x2="140" y2="70" stroke="#1A1D21" stroke-width="0.4"/>
+            <line x1="100" y1="30" x2="100" y2="50" stroke="#1A1D21" stroke-width="0.4"/>
+            <line x1="100" y1="90" x2="100" y2="110" stroke="#1A1D21" stroke-width="0.4"/>
+          </svg>
+          <div class="h">ミクロン単位で、<br><em>命</em>を支える。</div>
+          <div class="sub">2027 / RECRUITMENT</div>
+          <div class="tolerance">±0.001 mm</div>
+        </div>
+        <div class="dc-caption">
+          <div class="label">P · 01 ／ Cover Sheet</div>
+          <h4>表紙：精度の数値を、ビジュアルの中核に。</h4>
+          <p>同心円と±0.001mmの公差表記で、抽象的な「精密」を技術スペックに翻訳する。</p>
+        </div>
+      </div>
+
+      <div class="deliv-cell" data-pn="P/N 02" data-tol="REV A.1">
+        <div class="dc-canvas dc-philo">
+          <div class="h">手術台の<em>その先</em>に、<br>私たちの仕事がある。</div>
+          <div class="body">私たちが作る部品の多くは、人の命に関わる場所に組み込まれます。手術ロボットの先端、人工心臓の弁、航空機のエンジン部品。1ミクロンの誤差が、人の命を左右する。この緊張感を、毎日扱える人間を育てるのが、私たちの仕事です。</div>
+          <div class="chain"><span class="step">FACTORY</span><span class="arrow">▸</span><span class="step">PART</span><span class="arrow">▸</span><span class="step" style="color:var(--tol-red);border-color:var(--tol-red);">LIFE</span></div>
+        </div>
+        <div class="dc-caption">
+          <div class="label">P · 02 ／ Philosophy</div>
+          <h4>哲学：作業の先に、誰の命があるかを描く。</h4>
+          <p>機械加工の抽象を、最終的に「誰のための仕事か」まで一気に接続する論理構成。</p>
+        </div>
+      </div>
+
+      <div class="deliv-cell" data-pn="P/N 03" data-tol="REV A.1">
+        <div class="dc-canvas dc-time">
+          <div class="h">1ロット / <em>6週間</em>の工程</div>
+          <div class="row"><span class="n">01</span><span class="l">図面解析</span><span class="d">1 wk</span></div>
+          <div class="row"><span class="n">02</span><span class="l">治具製作</span><span class="d">1 wk</span></div>
+          <div class="row"><span class="n">03</span><span class="l">段取り</span><span class="d">3 d</span></div>
+          <div class="row"><span class="n">04</span><span class="l">加工</span><span class="d">2 wk</span></div>
+          <div class="row"><span class="n">05</span><span class="l">検査・測定</span><span class="d">1 wk</span></div>
+          <div class="row"><span class="n">06</span><span class="l">出荷準備</span><span class="d">3 d</span></div>
+        </div>
+        <div class="dc-caption">
+          <div class="label">P · 03 ／ Process</div>
+          <h4>工程：6フェーズで、技術の中身を可視化。</h4>
+          <p>「機械が勝手に作る」イメージを、人が関わる6工程に分解。検査と段取りの重みを伝える。</p>
+        </div>
+      </div>
+
+      <div class="deliv-cell" data-pn="P/N 04" data-tol="REV A.1">
+        <div class="dc-canvas dc-career">
+          <div class="h">未経験 → <em>工程設計</em>。10年。</div>
+          <div class="axis">
+            <div>1y<span class="yr">260</span></div>
+            <div>3y<span class="yr">340</span></div>
+            <div>5y<span class="yr">430</span></div>
+            <div>7y<span class="yr">530</span></div>
+            <div>10y+<span class="yr">650+</span></div>
+          </div>
+          <div class="row"><span class="stage">OP</span><span class="skill">機械操作</span><span class="salary">¥260</span></div>
+          <div class="row"><span class="stage">段取</span><span class="skill">治具・プログラム</span><span class="salary">¥340</span></div>
+          <div class="row"><span class="stage">検査</span><span class="skill">三次元測定</span><span class="salary">¥430</span></div>
+          <div class="row"><span class="stage">多品種</span><span class="skill">全工程</span><span class="salary">¥530</span></div>
+          <div class="row"><span class="stage">工程設計</span><span class="skill">技術全責任</span><span class="salary">¥650+</span></div>
+        </div>
+        <div class="dc-caption">
+          <div class="label">P · 04 ／ Career</div>
+          <h4>道のり：「町工場のおじさん」を解体。</h4>
+          <p>10年で工程設計（年収650+）まで到達できる、技術職としての明確なはしごを提示。</p>
+        </div>
+      </div>
+
+      <div class="deliv-cell" data-pn="P/N 05" data-tol="REV A.1">
+        <div class="dc-canvas dc-voices">
+          <div class="h">先輩の<em>声</em>。</div>
+          <div class="v">
+            <div class="meta"><span class="name">黒田 大輝</span><span>26 / 4Y / OP</span></div>
+            <div class="quote">工業高校卒で入社。最初は機械を回すだけだと思っていた。今は、自分が作った部品が手術ロボットの一部になっていると知って、工場に来る朝の気持ちが変わった。</div>
+          </div>
+          <div class="v">
+            <div class="meta"><span class="name">川島 玲</span><span>30 / 2Y / 検査</span></div>
+            <div class="quote">前職は製薬の研究員。実験と精密加工は、似ている。0.001ミリの誤差を許さない仕事は、研究者の文法でも読み解ける。</div>
+          </div>
+          <div class="v">
+            <div class="meta"><span class="name">大栗 誠</span><span>52 / 工場長</span></div>
+            <div class="quote">熟練工はいずれ引退する。でも、技術は人にしか宿らない。だから、若い人を育てる時間を、これからの10年に置く。</div>
+          </div>
+        </div>
+        <div class="dc-caption">
+          <div class="label">P · 05 ／ Voices</div>
+          <h4>先輩の声：高卒・研究職転職・2代目工場長。</h4>
+          <p>「町工場の若手」のステレオタイプを、研究職経歴の女性で解体。教育意欲のある工場長で安心感。</p>
+        </div>
+      </div>
+
+      <div class="deliv-cell" data-pn="P/N 06" data-tol="REV A.1">
+        <div class="dc-canvas dc-recruit">
+          <div class="h">募集要項 ／ <em>OP 見習い</em></div>
+          <div class="row"><span class="key">給与</span><span class="val">月給 <em>¥260,000</em>〜</span></div>
+          <div class="row"><span class="key">検査経験</span><span class="val">月給 <em>¥380,000</em>〜</span></div>
+          <div class="row"><span class="key">賞与</span><span class="val">年4ヶ月分</span></div>
+          <div class="row"><span class="key">休日</span><span class="val">完全週休2日＋祝</span></div>
+          <div class="row"><span class="key">寮</span><span class="val">単身寮 完備</span></div>
+          <div class="row"><span class="key">資格支援</span><span class="val">機械加工技能士</span></div>
+          <div class="foot">まずは、工場を見にきてください。<em>機械の音と、誰のための仕事かを、肌で感じてほしい。</em></div>
+        </div>
+        <div class="dc-caption">
+          <div class="label">P · 06 ／ Recruit</div>
+          <h4>募集要項：賞与年4ヶ月分を、最初に開示。</h4>
+          <p>利益率18%だからこそ可能な好待遇を、媒体テンプレートで隠さず先に出す。差別化点として機能。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DRAWING D: index of others -->
+  <section class="section">
+    <span class="crosshair ch-tl"></span><span class="crosshair ch-tr"></span>
+    <span class="crosshair ch-bl"></span><span class="crosshair ch-br"></span>
+
+    <div class="section-head">
+      <div class="sh-tag">
+        <span class="ref">Drawing N°</span>
+        <span class="no">D.04</span>
+        <span class="meta">RELATED INDEX</span>
+        <div class="sh-meta">
+          <div class="row"><span class="k">Type</span><span class="v">INDEX</span></div>
+          <div class="row"><span class="k">Cnt.</span><span class="v">4</span></div>
+        </div>
+      </div>
+      <div class="sh-title">
+        <h2>他業界の<em>制作例</em>。</h2>
+        <div class="desc">drawing index — related industry sample sheets</div>
+      </div>
+    </div>
+
+    <div class="others-table">
+      <div class="h"><div>S/N</div><div>Industry</div><div>Headline</div><div>Action</div></div>
+      <a href="/services/recruitment-branding.html#case" class="r">
+        <div class="pn">S/N 01</div>
+        <div class="name">注文住宅・建設業<span class="en">CONSTRUCTION</span></div>
+        <div class="desc">密度ゼロの豊かさを、住まいに。</div>
+        <div>OPEN ▸</div>
+      </a>
+      <a href="/services/samples/electrical.html" class="r">
+        <div class="pn">S/N 02</div>
+        <div class="name">電気工事業<span class="en">ELECTRICAL</span></div>
+        <div class="desc">見えない場所こそ、丁寧に。</div>
+        <div>OPEN ▸</div>
+      </a>
+      <a href="/services/samples/woodwork.html" class="r">
+        <div class="pn">S/N 03</div>
+        <div class="name">伝統工芸・指物<span class="en">TRAD. WOODWORK</span></div>
+        <div class="desc">百年使える家具を、つくる人を、育てる。</div>
+        <div>OPEN ▸</div>
+      </a>
+      <a href="/services/samples/funeral.html" class="r">
+        <div class="pn">S/N 05</div>
+        <div class="name">葬儀社・葬祭<span class="en">FUNERAL SVC</span></div>
+        <div class="desc">最後の時間に、丁寧を。</div>
+        <div>OPEN ▸</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta">
+      <span class="cta-tag">⌖ INITIAL CONSULTATION ／ FREE</span>
+      <h2>御社の採用ピッチを、<br>この<em>公差</em>で。</h2>
+      <p>30分の初回相談から。御社のスペックを伺い、設計の方向性を提示します。料金発生は、見積もり合意後。</p>
+      <div class="cta-actions">
+        <a class="cta-btn" href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（精密加工サンプル経由）">Book Consultation</a>
+        <a class="cta-btn alt" href="/services/recruitment-branding.html">Service Overview</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (title block) -->
+  <footer class="footer-block">
+    <div><span class="k">Doc ID</span><span class="v">VD-S02-004</span></div>
+    <div><span class="k">Title</span><span class="v">Recruitment Pitch ／ Precision Metalwork</span></div>
+    <div><span class="k">Tolerance</span><span class="v">±0.001 mm</span></div>
+    <div><span class="k">References</span><span class="v"><a href="/">HOME</a> ／ <a href="/services/recruitment-branding.html">SVC</a></span></div>
+    <div><span class="k">© 2026</span><span class="v">Vitality Design LLC.</span></div>
+  </footer>
+
+</div>
 
 </body>
 </html>

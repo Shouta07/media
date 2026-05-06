@@ -4,320 +4,908 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>制作例：伝統工芸・指物 — 採用ブランディング — バイタリティデザイン合同会社</title>
-<meta name="description" content="伝統工芸（木工指物・家具職人）向け採用ブランディングの制作例。後継者育成補助金活用を前提とした、廃業リスクのある中堅工房を想定した架空ケース。">
+<meta name="description" content="伝統工芸（木工指物）向け採用ブランディングの制作例。後継者育成補助金活用前提の中堅工房を想定した架空ケース。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/services/css/sample.css">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --washi:#EFE5CD;
+  --washi-deep:#E2D5B5;
+  --sumi:#1C1814;
+  --sumi-soft:#3A3128;
+  --sumi-faint:#7A6E5C;
+  --indigo:#2C4A6E;
+  --kinari:#A88962;
+  --shu:#A0322A;
+  --vermilion:#C8392B;
+  --rule:rgba(28,24,20,0.14);
+  --rule-strong:rgba(28,24,20,0.26);
+  --serif:'Shippori Mincho B1', 'Yu Mincho', serif;
+  --serif-en:'Cormorant Garamond', 'Shippori Mincho B1', serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--washi);color:var(--sumi);
+  font-family:var(--serif);font-weight:400;font-size:15.5px;
+  line-height:2.1;letter-spacing:0.04em;
+  font-feature-settings:"palt" 1;
+  position:relative;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.6;mix-blend-mode:multiply;
+}
+main, header, footer{position:relative;z-index:1;}
+::selection{background:var(--shu);color:var(--washi);}
+
+/* === BRAND BAR === */
+.brand-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 56px;
+  border-bottom:0.5px solid var(--rule);
+  background:rgba(239,229,205,0.85);
+  backdrop-filter:blur(8px);
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.18em;color:var(--sumi-faint);text-transform:uppercase;
+}
+.brand-bar .lhs{display:flex;align-items:center;gap:12px;}
+.brand-bar .vd-mark{
+  width:8px;height:8px;border-radius:50%;background:var(--vermilion);
+}
+.brand-bar a{color:var(--sumi-soft);text-decoration:none;}
+.brand-bar a:hover{color:var(--shu);}
+
+/* === SAMPLE BANNER (subtle) === */
+.sample-mark{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  padding:14px 56px;border-bottom:0.5px solid var(--rule);
+  font-family:var(--serif-en);font-style:italic;font-size:12px;
+  letter-spacing:0.32em;color:var(--sumi-faint);text-transform:uppercase;
+  background:rgba(28,24,20,0.03);
+}
+.sample-mark .badge{
+  background:var(--vermilion);color:var(--washi);
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:10px;letter-spacing:0.22em;
+  padding:4px 10px;
+}
+
+/* === HERO — vertical kanji + asymmetric === */
+.hero{
+  display:grid;grid-template-columns:1fr 200px;
+  min-height:calc(100vh - 100px);
+  position:relative;
+}
+.hero-main{
+  padding:120px 80px 80px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+}
+.hero-eyebrow{
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:13px;letter-spacing:0.32em;color:var(--shu);
+  text-transform:uppercase;margin-bottom:48px;
+  display:flex;align-items:center;gap:14px;
+}
+.hero-eyebrow .stamp{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border:1px solid var(--shu);
+  font-family:var(--serif);font-weight:600;font-size:13px;
+  color:var(--shu);letter-spacing:0;
+}
+
+.hero h1{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(48px,7.5vw,108px);
+  line-height:1.25;letter-spacing:0.04em;
+  margin-bottom:64px;
+}
+.hero h1 .l1, .hero h1 .l2, .hero h1 .l3{display:block;}
+.hero h1 .l2{margin-left:1.5em;}
+.hero h1 .l3{margin-left:0.5em;}
+.hero h1 em{
+  font-style:normal;color:var(--indigo);font-weight:600;
+}
+
+.hero-lead{
+  max-width:520px;font-size:16px;line-height:2.3;
+  color:var(--sumi-soft);font-weight:400;
+  border-left:2px solid var(--kinari);
+  padding-left:24px;margin-top:24px;
+}
+.hero-lead strong{color:var(--sumi);font-weight:600;}
+
+.hero-vertical{
+  border-left:0.5px solid var(--rule-strong);
+  position:relative;
+  padding:120px 0 80px;
+  display:flex;flex-direction:column;align-items:center;
+  gap:48px;
+}
+.hero-watermark-jp{
+  font-family:var(--serif);font-weight:800;
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-size:clamp(72px,9vw,160px);
+  line-height:1;letter-spacing:0.2em;
+  color:var(--sumi);opacity:0.85;
+}
+.hero-vertical-meta{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:var(--serif);font-weight:500;font-size:11px;
+  letter-spacing:0.32em;color:var(--sumi-faint);
+}
+.hero-vertical-stamp{
+  width:48px;height:48px;border:1px solid var(--shu);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:600;font-size:18px;
+  color:var(--shu);
+  background:rgba(160,50,42,0.04);
+  letter-spacing:0;
+}
+
+/* horizontal brushstroke divider */
+.brush-rule{
+  position:relative;height:0.5px;
+  background:linear-gradient(to right,transparent 0%,var(--sumi) 8%,var(--sumi) 92%,transparent 100%);
+  margin:80px auto;max-width:80%;
+}
+.brush-rule::before, .brush-rule::after{
+  content:"";position:absolute;top:50%;width:6px;height:6px;
+  background:var(--shu);border-radius:50%;transform:translateY(-50%);
+}
+.brush-rule::before{left:-4px;}
+.brush-rule::after{right:-4px;}
+
+/* === SECTION HEAD === */
+.section-head{
+  max-width:1200px;margin:0 auto;padding:120px 56px 80px;
+  display:grid;grid-template-columns:140px 1fr;gap:56px;align-items:start;
+}
+.section-mark{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.32em;color:var(--shu);text-transform:uppercase;
+}
+.section-mark .num{
+  font-family:var(--serif);font-weight:600;font-size:42px;
+  color:var(--indigo);letter-spacing:0;font-style:normal;
+}
+.section-mark .line{width:0.5px;height:64px;background:var(--rule-strong);}
+
+.section-head h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(32px,4vw,52px);
+  line-height:1.3;letter-spacing:0.04em;
+  margin-bottom:18px;
+}
+.section-head h2 em{font-style:normal;color:var(--indigo);font-weight:600;}
+.section-head .en{
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:14px;color:var(--sumi-faint);letter-spacing:0.06em;
+}
+
+/* === META AS CHRONOLOGY === */
+.chronology{
+  max-width:1200px;margin:0 auto;padding:0 56px 120px;
+  display:grid;grid-template-columns:140px 1fr;gap:56px;
+}
+.chronology .label{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.42em;color:var(--sumi-faint);
+  margin:0 auto;
+}
+.chronology-list{}
+.chronology-row{
+  display:grid;grid-template-columns:120px 1fr 200px;gap:32px;
+  padding:24px 0;border-bottom:0.5px dashed var(--rule);
+  align-items:start;
+}
+.chronology-row:first-child{border-top:0.5px solid var(--rule-strong);}
+.chronology-row .yr{
+  font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.16em;color:var(--shu);
+}
+.chronology-row .what{
+  font-family:var(--serif);font-weight:500;font-size:18px;
+  letter-spacing:0.04em;color:var(--sumi);line-height:1.7;
+}
+.chronology-row .what .en{
+  display:block;font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:13px;color:var(--sumi-faint);margin-top:4px;letter-spacing:0.04em;
+}
+.chronology-row .num-jp{
+  font-family:var(--serif);font-weight:600;font-size:22px;
+  letter-spacing:0.08em;color:var(--indigo);text-align:right;
+}
+
+/* === BRIEF — wide left column with vertical pull-quote === */
+.brief{
+  max-width:1200px;margin:0 auto;padding:0 56px 120px;
+  display:grid;grid-template-columns:140px 1fr 220px;gap:56px;
+  align-items:start;
+}
+.brief-vlabel{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.42em;color:var(--sumi-faint);margin:0 auto;
+}
+.brief-body{}
+.brief-body p{
+  font-family:var(--serif);font-weight:400;font-size:16px;
+  line-height:2.2;letter-spacing:0.04em;
+  margin-bottom:1.6em;color:var(--sumi);
+}
+.brief-body p:first-child::first-letter{
+  font-family:var(--serif);font-size:3.2em;float:left;
+  line-height:1;margin:0.05em 0.18em -0.05em 0;
+  color:var(--indigo);font-weight:600;
+}
+.brief-pullquote{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:var(--serif);font-weight:500;font-size:20px;
+  line-height:2;letter-spacing:0.18em;color:var(--indigo);
+  height:480px;margin:0 auto;
+  padding:0 12px;border-left:0.5px solid var(--shu);border-right:0.5px solid var(--shu);
+}
+.brief-pullquote .by{
+  display:block;font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:11px;color:var(--sumi-faint);letter-spacing:0.16em;
+  text-transform:uppercase;margin-top:24px;
+}
+
+/* === PAGES — alternating asymmetric layout === */
+.pages-section{padding:80px 0 120px;}
+.pages-intro{
+  max-width:1200px;margin:0 auto 80px;padding:0 56px;
+  display:grid;grid-template-columns:140px 1fr;gap:56px;align-items:end;
+  border-bottom:0.5px solid var(--rule-strong);padding-bottom:32px;
+}
+.pages-intro .label{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.42em;color:var(--sumi-faint);margin:0 auto;
+}
+.pages-intro h3{
+  font-family:var(--serif);font-weight:500;font-size:32px;
+  letter-spacing:0.04em;line-height:1.3;
+}
+.pages-intro h3 em{font-style:normal;color:var(--indigo);font-weight:600;}
+.pages-intro .meta-en{
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:13px;color:var(--sumi-faint);letter-spacing:0.16em;margin-top:8px;
+}
+
+.page-spread{
+  max-width:1200px;margin:0 auto 96px;padding:0 56px;
+  display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:start;
+}
+.page-spread:nth-child(even){grid-template-columns:1fr 200px;}
+.page-spread:nth-child(even) .page-side{order:2;}
+
+.page-side{
+  display:flex;flex-direction:column;align-items:flex-end;gap:18px;
+}
+.page-spread:nth-child(even) .page-side{align-items:flex-start;}
+.page-side .pg-num-jp{
+  font-family:var(--serif);font-weight:700;font-size:64px;
+  color:var(--indigo);letter-spacing:0;line-height:1;
+}
+.page-side .pg-label{
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.32em;color:var(--shu);text-transform:uppercase;
+}
+.page-side .pg-stamp{
+  width:36px;height:36px;border:1px solid var(--shu);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:600;font-size:14px;
+  color:var(--shu);background:rgba(160,50,42,0.04);
+}
+
+.page-content{
+  display:grid;grid-template-columns:1.2fr 1fr;gap:40px;
+}
+.page-spread:nth-child(even) .page-content{grid-template-columns:1fr 1.2fr;}
+
+.page-canvas{
+  aspect-ratio:210/297;
+  background:#F4EDDD;
+  border:0.5px solid var(--rule-strong);
+  position:relative;padding:36px 28px;
+  display:flex;flex-direction:column;
+}
+.page-canvas::after{
+  content:"";position:absolute;top:14px;right:14px;
+  width:14px;height:14px;border:0.5px solid var(--shu);
+  background:linear-gradient(135deg,transparent 49%,var(--shu) 49%,var(--shu) 51%,transparent 51%);
+  opacity:0.7;
+}
+
+/* P1 cover */
+.p-cover{justify-content:flex-end;align-items:center;text-align:center;}
+.p-cover svg{position:absolute;top:32%;left:50%;transform:translate(-50%,-50%);width:55%;}
+.p-cover .h{
+  font-family:var(--serif);font-weight:500;font-size:18px;
+  line-height:1.55;letter-spacing:0.06em;color:var(--sumi);
+  margin-bottom:10px;position:relative;z-index:2;
+}
+.p-cover .h em{color:var(--indigo);font-style:normal;font-weight:600;}
+.p-cover .sub{
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.16em;color:var(--sumi-faint);
+}
+
+/* P2 philosophy */
+.p-philo{justify-content:space-between;}
+.p-philo .h{
+  font-family:var(--serif);font-weight:500;font-size:17px;
+  line-height:1.6;letter-spacing:0.06em;color:var(--sumi);
+}
+.p-philo .h em{color:var(--indigo);font-style:normal;font-weight:600;}
+.p-philo .body{
+  font-family:var(--serif);font-size:9px;line-height:2;letter-spacing:0.04em;
+  color:var(--sumi-soft);margin-top:14px;
+}
+.p-philo .timeline-arrow{
+  margin-top:auto;display:flex;align-items:center;gap:8px;
+  font-family:var(--serif-en);font-style:italic;font-size:9px;
+  color:var(--shu);letter-spacing:0.1em;
+}
+.p-philo .timeline-arrow .l{flex:1;height:0.5px;background:var(--shu);}
+
+/* P3 timeline */
+.p-time{padding:24px;}
+.p-time .h{
+  font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.06em;line-height:1.5;text-align:center;margin-bottom:14px;
+}
+.p-time .h em{color:var(--indigo);font-style:normal;font-weight:600;}
+.p-time .row{
+  display:grid;grid-template-columns:24px 1fr;gap:8px;
+  padding:6px 0;border-bottom:0.5px solid rgba(28,24,20,0.1);
+  align-items:baseline;
+}
+.p-time .row:last-child{border-bottom:none;}
+.p-time .row .n{font-family:var(--serif);font-weight:600;color:var(--shu);font-size:11px;}
+.p-time .row .label{font-family:var(--serif);font-weight:500;font-size:8.5px;color:var(--sumi);}
+.p-time .row .label .when{display:block;font-weight:400;color:var(--sumi-faint);font-size:8px;margin-top:1px;}
+
+/* P4 career */
+.p-career .h{
+  text-align:center;font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.06em;line-height:1.5;margin-bottom:14px;
+}
+.p-career .h em{color:var(--indigo);font-style:normal;font-weight:600;}
+.p-career .stops{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:4px;
+  margin-bottom:14px;text-align:center;
+  font-family:var(--serif);font-size:8px;color:var(--sumi);
+}
+.p-career .stops > div{position:relative;padding-top:14px;}
+.p-career .stops > div::before{
+  content:"●";position:absolute;top:-2px;left:50%;transform:translateX(-50%);
+  font-size:10px;color:var(--kinari);
+}
+.p-career .stops > div:first-child::before{color:var(--indigo);}
+.p-career .stops .yr{display:block;font-weight:500;color:var(--shu);font-size:7.5px;font-family:var(--serif-en);font-style:italic;}
+.p-career .row{
+  display:grid;grid-template-columns:50px 1fr 50px;gap:8px;
+  padding:5px 0;font-size:8.5px;line-height:1.4;
+  border-bottom:0.5px solid rgba(28,24,20,0.1);
+}
+.p-career .row .stage{font-weight:500;color:var(--sumi);}
+.p-career .row .skill{font-weight:400;color:var(--sumi-soft);font-size:8px;}
+.p-career .row .salary{text-align:right;font-family:var(--serif-en);font-style:italic;color:var(--shu);font-weight:400;}
+
+/* P5 voices */
+.p-voices{padding:24px;}
+.p-voices .h{
+  text-align:center;font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.06em;margin-bottom:14px;
+}
+.p-voices .h em{color:var(--indigo);font-style:normal;font-weight:600;}
+.p-voices .v{padding:8px 0;border-bottom:0.5px solid rgba(28,24,20,0.1);}
+.p-voices .v:last-child{border-bottom:none;}
+.p-voices .who{
+  font-family:var(--serif);font-weight:500;font-size:9.5px;
+  color:var(--indigo);margin-bottom:3px;letter-spacing:0.04em;
+}
+.p-voices .who span{font-weight:400;color:var(--sumi-faint);margin-left:6px;font-size:8.5px;font-style:italic;}
+.p-voices .quote{
+  font-family:var(--serif);font-weight:400;font-size:8.5px;line-height:1.75;
+  color:var(--sumi-soft);
+}
+
+/* P6 recruit */
+.p-recruit{padding:24px;}
+.p-recruit .h{
+  text-align:center;font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.06em;margin-bottom:14px;
+}
+.p-recruit .h em{color:var(--indigo);font-style:normal;font-weight:600;}
+.p-recruit .row{
+  display:grid;grid-template-columns:1fr auto;gap:10px;
+  padding:6px 0;font-size:9px;
+  border-bottom:0.5px solid rgba(28,24,20,0.1);
+}
+.p-recruit .row .key{color:var(--sumi-faint);font-weight:400;}
+.p-recruit .row .val{font-weight:500;color:var(--sumi);text-align:right;}
+.p-recruit .row .val em{color:var(--shu);font-style:normal;font-weight:600;}
+.p-recruit .foot{
+  text-align:center;margin-top:auto;padding-top:14px;
+  font-size:9.5px;line-height:1.6;color:var(--indigo);font-weight:500;
+  letter-spacing:0.04em;
+}
+.p-recruit .foot em{display:block;margin-top:6px;font-style:italic;color:var(--shu);font-weight:400;}
+
+/* page side caption */
+.page-caption{padding-top:8px;}
+.page-caption .label{
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.32em;color:var(--shu);text-transform:uppercase;
+  margin-bottom:14px;
+}
+.page-caption h4{
+  font-family:var(--serif);font-weight:500;font-size:18px;
+  line-height:1.65;letter-spacing:0.04em;margin-bottom:14px;color:var(--sumi);
+}
+.page-caption p{
+  font-family:var(--serif);font-weight:400;font-size:13.5px;
+  line-height:2;letter-spacing:0.04em;color:var(--sumi-soft);
+}
+
+/* === OTHERS — vertical scroll list === */
+.others{
+  max-width:1200px;margin:0 auto;padding:120px 56px;
+  border-top:0.5px solid var(--rule-strong);
+  display:grid;grid-template-columns:140px 1fr;gap:56px;
+}
+.others-vlabel{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:var(--serif);font-weight:500;font-size:13px;
+  letter-spacing:0.42em;color:var(--sumi-faint);margin:0 auto;
+}
+.others-list{}
+.others-list h3{
+  font-family:var(--serif);font-weight:500;font-size:28px;
+  margin-bottom:48px;letter-spacing:0.04em;
+}
+.others-list h3 em{color:var(--indigo);font-style:normal;font-weight:600;}
+.others-row{
+  display:grid;grid-template-columns:48px 1fr 100px 32px;gap:24px;
+  padding:24px 0;align-items:center;
+  border-bottom:0.5px solid var(--rule);
+  text-decoration:none;color:inherit;
+  transition:padding-left 0.4s ease;
+}
+.others-row:first-child{border-top:0.5px solid var(--rule);}
+.others-row:hover{padding-left:14px;}
+.others-row .n-jp{
+  font-family:var(--serif);font-weight:600;font-size:24px;
+  color:var(--indigo);text-align:center;
+}
+.others-row .name{
+  font-family:var(--serif);font-weight:500;font-size:18px;
+  letter-spacing:0.06em;color:var(--sumi);
+}
+.others-row .name .en{
+  display:block;font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:12px;color:var(--sumi-faint);margin-top:4px;letter-spacing:0.04em;
+}
+.others-row .quote{
+  font-family:var(--serif);font-weight:400;font-size:12.5px;
+  color:var(--sumi-soft);line-height:1.55;letter-spacing:0.04em;text-align:right;
+}
+.others-row .arrow{
+  font-family:var(--serif-en);font-style:italic;color:var(--shu);font-size:14px;
+}
+
+/* === CTA === */
+.cta{
+  padding:140px 56px;text-align:center;
+  border-top:0.5px solid var(--rule-strong);
+  background:rgba(28,24,20,0.04);
+}
+.cta-mark{
+  display:inline-block;width:48px;height:48px;border:1px solid var(--shu);
+  font-family:var(--serif);font-weight:600;font-size:18px;color:var(--shu);
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-bottom:32px;background:rgba(160,50,42,0.04);
+}
+.cta h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(32px,4.6vw,64px);line-height:1.3;letter-spacing:0.04em;
+  margin-bottom:24px;
+}
+.cta h2 em{font-style:normal;color:var(--indigo);font-weight:600;}
+.cta .small{
+  font-family:var(--serif-en);font-style:italic;font-size:13px;
+  letter-spacing:0.16em;color:var(--sumi-faint);text-transform:uppercase;
+  margin-bottom:64px;
+}
+.cta-actions{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+.cta-actions a{
+  font-family:var(--serif);font-weight:500;font-size:15px;
+  letter-spacing:0.16em;color:var(--shu);text-decoration:none;
+  border-bottom:1px solid var(--shu);padding-bottom:6px;
+  transition:letter-spacing 0.4s ease;
+}
+.cta-actions a:hover{letter-spacing:0.22em;}
+.cta-actions a.alt{color:var(--sumi);border-color:var(--rule-strong);}
+.cta-actions a.alt:hover{color:var(--indigo);border-color:var(--indigo);}
+
+/* === FOOTER === */
+footer{
+  padding:48px 56px;
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  letter-spacing:0.18em;color:var(--sumi-faint);text-transform:uppercase;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  border-top:0.5px solid var(--rule);
+}
+footer a{color:var(--sumi-faint);text-decoration:none;margin:0 12px;}
+footer a:hover{color:var(--shu);}
+
+@media (max-width:900px){
+  .brand-bar,.sample-mark{padding-left:24px;padding-right:24px;}
+  .hero{grid-template-columns:1fr;}
+  .hero-main{padding:80px 24px 60px;}
+  .hero-vertical{border-left:none;border-top:0.5px solid var(--rule);padding:48px 0;}
+  .hero-watermark-jp{writing-mode:horizontal-tb;font-size:96px;}
+  .section-head,.chronology,.brief,.pages-intro,.others{
+    grid-template-columns:1fr;gap:32px;padding-left:24px;padding-right:24px;
+  }
+  .chronology .label,.brief-vlabel,.pages-intro .label,.others-vlabel{writing-mode:horizontal-tb;}
+  .brief{grid-template-columns:1fr;}
+  .brief-pullquote{writing-mode:horizontal-tb;height:auto;border:none;border-left:2px solid var(--shu);padding:16px 0 16px 20px;}
+  .chronology-row,.others-row{grid-template-columns:60px 1fr;}
+  .chronology-row .num-jp,.others-row .quote,.others-row .arrow{display:none;}
+  .page-spread,.page-spread:nth-child(even){grid-template-columns:1fr;gap:32px;padding-left:24px;padding-right:24px;}
+  .page-spread:nth-child(even) .page-side{order:0;}
+  .page-content,.page-spread:nth-child(even) .page-content{grid-template-columns:1fr;}
+  .cta{padding:80px 24px;}
+  footer{padding:32px 24px;flex-direction:column;align-items:center;text-align:center;}
+}
+</style>
 </head>
-<body class="theme-woodwork">
+<body>
 
-<svg width="0" height="0" style="position:absolute;">
-  <defs>
-    <symbol id="vd-mark" viewBox="0 0 60 60">
-      <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
-      <circle cx="44" cy="18" r="3.5" fill="#C8392B"/>
-    </symbol>
-  </defs>
-</svg>
-
-<nav class="nav">
-  <div class="nav-brand">
-    <a href="/">
-      <span class="mark"><svg><use href="#vd-mark"/></svg></span>
-      <span class="nav-name">
-        <span class="jp">バイタリティデザイン合同会社</span>
-        <span class="en">Vitality Design LLC.</span>
-      </span>
-    </a>
-  </div>
-  <div class="nav-center"><strong>§</strong>Sample N°03 — Traditional Woodwork</div>
-  <div class="nav-back"><a href="/services/recruitment-branding.html">← Service Overview</a></div>
-</nav>
-
-<div class="sample-banner">
+<div class="brand-bar">
+  <div class="lhs"><span class="vd-mark"></span><span>Vitality Design LLC.</span></div>
+  <a href="/services/recruitment-branding.html">← Service Overview</a>
+</div>
+<div class="sample-mark">
   <span class="badge">Sample</span>
-  <div class="text">
-    <strong>架空クライアントを想定した制作例です。</strong>
-    <span>This is a demonstration case built on a fictional client. Output for actual engagements is created from hearings.</span>
-  </div>
+  <span>Field N°03 ／ Traditional Woodwork ／ Architectural Demonstration Case</span>
 </div>
 
 <section class="hero">
-  <div class="hero-watermark">継</div>
+  <div class="hero-main">
+    <div class="hero-eyebrow">
+      <span class="stamp">参</span>
+      <span>Sample Case 03 ／ 伝統工芸・指物</span>
+    </div>
 
-  <div class="hero-meta">
-    <div class="cell"><span>Industry Sample</span><strong>VD / SVC02 / SAMPLE 03</strong></div>
-    <div class="cell center"><span>Category</span><strong>TRADITIONAL CRAFT — WOODWORK</strong></div>
-    <div class="cell right"><span>Engagement</span><strong>8 WEEKS · A4 6 PAGES + LP</strong></div>
+    <h1>
+      <span class="l1">百年使える</span>
+      <span class="l2"><em>家具</em>を、</span>
+      <span class="l3">つくる人を、育てる。</span>
+    </h1>
+
+    <p class="hero-lead">
+      創業五十八期、職人十二名の中堅工房を想定。<br>
+      技術は確かなのに、<strong>三代目候補すら確保できていない</strong>。<br>
+      後継者育成補助金（伝統的工芸品産業振興協会）の活用を前提に、技の継承を採用メッセージの中核に据えた制作例。
+    </p>
   </div>
 
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="bar"></span><span>Sample Case 03 ／ 伝統工芸・指物</span></div>
-    <h1>
-      百年使える家具を、<br>
-      つくる人を、<em>育てる</em>。
-      <span class="en">For a heritage woodwork atelier — a recruitment pitch.</span>
-    </h1>
-    <p class="hero-lead">
-      創業58期、職人12名。技術は確かなのに、<strong>後継者候補が3代目すら確保できていない</strong>──廃業リスクが現実の射程に入った中堅工房を想定。後継者育成補助金（伝統的工芸品産業振興協会）の活用を前提に、技の継承を中核に据えた採用ピッチを設計した架空ケースです。
-    </p>
+  <aside class="hero-vertical">
+    <span class="hero-watermark-jp">指物</span>
+    <span class="hero-vertical-stamp">継</span>
+    <span class="hero-vertical-meta">二〇二六 ／ 拾八週間 ／ 採用ピッチ六葉</span>
+  </aside>
+</section>
+
+<div class="brush-rule"></div>
+
+<section>
+  <div class="section-head">
+    <div class="section-mark">
+      <span class="num">壱</span>
+      <span class="line"></span>
+      <span>Client</span>
+    </div>
+    <div>
+      <h2>仮の<em>クライアント像</em>。</h2>
+      <div class="en">A fictional atelier — built for this case demonstration.</div>
+    </div>
+  </div>
+
+  <div class="chronology">
+    <div class="label">沿革</div>
+    <div class="chronology-list">
+      <div class="chronology-row">
+        <div class="yr">商号</div>
+        <div class="what">霜野指物 株式会社<span class="en">Shimono Sashimono Inc. ／ 架空クライアント</span></div>
+        <div class="num-jp">壱</div>
+      </div>
+      <div class="chronology-row">
+        <div class="yr">業種</div>
+        <div class="what">伝統工芸・木工指物<span class="en">Custom Furniture &amp; Restoration</span></div>
+        <div class="num-jp">弐</div>
+      </div>
+      <div class="chronology-row">
+        <div class="yr">創業</div>
+        <div class="what">一九六八年（五十八期目）<span class="en">Founded 1968 — 58th year</span></div>
+        <div class="num-jp">参</div>
+      </div>
+      <div class="chronology-row">
+        <div class="yr">規模</div>
+        <div class="what">職人十二名／年商 二億四千万円<span class="en">12 craftsmen ／ ¥240M revenue</span></div>
+        <div class="num-jp">肆</div>
+      </div>
+      <div class="chronology-row">
+        <div class="yr">関与</div>
+        <div class="what">八週間／資料＋採用LP<span class="en">8 weeks ／ pitch + landing page</span></div>
+        <div class="num-jp">伍</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section>
-  <div class="wrap">
-    <div class="case-meta">
-      <div class="case-meta-cell"><div class="key">Client</div><div class="val">霜野指物 株式会社<span class="en">Shimono Sashimono Inc.<br>※ 架空クライアント</span></div></div>
-      <div class="case-meta-cell"><div class="key">Industry</div><div class="val">伝統工芸・木工<span class="en">Custom Furniture &amp; Restoration</span></div></div>
-      <div class="case-meta-cell"><div class="key">Scale</div><div class="val">12名／年商 2.4億円<span class="en">Founded 1968 — 58th year</span></div></div>
-      <div class="case-meta-cell"><div class="key">Engagement</div><div class="val">8週間／資料＋採用LP<span class="en">8 weeks · pitch + landing page</span></div></div>
+  <div class="section-head">
+    <div class="section-mark">
+      <span class="num">弐</span>
+      <span class="line"></span>
+      <span>Brief</span>
     </div>
-
-    <div class="case-brief">
-      <div>
-        <div class="case-brief-meta">— Brief</div>
-        <h3 class="case-brief-h">職人の<em>平均年齢62歳</em>、3代目候補ゼロ。「廃業」を口にしないと、未来が描けない状態だった。</h3>
-      </div>
-      <div class="case-brief-body">
-        <p>創業58期目、注文家具の製作・修復・神社仏閣の調度品を扱う伝統工芸の工房。技術は業界内で評価が高く、注文は3年待ち。一方で、職人12名のうち50代以上が9名、30代以下が1名。</p>
-        <p>3代目候補は採用5年連続ゼロ。求人媒体には「技術を継ぎたい方歓迎」と書いてきたが、応募者からは「閉じた業界に入る勇気が出ない」という声が多かった。後継者育成補助金（伝統的工芸品産業振興協会）の存在が知られていなかったことも、応募ハードルを上げていた。</p>
-        <p>私たちは、棟梁の「孫の代まで使える家具を作る人を育てたい」というフレーズを軸に、技の継承の時間軸そのものを採用メッセージの核に置きました。</p>
-        <div class="brief-quote">
-          百年使える家具をつくることは、<br>百年続く工房をつくることでもある。
-          <span class="by">— 棟梁 ヒアリング 第1回</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="pages-head">
-      <h3 class="pages-h">納品物 ／ <em>6ページ</em>のピッチ資料 ＋ 採用LP。</h3>
-      <span class="pages-meta">A4 / 6 spreads · PDF + LP 1page</span>
-    </div>
-
-    <div class="pages-grid">
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-cover">
-          <span class="page-num"><strong>P · 01</strong> Cover</span>
-          <div class="cover-art">
-            <svg viewBox="0 0 200 140" fill="none">
-              <rect x="50" y="50" width="100" height="60" fill="none" stroke="#A88962" stroke-width="0.8"/>
-              <line x1="50" y1="70" x2="150" y2="70" stroke="#A88962" stroke-width="0.4"/>
-              <line x1="50" y1="90" x2="150" y2="90" stroke="#A88962" stroke-width="0.4"/>
-              <line x1="80" y1="50" x2="80" y2="110" stroke="#A88962" stroke-width="0.4"/>
-              <line x1="120" y1="50" x2="120" y2="110" stroke="#A88962" stroke-width="0.4"/>
-              <line x1="40" y1="50" x2="60" y2="50" stroke="#2C4A6E" stroke-width="1"/>
-              <line x1="140" y1="50" x2="160" y2="50" stroke="#2C4A6E" stroke-width="1"/>
-              <path d="M 95 30 Q 100 25 105 30" stroke="#2C4A6E" stroke-width="0.6" fill="none"/>
-              <path d="M 95 35 Q 100 30 105 35" stroke="#2C4A6E" stroke-width="0.4" fill="none"/>
-            </svg>
-          </div>
-          <div class="cover-h">百年使える家具を、<br>つくる人を、<em>育てる</em>。</div>
-          <div class="cover-sub">2027 Recruitment</div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 01 — Cover</span>
-          <span class="title">表紙：継ぎ手と木目を、線だけで描く。</span>
-          <span class="desc">指物の組み手構造を抽象化。職人の技術が「線の交差」として可視化される構図。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-philosophy">
-          <span class="page-num"><strong>P · 02</strong> Philosophy</span>
-          <div>
-            <div class="philo-headline">短期の生産性ではなく、<br><em>30年後の継承</em>で考える。</div>
-            <p class="philo-body">私たちが作る家具は、孫の代まで使われることを前提にしています。だから、職人を育てる時間軸も、孫の代まで使える技術を渡す、という長さで考えます。今日教えたことが、30年後の誰かの暮らしに残る。それが、指物職人という生業の、本来の意味です。</p>
-          </div>
-          <div class="philo-svg">
-            <svg viewBox="0 0 200 50" fill="none">
-              <line x1="20" y1="30" x2="180" y2="30" stroke="#A88962" stroke-width="0.6"/>
-              <circle cx="20" cy="30" r="4" fill="#2C4A6E"/>
-              <circle cx="65" cy="30" r="3" fill="#A88962"/>
-              <circle cx="110" cy="30" r="3" fill="#A88962"/>
-              <circle cx="155" cy="30" r="3" fill="#A88962"/>
-              <circle cx="180" cy="30" r="4" fill="#2C4A6E"/>
-              <text x="20" y="46" font-family="serif" font-size="6" text-anchor="middle" fill="#2C4A6E" font-style="italic">Now</text>
-              <text x="180" y="46" font-family="serif" font-size="6" text-anchor="middle" fill="#2C4A6E" font-style="italic">100y</text>
-            </svg>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 02 — Philosophy</span>
-          <span class="title">哲学：採用の時間軸を、100年で語る。</span>
-          <span class="desc">即戦力を求めない宣言を最初に置く。求職者を「技術の継承者」として迎えるトーンに統一。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-timeline">
-          <span class="page-num"><strong>P · 03</strong> Timeline</span>
-          <div class="timeline-h">一棹の箪笥が、<em>8ヶ月</em>かけて、ご家庭に届くまで。</div>
-          <div class="timeline-row"><span class="timeline-num">01</span><span class="timeline-step">木材選定<span class="sub">3週間 / 棟梁＋施主</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">02</span><span class="timeline-step">乾燥・養生<span class="sub">8週間 / 倉庫管理</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">03</span><span class="timeline-step">製図・墨付け<span class="sub">2週間 / 棟梁</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">04</span><span class="timeline-step">木取り・粗加工<span class="sub">4週間 / 中堅職人</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">05</span><span class="timeline-step">組み手・本加工<span class="sub">8週間 / 棟梁＋見習い</span></span></div>
-          <div class="timeline-row"><span class="timeline-num">06</span><span class="timeline-step">仕上げ・納品<span class="sub">5週間 / 仕上げ職人</span></span></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 03 — Process Infographic</span>
-          <span class="title">工程：8ヶ月の仕事の、見えにくい労力を開示。</span>
-          <span class="desc">「乾燥に2ヶ月」など、外部からは見えない時間の使い方を可視化。技術の真価を伝える。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-career">
-          <span class="page-num"><strong>P · 04</strong> Career Path</span>
-          <div class="career-h">見習いから、<em>棟梁</em>まで。15年の道のり。</div>
-          <div class="career-bar"></div>
-          <div class="career-stops">
-            <div>1y<br><span class="yr">220</span></div>
-            <div>3y<br><span class="yr">280</span></div>
-            <div>7y<br><span class="yr">360</span></div>
-            <div>11y<br><span class="yr">460</span></div>
-            <div>15y+<br><span class="yr">600+</span></div>
-          </div>
-          <div class="career-rows">
-            <div class="career-row"><span class="stage">見習い</span><span class="skill">道具研ぎ／木の見方</span><span class="salary">¥220</span></div>
-            <div class="career-row"><span class="stage">3年目</span><span class="skill">木取り／材料準備</span><span class="salary">¥280</span></div>
-            <div class="career-row"><span class="stage">7年目</span><span class="skill">一棹を任される</span><span class="salary">¥360</span></div>
-            <div class="career-row"><span class="stage">11年目</span><span class="skill">中堅／お客様対応</span><span class="salary">¥460</span></div>
-            <div class="career-row"><span class="stage">棟梁</span><span class="skill">設計から納品まで全責任</span><span class="salary">¥600+</span></div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 04 — Career Infographic</span>
-          <span class="title">道のり：15年を、年単位で正直に書く。</span>
-          <span class="desc">「短期で稼げる」と嘘をつかない。長期の覚悟を持てる人だけ来てほしい、というスタンスを明示。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-voices">
-          <span class="page-num"><strong>P · 05</strong> Voices</span>
-          <div class="voices-h">先輩の<em>声</em>。</div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">永野 誠</span><span>32 / 入社8年目 / 職人</span></div>
-            <div class="voice-quote">関西のIT企業を辞めて、ここに来ました。最初の3年は、収入は半分でした。でも、毎日触る木の匂いと、棟梁が黙って見せてくれる仕事の手元には、IT時代に失っていた何かがあります。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">西山 小春</span><span>27 / 入社5年目 / 修復職人</span></div>
-            <div class="voice-quote">フィレンツェの修復学校を出て、日本で技術を続けたかった。ここは、海外の感覚で図面を引いても、棟梁が一度受け止めてから、和の手法に翻訳してくれる。</div>
-          </div>
-          <div class="voice-card">
-            <div class="voice-meta"><span class="name">霜野 隆三</span><span>68 / 棟梁 / 3代目</span></div>
-            <div class="voice-quote">後継者は急がなくていい。30年後にこの工房が残っていることが、私たちの今の仕事の価値を決める。だから、長く居られる人が来てほしい。</div>
-          </div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 05 — Voices</span>
-          <span class="title">先輩の声：異業種・海外帰国・棟梁の三世代。</span>
-          <span class="desc">「閉じた業界」のイメージを、外部経歴を持つ若手二人と、後継者を急がない棟梁の言葉で解く。</span>
-        </div>
-      </div>
-
-      <div class="page-preview">
-        <div class="page-canvas canvas-recruit">
-          <span class="page-num"><strong>P · 06</strong> Recruit</span>
-          <div class="recruit-h">募集要項 ／ <em>指物 見習い</em></div>
-          <div class="recruit-row"><span class="label">給与</span><span class="val">月給 <em>¥220,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">補助金期間中</span><span class="val">月給 <em>¥260,000</em>〜</span></div>
-          <div class="recruit-row"><span class="label">休日</span><span class="val">完全週休2日</span></div>
-          <div class="recruit-row"><span class="label">寮</span><span class="val">遠方者は寮あり（家賃補助）</span></div>
-          <div class="recruit-row"><span class="label">補助金</span><span class="val">後継者育成補助金 対象</span></div>
-          <div class="recruit-row"><span class="label">道具</span><span class="val">入社時 全貸与・3年目以降 自前移行</span></div>
-          <div class="recruit-foot">まずは、工房を一日見にきてください。<em>木の匂いに、慣れるかどうか、試してから。</em></div>
-        </div>
-        <div class="page-caption">
-          <span class="label">Page 06 — Recruit</span>
-          <span class="title">募集要項：補助金活用を、応募者にも明示。</span>
-          <span class="desc">後継者育成補助金で給与上乗せ可能なことを明記し、応募者の経済不安を直接ケアする。</span>
-        </div>
-      </div>
-
+    <div>
+      <h2>ご依頼の<em>背景</em>。</h2>
+      <div class="en">What brought us together — and the line we drew first.</div>
     </div>
   </div>
+
+  <div class="brief">
+    <div class="brief-vlabel">背景</div>
+    <div class="brief-body">
+      <p>創業五十八期目、注文家具の製作・修復・神社仏閣の調度品を扱う伝統工芸の工房。技術は業界内で評価が高く、注文は三年待ち。一方で、職人十二名のうち五十代以上が九名、三十代以下が一名。三代目候補は採用五年連続でゼロでした。</p>
+      <p>求人媒体には「技術を継ぎたい方歓迎」と書いてきましたが、応募者からは「閉じた業界に入る勇気が出ない」という声が多く、後継者育成補助金（伝統的工芸品産業振興協会）の存在も知られていなかったことが、応募ハードルを構造的に上げていました。</p>
+      <p>私たちは、棟梁が口にされた「孫の代まで使える家具を作る人を育てたい」というフレーズを軸に、技の継承の時間軸そのものを採用メッセージの核に据えました。</p>
+    </div>
+    <div class="brief-pullquote">
+      百年使える家具をつくることは、百年続く工房をつくることでもある。
+      <span class="by">— 棟梁 第一回ヒアリング</span>
+    </div>
+  </div>
+</section>
+
+<section class="pages-section">
+  <div class="pages-intro">
+    <div class="label">納品物</div>
+    <div>
+      <h3>納品物 ／ <em>六葉</em>のピッチ資料 ＋ 採用LP。</h3>
+      <div class="meta-en">A4 ／ Six spreads ／ PDF + Landing page</div>
+    </div>
+  </div>
+
+  <!-- P1 -->
+  <article class="page-spread">
+    <div class="page-side">
+      <div class="pg-num-jp">壱</div>
+      <div class="pg-label">Page 一 ／ Cover</div>
+      <div class="pg-stamp">表</div>
+    </div>
+    <div class="page-content">
+      <div class="page-canvas p-cover">
+        <svg viewBox="0 0 200 140" fill="none">
+          <rect x="50" y="50" width="100" height="60" fill="none" stroke="#A88962" stroke-width="0.8"/>
+          <line x1="50" y1="70" x2="150" y2="70" stroke="#A88962" stroke-width="0.4"/>
+          <line x1="50" y1="90" x2="150" y2="90" stroke="#A88962" stroke-width="0.4"/>
+          <line x1="80" y1="50" x2="80" y2="110" stroke="#A88962" stroke-width="0.4"/>
+          <line x1="120" y1="50" x2="120" y2="110" stroke="#A88962" stroke-width="0.4"/>
+          <line x1="40" y1="50" x2="60" y2="50" stroke="#2C4A6E" stroke-width="1"/>
+          <line x1="140" y1="50" x2="160" y2="50" stroke="#2C4A6E" stroke-width="1"/>
+        </svg>
+        <div class="h">百年使える家具を、<br>つくる人を、<em>育てる</em>。</div>
+        <div class="sub">2027 Recruitment</div>
+      </div>
+      <div class="page-caption">
+        <div class="label">Cover</div>
+        <h4>表紙：継ぎ手の構造を、線だけで描く。</h4>
+        <p>指物の組み手構造を抽象化。職人の技術が「線の交差」として可視化される構図。落款風の四角マークを右上に置き、伝統工芸の文脈に位置付ける。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- P2 -->
+  <article class="page-spread">
+    <div class="page-side">
+      <div class="pg-num-jp">弐</div>
+      <div class="pg-label">Page 二 ／ Philosophy</div>
+      <div class="pg-stamp">理</div>
+    </div>
+    <div class="page-content">
+      <div class="page-caption">
+        <div class="label">Philosophy</div>
+        <h4>哲学：採用の時間軸を、百年で語る。</h4>
+        <p>即戦力を求めない宣言を最初に置く。求職者を「技術の継承者」として迎えるトーンに、誌面全体を統一する。</p>
+      </div>
+      <div class="page-canvas p-philo">
+        <div class="h">短期の生産性ではなく、<br><em>三十年後の継承</em>で考える。</div>
+        <div class="body">私たちが作る家具は、孫の代まで使われることを前提にしています。だから、職人を育てる時間軸も、孫の代まで使える技術を渡す、という長さで考えます。今日教えたことが、三十年後の誰かの暮らしに残る。それが、指物職人という生業の、本来の意味です。</div>
+        <div class="timeline-arrow"><span>Now</span><span class="l"></span><span>100y</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- P3 -->
+  <article class="page-spread">
+    <div class="page-side">
+      <div class="pg-num-jp">参</div>
+      <div class="pg-label">Page 三 ／ Process</div>
+      <div class="pg-stamp">工</div>
+    </div>
+    <div class="page-content">
+      <div class="page-canvas p-time">
+        <div class="h">一棹の箪笥が、<em>八ヶ月</em>かけて、<br>ご家庭に届くまで。</div>
+        <div class="row"><span class="n">一</span><span class="label">木材選定<span class="when">3週間 ／ 棟梁＋施主</span></span></div>
+        <div class="row"><span class="n">二</span><span class="label">乾燥・養生<span class="when">8週間 ／ 倉庫管理</span></span></div>
+        <div class="row"><span class="n">三</span><span class="label">製図・墨付け<span class="when">2週間 ／ 棟梁</span></span></div>
+        <div class="row"><span class="n">四</span><span class="label">木取り・粗加工<span class="when">4週間 ／ 中堅職人</span></span></div>
+        <div class="row"><span class="n">五</span><span class="label">組み手・本加工<span class="when">8週間 ／ 棟梁＋見習い</span></span></div>
+        <div class="row"><span class="n">六</span><span class="label">仕上げ・納品<span class="when">5週間 ／ 仕上げ職人</span></span></div>
+      </div>
+      <div class="page-caption">
+        <div class="label">Process</div>
+        <h4>工程：八ヶ月の仕事の、見えにくい労力を開示。</h4>
+        <p>「乾燥に二ヶ月」など、外部からは見えない時間の使い方を可視化。技術の真価を伝える。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- P4 -->
+  <article class="page-spread">
+    <div class="page-side">
+      <div class="pg-num-jp">肆</div>
+      <div class="pg-label">Page 四 ／ Career</div>
+      <div class="pg-stamp">道</div>
+    </div>
+    <div class="page-content">
+      <div class="page-caption">
+        <div class="label">Career</div>
+        <h4>道のり：十五年を、年単位で正直に書く。</h4>
+        <p>「短期で稼げる」と嘘をつかない。長期の覚悟を持てる人だけ来てほしい、というスタンスを明示する。</p>
+      </div>
+      <div class="page-canvas p-career">
+        <div class="h">見習いから、<em>棟梁</em>まで。<br>十五年の道のり。</div>
+        <div class="stops">
+          <div>1y<span class="yr">220</span></div>
+          <div>3y<span class="yr">280</span></div>
+          <div>7y<span class="yr">360</span></div>
+          <div>11y<span class="yr">460</span></div>
+          <div>15y+<span class="yr">600+</span></div>
+        </div>
+        <div class="row"><span class="stage">見習い</span><span class="skill">道具研ぎ／木の見方</span><span class="salary">¥220</span></div>
+        <div class="row"><span class="stage">3年目</span><span class="skill">木取り／材料準備</span><span class="salary">¥280</span></div>
+        <div class="row"><span class="stage">7年目</span><span class="skill">一棹を任される</span><span class="salary">¥360</span></div>
+        <div class="row"><span class="stage">11年目</span><span class="skill">中堅／お客様対応</span><span class="salary">¥460</span></div>
+        <div class="row"><span class="stage">棟梁</span><span class="skill">設計から納品まで全責任</span><span class="salary">¥600+</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- P5 -->
+  <article class="page-spread">
+    <div class="page-side">
+      <div class="pg-num-jp">伍</div>
+      <div class="pg-label">Page 五 ／ Voices</div>
+      <div class="pg-stamp">声</div>
+    </div>
+    <div class="page-content">
+      <div class="page-canvas p-voices">
+        <div class="h">先輩の<em>声</em>。</div>
+        <div class="v">
+          <div class="who">永野 誠 <span>32 ／ 入社8年目 ／ 職人</span></div>
+          <p class="quote">関西のIT企業を辞めて、ここに来ました。最初の三年は、収入は半分でした。でも、毎日触る木の匂いと、棟梁が黙って見せてくれる手元には、IT時代に失っていた何かがあります。</p>
+        </div>
+        <div class="v">
+          <div class="who">西山 小春 <span>27 ／ 入社5年目 ／ 修復職人</span></div>
+          <p class="quote">フィレンツェの修復学校を出て、日本で技術を続けたかった。ここは、海外の感覚で図面を引いても、棟梁が一度受け止めてから、和の手法に翻訳してくれる。</p>
+        </div>
+        <div class="v">
+          <div class="who">霜野 隆三 <span>68 ／ 棟梁 ／ 三代目</span></div>
+          <p class="quote">後継者は急がなくていい。三十年後にこの工房が残っていることが、私たちの今の仕事の価値を決める。だから、長く居られる人が来てほしい。</p>
+        </div>
+      </div>
+      <div class="page-caption">
+        <div class="label">Voices</div>
+        <h4>先輩の声：異業種・海外帰国・棟梁の三世代。</h4>
+        <p>「閉じた業界」のイメージを、外部経歴を持つ若手二人と、後継者を急がない棟梁の言葉で解く。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- P6 -->
+  <article class="page-spread">
+    <div class="page-side">
+      <div class="pg-num-jp">陸</div>
+      <div class="pg-label">Page 六 ／ Recruit</div>
+      <div class="pg-stamp">募</div>
+    </div>
+    <div class="page-content">
+      <div class="page-caption">
+        <div class="label">Recruit</div>
+        <h4>募集要項：補助金活用を、応募者にも明示。</h4>
+        <p>後継者育成補助金で給与上乗せが可能なことを明記し、応募者の経済的不安を直接ケアする。</p>
+      </div>
+      <div class="page-canvas p-recruit">
+        <div class="h">募集要項 ／ <em>指物見習い</em>。</div>
+        <div class="row"><span class="key">給与</span><span class="val">月給 <em>¥220,000</em>〜</span></div>
+        <div class="row"><span class="key">補助金期間中</span><span class="val">月給 <em>¥260,000</em>〜</span></div>
+        <div class="row"><span class="key">休日</span><span class="val">完全週休2日</span></div>
+        <div class="row"><span class="key">寮</span><span class="val">遠方者は寮あり</span></div>
+        <div class="row"><span class="key">補助金</span><span class="val">後継者育成 対象</span></div>
+        <div class="row"><span class="key">道具</span><span class="val">入社時 全貸与</span></div>
+        <div class="foot">まずは、工房を一日見にきてください。<em>木の匂いに、慣れるかどうか、試してから。</em></div>
+      </div>
+    </div>
+  </article>
+
 </section>
 
 <section class="others">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-meta"><span class="num">§</span><span class="bar"></span><span>More Samples</span></div>
-        <h2 class="section-h">他業界の<em>制作例</em>。<span class="en">Other industry samples.</span></h2>
-      </div>
-      <p class="section-intro">業界によって、求職者の不安・哲学の翻訳点・キャリアパスはまったく異なります。御社の業界に最も近いサンプルから、ご覧ください。</p>
-    </div>
-  </div>
-
-  <div class="others-grid">
-    <a href="/services/recruitment-branding.html#case" class="others-card">
-      <div>
-        <div class="num">Sample 01</div>
-        <div class="industry-jp">注文住宅・建設業</div>
-        <div class="industry-en">Custom Home Construction</div>
-        <div class="desc">「密度ゼロの豊かさを、住まいに」。1棟ずつ丁寧に作る工務店向けの採用ピッチ。</div>
-      </div>
-      <div class="arrow">View →</div>
+  <div class="others-vlabel">他の制作例</div>
+  <div class="others-list">
+    <h3>他業界の<em>制作例</em>。</h3>
+    <a href="/services/recruitment-branding.html#case" class="others-row">
+      <span class="n-jp">壱</span>
+      <span class="name">注文住宅・建設業<span class="en">Custom Home Construction</span></span>
+      <span class="quote">密度ゼロの豊かさを、住まいに。</span>
+      <span class="arrow">→</span>
     </a>
-    <a href="/services/samples/electrical.html" class="others-card">
-      <div>
-        <div class="num">Sample 02</div>
-        <div class="industry-jp">電気工事業</div>
-        <div class="industry-en">Electrical Contractor</div>
-        <div class="desc">「見えない場所こそ、丁寧に」。下請けイメージで応募ゼロが続く専門工事業向け。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/electrical.html" class="others-row">
+      <span class="n-jp">弐</span>
+      <span class="name">電気工事業<span class="en">Electrical Contractor</span></span>
+      <span class="quote">見えない場所こそ、丁寧に。</span>
+      <span class="arrow">→</span>
     </a>
-    <a href="/services/samples/precision.html" class="others-card">
-      <div>
-        <div class="num">Sample 04</div>
-        <div class="industry-jp">精密金属加工</div>
-        <div class="industry-en">Precision Metalwork</div>
-        <div class="desc">「ミクロン単位で、命を支える」。医療・航空のニッチトップ製造業向けピッチ。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/precision.html" class="others-row">
+      <span class="n-jp">肆</span>
+      <span class="name">精密金属加工<span class="en">Precision Metalwork</span></span>
+      <span class="quote">ミクロン単位で、命を支える。</span>
+      <span class="arrow">→</span>
     </a>
-    <a href="/services/samples/funeral.html" class="others-card">
-      <div>
-        <div class="num">Sample 05</div>
-        <div class="industry-jp">葬儀社・葬祭</div>
-        <div class="industry-en">Funeral Services</div>
-        <div class="desc">「最後の時間に、丁寧を」。地域密着型葬儀社の業界忌避を解くピッチ。</div>
-      </div>
-      <div class="arrow">View →</div>
+    <a href="/services/samples/funeral.html" class="others-row">
+      <span class="n-jp">伍</span>
+      <span class="name">葬儀社・葬祭<span class="en">Funeral Services</span></span>
+      <span class="quote">最後の時間に、丁寧を。</span>
+      <span class="arrow">→</span>
     </a>
   </div>
 </section>
 
-<section class="cta-strip">
-  <h2>この粒度で、御社の<em>採用ピッチ</em>を作ります。</h2>
-  <p>Initial 30-minute consultation — free of charge.</p>
-  <div class="cta-strip-actions">
-    <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（伝統工芸サンプル経由）" class="cta-strip-btn primary">
-      <span class="jp">無料相談を申し込む</span><span class="arrow">→</span>
-    </a>
-    <a href="/services/recruitment-branding.html" class="cta-strip-btn">
-      <span class="jp">サービス概要に戻る</span><span class="arrow">→</span>
-    </a>
+<section class="cta">
+  <div class="cta-mark">継</div>
+  <div class="small">— Initial Consultation</div>
+  <h2>御社の採用ピッチを、<br>この<em>粒度</em>で。</h2>
+  <div class="cta-actions">
+    <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20初回相談（伝統工芸サンプル経由）">無料相談を申し込む</a>
+    <a href="/services/recruitment-branding.html" class="alt">サービス概要に戻る</a>
   </div>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <span>VD / SVC02 / SAMPLE 03 — Traditional Woodwork</span>
-    <span>
-      <a href="/">Home</a>
-      <a href="/services/recruitment-branding.html">Service</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-    </span>
-    <span>© 2026 Vitality Design LLC.</span>
+  <div>VD ／ SVC02 ／ Sample 三 — Traditional Woodwork</div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/services/recruitment-branding.html">Service</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
   </div>
+  <div>© 2026 Vitality Design LLC.</div>
 </footer>
 
 </body>

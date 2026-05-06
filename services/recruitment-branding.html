@@ -569,6 +569,72 @@ section{padding:120px 48px;position:relative;z-index:2;}
   margin-top:2px;
 }
 
+/* ============ SAMPLE GALLERY ============ */
+.gallery{background:#EFE7D6;border-bottom:1px solid var(--ink);padding:120px 48px;}
+.gallery-grid{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid var(--ink);
+}
+.gallery-card{
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:48px 40px;border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  text-decoration:none;color:inherit;
+  min-height:300px;
+  transition:background 0.4s ease, padding-left 0.4s ease;
+  position:relative;
+}
+.gallery-card:nth-child(2n){border-right:none;}
+.gallery-card:nth-last-child(-n+2){border-bottom:none;}
+.gallery-card:hover{background:rgba(200,57,43,0.05);padding-left:48px;}
+.gallery-card .num{
+  font-family:var(--en-display);font-style:italic;
+  font-size:12px;letter-spacing:0.22em;color:var(--vermilion);
+  text-transform:uppercase;margin-bottom:24px;
+}
+.gallery-card .industry-jp{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:26px;line-height:1.35;letter-spacing:0.04em;margin-bottom:8px;
+}
+.gallery-card .industry-en{
+  font-family:var(--en-display);font-style:italic;font-weight:400;
+  font-size:14px;color:var(--sub);letter-spacing:0.04em;margin-bottom:24px;
+}
+.gallery-card .quote{
+  font-family:var(--jp-display);font-weight:500;
+  font-size:18px;line-height:1.6;color:var(--ink);
+  letter-spacing:0.02em;margin-bottom:18px;
+  padding-left:16px;border-left:2px solid var(--vermilion);
+}
+.gallery-card .desc{
+  font-size:13.5px;line-height:1.85;color:rgba(20,16,13,0.7);
+  margin-bottom:24px;
+}
+.gallery-card .arrow{
+  font-family:var(--en-display);font-style:italic;font-size:14px;
+  color:var(--vermilion);letter-spacing:0.08em;
+  display:flex;align-items:center;gap:8px;
+  margin-top:auto;
+}
+.gallery-card .arrow .icon{transition:transform 0.3s ease;}
+.gallery-card:hover .arrow .icon{transform:translateX(8px);}
+.gallery-card .featured{
+  position:absolute;top:24px;right:24px;
+  font-family:var(--en-display);font-style:italic;
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--bg);background:var(--vermilion);
+  padding:4px 10px;
+}
+
+@media (max-width:760px){
+  .gallery{padding:80px 24px;}
+  .gallery-grid{grid-template-columns:1fr;}
+  .gallery-card{border-right:none !important;}
+  .gallery-card:nth-last-child(-n+2){border-bottom:1px solid var(--rule);}
+  .gallery-card:last-child{border-bottom:none;}
+}
+
 /* ============ DELIVERABLES ============ */
 .deliv-grid{
   display:grid;grid-template-columns:repeat(2,1fr);gap:0;
@@ -998,7 +1064,7 @@ footer{
 </section>
 
 <!-- ============ CASE STUDY ============ -->
-<section class="case-study">
+<section class="case-study" id="case">
   <div class="sample-banner">
     <span class="badge">Sample</span>
     <div class="text">
@@ -1204,6 +1270,88 @@ footer{
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ============ SAMPLE GALLERY ============ -->
+<section class="gallery" id="samples">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-meta"><span class="num">§ 04 — B</span><span class="bar"></span><span>Industry Samples</span></div>
+        <h2 class="section-h">業界別の<em>制作例</em>。<span class="en">Five industry samples.</span></h2>
+      </div>
+      <p class="section-intro">業界が違えば、求職者の不安・哲学の翻訳点・キャリアパスの設計はまったく異なります。御社の業界に最も近いサンプルから、ご覧ください。すべて架空クライアントを想定した制作例です。</p>
+    </div>
+  </div>
+
+  <div class="gallery-grid">
+    <a href="#case" class="gallery-card">
+      <span class="featured">Above</span>
+      <div>
+        <div class="num">Sample 01 ／ Construction</div>
+        <div class="industry-jp">注文住宅・建設業</div>
+        <div class="industry-en">Custom Home Construction</div>
+        <div class="quote">密度ゼロの豊かさを、住まいに。</div>
+        <div class="desc">創業10期、年間着工15-20棟の中堅工務店を想定。「量より深さ」の経営哲学を採用ピッチに翻訳。本ページ上部に詳細を掲載しています。</div>
+      </div>
+      <div class="arrow"><span class="icon">↑</span> Scroll up to view</div>
+    </a>
+
+    <a href="/services/samples/electrical.html" class="gallery-card">
+      <div>
+        <div class="num">Sample 02 ／ Specialty Trades</div>
+        <div class="industry-jp">電気工事業</div>
+        <div class="industry-en">Electrical Contractor</div>
+        <div class="quote">見えない場所こそ、丁寧に。</div>
+        <div class="desc">創業28期、自社施工8割の中堅電気工事業者。下請けイメージで応募ゼロ3年連続だった状態を、20年後の建物を支える仕事として再定義。</div>
+      </div>
+      <div class="arrow">View full sample <span class="icon">→</span></div>
+    </a>
+
+    <a href="/services/samples/woodwork.html" class="gallery-card">
+      <div>
+        <div class="num">Sample 03 ／ Traditional Craft</div>
+        <div class="industry-jp">伝統工芸・指物</div>
+        <div class="industry-en">Traditional Woodwork</div>
+        <div class="quote">百年使える家具を、つくる人を、育てる。</div>
+        <div class="desc">創業58期、職人12名の伝統工芸工房。後継者育成補助金活用前提で、技の継承の時間軸を採用メッセージの中核に据えた設計例。</div>
+      </div>
+      <div class="arrow">View full sample <span class="icon">→</span></div>
+    </a>
+
+    <a href="/services/samples/precision.html" class="gallery-card">
+      <div>
+        <div class="num">Sample 04 ／ Niche Manufacturing</div>
+        <div class="industry-jp">精密金属加工</div>
+        <div class="industry-en">Precision Metalwork</div>
+        <div class="quote">ミクロン単位で、命を支える。</div>
+        <div class="desc">創業50期、営業利益率18%、医療・航空への直納のニッチトップ製造業。「町工場」イメージを、誰の命を支える仕事かで書き直す。</div>
+      </div>
+      <div class="arrow">View full sample <span class="icon">→</span></div>
+    </a>
+
+    <a href="/services/samples/funeral.html" class="gallery-card">
+      <div>
+        <div class="num">Sample 05 ／ Funeral Services</div>
+        <div class="industry-jp">葬儀社・葬祭</div>
+        <div class="industry-en">Regional Funeral Services</div>
+        <div class="quote">最後の時間に、丁寧を。</div>
+        <div class="desc">創業74期、地域密着型の中堅葬儀社。3K業界イメージを、ご遺族からの感謝の手紙20年分を起点に、「余白を整える職業」として再定義。</div>
+      </div>
+      <div class="arrow">View full sample <span class="icon">→</span></div>
+    </a>
+
+    <a href="mailto:contact@vitality-design.jp?subject=採用ブランディング%20他業界の制作例について" class="gallery-card" style="background:rgba(20,16,13,0.04);">
+      <div>
+        <div class="num">Other Industries</div>
+        <div class="industry-jp">それ以外の業界も、対応します</div>
+        <div class="industry-en">SaaS · Hospitality · Medical · etc.</div>
+        <div class="quote">業界は問いません。哲学を引き出す方法は、共通です。</div>
+        <div class="desc">SaaS、ホスピタリティ、医療、士業、専門サービスなど、上記5業界以外でも対応実績があります。御社の業界に近い類似ケースをお探しの際は、お気軽にお問い合わせください。</div>
+      </div>
+      <div class="arrow">Contact us <span class="icon">→</span></div>
+    </a>
   </div>
 </section>
 

@@ -1,17 +1,158 @@
 /* Shared styling for /services/samples/*.html */
 :root{
+  /* Parent VD palette — used in nav/header/sample-banner/CTA */
   --bg:#F1ECE2;
   --ink:#14100D;
   --vermilion:#C8392B;
   --sub:#7A7066;
-  --indigo:#1F3A5F;
-  --wood:#B85C1F;
   --rule:rgba(20,16,13,0.12);
   --rule-strong:rgba(20,16,13,0.22);
+
+  /* Per-industry theme palette — overridden by body.theme-* classes below */
+  --theme-blue:#1F3A5F;
+  --theme-orange:#B85C1F;
+  --theme-canvas:#F8F5EE;
+  --theme-canvas-ink:#2E2B26;
+  --theme-canvas-rule:var(--theme-canvas-rule);
+  --theme-canvas-rule-soft:var(--theme-canvas-rule-soft);
+  --theme-canvas-sub:var(--theme-canvas-sub);
+  --theme-canvas-body:var(--theme-canvas-body);
+  --theme-canvas-body-strong:var(--theme-canvas-body-strong);
+  --theme-section-bg:#EFE7D6;
 
   --jp-display:'Shippori Mincho B1', 'Noto Serif JP', serif;
   --en-display:'Cormorant Garamond', 'Shippori Mincho B1', serif;
   --body:'Noto Sans JP', 'Helvetica Neue', sans-serif;
+}
+
+/* ========== INDUSTRY THEMES ========== */
+
+/* Theme: Schematic Blue — electrical contractor */
+body.theme-electrical{
+  --theme-blue:#1F6FB7;
+  --theme-orange:#C9A961;
+  --theme-canvas:#EEF2F6;
+  --theme-canvas-ink:#0F1B2A;
+  --theme-canvas-rule:rgba(15,27,42,0.14);
+  --theme-canvas-rule-soft:rgba(15,27,42,0.22);
+  --theme-canvas-sub:rgba(15,27,42,0.6);
+  --theme-canvas-body:rgba(15,27,42,0.7);
+  --theme-canvas-body-strong:rgba(15,27,42,0.78);
+  --theme-section-bg:#E5ECF3;
+}
+body.theme-electrical .page-canvas{
+  background-image:
+    linear-gradient(rgba(31,111,183,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(31,111,183,0.06) 1px,transparent 1px);
+  background-size:14px 14px;
+}
+body.theme-electrical .page-num,
+body.theme-electrical .timeline-num,
+body.theme-electrical .career-row .salary,
+body.theme-electrical .recruit-row .val em{
+  font-family:'JetBrains Mono','SF Mono',monospace !important;
+  font-style:normal !important;
+}
+
+/* Theme: Sumi & Ochre — traditional woodwork */
+body.theme-woodwork{
+  --theme-blue:#2C4A6E;
+  --theme-orange:#A88962;
+  --theme-canvas:#F4EDDD;
+  --theme-canvas-ink:#1C1814;
+  --theme-canvas-rule:rgba(28,24,20,0.13);
+  --theme-canvas-rule-soft:rgba(28,24,20,0.2);
+  --theme-canvas-sub:rgba(28,24,20,0.55);
+  --theme-canvas-body:rgba(28,24,20,0.7);
+  --theme-canvas-body-strong:rgba(28,24,20,0.8);
+  --theme-section-bg:#E8DEC5;
+}
+body.theme-woodwork .page-canvas{
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,transparent 23px,
+      rgba(168,137,98,0.06) 23px,rgba(168,137,98,0.06) 24px
+    );
+}
+body.theme-woodwork .cover-sub::before,
+body.theme-woodwork .pages-h::after{
+  content:"";
+}
+body.theme-woodwork .page-canvas::after{
+  content:"";position:absolute;
+  top:14px;right:14px;
+  width:14px;height:14px;
+  border:0.5px solid var(--theme-orange);
+  background:linear-gradient(135deg,transparent 49%,var(--theme-orange) 49%,var(--theme-orange) 51%,transparent 51%);
+  opacity:0.5;
+}
+
+/* Theme: Steel & Silver — precision metalwork */
+body.theme-precision{
+  --theme-blue:#3B5269;
+  --theme-orange:#B7392B;
+  --theme-canvas:#FAFBFC;
+  --theme-canvas-ink:#1A1D21;
+  --theme-canvas-rule:rgba(26,29,33,0.1);
+  --theme-canvas-rule-soft:rgba(26,29,33,0.18);
+  --theme-canvas-sub:rgba(26,29,33,0.55);
+  --theme-canvas-body:rgba(26,29,33,0.7);
+  --theme-canvas-body-strong:rgba(26,29,33,0.78);
+  --theme-section-bg:#E8EAEC;
+}
+body.theme-precision .page-canvas{
+  background-image:
+    linear-gradient(rgba(59,82,105,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(59,82,105,0.04) 1px,transparent 1px);
+  background-size:8px 8px;
+}
+body.theme-precision .page-canvas::before{
+  content:"";position:absolute;
+  top:30px;right:14px;bottom:30px;width:1px;
+  background:repeating-linear-gradient(
+    to bottom,
+    var(--theme-canvas-rule) 0,var(--theme-canvas-rule) 4px,
+    transparent 4px,transparent 8px
+  );
+}
+body.theme-precision .career-row .salary,
+body.theme-precision .recruit-row .val,
+body.theme-precision .timeline-num{
+  font-family:'JetBrains Mono','SF Mono',monospace !important;
+  font-style:normal !important;
+  letter-spacing:0;
+}
+
+/* Theme: Quiet & Reverent — funeral services */
+body.theme-funeral{
+  --theme-blue:#3D3550;
+  --theme-orange:#8E7E6A;
+  --theme-canvas:#F2EDDF;
+  --theme-canvas-ink:#1C1A18;
+  --theme-canvas-rule:rgba(28,26,24,0.1);
+  --theme-canvas-rule-soft:rgba(28,26,24,0.16);
+  --theme-canvas-sub:rgba(28,26,24,0.5);
+  --theme-canvas-body:rgba(28,26,24,0.7);
+  --theme-canvas-body-strong:rgba(28,26,24,0.78);
+  --theme-section-bg:#E5DECC;
+}
+body.theme-funeral .page-canvas{
+  background-image:none;
+  position:relative;
+}
+body.theme-funeral .page-canvas::before{
+  content:"";position:absolute;
+  left:50%;top:18px;bottom:18px;width:0.5px;
+  background:rgba(28,26,24,0.06);
+}
+body.theme-funeral .recruit-h em,
+body.theme-funeral .voices-h em,
+body.theme-funeral .timeline-h em,
+body.theme-funeral .career-h em,
+body.theme-funeral .philo-headline em,
+body.theme-funeral .cover-h em{
+  font-weight:500;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
@@ -200,7 +341,7 @@ section{padding:100px 48px;position:relative;z-index:2;}
 
 .page-preview{background:var(--bg);border:1px solid var(--rule-strong);position:relative;display:flex;flex-direction:column;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),box-shadow 0.5s ease;}
 .page-preview:hover{transform:translateY(-6px);box-shadow:0 20px 48px -20px rgba(20,16,13,0.18);}
-.page-canvas{aspect-ratio:210/297;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);background:#F8F5EE;}
+.page-canvas{aspect-ratio:210/297;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);background:var(--theme-canvas);}
 .page-num{position:absolute;top:16px;left:16px;font-family:var(--en-display);font-style:italic;font-size:10px;letter-spacing:0.18em;color:var(--vermilion);text-transform:uppercase;z-index:5;}
 .page-num strong{color:var(--vermilion);font-weight:500;}
 
@@ -208,65 +349,65 @@ section{padding:100px 48px;position:relative;z-index:2;}
 .canvas-cover{display:flex;flex-direction:column;justify-content:flex-end;padding:32px;}
 .cover-art{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);width:75%;height:55%;display:flex;align-items:center;justify-content:center;}
 .cover-art svg{width:100%;height:100%;}
-.cover-h{font-family:var(--jp-display);font-weight:500;font-size:18px;line-height:1.4;letter-spacing:0.04em;color:#2E2B26;position:relative;z-index:2;}
-.cover-h em{font-style:normal;color:#1F3A5F;font-weight:600;}
+.cover-h{font-family:var(--jp-display);font-weight:500;font-size:18px;line-height:1.4;letter-spacing:0.04em;color:var(--theme-canvas-ink);position:relative;z-index:2;}
+.cover-h em{font-style:normal;color:var(--theme-blue);font-weight:600;}
 .cover-sub{font-family:var(--en-display);font-style:italic;font-size:11px;color:var(--sub);margin-top:8px;letter-spacing:0.06em;}
 
 /* P2 PHILOSOPHY */
 .canvas-philosophy{padding:32px;display:flex;flex-direction:column;justify-content:space-between;}
-.philo-headline{font-family:var(--jp-display);font-weight:500;font-size:16px;line-height:1.55;letter-spacing:0.04em;color:#2E2B26;}
-.philo-headline em{font-style:normal;color:#1F3A5F;font-weight:600;}
-.philo-body{font-family:var(--jp-display);font-size:8.5px;line-height:1.85;color:rgba(46,43,38,0.72);margin-top:16px;}
+.philo-headline{font-family:var(--jp-display);font-weight:500;font-size:16px;line-height:1.55;letter-spacing:0.04em;color:var(--theme-canvas-ink);}
+.philo-headline em{font-style:normal;color:var(--theme-blue);font-weight:600;}
+.philo-body{font-family:var(--jp-display);font-size:8.5px;line-height:1.85;color:var(--theme-canvas-body);margin-top:16px;}
 .philo-svg{margin-top:20px;height:60px;display:flex;align-items:center;justify-content:center;}
 .philo-svg svg{width:80%;height:100%;}
 
 /* P3 TIMELINE */
 .canvas-timeline{padding:24px;display:flex;flex-direction:column;}
-.timeline-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:#2E2B26;margin-bottom:16px;}
-.timeline-h em{font-style:normal;color:#B85C1F;font-weight:600;}
-.timeline-row{display:grid;grid-template-columns:18px 1fr;gap:8px;padding:7px 0;border-bottom:1px solid rgba(46,43,38,0.12);align-items:center;}
+.timeline-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:var(--theme-canvas-ink);margin-bottom:16px;}
+.timeline-h em{font-style:normal;color:var(--theme-orange);font-weight:600;}
+.timeline-row{display:grid;grid-template-columns:18px 1fr;gap:8px;padding:7px 0;border-bottom:1px solid var(--theme-canvas-rule);align-items:center;}
 .timeline-row:last-child{border-bottom:none;}
-.timeline-num{font-family:var(--en-display);font-style:italic;font-weight:400;color:#B85C1F;font-size:9px;}
-.timeline-step{font-family:var(--jp-display);font-weight:500;font-size:8.5px;color:#2E2B26;letter-spacing:0.02em;}
-.timeline-step .sub{display:block;font-weight:400;color:rgba(46,43,38,0.6);font-size:7.5px;margin-top:1px;}
+.timeline-num{font-family:var(--en-display);font-style:italic;font-weight:400;color:var(--theme-orange);font-size:9px;}
+.timeline-step{font-family:var(--jp-display);font-weight:500;font-size:8.5px;color:var(--theme-canvas-ink);letter-spacing:0.02em;}
+.timeline-step .sub{display:block;font-weight:400;color:var(--theme-canvas-sub);font-size:7.5px;margin-top:1px;}
 
 /* P4 CAREER */
 .canvas-career{padding:24px;}
-.career-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:#2E2B26;margin-bottom:16px;}
-.career-h em{font-style:normal;color:#B85C1F;font-weight:600;}
-.career-bar{height:1px;background:rgba(46,43,38,0.18);margin:14px 0 8px;position:relative;}
-.career-bar::after{content:"";position:absolute;left:0;top:50%;width:80%;height:2px;background:linear-gradient(to right,#1F3A5F,#B85C1F);transform:translateY(-50%);}
-.career-stops{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font-family:var(--en-display);font-style:italic;font-size:8px;letter-spacing:0.06em;color:#2E2B26;text-align:center;}
+.career-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:var(--theme-canvas-ink);margin-bottom:16px;}
+.career-h em{font-style:normal;color:var(--theme-orange);font-weight:600;}
+.career-bar{height:1px;background:var(--theme-canvas-rule-soft);margin:14px 0 8px;position:relative;}
+.career-bar::after{content:"";position:absolute;left:0;top:50%;width:80%;height:2px;background:linear-gradient(to right,var(--theme-blue),var(--theme-orange));transform:translateY(-50%);}
+.career-stops{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font-family:var(--en-display);font-style:italic;font-size:8px;letter-spacing:0.06em;color:var(--theme-canvas-ink);text-align:center;}
 .career-stops div{padding-top:8px;position:relative;}
-.career-stops div::before{content:"●";position:absolute;top:-12px;left:50%;transform:translateX(-50%);color:#B85C1F;font-size:9px;}
-.career-stops div:first-child::before{color:#1F3A5F;}
-.career-stops .yr{font-weight:500;font-style:normal;color:#1F3A5F;font-size:7px;}
+.career-stops div::before{content:"●";position:absolute;top:-12px;left:50%;transform:translateX(-50%);color:var(--theme-orange);font-size:9px;}
+.career-stops div:first-child::before{color:var(--theme-blue);}
+.career-stops .yr{font-weight:500;font-style:normal;color:var(--theme-blue);font-size:7px;}
 .career-rows{margin-top:16px;}
-.career-row{display:grid;grid-template-columns:48px 1fr 56px;gap:10px;padding:6px 0;border-bottom:1px solid rgba(46,43,38,0.12);font-family:var(--jp-display);font-size:8px;line-height:1.4;align-items:center;}
-.career-row .stage{font-weight:500;color:#2E2B26;}
-.career-row .skill{color:rgba(46,43,38,0.7);font-weight:400;}
-.career-row .salary{text-align:right;font-family:var(--en-display);font-style:italic;color:#B85C1F;font-weight:500;}
+.career-row{display:grid;grid-template-columns:48px 1fr 56px;gap:10px;padding:6px 0;border-bottom:1px solid var(--theme-canvas-rule);font-family:var(--jp-display);font-size:8px;line-height:1.4;align-items:center;}
+.career-row .stage{font-weight:500;color:var(--theme-canvas-ink);}
+.career-row .skill{color:var(--theme-canvas-body);font-weight:400;}
+.career-row .salary{text-align:right;font-family:var(--en-display);font-style:italic;color:var(--theme-orange);font-weight:500;}
 
 /* P5 VOICES */
 .canvas-voices{padding:20px;display:flex;flex-direction:column;justify-content:space-between;}
-.voices-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:#2E2B26;margin-bottom:14px;}
-.voices-h em{font-style:normal;color:#1F3A5F;font-weight:600;}
-.voice-card{padding:10px 0;border-bottom:1px solid rgba(46,43,38,0.12);}
+.voices-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:var(--theme-canvas-ink);margin-bottom:14px;}
+.voices-h em{font-style:normal;color:var(--theme-blue);font-weight:600;}
+.voice-card{padding:10px 0;border-bottom:1px solid var(--theme-canvas-rule);}
 .voice-card:last-child{border-bottom:none;}
-.voice-meta{display:flex;justify-content:space-between;font-family:var(--en-display);font-style:italic;font-size:7.5px;letter-spacing:0.08em;color:#1F3A5F;margin-bottom:4px;}
-.voice-meta .name{font-weight:500;font-style:normal;font-family:var(--jp-display);color:#2E2B26;font-size:8px;letter-spacing:0.06em;}
-.voice-quote{font-family:var(--jp-display);font-size:8px;line-height:1.65;color:rgba(46,43,38,0.78);font-weight:400;}
+.voice-meta{display:flex;justify-content:space-between;font-family:var(--en-display);font-style:italic;font-size:7.5px;letter-spacing:0.08em;color:var(--theme-blue);margin-bottom:4px;}
+.voice-meta .name{font-weight:500;font-style:normal;font-family:var(--jp-display);color:var(--theme-canvas-ink);font-size:8px;letter-spacing:0.06em;}
+.voice-quote{font-family:var(--jp-display);font-size:8px;line-height:1.65;color:var(--theme-canvas-body-strong);font-weight:400;}
 
 /* P6 RECRUIT */
 .canvas-recruit{padding:24px;display:flex;flex-direction:column;}
-.recruit-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:#2E2B26;margin-bottom:14px;}
-.recruit-h em{font-style:normal;color:#1F3A5F;font-weight:600;}
-.recruit-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 0;border-bottom:1px solid rgba(46,43,38,0.12);font-family:var(--jp-display);font-size:8px;line-height:1.4;}
-.recruit-row .label{color:rgba(46,43,38,0.6);font-weight:400;}
-.recruit-row .val{color:#2E2B26;font-weight:500;text-align:right;}
-.recruit-row .val em{font-style:normal;color:#B85C1F;font-weight:600;}
-.recruit-foot{margin-top:auto;padding-top:14px;font-family:var(--jp-display);font-size:9px;line-height:1.55;color:#1F3A5F;font-weight:500;text-align:center;letter-spacing:0.06em;}
-.recruit-foot em{font-style:normal;color:#B85C1F;font-weight:600;display:block;margin-top:4px;}
+.recruit-h{font-family:var(--jp-display);font-weight:500;font-size:13px;letter-spacing:0.04em;color:var(--theme-canvas-ink);margin-bottom:14px;}
+.recruit-h em{font-style:normal;color:var(--theme-blue);font-weight:600;}
+.recruit-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--theme-canvas-rule);font-family:var(--jp-display);font-size:8px;line-height:1.4;}
+.recruit-row .label{color:var(--theme-canvas-sub);font-weight:400;}
+.recruit-row .val{color:var(--theme-canvas-ink);font-weight:500;text-align:right;}
+.recruit-row .val em{font-style:normal;color:var(--theme-orange);font-weight:600;}
+.recruit-foot{margin-top:auto;padding-top:14px;font-family:var(--jp-display);font-size:9px;line-height:1.55;color:var(--theme-blue);font-weight:500;text-align:center;letter-spacing:0.06em;}
+.recruit-foot em{font-style:normal;color:var(--theme-orange);font-weight:600;display:block;margin-top:4px;}
 
 /* PAGE CAPTION */
 .page-caption{padding:20px;display:flex;flex-direction:column;gap:6px;}
@@ -275,7 +416,7 @@ section{padding:100px 48px;position:relative;z-index:2;}
 .page-caption .desc{font-size:11.5px;line-height:1.7;color:rgba(20,16,13,0.65);margin-top:2px;}
 
 /* OTHER SAMPLES */
-.others{background:#EFE7D6;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);}
+.others{background:var(--theme-section-bg);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);}
 .others-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);}
 .others-card{
   display:flex;flex-direction:column;justify-content:space-between;

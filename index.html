@@ -94,131 +94,189 @@ body{
 .hero-inner{max-width:1240px;margin:0 auto;position:relative;z-index:2;}
 
 .hero-grid{
-  display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;
+  display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;
   margin-bottom:64px;
 }
 .hero-text{min-width:0;}
 
 /* === HERO ART === */
 .hero-art{
-  position:relative;aspect-ratio:1/1;width:100%;max-width:480px;justify-self:end;
+  position:relative;aspect-ratio:1/1;width:100%;max-width:600px;justify-self:end;
   background:radial-gradient(ellipse at 30% 30%,#1A1C20 0%,#0E0F12 90%);
-  border-radius:24px;overflow:hidden;
+  border-radius:28px;overflow:hidden;
   border:1px solid rgba(255,255,255,0.06);
   box-shadow:var(--shadow-lg);
 }
 .ha-grid{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
-  background-size:24px 24px;
-  mask-image:radial-gradient(ellipse at center,black 30%,transparent 90%);
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:radial-gradient(ellipse at center,black 25%,transparent 90%);
+  animation:ha-grid-drift 24s linear infinite;
 }
-.ha-orb{
-  position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none;
-}
-.ha-orb-1{
-  width:260px;height:260px;
-  background:radial-gradient(circle,rgba(200,57,43,0.55),transparent 60%);
-  top:10%;left:-10%;
-  animation:ha-drift-1 18s ease-in-out infinite;
-}
-.ha-orb-2{
-  width:220px;height:220px;
-  background:radial-gradient(circle,rgba(220,99,88,0.35),transparent 60%);
-  top:55%;left:55%;
-  animation:ha-drift-2 22s ease-in-out infinite;
-}
-.ha-orb-3{
-  width:160px;height:160px;
-  background:radial-gradient(circle,rgba(255,255,255,0.08),transparent 60%);
-  top:20%;left:60%;
-  animation:ha-drift-3 26s ease-in-out infinite;
-}
-@keyframes ha-drift-1{
-  0%,100%{transform:translate(0,0);}
-  33%{transform:translate(40px,30px);}
-  66%{transform:translate(-30px,40px);}
-}
-@keyframes ha-drift-2{
-  0%,100%{transform:translate(0,0);}
-  50%{transform:translate(-50px,-30px);}
-}
-@keyframes ha-drift-3{
-  0%,100%{transform:translate(0,0);}
-  40%{transform:translate(30px,40px);}
-  80%{transform:translate(-40px,-20px);}
+@keyframes ha-grid-drift{
+  to{background-position:28px 28px;}
 }
 
-/* interlocking rings — two beings, side by side */
+.ha-orb{
+  position:absolute;border-radius:50%;filter:blur(44px);pointer-events:none;
+  will-change:transform;
+}
+.ha-orb-1{
+  width:320px;height:320px;
+  background:radial-gradient(circle,rgba(200,57,43,0.6),transparent 60%);
+  top:5%;left:-15%;
+  animation:ha-drift-1 11s ease-in-out infinite;
+}
+.ha-orb-2{
+  width:260px;height:260px;
+  background:radial-gradient(circle,rgba(220,99,88,0.4),transparent 60%);
+  top:55%;left:55%;
+  animation:ha-drift-2 13s ease-in-out infinite;
+}
+.ha-orb-3{
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(255,255,255,0.1),transparent 60%);
+  top:15%;left:60%;
+  animation:ha-drift-3 15s ease-in-out infinite;
+}
+.ha-orb-4{
+  width:180px;height:180px;
+  background:radial-gradient(circle,rgba(200,57,43,0.35),transparent 60%);
+  top:60%;left:5%;
+  animation:ha-drift-4 17s ease-in-out infinite;
+}
+.ha-orb-5{
+  width:140px;height:140px;
+  background:radial-gradient(circle,rgba(245,220,216,0.18),transparent 60%);
+  top:35%;left:40%;
+  animation:ha-drift-5 9s ease-in-out infinite;
+}
+@keyframes ha-drift-1{
+  0%,100%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(70px,50px) scale(1.1);}
+  66%{transform:translate(-40px,60px) scale(0.95);}
+}
+@keyframes ha-drift-2{
+  0%,100%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(-80px,-40px) scale(1.15);}
+}
+@keyframes ha-drift-3{
+  0%,100%{transform:translate(0,0) scale(1);}
+  40%{transform:translate(50px,60px) scale(0.9);}
+  80%{transform:translate(-60px,-30px) scale(1.1);}
+}
+@keyframes ha-drift-4{
+  0%,100%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(60px,-50px) scale(1.2);}
+}
+@keyframes ha-drift-5{
+  0%,100%{transform:translate(0,0) scale(0.9);}
+  50%{transform:translate(20px,30px) scale(1.3);}
+}
+
+/* interlocking rings — rotate, breathe, scale */
 .ha-rings{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:64%;height:42%;
+  width:70%;height:46%;
 }
 .ha-ring{
   position:absolute;top:50%;width:62%;height:0;padding-bottom:62%;
-  transform:translateY(-50%);border-radius:50%;
+  border-radius:50%;will-change:transform;
 }
 .ha-ring-a{
   left:0;
-  border:1.5px solid rgba(200,57,43,0.85);
-  box-shadow:0 0 40px rgba(200,57,43,0.25),inset 0 0 30px rgba(200,57,43,0.12);
-  animation:ha-breath-a 5s ease-in-out infinite;
+  border:1.5px solid rgba(200,57,43,0.95);
+  box-shadow:
+    0 0 60px rgba(200,57,43,0.35),
+    inset 0 0 40px rgba(200,57,43,0.18);
+  animation:ha-spin-a 14s linear infinite, ha-breath-a 3.5s ease-in-out infinite;
 }
 .ha-ring-b{
   right:0;
-  border:1.5px solid rgba(255,255,255,0.5);
-  box-shadow:0 0 30px rgba(255,255,255,0.1),inset 0 0 20px rgba(255,255,255,0.05);
-  animation:ha-breath-b 5s ease-in-out infinite;
+  border:1.5px solid rgba(255,255,255,0.55);
+  box-shadow:
+    0 0 40px rgba(255,255,255,0.14),
+    inset 0 0 24px rgba(255,255,255,0.06);
+  animation:ha-spin-b 18s linear infinite, ha-breath-b 3.5s ease-in-out infinite;
+}
+@keyframes ha-spin-a{
+  from{transform:translate(0,-50%) rotate(0deg);}
+  to{transform:translate(0,-50%) rotate(360deg);}
+}
+@keyframes ha-spin-b{
+  from{transform:translate(0,-50%) rotate(0deg);}
+  to{transform:translate(0,-50%) rotate(-360deg);}
 }
 @keyframes ha-breath-a{
-  0%,100%{transform:translate(0,-50%);}
-  50%{transform:translate(8px,-50%);}
+  0%,100%{margin-left:0;width:62%;padding-bottom:62%;}
+  50%{margin-left:14px;width:66%;padding-bottom:66%;}
 }
 @keyframes ha-breath-b{
-  0%,100%{transform:translate(0,-50%);}
-  50%{transform:translate(-8px,-50%);}
+  0%,100%{margin-right:0;width:62%;padding-bottom:62%;}
+  50%{margin-right:14px;width:66%;padding-bottom:66%;}
 }
 
-/* horizontal scan line */
+/* a tick on each ring, marking rotation */
+.ha-ring-tick{
+  position:absolute;top:-4px;left:50%;transform:translateX(-50%);
+  width:8px;height:8px;border-radius:50%;
+}
+.ha-ring-a .ha-ring-tick{
+  background:#FFD9D2;box-shadow:0 0 14px rgba(255,217,210,0.9);
+}
+.ha-ring-b .ha-ring-tick{
+  background:#FFFFFF;box-shadow:0 0 14px rgba(255,255,255,0.9);
+}
+
+/* upward floating particles */
+.ha-particles{position:absolute;inset:0;pointer-events:none;}
+.ha-particles span{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:rgba(255,217,210,0.7);
+  box-shadow:0 0 6px rgba(255,217,210,0.8);
+  bottom:-10px;opacity:0;
+  animation:ha-rise 8s linear infinite;
+}
+.ha-particles span:nth-child(1){left:10%;animation-delay:0s;}
+.ha-particles span:nth-child(2){left:22%;animation-delay:1.4s;background:rgba(255,255,255,0.6);}
+.ha-particles span:nth-child(3){left:36%;animation-delay:2.8s;}
+.ha-particles span:nth-child(4){left:48%;animation-delay:4.2s;background:rgba(255,255,255,0.5);}
+.ha-particles span:nth-child(5){left:60%;animation-delay:0.8s;}
+.ha-particles span:nth-child(6){left:74%;animation-delay:2.2s;background:rgba(255,255,255,0.55);}
+.ha-particles span:nth-child(7){left:84%;animation-delay:3.6s;}
+.ha-particles span:nth-child(8){left:92%;animation-delay:5s;background:rgba(255,255,255,0.4);}
+.ha-particles span:nth-child(9){left:16%;animation-delay:6.4s;width:2px;height:2px;}
+.ha-particles span:nth-child(10){left:66%;animation-delay:7.8s;width:2px;height:2px;}
+@keyframes ha-rise{
+  0%{transform:translateY(0) translateX(0);opacity:0;}
+  10%{opacity:1;}
+  85%{opacity:1;}
+  100%{transform:translateY(-110%) translateX(20px);opacity:0;}
+}
+
+/* horizontal scan line — faster */
 .ha-scan{
   position:absolute;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  background:linear-gradient(90deg,transparent,rgba(255,217,210,0.45),rgba(255,255,255,0.35),transparent);
   top:0;
-  animation:ha-scan 6s ease-in-out infinite;
+  animation:ha-scan 3.6s ease-in-out infinite;
+  box-shadow:0 0 8px rgba(255,217,210,0.5);
 }
 @keyframes ha-scan{
-  0%{top:0;opacity:0;}
+  0%{top:-2%;opacity:0;}
   10%{opacity:1;}
   90%{opacity:1;}
-  100%{top:100%;opacity:0;}
-}
-
-/* meta badge bottom-left */
-.ha-meta{
-  position:absolute;bottom:20px;left:20px;
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 12px;background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.12);border-radius:99px;
-  font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.7);
-  letter-spacing:0.14em;text-transform:uppercase;
-  backdrop-filter:blur(8px);
-}
-.ha-dot{
-  width:6px;height:6px;border-radius:50%;background:var(--vermilion);
-  box-shadow:0 0 8px var(--vermilion);
-  animation:ha-pulse 1.6s ease-in-out infinite;
-}
-@keyframes ha-pulse{
-  0%,100%{opacity:1;transform:scale(1);}
-  50%{opacity:0.4;transform:scale(0.85);}
+  100%{top:102%;opacity:0;}
 }
 
 /* corner labels */
 .ha-corner{
   position:absolute;font-family:var(--mono);font-size:10px;
-  color:rgba(255,255,255,0.35);letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);letter-spacing:0.16em;text-transform:uppercase;
+  z-index:3;
 }
 .ha-corner-tl{top:20px;left:20px;}
 .ha-corner-br{bottom:20px;right:20px;}
@@ -388,28 +446,51 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
 }
 .rd-section .section-sub{color:rgba(255,255,255,0.7);}
 
-.rd-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;
-  overflow:hidden;margin-top:48px;
+.rd-tags{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin:36px 0 48px;
 }
-.rd-item{
-  background:var(--night);padding:32px 24px;
-  display:flex;flex-direction:column;gap:14px;
-  transition:background 0.3s;
+.rd-tags span{
+  font-family:var(--mono);font-size:12px;color:rgba(255,255,255,0.85);
+  letter-spacing:0.04em;padding:8px 16px;
+  border:1px solid rgba(255,255,255,0.15);border-radius:99px;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(4px);
 }
-.rd-item:hover{background:var(--night-soft);}
-.rd-num{
-  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--vermilion-soft);letter-spacing:0.04em;
+
+.rd-project{
+  display:flex;justify-content:space-between;align-items:center;gap:32px;
+  padding:32px 36px;
+  background:linear-gradient(135deg,rgba(200,57,43,0.14) 0%,rgba(255,255,255,0.04) 100%);
+  border:1px solid rgba(200,57,43,0.3);border-radius:16px;
+  text-decoration:none;color:#fff;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,background 0.3s;
 }
-.rd-item h3{
-  font-family:var(--jp);font-weight:600;font-size:18px;line-height:1.45;color:#fff;letter-spacing:0;
+.rd-project:hover{
+  transform:translateY(-4px);
+  border-color:rgba(200,57,43,0.6);
+  background:linear-gradient(135deg,rgba(200,57,43,0.22) 0%,rgba(255,255,255,0.06) 100%);
 }
-.rd-item h3 .en{
-  display:block;font-family:var(--sans);font-weight:500;font-size:11px;color:rgba(255,255,255,0.5);
-  letter-spacing:0.06em;margin-top:6px;text-transform:uppercase;
+.rd-project-label{
+  font-family:var(--mono);font-size:11px;color:var(--vermilion-soft);
+  letter-spacing:0.18em;text-transform:uppercase;margin-bottom:10px;font-weight:600;
 }
-.rd-item p{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.6);}
+.rd-project-name{
+  font-family:var(--jp);font-weight:600;font-size:28px;line-height:1.25;
+  color:#fff;margin-bottom:8px;letter-spacing:-0.005em;
+}
+.rd-project-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;}
+.rd-project-url{
+  display:inline-block;margin-top:10px;
+  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.45);
+  letter-spacing:0.04em;
+}
+.rd-project-arrow{
+  font-family:var(--mono);font-size:36px;color:var(--vermilion-soft);font-weight:300;
+  transition:transform 0.3s;flex-shrink:0;
+  line-height:1;
+}
+.rd-project:hover .rd-project-arrow{transform:translate(6px,-6px);}
 
 /* === CONTACT === */
 .contact-block{
@@ -503,10 +584,9 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 @media (max-width:1024px){
   .services-grid{grid-template-columns:1fr;}
   .works-grid{grid-template-columns:1fr;gap:16px;}
-  .rd-grid{grid-template-columns:repeat(2,1fr);}
   .contact-inner{grid-template-columns:1fr;gap:32px;}
   .hero-grid{grid-template-columns:1fr;gap:48px;}
-  .hero-art{max-width:420px;justify-self:start;}
+  .hero-art{max-width:480px;justify-self:start;}
 }
 @media (max-width:680px){
   .nav{padding:14px 20px;}
@@ -514,9 +594,10 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .hero{padding:48px 20px 64px;}
   section{padding:80px 20px;}
   .rd-section, .contact-block{padding:48px 24px;border-radius:16px;}
-  .rd-grid{grid-template-columns:1fr;}
+  .rd-project{flex-direction:column;align-items:flex-start;gap:18px;text-align:left;}
+  .rd-project-arrow{align-self:flex-end;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
-  .hero-art{max-width:320px;}
+  .hero-art{max-width:360px;}
 }
 </style>
 </head>
@@ -555,21 +636,25 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 
       <aside class="hero-art" aria-hidden="true">
         <div class="ha-grid"></div>
+
         <div class="ha-orb ha-orb-1"></div>
         <div class="ha-orb ha-orb-2"></div>
         <div class="ha-orb ha-orb-3"></div>
+        <div class="ha-orb ha-orb-4"></div>
+        <div class="ha-orb ha-orb-5"></div>
 
         <div class="ha-rings">
-          <div class="ha-ring ha-ring-a"></div>
-          <div class="ha-ring ha-ring-b"></div>
+          <div class="ha-ring ha-ring-a"><span class="ha-ring-tick"></span></div>
+          <div class="ha-ring ha-ring-b"><span class="ha-ring-tick"></span></div>
+        </div>
+
+        <div class="ha-particles">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span>
         </div>
 
         <div class="ha-scan"></div>
-
-        <div class="ha-meta">
-          <span class="ha-dot"></span>
-          <span>RUNNING ／ 伴走中</span>
-        </div>
 
         <div class="ha-corner ha-corner-tl">VD / 01</div>
         <div class="ha-corner ha-corner-br">2026</div>
@@ -707,28 +792,22 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
     <h2 class="section-title">都市生活者の、<br><em>孤独・疲労・自己回復</em>を研究する。</h2>
     <p class="section-sub">受託の傍ら、ライフスタイル領域での研究開発を続けています。SNS、コミュニティ、AI、IP——複数の角度から、都市の中で働き生きる個人にとって意味のある仕組みを試作しています。</p>
 
-    <div class="rd-grid">
-      <div class="rd-item">
-        <span class="rd-num">01</span>
-        <h3>SNSメディア運営<span class="en">Owned Social Media</span></h3>
-        <p>都市生活者の関心領域を扱う独自アカウント群を、複数プラットフォームで運営。</p>
-      </div>
-      <div class="rd-item">
-        <span class="rd-num">02</span>
-        <h3>コミュニティ設計<span class="en">Community Design</span></h3>
-        <p>関係性の濃度と継続性を両立する、小〜中規模コミュニティの構造実験。</p>
-      </div>
-      <div class="rd-item">
-        <span class="rd-num">03</span>
-        <h3>AI活用<span class="en">AI Application</span></h3>
-        <p>個人とコミュニティ向けの AI ツール試作と、活用パターンのナレッジ蓄積。</p>
-      </div>
-      <div class="rd-item">
-        <span class="rd-num">04</span>
-        <h3>キャラクター／IP開発<span class="en">Character &amp; IP</span></h3>
-        <p>長期で愛される人格と世界観を、デジタルファースト前提で設計・運用する試み。</p>
-      </div>
+    <div class="rd-tags">
+      <span>SNSメディア運営</span>
+      <span>コミュニティ設計</span>
+      <span>AI活用</span>
+      <span>キャラクター／IP開発</span>
     </div>
+
+    <a class="rd-project" href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">
+      <div>
+        <div class="rd-project-label">Featured Project</div>
+        <div class="rd-project-name">his · recoveries</div>
+        <div class="rd-project-desc">都市生活者の自己回復をテーマにした、研究開発から生まれたメディアプロジェクト。</div>
+        <span class="rd-project-url">his-recoveries.vercel.app ↗</span>
+      </div>
+      <div class="rd-project-arrow">↗</div>
+    </a>
   </div>
 </section>
 

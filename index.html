@@ -472,77 +472,51 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
 }
 .rd-project:hover .rd-project-arrow{transform:translate(6px,-6px);}
 
-/* === CONTACT === */
-.contact-block{
-  margin:80px auto;max-width:1240px;
-  background:linear-gradient(135deg,#0E0F12 0%,#1A1C20 50%,#2A2C32 100%);
-  color:#fff;border-radius:24px;padding:80px 64px;
-  position:relative;overflow:hidden;
-}
-.contact-block::before{
-  content:"";position:absolute;
-  top:-200px;right:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(200,57,43,0.22) 0%,transparent 60%);
-  filter:blur(40px);
-}
-.contact-block::after{
-  content:"";position:absolute;
-  bottom:-200px;left:-100px;width:400px;height:400px;
-  background:radial-gradient(circle,rgba(125,180,210,0.12) 0%,transparent 60%);
-  filter:blur(40px);
-}
-.contact-block > *{position:relative;z-index:2;}
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
-.contact-inner h2{
-  font-family:var(--jp);font-weight:600;font-size:clamp(32px,3.8vw,52px);line-height:1.3;letter-spacing:-0.005em;color:#fff;margin-bottom:18px;
-}
-.contact-inner h2 em{
-  font-style:normal;
-  background:linear-gradient(135deg,var(--vermilion-soft),#D4B5E8);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-}
-.contact-inner p{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;}
-.contact-options{display:flex;flex-direction:column;gap:12px;}
+/* === CONTACT — light & simple === */
+.contact-inner{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start;}
+
+.contact-options{display:flex;flex-direction:column;gap:10px;}
 .contact-opt{
   display:flex;justify-content:space-between;align-items:center;
-  padding:14px 18px;background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.12);border-radius:10px;
-  font-family:var(--mono);font-size:13px;color:rgba(255,255,255,0.7);
-  text-decoration:none;transition:background 0.2s,border-color 0.2s;
+  padding:18px 20px;background:var(--bg-card);
+  border:1px solid var(--line);border-radius:12px;
+  text-decoration:none;color:var(--ink);
+  transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
 }
-.contact-opt:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25);}
-.contact-opt .label{display:flex;align-items:center;gap:10px;}
+.contact-opt:hover{border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
+.contact-opt .label{display:flex;align-items:center;gap:12px;}
 .contact-opt .label .ic{
-  width:24px;height:24px;border-radius:6px;background:rgba(200,57,43,0.18);color:var(--vermilion-soft);
-  display:inline-flex;align-items:center;justify-content:center;font-size:13px;
+  width:28px;height:28px;border-radius:7px;background:var(--bg-soft);color:var(--ink);
+  border:1px solid var(--line);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:13px;font-weight:600;
 }
-.contact-opt .v{color:#fff;font-weight:500;}
+.contact-opt .label .ic-lbl{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;}
+.contact-opt .v{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:500;letter-spacing:-0.005em;}
 
-/* simple form */
+/* simple form — light */
 .contact-form{
-  display:flex;flex-direction:column;gap:14px;
-  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);
-  border-radius:16px;padding:28px;backdrop-filter:blur(12px);
+  display:flex;flex-direction:column;gap:10px;
 }
 .cf-input, .cf-textarea{
-  width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.14);border-radius:10px;
-  font-family:var(--sans);font-size:14px;color:#fff;letter-spacing:-0.005em;
+  width:100%;padding:14px 16px;background:var(--bg-card);
+  border:1px solid var(--line);border-radius:10px;
+  font-family:var(--sans);font-size:14px;color:var(--ink);letter-spacing:-0.005em;
   transition:border-color 0.2s,background 0.2s;
 }
 .cf-input:focus, .cf-textarea:focus{
-  outline:none;border-color:var(--vermilion-soft);background:rgba(255,255,255,0.08);
+  outline:none;border-color:var(--ink);background:#fff;
 }
-.cf-input::placeholder, .cf-textarea::placeholder{color:rgba(255,255,255,0.4);}
+.cf-input::placeholder, .cf-textarea::placeholder{color:var(--ink-mute);}
 .cf-textarea{resize:vertical;min-height:140px;font-family:var(--sans);}
 .cf-submit{
-  width:100%;padding:14px 24px;background:#fff;color:var(--night);
+  width:100%;padding:14px 24px;background:var(--ink);color:#fff;
   border:none;border-radius:10px;font-family:var(--sans);font-size:15px;font-weight:600;
-  cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;
+  cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  margin-top:4px;
+  margin-top:6px;
 }
-.cf-submit:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.3);}
+.cf-submit:hover{background:var(--vermilion);transform:translateY(-1px);box-shadow:var(--shadow-md);}
 
 /* === FOOTER === */
 footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
@@ -573,7 +547,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .nav-links{display:none;}
   .hero{padding:48px 20px 64px;}
   section{padding:80px 20px;}
-  .rd-section, .contact-block{padding:48px 24px;border-radius:16px;}
+  .rd-section{padding:48px 24px;border-radius:16px;}
   .rd-project{flex-direction:column;align-items:flex-start;gap:18px;text-align:left;}
   .rd-project-arrow{align-self:flex-end;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
@@ -780,33 +754,40 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   </div>
 </section>
 
-<!-- CONTACT -->
-<div class="contact-block" id="contact">
-  <div class="contact-inner">
-    <div>
-      <div class="section-eyebrow" style="color:var(--vermilion-soft);margin-bottom:18px;"><span>Contact</span></div>
-      <h2>事業相談・制作依頼・<br><em>協業</em>のご相談を。</h2>
-      <p>事業相談・制作依頼・協業など、お気軽にお問い合わせください。フォーム入力 or メールから承ります。</p>
+<!-- CONTACT — light & simple -->
+<section id="contact" style="background:var(--bg-soft);">
+  <div class="wrap" style="max-width:1040px;">
+    <div class="section-eyebrow"><span>Contact</span></div>
+    <h2 class="section-title">お問い合わせ。</h2>
+    <p class="section-sub">事業相談・制作依頼・協業など、お気軽にどうぞ。</p>
+
+    <div class="contact-inner" style="margin-top:48px;">
       <div class="contact-options">
         <a class="contact-opt" href="mailto:contact@vitality-design.jp">
-          <span class="label"><span class="ic">@</span>Email</span>
+          <span class="label">
+            <span class="ic">@</span>
+            <span class="ic-lbl">Email</span>
+          </span>
           <span class="v">contact@vitality-design.jp</span>
         </a>
         <a class="contact-opt" href="https://x.com/" target="_blank" rel="noopener">
-          <span class="label"><span class="ic">X</span>X / Twitter</span>
+          <span class="label">
+            <span class="ic">X</span>
+            <span class="ic-lbl">X / Twitter</span>
+          </span>
           <span class="v">DM Open →</span>
         </a>
       </div>
-    </div>
 
-    <form class="contact-form" action="mailto:contact@vitality-design.jp" method="post" enctype="text/plain">
-      <input class="cf-input" name="name" type="text" placeholder="お名前" aria-label="お名前" required>
-      <input class="cf-input" name="email" type="email" placeholder="メールアドレス" aria-label="メールアドレス" required>
-      <textarea class="cf-textarea" name="message" placeholder="ご相談内容" aria-label="ご相談内容" required></textarea>
-      <button class="cf-submit" type="submit"><span>送信</span><span>→</span></button>
-    </form>
+      <form class="contact-form" action="mailto:contact@vitality-design.jp" method="post" enctype="text/plain">
+        <input class="cf-input" name="name" type="text" placeholder="お名前" aria-label="お名前" required>
+        <input class="cf-input" name="email" type="email" placeholder="メールアドレス" aria-label="メールアドレス" required>
+        <textarea class="cf-textarea" name="message" placeholder="ご相談内容" aria-label="ご相談内容" required></textarea>
+        <button class="cf-submit" type="submit"><span>送信</span><span>→</span></button>
+      </form>
+    </div>
   </div>
-</div>
+</section>
 
 <footer>
   <div class="footer-inner">

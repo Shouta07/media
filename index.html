@@ -292,51 +292,6 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
 }
 .rd-item p{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.6);}
 
-/* === ABOUT — quiet === */
-.about-block{
-  max-width:760px;margin:0 auto;text-align:center;
-}
-.about-block h2{
-  font-family:var(--jp);font-weight:500;
-  font-size:clamp(28px,3.4vw,44px);line-height:1.7;letter-spacing:0.02em;
-  margin-bottom:36px;color:var(--ink);
-}
-.about-block h2 em{font-style:normal;color:var(--vermilion);font-weight:600;}
-.about-block p{
-  font-family:var(--jp);font-weight:400;font-size:16px;line-height:2.2;color:var(--ink-soft);
-  letter-spacing:0.04em;
-}
-.about-block p strong{color:var(--ink);font-weight:600;}
-
-/* === REPRESENTATIVE (modest) === */
-.rep-mini{
-  display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;
-  padding:28px 32px;background:var(--bg-card);border:1px solid var(--line);border-radius:14px;
-}
-.rep-mini-avatar{
-  width:64px;height:64px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(135deg,#0E0F12 0%,#3A3C42 60%,#C8392B 110%);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--jp);font-weight:600;font-size:22px;color:rgba(255,255,255,0.45);
-}
-.rep-mini-head{
-  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;
-  margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line);
-}
-.rep-mini-head h3{
-  font-family:var(--jp);font-weight:600;font-size:18px;color:var(--ink);letter-spacing:0;
-  margin:0;
-}
-.rep-mini-head h3 .en{
-  font-family:var(--sans);font-weight:500;font-size:12px;color:var(--ink-faint);
-  letter-spacing:0.04em;margin-left:6px;
-}
-.rep-mini-role{
-  font-family:var(--mono);font-size:11px;color:var(--vermilion);font-weight:500;
-  letter-spacing:0.04em;text-transform:uppercase;
-}
-.rep-mini p{font-size:13.5px;line-height:1.85;color:var(--ink-soft);margin:0;}
-
 /* === CONTACT === */
 .contact-block{
   margin:80px auto;max-width:1240px;
@@ -384,28 +339,28 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
 .contact-opt .v{color:#fff;font-weight:500;}
 
 /* simple form */
-.contact-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:32px;backdrop-filter:blur(12px);}
-.cf-label{
-  display:block;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.6);
-  letter-spacing:0.06em;text-transform:uppercase;font-weight:500;margin-bottom:6px;
+.contact-form{
+  display:flex;flex-direction:column;gap:14px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;padding:28px;backdrop-filter:blur(12px);
 }
 .cf-input, .cf-textarea{
-  width:100%;padding:12px 14px;background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.14);border-radius:8px;
+  width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.14);border-radius:10px;
   font-family:var(--sans);font-size:14px;color:#fff;letter-spacing:-0.005em;
   transition:border-color 0.2s,background 0.2s;
 }
 .cf-input:focus, .cf-textarea:focus{
   outline:none;border-color:var(--vermilion-soft);background:rgba(255,255,255,0.08);
 }
-.cf-input::placeholder, .cf-textarea::placeholder{color:rgba(255,255,255,0.35);}
-.cf-textarea{resize:vertical;min-height:120px;font-family:var(--sans);}
-.cf-row{margin-bottom:18px;}
+.cf-input::placeholder, .cf-textarea::placeholder{color:rgba(255,255,255,0.4);}
+.cf-textarea{resize:vertical;min-height:140px;font-family:var(--sans);}
 .cf-submit{
   width:100%;padding:14px 24px;background:#fff;color:var(--night);
   border:none;border-radius:10px;font-family:var(--sans);font-size:15px;font-weight:600;
   cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:4px;
 }
 .cf-submit:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.3);}
 
@@ -430,7 +385,6 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .services-grid{grid-template-columns:1fr;}
   .works-grid{grid-template-columns:1fr;gap:16px;}
   .rd-grid{grid-template-columns:repeat(2,1fr);}
-  .rep-mini{grid-template-columns:1fr;gap:16px;}
   .contact-inner{grid-template-columns:1fr;gap:32px;}
 }
 @media (max-width:680px){
@@ -439,7 +393,6 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .hero{padding:48px 20px 64px;}
   section{padding:80px 20px;}
   .rd-section, .contact-block{padding:48px 24px;border-radius:16px;}
-  .rep-mini{padding:24px;}
   .rd-grid{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
 }
@@ -459,8 +412,6 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
     <a href="#services">Services</a>
     <a href="#works">Works</a>
     <a href="#rd">R&amp;D</a>
-    <a href="#about">About</a>
-    <a href="#representative">Representative</a>
   </div>
   <a href="#contact" class="nav-cta">Contact</a>
 </nav>
@@ -634,34 +585,6 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" style="background:var(--bg-soft);">
-  <div class="about-block reveal">
-    <div class="section-eyebrow" style="justify-content:center;display:flex;"><span>About</span></div>
-    <h2>都市の中で、自分の事業を、<br>自分のリズムで動かしている人。<br><em>その隣で、長く。</em></h2>
-    <p>AI、営業、実行——三つを持ち寄って、<strong>事業の成長と、現場の動き</strong>を同じテーブルで進める独立スタジオです。スケールではなく、関係の濃度と長さで価値を生むやり方を選んでいます。</p>
-  </div>
-</section>
-
-<!-- REPRESENTATIVE (modest) -->
-<section id="representative" style="padding:80px 40px;">
-  <div class="wrap" style="max-width:760px;">
-    <div class="section-eyebrow"><span>Representative</span></div>
-
-    <div class="rep-mini reveal">
-      <div class="rep-mini-avatar">山本</div>
-      <div>
-        <div class="rep-mini-head">
-          <h3>山本 翔太 <span class="en">Shota Yamamoto</span></h3>
-          <span class="rep-mini-role">代表社員 / Founder</span>
-        </div>
-        <p>1999年生まれ。国内上場SaaS企業の事業戦略部門に在籍しながら、自分の事業に本気で取り組む方々の隣で、AIシステム開発・営業・各部門の実行支援を兼務しています。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- CONTACT -->
 <div class="contact-block" id="contact">
   <div class="contact-inner">
@@ -682,23 +605,10 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
     </div>
 
     <form class="contact-form" action="mailto:contact@vitality-design.jp" method="post" enctype="text/plain">
-      <div class="cf-row">
-        <label class="cf-label" for="cf-name">お名前</label>
-        <input class="cf-input" id="cf-name" name="name" type="text" placeholder="山田 太郎" required>
-      </div>
-      <div class="cf-row">
-        <label class="cf-label" for="cf-company">会社名（任意）</label>
-        <input class="cf-input" id="cf-company" name="company" type="text" placeholder="株式会社○○">
-      </div>
-      <div class="cf-row">
-        <label class="cf-label" for="cf-email">メールアドレス</label>
-        <input class="cf-input" id="cf-email" name="email" type="email" placeholder="you@example.com" required>
-      </div>
-      <div class="cf-row">
-        <label class="cf-label" for="cf-msg">ご相談内容</label>
-        <textarea class="cf-textarea" id="cf-msg" name="message" placeholder="現在の状況・ご相談したい内容を、簡単にお書きください。" required></textarea>
-      </div>
-      <button class="cf-submit" type="submit"><span>送信する</span><span>→</span></button>
+      <input class="cf-input" name="name" type="text" placeholder="お名前" aria-label="お名前" required>
+      <input class="cf-input" name="email" type="email" placeholder="メールアドレス" aria-label="メールアドレス" required>
+      <textarea class="cf-textarea" name="message" placeholder="ご相談内容" aria-label="ご相談内容" required></textarea>
+      <button class="cf-submit" type="submit"><span>送信</span><span>→</span></button>
     </form>
   </div>
 </div>
@@ -713,7 +623,6 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
       <a href="#services">Services</a>
       <a href="#works">Works</a>
       <a href="#rd">R&amp;D</a>
-      <a href="#representative">Representative</a>
       <a href="mailto:contact@vitality-design.jp">Contact</a>
     </div>
   </div>

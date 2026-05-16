@@ -93,16 +93,135 @@ body{
 }
 .hero-inner{max-width:1240px;margin:0 auto;position:relative;z-index:2;}
 
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-soft);
-  letter-spacing:0.04em;margin-bottom:36px;
-  padding:6px 14px;background:var(--bg-soft);border:1px solid var(--line);border-radius:99px;
+.hero-grid{
+  display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;
+  margin-bottom:64px;
 }
-.hero-eyebrow::before{
-  content:"";width:6px;height:6px;border-radius:50%;background:var(--vermilion);
-  box-shadow:0 0 8px rgba(200,57,43,0.5);
+.hero-text{min-width:0;}
+
+/* === HERO ART === */
+.hero-art{
+  position:relative;aspect-ratio:1/1;width:100%;max-width:480px;justify-self:end;
+  background:radial-gradient(ellipse at 30% 30%,#1A1C20 0%,#0E0F12 90%);
+  border-radius:24px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:var(--shadow-lg);
 }
+.ha-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+  background-size:24px 24px;
+  mask-image:radial-gradient(ellipse at center,black 30%,transparent 90%);
+}
+.ha-orb{
+  position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none;
+}
+.ha-orb-1{
+  width:260px;height:260px;
+  background:radial-gradient(circle,rgba(200,57,43,0.55),transparent 60%);
+  top:10%;left:-10%;
+  animation:ha-drift-1 18s ease-in-out infinite;
+}
+.ha-orb-2{
+  width:220px;height:220px;
+  background:radial-gradient(circle,rgba(220,99,88,0.35),transparent 60%);
+  top:55%;left:55%;
+  animation:ha-drift-2 22s ease-in-out infinite;
+}
+.ha-orb-3{
+  width:160px;height:160px;
+  background:radial-gradient(circle,rgba(255,255,255,0.08),transparent 60%);
+  top:20%;left:60%;
+  animation:ha-drift-3 26s ease-in-out infinite;
+}
+@keyframes ha-drift-1{
+  0%,100%{transform:translate(0,0);}
+  33%{transform:translate(40px,30px);}
+  66%{transform:translate(-30px,40px);}
+}
+@keyframes ha-drift-2{
+  0%,100%{transform:translate(0,0);}
+  50%{transform:translate(-50px,-30px);}
+}
+@keyframes ha-drift-3{
+  0%,100%{transform:translate(0,0);}
+  40%{transform:translate(30px,40px);}
+  80%{transform:translate(-40px,-20px);}
+}
+
+/* interlocking rings — two beings, side by side */
+.ha-rings{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:64%;height:42%;
+}
+.ha-ring{
+  position:absolute;top:50%;width:62%;height:0;padding-bottom:62%;
+  transform:translateY(-50%);border-radius:50%;
+}
+.ha-ring-a{
+  left:0;
+  border:1.5px solid rgba(200,57,43,0.85);
+  box-shadow:0 0 40px rgba(200,57,43,0.25),inset 0 0 30px rgba(200,57,43,0.12);
+  animation:ha-breath-a 5s ease-in-out infinite;
+}
+.ha-ring-b{
+  right:0;
+  border:1.5px solid rgba(255,255,255,0.5);
+  box-shadow:0 0 30px rgba(255,255,255,0.1),inset 0 0 20px rgba(255,255,255,0.05);
+  animation:ha-breath-b 5s ease-in-out infinite;
+}
+@keyframes ha-breath-a{
+  0%,100%{transform:translate(0,-50%);}
+  50%{transform:translate(8px,-50%);}
+}
+@keyframes ha-breath-b{
+  0%,100%{transform:translate(0,-50%);}
+  50%{transform:translate(-8px,-50%);}
+}
+
+/* horizontal scan line */
+.ha-scan{
+  position:absolute;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  top:0;
+  animation:ha-scan 6s ease-in-out infinite;
+}
+@keyframes ha-scan{
+  0%{top:0;opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:1;}
+  100%{top:100%;opacity:0;}
+}
+
+/* meta badge bottom-left */
+.ha-meta{
+  position:absolute;bottom:20px;left:20px;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 12px;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);border-radius:99px;
+  font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.7);
+  letter-spacing:0.14em;text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+.ha-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--vermilion);
+  box-shadow:0 0 8px var(--vermilion);
+  animation:ha-pulse 1.6s ease-in-out infinite;
+}
+@keyframes ha-pulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:0.4;transform:scale(0.85);}
+}
+
+/* corner labels */
+.ha-corner{
+  position:absolute;font-family:var(--mono);font-size:10px;
+  color:rgba(255,255,255,0.35);letter-spacing:0.16em;text-transform:uppercase;
+}
+.ha-corner-tl{top:20px;left:20px;}
+.ha-corner-br{bottom:20px;right:20px;}
 
 .hero h1{
   font-family:var(--jp);font-weight:600;
@@ -386,6 +505,8 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .works-grid{grid-template-columns:1fr;gap:16px;}
   .rd-grid{grid-template-columns:repeat(2,1fr);}
   .contact-inner{grid-template-columns:1fr;gap:32px;}
+  .hero-grid{grid-template-columns:1fr;gap:48px;}
+  .hero-art{max-width:420px;justify-self:start;}
 }
 @media (max-width:680px){
   .nav{padding:14px 20px;}
@@ -395,6 +516,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .rd-section, .contact-block{padding:48px 24px;border-radius:16px;}
   .rd-grid{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
+  .hero-art{max-width:320px;}
 }
 </style>
 </head>
@@ -419,14 +541,39 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><span>Independent Studio ／ Tokyo</span></div>
-    <h1>事業に<em>本気の人</em>と、<br>長く伴走する。</h1>
-    <p class="hero-lead">
-      AIシステム開発、営業、事業を踏まえた各部門の実行支援。<strong>制作で終わらせず、事業の中に入って動く</strong>スタジオです。年間で関わる案件は数を絞り、長く一緒にやれる方とだけ組みます。
-    </p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#contact"><span>お問い合わせ</span><span class="arrow">→</span></a>
-      <a class="btn ghost" href="#services"><span>提供サービスを見る</span><span class="arrow">→</span></a>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>事業に<em>本気の人</em>と、<br>長く伴走する。</h1>
+        <p class="hero-lead">
+          AIシステム開発、営業、事業を踏まえた各部門の実行支援。<strong>制作で終わらせず、事業の中に入って動く</strong>スタジオです。年間で関わる案件は数を絞り、長く一緒にやれる方とだけ組みます。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact"><span>お問い合わせ</span><span class="arrow">→</span></a>
+          <a class="btn ghost" href="#services"><span>提供サービスを見る</span><span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-art" aria-hidden="true">
+        <div class="ha-grid"></div>
+        <div class="ha-orb ha-orb-1"></div>
+        <div class="ha-orb ha-orb-2"></div>
+        <div class="ha-orb ha-orb-3"></div>
+
+        <div class="ha-rings">
+          <div class="ha-ring ha-ring-a"></div>
+          <div class="ha-ring ha-ring-b"></div>
+        </div>
+
+        <div class="ha-scan"></div>
+
+        <div class="ha-meta">
+          <span class="ha-dot"></span>
+          <span>RUNNING ／ 伴走中</span>
+        </div>
+
+        <div class="ha-corner ha-corner-tl">VD / 01</div>
+        <div class="ha-corner ha-corner-br">2026</div>
+      </aside>
     </div>
 
     <div class="hero-proof">

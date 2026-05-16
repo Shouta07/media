@@ -3,31 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>バイタリティデザイン合同会社 — 中小企業経営者と伴走する独立アドバイザリー</title>
-<meta name="description" content="あらゆるバイタリティを、デザインする。中小企業経営者の隣で、戦略・組織・採用・メディアまでを一気通貫で設計するアドバイザリー。">
+<title>バイタリティデザイン合同会社 — AI・SEO・コンテンツで小規模事業を支援</title>
+<meta name="description" content="AI・SEO・コンテンツ設計で小規模事業の成長を支援する独立スタジオ。Web制作だけで終わらず、集客・導線・世界観まで一貫して設計します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FAFAF7;
-  --bg-soft:#F4F2EC;
+  --bg-soft:#F2F0EA;
   --bg-card:#FFFFFF;
-  --ink:#0E0E0C;
-  --ink-soft:#3A3A38;
-  --ink-faint:#74746F;
-  --ink-mute:#A8A8A2;
-  --line:rgba(14,14,12,0.08);
-  --line-strong:rgba(14,14,12,0.16);
-  --teal:#0E5C5A;
-  --teal-deep:#073937;
-  --teal-pale:#E5EEED;
+  --night:#0E0F12;
+  --night-soft:#1A1C20;
+  --night-mute:#2A2C32;
+  --ink:#0E0F12;
+  --ink-soft:#3A3C42;
+  --ink-faint:#6F7176;
+  --ink-mute:#A8AAB0;
+  --line:rgba(14,15,18,0.08);
+  --line-strong:rgba(14,15,18,0.16);
   --amber:#C9772A;
+  --amber-soft:#E2A06A;
   --amber-pale:#F5E8D7;
   --vermilion:#C8392B;
-  --shadow-sm:0 1px 2px rgba(14,14,12,0.04),0 1px 3px rgba(14,14,12,0.06);
-  --shadow-md:0 4px 12px -2px rgba(14,14,12,0.06),0 16px 32px -12px rgba(14,14,12,0.12);
-  --shadow-lg:0 24px 48px -12px rgba(14,14,12,0.16);
+  --shadow-sm:0 1px 2px rgba(14,15,18,0.04),0 1px 3px rgba(14,15,18,0.06);
+  --shadow-md:0 4px 12px -2px rgba(14,15,18,0.06),0 16px 32px -12px rgba(14,15,18,0.12);
+  --shadow-lg:0 24px 48px -12px rgba(14,15,18,0.16);
   --sans:'Inter','Helvetica Neue',sans-serif;
   --jp:'Shippori Mincho B1','Noto Serif JP',serif;
   --mono:'JetBrains Mono','SF Mono',monospace;
@@ -40,7 +41,7 @@ body{
   font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;letter-spacing:-0.005em;
   font-feature-settings:"tnum" 1,"ss01" 1;
 }
-::selection{background:var(--teal);color:#fff;}
+::selection{background:var(--night);color:#fff;}
 
 /* === NAV === */
 .nav{
@@ -53,64 +54,63 @@ body{
 }
 .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);}
 .nav-mark{
-  width:32px;height:32px;border-radius:7px;
-  background:var(--ink);position:relative;
-  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:7px;background:var(--night);position:relative;
 }
 .nav-mark::after{
-  content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);
   position:absolute;top:7px;right:7px;
 }
 .nav-name{display:flex;flex-direction:column;line-height:1.1;}
-.nav-name .jp{font-family:var(--jp);font-weight:600;font-size:13px;letter-spacing:0.06em;}
-.nav-name .en{font-family:var(--sans);font-weight:500;font-size:10.5px;color:var(--ink-faint);letter-spacing:0.08em;margin-top:3px;text-transform:uppercase;}
+.nav-name .jp{font-family:var(--jp);font-weight:600;font-size:13px;letter-spacing:0.04em;}
+.nav-name .en{font-family:var(--mono);font-weight:500;font-size:10.5px;color:var(--ink-faint);letter-spacing:0.06em;margin-top:3px;}
 .nav-links{display:flex;gap:28px;font-size:13px;font-weight:500;color:var(--ink-soft);}
 .nav-links a{color:inherit;text-decoration:none;transition:color 0.2s;}
-.nav-links a:hover{color:var(--teal);}
+.nav-links a:hover{color:var(--ink);}
 .nav-cta{
   font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:-0.005em;
-  padding:8px 16px;background:var(--ink);color:#fff;border-radius:8px;
+  padding:9px 16px;background:var(--night);color:#fff;border-radius:8px;
   text-decoration:none;transition:background 0.2s;
   display:inline-flex;align-items:center;gap:6px;
 }
-.nav-cta:hover{background:var(--teal);}
+.nav-cta:hover{background:var(--amber);}
 .nav-cta::after{content:"→";font-size:14px;}
 
 /* === HERO === */
 .hero{
-  padding:80px 40px 100px;
+  padding:96px 40px 96px;
   position:relative;overflow:hidden;
 }
 .hero::before{
   content:"";position:absolute;
   top:-200px;right:-100px;width:600px;height:600px;
-  background:radial-gradient(circle,rgba(14,92,90,0.06) 0%,transparent 60%);
-  filter:blur(30px);pointer-events:none;
+  background:radial-gradient(circle,rgba(201,119,42,0.06) 0%,transparent 60%);
+  filter:blur(40px);pointer-events:none;
 }
 .hero::after{
   content:"";position:absolute;
   bottom:-200px;left:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(201,119,42,0.05) 0%,transparent 60%);
-  filter:blur(30px);pointer-events:none;
+  background:radial-gradient(circle,rgba(14,15,18,0.04) 0%,transparent 60%);
+  filter:blur(40px);pointer-events:none;
 }
 .hero-inner{max-width:1240px;margin:0 auto;position:relative;z-index:2;}
 
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--teal);
-  letter-spacing:0.04em;margin-bottom:32px;
-  padding:6px 14px;background:var(--teal-pale);border-radius:99px;
+  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-soft);
+  letter-spacing:0.04em;margin-bottom:36px;
+  padding:6px 14px;background:var(--bg-soft);border:1px solid var(--line);border-radius:99px;
 }
-.hero-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(14,92,90,0.4);}
+.hero-eyebrow::before{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);
+  box-shadow:0 0 8px rgba(201,119,42,0.5);
+}
 
 .hero h1{
   font-family:var(--jp);font-weight:600;
-  font-size:clamp(40px,5.6vw,80px);line-height:1.18;letter-spacing:-0.01em;
-  margin-bottom:32px;color:var(--ink);max-width:18ch;
+  font-size:clamp(40px,5.4vw,72px);line-height:1.25;letter-spacing:-0.01em;
+  margin-bottom:32px;color:var(--ink);max-width:22ch;
 }
-.hero h1 em{
-  font-style:normal;color:var(--teal);font-weight:600;
-}
+.hero h1 em{font-style:normal;color:var(--amber);font-weight:600;}
 
 .hero-lead{
   font-size:18px;line-height:1.75;color:var(--ink-soft);max-width:540px;
@@ -124,30 +124,27 @@ body{
   border-radius:10px;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-0.005em;
   text-decoration:none;transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
 }
-.btn.primary{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm);}
-.btn.primary:hover{background:var(--teal);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.btn.primary{background:var(--night);color:#fff;box-shadow:var(--shadow-sm);}
+.btn.primary:hover{background:var(--amber);transform:translateY(-1px);box-shadow:var(--shadow-md);}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong);}
 .btn.ghost:hover{border-color:var(--ink);}
 .btn .arrow{transition:transform 0.2s;}
 .btn:hover .arrow{transform:translateX(3px);}
 
-/* hero stats strip */
-.hero-stats{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
-  padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+/* hero quick proof — qualitative, no numbers */
+.hero-proof{
+  display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;
+  padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
 }
-.hero-stat{padding:0 32px;border-right:1px solid var(--line);}
-.hero-stat:first-child{padding-left:0;}
-.hero-stat:last-child{border-right:none;padding-right:0;}
-.hero-stat .v{
-  font-family:var(--jp);font-weight:600;font-size:36px;line-height:1;letter-spacing:-0.01em;
-  color:var(--ink);
+.hp-label{
+  font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em;text-transform:uppercase;font-weight:500;
 }
-.hero-stat .v .unit{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--ink-faint);margin-left:4px;}
-.hero-stat .k{
-  font-family:var(--mono);font-size:11px;color:var(--ink-faint);
-  letter-spacing:0.04em;margin-top:10px;font-weight:500;text-transform:uppercase;
+.hp-list{display:flex;flex-wrap:wrap;gap:8px 12px;}
+.hp-item{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-soft);
 }
+.hp-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber);}
 
 /* === SECTION COMMON === */
 section{padding:120px 40px;position:relative;}
@@ -155,133 +152,162 @@ section{padding:120px 40px;position:relative;}
 
 .section-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--teal);
-  letter-spacing:0.04em;margin-bottom:18px;
+  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-soft);
+  letter-spacing:0.04em;margin-bottom:18px;text-transform:uppercase;
 }
-.section-eyebrow::before{content:"";width:24px;height:1px;background:var(--teal);}
+.section-eyebrow::before{content:"";width:24px;height:1px;background:var(--ink-soft);}
 
 h2.section-title{
   font-family:var(--jp);font-weight:600;
-  font-size:clamp(32px,4vw,52px);line-height:1.25;letter-spacing:-0.01em;
+  font-size:clamp(32px,4vw,52px);line-height:1.3;letter-spacing:-0.005em;
   margin-bottom:20px;color:var(--ink);
 }
-h2.section-title em{font-style:normal;color:var(--teal);font-weight:600;}
+h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 
 .section-sub{
   font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:640px;margin-bottom:64px;
 }
 
-/* === WHO WE WALK ALONGSIDE === */
-.personas{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.persona{
-  background:var(--bg-card);border:1px solid var(--line);border-radius:16px;
-  padding:32px;position:relative;overflow:hidden;
-  transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
+/* === SERVICES === */
+.services-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
 }
-.persona:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--teal);}
-.persona-mark{
-  width:44px;height:44px;border-radius:10px;background:var(--teal-pale);
-  display:inline-flex;align-items:center;justify-content:center;margin-bottom:24px;
-  font-family:var(--jp);font-weight:600;font-size:20px;color:var(--teal);
+.service{
+  background:var(--bg-card);padding:36px 32px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:background 0.3s;position:relative;
 }
-.persona h3{
-  font-family:var(--jp);font-weight:600;font-size:22px;line-height:1.45;letter-spacing:-0.005em;
-  margin-bottom:14px;color:var(--ink);
+.service:hover{background:var(--bg);}
+.service-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+.service-num{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--amber);letter-spacing:0.04em;
 }
-.persona h3 .en{
-  display:block;font-family:var(--sans);font-weight:500;font-size:12px;color:var(--ink-faint);
-  letter-spacing:0.04em;margin-top:6px;text-transform:uppercase;
+.service-en{
+  font-family:var(--sans);font-weight:600;font-size:22px;letter-spacing:-0.01em;color:var(--ink);
+  margin-bottom:4px;
 }
-.persona p{font-size:14.5px;line-height:1.75;color:var(--ink-soft);}
-.persona p strong{color:var(--ink);font-weight:600;}
-
-/* === WHAT WE DESIGN === */
-.designs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.design-card{
-  background:var(--bg-card);border:1px solid var(--line);border-radius:16px;
-  padding:36px 32px;display:flex;flex-direction:column;gap:18px;
-  transition:transform 0.3s,box-shadow 0.3s;
+.service h3{
+  font-family:var(--jp);font-weight:600;font-size:16px;color:var(--ink-soft);letter-spacing:0.02em;
 }
-.design-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
-.design-num{
-  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--teal);letter-spacing:0.04em;
-}
-.design-card h3{
-  font-family:var(--jp);font-weight:600;font-size:24px;line-height:1.35;color:var(--ink);
-}
-.design-card p{font-size:14.5px;line-height:1.75;color:var(--ink-soft);}
-.design-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);}
-.design-tag{
-  font-family:var(--mono);font-size:11px;color:var(--ink-soft);font-weight:500;
+.service p{font-size:14.5px;line-height:1.75;color:var(--ink-soft);}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px;}
+.service-tag{
+  font-family:var(--mono);font-size:11px;color:var(--ink-faint);font-weight:500;
   padding:3px 10px;background:var(--bg-soft);border-radius:99px;
 }
 
-/* === HOW WE WALK === */
-.modes{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg-card);
+/* === WORKS === */
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.work{
+  background:var(--bg-card);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
 }
-.mode{padding:36px 32px;border-right:1px solid var(--line);position:relative;}
-.mode:last-child{border-right:none;}
-.mode .pricing-pill{
-  display:inline-block;padding:4px 10px;background:var(--amber-pale);color:var(--amber);
-  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:0.02em;border-radius:99px;margin-bottom:18px;
+.work:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--ink-soft);}
+.work-visual{
+  aspect-ratio:16/10;background:linear-gradient(135deg,#1A1C20 0%,#3A3C42 100%);
+  position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:24px;
 }
-.mode h3{
-  font-family:var(--jp);font-weight:600;font-size:22px;line-height:1.4;color:var(--ink);margin-bottom:10px;
+.work-visual::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:24px 24px;
 }
-.mode h3 .en{
-  display:block;font-family:var(--sans);font-weight:500;font-size:12px;color:var(--ink-faint);
-  letter-spacing:0.04em;margin-top:4px;text-transform:uppercase;
-}
-.mode p{font-size:14px;line-height:1.7;color:var(--ink-soft);margin-bottom:18px;}
-.mode-meta{display:flex;flex-direction:column;gap:8px;font-size:13px;}
-.mode-meta div{display:flex;justify-content:space-between;}
-.mode-meta div .k{color:var(--ink-faint);font-weight:500;}
-.mode-meta div .v{color:var(--ink);font-weight:600;}
-
-/* === PROOF / NUMBERS === */
-.proof{
-  background:var(--ink);color:#fff;border-radius:24px;
-  padding:80px 64px;position:relative;overflow:hidden;
-}
-.proof::before{
+.work-visual::after{
   content:"";position:absolute;
-  top:-200px;right:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(14,92,90,0.4) 0%,transparent 60%);
-  filter:blur(40px);
+  top:-100px;right:-50px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(201,119,42,0.18) 0%,transparent 60%);
+  filter:blur(30px);
 }
-.proof > *{position:relative;z-index:2;}
-.proof .section-eyebrow{color:#7DD3D1;}
-.proof .section-eyebrow::before{background:#7DD3D1;}
-.proof h2.section-title{color:#fff;}
-.proof h2.section-title em{
-  background:linear-gradient(135deg,#7DD3D1,#F0B870);
+.work-visual.v2::after{background:radial-gradient(circle,rgba(125,180,210,0.18) 0%,transparent 60%);}
+.work-visual.v3::after{background:radial-gradient(circle,rgba(180,160,220,0.18) 0%,transparent 60%);}
+.work-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;width:100%;}
+.work-cat{
+  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.7);font-weight:500;letter-spacing:0.06em;
+  padding:4px 10px;background:rgba(255,255,255,0.08);border-radius:99px;backdrop-filter:blur(8px);
+}
+.work-num{
+  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);font-weight:500;letter-spacing:0.04em;
+}
+.work-body{padding:24px;}
+.work-body h3{
+  font-family:var(--jp);font-weight:600;font-size:19px;line-height:1.45;color:var(--ink);margin-bottom:8px;
+}
+.work-body p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px;}
+.work-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.work-tag{
+  font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);font-weight:500;
+  padding:3px 8px;background:var(--bg-soft);border-radius:4px;
+}
+
+/* === R&D — DARK NIGHT SECTION === */
+.rd-section{
+  background:var(--night);color:#fff;border-radius:24px;
+  padding:96px 64px;position:relative;overflow:hidden;
+  margin:0 auto;max-width:1240px;
+}
+.rd-section::before{
+  content:"";position:absolute;
+  top:-200px;left:-100px;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(201,119,42,0.18) 0%,transparent 60%);
+  filter:blur(50px);
+}
+.rd-section::after{
+  content:"";position:absolute;
+  bottom:-200px;right:-100px;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(180,160,220,0.15) 0%,transparent 60%);
+  filter:blur(50px);
+}
+.rd-section > *{position:relative;z-index:2;}
+.rd-section .section-eyebrow{color:var(--amber-soft);}
+.rd-section .section-eyebrow::before{background:var(--amber-soft);}
+.rd-section h2.section-title{color:#fff;}
+.rd-section h2.section-title em{
+  background:linear-gradient(135deg,var(--amber-soft),#D4B5E8);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
-.proof .section-sub{color:rgba(255,255,255,0.7);}
-.proof-stats{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;
-  border-top:1px solid rgba(255,255,255,0.16);
+.rd-section .section-sub{color:rgba(255,255,255,0.7);}
+
+.rd-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;
+  overflow:hidden;margin-top:48px;
 }
-.proof-stat{
-  padding:32px 24px 0;border-right:1px solid rgba(255,255,255,0.12);
+.rd-item{
+  background:var(--night);padding:32px 24px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:background 0.3s;
 }
-.proof-stat:last-child{border-right:none;}
-.proof-stat .v{
-  font-family:var(--jp);font-weight:600;font-size:48px;line-height:1;letter-spacing:-0.01em;
-  background:linear-gradient(135deg,#7DD3D1,#F0B870);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+.rd-item:hover{background:var(--night-soft);}
+.rd-num{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--amber-soft);letter-spacing:0.04em;
 }
-.proof-stat .v .unit{
-  font-family:var(--mono);font-weight:500;font-size:18px;color:rgba(255,255,255,0.5);
-  margin-left:4px;-webkit-text-fill-color:rgba(255,255,255,0.5);
+.rd-item h3{
+  font-family:var(--jp);font-weight:600;font-size:18px;line-height:1.45;color:#fff;letter-spacing:0;
 }
-.proof-stat .k{
-  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.6);
-  letter-spacing:0.04em;margin-top:12px;font-weight:500;text-transform:uppercase;
+.rd-item h3 .en{
+  display:block;font-family:var(--sans);font-weight:500;font-size:11px;color:rgba(255,255,255,0.5);
+  letter-spacing:0.06em;margin-top:6px;text-transform:uppercase;
 }
-.proof-stat .d{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;}
+.rd-item p{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.6);}
+
+/* === ABOUT — quiet === */
+.about-block{
+  max-width:760px;margin:0 auto;text-align:center;
+}
+.about-block h2{
+  font-family:var(--jp);font-weight:500;
+  font-size:clamp(28px,3.4vw,44px);line-height:1.7;letter-spacing:0.02em;
+  margin-bottom:36px;color:var(--ink);
+}
+.about-block h2 em{font-style:normal;color:var(--amber);font-weight:600;}
+.about-block p{
+  font-family:var(--jp);font-weight:400;font-size:16px;line-height:2.2;color:var(--ink-soft);
+  letter-spacing:0.04em;
+}
+.about-block p strong{color:var(--ink);font-weight:600;}
 
 /* === REPRESENTATIVE === */
 .rep-block{
@@ -291,29 +317,29 @@ h2.section-title em{font-style:normal;color:var(--teal);font-weight:600;}
 }
 .rep-photo{
   aspect-ratio:1;border-radius:16px;
-  background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal) 60%,var(--amber) 100%);
+  background:linear-gradient(135deg,#0E0F12 0%,#3A3C42 60%,#C9772A 100%);
   position:relative;overflow:hidden;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 .rep-photo::before{
   content:"山本";position:absolute;
   inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--jp);font-weight:600;font-size:72px;color:rgba(255,255,255,0.15);letter-spacing:0.04em;
+  font-family:var(--jp);font-weight:600;font-size:72px;color:rgba(255,255,255,0.16);letter-spacing:0.04em;
 }
 .rep-photo::after{
   content:"";position:absolute;
   bottom:-100px;right:-100px;width:240px;height:240px;
-  background:radial-gradient(circle,rgba(255,255,255,0.12) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(255,255,255,0.14) 0%,transparent 60%);
   filter:blur(20px);
 }
 .rep-badge{
-  position:absolute;bottom:18px;left:18px;
+  position:absolute;bottom:18px;left:18px;z-index:2;
   display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
   background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);
   border:1px solid rgba(255,255,255,0.2);border-radius:99px;
   font-family:var(--mono);font-size:11px;font-weight:500;color:#fff;letter-spacing:0.04em;
 }
-.rep-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:#7DD3D1;box-shadow:0 0 8px #7DD3D1;}
+.rep-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);}
 
 .rep-info h3{
   font-family:var(--jp);font-weight:600;font-size:32px;line-height:1.3;color:var(--ink);margin-bottom:6px;
@@ -323,7 +349,7 @@ h2.section-title em{font-style:normal;color:var(--teal);font-weight:600;}
   margin-bottom:14px;
 }
 .rep-info .role{
-  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--teal);letter-spacing:0.04em;
+  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--amber);letter-spacing:0.04em;
   margin-bottom:24px;text-transform:uppercase;padding-bottom:24px;border-bottom:1px solid var(--line);
 }
 .rep-info p{font-size:15px;line-height:1.85;color:var(--ink-soft);margin-bottom:1em;}
@@ -336,7 +362,7 @@ h2.section-title em{font-style:normal;color:var(--teal);font-weight:600;}
 .rep-fact .k{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;}
 .rep-fact .v{font-size:14px;color:var(--ink);font-weight:500;}
 
-/* === COMPANY (mini) === */
+/* === COMPANY === */
 .company-grid{
   background:var(--bg-card);border:1px solid var(--line);border-radius:16px;
   padding:0;overflow:hidden;
@@ -350,55 +376,77 @@ h2.section-title em{font-style:normal;color:var(--teal);font-weight:600;}
 .company-row .v{font-family:var(--jp);font-size:15px;color:var(--ink);font-weight:500;}
 .company-row .v .en{display:block;font-family:var(--sans);font-size:12px;color:var(--ink-faint);font-weight:400;margin-top:2px;letter-spacing:0.02em;}
 
-/* === CTA === */
-.cta-block{
+/* === CONTACT === */
+.contact-block{
   margin:80px auto;max-width:1240px;
-  background:linear-gradient(135deg,#0E0E0C 0%,#0E5C5A 100%);
+  background:linear-gradient(135deg,#0E0F12 0%,#1A1C20 50%,#2A2C32 100%);
   color:#fff;border-radius:24px;padding:80px 64px;
   position:relative;overflow:hidden;
 }
-.cta-block::before{
+.contact-block::before{
   content:"";position:absolute;
   top:-200px;right:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(125,211,209,0.3) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(201,119,42,0.22) 0%,transparent 60%);
   filter:blur(40px);
 }
-.cta-block::after{
+.contact-block::after{
   content:"";position:absolute;
   bottom:-200px;left:-100px;width:400px;height:400px;
-  background:radial-gradient(circle,rgba(240,184,112,0.18) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(125,180,210,0.12) 0%,transparent 60%);
   filter:blur(40px);
 }
-.cta-block > *{position:relative;z-index:2;}
-.cta-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center;}
-.cta-inner h2{
-  font-family:var(--jp);font-weight:600;font-size:clamp(32px,3.8vw,52px);line-height:1.25;letter-spacing:-0.01em;color:#fff;margin-bottom:18px;
+.contact-block > *{position:relative;z-index:2;}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.contact-inner h2{
+  font-family:var(--jp);font-weight:600;font-size:clamp(32px,3.8vw,52px);line-height:1.3;letter-spacing:-0.005em;color:#fff;margin-bottom:18px;
 }
-.cta-inner h2 em{
+.contact-inner h2 em{
   font-style:normal;
-  background:linear-gradient(135deg,#7DD3D1,#F0B870);
+  background:linear-gradient(135deg,var(--amber-soft),#D4B5E8);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
-.cta-inner p{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:0;}
-.cta-card{
-  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
-  border-radius:16px;padding:32px;backdrop-filter:blur(12px);
+.contact-inner p{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;}
+.contact-options{display:flex;flex-direction:column;gap:12px;}
+.contact-opt{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.12);border-radius:10px;
+  font-family:var(--mono);font-size:13px;color:rgba(255,255,255,0.7);
+  text-decoration:none;transition:background 0.2s,border-color 0.2s;
 }
-.cta-card .step{
-  display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:14px;color:rgba(255,255,255,0.85);
+.contact-opt:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25);}
+.contact-opt .label{display:flex;align-items:center;gap:10px;}
+.contact-opt .label .ic{
+  width:24px;height:24px;border-radius:6px;background:rgba(201,119,42,0.18);color:var(--amber-soft);
+  display:inline-flex;align-items:center;justify-content:center;font-size:13px;
 }
-.cta-card .step:last-of-type{border-bottom:none;}
-.cta-card .step .n{
-  font-family:var(--mono);font-size:11px;font-weight:600;color:#7DD3D1;letter-spacing:0.04em;flex-shrink:0;
-  width:24px;
+.contact-opt .v{color:#fff;font-weight:500;}
+
+/* simple form */
+.contact-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:32px;backdrop-filter:blur(12px);}
+.cf-label{
+  display:block;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.6);
+  letter-spacing:0.06em;text-transform:uppercase;font-weight:500;margin-bottom:6px;
 }
-.cta-card .btn-primary{
-  display:flex;justify-content:center;align-items:center;gap:8px;
-  margin-top:24px;padding:14px 24px;background:#fff;color:var(--ink);
-  border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;
-  transition:transform 0.2s,box-shadow 0.2s;
+.cf-input, .cf-textarea{
+  width:100%;padding:12px 14px;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.14);border-radius:8px;
+  font-family:var(--sans);font-size:14px;color:#fff;letter-spacing:-0.005em;
+  transition:border-color 0.2s,background 0.2s;
 }
-.cta-card .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.18);}
+.cf-input:focus, .cf-textarea:focus{
+  outline:none;border-color:var(--amber-soft);background:rgba(255,255,255,0.08);
+}
+.cf-input::placeholder, .cf-textarea::placeholder{color:rgba(255,255,255,0.35);}
+.cf-textarea{resize:vertical;min-height:120px;font-family:var(--sans);}
+.cf-row{margin-bottom:18px;}
+.cf-submit{
+  width:100%;padding:14px 24px;background:#fff;color:var(--night);
+  border:none;border-radius:10px;font-family:var(--sans);font-size:15px;font-weight:600;
+  cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+}
+.cf-submit:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.3);}
 
 /* === FOOTER === */
 footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
@@ -411,34 +459,29 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 .footer-inner .lhs .nav-mark::after{width:5px;height:5px;top:5px;right:5px;}
 .footer-inner .nav{display:flex;gap:24px;}
 .footer-inner a{color:var(--ink-faint);text-decoration:none;}
-.footer-inner a:hover{color:var(--teal);}
+.footer-inner a:hover{color:var(--ink);}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
 @media (max-width:1024px){
-  .personas, .designs{grid-template-columns:1fr;}
-  .modes{grid-template-columns:1fr;}
-  .mode{border-right:none;border-bottom:1px solid var(--line);}
-  .mode:last-child{border-bottom:none;}
+  .services-grid{grid-template-columns:1fr;}
+  .works-grid{grid-template-columns:1fr;gap:16px;}
+  .rd-grid{grid-template-columns:repeat(2,1fr);}
   .rep-block{grid-template-columns:1fr;gap:32px;}
-  .cta-inner{grid-template-columns:1fr;gap:32px;}
-  .hero-stats, .proof-stats{grid-template-columns:repeat(2,1fr);}
-  .hero-stat, .proof-stat{padding:24px 20px !important;}
-  .hero-stat:nth-child(2), .proof-stat:nth-child(2){border-right:none;}
-  .hero-stat:nth-child(1), .hero-stat:nth-child(2), .proof-stat:nth-child(1), .proof-stat:nth-child(2){border-bottom:1px solid var(--line);}
-  .proof-stat:nth-child(1), .proof-stat:nth-child(2){border-bottom-color:rgba(255,255,255,0.12);}
+  .contact-inner{grid-template-columns:1fr;gap:32px;}
 }
 @media (max-width:680px){
   .nav{padding:14px 20px;}
   .nav-links{display:none;}
   .hero{padding:48px 20px 64px;}
   section{padding:80px 20px;}
-  .proof, .cta-block{padding:48px 24px;border-radius:16px;}
+  .rd-section, .contact-block{padding:48px 24px;border-radius:16px;}
   .rep-block{padding:32px 24px;}
   .company-row{grid-template-columns:1fr;gap:6px;}
   .rep-facts{grid-template-columns:1fr;}
+  .rd-grid{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
 }
 </style>
@@ -454,228 +497,228 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
     </span>
   </a>
   <div class="nav-links">
-    <a href="#personas">伴走する経営者</a>
-    <a href="#designs">設計する3つの軸</a>
-    <a href="#modes">関わり方</a>
-    <a href="#representative">代表</a>
-    <a href="#company">会社概要</a>
+    <a href="#services">Services</a>
+    <a href="#works">Works</a>
+    <a href="#rd">R&amp;D</a>
+    <a href="#about">About</a>
+    <a href="#representative">Representative</a>
   </div>
-  <a href="#contact" class="nav-cta">無料相談</a>
+  <a href="#contact" class="nav-cta">Contact</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><span>独立系アドバイザリー ／ 2026年4月設立</span></div>
-    <h1>あらゆる<em>バイタリティ</em>を、デザインする。<br>中小企業経営者の、隣で。</h1>
+    <div class="hero-eyebrow"><span>Independent Studio ／ Tokyo</span></div>
+    <h1>AI・SEO・コンテンツ設計で<br><em>小規模事業</em>の成長を支援。</h1>
     <p class="hero-lead">
-      <strong>バイタリティデザインは、中小企業経営者と伴走する独立アドバイザリーです。</strong>
-      戦略・組織・採用・メディア。経営の現場で言葉になっていない違和感を、ヒアリングから掘り起こし、仕組みと設計図に変えるところまで、一気通貫で並走します。
+      <strong>Web制作だけで終わらない。</strong>
+      集客・導線・世界観まで一貫して設計します。AI時代の小規模事業パートナーとして、戦略から実装、運用まで少数精鋭で並走するスタジオです。
     </p>
     <div class="hero-actions">
-      <a class="btn primary" href="#contact"><span>30分の無料相談</span><span class="arrow">→</span></a>
-      <a class="btn ghost" href="#designs"><span>提供領域を見る</span><span class="arrow">→</span></a>
+      <a class="btn primary" href="#contact"><span>お問い合わせ</span><span class="arrow">→</span></a>
+      <a class="btn ghost" href="#services"><span>提供サービスを見る</span><span class="arrow">→</span></a>
     </div>
 
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="v">3<span class="unit">社まで</span></div>
-        <div class="k">同時関与の上限</div>
-      </div>
-      <div class="hero-stat">
-        <div class="v">6-12<span class="unit">ヶ月</span></div>
-        <div class="k">標準関与期間</div>
-      </div>
-      <div class="hero-stat">
-        <div class="v">4<span class="unit">業界</span></div>
-        <div class="k">実装経験</div>
-      </div>
-      <div class="hero-stat">
-        <div class="v">30<span class="unit">分</span></div>
-        <div class="k">初回相談 無料</div>
+    <div class="hero-proof">
+      <span class="hp-label">Capabilities</span>
+      <div class="hp-list">
+        <span class="hp-item">継続クライアントあり</span>
+        <span class="hp-item">SEO支援</span>
+        <span class="hp-item">AI活用支援</span>
+        <span class="hp-item">コンテンツ制作</span>
+        <span class="hp-item">LP / Web設計</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO WE WALK ALONGSIDE -->
-<section id="personas">
+<!-- SERVICES -->
+<section id="services">
   <div class="wrap">
-    <div class="section-eyebrow"><span>01 — Who we walk alongside</span></div>
-    <h2 class="section-title">誰の<em>隣に立つか</em>。</h2>
-    <p class="section-sub">私たちは「規模の大小」ではなく「経営者が孤独に向き合っている課題の質」で関与を判断します。次の四種類の経営者の隣に、立ちます。</p>
+    <div class="section-eyebrow"><span>Services</span></div>
+    <h2 class="section-title">提供する、<em>4つの設計領域</em>。</h2>
+    <p class="section-sub">小規模事業の成長を、企画と実装の両輪で支援します。単発の制作ではなく、集客導線まで含めた全体を設計するのが特徴です。</p>
 
-    <div class="personas reveal">
-      <div class="persona">
-        <div class="persona-mark">一</div>
-        <h3>創業期、ひとりで全部を抱えている経営者<span class="en">Founder, alone in everything</span></h3>
-        <p>創業3-5期目、社員10-30名。戦略も採用も営業も自分が見ている。<strong>「外の頭脳」を持つ余裕がなかった経営者</strong>の隣に、まず立ちます。</p>
-      </div>
-      <div class="persona">
-        <div class="persona-mark">二</div>
-        <h3>家業を引き継いだ、二代目・三代目の経営者<span class="en">Second & third generation</span></h3>
-        <p>歴史と組織は受け継いだが、自分の代でアップデートしたい。父・祖父との連続性を保ちながら、<strong>静かに構造を選び直す</strong>作業をご一緒します。</p>
-      </div>
-      <div class="persona">
-        <div class="persona-mark">三</div>
-        <h3>専門技術はあるが、経営の言語を持ちきれていない経営者<span class="en">Technical founder</span></h3>
-        <p>建設・製造・士業など、技術が出発点の会社。<strong>「自分たちの強みを、社外の人の言葉で書く」</strong>作業を、第三者の問いから組み立てます。</p>
-      </div>
-      <div class="persona">
-        <div class="persona-mark">四</div>
-        <h3>成長したが、ここから先の打ち手が見えない経営者<span class="en">Mid-stage leader</span></h3>
-        <p>年商3-30億、人員30-150名。属人経営から仕組み経営へ移行したい。<strong>「外の視点で構造を選び直す」</strong>ところに、伴走します。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT WE DESIGN -->
-<section id="designs" style="background:var(--bg-soft);">
-  <div class="wrap">
-    <div class="section-eyebrow"><span>02 — What we design</span></div>
-    <h2 class="section-title">設計する、<em>3つのバイタリティ</em>。</h2>
-    <p class="section-sub">経営の「躍動」は、戦略・組織・言葉の三層が噛み合うことで生まれます。三層のどこから入っても、最終的に三層すべてを設計するところまで並走します。</p>
-
-    <div class="designs reveal">
-      <article class="design-card">
-        <span class="design-num">01 / Structure</span>
-        <h3>経営の<br>構造をデザインする。</h3>
-        <p>事業戦略・営業戦略・収益構造を、三回×二時間のヒアリングから設計図に落とし込む。経営者の頭の中で言葉になりかけていた仮説を、組織が動ける文書に変えます。</p>
-        <div class="design-tags">
-          <span class="design-tag">経営参謀</span>
-          <span class="design-tag">フラクショナルCOO</span>
-          <span class="design-tag">事業戦略</span>
-          <span class="design-tag">営業設計</span>
+    <div class="services-grid reveal">
+      <article class="service">
+        <div class="service-head"><span class="service-num">01 / Search</span></div>
+        <span class="service-en">SEO / Content</span>
+        <h3>検索流入の設計と、編集の実装。</h3>
+        <p>検索キーワード設計、記事制作、オウンドメディアの企画・運営支援。BtoB/BtoCのいずれにも対応し、媒体特性に合わせて編集体制まで構築します。</p>
+        <div class="service-tags">
+          <span class="service-tag">SEO設計</span>
+          <span class="service-tag">記事編集</span>
+          <span class="service-tag">オウンドメディア</span>
         </div>
       </article>
 
-      <article class="design-card">
-        <span class="design-num">02 / Talent</span>
-        <h3>組織と採用を<br>デザインする。</h3>
-        <p>応募が来ない理由は、媒体ではなく「自社の哲学が言葉になっていないこと」。経営者の哲学を、求職者の語彙に翻訳し、媒体・面接・入社後までを一貫した世界観で設計します。</p>
-        <div class="design-tags">
-          <span class="design-tag">採用ブランディング</span>
-          <span class="design-tag">ペルソナ設計</span>
-          <span class="design-tag">採用LP</span>
-          <span class="design-tag">オンボーディング</span>
+      <article class="service">
+        <div class="service-head"><span class="service-num">02 / AI</span></div>
+        <span class="service-en">AI Integration</span>
+        <h3>AIで、業務とコンテンツを伸ばす。</h3>
+        <p>AIを活用した業務効率化、コンテンツ制作、ワークフロー構築。Claude / GPT / 各種SaaS統合による、小規模チームのレバレッジ最大化を支援します。</p>
+        <div class="service-tags">
+          <span class="service-tag">業務改善</span>
+          <span class="service-tag">コンテンツ生成</span>
+          <span class="service-tag">ワークフロー</span>
         </div>
       </article>
 
-      <article class="design-card">
-        <span class="design-num">03 / Voice</span>
-        <h3>メディアと言葉を<br>デザインする。</h3>
-        <p>業界特化のオウンドメディア、ポッドキャスト、一次情報のデータ資産化。社内に眠っている知見を、業界の中で読まれる文章に編集し、長期の信頼資産として積み上げます。</p>
-        <div class="design-tags">
-          <span class="design-tag">オウンドメディア</span>
-          <span class="design-tag">ポッドキャスト</span>
-          <span class="design-tag">編集・取材</span>
-          <span class="design-tag">データ資産化</span>
+      <article class="service">
+        <div class="service-head"><span class="service-num">03 / Web</span></div>
+        <span class="service-en">LP / Web Design</span>
+        <h3>動くLPと、続くWebを作る。</h3>
+        <p>集客・採用・CV改善を目的としたランディングページ、Webサイトの制作。デザイン・コピー・実装・計測までを内製し、単発の制作で終わらせません。</p>
+        <div class="service-tags">
+          <span class="service-tag">LP制作</span>
+          <span class="service-tag">採用サイト</span>
+          <span class="service-tag">CVR改善</span>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="service-head"><span class="service-num">04 / Social</span></div>
+        <span class="service-en">SNS Strategy</span>
+        <h3>SNSを、事業の動線として使う。</h3>
+        <p>X、Threads、Instagramを活用した発信戦略と導線設計。フォロワー数ではなく、事業に紐づく流入と接点を設計するアプローチを取ります。</p>
+        <div class="service-tags">
+          <span class="service-tag">X / Threads</span>
+          <span class="service-tag">Instagram</span>
+          <span class="service-tag">導線設計</span>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- HOW WE WALK -->
-<section id="modes">
+<!-- WORKS -->
+<section id="works" style="background:var(--bg-soft);">
   <div class="wrap">
-    <div class="section-eyebrow"><span>03 — How we walk</span></div>
-    <h2 class="section-title">伴走の、<em>3つの形</em>。</h2>
-    <p class="section-sub">関与の深さと期間で、3つのプランをご用意しています。最初の30分は無料で、御社の状況を伺った上で、どの形が最適かをその場でご提案します。</p>
+    <div class="section-eyebrow"><span>Works</span></div>
+    <h2 class="section-title">これまでの、<em>関わり方</em>。</h2>
+    <p class="section-sub">非公開案件が中心のため、業界カテゴリと支援領域での開示としています。詳細は商談時にご共有します。</p>
 
-    <div class="modes reveal">
-      <div class="mode">
-        <span class="pricing-pill">SPOT</span>
-        <h3>スポット<br>プロジェクト<span class="en">Project Engagement</span></h3>
-        <p>採用ピッチ資料、戦略設計、組織図、特定の経営課題への単発関与。明確なゴールと納品物がある場合に最適です。</p>
-        <div class="mode-meta">
-          <div><span class="k">期間</span><span class="v">4-12週間</span></div>
-          <div><span class="k">関与</span><span class="v">週次ミーティング</span></div>
-          <div><span class="k">価格</span><span class="v">¥380,000〜</span></div>
+    <div class="works-grid reveal">
+      <article class="work">
+        <div class="work-visual">
+          <div class="work-meta">
+            <span class="work-cat">Architecture × Media</span>
+            <span class="work-num">W / 01</span>
+          </div>
         </div>
+        <div class="work-body">
+          <h3>建築領域メディア支援</h3>
+          <p>建築系オウンドメディアの SEO 設計・コンテンツ制作・UI 改善を中長期で支援。一次情報を業界資産として積み上げる編集体制構築。</p>
+          <div class="work-tags">
+            <span class="work-tag">SEO設計</span>
+            <span class="work-tag">コンテンツ制作</span>
+            <span class="work-tag">UI改善</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-visual v2">
+          <div class="work-meta">
+            <span class="work-cat">Recruitment × Web</span>
+            <span class="work-num">W / 02</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <h3>採用導線改善</h3>
+          <p>採用 LP の設計、媒体掲載原稿の改善、SNS からの導線整理。応募者の質と量を、媒体投資を増やさずに改善するアプローチ。</p>
+          <div class="work-tags">
+            <span class="work-tag">LP設計</span>
+            <span class="work-tag">コンテンツ改善</span>
+            <span class="work-tag">SNS導線</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-visual v3">
+          <div class="work-meta">
+            <span class="work-cat">AI × Operations</span>
+            <span class="work-num">W / 03</span>
+          </div>
+        </div>
+        <div class="work-body">
+          <h3>AI活用支援</h3>
+          <p>業務へのAI組み込み、コンテンツ制作の効率化、ワークフロー設計。小規模チームが大企業並みの出力を持つための実装支援。</p>
+          <div class="work-tags">
+            <span class="work-tag">コンテンツ生成</span>
+            <span class="work-tag">業務効率化</span>
+            <span class="work-tag">ワークフロー</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- R&D - DARK SECTION -->
+<section id="rd" style="padding:120px 40px;">
+  <div class="rd-section reveal">
+    <div class="section-eyebrow"><span>Research &amp; Development</span></div>
+    <h2 class="section-title">都市生活者の、<br><em>孤独・疲労・自己回復</em>を研究する。</h2>
+    <p class="section-sub">受託の傍ら、ライフスタイル領域での研究開発を続けています。SNS、コミュニティ、AI、IP——複数の角度から、都市の中で働き生きる個人にとって意味のある仕組みを試作しています。</p>
+
+    <div class="rd-grid">
+      <div class="rd-item">
+        <span class="rd-num">01</span>
+        <h3>SNSメディア運営<span class="en">Owned Social Media</span></h3>
+        <p>都市生活者の関心領域を扱う独自アカウント群を、複数プラットフォームで運営。</p>
       </div>
-
-      <div class="mode">
-        <span class="pricing-pill" style="background:rgba(14,92,90,0.12);color:var(--teal);">RETAINER</span>
-        <h3>経営参謀<br>顧問契約<span class="en">Fractional Advisor</span></h3>
-        <p>毎週の経営定例に外部の視点として並走。戦略・人事・営業すべての判断に対して、第三者の問いと選択肢を差し出します。</p>
-        <div class="mode-meta">
-          <div><span class="k">期間</span><span class="v">6-12ヶ月</span></div>
-          <div><span class="k">関与</span><span class="v">月4-8時間</span></div>
-          <div><span class="k">価格</span><span class="v">¥280,000 / 月〜</span></div>
-        </div>
+      <div class="rd-item">
+        <span class="rd-num">02</span>
+        <h3>コミュニティ設計<span class="en">Community Design</span></h3>
+        <p>関係性の濃度と継続性を両立する、小〜中規模コミュニティの構造実験。</p>
       </div>
-
-      <div class="mode">
-        <span class="pricing-pill" style="background:var(--bg-soft);color:var(--ink-soft);">COO</span>
-        <h3>フラクショナル<br>COO常駐<span class="en">Fractional COO</span></h3>
-        <p>週2-3日、実質的な現場COOとして経営者と並走。仕組みづくり・組織開発・営業実装まで、自分で手を動かしながら設計します。</p>
-        <div class="mode-meta">
-          <div><span class="k">期間</span><span class="v">6-12ヶ月</span></div>
-          <div><span class="k">関与</span><span class="v">週2-3日</span></div>
-          <div><span class="k">価格</span><span class="v">¥800,000 / 月〜</span></div>
-        </div>
+      <div class="rd-item">
+        <span class="rd-num">03</span>
+        <h3>AI活用<span class="en">AI Application</span></h3>
+        <p>個人とコミュニティ向けの AI ツール試作と、活用パターンのナレッジ蓄積。</p>
+      </div>
+      <div class="rd-item">
+        <span class="rd-num">04</span>
+        <h3>キャラクター／IP開発<span class="en">Character &amp; IP</span></h3>
+        <p>長期で愛される人格と世界観を、デジタルファースト前提で設計・運用する試み。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
-<section style="padding:120px 40px;">
-  <div class="wrap">
-    <div class="proof reveal">
-      <div class="section-eyebrow"><span>04 — Proof</span></div>
-      <h2 class="section-title">数字で、<em>自らに課している</em>こと。</h2>
-      <p class="section-sub">並行案件数の上限・関与期間の標準・対応業界の幅。私たちが「規模」ではなく「密度」で動いていることの、数字での開示です。</p>
-
-      <div class="proof-stats">
-        <div class="proof-stat">
-          <div class="v">3<span class="unit">社</span></div>
-          <div class="k">同時関与の上限</div>
-          <div class="d">案件あたりの密度を担保</div>
-        </div>
-        <div class="proof-stat">
-          <div class="v">4<span class="unit">業界</span></div>
-          <div class="k">実装経験のある業界</div>
-          <div class="d">建設・採用・SaaS・ホスピタリティ</div>
-        </div>
-        <div class="proof-stat">
-          <div class="v">2<span class="unit">事業</span></div>
-          <div class="k">並行運営</div>
-          <div class="d">経営支援＋メディア事業</div>
-        </div>
-        <div class="proof-stat">
-          <div class="v">100<span class="unit">%</span></div>
-          <div class="k">機密保持・専属契約</div>
-          <div class="d">同業の並行関与なし</div>
-        </div>
-      </div>
-    </div>
+<!-- ABOUT -->
+<section id="about" style="background:var(--bg-soft);">
+  <div class="about-block reveal">
+    <div class="section-eyebrow" style="justify-content:center;display:flex;"><span>About</span></div>
+    <h2>都市の中で働き、生きる個人や<br>小規模事業者が、<br><em>少し前向きになれる仕組み</em>をつくる。</h2>
+    <p>私たちは、AI・SEO・コンテンツ設計を活用し、<strong>事業成長と世界観づくり</strong>を支援する独立スタジオです。短期の成果と、長期に残る資産。両方を同じテーブルの上で設計するために、少数精鋭で動いています。</p>
   </div>
 </section>
 
 <!-- REPRESENTATIVE -->
-<section id="representative" style="background:var(--bg-soft);">
+<section id="representative">
   <div class="wrap">
-    <div class="section-eyebrow"><span>05 — Representative</span></div>
-    <h2 class="section-title">隣に立つ、<em>一人の人間</em>。</h2>
-    <p class="section-sub">会社は法人ですが、関与は人と人。代表者本人が、御社の隣に立ちます。経歴・現在地・関心領域を、ここに開示します。</p>
+    <div class="section-eyebrow"><span>Representative</span></div>
+    <h2 class="section-title">少数精鋭で、<em>並走する</em>。</h2>
+    <p class="section-sub">会社は法人ですが、関与は人と人。代表者本人が、御社の隣に立ちます。</p>
 
     <div class="rep-block reveal">
-      <div class="rep-photo"><span class="rep-badge">Available · 2026Q3〜</span></div>
+      <div class="rep-photo"><span class="rep-badge">Available</span></div>
       <div class="rep-info">
         <h3>山本 翔太</h3>
         <div class="name-en">Shota Yamamoto</div>
         <div class="role">代表社員 ／ Founder, Representative Member</div>
-        <p><strong>1999年生まれ、26歳。</strong>国内上場SaaS企業の事業戦略部門でセクション長を務めながら、複数の中小企業の経営参謀（COO代行）を兼務しています。建設・採用・SaaS・ホスピタリティの四領域での実装経験。</p>
-        <p>20代後半でこの会社を立ち上げた理由は単純で、<strong>「経営者の隣で、本気で考える時間」</strong>を、自分の主たる仕事にしたかったからです。年齢ではなく、関与の密度で評価されたい。それが、独立した動機です。</p>
+        <p>1999年生まれ。国内上場SaaS企業の事業戦略部門に在籍しながら、複数の小規模事業の成長支援を兼務。<strong>SEO・AI・コンテンツ設計を軸に、事業と世界観の両方を作る</strong>ことに関心があります。</p>
+        <p>受託の傍ら、都市生活者の孤独・疲労・自己回復をテーマにした R&amp;D を続けています。AI 時代の個人・小規模事業の働き方と表現の境界を、自分自身を実験台にして確かめている最中です。</p>
 
         <div class="rep-facts">
           <div class="rep-fact"><span class="k">Born</span><span class="v">1999年</span></div>
           <div class="rep-fact"><span class="k">Based</span><span class="v">東京都品川区</span></div>
-          <div class="rep-fact"><span class="k">Domains</span><span class="v">建設・採用・SaaS</span></div>
-          <div class="rep-fact"><span class="k">Method</span><span class="v">エフェクチュエーション</span></div>
+          <div class="rep-fact"><span class="k">Focus</span><span class="v">AI / SEO / Editorial</span></div>
+          <div class="rep-fact"><span class="k">Method</span><span class="v">少数精鋭 ／ 中長期伴走</span></div>
           <div class="rep-fact"><span class="k">Prior</span><span class="v">高級イタリア料理店4年</span></div>
           <div class="rep-fact"><span class="k">Travel</span><span class="v">20カ国の取材・居住</span></div>
         </div>
@@ -685,11 +728,11 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 </section>
 
 <!-- COMPANY -->
-<section id="company">
+<section style="background:var(--bg-soft);">
   <div class="wrap" style="max-width:880px;">
-    <div class="section-eyebrow"><span>06 — Company</span></div>
+    <div class="section-eyebrow"><span>Company</span></div>
     <h2 class="section-title">会社<em>概要</em>。</h2>
-    <p class="section-sub">登記情報の開示です。取引・与信・採用候補者の方は、ご参照ください。</p>
+    <p class="section-sub">登記情報の開示です。お取引・与信のご確認の際にご参照ください。</p>
 
     <div class="company-grid reveal">
       <div class="company-row">
@@ -710,7 +753,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
       </div>
       <div class="company-row">
         <div class="k">事業内容 ／ Business</div>
-        <div class="v">経営支援事業 ／ メディア事業<span class="en">Management Advisory · Media &amp; Editorial</span></div>
+        <div class="v">SEO・AI・コンテンツ・LP / Web 設計支援<span class="en">SEO · AI · Editorial · Web Design</span></div>
       </div>
       <div class="company-row">
         <div class="k">取引銀行 ／ Bank</div>
@@ -720,22 +763,44 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-block" id="contact">
-  <div class="cta-inner">
+<!-- CONTACT -->
+<div class="contact-block" id="contact">
+  <div class="contact-inner">
     <div>
-      <div class="section-eyebrow" style="color:#7DD3D1;margin-bottom:18px;"><span>07 — Next Step</span></div>
-      <h2>次の一歩を、<br><em>一緒に決めましょう</em>。</h2>
-      <p>初回相談は30分・無料。御社の状況を伺い、関与の方向性をその場で提示します。料金が発生するのは、お見積もりに合意いただいた後からです。</p>
+      <div class="section-eyebrow" style="color:var(--amber-soft);margin-bottom:18px;"><span>Contact</span></div>
+      <h2>事業相談・制作依頼・<br><em>協業</em>のご相談を。</h2>
+      <p>事業相談・制作依頼・協業など、お気軽にお問い合わせください。フォーム入力 or メールから承ります。</p>
+      <div class="contact-options">
+        <a class="contact-opt" href="mailto:contact@vitality-design.jp">
+          <span class="label"><span class="ic">@</span>Email</span>
+          <span class="v">contact@vitality-design.jp</span>
+        </a>
+        <a class="contact-opt" href="https://x.com/" target="_blank" rel="noopener">
+          <span class="label"><span class="ic">X</span>X / Twitter</span>
+          <span class="v">DM Open →</span>
+        </a>
+      </div>
     </div>
 
-    <div class="cta-card">
-      <div class="step"><span class="n">01</span><span>メール ／ フォームから連絡</span></div>
-      <div class="step"><span class="n">02</span><span>2営業日以内に日程候補を返信</span></div>
-      <div class="step"><span class="n">03</span><span>30分のオンライン or 対面相談</span></div>
-      <div class="step"><span class="n">04</span><span>判断材料となる提案書を後日共有</span></div>
-      <a class="btn-primary" href="mailto:contact@vitality-design.jp?subject=無料相談の申し込み"><span>無料相談を申し込む</span><span>→</span></a>
-    </div>
+    <form class="contact-form" action="mailto:contact@vitality-design.jp" method="post" enctype="text/plain">
+      <div class="cf-row">
+        <label class="cf-label" for="cf-name">お名前</label>
+        <input class="cf-input" id="cf-name" name="name" type="text" placeholder="山田 太郎" required>
+      </div>
+      <div class="cf-row">
+        <label class="cf-label" for="cf-company">会社名（任意）</label>
+        <input class="cf-input" id="cf-company" name="company" type="text" placeholder="株式会社○○">
+      </div>
+      <div class="cf-row">
+        <label class="cf-label" for="cf-email">メールアドレス</label>
+        <input class="cf-input" id="cf-email" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+      <div class="cf-row">
+        <label class="cf-label" for="cf-msg">ご相談内容</label>
+        <textarea class="cf-textarea" id="cf-msg" name="message" placeholder="現在の状況・ご相談したい内容を、簡単にお書きください。" required></textarea>
+      </div>
+      <button class="cf-submit" type="submit"><span>送信する</span><span>→</span></button>
+    </form>
   </div>
 </div>
 
@@ -746,10 +811,10 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
       <span>© 2026 Vitality Design LLC.</span>
     </div>
     <div class="nav">
-      <a href="#personas">伴走</a>
-      <a href="#designs">領域</a>
-      <a href="#modes">プラン</a>
-      <a href="#representative">代表</a>
+      <a href="#services">Services</a>
+      <a href="#works">Works</a>
+      <a href="#rd">R&amp;D</a>
+      <a href="#representative">Representative</a>
       <a href="mailto:contact@vitality-design.jp">Contact</a>
     </div>
   </div>

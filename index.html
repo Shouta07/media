@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>バイタリティデザイン合同会社 — 事業に本気の人と、長く伴走する独立スタジオ</title>
-<meta name="description" content="事業を持つひとの隣で、AI・SEO・コンテンツ・Webを一貫して設計する独立スタジオ。制作で終わらせず、事業の動線と世界観まで、ひとつのチームで作ります。">
+<meta name="description" content="AIシステム開発、営業、事業を踏まえた各部門での提案と実行支援。事業に本気の方と長く伴走する独立スタジオ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -169,7 +169,7 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
 
 /* === SERVICES === */
 .services-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
 }
 .service{
@@ -335,26 +335,7 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
   font-family:var(--mono);font-size:11px;color:var(--vermilion);font-weight:500;
   letter-spacing:0.04em;text-transform:uppercase;
 }
-.rep-mini p{font-size:13.5px;line-height:1.85;color:var(--ink-soft);margin:0 0 12px;}
-.rep-mini-meta{
-  display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;
-  font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.04em;
-}
-.rep-mini-meta .sep{color:var(--ink-mute);}
-
-/* === COMPANY === */
-.company-grid{
-  background:var(--bg-card);border:1px solid var(--line);border-radius:16px;
-  padding:0;overflow:hidden;
-}
-.company-row{
-  display:grid;grid-template-columns:200px 1fr;gap:32px;padding:20px 32px;
-  border-bottom:1px solid var(--line);
-}
-.company-row:last-child{border-bottom:none;}
-.company-row .k{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;padding-top:4px;}
-.company-row .v{font-family:var(--jp);font-size:15px;color:var(--ink);font-weight:500;}
-.company-row .v .en{display:block;font-family:var(--sans);font-size:12px;color:var(--ink-faint);font-weight:400;margin-top:2px;letter-spacing:0.02em;}
+.rep-mini p{font-size:13.5px;line-height:1.85;color:var(--ink-soft);margin:0;}
 
 /* === CONTACT === */
 .contact-block{
@@ -459,7 +440,6 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   section{padding:80px 20px;}
   .rd-section, .contact-block{padding:48px 24px;border-radius:16px;}
   .rep-mini{padding:24px;}
-  .company-row{grid-template-columns:1fr;gap:6px;}
   .rd-grid{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
 }
@@ -491,7 +471,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
     <div class="hero-eyebrow"><span>Independent Studio ／ Tokyo</span></div>
     <h1>事業に<em>本気の人</em>と、<br>長く伴走する。</h1>
     <p class="hero-lead">
-      AI・SEO・コンテンツ・Web。<strong>制作で終わらせず</strong>、事業の動線と世界観まで、ひとつのチームで設計します。年間で関わる案件は数を絞り、長く一緒にやれる方とだけ組むスタジオです。
+      AIシステム開発、営業、事業を踏まえた各部門の実行支援。<strong>制作で終わらせず、事業の中に入って動く</strong>スタジオです。年間で関わる案件は数を絞り、長く一緒にやれる方とだけ組みます。
     </p>
     <div class="hero-actions">
       <a class="btn primary" href="#contact"><span>お問い合わせ</span><span class="arrow">→</span></a>
@@ -501,11 +481,10 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
     <div class="hero-proof">
       <span class="hp-label">Capabilities</span>
       <div class="hp-list">
+        <span class="hp-item">AIシステム開発</span>
+        <span class="hp-item">営業設計・実行</span>
+        <span class="hp-item">部門横断の実行支援</span>
         <span class="hp-item">継続クライアントあり</span>
-        <span class="hp-item">SEO支援</span>
-        <span class="hp-item">AI活用支援</span>
-        <span class="hp-item">コンテンツ制作</span>
-        <span class="hp-item">LP / Web設計</span>
       </div>
     </div>
   </div>
@@ -515,55 +494,43 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 <section id="services">
   <div class="wrap">
     <div class="section-eyebrow"><span>Services</span></div>
-    <h2 class="section-title">提供する、<em>4つの設計領域</em>。</h2>
-    <p class="section-sub">事業の企画と実装の両方を、ひとつのチームで支援します。単発の制作ではなく、事業の動線まで含めた全体を一貫して設計するのが特徴です。</p>
+    <h2 class="section-title">提供する、<em>3つの領域</em>。</h2>
+    <p class="section-sub">AIシステム開発から営業の現場、事業の文脈を踏まえた各部門の実行まで。受託の制作で終わらず、経営判断と現場の動きをひとつの線でつなぎ直します。</p>
 
     <div class="services-grid reveal">
       <article class="service">
-        <div class="service-head"><span class="service-num">01 / Search</span></div>
-        <span class="service-en">SEO / Content</span>
-        <h3>検索流入の設計と、編集の実装。</h3>
-        <p>検索キーワード設計、記事制作、オウンドメディアの企画・運営支援。BtoB/BtoCのいずれにも対応し、媒体特性に合わせて編集体制まで構築します。</p>
+        <div class="service-head"><span class="service-num">01 / AI Systems</span></div>
+        <span class="service-en">AI System Development</span>
+        <h3>AIシステムを、<br>業務の中に組み込む。</h3>
+        <p>Claude / GPT 等を活用したカスタムツール、業務自動化、社内ワークフローの構築。少人数のチームが大企業並みの出力を持つための実装支援を、設計から運用まで一気通貫で。</p>
         <div class="service-tags">
-          <span class="service-tag">SEO設計</span>
-          <span class="service-tag">記事編集</span>
-          <span class="service-tag">オウンドメディア</span>
+          <span class="service-tag">カスタムAI</span>
+          <span class="service-tag">業務自動化</span>
+          <span class="service-tag">社内ツール</span>
         </div>
       </article>
 
       <article class="service">
-        <div class="service-head"><span class="service-num">02 / AI</span></div>
-        <span class="service-en">AI Integration</span>
-        <h3>AIで、業務とコンテンツを伸ばす。</h3>
-        <p>AIを活用した業務効率化、コンテンツ制作、ワークフロー構築。Claude / GPT / 各種SaaS統合による、小規模チームのレバレッジ最大化を支援します。</p>
+        <div class="service-head"><span class="service-num">02 / Sales</span></div>
+        <span class="service-en">Sales &amp; GTM</span>
+        <h3>営業の設計と、<br>現場の実行に並走する。</h3>
+        <p>営業プロセス設計、パイプライン構築、提案資料、重要商談の同席。「売れる仕組み」を、現場の数字と紐づけて作ります。BtoB の中堅以下に強みがあります。</p>
         <div class="service-tags">
-          <span class="service-tag">業務改善</span>
-          <span class="service-tag">コンテンツ生成</span>
-          <span class="service-tag">ワークフロー</span>
+          <span class="service-tag">営業設計</span>
+          <span class="service-tag">商談支援</span>
+          <span class="service-tag">提案資料</span>
         </div>
       </article>
 
       <article class="service">
-        <div class="service-head"><span class="service-num">03 / Web</span></div>
-        <span class="service-en">LP / Web Design</span>
-        <h3>動くLPと、続くWebを作る。</h3>
-        <p>集客・採用・CV改善を目的としたランディングページ、Webサイトの制作。デザイン・コピー・実装・計測までを内製し、単発の制作で終わらせません。</p>
+        <div class="service-head"><span class="service-num">03 / Execution</span></div>
+        <span class="service-en">Cross-Functional Execution</span>
+        <h3>事業の文脈を踏まえて、<br>各部門に入る。</h3>
+        <p>マーケ、人事、採用、オペレーション。事業全体の構造を理解したうえで、各部門に対して提案と実行を行います。経営の判断と、現場の動きを、ひとつの線でつなぎ直します。</p>
         <div class="service-tags">
-          <span class="service-tag">LP制作</span>
-          <span class="service-tag">採用サイト</span>
-          <span class="service-tag">CVR改善</span>
-        </div>
-      </article>
-
-      <article class="service">
-        <div class="service-head"><span class="service-num">04 / Social</span></div>
-        <span class="service-en">SNS Strategy</span>
-        <h3>SNSを、事業の動線として使う。</h3>
-        <p>X、Threads、Instagramを活用した発信戦略と導線設計。フォロワー数ではなく、事業に紐づく流入と接点を設計するアプローチを取ります。</p>
-        <div class="service-tags">
-          <span class="service-tag">X / Threads</span>
-          <span class="service-tag">Instagram</span>
-          <span class="service-tag">導線設計</span>
+          <span class="service-tag">マーケティング</span>
+          <span class="service-tag">採用 / 人事</span>
+          <span class="service-tag">オペレーション</span>
         </div>
       </article>
     </div>
@@ -623,7 +590,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
         </div>
         <div class="work-body">
           <h3>AI活用支援</h3>
-          <p>業務へのAI組み込み、コンテンツ制作の効率化、ワークフロー設計。小規模チームが大企業並みの出力を持つための実装支援。</p>
+          <p>業務へのAI組み込み、コンテンツ制作の効率化、ワークフロー設計。少人数のチームが大企業並みの出力を持つための実装支援。</p>
           <div class="work-tags">
             <span class="work-tag">コンテンツ生成</span>
             <span class="work-tag">業務効率化</span>
@@ -672,7 +639,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   <div class="about-block reveal">
     <div class="section-eyebrow" style="justify-content:center;display:flex;"><span>About</span></div>
     <h2>都市の中で、自分の事業を、<br>自分のリズムで動かしている人。<br><em>その隣で、長く。</em></h2>
-    <p>AI、言葉、設計——三つを持ち寄って、<strong>事業の成長と、世界観の構築</strong>を同じテーブルで進める独立スタジオです。スケールではなく、関係の濃度と長さで価値を生むやり方を選んでいます。</p>
+    <p>AI、営業、実行——三つを持ち寄って、<strong>事業の成長と、現場の動き</strong>を同じテーブルで進める独立スタジオです。スケールではなく、関係の濃度と長さで価値を生むやり方を選んでいます。</p>
   </div>
 </section>
 
@@ -688,52 +655,12 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
           <h3>山本 翔太 <span class="en">Shota Yamamoto</span></h3>
           <span class="rep-mini-role">代表社員 / Founder</span>
         </div>
-        <p>1999年生まれ。国内上場SaaS企業の事業戦略部門に在籍しながら、自分の事業に本気で取り組む方々の隣で、戦略・編集・実装を兼務しています。</p>
-        <div class="rep-mini-meta">
-          <span>東京・品川</span><span class="sep">/</span>
-          <span>AI ・ SEO ・ Editorial</span><span class="sep">/</span>
-          <span>少数精鋭 ／ 中長期伴走</span>
-        </div>
+        <p>1999年生まれ。国内上場SaaS企業の事業戦略部門に在籍しながら、自分の事業に本気で取り組む方々の隣で、AIシステム開発・営業・各部門の実行支援を兼務しています。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPANY -->
-<section style="background:var(--bg-soft);">
-  <div class="wrap" style="max-width:880px;">
-    <div class="section-eyebrow"><span>Company</span></div>
-    <h2 class="section-title">会社<em>概要</em>。</h2>
-    <p class="section-sub">登記情報の開示です。お取引・与信のご確認の際にご参照ください。</p>
-
-    <div class="company-grid reveal">
-      <div class="company-row">
-        <div class="k">商号 ／ Company</div>
-        <div class="v">バイタリティデザイン合同会社<span class="en">Vitality Design LLC.</span></div>
-      </div>
-      <div class="company-row">
-        <div class="k">代表社員 ／ Representative</div>
-        <div class="v">山本 翔太<span class="en">Shota Yamamoto</span></div>
-      </div>
-      <div class="company-row">
-        <div class="k">設立 ／ Founded</div>
-        <div class="v">2026年4月2日</div>
-      </div>
-      <div class="company-row">
-        <div class="k">所在地 ／ Address</div>
-        <div class="v">東京都品川区</div>
-      </div>
-      <div class="company-row">
-        <div class="k">事業内容 ／ Business</div>
-        <div class="v">SEO・AI・コンテンツ・LP / Web 設計支援<span class="en">SEO · AI · Editorial · Web Design</span></div>
-      </div>
-      <div class="company-row">
-        <div class="k">取引銀行 ／ Bank</div>
-        <div class="v">GMOあおぞらネット銀行</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <div class="contact-block" id="contact">

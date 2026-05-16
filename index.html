@@ -22,10 +22,9 @@
   --ink-mute:#A8AAB0;
   --line:rgba(14,15,18,0.08);
   --line-strong:rgba(14,15,18,0.16);
-  --amber:#C9772A;
-  --amber-soft:#E2A06A;
-  --amber-pale:#F5E8D7;
   --vermilion:#C8392B;
+  --vermilion-soft:#DC6358;
+  --vermilion-pale:#F5DCD8;
   --shadow-sm:0 1px 2px rgba(14,15,18,0.04),0 1px 3px rgba(14,15,18,0.06);
   --shadow-md:0 4px 12px -2px rgba(14,15,18,0.06),0 16px 32px -12px rgba(14,15,18,0.12);
   --shadow-lg:0 24px 48px -12px rgba(14,15,18,0.16);
@@ -57,7 +56,7 @@ body{
   width:32px;height:32px;border-radius:7px;background:var(--night);position:relative;
 }
 .nav-mark::after{
-  content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--vermilion);
   position:absolute;top:7px;right:7px;
 }
 .nav-name{display:flex;flex-direction:column;line-height:1.1;}
@@ -72,7 +71,7 @@ body{
   text-decoration:none;transition:background 0.2s;
   display:inline-flex;align-items:center;gap:6px;
 }
-.nav-cta:hover{background:var(--amber);}
+.nav-cta:hover{background:var(--vermilion);}
 .nav-cta::after{content:"→";font-size:14px;}
 
 /* === HERO === */
@@ -83,7 +82,7 @@ body{
 .hero::before{
   content:"";position:absolute;
   top:-200px;right:-100px;width:600px;height:600px;
-  background:radial-gradient(circle,rgba(201,119,42,0.06) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(200,57,43,0.06) 0%,transparent 60%);
   filter:blur(40px);pointer-events:none;
 }
 .hero::after{
@@ -101,8 +100,8 @@ body{
   padding:6px 14px;background:var(--bg-soft);border:1px solid var(--line);border-radius:99px;
 }
 .hero-eyebrow::before{
-  content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);
-  box-shadow:0 0 8px rgba(201,119,42,0.5);
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--vermilion);
+  box-shadow:0 0 8px rgba(200,57,43,0.5);
 }
 
 .hero h1{
@@ -110,7 +109,7 @@ body{
   font-size:clamp(40px,5.4vw,72px);line-height:1.25;letter-spacing:-0.01em;
   margin-bottom:32px;color:var(--ink);max-width:22ch;
 }
-.hero h1 em{font-style:normal;color:var(--amber);font-weight:600;}
+.hero h1 em{font-style:normal;color:var(--vermilion);font-weight:600;}
 
 .hero-lead{
   font-size:18px;line-height:1.75;color:var(--ink-soft);max-width:540px;
@@ -125,7 +124,7 @@ body{
   text-decoration:none;transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
 }
 .btn.primary{background:var(--night);color:#fff;box-shadow:var(--shadow-sm);}
-.btn.primary:hover{background:var(--amber);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.btn.primary:hover{background:var(--vermilion);transform:translateY(-1px);box-shadow:var(--shadow-md);}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong);}
 .btn.ghost:hover{border-color:var(--ink);}
 .btn .arrow{transition:transform 0.2s;}
@@ -144,7 +143,7 @@ body{
   display:inline-flex;align-items:center;gap:6px;
   font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-soft);
 }
-.hp-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--amber);}
+.hp-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--vermilion);}
 
 /* === SECTION COMMON === */
 section{padding:120px 40px;position:relative;}
@@ -162,7 +161,7 @@ h2.section-title{
   font-size:clamp(32px,4vw,52px);line-height:1.3;letter-spacing:-0.005em;
   margin-bottom:20px;color:var(--ink);
 }
-h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
+h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
 
 .section-sub{
   font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:640px;margin-bottom:64px;
@@ -181,7 +180,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 .service:hover{background:var(--bg);}
 .service-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
 .service-num{
-  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--amber);letter-spacing:0.04em;
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--vermilion);letter-spacing:0.04em;
 }
 .service-en{
   font-family:var(--sans);font-weight:600;font-size:22px;letter-spacing:-0.01em;color:var(--ink);
@@ -218,7 +217,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 .work-visual::after{
   content:"";position:absolute;
   top:-100px;right:-50px;width:300px;height:300px;
-  background:radial-gradient(circle,rgba(201,119,42,0.18) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(200,57,43,0.18) 0%,transparent 60%);
   filter:blur(30px);
 }
 .work-visual.v2::after{background:radial-gradient(circle,rgba(125,180,210,0.18) 0%,transparent 60%);}
@@ -251,7 +250,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 .rd-section::before{
   content:"";position:absolute;
   top:-200px;left:-100px;width:600px;height:600px;
-  background:radial-gradient(circle,rgba(201,119,42,0.18) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(200,57,43,0.18) 0%,transparent 60%);
   filter:blur(50px);
 }
 .rd-section::after{
@@ -261,11 +260,11 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
   filter:blur(50px);
 }
 .rd-section > *{position:relative;z-index:2;}
-.rd-section .section-eyebrow{color:var(--amber-soft);}
-.rd-section .section-eyebrow::before{background:var(--amber-soft);}
+.rd-section .section-eyebrow{color:var(--vermilion-soft);}
+.rd-section .section-eyebrow::before{background:var(--vermilion-soft);}
 .rd-section h2.section-title{color:#fff;}
 .rd-section h2.section-title em{
-  background:linear-gradient(135deg,var(--amber-soft),#D4B5E8);
+  background:linear-gradient(135deg,var(--vermilion-soft),#D4B5E8);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
 .rd-section .section-sub{color:rgba(255,255,255,0.7);}
@@ -282,7 +281,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 }
 .rd-item:hover{background:var(--night-soft);}
 .rd-num{
-  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--amber-soft);letter-spacing:0.04em;
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--vermilion-soft);letter-spacing:0.04em;
 }
 .rd-item h3{
   font-family:var(--jp);font-weight:600;font-size:18px;line-height:1.45;color:#fff;letter-spacing:0;
@@ -302,65 +301,46 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
   font-size:clamp(28px,3.4vw,44px);line-height:1.7;letter-spacing:0.02em;
   margin-bottom:36px;color:var(--ink);
 }
-.about-block h2 em{font-style:normal;color:var(--amber);font-weight:600;}
+.about-block h2 em{font-style:normal;color:var(--vermilion);font-weight:600;}
 .about-block p{
   font-family:var(--jp);font-weight:400;font-size:16px;line-height:2.2;color:var(--ink-soft);
   letter-spacing:0.04em;
 }
 .about-block p strong{color:var(--ink);font-weight:600;}
 
-/* === REPRESENTATIVE === */
-.rep-block{
-  display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start;
-  background:var(--bg-card);border:1px solid var(--line);border-radius:24px;
-  padding:48px;box-shadow:var(--shadow-sm);
+/* === REPRESENTATIVE (modest) === */
+.rep-mini{
+  display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;
+  padding:28px 32px;background:var(--bg-card);border:1px solid var(--line);border-radius:14px;
 }
-.rep-photo{
-  aspect-ratio:1;border-radius:16px;
-  background:linear-gradient(135deg,#0E0F12 0%,#3A3C42 60%,#C9772A 100%);
-  position:relative;overflow:hidden;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);
+.rep-mini-avatar{
+  width:64px;height:64px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#0E0F12 0%,#3A3C42 60%,#C8392B 110%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--jp);font-weight:600;font-size:22px;color:rgba(255,255,255,0.45);
 }
-.rep-photo::before{
-  content:"山本";position:absolute;
-  inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--jp);font-weight:600;font-size:72px;color:rgba(255,255,255,0.16);letter-spacing:0.04em;
+.rep-mini-head{
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;
+  margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line);
 }
-.rep-photo::after{
-  content:"";position:absolute;
-  bottom:-100px;right:-100px;width:240px;height:240px;
-  background:radial-gradient(circle,rgba(255,255,255,0.14) 0%,transparent 60%);
-  filter:blur(20px);
+.rep-mini-head h3{
+  font-family:var(--jp);font-weight:600;font-size:18px;color:var(--ink);letter-spacing:0;
+  margin:0;
 }
-.rep-badge{
-  position:absolute;bottom:18px;left:18px;z-index:2;
-  display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
-  background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,0.2);border-radius:99px;
-  font-family:var(--mono);font-size:11px;font-weight:500;color:#fff;letter-spacing:0.04em;
+.rep-mini-head h3 .en{
+  font-family:var(--sans);font-weight:500;font-size:12px;color:var(--ink-faint);
+  letter-spacing:0.04em;margin-left:6px;
 }
-.rep-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);}
-
-.rep-info h3{
-  font-family:var(--jp);font-weight:600;font-size:32px;line-height:1.3;color:var(--ink);margin-bottom:6px;
+.rep-mini-role{
+  font-family:var(--mono);font-size:11px;color:var(--vermilion);font-weight:500;
+  letter-spacing:0.04em;text-transform:uppercase;
 }
-.rep-info .name-en{
-  font-family:var(--sans);font-size:14px;font-weight:500;color:var(--ink-faint);letter-spacing:0.04em;
-  margin-bottom:14px;
+.rep-mini p{font-size:13.5px;line-height:1.85;color:var(--ink-soft);margin:0 0 12px;}
+.rep-mini-meta{
+  display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;
+  font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.04em;
 }
-.rep-info .role{
-  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--amber);letter-spacing:0.04em;
-  margin-bottom:24px;text-transform:uppercase;padding-bottom:24px;border-bottom:1px solid var(--line);
-}
-.rep-info p{font-size:15px;line-height:1.85;color:var(--ink-soft);margin-bottom:1em;}
-.rep-info p strong{color:var(--ink);font-weight:600;}
-.rep-facts{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
-  margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
-}
-.rep-fact{display:flex;flex-direction:column;gap:3px;}
-.rep-fact .k{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;}
-.rep-fact .v{font-size:14px;color:var(--ink);font-weight:500;}
+.rep-mini-meta .sep{color:var(--ink-mute);}
 
 /* === COMPANY === */
 .company-grid{
@@ -386,7 +366,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 .contact-block::before{
   content:"";position:absolute;
   top:-200px;right:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(201,119,42,0.22) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(200,57,43,0.22) 0%,transparent 60%);
   filter:blur(40px);
 }
 .contact-block::after{
@@ -402,7 +382,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 }
 .contact-inner h2 em{
   font-style:normal;
-  background:linear-gradient(135deg,var(--amber-soft),#D4B5E8);
+  background:linear-gradient(135deg,var(--vermilion-soft),#D4B5E8);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
 .contact-inner p{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;}
@@ -417,7 +397,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
 .contact-opt:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25);}
 .contact-opt .label{display:flex;align-items:center;gap:10px;}
 .contact-opt .label .ic{
-  width:24px;height:24px;border-radius:6px;background:rgba(201,119,42,0.18);color:var(--amber-soft);
+  width:24px;height:24px;border-radius:6px;background:rgba(200,57,43,0.18);color:var(--vermilion-soft);
   display:inline-flex;align-items:center;justify-content:center;font-size:13px;
 }
 .contact-opt .v{color:#fff;font-weight:500;}
@@ -435,7 +415,7 @@ h2.section-title em{font-style:normal;color:var(--amber);font-weight:600;}
   transition:border-color 0.2s,background 0.2s;
 }
 .cf-input:focus, .cf-textarea:focus{
-  outline:none;border-color:var(--amber-soft);background:rgba(255,255,255,0.08);
+  outline:none;border-color:var(--vermilion-soft);background:rgba(255,255,255,0.08);
 }
 .cf-input::placeholder, .cf-textarea::placeholder{color:rgba(255,255,255,0.35);}
 .cf-textarea{resize:vertical;min-height:120px;font-family:var(--sans);}
@@ -469,7 +449,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .services-grid{grid-template-columns:1fr;}
   .works-grid{grid-template-columns:1fr;gap:16px;}
   .rd-grid{grid-template-columns:repeat(2,1fr);}
-  .rep-block{grid-template-columns:1fr;gap:32px;}
+  .rep-mini{grid-template-columns:1fr;gap:16px;}
   .contact-inner{grid-template-columns:1fr;gap:32px;}
 }
 @media (max-width:680px){
@@ -478,9 +458,8 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .hero{padding:48px 20px 64px;}
   section{padding:80px 20px;}
   .rd-section, .contact-block{padding:48px 24px;border-radius:16px;}
-  .rep-block{padding:32px 24px;}
+  .rep-mini{padding:24px;}
   .company-row{grid-template-columns:1fr;gap:6px;}
-  .rep-facts{grid-template-columns:1fr;}
   .rd-grid{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
 }
@@ -697,29 +676,23 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   </div>
 </section>
 
-<!-- REPRESENTATIVE -->
-<section id="representative">
-  <div class="wrap">
+<!-- REPRESENTATIVE (modest) -->
+<section id="representative" style="padding:80px 40px;">
+  <div class="wrap" style="max-width:760px;">
     <div class="section-eyebrow"><span>Representative</span></div>
-    <h2 class="section-title">少数精鋭で、<em>並走する</em>。</h2>
-    <p class="section-sub">会社は法人ですが、関与は人と人。代表者本人が、御社の隣に立ちます。</p>
 
-    <div class="rep-block reveal">
-      <div class="rep-photo"><span class="rep-badge">Available</span></div>
-      <div class="rep-info">
-        <h3>山本 翔太</h3>
-        <div class="name-en">Shota Yamamoto</div>
-        <div class="role">代表社員 ／ Founder, Representative Member</div>
-        <p>1999年生まれ。国内上場SaaS企業の事業戦略部門に在籍しながら、自分の事業に本気で取り組む方々の隣で、戦略・編集・実装を兼務しています。<strong>SEO・AI・コンテンツ設計を軸に、事業と世界観の両方を作る</strong>ことに関心があります。</p>
-        <p>受託の傍ら、都市生活者の孤独・疲労・自己回復をテーマにした R&amp;D を続けています。AI時代の個人と事業の働き方と表現の境界を、自分自身を実験台にして確かめている最中です。</p>
-
-        <div class="rep-facts">
-          <div class="rep-fact"><span class="k">Born</span><span class="v">1999年</span></div>
-          <div class="rep-fact"><span class="k">Based</span><span class="v">東京都品川区</span></div>
-          <div class="rep-fact"><span class="k">Focus</span><span class="v">AI / SEO / Editorial</span></div>
-          <div class="rep-fact"><span class="k">Method</span><span class="v">少数精鋭 ／ 中長期伴走</span></div>
-          <div class="rep-fact"><span class="k">Prior</span><span class="v">高級イタリア料理店4年</span></div>
-          <div class="rep-fact"><span class="k">Travel</span><span class="v">20カ国の取材・居住</span></div>
+    <div class="rep-mini reveal">
+      <div class="rep-mini-avatar">山本</div>
+      <div>
+        <div class="rep-mini-head">
+          <h3>山本 翔太 <span class="en">Shota Yamamoto</span></h3>
+          <span class="rep-mini-role">代表社員 / Founder</span>
+        </div>
+        <p>1999年生まれ。国内上場SaaS企業の事業戦略部門に在籍しながら、自分の事業に本気で取り組む方々の隣で、戦略・編集・実装を兼務しています。</p>
+        <div class="rep-mini-meta">
+          <span>東京・品川</span><span class="sep">/</span>
+          <span>AI ・ SEO ・ Editorial</span><span class="sep">/</span>
+          <span>少数精鋭 ／ 中長期伴走</span>
         </div>
       </div>
     </div>
@@ -766,7 +739,7 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 <div class="contact-block" id="contact">
   <div class="contact-inner">
     <div>
-      <div class="section-eyebrow" style="color:var(--amber-soft);margin-bottom:18px;"><span>Contact</span></div>
+      <div class="section-eyebrow" style="color:var(--vermilion-soft);margin-bottom:18px;"><span>Contact</span></div>
       <h2>事業相談・制作依頼・<br><em>協業</em>のご相談を。</h2>
       <p>事業相談・制作依頼・協業など、お気軽にお問い合わせください。フォーム入力 or メールから承ります。</p>
       <div class="contact-options">

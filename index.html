@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>バイタリティデザイン合同会社 — 事業の中まで、来てくれる外部</title>
-<meta name="description" content="提案だけのコンサル、作るだけの制作会社、そのどちらでもない位置で動く独立スタジオ。AIシステム開発、営業、各部門の実行——判断と動きの両方に並走します。">
+<title>バイタリティデザイン合同会社 — 活力をデザインする</title>
+<meta name="description" content="顧客の活力、組織の活力、事業の活力。状態が変わる瞬間を設計し、継続する成長に変える独立スタジオ。顧客体験設計・AI活用・事業開発、そして状態変化の研究まで。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -343,6 +343,7 @@ section{padding:120px 40px;position:relative;}
   letter-spacing:0.04em;margin-bottom:18px;text-transform:uppercase;
 }
 .section-eyebrow::before{content:"";width:24px;height:1px;background:var(--ink-soft);}
+.section-eyebrow .sec-no{color:var(--vermilion);font-weight:600;}
 
 h2.section-title{
   font-family:var(--jp);font-weight:600;
@@ -355,110 +356,151 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
   font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:640px;margin-bottom:64px;
 }
 
-/* === SERVICES === */
-.services-grid{
+/* === WHAT WE DESIGN — three vitalities === */
+.vitality-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
 }
-.service{
+.vitality{
   background:var(--bg-card);padding:36px 32px;
   display:flex;flex-direction:column;gap:14px;
   transition:background 0.3s;position:relative;overflow:hidden;
 }
-.service:hover{background:var(--bg);}
-.service::after{
+.vitality:hover{background:var(--bg);}
+.vitality::after{
   content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
   background:linear-gradient(90deg,var(--vermilion),var(--vermilion-soft));
   transition:width 0.5s cubic-bezier(0.16,1,0.3,1);
 }
-.service:hover::after{width:100%;}
-.service-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
-.service-num{
+.vitality:hover::after{width:100%;}
+.vitality-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+.vitality-num{
   font-family:var(--mono);font-size:11px;font-weight:600;color:var(--vermilion);letter-spacing:0.04em;
   transition:text-shadow 0.3s;
 }
-.service:hover .service-num{
+.vitality:hover .vitality-num{
   text-shadow:0 0 12px rgba(200,57,43,0.6);
 }
-.service-en{
+.vitality-en{
   font-family:var(--sans);font-weight:600;font-size:22px;letter-spacing:-0.01em;color:var(--ink);
   margin-bottom:4px;
 }
-.service h3{
+.vitality h3{
   font-family:var(--jp);font-weight:600;font-size:16px;color:var(--ink-soft);letter-spacing:0.02em;
 }
-.service p{font-size:14.5px;line-height:1.75;color:var(--ink-soft);}
-.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px;}
-.service-tag{
+.vitality p{font-size:14.5px;line-height:1.75;color:var(--ink-soft);}
+.vitality-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px;}
+.vitality-tag{
   font-family:var(--mono);font-size:11px;color:var(--ink-faint);font-weight:500;
   padding:3px 10px;background:var(--bg-soft);border-radius:99px;
 }
 
-/* === WORKS === */
-.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.work{
+/* === INSIGHTS — 活力研究所 === */
+.insights-head{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+  margin-bottom:40px;flex-wrap:wrap;
+}
+.insights-head .section-sub{margin-bottom:0;}
+.insights-link{
+  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink);
+  letter-spacing:0.04em;text-decoration:none;display:inline-flex;align-items:center;gap:7px;
+  white-space:nowrap;transition:gap 0.2s,color 0.2s;
+}
+.insights-link::after{content:"→";color:var(--vermilion);transition:transform 0.2s;}
+.insights-link:hover{gap:11px;}
+.insights-list{
+  border-top:1px solid var(--line);
+}
+.insight-row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;
+  padding:26px 8px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink);
+  transition:padding-left 0.3s cubic-bezier(0.16,1,0.3,1),background 0.3s;
+}
+.insight-row:hover{padding-left:20px;background:var(--bg-card);}
+.insight-no{
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--vermilion);letter-spacing:0.04em;
+}
+.insight-title{
+  font-family:var(--jp);font-weight:600;font-size:clamp(18px,2.2vw,24px);line-height:1.4;
+  color:var(--ink);letter-spacing:-0.005em;
+}
+.insight-meta{display:flex;align-items:center;gap:16px;}
+.insight-cat{
+  font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-faint);
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+.insight-arrow{
+  font-family:var(--mono);font-size:18px;color:var(--ink-mute);font-weight:300;
+  transition:transform 0.3s,color 0.3s;
+}
+.insight-row:hover .insight-arrow{transform:translate(4px,-4px);color:var(--vermilion);}
+
+/* === CASE STUDIES === */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.case{
   background:var(--bg-card);border:1px solid var(--line);border-radius:14px;
   overflow:hidden;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
 }
-.work:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--ink-soft);}
-.work-visual{
+.case:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--ink-soft);}
+.case-visual{
   aspect-ratio:16/10;background:linear-gradient(135deg,#1A1C20 0%,#3A3C42 100%);
   position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:24px;
 }
-.work-visual::before{
+.case-visual::before{
   content:"";position:absolute;inset:0;
   background-image:
     linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
     linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
   background-size:24px 24px;
 }
-.work-visual::after{
+.case-visual::after{
   content:"";position:absolute;
   top:-100px;right:-50px;width:300px;height:300px;
   background:radial-gradient(circle,rgba(200,57,43,0.22) 0%,transparent 60%);
   filter:blur(30px);
-  animation:work-glow-1 12s ease-in-out infinite;
+  animation:case-glow-1 12s ease-in-out infinite;
 }
-.work-visual.v2::after{
+.case-visual.v2::after{
   background:radial-gradient(circle,rgba(125,180,210,0.22) 0%,transparent 60%);
-  animation:work-glow-2 14s ease-in-out infinite;
+  animation:case-glow-2 14s ease-in-out infinite;
 }
-.work-visual.v3::after{
+.case-visual.v3::after{
   background:radial-gradient(circle,rgba(180,160,220,0.22) 0%,transparent 60%);
-  animation:work-glow-3 16s ease-in-out infinite;
+  animation:case-glow-3 16s ease-in-out infinite;
 }
-@keyframes work-glow-1{
+@keyframes case-glow-1{
   0%,100%{transform:translate(0,0) scale(1);opacity:1;}
   50%{transform:translate(-40px,50px) scale(1.2);opacity:0.85;}
 }
-@keyframes work-glow-2{
+@keyframes case-glow-2{
   0%,100%{transform:translate(0,0) scale(1);opacity:1;}
   50%{transform:translate(-50px,30px) scale(1.15);opacity:0.9;}
 }
-@keyframes work-glow-3{
+@keyframes case-glow-3{
   0%,100%{transform:translate(0,0) scale(1);opacity:1;}
   50%{transform:translate(-30px,60px) scale(1.25);opacity:0.85;}
 }
-.work-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;width:100%;}
-.work-cat{
+.case-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;width:100%;}
+.case-cat{
   font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.7);font-weight:500;letter-spacing:0.06em;
   padding:4px 10px;background:rgba(255,255,255,0.08);border-radius:99px;backdrop-filter:blur(8px);
 }
-.work-num{
+.case-num{
   font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);font-weight:500;letter-spacing:0.04em;
 }
-.work-body{padding:24px;}
-.work-body h3{
+.case-body{padding:24px;}
+.case-body h3{
   font-family:var(--jp);font-weight:600;font-size:19px;line-height:1.45;color:var(--ink);margin-bottom:8px;
 }
-.work-body p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px;}
-.work-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.work-tag{
+.case-body p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px;}
+.case-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.case-tag{
   font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);font-weight:500;
   padding:3px 8px;background:var(--bg-soft);border-radius:4px;
 }
 
-/* === PROJECT — DARK NIGHT SECTION === */
+/* === VENTURES — DARK NIGHT SECTION === */
 .rd-section{
   background:var(--night);color:#fff;border-radius:24px;
   padding:64px;position:relative;overflow:hidden;
@@ -489,25 +531,47 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
 }
 .rd-section > *{position:relative;z-index:2;}
 
+.rd-head{margin-bottom:44px;}
+.rd-head .section-eyebrow{color:rgba(255,255,255,0.75);}
+.rd-head .section-eyebrow::before{background:rgba(255,255,255,0.6);}
+.rd-head .section-eyebrow .sec-no{color:var(--vermilion-soft);}
+.rd-head h2{
+  font-family:var(--jp);font-weight:600;
+  font-size:clamp(30px,3.6vw,46px);line-height:1.3;letter-spacing:-0.005em;
+  color:#fff;margin-bottom:16px;
+}
+.rd-head h2 em{font-style:normal;color:var(--vermilion-soft);}
+.rd-head p{font-size:16px;line-height:1.75;color:rgba(255,255,255,0.62);max-width:620px;}
+
+.rd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .rd-project{
-  display:flex;justify-content:space-between;align-items:center;gap:32px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
   padding:32px 36px;
   background:linear-gradient(135deg,rgba(200,57,43,0.14) 0%,rgba(255,255,255,0.04) 100%);
   border:1px solid rgba(200,57,43,0.3);border-radius:16px;
   text-decoration:none;color:#fff;
   transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,background 0.3s;
 }
+.rd-project.alt{
+  background:linear-gradient(135deg,rgba(180,160,220,0.14) 0%,rgba(255,255,255,0.04) 100%);
+  border-color:rgba(180,160,220,0.3);
+}
 .rd-project:hover{
   transform:translateY(-4px);
   border-color:rgba(200,57,43,0.6);
   background:linear-gradient(135deg,rgba(200,57,43,0.22) 0%,rgba(255,255,255,0.06) 100%);
 }
+.rd-project.alt:hover{
+  border-color:rgba(180,160,220,0.6);
+  background:linear-gradient(135deg,rgba(180,160,220,0.22) 0%,rgba(255,255,255,0.06) 100%);
+}
 .rd-project-label{
   font-family:var(--mono);font-size:11px;color:var(--vermilion-soft);
   letter-spacing:0.18em;text-transform:uppercase;margin-bottom:10px;font-weight:600;
 }
+.rd-project.alt .rd-project-label{color:#C7B6E8;}
 .rd-project-name{
-  font-family:var(--jp);font-weight:600;font-size:28px;line-height:1.25;
+  font-family:var(--jp);font-weight:600;font-size:26px;line-height:1.25;
   color:#fff;margin-bottom:8px;letter-spacing:-0.005em;
 }
 .rd-project-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;}
@@ -517,11 +581,12 @@ h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
   letter-spacing:0.04em;
 }
 .rd-project-arrow{
-  font-family:var(--mono);font-size:36px;color:var(--vermilion-soft);font-weight:300;
+  font-family:var(--mono);font-size:32px;color:var(--vermilion-soft);font-weight:300;
   transition:transform 0.3s;flex-shrink:0;
   line-height:1;
   animation:rd-arrow-pulse 2.4s ease-in-out infinite;
 }
+.rd-project.alt .rd-project-arrow{color:#C7B6E8;}
 .rd-project:hover .rd-project-arrow{transform:translate(6px,-6px);animation:none;}
 @keyframes rd-arrow-pulse{
   0%,100%{transform:translate(0,0);opacity:1;}
@@ -592,11 +657,12 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
 @media (max-width:1024px){
-  .services-grid{grid-template-columns:1fr;}
-  .works-grid{grid-template-columns:1fr;gap:16px;}
+  .vitality-grid{grid-template-columns:1fr;}
+  .cases-grid{grid-template-columns:1fr;gap:16px;}
   .contact-inner{grid-template-columns:1fr;gap:32px;}
   .hero-grid{grid-template-columns:1fr;gap:48px;}
   .hero-art{max-width:480px;justify-self:start;}
+  .rd-grid{grid-template-columns:1fr;}
 }
 @media (max-width:680px){
   .nav{padding:14px 20px;}
@@ -606,6 +672,8 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   .rd-section{padding:48px 24px;border-radius:16px;}
   .rd-project{flex-direction:column;align-items:flex-start;gap:18px;text-align:left;}
   .rd-project-arrow{align-self:flex-end;}
+  .insight-row{grid-template-columns:auto 1fr;gap:16px;}
+  .insight-meta{display:none;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
   .hero-art{max-width:360px;}
 }
@@ -622,9 +690,10 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
     </span>
   </a>
   <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#works">Works</a>
-    <a href="#project">Project</a>
+    <a href="#design">What We Design</a>
+    <a href="#insights">Insights</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#ventures">Ventures</a>
   </div>
   <a href="#contact" class="nav-cta">Contact</a>
 </nav>
@@ -634,13 +703,13 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
   <div class="hero-inner">
     <div class="hero-grid">
       <div class="hero-text">
-        <h1>事業の<em>中まで</em>、<br>来てくれる外部を。</h1>
+        <h1><em>活力</em>を、<br>デザインする。</h1>
         <p class="hero-lead">
-          提案だけのコンサル、作るだけの制作会社、<strong>そのどちらでもない位置で動きます</strong>。AIシステム開発、営業、事業を踏まえた各部門の実行——判断と動きの両方に並走する独立スタジオです。少数のクライアントと、長く組みます。
+          顧客の活力、組織の活力、事業の活力。<strong>状態が変わる瞬間を設計し</strong>、続いていく成長へ変える独立スタジオです。顧客体験設計、AI活用、事業開発——そして「状態変化」そのものを研究しています。
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="#contact"><span>お問い合わせ</span><span class="arrow">→</span></a>
-          <a class="btn ghost" href="#services"><span>提供サービスを見る</span><span class="arrow">→</span></a>
+          <a class="btn primary" href="#contact"><span>ご相談はこちら</span><span class="arrow">→</span></a>
+          <a class="btn ghost" href="#design"><span>設計するものを見る</span><span class="arrow">→</span></a>
         </div>
       </div>
 
@@ -666,156 +735,223 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
 
         <div class="ha-scan"></div>
 
-        <div class="ha-corner ha-corner-tl">VD / 01</div>
+        <div class="ha-corner ha-corner-tl">VD / VITALITY</div>
         <div class="ha-corner ha-corner-br">2026</div>
       </aside>
     </div>
 
     <div class="hero-proof">
-      <span class="hp-label">Capabilities</span>
+      <span class="hp-label">Focus</span>
       <div class="hp-list">
-        <span class="hp-item">AIシステム開発</span>
-        <span class="hp-item">営業設計・実行</span>
-        <span class="hp-item">部門横断の実行支援</span>
-        <span class="hp-item">継続クライアントあり</span>
+        <span class="hp-item">顧客体験設計</span>
+        <span class="hp-item">継続率向上</span>
+        <span class="hp-item">AI活用</span>
+        <span class="hp-item">状態変化研究</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
+<!-- 01 WHAT WE DESIGN -->
+<section id="design">
   <div class="wrap">
-    <div class="section-eyebrow"><span>Services</span></div>
-    <h2 class="section-title">提供する、<em>3つの領域</em>。</h2>
-    <p class="section-sub">AIシステム開発から営業の現場、事業の文脈を踏まえた各部門の実行まで。受託の制作で終わらず、経営判断と現場の動きをひとつの線でつなぎ直します。</p>
+    <div class="section-eyebrow"><span class="sec-no">Section 01</span><span>What We Design</span></div>
+    <h2 class="section-title">私たちが、<em>設計するもの</em>。</h2>
+    <p class="section-sub">扱うのは「活力」です。顧客・組織・事業——3つのレイヤーで、止まっていた状態が動き出す瞬間を設計し、続く成長に変えていきます。</p>
 
-    <div class="services-grid reveal">
-      <article class="service">
-        <div class="service-head"><span class="service-num">01 / AI Systems</span></div>
-        <span class="service-en">AI System Development</span>
-        <h3>AIシステムを、<br>業務の中に組み込む。</h3>
-        <p>Claude / GPT 等を活用したカスタムツール、業務自動化、社内ワークフローの構築。少人数のチームが大企業並みの出力を持つための実装支援を、設計から運用まで一気通貫で。</p>
-        <div class="service-tags">
-          <span class="service-tag">カスタムAI</span>
-          <span class="service-tag">業務自動化</span>
-          <span class="service-tag">社内ツール</span>
+    <div class="vitality-grid reveal">
+      <article class="vitality">
+        <div class="vitality-head"><span class="vitality-num">01 / Customer</span></div>
+        <span class="vitality-en">Customer Vitality</span>
+        <h3>顧客の活力</h3>
+        <p>顧客が「変わる」プロセスそのものを設計します。離脱の起きる手前を捉え、体験を組み直し、状態の変化を可視化することで継続率を上げていきます。</p>
+        <div class="vitality-tags">
+          <span class="vitality-tag">継続率向上</span>
+          <span class="vitality-tag">顧客体験設計</span>
+          <span class="vitality-tag">状態変化の可視化</span>
         </div>
       </article>
 
-      <article class="service">
-        <div class="service-head"><span class="service-num">02 / Sales</span></div>
-        <span class="service-en">Sales &amp; GTM</span>
-        <h3>営業の設計と、<br>現場の実行に並走する。</h3>
-        <p>営業プロセス設計、パイプライン構築、提案資料、重要商談の同席。「売れる仕組み」を、現場の数字と紐づけて作ります。BtoB の中堅以下に強みがあります。</p>
-        <div class="service-tags">
-          <span class="service-tag">営業設計</span>
-          <span class="service-tag">商談支援</span>
-          <span class="service-tag">提案資料</span>
+      <article class="vitality">
+        <div class="vitality-head"><span class="vitality-num">02 / Team</span></div>
+        <span class="vitality-en">Team Vitality</span>
+        <h3>組織の活力</h3>
+        <p>AIを業務の中に組み込み、現場の手数を減らします。少人数のチームが大企業並みの出力を持つために、業務改善とナレッジ共有の仕組みを実装します。</p>
+        <div class="vitality-tags">
+          <span class="vitality-tag">AI活用</span>
+          <span class="vitality-tag">業務改善</span>
+          <span class="vitality-tag">ナレッジ共有</span>
         </div>
       </article>
 
-      <article class="service">
-        <div class="service-head"><span class="service-num">03 / Execution</span></div>
-        <span class="service-en">Cross-Functional Execution</span>
-        <h3>事業の文脈を踏まえて、<br>各部門に入る。</h3>
-        <p>マーケ、人事、採用、オペレーション。事業全体の構造を理解したうえで、各部門に対して提案と実行を行います。経営の判断と、現場の動きを、ひとつの線でつなぎ直します。</p>
-        <div class="service-tags">
-          <span class="service-tag">マーケティング</span>
-          <span class="service-tag">採用 / 人事</span>
-          <span class="service-tag">オペレーション</span>
+      <article class="vitality">
+        <div class="vitality-head"><span class="vitality-num">03 / Business</span></div>
+        <span class="vitality-en">Business Vitality</span>
+        <h3>事業の活力</h3>
+        <p>既存事業の伸ばし方から、新規事業・市場開拓まで。事業全体の構造を踏まえ、次の成長の起点を見つけ、立ち上げまで並走します。</p>
+        <div class="vitality-tags">
+          <span class="vitality-tag">事業開発</span>
+          <span class="vitality-tag">新規事業</span>
+          <span class="vitality-tag">市場開拓</span>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- WORKS -->
-<section id="works" style="background:var(--bg-soft);">
+<!-- 02 INSIGHTS -->
+<section id="insights" style="background:var(--bg-soft);">
   <div class="wrap">
-    <div class="section-eyebrow"><span>Works</span></div>
-    <h2 class="section-title">これまでの、<em>関わり方</em>。</h2>
-    <p class="section-sub">非公開案件が中心のため、業界カテゴリと支援領域での開示としています。詳細は商談時にご共有します。</p>
-
-    <div class="works-grid reveal">
-      <article class="work">
-        <div class="work-visual">
-          <div class="work-meta">
-            <span class="work-cat">Architecture × Media</span>
-            <span class="work-num">W / 01</span>
-          </div>
-        </div>
-        <div class="work-body">
-          <h3>建築領域メディア支援</h3>
-          <p>建築系オウンドメディアの SEO 設計・コンテンツ制作・UI 改善を中長期で支援。一次情報を業界資産として積み上げる編集体制構築。</p>
-          <div class="work-tags">
-            <span class="work-tag">SEO設計</span>
-            <span class="work-tag">コンテンツ制作</span>
-            <span class="work-tag">UI改善</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work">
-        <div class="work-visual v2">
-          <div class="work-meta">
-            <span class="work-cat">Recruitment × Web</span>
-            <span class="work-num">W / 02</span>
-          </div>
-        </div>
-        <div class="work-body">
-          <h3>採用導線改善</h3>
-          <p>採用 LP の設計、媒体掲載原稿の改善、SNS からの導線整理。応募者の質と量を、媒体投資を増やさずに改善するアプローチ。</p>
-          <div class="work-tags">
-            <span class="work-tag">LP設計</span>
-            <span class="work-tag">コンテンツ改善</span>
-            <span class="work-tag">SNS導線</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work">
-        <div class="work-visual v3">
-          <div class="work-meta">
-            <span class="work-cat">AI × Operations</span>
-            <span class="work-num">W / 03</span>
-          </div>
-        </div>
-        <div class="work-body">
-          <h3>AI活用支援</h3>
-          <p>業務へのAI組み込み、コンテンツ制作の効率化、ワークフロー設計。少人数のチームが大企業並みの出力を持つための実装支援。</p>
-          <div class="work-tags">
-            <span class="work-tag">コンテンツ生成</span>
-            <span class="work-tag">業務効率化</span>
-            <span class="work-tag">ワークフロー</span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECT - DARK SECTION -->
-<section id="project" style="padding:120px 40px;">
-  <div class="rd-section reveal">
-    <a class="rd-project" href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">
+    <div class="section-eyebrow"><span class="sec-no">Section 02</span><span>Insights</span></div>
+    <div class="insights-head">
       <div>
-        <div class="rd-project-label">Media Project</div>
-        <div class="rd-project-name">his · recoveries</div>
-        <div class="rd-project-desc">都市生活者の自己回復をテーマにしたメディア。研究と運営を並行しています。</div>
-        <span class="rd-project-url">his-recoveries.vercel.app ↗</span>
+        <h2 class="section-title">活力<em>研究所</em>。</h2>
+        <p class="section-sub">継続・状態変化・現場のDXについて、実践から得た思想を発信していきます。</p>
       </div>
-      <div class="rd-project-arrow">↗</div>
-    </a>
+      <a class="insights-link" href="#insights">記事を読む</a>
+    </div>
+
+    <div class="insights-list reveal">
+      <a class="insight-row" href="#insights">
+        <span class="insight-no">01</span>
+        <span class="insight-title">顧客はなぜ改善前に離脱するのか</span>
+        <span class="insight-meta">
+          <span class="insight-cat">Retention</span>
+          <span class="insight-arrow">↗</span>
+        </span>
+      </a>
+      <a class="insight-row" href="#insights">
+        <span class="insight-no">02</span>
+        <span class="insight-title">状態変化ビジネスの未来</span>
+        <span class="insight-meta">
+          <span class="insight-cat">Thesis</span>
+          <span class="insight-arrow">↗</span>
+        </span>
+      </a>
+      <a class="insight-row" href="#insights">
+        <span class="insight-no">03</span>
+        <span class="insight-title">AIは継続率を改善できるのか</span>
+        <span class="insight-meta">
+          <span class="insight-cat">AI</span>
+          <span class="insight-arrow">↗</span>
+        </span>
+      </a>
+      <a class="insight-row" href="#insights">
+        <span class="insight-no">04</span>
+        <span class="insight-title">現場DXから学んだこと</span>
+        <span class="insight-meta">
+          <span class="insight-cat">Operations</span>
+          <span class="insight-arrow">↗</span>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT — light & simple -->
+<!-- 03 CASE STUDIES -->
+<section id="cases">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="sec-no">Section 03</span><span>Case Studies</span></div>
+    <h2 class="section-title">実践<em>事例</em>。</h2>
+    <p class="section-sub">業界を問わず、「状態が変わる体験」を設計してきました。非公開案件が中心のため、領域とテーマでの開示としています。</p>
+
+    <div class="cases-grid reveal">
+      <article class="case">
+        <div class="case-visual">
+          <div class="case-meta">
+            <span class="case-cat">建設エージェント</span>
+            <span class="case-num">C / 01</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>求職者体験の改善</h3>
+          <p>建設領域の人材エージェントで、求職者の体験を起点に導線を再設計。応募から定着までの「状態の変化」を整理し、ミスマッチを減らしました。</p>
+          <div class="case-tags">
+            <span class="case-tag">体験設計</span>
+            <span class="case-tag">導線改善</span>
+            <span class="case-tag">継続</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-visual v2">
+          <div class="case-meta">
+            <span class="case-cat">サロン</span>
+            <span class="case-num">C / 02</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>背中ニキビ改善体験の可視化</h3>
+          <p>サロンの施術プログラムで、顧客自身が変化に気づける可視化の仕組みを設計。「効いている実感」を継続の動機へつなげました。</p>
+          <div class="case-tags">
+            <span class="case-tag">状態変化の可視化</span>
+            <span class="case-tag">顧客体験</span>
+            <span class="case-tag">継続率</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-visual v3">
+          <div class="case-meta">
+            <span class="case-cat">Wellness</span>
+            <span class="case-num">C / 03</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>顧客継続率向上PoC</h3>
+          <p>ウェルネス領域で、継続率を上げるための仮説を小さく検証するPoCを設計・実行。データと現場の声を往復させ、改善の型を見つけました。</p>
+          <div class="case-tags">
+            <span class="case-tag">PoC設計</span>
+            <span class="case-tag">継続率向上</span>
+            <span class="case-tag">検証</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 04 VENTURES - DARK SECTION -->
+<section id="ventures" style="padding:120px 40px;">
+  <div class="rd-section reveal">
+    <div class="rd-head">
+      <div class="section-eyebrow"><span class="sec-no">Section 04</span><span>Ventures</span></div>
+      <h2>研究<em>領域</em>。</h2>
+      <p>受託の外側で、自分たちでも事業と研究を抱えています。ここが、将来の種です。人が回復し、状態が変わるプロセスを、当事者として探究しています。</p>
+    </div>
+
+    <div class="rd-grid">
+      <a class="rd-project" href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">
+        <div>
+          <div class="rd-project-label">Human Recovery</div>
+          <div class="rd-project-name">His Recoveries</div>
+          <div class="rd-project-desc">男性の言いにくい悩みを扱うブランド。自己回復をテーマに、研究と運営を並行しています。</div>
+          <span class="rd-project-url">his-recoveries.vercel.app ↗</span>
+        </div>
+        <div class="rd-project-arrow">↗</div>
+      </a>
+
+      <div class="rd-project alt">
+        <div>
+          <div class="rd-project-label">State Transformation</div>
+          <div class="rd-project-name">状態変化研究</div>
+          <div class="rd-project-desc">顧客が変わるプロセスそのものを探究する研究領域。事例から得た知見を、設計の方法論へ還元していきます。</div>
+          <span class="rd-project-url">Research in progress</span>
+        </div>
+        <div class="rd-project-arrow">◆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CONTACT — light & simple -->
 <section id="contact" style="background:var(--bg-soft);">
   <div class="wrap" style="max-width:1040px;">
-    <div class="section-eyebrow"><span>Contact</span></div>
-    <h2 class="section-title">お問い合わせ。</h2>
-    <p class="section-sub">事業相談・制作依頼・協業など、お気軽にどうぞ。</p>
+    <div class="section-eyebrow"><span class="sec-no">Section 05</span><span>Contact</span></div>
+    <h2 class="section-title">事業成長に関する<em>ご相談</em>はこちら。</h2>
+    <p class="section-sub">顧客の継続、組織のAI活用、新しい事業の立ち上げ——状態を動かしたいテーマがあれば、お気軽にどうぞ。</p>
 
     <div class="contact-inner" style="margin-top:48px;">
       <div class="contact-options">
@@ -852,9 +988,10 @@ footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
       <span>© 2026 Vitality Design LLC.</span>
     </div>
     <div class="nav">
-      <a href="#services">Services</a>
-      <a href="#works">Works</a>
-      <a href="#project">Project</a>
+      <a href="#design">What We Design</a>
+      <a href="#insights">Insights</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#ventures">Ventures</a>
       <a href="mailto:contact@vitality-design.jp">Contact</a>
     </div>
   </div>

@@ -3,867 +3,714 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>バイタリティデザイン合同会社 — 事業の中まで、来てくれる外部</title>
-<meta name="description" content="提案だけのコンサル、作るだけの制作会社、そのどちらでもない位置で動く独立スタジオ。AIシステム開発、営業、各部門の実行——判断と動きの両方に並走します。">
+<title>Vitality Design LLC — We Design Vitality. 人と組織の活力を設計する。</title>
+<meta name="description" content="バイタリティデザイン合同会社。システム開発会社でも、AI導入会社でも、コンサルティング会社でもない。顧客理解から始め、事業開発・顧客体験設計・AI活用・オペレーション構築を通じて、人や組織の状態変化を設計する会社です。">
+<meta property="og:title" content="Vitality Design LLC — We Design Vitality.">
+<meta property="og:description" content="人と組織の活力を設計する。顧客理解から始め、事業の状態変化を生み出す。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F4F1EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Shippori+Mincho+B1:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FAFAF7;
-  --bg-soft:#F2F0EA;
-  --bg-card:#FFFFFF;
-  --night:#0E0F12;
-  --night-soft:#1A1C20;
-  --night-mute:#2A2C32;
-  --ink:#0E0F12;
-  --ink-soft:#3A3C42;
-  --ink-faint:#6F7176;
-  --ink-mute:#A8AAB0;
-  --line:rgba(14,15,18,0.08);
-  --line-strong:rgba(14,15,18,0.16);
-  --vermilion:#C8392B;
-  --vermilion-soft:#DC6358;
-  --vermilion-pale:#F5DCD8;
-  --shadow-sm:0 1px 2px rgba(14,15,18,0.04),0 1px 3px rgba(14,15,18,0.06);
-  --shadow-md:0 4px 12px -2px rgba(14,15,18,0.06),0 16px 32px -12px rgba(14,15,18,0.12);
-  --shadow-lg:0 24px 48px -12px rgba(14,15,18,0.16);
+  --paper:#F4F1EA;
+  --paper-warm:#EDE8DD;
+  --paper-card:#FAF8F3;
+  --ink:#1C1A16;
+  --ink-soft:#46423A;
+  --ink-faint:#7A746A;
+  --ink-mute:#A8A296;
+  --line:rgba(28,26,22,0.10);
+  --line-soft:rgba(28,26,22,0.06);
+  --clay:#9C5B3E;
+  --clay-soft:#B97A5C;
+  --sage:#5E6B54;
+  --night:#1C1A16;
+  --serif:'Newsreader',Georgia,serif;
+  --jp:'Shippori Mincho B1',serif;
   --sans:'Inter','Helvetica Neue',sans-serif;
-  --jp:'Shippori Mincho B1','Noto Serif JP',serif;
-  --mono:'JetBrains Mono','SF Mono',monospace;
 }
-
-*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 html{scroll-behavior:smooth;}
 body{
-  background:var(--bg);color:var(--ink);
-  font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;letter-spacing:-0.005em;
-  font-feature-settings:"tnum" 1,"ss01" 1;
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.7;letter-spacing:0.005em;
 }
-::selection{background:var(--night);color:#fff;}
+::selection{background:var(--ink);color:var(--paper);}
+a{color:inherit;}
+img{max-width:100%;display:block;}
 
-/* === NAV === */
+/* ===== shared rhythm ===== */
+.wrap{max-width:1180px;margin:0 auto;padding:0 48px;}
+.wrap-narrow{max-width:760px;margin:0 auto;padding:0 48px;}
+section{position:relative;}
+
+.eyebrow{
+  font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;color:var(--ink-faint);
+  display:inline-flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--ink-mute);}
+
+.serif{font-family:var(--serif);}
+.jp{font-family:var(--jp);}
+
+/* ===== reveal ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 1.1s cubic-bezier(0.16,1,0.3,1),transform 1.1s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal.d1{transition-delay:0.08s;}
+.reveal.d2{transition-delay:0.16s;}
+.reveal.d3{transition-delay:0.24s;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  *{animation:none !important;}
+  html{scroll-behavior:auto;}
+}
+
+/* ===== NAV ===== */
 .nav{
   position:sticky;top:0;z-index:100;
   display:flex;justify-content:space-between;align-items:center;
-  padding:16px 40px;
-  background:rgba(250,250,247,0.85);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
+  padding:20px 48px;
+  background:rgba(244,241,234,0.78);
+  backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid var(--line-soft);
 }
-.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);}
-.nav-mark{
-  width:32px;height:32px;border-radius:7px;background:var(--night);position:relative;
-}
-.nav-mark::after{
-  content:"";width:7px;height:7px;border-radius:50%;background:var(--vermilion);
-  position:absolute;top:7px;right:7px;
-}
-.nav-name{display:flex;flex-direction:column;line-height:1.1;}
-.nav-name .jp{font-family:var(--jp);font-weight:600;font-size:13px;letter-spacing:0.04em;}
-.nav-name .en{font-family:var(--mono);font-weight:500;font-size:10.5px;color:var(--ink-faint);letter-spacing:0.06em;margin-top:3px;}
-.nav-links{display:flex;gap:28px;font-size:13px;font-weight:500;color:var(--ink-soft);}
-.nav-links a{color:inherit;text-decoration:none;transition:color 0.2s;}
+.nav-brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--ink);}
+.nav-mark{position:relative;width:26px;height:26px;flex-shrink:0;}
+.nav-mark svg{display:block;width:100%;height:100%;}
+.nav-name{display:flex;flex-direction:column;line-height:1.15;}
+.nav-name .n-en{font-family:var(--serif);font-weight:400;font-size:15px;letter-spacing:0.01em;}
+.nav-name .n-jp{font-family:var(--jp);font-size:10px;color:var(--ink-faint);letter-spacing:0.14em;margin-top:1px;}
+.nav-links{display:flex;gap:34px;font-size:13px;font-weight:400;letter-spacing:0.02em;color:var(--ink-soft);}
+.nav-links a{text-decoration:none;transition:color 0.3s;position:relative;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--ink);transition:width 0.35s cubic-bezier(0.16,1,0.3,1);}
 .nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{width:100%;}
 .nav-cta{
-  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:-0.005em;
-  padding:9px 16px;background:var(--night);color:#fff;border-radius:8px;
-  text-decoration:none;transition:background 0.2s;
-  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:0.04em;
+  padding:9px 20px;border:1px solid var(--ink);border-radius:99px;color:var(--ink);
+  text-decoration:none;transition:background 0.35s,color 0.35s;
 }
-.nav-cta:hover{background:var(--vermilion);}
-.nav-cta::after{content:"→";font-size:14px;}
+.nav-cta:hover{background:var(--ink);color:var(--paper);}
 
-/* === HERO === */
-.hero{
-  padding:96px 40px 96px;
-  position:relative;overflow:hidden;
+/* ===== HERO ===== */
+.hero{padding:150px 0 130px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.hero-bloom{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5;will-change:transform;
 }
-.hero::before{
-  content:"";position:absolute;
-  top:-200px;right:-100px;width:600px;height:600px;
-  background:radial-gradient(circle,rgba(200,57,43,0.06) 0%,transparent 60%);
-  filter:blur(40px);pointer-events:none;
-}
-.hero::after{
-  content:"";position:absolute;
-  bottom:-200px;left:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(14,15,18,0.04) 0%,transparent 60%);
-  filter:blur(40px);pointer-events:none;
-}
-.hero-inner{max-width:1240px;margin:0 auto;position:relative;z-index:2;}
+.hero-bloom.a{width:520px;height:520px;top:-120px;right:-60px;
+  background:radial-gradient(circle,rgba(156,91,62,0.22),transparent 65%);
+  animation:bloom-a 26s ease-in-out infinite;}
+.hero-bloom.b{width:440px;height:440px;bottom:-160px;left:-100px;
+  background:radial-gradient(circle,rgba(94,107,84,0.18),transparent 65%);
+  animation:bloom-b 32s ease-in-out infinite;}
+@keyframes bloom-a{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-50px,40px) scale(1.12);}}
+@keyframes bloom-b{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(60px,-30px) scale(1.1);}}
 
-.hero-grid{
-  display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;
-  margin-bottom:64px;
-}
-.hero-text{min-width:0;}
-
-/* === HERO ART === */
-.hero-art{
-  position:relative;aspect-ratio:1/1;width:100%;max-width:600px;justify-self:end;
-  background:radial-gradient(ellipse at 30% 30%,#1A1C20 0%,#0E0F12 90%);
-  border-radius:28px;overflow:hidden;
-  border:1px solid rgba(255,255,255,0.06);
-  box-shadow:var(--shadow-lg);
-}
-.ha-grid{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
-  background-size:28px 28px;
-  mask-image:radial-gradient(ellipse at center,black 25%,transparent 90%);
-  animation:ha-grid-drift 24s linear infinite;
-}
-@keyframes ha-grid-drift{
-  to{background-position:28px 28px;}
-}
-
-.ha-orb{
-  position:absolute;border-radius:50%;filter:blur(44px);pointer-events:none;
-  will-change:transform;
-}
-.ha-orb-1{
-  width:320px;height:320px;
-  background:radial-gradient(circle,rgba(200,57,43,0.6),transparent 60%);
-  top:5%;left:-15%;
-  animation:ha-drift-1 11s ease-in-out infinite;
-}
-.ha-orb-2{
-  width:260px;height:260px;
-  background:radial-gradient(circle,rgba(220,99,88,0.4),transparent 60%);
-  top:55%;left:55%;
-  animation:ha-drift-2 13s ease-in-out infinite;
-}
-.ha-orb-3{
-  width:200px;height:200px;
-  background:radial-gradient(circle,rgba(255,255,255,0.1),transparent 60%);
-  top:15%;left:60%;
-  animation:ha-drift-3 15s ease-in-out infinite;
-}
-.ha-orb-4{
-  width:180px;height:180px;
-  background:radial-gradient(circle,rgba(200,57,43,0.35),transparent 60%);
-  top:60%;left:5%;
-  animation:ha-drift-4 17s ease-in-out infinite;
-}
-.ha-orb-5{
-  width:140px;height:140px;
-  background:radial-gradient(circle,rgba(245,220,216,0.18),transparent 60%);
-  top:35%;left:40%;
-  animation:ha-drift-5 9s ease-in-out infinite;
-}
-@keyframes ha-drift-1{
-  0%,100%{transform:translate(0,0) scale(1);}
-  33%{transform:translate(70px,50px) scale(1.1);}
-  66%{transform:translate(-40px,60px) scale(0.95);}
-}
-@keyframes ha-drift-2{
-  0%,100%{transform:translate(0,0) scale(1);}
-  50%{transform:translate(-80px,-40px) scale(1.15);}
-}
-@keyframes ha-drift-3{
-  0%,100%{transform:translate(0,0) scale(1);}
-  40%{transform:translate(50px,60px) scale(0.9);}
-  80%{transform:translate(-60px,-30px) scale(1.1);}
-}
-@keyframes ha-drift-4{
-  0%,100%{transform:translate(0,0) scale(1);}
-  50%{transform:translate(60px,-50px) scale(1.2);}
-}
-@keyframes ha-drift-5{
-  0%,100%{transform:translate(0,0) scale(0.9);}
-  50%{transform:translate(20px,30px) scale(1.3);}
-}
-
-/* interlocking rings — rotate, breathe, scale */
-.ha-rings{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:70%;height:46%;
-}
-.ha-ring{
-  position:absolute;top:50%;width:62%;height:0;padding-bottom:62%;
-  border-radius:50%;will-change:transform;
-}
-.ha-ring-a{
-  left:0;
-  border:1.5px solid rgba(200,57,43,0.95);
-  box-shadow:
-    0 0 60px rgba(200,57,43,0.35),
-    inset 0 0 40px rgba(200,57,43,0.18);
-  animation:ha-spin-a 14s linear infinite, ha-breath-a 3.5s ease-in-out infinite;
-}
-.ha-ring-b{
-  right:0;
-  border:1.5px solid rgba(255,255,255,0.55);
-  box-shadow:
-    0 0 40px rgba(255,255,255,0.14),
-    inset 0 0 24px rgba(255,255,255,0.06);
-  animation:ha-spin-b 18s linear infinite, ha-breath-b 3.5s ease-in-out infinite;
-}
-@keyframes ha-spin-a{
-  from{transform:translate(0,-50%) rotate(0deg);}
-  to{transform:translate(0,-50%) rotate(360deg);}
-}
-@keyframes ha-spin-b{
-  from{transform:translate(0,-50%) rotate(0deg);}
-  to{transform:translate(0,-50%) rotate(-360deg);}
-}
-@keyframes ha-breath-a{
-  0%,100%{margin-left:0;width:62%;padding-bottom:62%;}
-  50%{margin-left:14px;width:66%;padding-bottom:66%;}
-}
-@keyframes ha-breath-b{
-  0%,100%{margin-right:0;width:62%;padding-bottom:62%;}
-  50%{margin-right:14px;width:66%;padding-bottom:66%;}
-}
-
-/* a tick on each ring, marking rotation */
-.ha-ring-tick{
-  position:absolute;top:-4px;left:50%;transform:translateX(-50%);
-  width:8px;height:8px;border-radius:50%;
-}
-.ha-ring-a .ha-ring-tick{
-  background:#FFD9D2;box-shadow:0 0 14px rgba(255,217,210,0.9);
-}
-.ha-ring-b .ha-ring-tick{
-  background:#FFFFFF;box-shadow:0 0 14px rgba(255,255,255,0.9);
-}
-
-/* upward floating particles */
-.ha-particles{position:absolute;inset:0;pointer-events:none;}
-.ha-particles span{
-  position:absolute;width:3px;height:3px;border-radius:50%;
-  background:rgba(255,217,210,0.7);
-  box-shadow:0 0 6px rgba(255,217,210,0.8);
-  bottom:-10px;opacity:0;
-  animation:ha-rise 8s linear infinite;
-}
-.ha-particles span:nth-child(1){left:10%;animation-delay:0s;}
-.ha-particles span:nth-child(2){left:22%;animation-delay:1.4s;background:rgba(255,255,255,0.6);}
-.ha-particles span:nth-child(3){left:36%;animation-delay:2.8s;}
-.ha-particles span:nth-child(4){left:48%;animation-delay:4.2s;background:rgba(255,255,255,0.5);}
-.ha-particles span:nth-child(5){left:60%;animation-delay:0.8s;}
-.ha-particles span:nth-child(6){left:74%;animation-delay:2.2s;background:rgba(255,255,255,0.55);}
-.ha-particles span:nth-child(7){left:84%;animation-delay:3.6s;}
-.ha-particles span:nth-child(8){left:92%;animation-delay:5s;background:rgba(255,255,255,0.4);}
-.ha-particles span:nth-child(9){left:16%;animation-delay:6.4s;width:2px;height:2px;}
-.ha-particles span:nth-child(10){left:66%;animation-delay:7.8s;width:2px;height:2px;}
-@keyframes ha-rise{
-  0%{transform:translateY(0) translateX(0);opacity:0;}
-  10%{opacity:1;}
-  85%{opacity:1;}
-  100%{transform:translateY(-110%) translateX(20px);opacity:0;}
-}
-
-/* horizontal scan line — faster */
-.ha-scan{
-  position:absolute;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,217,210,0.45),rgba(255,255,255,0.35),transparent);
-  top:0;
-  animation:ha-scan 3.6s ease-in-out infinite;
-  box-shadow:0 0 8px rgba(255,217,210,0.5);
-}
-@keyframes ha-scan{
-  0%{top:-2%;opacity:0;}
-  10%{opacity:1;}
-  90%{opacity:1;}
-  100%{top:102%;opacity:0;}
-}
-
-/* corner labels */
-.ha-corner{
-  position:absolute;font-family:var(--mono);font-size:10px;
-  color:rgba(255,255,255,0.4);letter-spacing:0.16em;text-transform:uppercase;
-  z-index:3;
-}
-.ha-corner-tl{top:20px;left:20px;}
-.ha-corner-br{bottom:20px;right:20px;}
-
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 48px;}
+.hero .eyebrow{margin-bottom:40px;}
 .hero h1{
-  font-family:var(--jp);font-weight:600;
-  font-size:clamp(40px,5.4vw,72px);line-height:1.25;letter-spacing:-0.01em;
-  margin-bottom:32px;color:var(--ink);max-width:22ch;
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(52px,8.5vw,116px);line-height:0.98;letter-spacing:-0.02em;
+  color:var(--ink);margin-bottom:36px;
 }
-.hero h1 em{font-style:normal;color:var(--vermilion);font-weight:600;}
-
+.hero h1 em{font-style:italic;font-weight:300;color:var(--clay);}
+.hero-jp{
+  font-family:var(--jp);font-weight:500;
+  font-size:clamp(20px,2.6vw,30px);line-height:1.6;letter-spacing:0.04em;
+  color:var(--ink);margin-bottom:28px;
+}
 .hero-lead{
-  font-size:18px;line-height:1.75;color:var(--ink-soft);max-width:540px;
-  margin-bottom:48px;font-weight:400;
+  font-size:16px;line-height:1.9;color:var(--ink-soft);max-width:480px;
+  font-weight:400;letter-spacing:0.01em;
 }
-.hero-lead strong{color:var(--ink);font-weight:600;}
+.hero-rule{width:100%;height:1px;background:var(--line);margin:72px 0 0;}
+.hero-tags{
+  display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:32px;
+}
+.hero-tag{
+  font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:0.06em;
+  color:var(--ink-faint);padding:6px 15px;border:1px solid var(--line);border-radius:99px;
+  transition:border-color 0.3s,color 0.3s;
+}
+.hero-tag:hover{border-color:var(--ink-mute);color:var(--ink-soft);}
 
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:64px;}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;padding:14px 24px;
-  border-radius:10px;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-0.005em;
-  text-decoration:none;transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
+/* ===== WHY ===== */
+.why{padding:120px 0;}
+.why-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:start;}
+.why h2{
+  font-family:var(--serif);font-weight:300;font-style:italic;
+  font-size:clamp(34px,4.6vw,58px);line-height:1.08;letter-spacing:-0.015em;color:var(--ink);
 }
-.btn.primary{background:var(--night);color:#fff;box-shadow:var(--shadow-sm);}
-.btn.primary:hover{background:var(--vermilion);transform:translateY(-1px);box-shadow:var(--shadow-md);}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong);}
-.btn.ghost:hover{border-color:var(--ink);}
-.btn .arrow{transition:transform 0.2s;}
-.btn:hover .arrow{transform:translateX(3px);}
-
-/* hero quick proof — qualitative, no numbers */
-.hero-proof{
-  display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;
-  padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+.why h2 .why-jp{
+  display:block;font-family:var(--jp);font-style:normal;font-weight:500;
+  font-size:18px;letter-spacing:0.1em;color:var(--ink-faint);margin-top:22px;
 }
-.hp-label{
-  font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em;text-transform:uppercase;font-weight:500;
+.why-body{font-family:var(--jp);font-weight:400;}
+.why-body p{
+  font-size:18px;line-height:2.05;color:var(--ink-soft);letter-spacing:0.02em;margin-bottom:28px;
 }
-.hp-list{display:flex;flex-wrap:wrap;gap:8px 12px;}
-.hp-item{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-soft);
-}
-.hp-item::before{
-  content:"";width:5px;height:5px;border-radius:50%;background:var(--vermilion);
-  box-shadow:0 0 8px rgba(200,57,43,0.5);
-  animation:hp-pulse 2.4s ease-in-out infinite;
-}
-.hp-item:nth-child(2)::before{animation-delay:0.3s;}
-.hp-item:nth-child(3)::before{animation-delay:0.6s;}
-.hp-item:nth-child(4)::before{animation-delay:0.9s;}
-@keyframes hp-pulse{
-  0%,100%{opacity:1;transform:scale(1);}
-  50%{opacity:0.3;transform:scale(0.7);}
+.why-body p:last-child{margin-bottom:0;}
+.why-body strong{font-weight:600;color:var(--ink);}
+.why-body .pull{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:24px;line-height:1.6;color:var(--clay);letter-spacing:0;
+  padding-left:24px;border-left:1px solid var(--clay-soft);margin:36px 0;
 }
 
-/* === SECTION COMMON === */
-section{padding:120px 40px;position:relative;}
-.wrap{max-width:1240px;margin:0 auto;}
-
-.section-eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-soft);
-  letter-spacing:0.04em;margin-bottom:18px;text-transform:uppercase;
-}
-.section-eyebrow::before{content:"";width:24px;height:1px;background:var(--ink-soft);}
-
-h2.section-title{
+/* ===== PHILOSOPHY ===== */
+.philosophy{padding:130px 0;background:var(--paper-warm);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.phil-head{text-align:center;max-width:680px;margin:0 auto 88px;}
+.phil-head .eyebrow{margin-bottom:30px;}
+.phil-head h2{
   font-family:var(--jp);font-weight:600;
-  font-size:clamp(32px,4vw,52px);line-height:1.3;letter-spacing:-0.005em;
-  margin-bottom:20px;color:var(--ink);
+  font-size:clamp(28px,3.8vw,46px);line-height:1.4;letter-spacing:0.01em;color:var(--ink);
 }
-h2.section-title em{font-style:normal;color:var(--vermilion);font-weight:600;}
-
-.section-sub{
-  font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:640px;margin-bottom:64px;
+.phil-head p{
+  font-family:var(--jp);font-size:17px;line-height:2;color:var(--ink-soft);
+  margin-top:28px;letter-spacing:0.02em;
 }
 
-/* === SERVICES === */
-.services-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+.phil-flow{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--line-soft);
+  max-width:920px;margin:0 auto;
 }
-.service{
-  background:var(--bg-card);padding:36px 32px;
-  display:flex;flex-direction:column;gap:14px;
-  transition:background 0.3s;position:relative;overflow:hidden;
+.flow-step{
+  background:var(--paper-card);padding:40px 34px;position:relative;
 }
-.service:hover{background:var(--bg);}
-.service::after{
-  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
-  background:linear-gradient(90deg,var(--vermilion),var(--vermilion-soft));
-  transition:width 0.5s cubic-bezier(0.16,1,0.3,1);
+.flow-step .num{
+  font-family:var(--serif);font-style:italic;font-size:15px;color:var(--clay);
+  letter-spacing:0.04em;margin-bottom:18px;
 }
-.service:hover::after{width:100%;}
-.service-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
-.service-num{
-  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--vermilion);letter-spacing:0.04em;
-  transition:text-shadow 0.3s;
+.flow-step h3{
+  font-family:var(--jp);font-weight:600;font-size:19px;color:var(--ink);
+  letter-spacing:0.02em;margin-bottom:12px;
 }
-.service:hover .service-num{
-  text-shadow:0 0 12px rgba(200,57,43,0.6);
+.flow-step p{font-family:var(--jp);font-size:14px;line-height:1.9;color:var(--ink-faint);letter-spacing:0.01em;}
+
+.phil-means{
+  max-width:920px;margin:30px auto 0;
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;
 }
-.service-en{
-  font-family:var(--sans);font-weight:600;font-size:22px;letter-spacing:-0.01em;color:var(--ink);
-  margin-bottom:4px;
-}
-.service h3{
-  font-family:var(--jp);font-weight:600;font-size:16px;color:var(--ink-soft);letter-spacing:0.02em;
-}
-.service p{font-size:14.5px;line-height:1.75;color:var(--ink-soft);}
-.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px;}
-.service-tag{
-  font-family:var(--mono);font-size:11px;color:var(--ink-faint);font-weight:500;
-  padding:3px 10px;background:var(--bg-soft);border-radius:99px;
+.phil-means .lead{font-family:var(--jp);font-size:14px;color:var(--ink-faint);letter-spacing:0.04em;margin-right:6px;}
+.means-chip{
+  font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.06em;
+  color:var(--ink-soft);padding:8px 18px;background:var(--paper-card);
+  border:1px solid var(--line);border-radius:99px;
 }
 
-/* === WORKS === */
-.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.work{
-  background:var(--bg-card);border:1px solid var(--line);border-radius:14px;
-  overflow:hidden;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
+/* belief block */
+.belief{margin-top:96px;text-align:center;}
+.belief .lines{font-family:var(--jp);}
+.belief .lines span{
+  display:block;font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(22px,3vw,34px);line-height:1.7;color:var(--ink);letter-spacing:0;
 }
-.work:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--ink-soft);}
-.work-visual{
-  aspect-ratio:16/10;background:linear-gradient(135deg,#1A1C20 0%,#3A3C42 100%);
-  position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:24px;
-}
-.work-visual::before{
-  content:"";position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
-  background-size:24px 24px;
-}
-.work-visual::after{
-  content:"";position:absolute;
-  top:-100px;right:-50px;width:300px;height:300px;
-  background:radial-gradient(circle,rgba(200,57,43,0.22) 0%,transparent 60%);
-  filter:blur(30px);
-  animation:work-glow-1 12s ease-in-out infinite;
-}
-.work-visual.v2::after{
-  background:radial-gradient(circle,rgba(125,180,210,0.22) 0%,transparent 60%);
-  animation:work-glow-2 14s ease-in-out infinite;
-}
-.work-visual.v3::after{
-  background:radial-gradient(circle,rgba(180,160,220,0.22) 0%,transparent 60%);
-  animation:work-glow-3 16s ease-in-out infinite;
-}
-@keyframes work-glow-1{
-  0%,100%{transform:translate(0,0) scale(1);opacity:1;}
-  50%{transform:translate(-40px,50px) scale(1.2);opacity:0.85;}
-}
-@keyframes work-glow-2{
-  0%,100%{transform:translate(0,0) scale(1);opacity:1;}
-  50%{transform:translate(-50px,30px) scale(1.15);opacity:0.9;}
-}
-@keyframes work-glow-3{
-  0%,100%{transform:translate(0,0) scale(1);opacity:1;}
-  50%{transform:translate(-30px,60px) scale(1.25);opacity:0.85;}
-}
-.work-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;width:100%;}
-.work-cat{
-  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.7);font-weight:500;letter-spacing:0.06em;
-  padding:4px 10px;background:rgba(255,255,255,0.08);border-radius:99px;backdrop-filter:blur(8px);
-}
-.work-num{
-  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);font-weight:500;letter-spacing:0.04em;
-}
-.work-body{padding:24px;}
-.work-body h3{
-  font-family:var(--jp);font-weight:600;font-size:19px;line-height:1.45;color:var(--ink);margin-bottom:8px;
-}
-.work-body p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px;}
-.work-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.work-tag{
-  font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);font-weight:500;
-  padding:3px 8px;background:var(--bg-soft);border-radius:4px;
+.belief .lines span.dim{color:var(--ink-mute);}
+.belief .lines span.accent{color:var(--clay);}
+.belief .jp-note{
+  font-family:var(--jp);font-size:15px;color:var(--ink-faint);letter-spacing:0.08em;margin-top:34px;
 }
 
-/* === PROJECT — DARK NIGHT SECTION === */
-.rd-section{
-  background:var(--night);color:#fff;border-radius:24px;
-  padding:64px;position:relative;overflow:hidden;
-  margin:0 auto;max-width:1240px;
+/* ===== SERVICES ===== */
+.services{padding:130px 0;}
+.svc-head{margin-bottom:80px;max-width:640px;}
+.svc-head .eyebrow{margin-bottom:30px;}
+.svc-head h2{
+  font-family:var(--serif);font-weight:300;font-size:clamp(38px,5vw,64px);
+  line-height:1.05;letter-spacing:-0.015em;color:var(--ink);
 }
-.rd-section::before{
-  content:"";position:absolute;
-  top:-200px;left:-100px;width:600px;height:600px;
-  background:radial-gradient(circle,rgba(200,57,43,0.28) 0%,transparent 60%);
-  filter:blur(50px);
-  animation:rd-orb-1 18s ease-in-out infinite;
-}
-.rd-section::after{
-  content:"";position:absolute;
-  bottom:-200px;right:-100px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(180,160,220,0.2) 0%,transparent 60%);
-  filter:blur(50px);
-  animation:rd-orb-2 22s ease-in-out infinite;
-}
-@keyframes rd-orb-1{
-  0%,100%{transform:translate(0,0) scale(1);}
-  33%{transform:translate(80px,60px) scale(1.15);}
-  66%{transform:translate(-50px,80px) scale(0.95);}
-}
-@keyframes rd-orb-2{
-  0%,100%{transform:translate(0,0) scale(1);}
-  50%{transform:translate(-100px,-60px) scale(1.2);}
-}
-.rd-section > *{position:relative;z-index:2;}
+.svc-head h2 .j{display:block;font-family:var(--jp);font-size:18px;font-weight:500;color:var(--ink-faint);letter-spacing:0.1em;margin-top:22px;}
 
-.rd-project{
-  display:flex;justify-content:space-between;align-items:center;gap:32px;
-  padding:32px 36px;
-  background:linear-gradient(135deg,rgba(200,57,43,0.14) 0%,rgba(255,255,255,0.04) 100%);
-  border:1px solid rgba(200,57,43,0.3);border-radius:16px;
-  text-decoration:none;color:#fff;
-  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,background 0.3s;
+.svc-list{display:flex;flex-direction:column;}
+.svc{
+  display:grid;grid-template-columns:88px 1fr 1.05fr;gap:40px;align-items:start;
+  padding:46px 0;border-top:1px solid var(--line);transition:padding 0.4s;position:relative;
 }
-.rd-project:hover{
-  transform:translateY(-4px);
-  border-color:rgba(200,57,43,0.6);
-  background:linear-gradient(135deg,rgba(200,57,43,0.22) 0%,rgba(255,255,255,0.06) 100%);
+.svc:last-child{border-bottom:1px solid var(--line);}
+.svc::before{
+  content:"";position:absolute;left:0;top:-1px;width:0;height:1px;background:var(--clay);
+  transition:width 0.6s cubic-bezier(0.16,1,0.3,1);
 }
-.rd-project-label{
-  font-family:var(--mono);font-size:11px;color:var(--vermilion-soft);
-  letter-spacing:0.18em;text-transform:uppercase;margin-bottom:10px;font-weight:600;
+.svc:hover::before{width:100%;}
+.svc-index{
+  font-family:var(--serif);font-style:italic;font-weight:300;font-size:26px;color:var(--ink-mute);
+  letter-spacing:0;transition:color 0.4s;
 }
-.rd-project-name{
-  font-family:var(--jp);font-weight:600;font-size:28px;line-height:1.25;
-  color:#fff;margin-bottom:8px;letter-spacing:-0.005em;
+.svc:hover .svc-index{color:var(--clay);}
+.svc-title .en{
+  font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.2;letter-spacing:-0.01em;color:var(--ink);
+  margin-bottom:8px;
 }
-.rd-project-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;}
-.rd-project-url{
-  display:inline-block;margin-top:10px;
-  font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.45);
-  letter-spacing:0.04em;
-}
-.rd-project-arrow{
-  font-family:var(--mono);font-size:36px;color:var(--vermilion-soft);font-weight:300;
-  transition:transform 0.3s;flex-shrink:0;
-  line-height:1;
-  animation:rd-arrow-pulse 2.4s ease-in-out infinite;
-}
-.rd-project:hover .rd-project-arrow{transform:translate(6px,-6px);animation:none;}
-@keyframes rd-arrow-pulse{
-  0%,100%{transform:translate(0,0);opacity:1;}
-  50%{transform:translate(3px,-3px);opacity:0.85;}
+.svc-title .jp{font-family:var(--jp);font-weight:500;font-size:15px;color:var(--ink-faint);letter-spacing:0.08em;}
+.svc-desc{font-family:var(--jp);font-size:15px;line-height:1.95;color:var(--ink-soft);letter-spacing:0.01em;}
+.svc-desc .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.svc-desc .tags span{
+  font-family:var(--sans);font-size:11.5px;font-weight:400;letter-spacing:0.05em;color:var(--ink-faint);
+  padding:4px 12px;background:var(--paper-warm);border-radius:99px;
 }
 
-/* === CONTACT — light & simple === */
-.contact-inner{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start;}
+/* ===== FOUNDER ===== */
+.founder{padding:130px 0;background:var(--night);color:var(--paper);position:relative;overflow:hidden;}
+.founder-bloom{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(90px);pointer-events:none;
+  background:radial-gradient(circle,rgba(156,91,62,0.30),transparent 65%);
+  top:-200px;right:-150px;animation:bloom-a 30s ease-in-out infinite;}
+.founder-inner{position:relative;z-index:2;}
+.founder .eyebrow{color:rgba(244,241,234,0.6);margin-bottom:34px;}
+.founder .eyebrow::before{background:rgba(244,241,234,0.4);}
+.founder-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start;}
+.founder h2{
+  font-family:var(--serif);font-weight:300;font-size:clamp(36px,4.6vw,58px);line-height:1.06;
+  letter-spacing:-0.015em;color:var(--paper);
+}
+.founder h2 em{font-style:italic;color:var(--clay-soft);}
+.founder h2 .j{display:block;font-family:var(--jp);font-size:17px;font-weight:500;color:rgba(244,241,234,0.55);letter-spacing:0.1em;margin-top:24px;}
+.founder-body p{
+  font-family:var(--jp);font-size:16px;line-height:2.1;color:rgba(244,241,234,0.78);
+  letter-spacing:0.02em;margin-bottom:30px;
+}
+.founder-body p:last-child{margin-bottom:0;}
+.founder-body strong{color:var(--paper);font-weight:600;}
+.founder-roles{
+  display:flex;flex-wrap:wrap;gap:8px;margin:34px 0;
+}
+.founder-roles span{
+  font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:0.06em;
+  color:rgba(244,241,234,0.7);padding:6px 15px;border:1px solid rgba(244,241,234,0.18);border-radius:99px;
+}
+.founder-orgs{margin-top:8px;}
+.founder-orgs .org{
+  font-family:var(--serif);font-size:17px;color:var(--paper);letter-spacing:0.01em;
+  padding:14px 0;border-bottom:1px solid rgba(244,241,234,0.12);
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+}
+.founder-orgs .org:first-child{border-top:1px solid rgba(244,241,234,0.12);}
+.founder-orgs .org .role{font-family:var(--jp);font-size:12px;color:rgba(244,241,234,0.5);letter-spacing:0.08em;}
 
-.contact-options{display:flex;flex-direction:column;gap:10px;}
-.contact-opt{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px 20px;background:var(--bg-card);
-  border:1px solid var(--line);border-radius:12px;
-  text-decoration:none;color:var(--ink);
-  transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
+/* ===== RELATED PROJECT ===== */
+.related{padding:130px 0;}
+.related-inner{
+  background:var(--paper-card);border:1px solid var(--line);border-radius:8px;
+  padding:72px 64px;position:relative;overflow:hidden;
 }
-.contact-opt:hover{border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
-.contact-opt .label{display:flex;align-items:center;gap:12px;}
-.contact-opt .label .ic{
-  width:28px;height:28px;border-radius:7px;background:var(--bg-soft);color:var(--ink);
-  border:1px solid var(--line);
-  display:inline-flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:13px;font-weight:600;
+.related-inner::after{
+  content:"";position:absolute;top:-150px;right:-100px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(156,91,62,0.10),transparent 65%);filter:blur(50px);pointer-events:none;
 }
-.contact-opt .label .ic-lbl{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;}
-.contact-opt .v{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:500;letter-spacing:-0.005em;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2;}
+.related .eyebrow{margin-bottom:28px;}
+.related-name{
+  font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.4vw,68px);line-height:1;
+  letter-spacing:-0.02em;color:var(--ink);margin-bottom:10px;
+}
+.related-name em{font-style:italic;color:var(--clay);}
+.related-tag{font-family:var(--jp);font-size:15px;color:var(--ink-faint);letter-spacing:0.06em;margin-bottom:30px;}
+.related-themes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px;}
+.related-themes span{
+  font-family:var(--jp);font-size:13px;color:var(--ink-soft);letter-spacing:0.04em;
+  padding:6px 15px;background:var(--paper-warm);border-radius:99px;
+}
+.related-body p{font-family:var(--jp);font-size:15.5px;line-height:2;color:var(--ink-soft);letter-spacing:0.02em;margin-bottom:24px;}
+.related-link{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:0.04em;color:var(--ink);
+  padding-bottom:4px;border-bottom:1px solid var(--ink);transition:gap 0.3s,color 0.3s,border-color 0.3s;
+}
+.related-link:hover{gap:16px;color:var(--clay);border-color:var(--clay);}
 
-/* simple form — light */
-.contact-form{
-  display:flex;flex-direction:column;gap:10px;
+/* ===== CONTACT ===== */
+.contact{padding:140px 0 130px;background:var(--paper-warm);border-top:1px solid var(--line-soft);}
+.contact-inner{max-width:780px;margin:0 auto;text-align:center;}
+.contact .eyebrow{margin-bottom:34px;justify-content:center;}
+.contact h2{
+  font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.6vw,72px);line-height:1.02;
+  letter-spacing:-0.02em;color:var(--ink);margin-bottom:26px;
 }
-.cf-input, .cf-textarea{
-  width:100%;padding:14px 16px;background:var(--bg-card);
-  border:1px solid var(--line);border-radius:10px;
-  font-family:var(--sans);font-size:14px;color:var(--ink);letter-spacing:-0.005em;
-  transition:border-color 0.2s,background 0.2s;
+.contact h2 em{font-style:italic;color:var(--clay);}
+.contact-lead{
+  font-family:var(--jp);font-size:17px;line-height:2;color:var(--ink-soft);
+  letter-spacing:0.02em;max-width:540px;margin:0 auto 28px;
 }
-.cf-input:focus, .cf-textarea:focus{
-  outline:none;border-color:var(--ink);background:#fff;
+.contact-targets{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:52px;
 }
-.cf-input::placeholder, .cf-textarea::placeholder{color:var(--ink-mute);}
-.cf-textarea{resize:vertical;min-height:140px;font-family:var(--sans);}
-.cf-submit{
-  width:100%;padding:14px 24px;background:var(--ink);color:#fff;
-  border:none;border-radius:10px;font-family:var(--sans);font-size:15px;font-weight:600;
-  cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  margin-top:6px;
+.contact-targets span{
+  font-family:var(--jp);font-size:12.5px;color:var(--ink-faint);letter-spacing:0.04em;
+  padding:6px 14px;border:1px solid var(--line);border-radius:99px;
 }
-.cf-submit:hover{background:var(--vermilion);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:var(--sans);font-size:14.5px;font-weight:500;letter-spacing:0.03em;
+  padding:15px 30px;border-radius:99px;transition:transform 0.3s,background 0.3s,color 0.3s,border-color 0.3s;
+}
+.btn.solid{background:var(--ink);color:var(--paper);}
+.btn.solid:hover{background:var(--clay);transform:translateY(-2px);}
+.btn.line{border:1px solid var(--ink);color:var(--ink);}
+.btn.line:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px);}
+.btn .arr{transition:transform 0.3s;}
+.btn:hover .arr{transform:translateX(4px);}
 
-/* === FOOTER === */
-footer{padding:48px 40px 32px;border-top:1px solid var(--line);}
+/* ===== FOOTER ===== */
+footer{padding:56px 0 44px;border-top:1px solid var(--line);}
 .footer-inner{
-  max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;
-  font-family:var(--mono);font-size:12px;color:var(--ink-faint);flex-wrap:wrap;gap:16px;
+  max-width:1180px;margin:0 auto;padding:0 48px;
+  display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:28px;
 }
-.footer-inner .lhs{display:flex;align-items:center;gap:14px;}
-.footer-inner .lhs .nav-mark{width:24px;height:24px;border-radius:5px;}
-.footer-inner .lhs .nav-mark::after{width:5px;height:5px;top:5px;right:5px;}
-.footer-inner .nav{display:flex;gap:24px;}
-.footer-inner a{color:var(--ink-faint);text-decoration:none;}
-.footer-inner a:hover{color:var(--ink);}
+.footer-brand{display:flex;flex-direction:column;gap:14px;max-width:340px;}
+.footer-brand .top{display:flex;align-items:center;gap:12px;}
+.footer-brand .nav-mark{width:24px;height:24px;}
+.footer-brand .fb-en{font-family:var(--serif);font-size:16px;color:var(--ink);}
+.footer-brand .fb-slogan{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-faint);}
+.footer-brand .fb-jp{font-family:var(--jp);font-size:12px;color:var(--ink-faint);letter-spacing:0.06em;line-height:1.8;}
+.footer-nav{display:flex;gap:48px;flex-wrap:wrap;}
+.footer-col{display:flex;flex-direction:column;gap:12px;}
+.footer-col .h{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:4px;}
+.footer-col a{font-family:var(--sans);font-size:13.5px;color:var(--ink-soft);text-decoration:none;transition:color 0.3s;letter-spacing:0.02em;}
+.footer-col a:hover{color:var(--ink);}
+.footer-base{
+  max-width:1180px;margin:48px auto 0;padding:24px 48px 0;border-top:1px solid var(--line-soft);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  font-family:var(--sans);font-size:12px;color:var(--ink-mute);letter-spacing:0.04em;
+}
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
+/* ===== responsive ===== */
 @media (max-width:1024px){
-  .services-grid{grid-template-columns:1fr;}
-  .works-grid{grid-template-columns:1fr;gap:16px;}
-  .contact-inner{grid-template-columns:1fr;gap:32px;}
-  .hero-grid{grid-template-columns:1fr;gap:48px;}
-  .hero-art{max-width:480px;justify-self:start;}
+  .why-grid,.founder-grid,.related-grid{grid-template-columns:1fr;gap:44px;}
+  .phil-flow{grid-template-columns:1fr;}
+  .related-inner{padding:56px 40px;}
 }
 @media (max-width:680px){
-  .nav{padding:14px 20px;}
+  .wrap,.wrap-narrow,.hero-inner,.footer-inner,.footer-base{padding-left:24px;padding-right:24px;}
+  .nav{padding:16px 24px;}
   .nav-links{display:none;}
-  .hero{padding:48px 20px 64px;}
-  section{padding:80px 20px;}
-  .rd-section{padding:48px 24px;border-radius:16px;}
-  .rd-project{flex-direction:column;align-items:flex-start;gap:18px;text-align:left;}
-  .rd-project-arrow{align-self:flex-end;}
-  .footer-inner{flex-direction:column;align-items:flex-start;}
-  .hero-art{max-width:360px;}
+  .hero{padding:100px 0 90px;}
+  .why,.philosophy,.services,.founder,.related,.contact{padding:84px 0;}
+  .svc{grid-template-columns:1fr;gap:14px;padding:34px 0;}
+  .svc-index{font-size:20px;}
+  .related-inner{padding:40px 26px;}
+  .footer-nav{gap:32px;}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
-  <a href="/" class="nav-brand">
-    <span class="nav-mark"></span>
+  <a href="/" class="nav-brand" aria-label="Vitality Design LLC home">
+    <span class="nav-mark">
+      <svg viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="13" cy="13" r="12" stroke="#1C1A16" stroke-width="1"/>
+        <path d="M5 16 Q9 6 13 13 Q17 20 21 10" stroke="#9C5B3E" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+    </span>
     <span class="nav-name">
-      <span class="jp">バイタリティデザイン合同会社</span>
-      <span class="en">Vitality Design LLC.</span>
+      <span class="n-en">Vitality Design</span>
+      <span class="n-jp">バイタリティデザイン合同会社</span>
     </span>
   </a>
   <div class="nav-links">
+    <a href="#why">Why Vitality</a>
+    <a href="#philosophy">Philosophy</a>
     <a href="#services">Services</a>
-    <a href="#works">Works</a>
-    <a href="#project">Project</a>
+    <a href="#founder">Founder</a>
+    <a href="#related">His Recoveries</a>
   </div>
   <a href="#contact" class="nav-cta">Contact</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bloom a"></div>
+    <div class="hero-bloom b"></div>
+  </div>
   <div class="hero-inner">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <h1>事業の<em>中まで</em>、<br>来てくれる外部を。</h1>
-        <p class="hero-lead">
-          提案だけのコンサル、作るだけの制作会社、<strong>そのどちらでもない位置で動きます</strong>。AIシステム開発、営業、事業を踏まえた各部門の実行——判断と動きの両方に並走する独立スタジオです。少数のクライアントと、長く組みます。
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact"><span>お問い合わせ</span><span class="arrow">→</span></a>
-          <a class="btn ghost" href="#services"><span>提供サービスを見る</span><span class="arrow">→</span></a>
-        </div>
+    <span class="eyebrow reveal">Vitality Design LLC</span>
+    <h1 class="reveal d1">We Design<br><em>Vitality.</em></h1>
+    <p class="hero-jp reveal d2">人と組織の活力を、設計する。</p>
+    <p class="hero-lead reveal d2">
+      顧客理解から始め、事業の状態変化を生み出す。<br>
+      私たちはシステム開発会社でも、AI導入会社でも、<br>コンサルティング会社でもありません。
+    </p>
+    <div class="hero-rule reveal d3"></div>
+    <div class="hero-tags reveal d3">
+      <span class="hero-tag">Business Development</span>
+      <span class="hero-tag">Customer Experience Design</span>
+      <span class="hero-tag">AI &amp; Automation</span>
+      <span class="hero-tag">Product Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VITALITY -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="reveal">
+        <h2 class="serif">Why<br>Vitality?<span class="why-jp">なぜ、活力なのか。</span></h2>
       </div>
+      <div class="why-body reveal d1">
+        <p>
+          現代は、AIによって<strong>システムを作ること自体の価値が下がっている</strong>。
+          誰もが、速く、安く、ものを作れる時代になりました。
+        </p>
+        <p class="pull">
+          しかし、顧客を理解すること。現場を理解すること。状態変化を理解すること。その価値は、ますます高まっている。
+        </p>
+        <p>
+          作る技術ではなく、<strong>何を、なぜ、誰のために作るのか</strong>を見極める力。
+          人や組織が、どこから来て、どこへ向かうのか。その状態変化を読み解く力こそが、これからの事業の中心になる——私たちはそう信じています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <aside class="hero-art" aria-hidden="true">
-        <div class="ha-grid"></div>
-
-        <div class="ha-orb ha-orb-1"></div>
-        <div class="ha-orb ha-orb-2"></div>
-        <div class="ha-orb ha-orb-3"></div>
-        <div class="ha-orb ha-orb-4"></div>
-        <div class="ha-orb ha-orb-5"></div>
-
-        <div class="ha-rings">
-          <div class="ha-ring ha-ring-a"><span class="ha-ring-tick"></span></div>
-          <div class="ha-ring ha-ring-b"><span class="ha-ring-tick"></span></div>
-        </div>
-
-        <div class="ha-particles">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span>
-        </div>
-
-        <div class="ha-scan"></div>
-
-        <div class="ha-corner ha-corner-tl">VD / 01</div>
-        <div class="ha-corner ha-corner-br">2026</div>
-      </aside>
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="wrap">
+    <div class="phil-head reveal">
+      <span class="eyebrow" style="justify-content:center;display:flex;">Our Philosophy</span>
+      <h2 class="jp">顧客理解から始める、事業開発。</h2>
+      <p>
+        私たちは、顧客理解から始めます。課題を理解し、現場を理解し、<br>
+        その上で、必要な手段としてそれらを組み合わせる。
+      </p>
     </div>
 
-    <div class="hero-proof">
-      <span class="hp-label">Capabilities</span>
-      <div class="hp-list">
-        <span class="hp-item">AIシステム開発</span>
-        <span class="hp-item">営業設計・実行</span>
-        <span class="hp-item">部門横断の実行支援</span>
-        <span class="hp-item">継続クライアントあり</span>
+    <div class="phil-flow reveal d1">
+      <div class="flow-step">
+        <div class="num">i.</div>
+        <h3>顧客を理解する</h3>
+        <p>誰が、何に困り、どんな状態にあるのか。一次情報に触れ、解像度を上げることから始める。</p>
       </div>
+      <div class="flow-step">
+        <div class="num">ii.</div>
+        <h3>現場を理解する</h3>
+        <p>事業の構造、オペレーション、数字。机上ではなく、現場の実態から課題の本質を捉える。</p>
+      </div>
+      <div class="flow-step">
+        <div class="num">iii.</div>
+        <h3>状態変化を設計する</h3>
+        <p>その上で、必要な手段を選び、組み合わせる。手段が目的化しない設計を行う。</p>
+      </div>
+    </div>
+
+    <div class="phil-means reveal d2">
+      <span class="lead">手段として組み合わせるもの —</span>
+      <span class="means-chip">AI</span>
+      <span class="means-chip">System</span>
+      <span class="means-chip">Design</span>
+      <span class="means-chip">Operation</span>
+    </div>
+
+    <div class="belief reveal d2">
+      <div class="lines">
+        <span class="dim">AIは、目的ではない。</span>
+        <span class="dim">システムも、目的ではない。</span>
+        <span>顧客が変わる。現場が変わる。組織が変わる。</span>
+        <span class="accent">その状態変化こそが、価値である。</span>
+      </div>
+      <p class="jp-note">— We believe vitality is the outcome, not the tool.</p>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services">
+<section class="services" id="services">
   <div class="wrap">
-    <div class="section-eyebrow"><span>Services</span></div>
-    <h2 class="section-title">提供する、<em>3つの領域</em>。</h2>
-    <p class="section-sub">AIシステム開発から営業の現場、事業の文脈を踏まえた各部門の実行まで。受託の制作で終わらず、経営判断と現場の動きをひとつの線でつなぎ直します。</p>
+    <div class="svc-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2 class="serif">What we design.<span class="j">提供する、4つの設計領域。</span></h2>
+    </div>
 
-    <div class="services-grid reveal">
-      <article class="service">
-        <div class="service-head"><span class="service-num">01 / AI Systems</span></div>
-        <span class="service-en">AI System Development</span>
-        <h3>AIシステムを、<br>業務の中に組み込む。</h3>
-        <p>Claude / GPT 等を活用したカスタムツール、業務自動化、社内ワークフローの構築。少人数のチームが大企業並みの出力を持つための実装支援を、設計から運用まで一気通貫で。</p>
-        <div class="service-tags">
-          <span class="service-tag">カスタムAI</span>
-          <span class="service-tag">業務自動化</span>
-          <span class="service-tag">社内ツール</span>
+    <div class="svc-list">
+      <article class="svc reveal">
+        <div class="svc-index">01</div>
+        <div class="svc-title">
+          <div class="en">Business Development</div>
+          <div class="jp">事業開発支援</div>
+        </div>
+        <div class="svc-desc">
+          営業戦略の立案から事業推進、アライアンス構築、新規事業の立ち上げまで。事業を前に進める判断と動きの両方に、当事者として並走します。
+          <div class="tags"><span>営業戦略</span><span>事業推進</span><span>アライアンス</span><span>新規事業立ち上げ</span></div>
         </div>
       </article>
 
-      <article class="service">
-        <div class="service-head"><span class="service-num">02 / Sales</span></div>
-        <span class="service-en">Sales &amp; GTM</span>
-        <h3>営業の設計と、<br>現場の実行に並走する。</h3>
-        <p>営業プロセス設計、パイプライン構築、提案資料、重要商談の同席。「売れる仕組み」を、現場の数字と紐づけて作ります。BtoB の中堅以下に強みがあります。</p>
-        <div class="service-tags">
-          <span class="service-tag">営業設計</span>
-          <span class="service-tag">商談支援</span>
-          <span class="service-tag">提案資料</span>
+      <article class="svc reveal">
+        <div class="svc-index">02</div>
+        <div class="svc-title">
+          <div class="en">Customer Experience Design</div>
+          <div class="jp">顧客体験設計</div>
+        </div>
+        <div class="svc-desc">
+          継続率の向上、紹介導線の設計、カスタマージャーニーの再設計。顧客理解を起点に、顧客が自然に動き、留まり、語りたくなる体験を組み立てます。
+          <div class="tags"><span>継続率向上</span><span>紹介導線設計</span><span>顧客理解</span><span>カスタマージャーニー設計</span></div>
         </div>
       </article>
 
-      <article class="service">
-        <div class="service-head"><span class="service-num">03 / Execution</span></div>
-        <span class="service-en">Cross-Functional Execution</span>
-        <h3>事業の文脈を踏まえて、<br>各部門に入る。</h3>
-        <p>マーケ、人事、採用、オペレーション。事業全体の構造を理解したうえで、各部門に対して提案と実行を行います。経営の判断と、現場の動きを、ひとつの線でつなぎ直します。</p>
-        <div class="service-tags">
-          <span class="service-tag">マーケティング</span>
-          <span class="service-tag">採用 / 人事</span>
-          <span class="service-tag">オペレーション</span>
+      <article class="svc reveal">
+        <div class="svc-index">03</div>
+        <div class="svc-title">
+          <div class="en">AI &amp; Automation</div>
+          <div class="jp">AI活用支援</div>
+        </div>
+        <div class="svc-desc">
+          業務効率化、AIオペレーションの構築、ワークフロー設計、自動化。少人数のチームが、本質的な仕事に集中できる状態を、AIを手段としてつくります。
+          <div class="tags"><span>業務効率化</span><span>AIオペレーション構築</span><span>ワークフロー設計</span><span>自動化</span></div>
+        </div>
+      </article>
+
+      <article class="svc reveal">
+        <div class="svc-index">04</div>
+        <div class="svc-title">
+          <div class="en">Product Design</div>
+          <div class="jp">プロダクト設計</div>
+        </div>
+        <div class="svc-desc">
+          顧客課題から逆算した、システム・CRM・管理画面・診断機能の設計と実装。作ることを目的にせず、状態変化を起こすためのプロダクトを形にします。
+          <div class="tags"><span>システム</span><span>CRM</span><span>管理画面</span><span>診断機能</span></div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- WORKS -->
-<section id="works" style="background:var(--bg-soft);">
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="founder-bloom" aria-hidden="true"></div>
+  <div class="wrap founder-inner">
+    <span class="eyebrow reveal">Founder Story</span>
+    <div class="founder-grid">
+      <div class="reveal">
+        <h2 class="serif">From the <em>field</em>,<br>not the deck.<span class="j">現場で、事業をつくってきた。</span></h2>
+        <div class="founder-orgs reveal d1">
+          <div class="org"><span>Safie Inc.</span><span class="role">セーフィー株式会社 / 事業開発</span></div>
+          <div class="org"><span>Safie Fieldworks</span><span class="role">セーフィーフィールドワークス</span></div>
+          <div class="org"><span>His Recoveries</span><span class="role">男性の状態変化を記録するブランド</span></div>
+        </div>
+      </div>
+      <div class="founder-body reveal d1">
+        <p>
+          創業者は、<strong>セーフィー株式会社・セーフィーフィールドワークス</strong>にて事業開発に従事。新規事業の立ち上げから拡大フェーズまでを、当事者として推進してきました。
+        </p>
+        <div class="founder-roles">
+          <span>営業</span><span>予算管理</span><span>オペレーション構築</span><span>パートナーアライアンス</span><span>AI活用</span>
+        </div>
+        <p>
+          また、<strong>His Recoveries</strong>という、男性の状態変化を記録するブランドを運営。男性の悩みや顧客体験を深く理解するために、<strong>メディア運営・インタビュー・コミュニティ形成</strong>を自ら行っています。
+        </p>
+        <p>
+          提案だけで終わらせず、現場に立ち、一次情報に触れ続ける。その姿勢が、Vitality Designのすべての設計の土台になっています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED PROJECT -->
+<section class="related" id="related">
   <div class="wrap">
-    <div class="section-eyebrow"><span>Works</span></div>
-    <h2 class="section-title">これまでの、<em>関わり方</em>。</h2>
-    <p class="section-sub">非公開案件が中心のため、業界カテゴリと支援領域での開示としています。詳細は商談時にご共有します。</p>
-
-    <div class="works-grid reveal">
-      <article class="work">
-        <div class="work-visual">
-          <div class="work-meta">
-            <span class="work-cat">Architecture × Media</span>
-            <span class="work-num">W / 01</span>
+    <div class="related-inner reveal">
+      <div class="related-grid">
+        <div>
+          <span class="eyebrow">Related Project</span>
+          <div class="related-name serif">His <em>Recoveries</em></div>
+          <div class="related-tag">男性の状態変化を記録するブランド</div>
+          <div class="related-themes">
+            <span>AGA</span><span>多汗症</span><span>ニキビ</span><span>睡眠</span><span>清潔感</span>
           </div>
+          <a class="related-link" href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">
+            View the project<span class="arr">↗</span>
+          </a>
         </div>
-        <div class="work-body">
-          <h3>建築領域メディア支援</h3>
-          <p>建築系オウンドメディアの SEO 設計・コンテンツ制作・UI 改善を中長期で支援。一次情報を業界資産として積み上げる編集体制構築。</p>
-          <div class="work-tags">
-            <span class="work-tag">SEO設計</span>
-            <span class="work-tag">コンテンツ制作</span>
-            <span class="work-tag">UI改善</span>
-          </div>
+        <div class="related-body">
+          <p>
+            誰にも相談しづらい悩みと向き合い、自信を取り戻していく過程を記録する。それが His Recoveries です。
+          </p>
+          <p>
+            この活動を通じて得られる<strong>一次情報や顧客理解</strong>を、Vitality Design の事業開発や顧客体験設計にも活かしています。
+            His Recoveries と Vitality Design は、<em style="font-style:italic;font-family:var(--serif);color:var(--clay);">同じ思想の延長線上</em>にあります——人の状態変化を、深く理解し、設計すること。
+          </p>
         </div>
-      </article>
-
-      <article class="work">
-        <div class="work-visual v2">
-          <div class="work-meta">
-            <span class="work-cat">Recruitment × Web</span>
-            <span class="work-num">W / 02</span>
-          </div>
-        </div>
-        <div class="work-body">
-          <h3>採用導線改善</h3>
-          <p>採用 LP の設計、媒体掲載原稿の改善、SNS からの導線整理。応募者の質と量を、媒体投資を増やさずに改善するアプローチ。</p>
-          <div class="work-tags">
-            <span class="work-tag">LP設計</span>
-            <span class="work-tag">コンテンツ改善</span>
-            <span class="work-tag">SNS導線</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work">
-        <div class="work-visual v3">
-          <div class="work-meta">
-            <span class="work-cat">AI × Operations</span>
-            <span class="work-num">W / 03</span>
-          </div>
-        </div>
-        <div class="work-body">
-          <h3>AI活用支援</h3>
-          <p>業務へのAI組み込み、コンテンツ制作の効率化、ワークフロー設計。少人数のチームが大企業並みの出力を持つための実装支援。</p>
-          <div class="work-tags">
-            <span class="work-tag">コンテンツ生成</span>
-            <span class="work-tag">業務効率化</span>
-            <span class="work-tag">ワークフロー</span>
-          </div>
-        </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECT - DARK SECTION -->
-<section id="project" style="padding:120px 40px;">
-  <div class="rd-section reveal">
-    <a class="rd-project" href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">
-      <div>
-        <div class="rd-project-label">Media Project</div>
-        <div class="rd-project-name">his · recoveries</div>
-        <div class="rd-project-desc">都市生活者の自己回復をテーマにしたメディア。研究と運営を並行しています。</div>
-        <span class="rd-project-url">his-recoveries.vercel.app ↗</span>
-      </div>
-      <div class="rd-project-arrow">↗</div>
-    </a>
-  </div>
-</section>
-
-<!-- CONTACT — light & simple -->
-<section id="contact" style="background:var(--bg-soft);">
-  <div class="wrap" style="max-width:1040px;">
-    <div class="section-eyebrow"><span>Contact</span></div>
-    <h2 class="section-title">お問い合わせ。</h2>
-    <p class="section-sub">事業相談・制作依頼・協業など、お気軽にどうぞ。</p>
-
-    <div class="contact-inner" style="margin-top:48px;">
-      <div class="contact-options">
-        <a class="contact-opt" href="mailto:contact@vitality-design.jp">
-          <span class="label">
-            <span class="ic">@</span>
-            <span class="ic-lbl">Email</span>
-          </span>
-          <span class="v">contact@vitality-design.jp</span>
-        </a>
-        <a class="contact-opt" href="https://x.com/" target="_blank" rel="noopener">
-          <span class="label">
-            <span class="ic">X</span>
-            <span class="ic-lbl">X / Twitter</span>
-          </span>
-          <span class="v">DM Open →</span>
-        </a>
-      </div>
-
-      <form class="contact-form" action="mailto:contact@vitality-design.jp" method="post" enctype="text/plain">
-        <input class="cf-input" name="name" type="text" placeholder="お名前" aria-label="お名前" required>
-        <input class="cf-input" name="email" type="email" placeholder="メールアドレス" aria-label="メールアドレス" required>
-        <textarea class="cf-textarea" name="message" placeholder="ご相談内容" aria-label="ご相談内容" required></textarea>
-        <button class="cf-submit" type="submit"><span>送信</span><span>→</span></button>
-      </form>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="eyebrow reveal">Contact</span>
+    <h2 class="serif reveal d1">Let's design<br>your <em>vitality.</em></h2>
+    <p class="contact-lead jp reveal d1">
+      事業の状態を変えたい方へ。<br>
+      売り込みはしません。まずは、いまの課題と現場について、静かに対話することから。
+    </p>
+    <div class="contact-targets reveal d2">
+      <span>サロン経営者</span><span>ジム経営者</span><span>クリニック経営者</span>
+      <span>現場ビジネス経営者</span><span>スタートアップ経営者</span><span>中小企業経営者</span>
+    </div>
+    <div class="contact-actions reveal d2">
+      <a class="btn solid" href="mailto:contact@vitality-design.jp"><span>ご相談はこちら</span><span class="arr">→</span></a>
+      <a class="btn line" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="lhs">
-      <span class="nav-mark"></span>
-      <span>© 2026 Vitality Design LLC.</span>
+    <div class="footer-brand">
+      <div class="top">
+        <span class="nav-mark">
+          <svg viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <circle cx="13" cy="13" r="12" stroke="#1C1A16" stroke-width="1"/>
+            <path d="M5 16 Q9 6 13 13 Q17 20 21 10" stroke="#9C5B3E" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="fb-en">Vitality Design LLC</span>
+      </div>
+      <span class="fb-slogan">We Design Vitality.</span>
+      <span class="fb-jp">バイタリティデザイン合同会社<br>人と組織の活力を設計する。</span>
     </div>
-    <div class="nav">
-      <a href="#services">Services</a>
-      <a href="#works">Works</a>
-      <a href="#project">Project</a>
-      <a href="mailto:contact@vitality-design.jp">Contact</a>
-    </div>
+    <nav class="footer-nav">
+      <div class="footer-col">
+        <span class="h">Company</span>
+        <a href="#why">Why Vitality</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#founder">Founder Story</a>
+      </div>
+      <div class="footer-col">
+        <span class="h">Services</span>
+        <a href="#services">Business Development</a>
+        <a href="#services">Customer Experience</a>
+        <a href="#services">AI &amp; Automation</a>
+        <a href="#services">Product Design</a>
+      </div>
+      <div class="footer-col">
+        <span class="h">Connect</span>
+        <a href="#related">His Recoveries ↗</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:contact@vitality-design.jp">Email</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-base">
+    <span>© 2026 Vitality Design LLC. All rights reserved.</span>
+    <span>We Design Vitality.</span>
   </div>
 </footer>
 
 <script>
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-},{threshold:0.08});
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 

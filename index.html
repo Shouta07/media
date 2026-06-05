@@ -41,6 +41,13 @@ body{
 a{color:inherit;}
 img{max-width:100%;display:block;}
 
+/* scroll progress */
+.scroll-bar{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:200;
+  background:linear-gradient(90deg,var(--clay),var(--clay-soft));
+  transition:width 0.12s linear;will-change:width;
+}
+
 /* ===== shared rhythm ===== */
 .wrap{max-width:1180px;margin:0 auto;padding:0 48px;}
 .wrap-narrow{max-width:760px;margin:0 auto;padding:0 48px;}
@@ -66,6 +73,8 @@ section{position:relative;}
   .reveal{opacity:1;transform:none;transition:none;}
   *{animation:none !important;}
   html{scroll-behavior:auto;}
+  .belief .lines span{opacity:1 !important;transform:none !important;}
+  .hero-line path{stroke-dashoffset:0 !important;}
 }
 
 /* ===== NAV ===== */
@@ -109,6 +118,17 @@ section{position:relative;}
   animation:bloom-b 32s ease-in-out infinite;}
 @keyframes bloom-a{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-50px,40px) scale(1.12);}}
 @keyframes bloom-b{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(60px,-30px) scale(1.1);}}
+
+/* hand-drawn vitality line — draws itself, then breathes */
+.hero-line{position:absolute;left:0;right:0;bottom:6%;width:100%;height:auto;opacity:0.42;}
+.hero-line path{
+  fill:none;stroke:var(--clay-soft);stroke-width:1.2;stroke-linecap:round;
+  stroke-dasharray:2600;stroke-dashoffset:2600;
+  animation:line-draw 3.2s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+}
+.hero-line.drawn path{animation:line-float 16s ease-in-out infinite;stroke-dashoffset:0;}
+@keyframes line-draw{to{stroke-dashoffset:0;}}
+@keyframes line-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
 
 .hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 48px;}
 .hero .eyebrow{margin-bottom:40px;}
@@ -209,7 +229,14 @@ section{position:relative;}
 .belief .lines span{
   display:block;font-family:var(--serif);font-style:italic;font-weight:300;
   font-size:clamp(22px,3vw,34px);line-height:1.7;color:var(--ink);letter-spacing:0;
+  opacity:0;transform:translateY(16px);
 }
+.belief.visible .lines span{animation:line-rise 1s cubic-bezier(0.16,1,0.3,1) forwards;}
+.belief.visible .lines span:nth-child(1){animation-delay:0.05s;}
+.belief.visible .lines span:nth-child(2){animation-delay:0.22s;}
+.belief.visible .lines span:nth-child(3){animation-delay:0.39s;}
+.belief.visible .lines span:nth-child(4){animation-delay:0.56s;}
+@keyframes line-rise{to{opacity:1;transform:translateY(0);}}
 .belief .lines span.dim{color:var(--ink-mute);}
 .belief .lines span.accent{color:var(--clay);}
 .belief .jp-note{
@@ -239,9 +266,11 @@ section{position:relative;}
 .svc:hover::before{width:100%;}
 .svc-index{
   font-family:var(--serif);font-style:italic;font-weight:300;font-size:26px;color:var(--ink-mute);
-  letter-spacing:0;transition:color 0.4s;
+  letter-spacing:0;transition:color 0.4s,transform 0.5s cubic-bezier(0.16,1,0.3,1);
 }
-.svc:hover .svc-index{color:var(--clay);}
+.svc:hover .svc-index{color:var(--clay);transform:translateX(5px);}
+.svc-title{transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);}
+.svc:hover .svc-title{transform:translateX(10px);}
 .svc-title .en{
   font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.2;letter-spacing:-0.01em;color:var(--ink);
   margin-bottom:8px;
@@ -399,6 +428,8 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line);}
 </head>
 <body>
 
+<div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+
 <!-- NAV -->
 <nav class="nav">
   <a href="/" class="nav-brand" aria-label="Vitality Design LLC home">
@@ -428,6 +459,9 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line);}
   <div class="hero-bg" aria-hidden="true">
     <div class="hero-bloom a"></div>
     <div class="hero-bloom b"></div>
+    <svg class="hero-line" id="heroLine" viewBox="0 0 1200 400" preserveAspectRatio="none">
+      <path d="M-40 330 Q180 110 400 250 T780 170 Q980 110 1240 200"/>
+    </svg>
   </div>
   <div class="hero-inner">
     <span class="eyebrow reveal">Vitality Design LLC</span>
@@ -712,6 +746,24 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// scroll progress bar
+const bar = document.getElementById('scrollBar');
+const onScroll = () => {
+  const d = document.documentElement;
+  const max = d.scrollHeight - d.clientHeight;
+  bar.style.width = (max > 0 ? (d.scrollTop / max) * 100 : 0) + '%';
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+onScroll();
+
+// once the hero line finishes drawing, switch it to a gentle float loop
+const heroLine = document.getElementById('heroLine');
+if (heroLine && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const path = heroLine.querySelector('path');
+  path.addEventListener('animationend', () => heroLine.classList.add('drawn'), { once: true });
+}
 </script>
 
 </body>

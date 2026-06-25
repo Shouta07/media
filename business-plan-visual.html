@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Vitality Design LLC — 事業計画 一枚絵</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500&family=Shippori+Mincho+B1:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA; --paper-warm:#EDE8DD; --paper-card:#FAF8F3;
+  --ink:#1C1A16; --ink-soft:#46423A; --ink-faint:#7A746A; --ink-mute:#A8A296;
+  --line:rgba(28,26,22,0.10);
+  --clay:#9C5B3E; --clay-soft:#B97A5C; --sage:#5E6B54; --night:#1C1A16;
+  --serif:'Newsreader',Georgia,serif; --jp:'Shippori Mincho B1',serif; --sans:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+body{background:var(--paper);color:var(--ink);font-family:var(--jp);width:1280px;}
+.page{width:1280px;padding:64px 72px 72px;position:relative;}
+
+/* header */
+.head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1.5px solid var(--ink);padding-bottom:22px;margin-bottom:40px;}
+.brand{font-family:var(--serif);font-size:30px;letter-spacing:.01em;font-weight:400;}
+.brand b{font-weight:500;}
+.tagline{font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px;}
+.head-right{text-align:right;}
+.title{font-size:22px;font-weight:600;color:var(--ink);}
+.subtitle{font-family:var(--sans);font-size:12px;color:var(--ink-faint);margin-top:6px;letter-spacing:.06em;}
+
+/* mission strip */
+.mission{background:var(--night);color:var(--paper);border-radius:14px;padding:26px 34px;margin-bottom:38px;display:flex;align-items:center;gap:28px;}
+.mission .label{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--clay-soft);white-space:nowrap;}
+.mission .text{font-family:var(--serif);font-size:26px;line-height:1.4;font-weight:300;}
+.mission .text b{font-family:var(--jp);font-weight:600;color:#F4D9C4;}
+
+/* section label */
+.seclabel{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.seclabel::before{content:"";width:30px;height:1px;background:var(--ink-mute);}
+
+/* rocket / 3 phases */
+.phases{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:44px;position:relative;}
+.phase{background:var(--paper-card);border:1px solid var(--line);padding:26px 26px 28px;position:relative;}
+.phase:nth-child(1){border-radius:14px 0 0 14px;}
+.phase:nth-child(3){border-radius:0 14px 14px 0;}
+.phase .pnum{font-family:var(--serif);font-size:13px;letter-spacing:.18em;color:var(--clay);font-weight:500;text-transform:uppercase;}
+.phase .pname{font-size:19px;font-weight:600;margin:8px 0 4px;line-height:1.35;}
+.phase .pyear{font-family:var(--sans);font-size:11px;color:var(--ink-mute);letter-spacing:.08em;margin-bottom:14px;}
+.phase ul{list-style:none;}
+.phase li{font-family:var(--sans);font-size:13px;color:var(--ink-soft);line-height:1.55;padding-left:16px;position:relative;margin-bottom:7px;}
+.phase li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--clay-soft);}
+.phase .goal{margin-top:14px;font-family:var(--sans);font-size:11.5px;color:var(--sage);font-weight:600;border-top:1px dashed var(--line);padding-top:11px;}
+.arrow{position:absolute;top:50%;width:34px;height:34px;border-radius:50%;background:var(--clay);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;z-index:5;transform:translateY(-50%);box-shadow:0 4px 12px rgba(156,91,62,.35);}
+.arrow.a1{left:calc(33.33% - 17px);}
+.arrow.a2{left:calc(66.66% - 17px);}
+
+/* two-col lower */
+.lower{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.fbar{color:#fff;text-align:center;padding:14px 0;border-radius:8px;font-family:var(--jp);font-weight:600;font-size:15px;position:relative;}
+.fbar small{display:block;font-family:var(--sans);font-weight:400;font-size:11px;opacity:.85;margin-top:3px;letter-spacing:.04em;}
+.fbar.f1{width:100%;background:var(--clay);}
+.fbar.f2{width:78%;background:var(--clay-soft);}
+.fbar.f3{width:56%;background:var(--sage);}
+.farrow{color:var(--ink-mute);font-size:16px;line-height:0;}
+
+/* finance bars */
+.fin{display:flex;align-items:flex-end;gap:18px;height:200px;padding:0 6px;border-bottom:1.5px solid var(--ink);}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.bar .col{width:64%;background:linear-gradient(180deg,var(--clay-soft),var(--clay));border-radius:6px 6px 0 0;position:relative;}
+.bar .val{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.bar .yr{font-family:var(--sans);font-size:12px;color:var(--ink-faint);margin-top:8px;letter-spacing:.05em;}
+.fincap{font-family:var(--sans);font-size:11px;color:var(--ink-mute);margin-top:10px;text-align:right;}
+
+/* footer kpi */
+.kpi{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.kcard{background:var(--paper-warm);border-radius:12px;padding:18px 20px;}
+.kcard .kt{font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px;}
+.kcard .kv{font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;}
+.foot{margin-top:34px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:18px;font-family:var(--sans);font-size:11px;color:var(--ink-mute);letter-spacing:.05em;}
+.h2{font-size:16px;font-weight:600;margin-bottom:16px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="head">
+    <div>
+      <div class="brand">Vitality <b>Design</b> LLC</div>
+      <div class="tagline">We Design Vitality.</div>
+    </div>
+    <div class="head-right">
+      <div class="title">事業計画 — 世界覇権への設計図</div>
+      <div class="subtitle">メンズコンプレックス改善市場 ／ 3段ロケット戦略</div>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="label">Mission</div>
+    <div class="text">男性の<b>コンプレックス</b>を、人生の<b>活力</b>へ。<br>顧客理解から始め、現場の「状態変化」を設計する。</div>
+  </div>
+
+  <div class="seclabel">Strategy — 3段ロケット</div>
+  <div class="phases">
+    <div class="arrow a1">→</div>
+    <div class="arrow a2">→</div>
+
+    <div class="phase">
+      <div class="pnum">Phase 01</div>
+      <div class="pname">toB オペレーション制圧</div>
+      <div class="pyear">Year 1–2 ／ 現場に入り込む</div>
+      <ul>
+        <li>サロン・医者の現場へ常駐</li>
+        <li>UIUX設計 ＋ システム開発</li>
+        <li>予約→カウンセリング→追客の全導線設計</li>
+        <li>受託でキャッシュ・生データ・実績を獲得</li>
+      </ul>
+      <div class="goal">▸ 主要KPIを平均 +30% 改善／黒字化</div>
+    </div>
+
+    <div class="phase">
+      <div class="pnum">Phase 02</div>
+      <div class="pname">パートナー網の構築</div>
+      <div class="pyear">Year 2–4 ／ 仲間を募る</div>
+      <ul>
+        <li>ノウハウを特化型SaaSに製品化</li>
+        <li>医者・施術者・機器メーカーを束ねる</li>
+        <li>送客・教育・保証・共同ブランド</li>
+        <li>成果データで業界の「OS」になる</li>
+      </ul>
+      <div class="goal">▸ 導入100–300施設／解約率 &lt;3%</div>
+    </div>
+
+    <div class="phase">
+      <div class="pnum">Phase 03</div>
+      <div class="pname">世界の覇権を握る</div>
+      <div class="pyear">Year 4–10 ／ 標準になる</div>
+      <ul>
+        <li>toC：悩み→診断→最適施設へ繋ぐ</li>
+        <li>改善サブスク（診療・物販・メンタル）</li>
+        <li>アジア → 欧米へ多言語展開</li>
+        <li>成果データ＝世界標準プロトコル</li>
+      </ul>
+      <div class="goal">▸ 複数国でシェア確立・データ覇権</div>
+    </div>
+  </div>
+
+  <div class="lower">
+    <div>
+      <div class="seclabel">Market — 制圧の順序</div>
+      <div class="funnel">
+        <div class="fbar f1">① toB の現場を握る<small>AGA・脱毛・美容外科・歯科・メンズヘルス・痩身</small></div>
+        <div class="farrow">▼</div>
+        <div class="fbar f2">② パートナーを束ねる<small>供給網（医者・施術者・機器・カウンセラー）</small></div>
+        <div class="farrow">▼</div>
+        <div class="fbar f3">③ toC × グローバル<small>男性の悩みを活力に変える世界インフラ</small></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="seclabel">Finance — 売上成長（保守シナリオ）</div>
+      <div class="fin">
+        <div class="bar"><span class="val">0.3</span><div class="col" style="height:6%"></div><span class="yr">Y1</span></div>
+        <div class="bar"><span class="val">1.2</span><div class="col" style="height:14%"></div><span class="yr">Y2</span></div>
+        <div class="bar"><span class="val">3.5</span><div class="col" style="height:30%"></div><span class="yr">Y3</span></div>
+        <div class="bar"><span class="val">8</span><div class="col" style="height:55%"></div><span class="yr">Y4</span></div>
+        <div class="bar"><span class="val">18</span><div class="col" style="height:100%"></div><span class="yr">Y5</span></div>
+      </div>
+      <div class="fincap">単位：億円 ／ 受託 → SaaS → toC・手数料へ収益が進化</div>
+    </div>
+  </div>
+
+  <div class="kpi">
+    <div class="kcard"><div class="kt">顧客の変化</div><div class="kv">成約率・客単価・継続率・改善満足度</div></div>
+    <div class="kcard"><div class="kt">事業の変化</div><div class="kv">MRR・解約率・パートナー数・LTV/CAC</div></div>
+    <div class="kcard"><div class="kt">市場の変化</div><div class="kv">成果データ蓄積件数・対象国数</div></div>
+    <div class="kcard"><div class="kt">堀（Moat）</div><div class="kv">現場入込×成果データ×特化型×ネットワーク</div></div>
+  </div>
+
+  <div class="foot">
+    <span>納品物ではなく、相手に起きた「変化」で価値を測る。</span>
+    <span>Vitality Design LLC — Business Plan v1.0 ／ 2026.06</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -211,6 +211,27 @@ section{position:relative;}
 .stat .label{font-family:var(--jp);font-size:13.5px;font-weight:600;color:var(--ink-soft);margin-top:14px;letter-spacing:0.02em;}
 .stat .sub{font-family:var(--jp);font-size:12px;color:var(--ink-faint);margin-top:4px;}
 
+/* ===== CONCERNS (課題) ===== */
+.concerns{padding:118px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.concerns-head{text-align:center;max-width:720px;margin:0 auto 56px;}
+.concerns-head .eyebrow{margin-bottom:24px;justify-content:center;display:inline-flex;}
+.concerns-head h2{font-family:var(--jp);font-weight:900;font-size:clamp(26px,3.6vw,42px);line-height:1.42;letter-spacing:0.01em;color:var(--ink);}
+.concerns-head h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.concerns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.concern{display:flex;align-items:flex-start;gap:15px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:transform 0.4s,box-shadow 0.4s,border-color 0.4s;}
+.concern:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(16,19,15,0.08);border-color:transparent;}
+.concern-check{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;}
+.concern-check svg{width:18px;height:18px;stroke:var(--green);fill:none;}
+.concern p{font-family:var(--jp);font-size:15px;font-weight:500;line-height:1.75;color:var(--ink-soft);letter-spacing:0.01em;}
+.concern p strong{font-weight:700;color:var(--ink);}
+.concerns-bridge{text-align:center;margin-top:50px;}
+.concerns-bridge p{font-family:var(--jp);font-size:clamp(17px,2.3vw,24px);font-weight:700;line-height:1.7;color:var(--ink);}
+.concerns-bridge p em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.concerns-link{display:inline-flex;align-items:center;gap:9px;margin-top:24px;font-family:var(--sans);font-weight:700;font-size:14.5px;letter-spacing:0.02em;color:#fff;background:var(--ink);padding:14px 26px;border-radius:99px;transition:transform 0.32s,box-shadow 0.32s,background 0.32s;}
+.concerns-link:hover{background:var(--green);transform:translateY(-3px);box-shadow:0 14px 30px rgba(11,110,79,0.28);}
+.concerns-link span{transition:transform 0.3s;}
+.concerns-link:hover span{transform:translateY(3px);}
+
 /* ===== WHY ===== */
 .why{padding:110px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
 .why-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:start;}
@@ -449,6 +470,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 @media (max-width:1024px){
   .why-grid,.founder-grid,.related-grid,.company-grid{grid-template-columns:1fr;gap:44px;}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 32px;}
+  .concerns-grid{grid-template-columns:repeat(2,1fr);}
   .phil-flow{grid-template-columns:1fr;}
   .svc-grid{grid-template-columns:1fr;}
   .str-grid{grid-template-columns:1fr;gap:36px;}
@@ -462,6 +484,8 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
   .why,.philosophy,.services,.strengths,.founder,.related,.contact,.company{padding:78px 0;}
   .stats{padding:64px 0;}
   .stats-grid{grid-template-columns:1fr;gap:34px;}
+  .concerns,.concerns + .why{padding-top:78px;}
+  .concerns-grid{grid-template-columns:1fr;}
   .company-table .row{grid-template-columns:1fr;gap:6px;}
   .related-inner{padding:40px 26px;}
   .footer-nav{gap:32px;}
@@ -561,6 +585,46 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
         <div class="label">状態変化を生み続ける</div>
         <div class="sub">活力は、結果である</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCERNS (課題) -->
+<section class="concerns" id="concerns">
+  <div class="wrap">
+    <div class="concerns-head reveal">
+      <span class="eyebrow">Your Challenges</span>
+      <h2>もしかして、<em>こんなお悩み</em><br>ありませんか？</h2>
+    </div>
+    <div class="concerns-grid">
+      <div class="concern reveal">
+        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>新規は集まるのに、<strong>継続・リピート</strong>につながらない</p>
+      </div>
+      <div class="concern reveal d1">
+        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><strong>紹介や口コミ</strong>が、自然には生まれてこない</p>
+      </div>
+      <div class="concern reveal d2">
+        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>日々の業務に追われ、<strong>本質的な仕事</strong>に手が回らない</p>
+      </div>
+      <div class="concern reveal">
+        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><strong>AIを活用</strong>したいが、何から始めればいいか分からない</p>
+      </div>
+      <div class="concern reveal d1">
+        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>顧客や数字の状態が、<strong>見える化</strong>できていない</p>
+      </div>
+      <div class="concern reveal d2">
+        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><strong>新しい事業</strong>を始めたいが、進め方に確信が持てない</p>
+      </div>
+    </div>
+    <div class="concerns-bridge reveal">
+      <p>ひとつでも当てはまるなら——<br><em>顧客理解から、状態変化を設計します。</em></p>
+      <a class="concerns-link" href="#services">4つの設計領域を見る <span>↓</span></a>
     </div>
   </div>
 </section>

@@ -316,6 +316,21 @@ section{position:relative;}
 .svc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
 .svc-tags span{font-family:var(--jp);font-size:11.5px;font-weight:500;letter-spacing:0.03em;color:rgba(246,247,244,0.62);padding:5px 13px;background:rgba(255,255,255,0.06);border-radius:99px;border:1px solid rgba(255,255,255,0.07);}
 
+/* ===== USE CASES ===== */
+.usecases{padding:118px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.uc-head{max-width:680px;margin-bottom:54px;}
+.uc-head .eyebrow{margin-bottom:26px;}
+.uc-head h2{font-family:var(--sans);font-weight:800;font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-0.03em;color:var(--ink);}
+.uc-head h2 .j{display:block;font-family:var(--jp);font-size:16px;font-weight:600;color:var(--ink-faint);letter-spacing:0.06em;margin-top:16px;}
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.uc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;transition:transform 0.4s,box-shadow 0.4s,border-color 0.4s;}
+.uc:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(16,19,15,0.08);border-color:transparent;}
+.uc-tag{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);background:var(--grad-soft);padding:5px 12px;border-radius:99px;}
+.uc-problem{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:1.7;color:var(--ink-faint);padding-left:15px;border-left:2px solid var(--line);}
+.uc-arrow{font-family:var(--sans);font-weight:800;font-size:15px;color:var(--green);line-height:1;}
+.uc-solution{font-family:var(--jp);font-size:15.5px;font-weight:500;line-height:1.8;color:var(--ink);letter-spacing:0.01em;}
+.uc-solution strong{font-weight:700;color:var(--green);}
+
 /* ===== STRENGTHS ===== */
 .strengths{padding:118px 0;}
 .str-head{max-width:680px;margin-bottom:60px;}
@@ -470,6 +485,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
   .concerns-grid{grid-template-columns:repeat(2,1fr);}
   .phil-flow{grid-template-columns:1fr;}
   .svc-grid{grid-template-columns:1fr;}
+  .uc-grid{grid-template-columns:repeat(2,1fr);}
   .str-grid{grid-template-columns:1fr;gap:36px;}
   .related-inner{padding:56px 40px;}
 }
@@ -495,6 +511,9 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
   .flow-step .num{margin-bottom:18px;}
   .svc-head{margin-bottom:40px;}
   .svc{padding:28px 24px 26px;}
+  .uc-grid{grid-template-columns:1fr;gap:14px;}
+  .uc{padding:24px 22px;}
+  .uc-head{margin-bottom:36px;}
   .str-head{margin-bottom:40px;}
   .str-grid{gap:30px;}
   .founder-grid,.why-grid{gap:32px;}
@@ -694,6 +713,54 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
         <div class="svc-title"><div class="en">Product Design</div><div class="jp">プロダクト設計</div></div>
         <div class="svc-desc">顧客課題から逆算した、システム・CRM・管理画面・診断機能の設計と実装。作ることを目的にせず、状態変化を起こすためのプロダクトを形にします。</div>
         <div class="svc-tags"><span>システム</span><span>CRM</span><span>管理画面</span><span>診断機能</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecases" id="usecases">
+  <div class="wrap">
+    <div class="uc-head reveal">
+      <span class="eyebrow">Use Cases</span>
+      <h2>こんな使い方が、できます。<span class="j">課題から逆算した、活用例。</span></h2>
+    </div>
+    <div class="uc-grid">
+      <article class="uc reveal">
+        <span class="uc-tag">店舗・事業者</span>
+        <p class="uc-problem">「予約も顧客管理もバラバラで、手間がかかる」</p>
+        <span class="uc-arrow">↓</span>
+        <p class="uc-solution">顧客データを一元化する<strong>CRM・管理画面</strong>を設計し、現場の手間を削減。</p>
+      </article>
+      <article class="uc reveal d1">
+        <span class="uc-tag">店舗・事業者</span>
+        <p class="uc-problem">「新規は来るのに、続かない・リピートしない」</p>
+        <span class="uc-arrow">↓</span>
+        <p class="uc-solution"><strong>顧客体験とフォロー導線を再設計</strong>し、継続率と紹介を伸ばす。</p>
+      </article>
+      <article class="uc reveal d2">
+        <span class="uc-tag">店舗・事業者</span>
+        <p class="uc-problem">「問い合わせや予約対応に追われ、手が回らない」</p>
+        <span class="uc-arrow">↓</span>
+        <p class="uc-solution">予約・問い合わせ・リマインドを<strong>AIで自動化</strong>し、本質的な仕事に集中。</p>
+      </article>
+      <article class="uc reveal">
+        <span class="uc-tag">店舗・事業者</span>
+        <p class="uc-problem">「次の柱になる新規事業を立ち上げたい」</p>
+        <span class="uc-arrow">↓</span>
+        <p class="uc-solution">顧客理解から<strong>新規事業を企画・立ち上げ</strong>、営業・推進まで並走。</p>
+      </article>
+      <article class="uc reveal d1">
+        <span class="uc-tag">個人・生活者</span>
+        <p class="uc-problem">「自分の悩みを、どう解決すればいいか分からない」</p>
+        <span class="uc-arrow">↓</span>
+        <p class="uc-solution">状態を可視化する<strong>診断機能やコンテンツ</strong>を設計し、変化を後押し。</p>
+      </article>
+      <article class="uc reveal d2">
+        <span class="uc-tag">個人・生活者</span>
+        <p class="uc-problem">「発信やブランドを立ち上げたい」</p>
+        <span class="uc-arrow">↓</span>
+        <p class="uc-solution"><strong>ブランド・メディアの立ち上げと運営</strong>（取材・コミュニティ形成）を伴走。</p>
       </article>
     </div>
   </div>

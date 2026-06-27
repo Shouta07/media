@@ -183,15 +183,11 @@ section{position:relative;}
 @keyframes float-c{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,-30px) scale(1.18);}}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 35%,#000,transparent 78%);-webkit-mask-image:radial-gradient(circle at 50% 35%,#000,transparent 78%);opacity:0.6;}
 
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1.04fr 0.96fr;gap:52px;align-items:center;}
-.hero-copy{min-width:0;}
-.hero-media{position:relative;min-width:0;}
-.hero-media img{display:block;width:100%;aspect-ratio:1024/576;object-fit:cover;border-radius:22px;box-shadow:0 26px 56px rgba(16,19,15,0.16);}
-.hero-media::after{content:"";position:absolute;inset:0;border-radius:22px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.5);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 48px;}
 .hero h1{
   font-family:var(--sans);font-weight:800;
-  font-size:clamp(44px,6.1vw,84px);line-height:0.98;letter-spacing:-0.035em;
-  color:var(--ink);margin-bottom:28px;
+  font-size:clamp(46px,7.6vw,104px);line-height:0.98;letter-spacing:-0.035em;
+  color:var(--ink);margin-bottom:30px;
 }
 .hero h1 .line{display:block;overflow:hidden;padding-bottom:0.16em;margin-bottom:-0.16em;}
 .hero h1 .line > span{display:inline-block;transform:translateY(110%);transition:transform 0.9s cubic-bezier(0.16,1,0.3,1);}
@@ -470,8 +466,6 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 
 /* ===== responsive ===== */
 @media (max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:38px;}
-  .hero-media{max-width:600px;}
   .why-grid,.founder-grid,.related-grid,.company-grid{grid-template-columns:1fr;gap:44px;}
   .concerns-grid{grid-template-columns:repeat(2,1fr);}
   .phil-flow{grid-template-columns:1fr;}
@@ -559,22 +553,17 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
     <div class="orb dot bob" style="width:9px;height:9px;top:62%;right:38%;" data-depth="0.18"></div>
   </div>
   <div class="hero-inner">
-    <div class="hero-copy">
-      <h1>
-        <span class="line l1"><span>We Design</span></span>
-        <span class="line l2"><span><em>Vitality.</em></span></span>
-      </h1>
-      <p class="hero-jp">人と組織の活力を、設計する。</p>
-      <p class="hero-lead">
-        サロン・ジム・クリニックなどの現場ビジネスや中小企業へ。<strong>営業戦略・顧客体験・AI活用・システム開発</strong>までを一気通貫で支援し、<strong>売上と継続率</strong>を伸ばします。提案だけで終わらせず、現場に立って動くパートナーです。
-      </p>
-      <div class="hero-actions">
-        <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
-        <a class="btn ghost" href="#services"><span>4つの設計領域を見る</span></a>
-      </div>
-    </div>
-    <div class="hero-media reveal d2">
-      <img src="/hero.webp" alt="サロン・クリニックの接客、フェイシャルケア、悩みを抱える女性、業務に追われる経営者" width="1024" height="576" decoding="async" fetchpriority="high">
+    <h1>
+      <span class="line l1"><span>We Design</span></span>
+      <span class="line l2"><span><em>Vitality.</em></span></span>
+    </h1>
+    <p class="hero-jp">人と組織の活力を、設計する。</p>
+    <p class="hero-lead">
+      サロン・ジム・クリニックなどの現場ビジネスや中小企業へ。<strong>営業戦略・顧客体験・AI活用・システム開発</strong>までを一気通貫で支援し、<strong>売上と継続率</strong>を伸ばします。提案だけで終わらせず、現場に立って動くパートナーです。
+    </p>
+    <div class="hero-actions">
+      <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
+      <a class="btn ghost" href="#services"><span>4つの設計領域を見る</span></a>
     </div>
   </div>
 </section>

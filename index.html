@@ -9,6 +9,8 @@
 <meta property="og:description" content="人と組織の活力を設計する。顧客理解から始め、事業の状態変化を生み出す。">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B6E4F">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -476,10 +478,10 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 <nav class="nav">
   <a href="/" class="nav-brand" aria-label="Vitality Design LLC home">
     <span class="nav-mark">
-      <svg viewBox="0 0 30 30" fill="none" aria-hidden="true">
-        <circle cx="15" cy="15" r="13.5" stroke="#10130F" stroke-width="1.2"/>
-        <path d="M5 18 Q10 6 15 15 Q20 24 25 10" stroke="url(#ng)" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <defs><linearGradient id="ng" x1="5" y1="6" x2="25" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset="1" stop-color="#14B870"/></linearGradient></defs>
+      <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="22" cy="22" r="17" stroke="#10130F" stroke-width="2"/>
+        <path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="url(#ng)" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <defs><linearGradient id="ng" x1="10" y1="30" x2="40" y2="6" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset=".55" stop-color="#0FA890"/><stop offset="1" stop-color="#14B870"/></linearGradient></defs>
       </svg>
     </span>
     <span class="nav-name">
@@ -786,10 +788,10 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
     <div class="footer-brand">
       <div class="top">
         <span class="nav-mark">
-          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true">
-            <circle cx="15" cy="15" r="13.5" stroke="#10130F" stroke-width="1.2"/>
-            <path d="M5 18 Q10 6 15 15 Q20 24 25 10" stroke="url(#ng2)" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <defs><linearGradient id="ng2" x1="5" y1="6" x2="25" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset="1" stop-color="#14B870"/></linearGradient></defs>
+          <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="17" stroke="#10130F" stroke-width="2"/>
+            <path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="url(#ng2)" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <defs><linearGradient id="ng2" x1="10" y1="30" x2="40" y2="6" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset=".55" stop-color="#0FA890"/><stop offset="1" stop-color="#14B870"/></linearGradient></defs>
           </svg>
         </span>
         <span class="fb-en">Vitality Design LLC</span>
@@ -942,7 +944,6 @@ if(!reduce){
   /* hero pointer parallax — meshes, orbs, and headline depth */
   const hero = document.querySelector('.hero');
   const layers = [...document.querySelectorAll('.hero [data-depth]')];
-  const heroInner = document.querySelector('.hero-inner');
   let tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
   const loop = () => {
     cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
@@ -950,7 +951,6 @@ if(!reduce){
       const d = parseFloat(l.dataset.depth);
       l.style.transform = `translate(${cx * d * -1}px, ${cy * d * -1}px)`;
     });
-    if(heroInner) heroInner.style.transform = `translate(${cx * 0.012}px, ${cy * 0.012}px)`;
     if(Math.abs(tx - cx) > 0.3 || Math.abs(ty - cy) > 0.3){ raf = requestAnimationFrame(loop); }
     else raf = null;
   };

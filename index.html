@@ -125,9 +125,9 @@ section{position:relative;}
 /* hero headline subtle 3D depth on pointer */
 .hero-inner{will-change:transform;}
 /* shimmer the live gradient fills */
-.svc-index,.phil-belief .accent,.progress,.stat::before{background-size:220% 220%;animation:shimmer 5s ease infinite;}
+.svc-index,.progress{background-size:220% 220%;animation:shimmer 5s ease infinite;}
 @media (prefers-reduced-motion:reduce){
-  .shimmer,.orb.spin,.bob,.svc-index,.phil-belief .accent,.progress,.stat::before{animation:none !important;}
+  .shimmer,.orb.spin,.bob,.svc-index,.progress{animation:none !important;}
   .reveal.from-l,.reveal.from-r,.reveal.zoom{transform:none;}
 }
 
@@ -218,16 +218,6 @@ section{position:relative;}
 .btn.ghost:hover{border-color:var(--green);color:var(--green);transform:translateY(-3px);}
 
 
-/* ===== STATS / TRUST BAND ===== */
-.stats{padding:96px 0;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
-.stat{position:relative;padding-left:22px;}
-.stat::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--grad);}
-.stat .num{font-family:var(--sans);font-weight:800;font-size:clamp(40px,5vw,62px);line-height:1;letter-spacing:-0.04em;color:var(--ink);}
-.stat .num .unit{font-size:0.42em;font-weight:700;color:var(--green);margin-left:4px;letter-spacing:0;}
-.stat .label{font-family:var(--jp);font-size:13.5px;font-weight:600;color:var(--ink-soft);margin-top:14px;letter-spacing:0.02em;}
-.stat .sub{font-family:var(--jp);font-size:12px;color:var(--ink-faint);margin-top:4px;}
-
 /* ===== CONCERNS (課題) ===== */
 .concerns{padding:118px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
 .concerns-head{text-align:center;max-width:720px;margin:0 auto 56px;}
@@ -298,15 +288,6 @@ section{position:relative;}
 .flow-step .ico svg{width:24px;height:24px;stroke:var(--green);}
 .flow-step h3{font-family:var(--jp);font-weight:700;font-size:19px;color:var(--ink);letter-spacing:0.01em;margin-bottom:12px;}
 .flow-step p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:1.95;color:var(--ink-faint);}
-
-.phil-belief{margin-top:80px;text-align:center;max-width:840px;margin-left:auto;margin-right:auto;}
-.phil-belief .lines span{
-  display:block;font-family:var(--jp);font-weight:700;
-  font-size:clamp(19px,2.5vw,30px);line-height:1.75;letter-spacing:0.01em;color:var(--ink);
-}
-.phil-belief .lines span.dim{color:var(--ink-mute);}
-.phil-belief .lines span.accent{color:transparent;background:var(--grad);-webkit-background-clip:text;background-clip:text;}
-.phil-belief .note{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-faint);margin-top:28px;}
 
 /* ===== SERVICES ===== */
 .services{padding:118px 0;background:var(--night);color:var(--bg);position:relative;overflow:hidden;}
@@ -486,7 +467,6 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 /* ===== responsive ===== */
 @media (max-width:1024px){
   .why-grid,.founder-grid,.related-grid,.company-grid{grid-template-columns:1fr;gap:44px;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 32px;}
   .concerns-grid{grid-template-columns:repeat(2,1fr);}
   .phil-flow{grid-template-columns:1fr;}
   .svc-grid{grid-template-columns:1fr;}
@@ -500,9 +480,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
   /* tighter vertical rhythm so mobile isn't endless scrolling */
   .hero{padding:48px 0 44px;}
   .why,.philosophy,.services,.strengths,.founder,.related,.contact,.company,.concerns{padding:52px 0;}
-  .stats{padding:40px 0;}
-  /* keep numeric blocks in 2 columns instead of stacking */
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:28px 20px;}
+  /* keep concern cards in 2 columns instead of stacking */
   .concerns-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
   .concern{flex-direction:column;gap:12px;padding:18px 16px;}
   .concern-check{width:30px;height:30px;}
@@ -519,7 +497,6 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
   .svc{padding:28px 24px 26px;}
   .str-head{margin-bottom:40px;}
   .str-grid{gap:30px;}
-  .phil-belief{margin-top:48px;}
   .founder-grid,.why-grid{gap:32px;}
   .company-table .row{grid-template-columns:1fr;gap:5px;padding:16px 0;}
   .related-inner{padding:38px 24px;}
@@ -587,34 +564,6 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
     <div class="hero-actions">
       <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
       <a class="btn ghost" href="#services"><span>4つの設計領域を見る</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- STATS / TRUST -->
-<section class="stats">
-  <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat reveal">
-        <div class="num"><span class="val" data-count="4">0</span><span class="unit">領域</span></div>
-        <div class="label">設計領域で一気通貫</div>
-        <div class="sub">事業開発から実装まで</div>
-      </div>
-      <div class="stat reveal d1">
-        <div class="num"><span class="unit" style="margin-left:0;margin-right:2px;">1st</span></div>
-        <div class="label">顧客理解を、起点に</div>
-        <div class="sub">すべての設計の第一歩</div>
-      </div>
-      <div class="stat reveal d2">
-        <div class="num"><span class="val" data-count="100">0</span><span class="unit">%</span></div>
-        <div class="label">当事者として並走</div>
-        <div class="sub">提案で終わらせない</div>
-      </div>
-      <div class="stat reveal d3">
-        <div class="num">∞</div>
-        <div class="label">状態変化を生み続ける</div>
-        <div class="sub">活力は、結果である</div>
-      </div>
     </div>
   </div>
 </section>
@@ -709,15 +658,6 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
         <h3>状態変化を設計する</h3>
         <p>その上で、必要な手段を選び、組み合わせる。手段が目的化しない設計を行う。</p>
       </div>
-    </div>
-
-    <div class="phil-belief reveal d1">
-      <div class="lines">
-        <span class="dim">AIは、目的ではない。システムも、目的ではない。</span>
-        <span>顧客が変わる。現場が変わる。組織が変わる。</span>
-        <span class="accent">その状態変化こそが、価値である。</span>
-      </div>
-      <p class="note">We believe vitality is the outcome, not the tool.</p>
     </div>
   </div>
 </section>
@@ -996,26 +936,7 @@ const onScroll = () => {
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-/* animated counters */
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const counters = document.querySelectorAll('.val[data-count]');
-const cio = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(!e.isIntersecting) return;
-    const el = e.target;
-    cio.unobserve(el);
-    const target = parseInt(el.getAttribute('data-count'), 10);
-    if(reduce){ el.textContent = target; return; }
-    const dur = 1200, t0 = performance.now();
-    const tick = (now) => {
-      const k = Math.min(1, (now - t0) / dur);
-      el.textContent = Math.round((1 - Math.pow(1 - k, 3)) * target);
-      if(k < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  });
-}, { threshold: 0.6 });
-counters.forEach(c => cio.observe(c));
 
 /* service card pointer glow + 3D tilt */
 document.querySelectorAll('.svc').forEach(card => {

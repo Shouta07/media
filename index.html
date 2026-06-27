@@ -497,17 +497,39 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
   .wrap,.hero-inner,.footer-inner,.footer-base{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}
   .nav-links{display:none;}
-  .hero{padding:80px 0 64px;}
-  .why,.philosophy,.services,.strengths,.founder,.related,.contact,.company{padding:78px 0;}
-  .stats{padding:64px 0;}
-  .stats-grid{grid-template-columns:1fr;gap:34px;}
-  .concerns,.concerns + .why{padding-top:78px;}
-  .concerns-grid{grid-template-columns:1fr;}
-  .company-table .row{grid-template-columns:1fr;gap:6px;}
-  .related-inner{padding:40px 26px;}
+  /* tighter vertical rhythm so mobile isn't endless scrolling */
+  .hero{padding:48px 0 44px;}
+  .why,.philosophy,.services,.strengths,.founder,.related,.contact,.company,.concerns{padding:52px 0;}
+  .stats{padding:40px 0;}
+  /* keep numeric blocks in 2 columns instead of stacking */
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:28px 20px;}
+  .concerns-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .concern{flex-direction:column;gap:12px;padding:18px 16px;}
+  .concern-check{width:30px;height:30px;}
+  .concern p{font-size:13.5px;line-height:1.65;}
+  .concerns-head{margin-bottom:32px;}
+  .concerns-bridge{margin-top:32px;}
+  /* trim oversized section heads & card padding */
+  .why-body p,.founder-body p{font-size:15.5px;line-height:1.95;margin-bottom:20px;}
+  .phil-head{margin-bottom:40px;}
+  .phil-flow{gap:14px;}
+  .flow-step{padding:28px 24px 26px;}
+  .flow-step .num{margin-bottom:18px;}
+  .svc-head{margin-bottom:40px;}
+  .svc{padding:28px 24px 26px;}
+  .str-head{margin-bottom:40px;}
+  .str-grid{gap:30px;}
+  .phil-belief{margin-top:48px;}
+  .founder-grid,.why-grid{gap:32px;}
+  .company-table .row{grid-template-columns:1fr;gap:5px;padding:16px 0;}
+  .related-inner{padding:38px 24px;}
+  .related-grid{gap:34px;}
   .footer-nav{gap:32px;}
-  .modal-dialog{padding:38px 24px 32px;border-radius:18px;}
+  .modal-dialog{padding:36px 22px 30px;border-radius:18px;}
   .field-row{grid-template-columns:1fr;}
+}
+@media (max-width:380px){
+  .concerns-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>

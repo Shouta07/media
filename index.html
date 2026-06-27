@@ -192,14 +192,6 @@ section{position:relative;}
 .btn.ghost{color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,0.5);}
 .btn.ghost:hover{border-color:var(--green);color:var(--green);transform:translateY(-3px);}
 
-/* ===== MARQUEE ===== */
-.marquee{margin-top:72px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative;z-index:2;}
-.marquee-track{display:flex;gap:0;width:max-content;animation:scroll-x 34s linear infinite;}
-.marquee:hover .marquee-track{animation-play-state:paused;}
-.marquee-item{display:inline-flex;align-items:center;gap:26px;padding-right:26px;font-family:var(--sans);font-weight:700;font-size:clamp(18px,2.4vw,30px);letter-spacing:-0.01em;color:var(--ink);white-space:nowrap;}
-.marquee-item .sep{color:var(--green-bright);font-size:0.7em;}
-.marquee-item .muted{color:var(--ink-mute);}
-@keyframes scroll-x{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ===== STATS / TRUST BAND ===== */
 .stats{padding:96px 0;}
@@ -549,14 +541,6 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
     <div class="hero-actions">
       <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
       <a class="btn ghost" href="#services"><span>4つの設計領域を見る</span></a>
-    </div>
-  </div>
-
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item">継続率を上げる<span class="sep">✦</span><span class="muted">紹介が生まれる導線</span><span class="sep">✦</span>新規事業の立ち上げ<span class="sep">✦</span><span class="muted">AIで業務を自動化</span><span class="sep">✦</span>CRM・管理画面の設計<span class="sep">✦</span><span class="muted">営業戦略の立案</span><span class="sep">✦</span>オペレーション構築<span class="sep">✦</span></span>
-      <span class="marquee-item">継続率を上げる<span class="sep">✦</span><span class="muted">紹介が生まれる導線</span><span class="sep">✦</span>新規事業の立ち上げ<span class="sep">✦</span><span class="muted">AIで業務を自動化</span><span class="sep">✦</span>CRM・管理画面の設計<span class="sep">✦</span><span class="muted">営業戦略の立案</span><span class="sep">✦</span>オペレーション構築<span class="sep">✦</span></span>
     </div>
   </div>
 </section>

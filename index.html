@@ -64,6 +64,38 @@ section{position:relative;}
 .jp{font-family:var(--jp);}
 .gradient-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
+/* ===== extra motion ===== */
+/* animated gradient shimmer on accent text/fills */
+.shimmer{background-size:220% 220% !important;animation:shimmer 5s ease infinite;}
+@keyframes shimmer{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+/* directional reveals */
+.reveal.from-l{transform:translateX(-44px) translateY(0);}
+.reveal.from-r{transform:translateX(44px) translateY(0);}
+.reveal.from-l.visible,.reveal.from-r.visible{transform:none;}
+.reveal.zoom{transform:scale(0.94);} .reveal.zoom.visible{transform:scale(1);}
+/* floating decorative orbs */
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;}
+.orb.ring{border:1.5px solid rgba(11,110,79,0.22);background:transparent;}
+.orb.dot{background:var(--grad);box-shadow:0 0 0 6px rgba(20,184,112,0.10);}
+.orb.spin{animation:spin 18s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.bob{animation:bob 6s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+.bob.slow{animation-duration:9s;}
+/* tilt setup */
+.svc-grid{perspective:1200px;}
+.svc{transform-style:preserve-3d;will-change:transform;}
+/* CTA magnet wrapper keeps layout, inner moves */
+.btn{will-change:transform;}
+/* hero headline subtle 3D depth on pointer */
+.hero-inner{will-change:transform;}
+/* shimmer the live gradient fills */
+.svc-index,.phil-belief .accent,.progress,.stat::before{background-size:220% 220%;animation:shimmer 5s ease infinite;}
+@media (prefers-reduced-motion:reduce){
+  .shimmer,.orb.spin,.bob,.svc-index,.phil-belief .accent,.progress,.stat::before{animation:none !important;}
+  .reveal.from-l,.reveal.from-r,.reveal.zoom{transform:none;}
+}
+
 /* ===== reveal ===== */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.95s cubic-bezier(0.16,1,0.3,1),transform 0.95s cubic-bezier(0.16,1,0.3,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -419,9 +451,13 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 <section class="hero" id="top">
   <div class="hero-bg" aria-hidden="true">
     <div class="hero-grid-lines"></div>
-    <div class="hero-mesh a"></div>
-    <div class="hero-mesh b"></div>
-    <div class="hero-mesh c"></div>
+    <div class="hero-mesh a" data-depth="0.04"></div>
+    <div class="hero-mesh b" data-depth="0.07"></div>
+    <div class="hero-mesh c" data-depth="0.10"></div>
+    <div class="orb ring bob" style="width:120px;height:120px;top:18%;right:14%;" data-depth="0.16"></div>
+    <div class="orb ring spin" style="width:230px;height:230px;bottom:8%;right:26%;border-style:dashed;opacity:0.5;" data-depth="0.08"></div>
+    <div class="orb dot bob slow" style="width:14px;height:14px;top:34%;right:8%;" data-depth="0.22"></div>
+    <div class="orb dot bob" style="width:9px;height:9px;top:62%;right:38%;" data-depth="0.18"></div>
   </div>
   <div class="hero-inner">
     <span class="hero-badge"><span class="dot"></span>顧客理解から始める、事業開発パートナー</span>
@@ -480,10 +516,10 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 <section class="why" id="why">
   <div class="wrap">
     <div class="why-grid">
-      <div class="reveal">
+      <div class="reveal from-l">
         <h2>Why <em>Vitality</em>?<span class="why-jp">なぜ、活力なのか。</span></h2>
       </div>
-      <div class="why-body reveal d1">
+      <div class="why-body reveal from-r d1">
         <p>
           現代は、AIによって<strong>システムを作ること自体の価値が下がっている</strong>時代です。誰もが、速く、安く、ものを作れるようになりました。
         </p>
@@ -637,7 +673,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 <!-- RELATED -->
 <section class="related" id="related">
   <div class="wrap">
-    <div class="related-inner reveal">
+    <div class="related-inner reveal zoom">
       <div class="related-grid">
         <div>
           <span class="eyebrow">Related Project</span>
@@ -782,14 +818,58 @@ const cio = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 counters.forEach(c => cio.observe(c));
 
-/* service card pointer glow */
+/* service card pointer glow + 3D tilt */
 document.querySelectorAll('.svc').forEach(card => {
+  const reset = () => { card.style.transform = ''; };
   card.addEventListener('pointermove', (ev) => {
     const r = card.getBoundingClientRect();
-    card.style.setProperty('--mx', ((ev.clientX - r.left) / r.width * 100) + '%');
-    card.style.setProperty('--my', ((ev.clientY - r.top) / r.height * 100) + '%');
+    const px = (ev.clientX - r.left) / r.width;
+    const py = (ev.clientY - r.top) / r.height;
+    card.style.setProperty('--mx', (px * 100) + '%');
+    card.style.setProperty('--my', (py * 100) + '%');
+    if(reduce) return;
+    const rx = (0.5 - py) * 9;   // rotateX
+    const ry = (px - 0.5) * 11;  // rotateY
+    card.style.transform = `translateY(-7px) rotateX(${rx}deg) rotateY(${ry}deg)`;
   });
+  card.addEventListener('pointerleave', reset);
 });
+
+if(!reduce){
+  /* hero pointer parallax — meshes, orbs, and headline depth */
+  const hero = document.querySelector('.hero');
+  const layers = [...document.querySelectorAll('.hero [data-depth]')];
+  const heroInner = document.querySelector('.hero-inner');
+  let tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+  const loop = () => {
+    cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+    layers.forEach(l => {
+      const d = parseFloat(l.dataset.depth);
+      l.style.transform = `translate(${cx * d * -1}px, ${cy * d * -1}px)`;
+    });
+    if(heroInner) heroInner.style.transform = `translate(${cx * 0.012}px, ${cy * 0.012}px)`;
+    if(Math.abs(tx - cx) > 0.3 || Math.abs(ty - cy) > 0.3){ raf = requestAnimationFrame(loop); }
+    else raf = null;
+  };
+  hero.addEventListener('pointermove', (ev) => {
+    const r = hero.getBoundingClientRect();
+    tx = ev.clientX - r.left - r.width / 2;
+    ty = ev.clientY - r.top - r.height / 2;
+    if(!raf) raf = requestAnimationFrame(loop);
+  });
+  hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; if(!raf) raf = requestAnimationFrame(loop); });
+
+  /* magnetic buttons */
+  document.querySelectorAll('.btn, .nav-cta').forEach(btn => {
+    btn.addEventListener('pointermove', (ev) => {
+      const r = btn.getBoundingClientRect();
+      const mx = ev.clientX - r.left - r.width / 2;
+      const my = ev.clientY - r.top - r.height / 2;
+      btn.style.transform = `translate(${mx * 0.28}px, ${my * 0.4}px)`;
+    });
+    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+  });
+}
 </script>
 
 </body>

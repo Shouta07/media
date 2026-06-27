@@ -394,6 +394,55 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 .footer-base a{color:var(--ink-faint);}
 .footer-base a:hover{color:var(--ink);}
 
+/* ===== CONTACT MODAL ===== */
+.modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;visibility:hidden;opacity:0;transition:opacity 0.35s ease,visibility 0s linear 0.35s;}
+.modal.open{visibility:visible;opacity:1;transition:opacity 0.35s ease;}
+.modal-overlay{position:absolute;inset:0;background:rgba(8,14,11,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+.modal-dialog{
+  position:relative;width:100%;max-width:560px;max-height:calc(100vh - 48px);overflow-y:auto;
+  background:var(--card);border-radius:22px;border:1px solid var(--line);
+  box-shadow:0 40px 90px rgba(8,14,11,0.30);padding:44px 44px 40px;
+  transform:translateY(24px) scale(0.97);transition:transform 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+.modal.open .modal-dialog{transform:none;}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border:1px solid var(--line);background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-soft);font-size:18px;line-height:1;transition:background 0.3s,color 0.3s,transform 0.3s;}
+.modal-close:hover{background:var(--ink);color:#fff;transform:rotate(90deg);}
+.modal-eyebrow{margin-bottom:18px;}
+.modal-dialog h3{font-family:var(--sans);font-weight:800;font-size:clamp(24px,3.4vw,32px);line-height:1.1;letter-spacing:-0.02em;color:var(--ink);}
+.modal-dialog h3 em{font-family:var(--serif);font-style:italic;font-weight:300;}
+.modal-sub{font-family:var(--jp);font-size:14px;font-weight:500;line-height:1.85;color:var(--ink-faint);margin-top:14px;}
+.form{margin-top:26px;display:flex;flex-direction:column;gap:16px;}
+.field{display:flex;flex-direction:column;gap:7px;}
+.field label{font-family:var(--jp);font-size:12.5px;font-weight:700;color:var(--ink-soft);letter-spacing:0.03em;}
+.field label .req{color:var(--green);margin-left:4px;}
+.field input,.field textarea,.field select{
+  font-family:var(--jp);font-size:14.5px;font-weight:500;color:var(--ink);
+  padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--bg);
+  transition:border-color 0.25s,box-shadow 0.25s,background 0.25s;width:100%;resize:vertical;
+}
+.field textarea{min-height:108px;line-height:1.7;}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(20,184,112,0.12);}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-mute);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-submit{margin-top:6px;width:100%;justify-content:center;border:none;cursor:pointer;font-size:15px;}
+.form-submit[disabled]{opacity:0.6;cursor:wait;}
+.form-note{font-family:var(--jp);font-size:11.5px;color:var(--ink-mute);text-align:center;line-height:1.7;}
+.form-note a{color:var(--green);}
+.form-status{font-family:var(--jp);font-size:13.5px;font-weight:600;line-height:1.7;padding:12px 15px;border-radius:12px;display:none;}
+.form-status.err{display:block;background:rgba(194,65,12,0.08);color:#B23B0E;border:1px solid rgba(194,65,12,0.2);}
+.form-success{display:none;text-align:center;padding:14px 0 4px;}
+.form-success .check{width:62px;height:62px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;font-size:30px;}
+.form-success h4{font-family:var(--sans);font-weight:800;font-size:23px;letter-spacing:-0.01em;color:var(--ink);margin-bottom:12px;}
+.form-success p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:1.9;color:var(--ink-soft);}
+.modal.sent .form{display:none;}
+.modal.sent .form-success{display:block;}
+.modal.sent .modal-sub{display:none;}
+@media (prefers-reduced-motion:reduce){
+  .modal,.modal.open{transition:opacity 0.2s;}
+  .modal-dialog{transition:none;transform:none;}
+  .modal-close:hover{transform:none;}
+}
+
 /* ===== responsive ===== */
 @media (max-width:1024px){
   .why-grid,.founder-grid,.related-grid,.company-grid{grid-template-columns:1fr;gap:44px;}
@@ -414,6 +463,8 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
   .company-table .row{grid-template-columns:1fr;gap:6px;}
   .related-inner{padding:40px 26px;}
   .footer-nav{gap:32px;}
+  .modal-dialog{padding:38px 24px 32px;border-radius:18px;}
+  .field-row{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -444,7 +495,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
     <a href="#founder">Founder</a>
     <a href="#company">Company</a>
   </div>
-  <a href="#contact" class="nav-cta">お問い合わせ</a>
+  <a href="#contact" class="nav-cta" data-open-contact>お問い合わせ</a>
 </nav>
 
 <!-- HERO -->
@@ -470,7 +521,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
       私たちはシステム開発会社でも、AI導入会社でも、コンサルティング会社でもありません。顧客理解から始め、事業の<strong>状態変化</strong>そのものを生み出すパートナーです。
     </p>
     <div class="hero-actions">
-      <a class="btn solid" href="#contact"><span>無料で相談する</span><span class="arr">→</span></a>
+      <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
       <a class="btn ghost" href="#services"><span>4つの設計領域を見る</span></a>
     </div>
   </div>
@@ -680,7 +731,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
           <div class="related-name">His <em>Recoveries</em></div>
           <div class="related-tag">男性の状態変化を記録するブランド</div>
           <div class="related-themes"><span>AGA</span><span>多汗症</span><span>ニキビ</span><span>睡眠</span><span>清潔感</span></div>
-          <a class="related-link" href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">View the project<span>↗</span></a>
+          <a class="related-link" href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">View the project<span>↗</span></a>
         </div>
         <div class="related-body">
           <p>誰にも相談しづらい悩みと向き合い、自信を取り戻していく過程を記録する。それが His Recoveries です。</p>
@@ -703,7 +754,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
         <span>サロン経営者</span><span>ジム経営者</span><span>クリニック経営者</span><span>現場ビジネス経営者</span><span>スタートアップ経営者</span><span>中小企業経営者</span>
       </div>
       <div class="contact-actions reveal d2">
-        <a class="btn bright" href="mailto:contact@vitality-design.jp"><span>無料で相談する</span><span class="arr">→</span></a>
+        <a class="btn bright" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
         <a class="btn outline" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a>
       </div>
     </div>
@@ -722,7 +773,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
         <div class="row"><div class="th">会社名</div><div class="td">バイタリティデザイン合同会社<br>Vitality Design LLC</div></div>
         <div class="row"><div class="th">事業内容</div><div class="td">事業開発支援 / 顧客体験設計 / AI活用支援 / プロダクト設計</div></div>
         <div class="row"><div class="th">ミッション</div><div class="td">人と組織の活力を、設計する。<br>顧客理解から始め、事業の状態変化を生み出す。</div></div>
-        <div class="row"><div class="th">関連プロジェクト</div><div class="td"><a href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">His Recoveries ↗</a>（男性の状態変化を記録するブランド）</div></div>
+        <div class="row"><div class="th">関連プロジェクト</div><div class="td"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a>（男性の状態変化を記録するブランド）</div></div>
         <div class="row"><div class="th">お問い合わせ</div><div class="td"><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></div></div>
       </div>
     </div>
@@ -764,7 +815,7 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
       </div>
       <div class="footer-col">
         <span class="h">Connect</span>
-        <a href="https://his-recoveries.vercel.app/" target="_blank" rel="noopener">His Recoveries ↗</a>
+        <a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a>
         <a href="#contact">お問い合わせ</a>
         <a href="mailto:contact@vitality-design.jp">Email</a>
       </div>
@@ -775,6 +826,57 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
     <span>We Design Vitality.</span>
   </div>
 </footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" aria-hidden="true">
+  <div class="modal-overlay" data-close-contact></div>
+  <div class="modal-dialog">
+    <button class="modal-close" type="button" aria-label="閉じる" data-close-contact>&times;</button>
+    <span class="eyebrow modal-eyebrow">Contact</span>
+    <h3 id="contactModalTitle">無料で、<em>相談する。</em></h3>
+    <p class="modal-sub">いまの課題と現場について、まずは静かに対話することから。いただいた内容をもとに、担当より折り返しご連絡します。</p>
+
+    <form class="form" id="contactForm" novalidate>
+      <div class="form-status err" id="formError" role="alert"></div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">お名前<span class="req">*</span></label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="山田 太郎">
+        </div>
+        <div class="field">
+          <label for="f-company">会社名 / 事業名</label>
+          <input type="text" id="f-company" name="company" autocomplete="organization" placeholder="株式会社○○">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-email">メールアドレス<span class="req">*</span></label>
+        <input type="email" id="f-email" name="email" autocomplete="email" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="f-type">ご相談の種類</label>
+        <select id="f-type" name="type">
+          <option value="事業開発支援">事業開発支援</option>
+          <option value="顧客体験設計">顧客体験設計</option>
+          <option value="AI活用支援">AI活用支援</option>
+          <option value="プロダクト設計">プロダクト設計</option>
+          <option value="まだ決まっていない / その他">まだ決まっていない / その他</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-message">ご相談内容<span class="req">*</span></label>
+        <textarea id="f-message" name="message" required placeholder="現状の課題や、実現したいことなどをお聞かせください。"></textarea>
+      </div>
+      <button class="btn solid form-submit" type="submit" id="formSubmit"><span>この内容で送信する</span><span class="arr">→</span></button>
+      <p class="form-note">送信いただいた内容は <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> 宛に届きます。営業目的の連絡はご遠慮ください。</p>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="check" aria-hidden="true">✓</div>
+      <h4>送信しました。</h4>
+      <p>お問い合わせありがとうございます。<br>内容を確認のうえ、2〜3営業日以内に担当よりご連絡いたします。</p>
+    </div>
+  </div>
+</div>
 
 <script>
 /* hero intro */
@@ -870,6 +972,100 @@ if(!reduce){
     btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
   });
 }
+
+/* ===== CONTACT MODAL + IN-PAGE FORM ===== */
+/* To enable true in-site sending (no page transition / no mail app), paste a
+   form endpoint below — e.g. a Formspree URL: "https://formspree.io/f/xxxxxxx".
+   While this is empty the form gracefully falls back to the user's mail client. */
+const FORM_ENDPOINT = '';
+const CONTACT_EMAIL = 'contact@vitality-design.jp';
+
+const modal = document.getElementById('contactModal');
+const form = document.getElementById('contactForm');
+const formError = document.getElementById('formError');
+const submitBtn = document.getElementById('formSubmit');
+let lastFocused = null;
+
+function openContact(){
+  lastFocused = document.activeElement;
+  modal.classList.remove('sent');
+  formError.style.display = 'none';
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  const first = document.getElementById('f-name');
+  setTimeout(() => first && first.focus(), 60);
+  document.addEventListener('keydown', onModalKey);
+}
+function closeContact(){
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', onModalKey);
+  if(lastFocused) lastFocused.focus();
+}
+function onModalKey(e){
+  if(e.key === 'Escape'){ closeContact(); return; }
+  if(e.key === 'Tab'){
+    const f = modal.querySelectorAll('button, [href], input, select, textarea');
+    const list = [...f].filter(el => !el.disabled && el.offsetParent !== null);
+    if(!list.length) return;
+    const first = list[0], last = list[list.length - 1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+}
+document.querySelectorAll('[data-open-contact]').forEach(el => {
+  el.addEventListener('click', (e) => { e.preventDefault(); openContact(); });
+});
+document.querySelectorAll('[data-close-contact]').forEach(el => {
+  el.addEventListener('click', closeContact);
+});
+
+function showError(msg){ formError.textContent = msg; formError.style.display = 'block'; }
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  formError.style.display = 'none';
+  const data = {
+    name: form.name.value.trim(),
+    company: form.company.value.trim(),
+    email: form.email.value.trim(),
+    type: form.type.value,
+    message: form.message.value.trim()
+  };
+  if(!data.name || !data.email || !data.message){ showError('お名前・メールアドレス・ご相談内容は必須です。'); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){ showError('メールアドレスの形式をご確認ください。'); return; }
+
+  // No endpoint configured → fall back to the mail client (preserves the input).
+  if(!FORM_ENDPOINT){
+    const subject = encodeURIComponent(`【ご相談】${data.type} / ${data.name}様`);
+    const body = encodeURIComponent(
+      `お名前: ${data.name}\n会社名/事業名: ${data.company || '-'}\nメール: ${data.email}\nご相談の種類: ${data.type}\n\n${data.message}`
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    modal.classList.add('sent');
+    return;
+  }
+
+  // Configured → submit in-site via fetch, no page transition.
+  submitBtn.disabled = true;
+  submitBtn.querySelector('span').textContent = '送信中…';
+  try{
+    const res = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if(res.ok){ modal.classList.add('sent'); form.reset(); }
+    else { showError('送信に失敗しました。時間をおいて再度お試しいただくか、メールにてご連絡ください。'); }
+  }catch(err){
+    showError('通信エラーが発生しました。メールにて直接ご連絡ください。');
+  }finally{
+    submitBtn.disabled = false;
+    submitBtn.querySelector('span').textContent = 'この内容で送信する';
+  }
+});
 </script>
 
 </body>

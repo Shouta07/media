@@ -343,6 +343,52 @@ section{position:relative;}
 .str h3{font-family:var(--jp);font-weight:700;font-size:21px;line-height:1.45;color:var(--ink);letter-spacing:0.01em;margin-bottom:16px;}
 .str p{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:1.95;color:var(--ink-soft);}
 
+/* ===== MANIFESTO (purpose-first statements) ===== */
+.manifesto{padding:120px 0;}
+.manifesto.alt{background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.manifesto-inner{max-width:780px;margin:0 auto;text-align:center;}
+.manifesto .eyebrow{margin-bottom:28px;justify-content:center;display:inline-flex;}
+.manifesto h2{font-family:var(--sans);font-weight:800;font-size:clamp(30px,4.8vw,60px);line-height:1.08;letter-spacing:-0.025em;color:var(--ink);}
+.manifesto h2 em{font-family:var(--serif);font-style:italic;font-weight:300;}
+.manifesto h2 .jpline{display:block;font-family:var(--jp);font-weight:900;font-size:clamp(22px,3vw,34px);letter-spacing:0.01em;margin-top:18px;}
+.manifesto .body{margin-top:32px;font-family:var(--jp);font-size:17px;font-weight:500;line-height:2.05;color:var(--ink-soft);letter-spacing:0.01em;}
+.manifesto .body p{margin-bottom:18px;}
+.manifesto .body p:last-child{margin-bottom:0;}
+.manifesto .body strong{color:var(--ink);font-weight:700;}
+.manifesto .pullline{margin-top:34px;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(21px,2.6vw,30px);line-height:1.5;color:var(--clay,#0B6E4F);}
+.manifesto .pullline .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal;font-family:var(--jp);font-weight:700;}
+
+/* ===== VALUE FLOW (Learn / Design / Engineer / Scale / Grow) ===== */
+.value{padding:120px 0;}
+.value-head{max-width:680px;margin-bottom:56px;}
+.value-head .eyebrow{margin-bottom:24px;}
+.value-head h2{font-family:var(--sans);font-weight:800;font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-0.03em;color:var(--ink);}
+.value-head h2 .j{display:block;font-family:var(--jp);font-size:16px;font-weight:600;color:var(--ink-faint);letter-spacing:0.06em;margin-top:16px;}
+.value-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+.value-step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 22px 26px;position:relative;overflow:hidden;transition:transform 0.4s,box-shadow 0.4s,border-color 0.4s;}
+.value-step::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);}
+.value-step:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(16,19,15,0.08);border-color:transparent;}
+.value-step:hover::before{transform:scaleX(1);}
+.value-step .vn{font-family:var(--sans);font-style:italic;font-weight:800;font-size:13px;color:var(--ink-mute);letter-spacing:0.04em;}
+.value-step .ven{font-family:var(--sans);font-weight:800;font-size:21px;letter-spacing:-0.01em;color:var(--ink);margin:14px 0 12px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.value-step p{font-family:var(--jp);font-size:13.5px;font-weight:500;line-height:1.8;color:var(--ink-faint);}
+
+/* ===== WHAT WE BUILD (means, on dark) ===== */
+.build-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;z-index:2;}
+.build-item{display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:22px 24px;transition:background 0.35s,border-color 0.35s,transform 0.35s;}
+.build-item:hover{background:rgba(255,255,255,0.05);border-color:rgba(159,232,112,0.4);transform:translateY(-4px);}
+.build-item .n{font-family:var(--sans);font-style:italic;font-weight:800;font-size:13px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0;}
+.build-item .name{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-0.01em;color:#fff;}
+.build-note{margin-top:34px;position:relative;z-index:2;max-width:680px;font-family:var(--jp);font-size:15.5px;font-weight:500;line-height:1.95;color:rgba(246,247,244,0.72);}
+.build-note strong{color:#fff;font-weight:700;}
+.build-note .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;}
+
+/* ===== CLOSING LINE ===== */
+.closing{padding:130px 0;background:var(--night);color:var(--bg);position:relative;overflow:hidden;text-align:center;}
+.closing .cmesh{position:absolute;width:620px;height:620px;border-radius:50%;filter:blur(90px);pointer-events:none;background:radial-gradient(circle,rgba(20,184,112,0.22),transparent 64%);top:50%;left:50%;transform:translate(-50%,-50%);}
+.closing h2{position:relative;z-index:2;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,4.8vw,60px);line-height:1.18;letter-spacing:-0.01em;color:#fff;}
+.closing h2 .g{font-style:normal;font-family:var(--sans);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+
 /* ===== FOUNDER ===== */
 .founder{padding:118px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);}
 .founder-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start;}
@@ -481,51 +527,29 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
 
 /* ===== responsive ===== */
 @media (max-width:1024px){
-  .why-grid,.founder-grid,.related-grid,.company-grid{grid-template-columns:1fr;gap:44px;}
-  .concerns-grid{grid-template-columns:repeat(2,1fr);}
-  .phil-flow{grid-template-columns:1fr;}
-  .svc-grid{grid-template-columns:1fr;}
-  .uc-grid{grid-template-columns:repeat(2,1fr);}
-  .str-grid{grid-template-columns:1fr;gap:36px;}
+  .founder-grid,.related-grid,.company-grid{grid-template-columns:1fr;gap:44px;}
+  .value-flow{grid-template-columns:repeat(2,1fr);}
+  .build-list{grid-template-columns:repeat(2,1fr);}
   .related-inner{padding:56px 40px;}
 }
 @media (max-width:680px){
   .wrap,.hero-inner,.footer-inner,.footer-base{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}
   .nav-links{display:none;}
-  /* tighter vertical rhythm so mobile isn't endless scrolling */
   .hero{padding:48px 0 44px;}
-  .why,.philosophy,.services,.strengths,.founder,.related,.contact,.company,.concerns{padding:52px 0;}
-  /* keep concern cards in 2 columns instead of stacking */
-  .concerns-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
-  .concern{flex-direction:column;gap:12px;padding:18px 16px;}
-  .concern-check{width:30px;height:30px;}
-  .concern p{font-size:13.5px;line-height:1.65;}
-  .concerns-head{margin-bottom:32px;}
-  .concerns-bridge{margin-top:32px;}
-  /* trim oversized section heads & card padding */
-  .why-body p,.founder-body p{font-size:15.5px;line-height:1.95;margin-bottom:20px;}
-  .phil-head{margin-bottom:40px;}
-  .phil-flow{gap:14px;}
-  .flow-step{padding:28px 24px 26px;}
-  .flow-step .num{margin-bottom:18px;}
-  .svc-head{margin-bottom:40px;}
-  .svc{padding:28px 24px 26px;}
-  .uc-grid{grid-template-columns:1fr;gap:14px;}
-  .uc{padding:24px 22px;}
-  .uc-head{margin-bottom:36px;}
-  .str-head{margin-bottom:40px;}
-  .str-grid{gap:30px;}
-  .founder-grid,.why-grid{gap:32px;}
+  .manifesto,.value,.services,.closing,.founder,.related,.contact,.company{padding:56px 0;}
+  .value-flow{grid-template-columns:1fr;gap:12px;}
+  .value-step{padding:24px 22px;}
+  .build-list{grid-template-columns:1fr;gap:12px;}
+  .value-head,.svc-head{margin-bottom:36px;}
+  .founder-body p{font-size:15.5px;line-height:1.95;margin-bottom:20px;}
+  .founder-grid{gap:32px;}
   .company-table .row{grid-template-columns:1fr;gap:5px;padding:16px 0;}
   .related-inner{padding:38px 24px;}
   .related-grid{gap:34px;}
   .footer-nav{gap:32px;}
   .modal-dialog{padding:36px 22px 30px;border-radius:18px;}
   .field-row{grid-template-columns:1fr;}
-}
-@media (max-width:380px){
-  .concerns-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -549,10 +573,10 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
     </span>
   </a>
   <div class="nav-links">
-    <a href="#why">Why</a>
     <a href="#philosophy">Philosophy</a>
-    <a href="#services">Services</a>
-    <a href="#strengths">Strengths</a>
+    <a href="#value">Process</a>
+    <a href="#build">Build</a>
+    <a href="/principles.html">Principles</a>
     <a href="#founder">Founder</a>
     <a href="#company">Company</a>
   </div>
@@ -576,220 +600,121 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
       <span class="line l1"><span>We Design</span></span>
       <span class="line l2"><span><em>Vitality.</em></span></span>
     </h1>
-    <p class="hero-jp">人と組織の活力を、設計する。</p>
+    <p class="hero-jp">人の活力を、デザインする。</p>
     <p class="hero-lead">
-      企業の事業も、個人の挑戦も。<strong>営業戦略・顧客体験設計・AI活用・システム開発から、ブランド・メディアの運営まで。</strong>提案だけで終わらせず、現場に立って人と組織の<strong>「状態変化」</strong>を生み出すパートナーです。
+      AI、デザイン、エンジニアリング。<strong>私たちは、技術を売る会社ではありません。</strong>人と企業が前向きに行動できる体験を設計し、未来へ進む力を生み出します。
     </p>
     <div class="hero-actions">
       <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
-      <a class="btn ghost" href="#services"><span>4つの設計領域を見る</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- CONCERNS (課題) -->
-<section class="concerns" id="concerns">
-  <div class="wrap">
-    <div class="concerns-head reveal">
-      <span class="eyebrow">Your Challenges</span>
-      <h2><em>こんなお悩み</em>、<br>ありませんか？</h2>
-    </div>
-    <div class="concerns-grid">
-      <div class="concern reveal">
-        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <p>新規は集まるのに、<strong>継続・リピート</strong>につながらない</p>
-      </div>
-      <div class="concern reveal d1">
-        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <p><strong>紹介や口コミ</strong>が、自然には生まれてこない</p>
-      </div>
-      <div class="concern reveal d2">
-        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <p>日々の業務に追われ、<strong>本質的な仕事</strong>に手が回らない</p>
-      </div>
-      <div class="concern reveal">
-        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <p><strong>AIを活用</strong>したいが、何から始めればいいか分からない</p>
-      </div>
-      <div class="concern reveal d1">
-        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <p>顧客や数字の状態が、<strong>見える化</strong>できていない</p>
-      </div>
-      <div class="concern reveal d2">
-        <span class="concern-check"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <p><strong>新しい事業</strong>を始めたいが、進め方に確信が持てない</p>
-      </div>
-    </div>
-    <div class="concerns-bridge reveal">
-      <p>ひとつでも当てはまるなら——<br><em>顧客理解から、状態変化を設計します。</em></p>
-      <a class="concerns-link" href="#services">4つの設計領域を見る <span>↓</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="why" id="why">
-  <div class="wrap">
-    <div class="why-grid">
-      <div class="reveal from-l">
-        <h2>Why <em>Vitality</em>?<span class="why-jp">なぜ、活力なのか。</span></h2>
-      </div>
-      <div class="why-body reveal from-r d1">
-        <p>
-          現代は、AIによって<strong>システムを作ること自体の価値が下がっている</strong>時代です。誰もが、速く、安く、ものを作れるようになりました。
-        </p>
-        <p class="pull">
-          しかし、顧客を理解すること。現場を理解すること。状態変化を理解すること。その価値は、ますます高まっている。
-        </p>
-        <p>
-          作る技術ではなく、<strong>何を、なぜ、誰のために作るのか</strong>を見極める力。人や組織が、どこから来て、どこへ向かうのか。その状態変化を読み解く力こそが、これからの事業の中心になる——私たちはそう信じています。
-        </p>
-      </div>
+      <a class="btn ghost" href="/principles.html"><span>私たちの原則</span></a>
     </div>
   </div>
 </section>
 
 <!-- PHILOSOPHY -->
-<section class="philosophy" id="philosophy">
+<section class="manifesto" id="philosophy">
   <div class="wrap">
-    <div class="phil-head reveal">
-      <span class="eyebrow" style="justify-content:center;display:inline-flex;">Our Philosophy</span>
-      <h2>顧客理解から始める、<br>事業開発。</h2>
-      <p>私たちは、顧客理解から始めます。課題を理解し、現場を理解し、その上で、必要な手段としてそれらを組み合わせる。</p>
-    </div>
-
-    <div class="phil-flow">
-      <div class="flow-step reveal">
-        <span class="num">STEP i.</span>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <h3>顧客を理解する</h3>
-        <p>誰が、何に困り、どんな状態にあるのか。一次情報に触れ、解像度を上げることから始める。</p>
-      </div>
-      <div class="flow-step reveal d1">
-        <span class="num">STEP ii.</span>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8M9 21V4M15 21v-9M21 21v-6"/></svg></div>
-        <h3>現場を理解する</h3>
-        <p>事業の構造、オペレーション、数字。机上ではなく、現場の実態から課題の本質を捉える。</p>
-      </div>
-      <div class="flow-step reveal d2">
-        <span class="num">STEP iii.</span>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18c4-10 12 6 16-4"/><path d="M4 6h.01M20 18h.01"/></svg></div>
-        <h3>状態変化を設計する</h3>
-        <p>その上で、必要な手段を選び、組み合わせる。手段が目的化しない設計を行う。</p>
+    <div class="manifesto-inner reveal">
+      <span class="eyebrow">Philosophy</span>
+      <h2>Technology Changes.<br><em>Purpose Doesn't.</em></h2>
+      <div class="body">
+        <p>技術は変わる。AIも、SaaSも、その先に生まれる技術も。</p>
+        <p>しかし、<strong>人がより良く生きたいという願い</strong>は変わりません。バイタリティデザインは、その変わらない本質に向き合い続けます。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
+<!-- WHAT WE BELIEVE -->
+<section class="manifesto alt" id="believe">
+  <div class="wrap">
+    <div class="manifesto-inner reveal">
+      <span class="eyebrow">What We Believe</span>
+      <h2><span class="jpline">プロダクトを作る前に、<br>現場へ入る。</span></h2>
+      <div class="body">
+        <p>机上のアイデアではなく。<strong>人の声を聞き、課題を観察し、共に考え、</strong>そこから本当に必要な体験を設計します。</p>
+      </div>
+      <p class="pullline">受託は、仕事ではありません。<span class="g">学びの入り口です。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE CREATE VALUE -->
+<section class="value" id="value">
+  <div class="wrap">
+    <div class="value-head reveal">
+      <span class="eyebrow">How We Create Value</span>
+      <h2>価値の、生み方。<span class="j">学び、設計し、実装し、育てる。</span></h2>
+    </div>
+    <div class="value-flow">
+      <article class="value-step reveal">
+        <span class="vn">01</span>
+        <div class="ven">Learn.</div>
+        <p>現場を知る。一次情報を集める。</p>
+      </article>
+      <article class="value-step reveal d1">
+        <span class="vn">02</span>
+        <div class="ven">Design.</div>
+        <p>本当に必要な体験を設計する。</p>
+      </article>
+      <article class="value-step reveal d2">
+        <span class="vn">03</span>
+        <div class="ven">Engineer.</div>
+        <p>AIとソフトウェアで実装する。</p>
+      </article>
+      <article class="value-step reveal d3">
+        <span class="vn">04</span>
+        <div class="ven">Scale.</div>
+        <p>共通課題をプロダクトへ。</p>
+      </article>
+      <article class="value-step reveal d4">
+        <span class="vn">05</span>
+        <div class="ven">Grow.</div>
+        <p>ブランド・コミュニティ・データを育てる。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILD -->
+<section class="services" id="build">
   <div class="svc-mesh" aria-hidden="true"></div>
   <div class="wrap">
     <div class="svc-head reveal">
-      <span class="eyebrow">Services</span>
-      <h2>What we design.<span class="j">提供する、4つの設計領域。</span></h2>
+      <span class="eyebrow">What We Build</span>
+      <h2>私たちが、作るもの。<span class="j">ただし、これらは目的ではありません。</span></h2>
     </div>
-    <div class="svc-grid">
-      <article class="svc reveal" data-tilt>
-        <div class="svc-top"><div class="svc-index">01</div><div class="svc-arrow">→</div></div>
-        <div class="svc-title"><div class="en">Business Development</div><div class="jp">事業開発支援</div></div>
-        <div class="svc-desc">営業戦略の立案から事業推進、アライアンス構築、新規事業の立ち上げまで。事業を前に進める判断と動きの両方に、当事者として並走します。</div>
-        <div class="svc-tags"><span>営業戦略</span><span>事業推進</span><span>アライアンス</span><span>新規事業立ち上げ</span></div>
-      </article>
-      <article class="svc reveal d1" data-tilt>
-        <div class="svc-top"><div class="svc-index">02</div><div class="svc-arrow">→</div></div>
-        <div class="svc-title"><div class="en">Customer Experience</div><div class="jp">顧客体験設計</div></div>
-        <div class="svc-desc">継続率の向上、紹介導線の設計、カスタマージャーニーの再設計。顧客理解を起点に、顧客が自然に動き、留まり、語りたくなる体験を組み立てます。</div>
-        <div class="svc-tags"><span>継続率向上</span><span>紹介導線設計</span><span>顧客理解</span><span>ジャーニー設計</span></div>
-      </article>
-      <article class="svc reveal d2" data-tilt>
-        <div class="svc-top"><div class="svc-index">03</div><div class="svc-arrow">→</div></div>
-        <div class="svc-title"><div class="en">AI &amp; Automation</div><div class="jp">AI活用支援</div></div>
-        <div class="svc-desc">業務効率化、AIオペレーションの構築、ワークフロー設計、自動化。少人数のチームが、本質的な仕事に集中できる状態を、AIを手段としてつくります。</div>
-        <div class="svc-tags"><span>業務効率化</span><span>AIオペレーション</span><span>ワークフロー設計</span><span>自動化</span></div>
-      </article>
-      <article class="svc reveal d3" data-tilt>
-        <div class="svc-top"><div class="svc-index">04</div><div class="svc-arrow">→</div></div>
-        <div class="svc-title"><div class="en">Product Design</div><div class="jp">プロダクト設計</div></div>
-        <div class="svc-desc">顧客課題から逆算した、システム・CRM・管理画面・診断機能の設計と実装。作ることを目的にせず、状態変化を起こすためのプロダクトを形にします。</div>
-        <div class="svc-tags"><span>システム</span><span>CRM</span><span>管理画面</span><span>診断機能</span></div>
-      </article>
+    <div class="build-list reveal">
+      <div class="build-item"><span class="n">01</span><span class="name">AI Agent</span></div>
+      <div class="build-item"><span class="n">02</span><span class="name">AI Workflow</span></div>
+      <div class="build-item"><span class="n">03</span><span class="name">Business Applications</span></div>
+      <div class="build-item"><span class="n">04</span><span class="name">Digital Experience</span></div>
+      <div class="build-item"><span class="n">05</span><span class="name">Vertical AI Products</span></div>
+      <div class="build-item"><span class="n">06</span><span class="name">Brand Experiences</span></div>
+    </div>
+    <p class="build-note reveal d1">すべては、<span class="g">人の活力をデザインするための手段</span>です。私たちは、作ること自体を目的にしません。</p>
+  </div>
+</section>
+
+<!-- LONG-TERM VISION -->
+<section class="manifesto alt" id="vision">
+  <div class="wrap">
+    <div class="manifesto-inner reveal">
+      <span class="eyebrow">Long-Term Vision</span>
+      <h2><span class="jpline">100年続く会社は、<br>本質だけを守り続ける。</span></h2>
+      <div class="body">
+        <p>100年続く会社は、一つのプロダクトで生き残るのではありません。<strong>学び続け、変わり続け、本質だけを守り続けます。</strong></p>
+        <p>バイタリティデザインも、同じです。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- USE CASES -->
-<section class="usecases" id="usecases">
+<!-- CLOSING -->
+<section class="closing">
+  <div class="cmesh" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="uc-head reveal">
-      <span class="eyebrow">Use Cases</span>
-      <h2>こんな使い方が、できます。<span class="j">課題から逆算した、活用例。</span></h2>
-    </div>
-    <div class="uc-grid">
-      <article class="uc reveal">
-        <span class="uc-tag">店舗・事業者</span>
-        <p class="uc-problem">「予約も顧客管理もバラバラで、手間がかかる」</p>
-        <span class="uc-arrow">↓</span>
-        <p class="uc-solution">顧客データを一元化する<strong>CRM・管理画面</strong>を設計し、現場の手間を削減。</p>
-      </article>
-      <article class="uc reveal d1">
-        <span class="uc-tag">店舗・事業者</span>
-        <p class="uc-problem">「新規は来るのに、続かない・リピートしない」</p>
-        <span class="uc-arrow">↓</span>
-        <p class="uc-solution"><strong>顧客体験とフォロー導線を再設計</strong>し、継続率と紹介を伸ばす。</p>
-      </article>
-      <article class="uc reveal d2">
-        <span class="uc-tag">店舗・事業者</span>
-        <p class="uc-problem">「問い合わせや予約対応に追われ、手が回らない」</p>
-        <span class="uc-arrow">↓</span>
-        <p class="uc-solution">予約・問い合わせ・リマインドを<strong>AIで自動化</strong>し、本質的な仕事に集中。</p>
-      </article>
-      <article class="uc reveal">
-        <span class="uc-tag">店舗・事業者</span>
-        <p class="uc-problem">「次の柱になる新規事業を立ち上げたい」</p>
-        <span class="uc-arrow">↓</span>
-        <p class="uc-solution">顧客理解から<strong>新規事業を企画・立ち上げ</strong>、営業・推進まで並走。</p>
-      </article>
-      <article class="uc reveal d1">
-        <span class="uc-tag">個人・生活者</span>
-        <p class="uc-problem">「自分の悩みを、どう解決すればいいか分からない」</p>
-        <span class="uc-arrow">↓</span>
-        <p class="uc-solution">状態を可視化する<strong>診断機能やコンテンツ</strong>を設計し、変化を後押し。</p>
-      </article>
-      <article class="uc reveal d2">
-        <span class="uc-tag">個人・生活者</span>
-        <p class="uc-problem">「発信やブランドを立ち上げたい」</p>
-        <span class="uc-arrow">↓</span>
-        <p class="uc-solution"><strong>ブランド・メディアの立ち上げと運営</strong>（取材・コミュニティ形成）を伴走。</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- STRENGTHS -->
-<section class="strengths" id="strengths">
-  <div class="wrap">
-    <div class="str-head reveal">
-      <span class="eyebrow">Why us</span>
-      <h2>選ばれる、3つの理由。<span class="j">Vitality Design が信頼される理由。</span></h2>
-    </div>
-    <div class="str-grid">
-      <div class="str reveal">
-        <div class="k">01 / FROM THE FIELD</div>
-        <h3>現場から、<br>事業をつくってきた。</h3>
-        <p>提案資料の上ではなく、現場で。創業者は急成長企業で新規事業を当事者として立ち上げ、拡大させてきました。一次情報に触れ続ける姿勢が、すべての設計の土台です。</p>
-      </div>
-      <div class="str reveal d1">
-        <div class="k">02 / END TO END</div>
-        <h3>戦略から実装まで、<br>一気通貫で。</h3>
-        <p>事業開発・顧客体験設計・AI活用・プロダクト設計。分断されがちな領域を一つのチームが横断するから、戦略が「絵に描いた餅」で終わらず、現場で動く形になります。</p>
-      </div>
-      <div class="str reveal d2">
-        <div class="k">03 / OUTCOME FIRST</div>
-        <h3>手段ではなく、<br>状態変化に責任を。</h3>
-        <p>納品して終わりではありません。顧客が変わり、現場が変わり、組織が変わる。その状態変化が起きるまで、当事者として並走します。活力は、つくるものではなく、結果です。</p>
-      </div>
-    </div>
+    <h2 class="reveal">We don't chase technology.<br><span class="g">We design vitality.</span></h2>
   </div>
 </section>
 
@@ -874,8 +799,8 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
       </div>
       <div class="company-table reveal d1">
         <div class="row"><div class="th">会社名</div><div class="td">バイタリティデザイン合同会社<br>Vitality Design LLC</div></div>
-        <div class="row"><div class="th">事業内容</div><div class="td">事業開発支援 / 顧客体験設計 / AI活用支援 / プロダクト設計</div></div>
-        <div class="row"><div class="th">ミッション</div><div class="td">人と組織の活力を、設計する。<br>顧客理解から始め、事業の状態変化を生み出す。</div></div>
+        <div class="row"><div class="th">事業内容</div><div class="td">AI Agent / AI Workflow / Business Applications / Digital Experience / Vertical AI Products / Brand Experiences</div></div>
+        <div class="row"><div class="th">ミッション</div><div class="td">人の活力を、デザインする。<br>技術ではなく、人と企業が前へ進む力を生み出す。</div></div>
         <div class="row"><div class="th">関連プロジェクト</div><div class="td"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a>（男性の状態変化を記録するブランド）</div></div>
         <div class="row"><div class="th">お問い合わせ</div><div class="td"><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></div></div>
       </div>
@@ -897,24 +822,24 @@ footer{padding:64px 0 44px;border-top:1px solid var(--line);background:var(--bg-
         </span>
         <span class="fb-en">Vitality Design LLC</span>
       </div>
-      <span class="fb-slogan">We Design Vitality.</span>
-      <span class="fb-jp">バイタリティデザイン合同会社<br>人と組織の活力を、設計する。</span>
+      <span class="fb-slogan">We design vitality.</span>
+      <span class="fb-jp">バイタリティデザイン合同会社<br>人の活力を、デザインする。</span>
     </div>
     <nav class="footer-nav">
       <div class="footer-col">
         <span class="h">Company</span>
-        <a href="#why">Why Vitality</a>
         <a href="#philosophy">Philosophy</a>
-        <a href="#strengths">Strengths</a>
+        <a href="#value">How We Create Value</a>
+        <a href="/principles.html">Principles</a>
         <a href="#founder">Founder Story</a>
         <a href="#company">会社概要</a>
       </div>
       <div class="footer-col">
-        <span class="h">Services</span>
-        <a href="#services">事業開発支援</a>
-        <a href="#services">顧客体験設計</a>
-        <a href="#services">AI活用支援</a>
-        <a href="#services">プロダクト設計</a>
+        <span class="h">What We Build</span>
+        <a href="#build">AI Agent / Workflow</a>
+        <a href="#build">Business Applications</a>
+        <a href="#build">Vertical AI Products</a>
+        <a href="#build">Brand Experiences</a>
       </div>
       <div class="footer-col">
         <span class="h">Connect</span>

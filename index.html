@@ -39,12 +39,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org","@type":"Organization",
-  "name":"Vitality Design LLC","alternateName":"バイタリティデザイン合同会社",
-  "url":"https://www.vitality-design.jp/","logo":"https://www.vitality-design.jp/og.png",
-  "email":"contact@vitality-design.jp","slogan":"We Design Vitality.",
-  "description":"自由診療・ウェルネス産業の事業成長パートナー。自らもサービスを運営し、現場の一次情報から、AI・デザイン・事業開発で人の状態変化を設計する。",
-  "knowsAbout":["自由診療","美容医療","メンズヘルス","ウェルネス","事業開発","顧客体験設計","AI","プロダクト開発","ブランド体験"]
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://www.vitality-design.jp/#org",
+      "name":"Vitality Design LLC","alternateName":"バイタリティデザイン合同会社",
+      "url":"https://www.vitality-design.jp/",
+      "logo":{"@type":"ImageObject","url":"https://www.vitality-design.jp/icon-512.png","width":512,"height":512},
+      "image":"https://www.vitality-design.jp/og.png",
+      "email":"contact@vitality-design.jp","slogan":"We Design Vitality.",
+      "description":"自由診療・ウェルネス産業の事業成長パートナー。自らもサービスを運営し、現場の一次情報から、AI・デザイン・事業開発で人の状態変化を設計する。",
+      "knowsAbout":["自由診療","美容医療","メンズヘルス","ウェルネス","事業開発","顧客体験設計","集患","カウンセリング成約率","LTV","AI活用","プロダクト開発","ブランド体験"],
+      "areaServed":"JP"
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://www.vitality-design.jp/#website",
+      "url":"https://www.vitality-design.jp/","name":"Vitality Design LLC",
+      "description":"自由診療・ウェルネス産業の事業成長パートナー","inLanguage":"ja",
+      "publisher":{"@id":"https://www.vitality-design.jp/#org"}
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://www.vitality-design.jp/#webpage",
+      "url":"https://www.vitality-design.jp/","name":"Vitality Design LLC｜人の活力を、デザインする。",
+      "isPartOf":{"@id":"https://www.vitality-design.jp/#website"},
+      "about":{"@id":"https://www.vitality-design.jp/#org"},"inLanguage":"ja"
+    },
+    {
+      "@type":"Service",
+      "name":"自由診療・ウェルネスの事業成長支援",
+      "provider":{"@id":"https://www.vitality-design.jp/#org"},
+      "areaServed":"JP",
+      "serviceType":["顧客体験設計","集患支援","カウンセリング・オペレーション改善","データ統合・数値経営","AI活用","プロダクト・ブランド開発"],
+      "audience":{"@type":"Audience","audienceType":"自由診療クリニック・美容医療・サロン・パーソナルジム・ウェルネス事業者"}
+    },
+    {
+      "@type":"FAQPage",
+      "@id":"https://www.vitality-design.jp/#faq",
+      "mainEntity":[
+        {"@type":"Question","name":"コンサルや制作会社と、何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"私たちは自らも His Recoveries というサービスを運営する当事者です。外から提案して終わりではなく、同じ課題を自分の事業で解いてきた一次情報をもとに、現場で動く形まで実装・伴走します。"}},
+        {"@type":"Question","name":"どんな領域に対応していますか？","acceptedAnswer":{"@type":"Answer","text":"自由診療・ウェルネス領域に特化し、集患・顧客体験設計・カウンセリングやオペレーションの改善・データ統合・AI活用・プロダクト／ブランド開発まで対応します。人の状態変化に関わる課題が中心です。"}},
+        {"@type":"Question","name":"費用はどのくらいかかりますか？","acceptedAnswer":{"@type":"Answer","text":"課題の内容と範囲によって大きく変わるため、一律の料金は掲げていません。まずは無料のご相談で課題を整理したうえで、最適な進め方と費用をご提案します。発注は前提ではありません。"}},
+        {"@type":"Question","name":"小さな相談でも大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。まだ何が課題かもわからない、何から手をつけるべきか整理したい——その段階からのご相談を、いちばん歓迎しています。"}},
+        {"@type":"Question","name":"AIの導入は必須ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。AIはあくまで手段です。課題に対して本当に必要なときだけ使います。技術ありきではなく、現場の課題ありきで設計します。"}},
+        {"@type":"Question","name":"対応エリアは決まっていますか？","acceptedAnswer":{"@type":"Answer","text":"オンラインを中心に対応しているため、エリアは問いません。まずは無料のご相談からお気軽にお問い合わせください。"}}
+      ]
+    }
+  ]
 }
 </script>
 <style>

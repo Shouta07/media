@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWTE9DWQ0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DWTE9DWQ0S');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Notes ― 現場の実装知｜Vitality Design LLC</title>
+<meta name="description" content="自由診療・ウェルネス産業の事業成長に役立つ、現場の実装知。集患・カウンセリング成約・リピート（LTV）・業務効率化まで、当事者として運営しながら得た一次情報をもとに発信します。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.vitality-design.jp/blog/">
+<meta property="og:site_name" content="Vitality Design LLC">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Field Notes ― 現場の実装知｜Vitality Design LLC">
+<meta property="og:description" content="自由診療・ウェルネス産業の事業成長に役立つ、現場の実装知。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.vitality-design.jp/blog/">
+<meta property="og:image" content="https://www.vitality-design.jp/og.png">
+<meta name="theme-color" content="#0B6E4F">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7F4;--bg-2:#EDF0EA;--card:#FFFFFF;--ink:#10130F;--ink-soft:#3C4239;--ink-faint:#6B7367;--ink-mute:#A0A89C;
+  --line:rgba(16,19,15,0.10);--line-soft:rgba(16,19,15,0.06);--green:#0B6E4F;--green-bright:#14B870;--lime:#9FE870;--night:#0C140F;
+  --grad:linear-gradient(120deg,#0B6E4F 0%,#0FA890 52%,#14B870 100%);
+  --serif:'Newsreader',Georgia,serif;--jp:'Noto Sans JP',sans-serif;--sans:'Inter','Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;letter-spacing:0.005em;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 48px;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:14px;}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--grad);border-radius:2px;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal.d1{transition-delay:0.08s;}.reveal.d2{transition-delay:0.16s;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;background:rgba(246,247,244,0.82);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid var(--line-soft);}
+.nav-brand{display:flex;align-items:center;gap:13px;color:var(--ink);}
+.nav-mark{width:30px;height:30px;}
+.nav-name{display:flex;flex-direction:column;line-height:1.12;}
+.nav-name .n-en{font-family:var(--sans);font-weight:800;font-size:15px;letter-spacing:-0.01em;}
+.nav-name .n-jp{font-family:var(--jp);font-size:9.5px;font-weight:500;color:var(--ink-faint);letter-spacing:0.12em;margin-top:2px;}
+.nav-cta{font-size:12.5px;font-weight:700;letter-spacing:0.03em;padding:11px 22px;border-radius:99px;color:#fff;background:var(--ink);transition:transform 0.35s,background 0.35s;}
+.nav-cta:hover{transform:translateY(-2px);background:var(--green);}
+
+/* header */
+.phead{padding:120px 0 56px;position:relative;overflow:hidden;}
+.phead-bg{position:absolute;inset:0;pointer-events:none;}
+.phead-bg .m{position:absolute;border-radius:50%;filter:blur(70px);}
+.phead-bg .m1{width:480px;height:480px;top:-160px;right:-80px;background:radial-gradient(circle,rgba(20,184,112,0.22),transparent 64%);}
+.phead .eyebrow{margin-bottom:30px;}
+.phead h1{font-family:var(--sans);font-weight:800;font-size:clamp(40px,6vw,80px);line-height:1.0;letter-spacing:-0.035em;color:var(--ink);position:relative;}
+.phead h1 em{font-family:var(--serif);font-style:italic;font-weight:300;}
+.phead .jp{font-family:var(--jp);font-weight:900;font-size:clamp(19px,2.5vw,28px);color:var(--ink);margin-top:22px;}
+.phead .lead{font-family:var(--jp);font-size:16px;font-weight:500;line-height:2.05;color:var(--ink-soft);max-width:680px;margin-top:28px;}
+.phead .lead strong{color:var(--ink);font-weight:700;}
+
+/* post list */
+.bloglist{padding:24px 0 110px;}
+.post{display:block;padding:42px 0;border-top:1px solid var(--line);transition:padding-left 0.4s;}
+.post:last-child{border-bottom:1px solid var(--line);}
+.post:hover{padding-left:10px;}
+.post-meta{display:flex;align-items:center;gap:16px;margin-bottom:18px;}
+.post-cat{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);}
+.post-date{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-mute);letter-spacing:0.04em;}
+.post h2{font-family:var(--jp);font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.4;letter-spacing:0.01em;color:var(--ink);transition:color 0.3s;}
+.post:hover h2{color:var(--green);}
+.post p{font-family:var(--jp);font-size:15px;font-weight:500;line-height:1.95;color:var(--ink-faint);margin-top:16px;max-width:760px;}
+.post .more{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:0.02em;}
+.post .more .ar{transition:transform 0.3s;}
+.post:hover .more .ar{transform:translateX(4px);}
+
+/* closing + footer */
+.pclosing{padding:110px 0;background:var(--night);color:var(--bg);text-align:center;position:relative;overflow:hidden;}
+.pclosing .m{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(20,184,112,0.22),transparent 64%);top:50%;left:50%;transform:translate(-50%,-50%);}
+.pclosing h2{position:relative;z-index:2;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(26px,4.4vw,52px);line-height:1.18;color:#fff;margin-bottom:36px;}
+.pclosing h2 .g{font-style:normal;font-family:var(--sans);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.pclosing .acts{position:relative;z-index:2;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:700;letter-spacing:0.02em;padding:15px 28px;border-radius:99px;transition:transform 0.32s,background 0.32s,color 0.32s,border-color 0.32s;}
+.btn.bright{background:var(--green-bright);color:#062b1d;}
+.btn.bright:hover{transform:translateY(-3px);}
+.btn.outline{border:1px solid rgba(255,255,255,0.3);color:#fff;}
+.btn.outline:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px);}
+footer{padding:48px 0;border-top:1px solid var(--line);background:var(--bg-2);text-align:center;}
+footer .fb-en{font-family:var(--sans);font-weight:800;font-size:16px;color:var(--ink);}
+footer .fb-jp{font-family:var(--jp);font-size:12px;font-weight:500;color:var(--ink-faint);margin-top:8px;display:block;}
+footer .fb-links{margin-top:18px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-soft);}
+footer .fb-links a:hover{color:var(--green);}
+footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var(--ink-mute);}
+
+@media (max-width:680px){
+  .wrap{padding-left:22px;padding-right:22px;}
+  .nav{padding:14px 22px;}
+  .phead{padding:64px 0 40px;}
+  .bloglist{padding:16px 0 72px;}
+  .post{padding:34px 0;}
+  .pclosing{padding:72px 0;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-brand" aria-label="Vitality Design LLC home">
+    <span class="nav-mark">
+      <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="22" cy="22" r="17" stroke="#10130F" stroke-width="2"/>
+        <path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="url(#pg)" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <defs><linearGradient id="pg" x1="10" y1="30" x2="40" y2="6" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset=".55" stop-color="#0FA890"/><stop offset="1" stop-color="#14B870"/></linearGradient></defs>
+      </svg>
+    </span>
+    <span class="nav-name"><span class="n-en">Vitality Design</span><span class="n-jp">バイタリティデザイン合同会社</span></span>
+  </a>
+  <a href="/#contact" class="nav-cta">お問い合わせ</a>
+</nav>
+
+<!-- HEADER -->
+<header class="phead">
+  <div class="phead-bg" aria-hidden="true"><div class="m m1"></div></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Field Notes</span>
+    <h1 class="reveal d1">現場の、<em>実装知。</em></h1>
+    <p class="jp reveal d1">机上の理論ではなく、現場で確かめた話を。</p>
+    <p class="lead reveal d1">
+      自由診療・ウェルネス産業の事業成長に役立つ、現場の実装知をまとめます。集患・カウンセリング成約・リピート（LTV）・業務効率化——<strong>自らもサービスを運営する当事者</strong>として得た一次情報をもとに、きれいごとではなく、実際に効く話を書きます。
+    </p>
+  </div>
+</header>
+
+<!-- POST LIST -->
+<section class="bloglist">
+  <div class="wrap">
+
+    <a class="post reveal" href="/blog/jiyushinryo-genba-4-no-ana.html">
+      <div class="post-meta">
+        <span class="post-cat">事業成長 / オペレーション</span>
+        <span class="post-date">2026.06.29</span>
+      </div>
+      <h2>自由診療・ウェルネスの現場に空いている、4つの“設計されていない”穴</h2>
+      <p>高単価なのに、なぜ売上が積み上がらないのか。集患・カウンセリング・データ・リピートという4つの工程に共通して空いている「穴」を、現場の構造として分解します。多くの停滞は、現場が悪いのではなく、まだ設計されていないだけです。</p>
+      <span class="more">続きを読む<span class="ar">→</span></span>
+    </a>
+
+    <a class="post reveal" href="/blog/counseling-zokujinka.html">
+      <div class="post-meta">
+        <span class="post-cat">カウンセリング / 成約率</span>
+        <span class="post-date">2026.06.29</span>
+      </div>
+      <h2>「できる人の勘」を、仕組みに変える ― カウンセリング成約率の属人化からの脱出</h2>
+      <p>成約率が高いのは、いつも同じスタッフ。その差は才能ではなく、言語化されていない“型”の有無です。属人化したカウンセリングを、計測・標準化・改善できる仕組みに変えるための考え方を整理します。</p>
+      <span class="more">続きを読む<span class="ar">→</span></span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="pclosing">
+  <div class="m" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="reveal">現場の課題を、<br><span class="g">一緒に設計しませんか。</span></h2>
+    <div class="acts reveal d1">
+      <a class="btn bright" href="/#contact"><span>無料で相談する</span><span>→</span></a>
+      <a class="btn outline" href="/">トップに戻る</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="fb-en">Vitality Design LLC</span>
+    <span class="fb-jp">バイタリティデザイン合同会社 ｜ 人の活力を、デザインする。</span>
+    <div class="fb-links">
+      <a href="/">Home</a>
+      <a href="/#solve">What We Do</a>
+      <a href="/#founder">Founder</a>
+      <a href="/principles.html">Principles</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="fb-base">© 2026 Vitality Design LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

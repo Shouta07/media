@@ -387,7 +387,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       <div class="axis b reveal">
         <span class="axn">Axis 01 — 現場 / Business</span>
         <h3>人の状態変化を支える、<br>現場で働く方々へ。</h3>
-        <p>自由診療・ウェルネスの<strong>クリニック／サロン／ブランド</strong>と一緒に、現場の課題を解きます。</p>
+        <p>自由診療・ウェルネスの<strong>クリニック／サロン／ブランド</strong>と一緒に、現場の課題を解きます。私たち自身がサービスを運営する当事者だからこそ、提案で終わらず実装まで踏み込めます。</p>
         <div class="axis-sol">
           <span class="sol-label">Solution</span>
           <span class="sol-name">顧客体験設計</span>
@@ -432,7 +432,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
     <div class="contact-inner">
       <span class="eyebrow center reveal">Contact</span>
       <h2 class="reveal d1">Let's design<br>your <em>vitality.</em></h2>
-      <p class="contact-lead reveal d1">自由診療・ウェルネス領域で、人の状態変化を本気で設計したい方へ。売り込みはしません。まずは、現場の課題について静かに対話することから。</p>
+      <p class="contact-lead reveal d1">自由診療・ウェルネス領域で、人の状態変化を本気で設計したい方へ。発注を前提とした売り込みはしません。「まず何から手をつけるべきか」を一緒に整理するだけでも歓迎です。</p>
       <div class="contact-actions reveal d2">
         <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
         <a class="btn line" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a>
@@ -500,7 +500,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
     <button class="modal-close" type="button" aria-label="閉じる" data-close-contact>&times;</button>
     <span class="eyebrow">Contact</span>
     <h3 id="contactModalTitle">無料で、<em>相談する。</em></h3>
-    <p class="modal-sub">現場の課題について、まずは静かに対話することから。いただいた内容をもとに、担当より折り返しご連絡します。</p>
+    <p class="modal-sub">課題整理だけのご相談も歓迎です。いただいた内容には、創業者本人が直接、1〜3営業日以内にご返信します。</p>
     <form class="form" id="contactForm" novalidate>
       <input type="hidden" name="_subject" value="【Webサイト】無料相談のお問い合わせ">
       <div class="form-status err" id="formError" role="alert"></div>
@@ -521,7 +521,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       </div>
       <div class="field"><label for="f-message">ご相談内容<span class="req">*</span></label><textarea id="f-message" name="message" required placeholder="現状の課題や、実現したいことなどをお聞かせください。"></textarea></div>
       <button class="btn solid form-submit" type="submit" id="formSubmit"><span>この内容で送信する</span><span class="arr">→</span></button>
-      <p class="form-note">送信いただいた内容は <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> 宛に届きます。3営業日目処で返信いたします。</p>
+      <p class="form-note">送信いただいた内容は <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> 宛に届き、創業者本人が1〜3営業日以内に直接ご返信します。</p>
     </form>
     <div class="form-success" id="formSuccess">
       <div class="check" aria-hidden="true">✓</div>
@@ -551,17 +551,19 @@ function onKey(e){if(e.key==='Escape'){closeContact();return;}if(e.key==='Tab'){
 document.querySelectorAll('[data-open-contact]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openContact();}));
 document.querySelectorAll('[data-close-contact]').forEach(el=>el.addEventListener('click',closeContact));
 function showError(m){formError.textContent=m;formError.style.display='block';}
+function trackLead(method){try{if(typeof gtag==='function'){gtag('event','generate_lead',{event_category:'contact',event_label:method});}}catch(e){}}
 form.addEventListener('submit',async(e)=>{
   e.preventDefault();formError.style.display='none';
   const data={name:form.name.value.trim(),company:form.company.value.trim(),email:form.email.value.trim(),type:form.type.value,message:form.message.value.trim()};
   if(!data.name||!data.email||!data.message){showError('お名前・メールアドレス・ご相談内容は必須です。');return;}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){showError('メールアドレスの形式をご確認ください。');return;}
-  if(!FORM_ENDPOINT){const s=encodeURIComponent('【ご相談】'+data.type+' / '+data.name+'様');const b=encodeURIComponent('お名前: '+data.name+'\n会社名/事業名: '+(data.company||'-')+'\nメール: '+data.email+'\n種類: '+data.type+'\n\n'+data.message);window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+s+'&body='+b;modal.classList.add('sent');return;}
+  if(!FORM_ENDPOINT){const s=encodeURIComponent('【ご相談】'+data.type+' / '+data.name+'様');const b=encodeURIComponent('お名前: '+data.name+'\n会社名/事業名: '+(data.company||'-')+'\nメール: '+data.email+'\n種類: '+data.type+'\n\n'+data.message);window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+s+'&body='+b;trackLead('mailto');modal.classList.add('sent');return;}
   submitBtn.disabled=true;submitBtn.querySelector('span').textContent='送信中…';
-  try{const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)});if(res.ok){modal.classList.add('sent');form.reset();}else{showError('送信に失敗しました。時間をおいて再度お試しください。');}}
+  try{const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)});if(res.ok){trackLead('formspree');modal.classList.add('sent');form.reset();}else{showError('送信に失敗しました。時間をおいて再度お試しください。');}}
   catch(err){showError('通信エラーが発生しました。メールにて直接ご連絡ください。');}
   finally{submitBtn.disabled=false;submitBtn.querySelector('span').textContent='この内容で送信する';}
 });
+document.querySelectorAll('a[href*="hisrecoveries.com"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','outbound_click',{event_category:'his_recoveries',event_label:'his_recoveries'});}}catch(e){}}));
 </script>
 </body>
 </html>

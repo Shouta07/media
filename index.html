@@ -134,6 +134,30 @@ section{position:relative;}
 .feed-more{grid-column:1/-1;justify-self:center;margin-top:14px;font-family:var(--sans);font-size:14px;font-weight:700;color:var(--ink);letter-spacing:0.02em;border-bottom:1.5px solid var(--green);padding-bottom:3px;transition:color 0.3s;}
 .feed-more:hover{color:var(--green);}
 
+/* HOW WE WORK (3 steps) */
+.howwork{padding:100px 0;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.step-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:40px 32px;transition:transform 0.4s,border-color 0.4s;}
+.step-card:hover{transform:translateY(-4px);border-color:var(--ink);}
+.step-card .sn{font-family:var(--sans);font-style:italic;font-weight:800;font-size:46px;line-height:1;letter-spacing:-0.04em;background:linear-gradient(120deg,#0B6E4F,#12A266);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.step-card .stag{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin:22px 0 12px;}
+.step-card h3{font-family:var(--jp);font-weight:700;font-size:clamp(18px,2.2vw,21px);line-height:1.5;color:var(--ink);margin-bottom:14px;}
+.step-card p{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:1.95;color:var(--ink-soft);}
+
+/* FAQ */
+.faq{padding:100px 0;}
+.faq-grid{display:grid;grid-template-columns:0.7fr 1.3fr;gap:48px;align-items:start;}
+.faq-list{border-top:1px solid var(--line);}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-item summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;position:relative;font-family:var(--jp);font-weight:700;font-size:clamp(16px,2vw,18px);line-height:1.6;color:var(--ink);transition:color 0.3s;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary:hover{color:var(--green);}
+.faq-item summary::after{content:"+";position:absolute;right:6px;top:24px;font-size:22px;font-weight:400;color:var(--ink-faint);transition:transform 0.3s;line-height:1.2;}
+.faq-item[open] summary::after{content:"–";}
+.faq-item .fa-body{padding:0 44px 26px 0;font-family:var(--jp);font-size:15px;font-weight:500;line-height:2;color:var(--ink-soft);}
+.faq-item .fa-body strong{color:var(--ink);font-weight:700;}
+.faq-item .fa-body a{color:var(--green);border-bottom:1px solid var(--green);}
+
 /* WHAT WE SOLVE */
 .solve{padding:100px 0;}
 .solve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -342,9 +366,11 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .wrap,.narrow{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}.nav-links{display:none;}
   .hero{padding:74px 0 64px;}
-  .wedo,.friction,.blogfeed,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
+  .wedo,.friction,.blogfeed,.howwork,.faq,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
   .fric-list li{padding:20px 0 20px 30px;}.fric-list li::before{top:20px;}
   .feed{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .faq-grid{grid-template-columns:1fr;gap:20px;}
   .closing{padding:84px 0;}
   .shead{margin-bottom:40px;}
   .axis,.whyvd-card{padding:30px 26px;}
@@ -446,6 +472,36 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   </div>
 </section>
 
+<!-- HOW WE WORK (3 steps) -->
+<section class="howwork" id="how">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">How We Work</span>
+      <h2>相談から、現場で動くまで。<span class="j">提案で終わらせず、実装まで。3つのステップ。</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step-card reveal">
+        <span class="sn">01</span>
+        <span class="stag">Step 01 — 相談・課題整理</span>
+        <h3>まず、課題を一緒に言語化する。</h3>
+        <p>発注を前提とした売り込みはしません。「何から手をつけるべきか」を、現場の言葉で一緒に整理するところから始めます。無料です。</p>
+      </div>
+      <div class="step-card reveal d1">
+        <span class="sn">02</span>
+        <span class="stag">Step 02 — 現場理解・設計</span>
+        <h3>現場に入り、打ち手を設計する。</h3>
+        <p>ヒアリングと現場オペレーションの整理から、一次情報に基づいて、本当にフィットする打ち手を設計します。机上の理想論は持ち込みません。</p>
+      </div>
+      <div class="step-card reveal d2">
+        <span class="sn">03</span>
+        <span class="stag">Step 03 — 実装・伴走</span>
+        <h3>つくって終わりにせず、育てる。</h3>
+        <p>開発・デザインして納品、で終わりではありません。ブランドやデータが複利で育つよう、現場に立ち続けながら伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOUNDER -->
 <section class="founder" id="founder">
   <div class="wrap">
@@ -484,6 +540,44 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
         <span class="fi-more">続きを読む →</span>
       </a>
       <a class="feed-more reveal d2" href="/blog/">すべての記事を見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="shead reveal" style="margin-bottom:0;">
+        <span class="eyebrow">FAQ</span>
+        <h2>よくある、ご質問。</h2>
+      </div>
+      <div class="faq-list reveal d1">
+        <details class="faq-item">
+          <summary>コンサルや制作会社と、何が違いますか？</summary>
+          <div class="fa-body">私たちは、自らも <strong>His Recoveries</strong> というサービスを運営する<strong>当事者</strong>です。外から提案して終わりではなく、同じ課題を自分の事業で解いてきた一次情報をもとに、現場で動く形まで実装・伴走します。</div>
+        </details>
+        <details class="faq-item">
+          <summary>どんな領域に対応していますか？</summary>
+          <div class="fa-body">自由診療・ウェルネス領域に特化し、集患・顧客体験設計・カウンセリングやオペレーションの改善・データ統合・AI活用・プロダクト／ブランド開発まで対応します。「人の状態変化」に関わる課題が中心です。</div>
+        </details>
+        <details class="faq-item">
+          <summary>費用はどのくらいかかりますか？</summary>
+          <div class="fa-body">課題の内容と範囲によって大きく変わるため、一律の料金は掲げていません。まずは無料のご相談で課題を整理したうえで、最適な進め方と費用をご提案します。<strong>発注は前提ではありません。</strong></div>
+        </details>
+        <details class="faq-item">
+          <summary>小さな相談でも大丈夫ですか？</summary>
+          <div class="fa-body">はい。「まだ何が課題かもわからない」「何から手をつけるべきか整理したい」——その段階からのご相談を、いちばん歓迎しています。</div>
+        </details>
+        <details class="faq-item">
+          <summary>AIの導入は必須ですか？</summary>
+          <div class="fa-body">いいえ。<strong>AIはあくまで手段</strong>です。課題に対して本当に必要なときだけ使います。技術ありきではなく、現場の課題ありきで設計します。</div>
+        </details>
+        <details class="faq-item">
+          <summary>対応エリアは決まっていますか？</summary>
+          <div class="fa-body">オンラインを中心に対応しているため、エリアは問いません。まずは <a href="#contact" data-open-contact>無料のご相談</a> からお気軽にお問い合わせください。</div>
+        </details>
+      </div>
     </div>
   </div>
 </section>

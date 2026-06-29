@@ -115,6 +115,14 @@ section{position:relative;}
 .shead h2{font-family:var(--sans);font-weight:800;font-size:clamp(30px,4.4vw,54px);line-height:1.05;letter-spacing:-0.025em;color:var(--ink);}
 .shead h2 .j{display:block;font-family:var(--jp);font-size:16px;font-weight:600;color:var(--ink-faint);letter-spacing:0.04em;margin-top:18px;}
 
+/* THE FRICTION (課題想起) */
+.friction{padding:100px 0;}
+.fric-list{list-style:none;max-width:780px;margin:0;border-top:1px solid var(--line);}
+.fric-list li{font-family:var(--jp);font-weight:600;font-size:clamp(17px,2.3vw,25px);line-height:1.62;color:var(--ink);padding:25px 0 25px 38px;border-bottom:1px solid var(--line);position:relative;letter-spacing:0.01em;}
+.fric-list li::before{content:"—";position:absolute;left:0;top:25px;color:var(--ink-mute);font-weight:400;}
+.fric-bridge{font-family:var(--jp);font-weight:600;font-size:clamp(17px,2.3vw,25px);line-height:1.7;color:var(--ink-faint);margin:46px 0 0;max-width:780px;letter-spacing:0.01em;}
+.fric-bridge em{font-style:normal;font-weight:800;color:var(--ink);box-shadow:inset 0 -0.5em 0 rgba(11,110,79,0.10);}
+
 /* WHAT WE SOLVE */
 .solve{padding:100px 0;}
 .solve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -323,7 +331,8 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .wrap,.narrow{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}.nav-links{display:none;}
   .hero{padding:74px 0 64px;}
-  .wedo,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
+  .wedo,.friction,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
+  .fric-list li{padding:20px 0 20px 30px;}.fric-list li::before{top:20px;}
   .closing{padding:84px 0;}
   .shead{margin-bottom:40px;}
   .axis,.whyvd-card{padding:30px 26px;}
@@ -373,6 +382,23 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
       <a class="btn ghost" href="/principles.html"><span>私たちの原則</span></a>
     </div>
+  </div>
+</section>
+
+<!-- THE FRICTION (課題想起) -->
+<section class="friction" id="friction">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">The Friction</span>
+      <h2>その停滞は、<br>現場のせいじゃない。</h2>
+    </div>
+    <ul class="fric-list">
+      <li class="reveal">予約も問い合わせも、気づけば取りこぼしている。</li>
+      <li class="reveal d1">カウンセリングの成約は、できる人の勘に頼っている。</li>
+      <li class="reveal d2">予約・カルテ・会計・LINEが、別々のまま。</li>
+      <li class="reveal d3">一度来た人が、いつの間にか、来なくなっている。</li>
+    </ul>
+    <p class="fric-bridge reveal">どれも、現場が悪いのではなく、<em>まだ設計されていないだけ。</em></p>
   </div>
 </section>
 

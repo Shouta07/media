@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWTE9DWQ0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DWTE9DWQ0S');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>予約・カルテ・会計・LINEを「一人の時系列」で見る ― 自由診療のデータ統合と数値経営｜Vitality Design</title>
+<meta name="description" content="予約・カルテ・会計・LINEがバラバラだと、患者を「一人の時系列」で見られず、施策の土台が持てません。全部を入れ替えずに既存ツールを横で繋ぐ現実的な進め方と、自由診療が見るべき指標（KPI）を解説します。">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Vitality Design LLC">
+<meta name="keywords" content="自由診療 データ統合,電子カルテ 連携,LTV 分析,KPI,予約システム,数値経営,CRM,失客率">
+<link rel="canonical" href="https://www.vitality-design.jp/blog/data-tougou-suuchi-keiei.html">
+<meta property="og:site_name" content="Vitality Design LLC">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="予約・カルテ・会計・LINEを「一人の時系列」で見る ― 自由診療のデータ統合と数値経営">
+<meta property="og:description" content="データが分断されていると施策の土台が持てない。既存ツールを横で繋ぐ現実的な進め方と、見るべきKPIを解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.vitality-design.jp/blog/data-tougou-suuchi-keiei.html">
+<meta property="og:image" content="https://www.vitality-design.jp/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-06-29T09:00:00+09:00">
+<meta property="article:modified_time" content="2026-06-29T09:00:00+09:00">
+<meta property="article:section" content="データ">
+<meta property="article:tag" content="データ統合">
+<meta property="article:tag" content="KPI">
+<meta property="article:tag" content="数値経営">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="予約・カルテ・会計・LINEを「一人の時系列」で見る ― 自由診療のデータ統合と数値経営">
+<meta name="twitter:description" content="データが分断されていると施策の土台が持てない。既存ツールを横で繋ぐ進め方と見るべきKPIを解説します。">
+<meta name="twitter:image" content="https://www.vitality-design.jp/og.png">
+<meta name="theme-color" content="#0B6E4F">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://www.vitality-design.jp/blog/data-tougou-suuchi-keiei.html#article",
+      "headline":"予約・カルテ・会計・LINEを「一人の時系列」で見る ― 自由診療のデータ統合と数値経営",
+      "description":"予約・カルテ・会計・LINEがバラバラだと、患者を一人の時系列で見られず、施策の土台が持てません。既存ツールを横で繋ぐ現実的な進め方と、自由診療が見るべき指標（KPI）を解説します。",
+      "image":{"@type":"ImageObject","url":"https://www.vitality-design.jp/og.png","width":1200,"height":630},
+      "datePublished":"2026-06-29T09:00:00+09:00",
+      "dateModified":"2026-06-29T09:00:00+09:00",
+      "inLanguage":"ja",
+      "articleSection":"データ / 数値経営",
+      "keywords":"自由診療 データ統合, 電子カルテ連携, LTV分析, KPI, 数値経営",
+      "wordCount":1800,
+      "author":{"@type":"Organization","name":"Vitality Design LLC","url":"https://www.vitality-design.jp/","description":"自由診療・ウェルネス産業の事業成長パートナー。自らもサービスを運営する当事者として、現場の一次情報をもとに事業を設計する。"},
+      "publisher":{"@type":"Organization","name":"Vitality Design LLC","logo":{"@type":"ImageObject","url":"https://www.vitality-design.jp/icon-512.png","width":512,"height":512}},
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.vitality-design.jp/blog/data-tougou-suuchi-keiei.html"}
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.vitality-design.jp/"},
+        {"@type":"ListItem","position":2,"name":"Field Notes","item":"https://www.vitality-design.jp/blog/"},
+        {"@type":"ListItem","position":3,"name":"予約・カルテ・会計・LINEを「一人の時系列」で見る ― データ統合と数値経営","item":"https://www.vitality-design.jp/blog/data-tougou-suuchi-keiei.html"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"電子カルテや予約システムを入れ替える必要はありますか？","acceptedAnswer":{"@type":"Answer","text":"多くの場合、入れ替えは不要です。医療・サービス現場ではツールの乗り換えは負担が大きく、嫌われます。既存のツールを活かしながら、データを横で繋いで一元的に見られるようにするほうが、現場の負担が少なく現実的です。"}},
+        {"@type":"Question","name":"まず見るべき指標（KPI）は何ですか？","acceptedAnswer":{"@type":"Answer","text":"新規／再来比率、カウンセリング成約率、LTV（顧客生涯価値）、失客率、経路別CPA（顧客獲得単価）が基本です。これらを継続的に追うことで、感覚ではなく数字で意思決定できるようになります。"}},
+        {"@type":"Question","name":"データ統合にAIは必要ですか？","acceptedAnswer":{"@type":"Answer","text":"統合そのものにAIは必須ではありません。まずデータを一人の時系列で見られる状態をつくることが先です。そのうえで、失客予測やデータの要約・分析といった場面でAIが活きてきます。"}},
+        {"@type":"Question","name":"小規模クリニックでもデータ統合はできますか？","acceptedAnswer":{"@type":"Answer","text":"できます。最初から高価なシステムは不要で、スプレッドシートと既存ツールの連携から始められます。規模よりも『顧客を一人の時系列で見る』という発想を持つことのほうが重要です。"}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#F6F7F4;--bg-2:#EDF0EA;--card:#FFFFFF;--ink:#10130F;--ink-soft:#3C4239;--ink-faint:#6B7367;--ink-mute:#A0A89C;
+  --line:rgba(16,19,15,0.10);--line-soft:rgba(16,19,15,0.06);--green:#0B6E4F;--green-bright:#14B870;--lime:#9FE870;--night:#0C140F;
+  --grad:linear-gradient(120deg,#0B6E4F 0%,#0FA890 52%,#14B870 100%);
+  --serif:'Newsreader',Georgia,serif;--jp:'Noto Sans JP',sans-serif;--sans:'Inter','Noto Sans JP',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;letter-spacing:0.005em;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:760px;margin:0 auto;padding:0 48px;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:14px;}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--grad);border-radius:2px;}
+.nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;background:rgba(246,247,244,0.82);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid var(--line-soft);}
+.nav-brand{display:flex;align-items:center;gap:13px;color:var(--ink);}
+.nav-mark{width:30px;height:30px;}
+.nav-name{display:flex;flex-direction:column;line-height:1.12;}
+.nav-name .n-en{font-family:var(--sans);font-weight:800;font-size:15px;letter-spacing:-0.01em;}
+.nav-name .n-jp{font-family:var(--jp);font-size:9.5px;font-weight:500;color:var(--ink-faint);letter-spacing:0.12em;margin-top:2px;}
+.nav-cta{font-size:12.5px;font-weight:700;letter-spacing:0.03em;padding:11px 22px;border-radius:99px;color:#fff;background:var(--ink);transition:transform 0.35s,background 0.35s;}
+.nav-cta:hover{transform:translateY(-2px);background:var(--green);}
+.ahead{padding:72px 0 30px;}
+.ahead .crumb{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--ink-faint);margin-bottom:24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.ahead .crumb a:hover{color:var(--green);}
+.ameta{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.ameta .cat{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);}
+.ameta .date{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-mute);letter-spacing:0.04em;}
+.ahead h1{font-family:var(--jp);font-weight:900;font-size:clamp(28px,4.4vw,46px);line-height:1.42;letter-spacing:0.01em;color:var(--ink);}
+.ahead .lead{font-family:var(--jp);font-size:17px;font-weight:500;line-height:2.1;color:var(--ink-soft);margin-top:26px;}
+.ahead .lead strong{color:var(--ink);font-weight:700;}
+.readmeta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-faint);}
+.readmeta .author{font-weight:700;color:var(--ink-soft);}
+.readmeta .dot{width:3px;height:3px;border-radius:50%;background:var(--ink-mute);}
+.article{padding:8px 0 90px;}
+.tldr{margin:18px 0 0;padding:28px 30px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:0 14px 14px 0;}
+.tldr .tl-h{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:16px;}
+.tldr ul{list-style:none;margin:0;padding:0;}
+.tldr li{font-family:var(--jp);font-size:15px;font-weight:500;line-height:1.85;color:var(--ink);padding:7px 0 7px 24px;position:relative;}
+.tldr li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;border-radius:50%;background:var(--grad);}
+.tldr li strong{font-weight:700;}
+.toc{margin:30px 0 8px;padding:24px 28px;background:var(--bg-2);border-radius:14px;}
+.toc .toc-h{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px;}
+.toc ol{margin:0;padding:0;list-style:none;counter-reset:toc;}
+.toc li{counter-increment:toc;font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:1.5;padding:9px 0;border-bottom:1px solid var(--line-soft);}
+.toc li:last-child{border-bottom:none;}
+.toc a{color:var(--ink-soft);display:inline-flex;align-items:baseline;transition:color 0.3s;}
+.toc a:hover{color:var(--green);}
+.toc a::before{content:counter(toc,decimal-leading-zero);font-family:var(--sans);font-style:italic;font-weight:800;color:var(--green);margin-right:12px;}
+.article h2{font-family:var(--jp);font-weight:900;font-size:clamp(22px,3vw,30px);line-height:1.5;letter-spacing:0.01em;color:var(--ink);margin:64px 0 24px;padding-top:8px;scroll-margin-top:80px;}
+.article h2 .no{font-family:var(--sans);font-style:italic;font-weight:800;font-size:0.8em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-right:14px;}
+.article h3{font-family:var(--jp);font-weight:700;font-size:clamp(17px,2.2vw,20px);color:var(--ink);margin:36px 0 14px;}
+.article p{font-family:var(--jp);font-size:16px;font-weight:400;line-height:2.1;color:var(--ink-soft);margin-bottom:22px;letter-spacing:0.01em;}
+.article p strong{color:var(--ink);font-weight:700;}
+.article ul{list-style:none;margin:0 0 24px;padding:0;}
+.article ul li{font-family:var(--jp);font-size:16px;font-weight:400;line-height:1.95;color:var(--ink-soft);padding:10px 0 10px 26px;position:relative;border-bottom:1px solid var(--line-soft);}
+.article ul li::before{content:"";position:absolute;left:0;top:19px;width:9px;height:9px;border-radius:50%;background:var(--grad);}
+.article ul li strong{color:var(--ink);font-weight:700;}
+.article blockquote{margin:36px 0;padding:24px 28px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:0 12px 12px 0;}
+.article blockquote p{margin:0;font-weight:500;color:var(--ink);font-size:16px;line-height:1.95;}
+.takeaway{margin:30px 0;padding:22px 26px;background:var(--bg-2);border-radius:12px;font-family:var(--jp);font-size:15.5px;font-weight:700;line-height:1.85;color:var(--ink);}
+.takeaway .lbl{display:block;font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.afaq{padding:60px 0 0;}
+.afaq .eyebrow{margin-bottom:22px;}
+.afaq details{border-bottom:1px solid var(--line);}
+.afaq details:first-of-type{border-top:1px solid var(--line);}
+.afaq summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;position:relative;font-family:var(--jp);font-weight:700;font-size:17px;line-height:1.6;color:var(--ink);transition:color 0.3s;}
+.afaq summary::-webkit-details-marker{display:none;}
+.afaq summary:hover{color:var(--green);}
+.afaq summary::after{content:"+";position:absolute;right:4px;top:21px;font-size:20px;font-weight:400;color:var(--ink-faint);}
+.afaq details[open] summary::after{content:"–";}
+.afaq .fa-body{padding:0 0 24px;font-family:var(--jp);font-size:15px;font-weight:500;line-height:2;color:var(--ink-soft);}
+.afaq .fa-body strong{color:var(--ink);font-weight:700;}
+.afaq .fa-body a{color:var(--green);border-bottom:1px solid var(--green);}
+.cta-box{margin:64px 0 0;padding:44px 40px;border-radius:18px;background:var(--night);color:var(--bg);text-align:center;position:relative;overflow:hidden;}
+.cta-box .m{position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(80px);background:radial-gradient(circle,rgba(20,184,112,0.22),transparent 64%);top:50%;left:50%;transform:translate(-50%,-50%);}
+.cta-box h2{position:relative;z-index:2;font-family:var(--jp);font-weight:900;font-size:clamp(20px,2.8vw,28px);line-height:1.6;color:#fff;margin:0 0 12px;}
+.cta-box p{position:relative;z-index:2;font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:1.9;color:rgba(246,247,244,0.78);margin:0 auto 26px;max-width:480px;}
+.cta-box .acts{position:relative;z-index:2;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:700;letter-spacing:0.02em;padding:15px 28px;border-radius:99px;transition:transform 0.32s,background 0.32s,color 0.32s,border-color 0.32s;}
+.btn.bright{background:var(--green-bright);color:#062b1d;}
+.btn.bright:hover{transform:translateY(-3px);}
+.btn.outline{border:1px solid rgba(255,255,255,0.3);color:#fff;}
+.btn.outline:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px);}
+.related{padding:60px 0 0;}
+.related .eyebrow{margin-bottom:24px;}
+.rel-link{display:block;padding:24px 0;border-top:1px solid var(--line);transition:padding-left 0.4s;}
+.rel-link:last-child{border-bottom:1px solid var(--line);}
+.rel-link:hover{padding-left:8px;}
+.rel-link span{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);}
+.rel-link h3{font-family:var(--jp);font-weight:700;font-size:18px;line-height:1.5;color:var(--ink);margin-top:8px;transition:color 0.3s;}
+.rel-link:hover h3{color:var(--green);}
+footer{padding:48px 0;border-top:1px solid var(--line);background:var(--bg-2);text-align:center;}
+footer .fb-en{font-family:var(--sans);font-weight:800;font-size:16px;color:var(--ink);}
+footer .fb-jp{font-family:var(--jp);font-size:12px;font-weight:500;color:var(--ink-faint);margin-top:8px;display:block;}
+footer .fb-links{margin-top:18px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-soft);}
+footer .fb-links a:hover{color:var(--green);}
+footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var(--ink-mute);}
+@media (max-width:680px){
+  .wrap{padding-left:22px;padding-right:22px;}
+  .nav{padding:14px 22px;}
+  .ahead{padding:44px 0 24px;}
+  .article{padding:8px 0 64px;}
+  .cta-box{padding:36px 26px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-brand" aria-label="Vitality Design LLC home">
+    <span class="nav-mark">
+      <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="22" cy="22" r="17" stroke="#10130F" stroke-width="2"/>
+        <path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="url(#pg)" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <defs><linearGradient id="pg" x1="10" y1="30" x2="40" y2="6" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset=".55" stop-color="#0FA890"/><stop offset="1" stop-color="#14B870"/></linearGradient></defs>
+      </svg>
+    </span>
+    <span class="nav-name"><span class="n-en">Vitality Design</span><span class="n-jp">バイタリティデザイン合同会社</span></span>
+  </a>
+  <a href="/#contact" class="nav-cta">お問い合わせ</a>
+</nav>
+
+<header class="ahead">
+  <div class="wrap">
+    <nav class="crumb" aria-label="パンくず"><a href="/">ホーム</a> <span>/</span> <a href="/blog/">Field Notes</a> <span>/</span> データ</nav>
+    <div class="ameta">
+      <span class="cat">データ / 数値経営</span>
+      <time class="date" datetime="2026-06-29">2026.06.29</time>
+    </div>
+    <h1>予約・カルテ・会計・LINEを「一人の時系列」で見る<br>― 自由診療のデータ統合と数値経営</h1>
+    <p class="lead">「この人は何回来て、いくら使い、最後にいつ来たか」——この問いに、すぐ答えられますか。予約・カルテ・会計・LINEが別々のツールで動いていると、患者を<strong>一人の時系列</strong>として見ることができません。すると、施策が打てないのではなく、<strong>施策を打つための土台そのものが無い</strong>状態になります。本稿では、現実的なデータ統合の進め方と、見るべき指標を整理します。</p>
+    <div class="readmeta">
+      <span class="author">Vitality Design LLC</span>
+      <span class="dot"></span><span>自由診療・ウェルネスの事業成長パートナー</span>
+      <span class="dot"></span><span>読了 約6分</span>
+    </div>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+
+    <div class="tldr">
+      <div class="tl-h">この記事の要点</div>
+      <ul>
+        <li>予約・カルテ・会計・LINEがバラバラだと、患者を「一人の時系列」で見られず、<strong>施策の土台が無い</strong>。</li>
+        <li>統合のゴールは<strong>「来院回数・累計金額・最終来院日・流入経路」が一目で分かる</strong>状態。</li>
+        <li><strong>全部を入れ替える必要はない。</strong>既存ツールを横で繋ぐのが現実的（リプレースは現場で嫌われる）。</li>
+        <li>見るべき指標：<strong>新規/再来比率・成約率・LTV・失客率・経路別CPA</strong>。感覚経営から数値経営へ。</li>
+      </ul>
+    </div>
+
+    <nav class="toc" aria-label="目次">
+      <div class="toc-h">目次</div>
+      <ol>
+        <li><a href="#sec-01">なぜ「データ分断」が打ち手のなさを生むのか</a></li>
+        <li><a href="#sec-02">統合のゴールと、現実的な進め方</a></li>
+        <li><a href="#sec-03">自由診療が見るべき5つの指標（KPI）</a></li>
+        <li><a href="#summary">まとめ ― 感覚経営から、数値経営へ</a></li>
+        <li><a href="#faq">よくある質問（FAQ）</a></li>
+      </ol>
+    </nav>
+
+    <p>多くのクリニックやサロンでは、予約はA社、カルテはB社、会計はレジ、顧客接点はLINE——と、用途ごとに別々のツールを使っています。それぞれは便利ですが、<strong>つながっていない</strong>。この「分断」が、静かに経営判断の質を下げています。</p>
+
+    <h2 id="sec-01"><span class="no">01</span>なぜ「データ分断」が打ち手のなさを生むのか</h2>
+    <p>データが分断されていると、ひとりの顧客の全体像が見えません。「この人は何回来て、いくら使い、最後にいつ来たか」が、複数のツールをまたがないと分からない。これを毎回手作業で集計するのは現実的でないため、結局<strong>誰も見なくなります。</strong></p>
+    <p>その結果、セグメントを切ったフォローも、失客の予測も、LTV（顧客生涯価値）の分析もできません。施策のアイデアが無いのではなく、<strong>施策の効果を測る土台が無い</strong>。統合型の電子カルテ・CRMが各社から登場しているのは、裏を返せば、この痛点が広く共有されているからです。</p>
+
+    <h2 id="sec-02"><span class="no">02</span>統合のゴールと、現実的な進め方</h2>
+    <p>データ統合のゴールは、難しいダッシュボードをつくることではありません。シンプルに、<strong>一人の顧客について「来院回数・累計金額・最終来院日・流入経路」が一目で分かる</strong>こと。これだけで、打てる手が一気に増えます。</p>
+    <p>ここで大切なのが、<strong>「全部を入れ替えない」</strong>という現実解です。医療・サービスの現場では、慣れたツールの乗り換えは大きな負担で、強く嫌われます。だから、既存のツールはそのままに、<strong>データを横で繋いで一元的に見られるようにする</strong>アプローチが現実的です。</p>
+    <blockquote>
+      <p>理想のシステムを一度に入れることより、まず「一人の時系列で見られる」状態を、いまあるツールで最短でつくる。完璧な基盤より、動く土台を先に。</p>
+    </blockquote>
+    <p>小規模なら、スプレッドシートと既存ツールの連携から始めて十分です。規模より、<strong>「顧客を一人の時系列で見る」という発想を持つこと</strong>が出発点になります。</p>
+
+    <h2 id="sec-03"><span class="no">03</span>自由診療が見るべき5つの指標（KPI）</h2>
+    <p>データが繋がったら、次は「何を見るか」です。自由診療の数値経営で土台になるのは、次の5つです。</p>
+    <ul>
+      <li><strong>新規／再来比率</strong>：売上が新規依存になっていないか。再来が育っているか。</li>
+      <li><strong>カウンセリング成約率</strong>：来院を売上に変える精度（スタッフ別・メニュー別）。</li>
+      <li><strong>LTV（顧客生涯価値）</strong>：一人の顧客が生涯でもたらす価値。集客上限を決める数字。</li>
+      <li><strong>失客率</strong>：想定周期を過ぎて来ない人の割合。最大の改善余地。</li>
+      <li><strong>経路別CPA</strong>：流入経路ごとの獲得単価。どの集客が効率的かの判断軸。</li>
+    </ul>
+    <p>これらを毎月同じ形で見続けることで、「なんとなく調子が良い／悪い」という感覚が、「どこを直せば数字が動くか」という<strong>具体的な打ち手</strong>に変わります。</p>
+
+    <h2 id="summary"><span class="no">—</span>まとめ ― 感覚経営から、数値経営へ</h2>
+    <div class="takeaway"><span class="lbl">結論</span>データ統合のゴールは立派なシステムではなく、「一人の顧客を時系列で見られる」状態。既存ツールを横で繋ぎ、5つの指標を毎月見る。それだけで、感覚経営は数値経営に変わる。</div>
+    <p>このデータ分断は、<a href="/blog/jiyushinryo-genba-4-no-ana.html">現場に空いている4つの穴</a> の3つ目「分断の穴」にあたります。私たちは、既存ツールを活かしながら現場に馴染む形でデータを繋ぎ、<strong>意思決定に使える数字</strong>として整えるところまで伴走します。</p>
+
+    <section class="afaq" id="faq" aria-label="よくある質問">
+      <span class="eyebrow">FAQ</span>
+      <details>
+        <summary>電子カルテや予約システムを入れ替える必要はありますか？</summary>
+        <div class="fa-body">多くの場合、入れ替えは不要です。医療・サービス現場ではツールの乗り換えは負担が大きく、嫌われます。<strong>既存のツールを活かしながら、データを横で繋いで一元的に見られるようにする</strong>ほうが、現場の負担が少なく現実的です。</div>
+      </details>
+      <details>
+        <summary>まず見るべき指標（KPI）は何ですか？</summary>
+        <div class="fa-body"><strong>新規／再来比率、カウンセリング成約率、LTV、失客率、経路別CPA</strong>が基本です。これらを継続的に追うことで、感覚ではなく数字で意思決定できるようになります。</div>
+      </details>
+      <details>
+        <summary>データ統合にAIは必要ですか？</summary>
+        <div class="fa-body">統合そのものにAIは必須ではありません。まずデータを一人の時系列で見られる状態をつくることが先です。そのうえで、<strong>失客予測やデータの要約・分析</strong>といった場面でAIが活きてきます。</div>
+      </details>
+      <details>
+        <summary>小規模クリニックでもデータ統合はできますか？</summary>
+        <div class="fa-body">できます。最初から高価なシステムは不要で、スプレッドシートと既存ツールの連携から始められます。規模よりも<strong>「顧客を一人の時系列で見る」という発想</strong>を持つことのほうが重要です。</div>
+      </details>
+    </section>
+
+    <div class="cta-box">
+      <div class="m" aria-hidden="true"></div>
+      <h2>その数字、いま一目で見られますか。</h2>
+      <p>発注を前提とした売り込みはしません。「まず何から手をつけるべきか」を一緒に整理するだけでも歓迎です。いただいた内容には、創業者本人が直接ご返信します。</p>
+      <div class="acts">
+        <a class="btn bright" href="/#contact"><span>無料で相談する</span><span>→</span></a>
+        <a class="btn outline" href="/blog/">記事一覧へ</a>
+      </div>
+    </div>
+
+    <div class="related">
+      <span class="eyebrow">Related</span>
+      <a class="rel-link" href="/blog/jiyushinryo-genba-4-no-ana.html">
+        <span>事業成長 / オペレーション</span>
+        <h3>自由診療・ウェルネスの現場に空いている、4つの“設計されていない”穴</h3>
+      </a>
+      <a class="rel-link" href="/blog/line-shikkyaku-repeat.html">
+        <span>リピート / LTV</span>
+        <h3>LINE公式アカウントで“失客”を止める ― 自由診療のリピート設計</h3>
+      </a>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <span class="fb-en">Vitality Design LLC</span>
+    <span class="fb-jp">バイタリティデザイン合同会社 ｜ 人の活力を、デザインする。</span>
+    <div class="fb-links">
+      <a href="/">Home</a>
+      <a href="/blog/">Field Notes</a>
+      <a href="/principles.html">Principles</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="fb-base">© 2026 Vitality Design LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

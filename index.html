@@ -51,7 +51,10 @@
       "email":"contact@vitality-design.jp","slogan":"We Design Vitality.",
       "description":"自由診療・ウェルネス産業の事業成長パートナー。自らもサービスを運営し、現場の一次情報から、AI・デザイン・事業開発で人の状態変化を設計する。",
       "knowsAbout":["自由診療","美容医療","メンズヘルス","ウェルネス","事業開発","顧客体験設計","集患","カウンセリング成約率","LTV","AI活用","プロダクト開発","ブランド体験"],
-      "areaServed":"JP"
+      "areaServed":"JP",
+      "sameAs":["https://www.hisrecoveries.com/"],
+      "founder":{"@type":"Person","name":"Vitality Design 創業者","jobTitle":"代表","description":"急成長するSaaS／クラウドサービス企業およびその現場ソリューション事業会社で事業開発に従事。現在は自由診療・ウェルネス領域の現場と自社サービスHis Recoveriesを通じて、人の状態変化に向き合う。"},
+      "owns":{"@type":"Product","name":"His Recoveries","url":"https://www.hisrecoveries.com/","description":"男性のコンプレックスから自信までを伴走する自社運営サービス"}
     },
     {
       "@type":"WebSite",
@@ -140,6 +143,15 @@ section{position:relative;}
 .hero-jp{font-family:var(--jp);font-weight:900;font-size:clamp(22px,3vw,38px);line-height:1.4;letter-spacing:0.01em;color:var(--ink);margin-top:30px;}
 .hero-lead{font-family:var(--jp);font-size:17px;font-weight:500;line-height:2.1;color:var(--ink-soft);max-width:580px;margin-top:28px;}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:42px;}
+
+/* OVERVIEW (AI-citable summary) */
+.overview{padding:66px 0;border-top:1px solid var(--line-soft);}
+.ov-lead{font-family:var(--jp);font-weight:600;font-size:clamp(18px,2.3vw,24px);line-height:1.9;color:var(--ink-soft);max-width:900px;letter-spacing:0.01em;}
+.ov-lead strong{color:var(--ink);font-weight:700;}
+.ov-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+.ov-fact{border-top:2px solid var(--ink);padding-top:16px;}
+.ov-fact .k{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.ov-fact .v{font-family:var(--jp);font-size:14px;font-weight:600;line-height:1.75;color:var(--ink-soft);}
 .btn{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:700;letter-spacing:0.02em;padding:15px 28px;border-radius:99px;transition:transform 0.3s,background 0.3s,color 0.3s,border-color 0.3s;}
 .btn .arr{transition:transform 0.3s;}
 .btn:hover .arr{transform:translateX(4px);}
@@ -409,7 +421,8 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .wrap,.narrow{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}.nav-links{display:none;}
   .hero{padding:74px 0 64px;}
-  .wedo,.friction,.blogfeed,.howwork,.faq,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
+  .wedo,.friction,.overview,.blogfeed,.howwork,.faq,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
+  .ov-facts{grid-template-columns:1fr;gap:14px;}
   .fric-list li{padding:20px 0 20px 30px;}.fric-list li::before{top:20px;}
   .feed{grid-template-columns:1fr;}
   .steps{grid-template-columns:1fr;}
@@ -463,6 +476,27 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
     <div class="hero-actions reveal d2">
       <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
       <a class="btn ghost" href="/principles.html"><span>私たちの原則</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW (AI-citable entity summary) -->
+<section class="overview" id="overview" aria-label="Vitality Designの概要">
+  <div class="wrap">
+    <p class="ov-lead reveal"><strong>Vitality Design LLC（バイタリティデザイン合同会社）は、自由診療・ウェルネス産業に特化した事業成長パートナーです。</strong>自らもサービス（His Recoveries）を運営する当事者として、集患・顧客体験設計・カウンセリング改善・データ統合・AI活用・ブランド開発まで、現場の一次情報をもとに支援します。提案だけで終わらせず、現場で動く形まで実装・伴走します。</p>
+    <div class="ov-facts">
+      <div class="ov-fact reveal">
+        <div class="k">対象 / Who</div>
+        <div class="v">自由診療クリニック・美容医療・サロン・パーソナルジム・ウェルネス事業者</div>
+      </div>
+      <div class="ov-fact reveal d1">
+        <div class="k">提供 / What</div>
+        <div class="v">集患／顧客体験設計／カウンセリング・オペレーション改善／データ統合・数値経営／AI活用／ブランド・コミュニティ開発</div>
+      </div>
+      <div class="ov-fact reveal d2">
+        <div class="k">強み / Why</div>
+        <div class="v">自らサービスを運営する「当事者かつ実装者」。机上の提案ではなく、現場の一次情報に基づく設計</div>
+      </div>
     </div>
   </div>
 </section>

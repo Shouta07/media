@@ -54,7 +54,10 @@
       "areaServed":"JP",
       "sameAs":["https://www.hisrecoveries.com/"],
       "founder":{"@type":"Person","name":"Vitality Design 創業者","jobTitle":"代表","description":"急成長するSaaS／クラウドサービス企業およびその現場ソリューション事業会社で事業開発に従事。現在は自由診療・ウェルネス領域の現場と自社サービスHis Recoveriesを通じて、人の状態変化に向き合う。"},
-      "owns":{"@type":"Product","name":"His Recoveries","url":"https://www.hisrecoveries.com/","description":"男性のコンプレックスから自信までを伴走する自社運営サービス"}
+      "owns":[
+        {"@type":"Product","name":"Accord","description":"自由診療・ウェルネスの現場向けソリューション。ヒアリング・現場オペレーションの整理・開発／デザインを通じて、現場にフィットする顧客体験を設計・実装する。"},
+        {"@type":"Product","name":"His Recoveries","url":"https://www.hisrecoveries.com/","description":"男性のコンプレックスから自信までを伴走する自社運営サービス"}
+      ]
     },
     {
       "@type":"WebSite",
@@ -72,7 +75,8 @@
     },
     {
       "@type":"Service",
-      "name":"自由診療・ウェルネスの事業成長支援",
+      "name":"Accord ― 自由診療・ウェルネスの現場向けソリューション",
+      "alternateName":"自由診療・ウェルネスの事業成長支援",
       "provider":{"@id":"https://www.vitality-design.jp/#org"},
       "areaServed":"JP",
       "serviceType":["顧客体験設計","集患支援","カウンセリング・オペレーション改善","データ統合・数値経営","AI活用","プロダクト・ブランド開発"],
@@ -392,7 +396,8 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 .axis-tags span{font-family:var(--jp);font-size:12.5px;font-weight:600;color:var(--ink-soft);padding:7px 14px;background:var(--bg-tint);border-radius:99px;}
 .axis-sol{margin-top:24px;padding-top:22px;border-top:1px solid var(--line);}
 .axis-sol .sol-label{display:block;font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px;}
-.axis-sol .sol-name{font-family:var(--jp);font-weight:800;font-size:clamp(20px,2.2vw,25px);letter-spacing:0.01em;color:var(--ink);display:inline-flex;align-items:center;gap:8px;}
+.axis-sol .sol-name{font-family:var(--jp);font-weight:800;font-size:clamp(20px,2.2vw,25px);letter-spacing:0.01em;color:var(--ink);display:inline-flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+.axis-sol .sol-sub{font-family:var(--jp);font-weight:600;font-size:12.5px;color:var(--ink-faint);letter-spacing:0.06em;}
 .axis-sol .sol-desc{font-family:var(--jp);font-size:14px;font-weight:500;line-height:1.95;color:var(--ink-soft);margin-top:12px;}
 .axis-sol .sol-desc .step{color:var(--green);font-weight:700;}
 .axis-sol a.sol-name{color:var(--green);}
@@ -491,7 +496,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       </div>
       <div class="ov-fact reveal d1">
         <div class="k">提供 / What</div>
-        <div class="v">集患／顧客体験設計／カウンセリング・オペレーション改善／データ統合・数値経営／AI活用／ブランド・コミュニティ開発</div>
+        <div class="v">現場向けソリューション「Accord」— 集患／顧客体験設計／カウンセリング・オペレーション改善／データ統合／AI活用／ブランド開発</div>
       </div>
       <div class="ov-fact reveal d2">
         <div class="k">強み / Why</div>
@@ -532,8 +537,8 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
         <p>自由診療・ウェルネスの<strong>クリニック／サロン／ブランド</strong>と一緒に、現場の課題を解きます。私たち自身がサービスを運営する当事者だからこそ、提案で終わらず実装まで踏み込めます。</p>
         <div class="axis-sol">
           <span class="sol-label">Solution</span>
-          <span class="sol-name">顧客体験設計</span>
-          <p class="sol-desc"><span class="step">ヒアリング</span> → <span class="step">現場オペレーションの整理</span> → <span class="step">開発／デザイン</span>。<br>現場にフィットするソリューションを提供します。</p>
+          <a class="sol-name" href="https://vd-sales-marketing.vercel.app/lp" target="_blank" rel="noopener">Accord<span class="ar">↗</span><span class="sol-sub">現場向けソリューション</span></a>
+          <p class="sol-desc"><span class="step">ヒアリング</span> → <span class="step">現場オペレーションの整理</span> → <span class="step">開発／デザイン</span>。<br>現場にフィットする顧客体験を、Accordとして設計・実装します。</p>
         </div>
       </div>
       <div class="axis reveal d1">
@@ -684,7 +689,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       </div>
       <div class="company-table reveal d1">
         <div class="row"><div class="th">会社名</div><div class="td">バイタリティデザイン合同会社<br>Vitality Design LLC</div></div>
-        <div class="row"><div class="th">事業内容</div><div class="td">自由診療・ウェルネス領域における<ul><li>AIエンジニアリング</li><li>事業開発</li><li>顧客体験設計</li><li>プロダクト開発</li><li>ブランド・コミュニティ運営</li><li>自社サービス <a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a> の運営（男性のコンプレックスから自信までを伴走）</li></ul></div></div>
+        <div class="row"><div class="th">事業内容</div><div class="td">自由診療・ウェルネス領域における<ul><li>現場向けソリューション「Accord」の提供（顧客体験設計・AIエンジニアリング・現場DX）</li><li>事業開発</li><li>プロダクト開発</li><li>ブランド・コミュニティ運営</li><li>自社サービス <a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a> の運営（男性のコンプレックスから自信までを伴走）</li></ul></div></div>
         <div class="row"><div class="th">お問い合わせ</div><div class="td"><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></div></div>
       </div>
     </div>
@@ -744,6 +749,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       <div class="field"><label for="f-email">メールアドレス<span class="req">*</span></label><input type="email" id="f-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
       <div class="field"><label for="f-type">ご相談の種類</label>
         <select id="f-type" name="type">
+          <option value="Accord（現場向けソリューション）">Accord（現場向けソリューション）</option>
           <option value="患者・顧客体験">患者・顧客体験</option>
           <option value="AI業務改善・現場DX">AI業務改善・現場DX</option>
           <option value="ブランド・コミュニティ">ブランド・コミュニティ</option>
@@ -797,6 +803,7 @@ form.addEventListener('submit',async(e)=>{
   finally{submitBtn.disabled=false;submitBtn.querySelector('span').textContent='この内容で送信する';}
 });
 document.querySelectorAll('a[href*="hisrecoveries.com"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','outbound_click',{event_category:'his_recoveries',event_label:'his_recoveries'});}}catch(e){}}));
+document.querySelectorAll('a[href*="vd-sales-marketing.vercel.app"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','outbound_click',{event_category:'accord_lp',event_label:'accord_lp'});}}catch(e){}}));
 </script>
 </body>
 </html>

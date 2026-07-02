@@ -193,6 +193,26 @@ section{position:relative;}
 .feed-more{grid-column:1/-1;justify-self:center;margin-top:14px;font-family:var(--sans);font-size:14px;font-weight:700;color:var(--ink);letter-spacing:0.02em;border-bottom:1.5px solid var(--green);padding-bottom:3px;transition:color 0.3s;}
 .feed-more:hover{color:var(--green);}
 
+/* VISION (Accord × His Recoveries loop) */
+.vision{padding:110px 0;background:var(--night);position:relative;overflow:hidden;}
+.vision-glow{position:absolute;width:640px;height:640px;border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(18,162,102,0.16),transparent 64%);top:-220px;right:-160px;pointer-events:none;}
+.vision .wrap{position:relative;z-index:2;}
+.vision .eyebrow{color:var(--lime);}
+.vision .eyebrow::before{background:var(--lime);}
+.vision h2{font-family:var(--jp);font-weight:900;font-size:clamp(26px,3.6vw,44px);line-height:1.5;letter-spacing:0.01em;color:#fff;margin-top:24px;}
+.vision h2 em{font-style:normal;color:var(--lime);}
+.vision-lead{font-family:var(--jp);font-size:15.5px;font-weight:500;line-height:2.05;color:rgba(251,251,249,0.72);max-width:740px;margin-top:24px;}
+.vision-lead strong{color:#fff;font-weight:700;}
+.loop{display:grid;grid-template-columns:1fr minmax(220px,340px) 1fr;gap:20px;align-items:center;margin-top:58px;}
+.loop-node{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:36px 30px;text-align:center;}
+.ln-tag{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--lime);margin-bottom:14px;}
+.ln-name{display:block;font-family:var(--sans);font-weight:800;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.01em;color:#fff;}
+.ln-desc{font-family:var(--jp);font-size:13.5px;font-weight:500;line-height:1.9;color:rgba(251,251,249,0.66);margin-top:12px;}
+.loop-mid{display:flex;flex-direction:column;gap:30px;}
+.loop-arrow{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.loop-arrow svg{width:100%;max-width:300px;height:22px;display:block;}
+.la-label{font-family:var(--jp);font-size:12.5px;font-weight:600;color:rgba(251,251,249,0.8);letter-spacing:0.03em;text-align:center;}
+
 /* HOW WE WORK (3 steps) */
 .howwork{padding:100px 0;}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -427,7 +447,15 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .nav{padding:14px 22px;}.nav-links{display:none;}
   .hero{padding:74px 0 64px;}
   .wedo,.friction,.overview,.blogfeed,.howwork,.faq,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
+  .vision{padding:76px 0;}
   .ov-facts{grid-template-columns:1fr;gap:14px;}
+  .loop{display:flex;flex-direction:column;gap:14px;margin-top:40px;}
+  .loop-mid{display:contents;}
+  .loop-node.n1{order:1;}.loop-arrow.a1{order:2;}.loop-node.n2{order:3;}.loop-arrow.a2{order:4;}
+  .loop-arrow{flex-direction:row;justify-content:center;gap:10px;padding:4px 0;}
+  .loop-arrow svg{display:none;}
+  .loop-arrow.a1::before{content:"↓";color:var(--lime);font-size:18px;font-weight:700;}
+  .loop-arrow.a2::before{content:"↺";color:var(--lime);font-size:18px;font-weight:700;}
   .fric-list li{padding:20px 0 20px 30px;}.fric-list li::before{top:20px;}
   .feed{grid-template-columns:1fr;}
   .steps{grid-template-columns:1fr;}
@@ -549,6 +577,46 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
           <span class="sol-label">Solution</span>
           <a class="sol-name" href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries<span class="ar">↗</span></a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION (Accord × His Recoveries loop) -->
+<section class="vision" id="vision">
+  <div class="vision-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">The Future We Design</span>
+    <h2 class="reveal d1">現場が良くなるほど、<br>ひとりの改善も、<em>良くなる。</em></h2>
+    <p class="vision-lead reveal d1">AccordとHis Recoveriesは、別々の事業ではありません。<strong>Accordが現場のオペレーションと顧客体験を良くする。その良い現場が、His Recoveriesの改善体験を支える。</strong>そして、ひとりの改善から得た一次情報が、また現場の設計に還っていく——この循環が、私たちのつくりたい未来です。</p>
+    <div class="loop reveal d2">
+      <div class="loop-node n1">
+        <span class="ln-tag">現場 / Business</span>
+        <span class="ln-name">Accord</span>
+        <p class="ln-desc">クリニック・サロン・ジムの<br>オペレーションと顧客体験を、良くする。</p>
+      </div>
+      <div class="loop-mid">
+        <div class="loop-arrow a1">
+          <span class="la-label">良い現場が、良い改善体験をつくる</span>
+          <svg viewBox="0 0 300 22" fill="none" aria-hidden="true">
+            <defs><linearGradient id="lg-a1" x1="0" y1="0" x2="300" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset="1" stop-color="#7FD58C"/></linearGradient></defs>
+            <path d="M4 16 Q150 4 286 13" stroke="url(#lg-a1)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M278 6 L290 13 L279 19" stroke="#7FD58C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="loop-arrow a2">
+          <svg viewBox="0 0 300 22" fill="none" aria-hidden="true">
+            <defs><linearGradient id="lg-a2" x1="300" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset="1" stop-color="#7FD58C"/></linearGradient></defs>
+            <path d="M296 6 Q150 18 14 9" stroke="url(#lg-a2)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M22 3 L10 9 L21 16" stroke="#7FD58C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="la-label">ひとりの一次情報が、現場の設計に還る</span>
+        </div>
+      </div>
+      <div class="loop-node n2">
+        <span class="ln-tag">ひとり / Person</span>
+        <span class="ln-name">His Recoveries</span>
+        <p class="ln-desc">コンプレックスから自信まで、<br>ひとりの改善体験に、伴走する。</p>
       </div>
     </div>
   </div>

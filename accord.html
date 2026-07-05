@@ -299,6 +299,53 @@ a{color:inherit;text-decoration:none;}
 .cta-card h3{font-family:var(--jp);font-weight:900;font-size:19px;color:var(--ink);}
 .cta-card p{font-family:var(--jp);font-size:13.5px;font-weight:500;color:var(--ink-faint);margin:10px 0 22px;}
 
+/* cta band */
+.band{padding:30px 0;background:rgba(11,110,79,0.055);border-top:1px solid rgba(11,110,79,0.14);border-bottom:1px solid rgba(11,110,79,0.14);}
+.band-in{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.band p{font-family:var(--jp);font-weight:800;font-size:clamp(15px,2vw,18px);color:var(--ink);line-height:1.6;}
+.band p small{display:block;font-family:var(--jp);font-size:12.5px;font-weight:600;color:var(--ink-faint);margin-top:2px;}
+.btn.green{color:#fff;background:var(--grad);}
+.btn.green:hover{transform:translateY(-2px);filter:brightness(1.05);}
+
+/* flow */
+.flow{padding:96px 0;}
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.flow-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 28px;}
+.flow-card .fn{font-family:var(--sans);font-style:italic;font-weight:800;font-size:30px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.flow-card h3{font-family:var(--jp);font-weight:900;font-size:17.5px;color:var(--ink);margin:10px 0 8px;}
+.flow-card p{font-family:var(--jp);font-size:13.5px;font-weight:500;line-height:1.9;color:var(--ink-soft);}
+.flow-card .tag{display:inline-block;margin-top:14px;font-family:var(--jp);font-size:11.5px;font-weight:700;color:var(--green);background:rgba(11,110,79,0.07);border:1px solid rgba(11,110,79,0.16);padding:5px 12px;border-radius:99px;}
+
+/* consult (embedded form) */
+.consult{padding:100px 0;background:var(--bg-tint);border-top:1px solid var(--line-soft);}
+.consult-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:start;}
+.trusts{margin-top:24px;}
+.trusts li{list-style:none;font-family:var(--jp);font-size:14px;font-weight:600;color:var(--ink-soft);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line-soft);}
+.trusts li::before{content:"✓";position:absolute;left:0;top:9px;color:var(--green-bright);font-weight:900;}
+.demo-mini{margin-top:26px;font-family:var(--jp);font-size:13.5px;font-weight:600;color:var(--ink-soft);}
+.demo-mini a{color:var(--green);border-bottom:1.5px solid var(--green);}
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 32px;box-shadow:0 18px 50px rgba(12,13,11,0.06);}
+.form-card .fc-h{font-family:var(--jp);font-weight:900;font-size:19px;color:var(--ink);margin-bottom:4px;}
+.form-card .fc-s{font-family:var(--jp);font-size:12.5px;font-weight:600;color:var(--green);margin-bottom:20px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-family:var(--jp);font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;}
+.field .req{color:var(--green);margin-left:3px;}
+.field input,.field select,.field textarea{width:100%;font-family:var(--jp);font-size:14.5px;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;outline:none;transition:border-color 0.3s;-webkit-appearance:none;appearance:none;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green);}
+.field textarea{min-height:96px;resize:vertical;}
+.form-status{display:none;font-family:var(--jp);font-size:13px;font-weight:700;color:#B4372F;background:rgba(180,55,47,0.07);border:1px solid rgba(180,55,47,0.25);border-radius:10px;padding:10px 14px;margin-bottom:14px;}
+.form-submit{width:100%;justify-content:center;}
+.form-fine{font-family:var(--jp);font-size:11.5px;font-weight:500;color:var(--ink-mute);line-height:1.8;margin-top:14px;}
+.fsuccess{display:none;text-align:center;padding:34px 0;}
+.fsuccess .ck{width:52px;height:52px;border-radius:50%;background:var(--grad);color:#fff;font-size:24px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.fsuccess h4{font-family:var(--jp);font-weight:900;font-size:19px;color:var(--ink);}
+.fsuccess p{font-family:var(--jp);font-size:13.5px;font-weight:500;color:var(--ink-soft);margin-top:8px;line-height:1.9;}
+.form-card.sent form{display:none;}
+.form-card.sent .fsuccess{display:block;}
+
+/* mobile sticky bar */
+.mbar{display:none;}
+
 /* footer */
 footer{padding:48px 0;border-top:1px solid var(--line);background:var(--bg-tint);text-align:center;}
 footer .fa{font-family:var(--sans);font-weight:800;font-size:18px;color:var(--ink);}
@@ -312,6 +359,13 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
   .wrap{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}
   .nav-links{display:none;}
+  body{padding-bottom:72px;}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:200;background:rgba(251,251,249,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px;gap:10px;}
+  .mbar a{flex:1;justify-content:center;font-size:13.5px;padding:13px 8px;}
+  .consult-grid{grid-template-columns:1fr;gap:32px;}
+  .flow-grid{grid-template-columns:1fr;}
+  .band-in{flex-direction:column;align-items:flex-start;}
+  .flow,.consult{padding:64px 0;}
   .hero{padding:56px 0 60px;}
   .hero-grid{grid-template-columns:1fr;gap:40px;}
   .pain-grid,.axh-grid,.ba-grid,.roi-grid,.cta-grid{grid-template-columns:1fr;}
@@ -335,7 +389,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
     <a href="#faq">FAQ</a>
     <a href="https://vd-sales-marketing.vercel.app/lp" target="_blank" rel="noopener">デモを見る</a>
   </div>
-  <a href="/#contact" class="nav-cta">お問い合わせ</a>
+  <a href="#consult" class="nav-cta">無料現場診断</a>
 </nav>
 
 <!-- HERO -->
@@ -349,7 +403,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
         <p class="hero-lead reveal d2">初回カウンセリングの成約率を高める、AIツールと人の伴走。スタッフの接客を底上げし、どこで成約を逃しているかを「見える化」します。</p>
         <p class="hero-vision reveal d2">— 世界中の改善を、一つにつなぐ。その最初の一歩。</p>
         <div class="hero-actions reveal d2">
-          <a class="btn solid" href="/#contact"><span>導入を相談する</span><span class="arr">→</span></a>
+          <a class="btn green" href="#consult"><span>【無料】現場診断を申し込む</span><span class="arr">→</span></a>
           <a class="btn ghost" href="https://vd-sales-marketing.vercel.app/lp" target="_blank" rel="noopener"><span>デモを見る</span></a>
         </div>
         <div class="reveal d3"><span class="hero-note">お試し導入 募集中 — 効果が出なければ、初期費用は返金します</span></div>
@@ -474,6 +528,16 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
         <div class="rec"><span class="r-tag">アップセル</span><div class="r-n">集中ケア コース（松竹梅で提示）</div><div class="r-d">焦らせず、3案から選んでいただく</div></div>
         <div class="rec"><span class="r-tag">クロスセル</span><div class="r-n">ホームケア物販（会計時）</div><div class="r-d">院での効果を、日々のケアで支える</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-in">
+      <p>「どこで・いくら成約を逃しているか」を、無料で数字にします。<small>売り込みはしません。現状の見える化だけでも価値があります。</small></p>
+      <a class="btn green" href="#consult"><span>【無料】現場診断を申し込む</span><span class="arr">→</span></a>
     </div>
   </div>
 </section>
@@ -649,7 +713,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
         <span class="roi-badge">ツール費用の約4倍を回収</span>
       </div>
     </div>
-    <div style="text-align:center;margin-top:36px;" class="reveal"><a class="btn solid" href="/#contact"><span>あなたの数字で試算する</span><span class="arr">→</span></a></div>
+    <div style="text-align:center;margin-top:36px;" class="reveal"><a class="btn green" href="#consult"><span>【無料】あなたの数字で試算する</span><span class="arr">→</span></a></div>
     <p class="note">※ すべて仮の前提による試算例です。効果を保証するものではなく、実際の数値は院により異なります。現場診断で御院の実数を入れて試算します。</p>
   </div>
 </section>
@@ -673,7 +737,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
           <li>導入支援</li>
           <li>8〜12週間で成果を検証</li>
         </ul>
-        <a class="btn ghost" href="/#contact">ご相談はこちら</a>
+        <a class="btn ghost" href="#consult">ご相談はこちら</a>
       </div>
       <div class="price rec-p reveal d1">
         <span class="badge">おすすめ</span>
@@ -686,7 +750,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
           <li>月次レビュー（月1回）</li>
           <li>院ごとの継続的な最適化</li>
         </ul>
-        <a class="btn solid" href="/#contact">ご相談はこちら</a>
+        <a class="btn green" href="#consult">ご相談はこちら</a>
       </div>
       <div class="price reveal d2">
         <h3>プレミアム</h3>
@@ -698,10 +762,41 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
           <li>図解／多言語などの追加機能</li>
           <li>複数店舗への展開支援</li>
         </ul>
-        <a class="btn ghost" href="/#contact">ご相談はこちら</a>
+        <a class="btn ghost" href="#consult">ご相談はこちら</a>
       </div>
     </div>
     <p class="note">成果報酬を設ける場合も「上位施術の成約率の改善」を指標とし、売上額には連動させません。医療広告ガイドライン・薬機法に配慮した設計です。</p>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Flow</span>
+      <h2>導入までは、3ステップ。</h2>
+      <p class="sl">大がかりな準備は要りません。まず数字を見るところから。</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <div class="fn">01</div>
+        <h3>お問い合わせ</h3>
+        <p>下のフォームから1分。ご状況を簡単にお聞かせください。</p>
+        <span class="tag">所要 1分</span>
+      </div>
+      <div class="flow-card reveal d1">
+        <div class="fn">02</div>
+        <h3>無料の現場診断</h3>
+        <p>御院の実数で「どこで・いくら成約を逃しているか」を試算してお見せします。</p>
+        <span class="tag">無料・オンライン可</span>
+      </div>
+      <div class="flow-card reveal d2">
+        <div class="fn">03</div>
+        <h3>パイロット導入</h3>
+        <p>8〜12週間で成果を検証。成功条件に届かなければ、初期費用は返金します。</p>
+        <span class="tag">未達なら返金</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -753,23 +848,48 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
 </section>
 
 <!-- CTA -->
-<section class="cta" id="cta">
+<section class="consult" id="consult">
   <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">Contact</span>
-      <h2>成約を、仕組みに変える。</h2>
-      <p class="sl">まず「どこで・いくら成約を逃しているか」を数字でお見せします。導入は、効果が出なければ返金する短期お試しから。</p>
-    </div>
-    <div class="cta-grid">
-      <div class="cta-card reveal">
-        <h3>実際の画面を見たい方</h3>
-        <p>製品デモをそのままご覧いただけます</p>
-        <a class="btn ghost" href="https://vd-sales-marketing.vercel.app/lp" target="_blank" rel="noopener"><span>デモを見る</span><span class="arr">→</span></a>
+    <div class="consult-grid">
+      <div class="reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 style="font-family:var(--jp);font-weight:900;font-size:clamp(26px,3.4vw,40px);line-height:1.45;color:var(--ink);margin-top:22px;">成約を、<br>仕組みに変える。</h2>
+        <p style="font-family:var(--jp);font-size:15px;font-weight:500;line-height:2;color:var(--ink-soft);margin-top:18px;">まず「どこで・いくら成約を逃しているか」を数字でお見せします。導入は、効果が出なければ返金する短期お試しから。</p>
+        <ul class="trusts">
+          <li>売り込みはしません。診断だけでも歓迎です</li>
+          <li>成果報酬（売上連動）は取りません</li>
+          <li>パイロットは成功条件 未達なら初期費用返金</li>
+          <li>創業者本人が、1〜3営業日以内にご返信します</li>
+        </ul>
+        <p class="demo-mini">先に画面を見たい方は <a href="https://vd-sales-marketing.vercel.app/lp" target="_blank" rel="noopener">製品デモ</a> をどうぞ。</p>
       </div>
-      <div class="cta-card reveal d1">
-        <h3>導入を相談したい方</h3>
-        <p>現場診断・パイロットのご相談はこちら</p>
-        <a class="btn solid" href="/#contact"><span>お問い合わせ</span><span class="arr">→</span></a>
+      <div class="form-card reveal d1" id="accordFormCard">
+        <div class="fc-h">無料の現場診断を申し込む</div>
+        <div class="fc-s">入力は1分。オンライン対応・全国OK。</div>
+        <form id="accordForm" novalidate>
+          <input type="hidden" name="_subject" value="【Accord】無料現場診断・導入のご相談">
+          <div class="form-status" id="afError" role="alert"></div>
+          <div class="field"><label for="af-name">お名前<span class="req">*</span></label><input type="text" id="af-name" name="name" autocomplete="name" required placeholder="山田 太郎"></div>
+          <div class="field"><label for="af-clinic">院・サロン名</label><input type="text" id="af-clinic" name="company" autocomplete="organization" placeholder="○○クリニック／○○サロン"></div>
+          <div class="field"><label for="af-email">メールアドレス<span class="req">*</span></label><input type="email" id="af-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
+          <div class="field"><label for="af-vol">月の初回カウンセリング件数（任意）</label>
+            <select id="af-vol" name="monthly_counseling">
+              <option value="未選択">選択してください</option>
+              <option value="〜20件">〜20件</option>
+              <option value="20〜50件">20〜50件</option>
+              <option value="50件以上">50件以上</option>
+              <option value="把握していない">把握していない</option>
+            </select>
+          </div>
+          <div class="field"><label for="af-msg">ご相談内容（任意）</label><textarea id="af-msg" name="message" placeholder="例：新人の成約率が低い／上位プランが通らない など"></textarea></div>
+          <button class="btn green form-submit" type="submit" id="afSubmit"><span>【無料】現場診断を申し込む</span><span class="arr">→</span></button>
+          <p class="form-fine">送信内容は contact@vitality-design.jp に届きます。営業目的の売り込みは行いません。</p>
+        </form>
+        <div class="fsuccess">
+          <div class="ck">✓</div>
+          <h4>送信しました。</h4>
+          <p>ありがとうございます。創業者本人が<br>1〜3営業日以内に、直接ご返信します。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -781,7 +901,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
     <div class="fj">改善を、点から線へ。 ｜ by Vitality Design</div>
     <div class="fl">
       <a href="/">Vitality Design</a>
-      <a href="/#contact">お問い合わせ</a>
+      <a href="#consult">お問い合わせ</a>
       <a href="/blog/">Field Notes</a>
       <a href="/principles.html">Principles</a>
     </div>
@@ -789,11 +909,36 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
   </div>
 </footer>
 
+<div class="mbar" aria-hidden="false">
+  <a class="btn green" href="#consult">【無料】現場診断</a>
+  <a class="btn ghost" href="https://vd-sales-marketing.vercel.app/lp" target="_blank" rel="noopener">デモを見る</a>
+</div>
+
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.querySelectorAll('a[href*="vd-sales-marketing.vercel.app"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','outbound_click',{event_category:'accord_demo',event_label:'accord_demo'});}}catch(e){}}));
-document.querySelectorAll('a[href="/#contact"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','cta_click',{event_category:'accord_page',event_label:'to_contact'});}}catch(e){}}));
+document.querySelectorAll('a[href="#consult"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','cta_click',{event_category:'accord_page',event_label:'to_form'});}}catch(e){}}));
+
+const AF_ENDPOINT='https://formspree.io/f/xbdvobba';
+const afForm=document.getElementById('accordForm');
+const afCard=document.getElementById('accordFormCard');
+const afErr=document.getElementById('afError');
+const afBtn=document.getElementById('afSubmit');
+function afShowErr(m){afErr.textContent=m;afErr.style.display='block';}
+afForm.addEventListener('submit',async(e)=>{
+  e.preventDefault();afErr.style.display='none';
+  const name=afForm.name.value.trim(),email=afForm.email.value.trim();
+  if(!name||!email){afShowErr('お名前とメールアドレスは必須です。');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){afShowErr('メールアドレスの形式をご確認ください。');return;}
+  afBtn.disabled=true;afBtn.querySelector('span').textContent='送信中…';
+  try{
+    const res=await fetch(AF_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(afForm)});
+    if(res.ok){try{if(typeof gtag==='function'){gtag('event','generate_lead',{event_category:'contact',event_label:'accord_form'});}}catch(err){}afCard.classList.add('sent');afForm.reset();}
+    else{afShowErr('送信に失敗しました。時間をおいて再度お試しください。');}
+  }catch(err){afShowErr('通信エラーが発生しました。contact@vitality-design.jp まで直接ご連絡ください。');}
+  finally{afBtn.disabled=false;afBtn.querySelector('span').textContent='【無料】現場診断を申し込む';}
+});
 </script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+name: Generate Field Notes article
+
+# Manual trigger. Produces a DRAFT article as a Pull Request — never a direct
+# deploy. You review the PR (Vercel gives a live preview), then merge = publish.
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "記事テーマ（例：クリニックの再来院を増やすフォロー設計）"
+        required: true
+        type: string
+      keywords:
+        description: "狙いたいキーワード（カンマ区切り・任意）"
+        required: false
+        type: string
+      notes:
+        description: "補足メモ（任意）"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        working-directory: scripts
+        run: npm install --no-audit --no-fund
+
+      - name: Generate article
+        id: gen
+        working-directory: scripts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          INPUT_TOPIC: ${{ inputs.topic }}
+          INPUT_KEYWORDS: ${{ inputs.keywords }}
+          INPUT_NOTES: ${{ inputs.notes }}
+        run: node generate-article.mjs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: article/${{ steps.gen.outputs.slug }}
+          commit-message: "Add Field Notes article: ${{ steps.gen.outputs.title }}"
+          title: "📝 記事ドラフト: ${{ steps.gen.outputs.title }}"
+          body: |
+            AI生成の記事ドラフトです。**マージする前に必ず内容を確認してください。**
+
+            - **slug**: `${{ steps.gen.outputs.slug }}`
+            - **URL（マージ後）**: https://www.vitality-design.jp/blog/${{ steps.gen.outputs.slug }}.html
+            - **テーマ**: ${{ inputs.topic }}
+
+            ## 自動チェック（合格済み）
+            JSON-LD妥当性 / 必須メタ / 内部リンク整合 / slug重複 / 医療広告・景表法の禁止表現スキャン
+
+            ## 人の確認ポイント
+            - 事実・数値に誇張や誤りがないか（捏造されていないか）
+            - 医療広告ガイドライン上の表現に問題がないか
+            - 既存記事との内容重複・トーンのズレがないか
+
+            ### レビュー用の警告（${{ steps.gen.outputs.warnings }}件）
+            ${{ steps.gen.outputs.warnings_body }}
+
+            ---
+            Vercel のプレビューで実際の表示を確認してから、問題なければマージ（＝公開）してください。

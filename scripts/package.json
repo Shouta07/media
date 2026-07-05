@@ -1,0 +1,14 @@
+{
+  "name": "vitality-design-blog-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI article generation pipeline for the Field Notes blog (human-reviewed via PR).",
+  "scripts": {
+    "gen": "node generate-article.mjs",
+    "validate": "node validate-cli.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.0"
+  }
+}

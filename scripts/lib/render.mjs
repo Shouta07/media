@@ -43,17 +43,21 @@ function jsonLd(a, url, iso) {
       description: stripTags(a.metaDescription),
       image: { '@type': 'ImageObject', url: `${SITE}/og.png`, width: 1200, height: 630 },
       datePublished: iso,
-      dateModified: iso,
+      dateModified: a.dateModified || iso,
       inLanguage: 'ja',
+      isAccessibleForFree: true,
       articleSection: a.category,
+      about: { '@type': 'Thing', name: a.crumb || String(a.category).split(' / ')[0].trim() },
       keywords: a.keywords.join(', '),
       wordCount: a.wordCount || 1600,
+      timeRequired: `PT${a.readMinutes || 5}M`,
       author: {
         '@type': 'Organization',
         name: 'Vitality Design LLC',
         url: `${SITE}/`,
         description:
           '自由診療・ウェルネス産業の事業成長パートナー。自らもサービスを運営する当事者として、現場の一次情報をもとに事業を設計する。',
+        knowsAbout: a.keywords,
         sameAs: ['https://www.hisrecoveries.com/'],
       },
       publisher: {
@@ -61,6 +65,7 @@ function jsonLd(a, url, iso) {
         name: 'Vitality Design LLC',
         logo: { '@type': 'ImageObject', url: `${SITE}/icon-512.png`, width: 512, height: 512 },
       },
+      speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.answer', '.tldr', '.afaq'] },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     },
     {
@@ -195,7 +200,13 @@ ${jsonLd(a, url, iso)}
     <nav class="crumb" aria-label="パンくず"><a href="/">ホーム</a> <span>/</span> <a href="/blog/">Field Notes</a> <span>/</span> ${attr(a.crumb)}</nav>
     <div class="ameta">
       <span class="cat">${attr(a.category)}</span>
-      <time class="date" datetime="${date}">${dateDot}</time>
+      <time class="date" datetime="${date}">${dateDot}</time>${
+        a.dateModified && a.dateModified.slice(0, 10) !== date
+          ? `\n      <time class="date upd" datetime="${a.dateModified.slice(0, 10)}">更新 ${a.dateModified
+              .slice(0, 10)
+              .replace(/-/g, '.')}</time>`
+          : ''
+      }
     </div>
     <h1>${sanitizeHtml(a.titleHtml || a.title)}</h1>
     <p class="lead">${sanitizeHtml(a.lead)}</p>
@@ -209,6 +220,11 @@ ${jsonLd(a, url, iso)}
 
 <article class="article">
   <div class="wrap">
+
+    <div class="answer">
+      <span class="a-lbl">結論</span>
+      <p>${attr(stripTags(a.answer || a.llmsSummary || a.metaDescription))}</p>
+    </div>
 
     <div class="tldr">
       <div class="tl-h">この記事の要点</div>

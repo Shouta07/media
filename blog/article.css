@@ -103,3 +103,11 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
   .article{padding:8px 0 64px;}
   .cta-box{padding:36px 26px;}
 }
+
+/* ── GEO: quotable answer box (結論ファースト) + freshness ── */
+.answer{position:relative;background:linear-gradient(180deg,rgba(11,110,79,0.055),rgba(11,110,79,0.02));border:1px solid rgba(11,110,79,0.16);border-left:4px solid var(--green);border-radius:14px;padding:20px 24px;margin:0 0 30px;}
+.answer .a-lbl{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.answer .a-lbl::before{content:"";width:16px;height:16px;border-radius:5px;background:linear-gradient(120deg,#0B6E4F,#14B870);}
+.answer p{font-family:var(--jp);font-size:15.5px;font-weight:600;line-height:1.9;color:var(--ink);margin:0;}
+.ameta .date.upd{color:var(--ink-mute);}
+@media (max-width:680px){.answer{padding:16px 18px;}.answer p{font-size:14.5px;}}

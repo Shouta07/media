@@ -43,11 +43,11 @@ export function updateBlogIndex(a, iso) {
   const p = path.join(BLOG_DIR, 'index.html');
   let html = fs.readFileSync(p, 'utf8');
 
-  const cardAnchor = '  <div class="wrap">\n\n    <a class="post reveal"';
+  const cardAnchor = '<div class="cards" id="cards">\n    <a class="post reveal"';
   if (!html.includes(cardAnchor)) throw new Error('blog/index.html: card anchor not found');
   html = html.replace(
     cardAnchor,
-    `  <div class="wrap">\n\n${blogCard(a, iso)}    <a class="post reveal"`
+    `<div class="cards" id="cards">\n${blogCard(a, iso)}    <a class="post reveal"`
   );
 
   const ldAnchor = '      "blogPost":[\n';

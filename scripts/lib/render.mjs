@@ -276,33 +276,28 @@ ${related}
 }
 
 // ---- site file updates ------------------------------------------------------
-// Category → thumbnail gradient class. Keep in sync with blog/index.html CSS.
-function thumbClass(cat = '') {
-  if (/集患|コンプライアンス/.test(cat)) return 't1';
-  if (/カウンセリング|成約/.test(cat)) return 't2';
-  if (/リピート|LTV|CRM/.test(cat)) return 't3';
-  if (/データ|AI/.test(cat)) return 't5';
-  if (/経営|組織|ブランド|価格/.test(cat)) return 't6';
-  return 't4';
-}
-
+// Bell-style text card with tag pills. Matches blog/index.html .cards markup.
 export function blogCard(a, isoDate) {
   const date = isoDate.slice(0, 10);
   const dot = date.replace(/-/g, '.');
   const label = String(a.category).split(' / ')[0].trim();
-  return `    <a class="post reveal" href="/blog/${attr(a.slug)}.html">
-      <div class="thumb ${thumbClass(a.category)}"><span>${attr(label)}</span></div>
-      <div class="fbody">
+  const tagSource = (a.tags && a.tags.length ? a.tags : a.keywords) || [];
+  const pills = tagSource.slice(0, 3).map((t) => `<span class="ptag">${attr(t)}</span>`).join('');
+  const dataTags = (a.keywords && a.keywords.length ? a.keywords : tagSource).join('|');
+  return `    <a class="post reveal" href="/blog/${attr(a.slug)}.html" data-cat="${attr(
+    a.category
+  )}" data-tags="${attr(dataTags)}">
       <div class="post-meta">
-        <span class="post-cat">${attr(a.category)}</span>
+        <span class="post-cat">${attr(label)}</span>
         <time class="post-date" datetime="${date}">${dot}</time>
-        <span class="post-date">読了 約${a.readMinutes || 5}分</span>
       </div>
       <h2>${attr(stripTags(a.title))}</h2>
       <p>${attr(stripTags(a.cardDescription || a.metaDescription))}</p>
-      <span class="more">続きを読む<span class="ar">→</span></span>
-      </div>
-    </a>\n\n`;
+      <div class="ptags">${pills}</div>
+      <div class="pfoot"><span>Vitality Design</span><span class="fa-dot"></span><span>読了 約${
+        a.readMinutes || 5
+      }分</span></div>
+    </a>\n`;
 }
 
 export function blogPostLd(a, isoDate) {

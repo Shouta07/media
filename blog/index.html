@@ -143,20 +143,50 @@ a{color:inherit;text-decoration:none;}
 .phead .lead{font-family:var(--jp);font-size:16px;font-weight:500;line-height:2.05;color:var(--ink-soft);max-width:680px;margin-top:28px;}
 .phead .lead strong{color:var(--ink);font-weight:700;}
 
-/* post list */
-.bloglist{padding:24px 0 110px;}
-.post{display:block;padding:42px 0;border-top:1px solid var(--line);transition:padding-left 0.4s;}
-.post:last-child{border-bottom:1px solid var(--line);}
-.post:hover{padding-left:10px;}
-.post-meta{display:flex;align-items:center;gap:16px;margin-bottom:18px;}
-.post-cat{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);}
-.post-date{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-mute);letter-spacing:0.04em;}
-.post h2{font-family:var(--jp);font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.4;letter-spacing:0.01em;color:var(--ink);transition:color 0.3s;}
+/* category filter */
+.chips{padding:36px 0 6px;}
+.chips .wrap{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{appearance:none;font-family:var(--jp);font-size:12.5px;font-weight:700;letter-spacing:0.02em;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:border-color 0.25s,color 0.25s,background 0.25s;}
+.chip:hover{border-color:var(--green);color:var(--green);}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+/* post grid (thumbnail-led media list) */
+.bloglist{padding:22px 0 110px;}
+.bloglist .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 22px;align-items:stretch;}
+.post{display:flex;flex-direction:column;min-width:0;}
+.post.hide{display:none;}
+.thumb{position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;display:flex;align-items:flex-end;padding:16px 18px;margin-bottom:14px;transition:transform 0.35s,box-shadow 0.35s;}
+.post:hover .thumb{transform:translateY(-4px);box-shadow:0 20px 44px -24px rgba(16,19,15,0.35);}
+.thumb::before{content:"Field Notes";position:absolute;top:10px;right:16px;font-family:var(--serif);font-style:italic;font-weight:300;font-size:44px;line-height:1;color:rgba(255,255,255,0.14);white-space:nowrap;pointer-events:none;}
+.thumb span{position:relative;z-index:2;font-family:var(--jp);font-weight:900;font-size:19px;letter-spacing:0.04em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,0.18);}
+.thumb.t1{background:linear-gradient(135deg,#0B6E4F 0%,#0FA890 100%);}
+.thumb.t2{background:linear-gradient(135deg,#0A5C63 0%,#14B8A6 100%);}
+.thumb.t3{background:linear-gradient(135deg,#14B870 0%,#9FE870 115%);}
+.thumb.t4{background:linear-gradient(135deg,#3C4A3E 0%,#6E8B72 100%);}
+.thumb.t5{background:linear-gradient(135deg,#0C140F 0%,#1F4436 100%);}
+.thumb.t6{background:linear-gradient(135deg,#5B6B2F 0%,#98A64E 100%);}
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap;}
+.post-cat{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);}
+.post-date{font-family:var(--sans);font-size:11.5px;font-weight:500;color:var(--ink-mute);letter-spacing:0.04em;}
+.post h2{font-family:var(--jp);font-weight:800;font-size:16px;line-height:1.62;letter-spacing:0.01em;color:var(--ink);transition:color 0.3s;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .post:hover h2{color:var(--green);}
-.post p{font-family:var(--jp);font-size:15px;font-weight:500;line-height:1.95;color:var(--ink-faint);margin-top:16px;max-width:760px;}
-.post .more{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:0.02em;}
-.post .more .ar{transition:transform 0.3s;}
-.post:hover .more .ar{transform:translateX(4px);}
+.post p{display:none;}
+.post .more{display:none;}
+/* featured: newest post spans full width, horizontal */
+.bloglist .wrap > .post:first-child{grid-column:1 / -1;flex-direction:row;gap:34px;align-items:center;background:var(--card);border:1px solid var(--line-soft);border-radius:22px;padding:22px;transition:border-color 0.3s,box-shadow 0.3s;}
+.bloglist .wrap > .post:first-child:hover{border-color:var(--line);box-shadow:0 24px 54px -28px rgba(16,19,15,0.28);}
+.bloglist .wrap > .post:first-child .thumb{flex:0 0 44%;aspect-ratio:16/9;margin-bottom:0;}
+.bloglist .wrap > .post:first-child:hover .thumb{transform:none;box-shadow:none;}
+.bloglist .wrap > .post:first-child .fbody{min-width:0;padding-right:14px;}
+.bloglist .wrap > .post:first-child h2{font-size:clamp(19px,2.4vw,24px);line-height:1.55;-webkit-line-clamp:3;}
+.bloglist .wrap > .post:first-child p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:var(--jp);font-size:13.5px;font-weight:500;line-height:1.9;color:var(--ink-faint);margin-top:12px;}
+.bloglist .wrap > .post:first-child .more{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--ink);letter-spacing:0.02em;}
+.bloglist .wrap > .post:first-child .more .ar{transition:transform 0.3s;}
+.bloglist .wrap > .post:first-child:hover .more .ar{transform:translateX(4px);}
+.bloglist .wrap > .post:first-child .thumb::after{content:"Latest";position:absolute;top:12px;left:14px;z-index:2;font-family:var(--sans);font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#0C140F;background:var(--green-bright);padding:5px 12px;border-radius:99px;}
+@media (max-width:980px){
+  .bloglist .wrap{grid-template-columns:1fr 1fr;}
+}
 
 /* closing + footer */
 .pclosing{padding:110px 0;background:var(--night);color:var(--bg);text-align:center;position:relative;overflow:hidden;}
@@ -180,8 +210,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
   .wrap{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}
   .phead{padding:64px 0 40px;}
+  .chips{padding:26px 0 2px;}
   .bloglist{padding:16px 0 72px;}
-  .post{padding:34px 0;}
+  .bloglist .wrap{grid-template-columns:1fr;gap:30px;}
+  .bloglist .wrap > .post:first-child{flex-direction:column;gap:0;padding:16px 16px 22px;align-items:stretch;}
+  .bloglist .wrap > .post:first-child .thumb{flex:none;margin-bottom:14px;}
+  .bloglist .wrap > .post:first-child .fbody{padding:0 6px;}
   .pclosing{padding:72px 0;}
 }
 </style>
@@ -215,11 +249,26 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
   </div>
 </header>
 
+<!-- FILTER -->
+<div class="chips reveal">
+  <div class="wrap">
+    <button class="chip on" data-f="*">すべて</button>
+    <button class="chip" data-f="集患,コンプライアンス">集患</button>
+    <button class="chip" data-f="カウンセリング,成約">カウンセリング・成約</button>
+    <button class="chip" data-f="リピート,LTV,CRM">リピート・LTV</button>
+    <button class="chip" data-f="オペレーション,業務効率化,システム,事業成長">オペレーション</button>
+    <button class="chip" data-f="データ,AI">データ・AI</button>
+    <button class="chip" data-f="経営,組織,ブランド,価格">経営・組織</button>
+  </div>
+</div>
+
 <!-- POST LIST -->
 <section class="bloglist">
   <div class="wrap">
 
     <a class="post reveal" href="/blog/jikai-yoyaku-sonoba-sekkei.html">
+      <div class="thumb t3"><span>リピート</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">リピート / LTV</span>
         <time class="post-date" datetime="2026-07-06">2026.07.06</time>
@@ -228,9 +277,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>リピートは会計前に決まる ― 「次回予約」をその場で入れてもらう設計</h2>
       <p>「また来ます」と帰った人の多くは戻ってきません。リピートを左右する会計前の「次回予約」を、押し売りにならずに自然に入れてもらう設計を、3つの阻害要因と対策で解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/counseling-shien-tool-erabikata.html">
+      <div class="thumb t2"><span>カウンセリング</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">カウンセリング / 成約率</span>
         <time class="post-date" datetime="2026-07-06">2026.07.06</time>
@@ -239,9 +291,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>予約・カルテの「次」に入れるもの ― カウンセリング成約を支援するツールの選び方</h2>
       <p>予約・カルテを整えたのに売上が伸びないのは、「運営の効率化」と「成約の改善」が別物だから。AIロープレや成約の見える化など、成約支援ツールというカテゴリと選び方を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/kuchikomi-shokai-fuyasu.html">
+      <div class="thumb t1"><span>集患</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">集患 / 口コミ・紹介</span>
         <time class="post-date" datetime="2026-07-06">2026.07.06</time>
@@ -250,9 +305,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>口コミと紹介が自然に生まれる設計 ― 広告費に頼らない集患資産の育て方</h2>
       <p>口コミと紹介は費用がかからず信頼を伴って届く集患経路。しかし待っているだけでは増えません。語りたくなる体験・依頼のタイミング・紹介の仕組み化を、医療広告ガイドラインへの配慮とともに解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/kakaku-menu-sekkei.html">
+      <div class="thumb t6"><span>経営</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">経営 / 価格戦略</span>
         <time class="post-date" datetime="2026-07-06">2026.07.06</time>
@@ -261,9 +319,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>自由診療の価格・メニュー設計 ― 「安くする」以外の選ばれ方</h2>
       <p>価格を下げると客数は増えても利益は痩せます。値下げが利益を壊す構造、松竹梅の3段階でつくる「選ばれるメニュー」、総額明示など価格の伝え方を、ガイドラインの費用表示にも触れつつ解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/jiyushinryo-genba-4-no-ana.html">
+      <div class="thumb t4"><span>事業成長</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">事業成長 / オペレーション</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -272,9 +333,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>自由診療・ウェルネスの現場に空いている、4つの“設計されていない”穴</h2>
       <p>高単価なのに、なぜ売上が積み上がらないのか。集患・カウンセリング・データ・リピートという4つの工程に共通して空いている「穴」を、現場の構造として分解します。多くの停滞は、現場が悪いのではなく、まだ設計されていないだけです。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/counseling-zokujinka.html">
+      <div class="thumb t2"><span>カウンセリング</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">カウンセリング / 成約率</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -283,9 +347,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>「できる人の勘」を、仕組みに変える ― カウンセリング成約率の属人化からの脱出</h2>
       <p>成約率が高いのは、いつも同じスタッフ。その差は才能ではなく、言語化されていない“型”の有無です。属人化したカウンセリングを、計測・標準化・改善できる仕組みに変えるための考え方を整理します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/shukkan-erabareru-riyuu.html">
+      <div class="thumb t1"><span>集患</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">集患 / マーケティング</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -294,9 +361,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>広告に頼りすぎない、自由診療クリニックの集患 ― 「選ばれる理由」を設計する</h2>
       <p>広告単価は上がり続けます。広告で「買う」だけでなく、検索・口コミ・紹介・リピート評判という“資産になる”チャネルで「選ばれる理由」を設計する考え方を整理します。集患を増やす前に、受け皿の穴を塞ぐ。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/line-shikkyaku-repeat.html">
+      <div class="thumb t3"><span>リピート</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">リピート / LTV</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -305,9 +375,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>LINE公式アカウントで“失客”を止める ― 自由診療のリピート設計</h2>
       <p>新規獲得は既存リピートの5〜7倍コスト。LINEを「配信ツール」ではなく「失客を防ぐリピート設計の器」として使い、来院後フォロー・セグメント配信・失客掘り起こしで再来院を仕組み化する方法を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/data-tougou-suuchi-keiei.html">
+      <div class="thumb t5"><span>データ</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">データ / 数値経営</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -316,9 +389,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>予約・カルテ・会計・LINEを「一人の時系列」で見る ― データ統合と数値経営</h2>
       <p>データが分断されていると、患者を一人の時系列で見られず、施策の土台が持てません。全部を入れ替えずに既存ツールを横で繋ぐ現実的な進め方と、自由診療が見るべき5つの指標（KPI）を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/yoyaku-system-erabikata.html">
+      <div class="thumb t4"><span>予約システム</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">予約システム / 業務効率化</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -327,9 +403,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>自由診療の予約システムの選び方 ― 「予約を取る」から「顧客を育てる」へ</h2>
       <p>予約システムは「予約を受ける機能」で選びがちですが、本質は取りこぼしを止め、顧客を育てる器かどうか。24時間Web予約・自動リマインド・データ連携・LINE連携など、選ぶときに見る7つの観点を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/clinic-ai-katsuyou-doko-kara.html">
+      <div class="thumb t5"><span>AI活用</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">AI活用 / 業務効率化</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -338,9 +417,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>クリニックのAI活用、何から始める？ ― 「手段としてのAI」の現実的な入り口</h2>
       <p>AIは目的ではなく手段。「AIを入れる」ではなく「どの課題をAIで楽にするか」から考えます。問い合わせ対応の自動化、記録・文章作成の補助、データの要約・分類という、始めやすい3つの入り口を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/wellness-brand-community.html">
+      <div class="thumb t6"><span>ブランド</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">ブランド / コミュニティ</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -349,9 +431,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>ウェルネス事業のブランド・コミュニティの育て方 ― 「売る」から「選ばれ続ける」へ</h2>
       <p>単発の集客は費用、ブランドとコミュニティは資産。ブランドは「ロゴ」ではなく「約束」、コミュニティは「囲い込み」ではなく「継続的に価値を返す関係」。選ばれ続けるための育て方を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/iryou-koukoku-guideline-shukkan.html">
+      <div class="thumb t1"><span>コンプライアンス</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">コンプライアンス / 集患</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -360,9 +445,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>医療広告ガイドラインを守りながら集患する ― コンプライアンスを「選ばれる理由」に</h2>
       <p>自由診療・美容医療の広告は医療広告ガイドライン（医療法）の規制対象。誇大広告・体験談・ビフォーアフターの扱いと限定解除の考え方を整理し、コンプライアンスを守りながら集患する方法を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/mudan-cancel-taisaku.html">
+      <div class="thumb t4"><span>オペレーション</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">オペレーション / 業務効率化</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -371,9 +459,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>無断キャンセル（ドタキャン）を減らす5つの打ち手 ― 自由診療の「見えない失客」対策</h2>
       <p>無断キャンセルは、空き枠を再販できない直接的な売上の穴。自動リマインド・事前決済・キャンセルポリシー・関係づくり・空き枠の再販という5つの打ち手で、ドタキャンを減らす方法を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/staff-teichaku.html">
+      <div class="thumb t6"><span>組織</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">組織 / 採用・定着</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -382,9 +473,12 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>クリニック・サロンのスタッフが辞めない仕組み ― 定着は最大のコスト削減</h2>
       <p>自由診療はスタッフの接客・カウンセリングが売上を左右します。人が辞めると売上が落ちる「経営リスク」を、役割の明確化・育つ仕組み・正当な評価・働く意味という4要素で防ぐ方法を解説します。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
     <a class="post reveal" href="/blog/google-business-profile-meo.html">
+      <div class="thumb t1"><span>集患</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">集患 / MEO</span>
         <time class="post-date" datetime="2026-06-29">2026.06.29</time>
@@ -393,6 +487,7 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <h2>Googleビジネスプロフィール（MEO）で「近くで探す」患者に選ばれる</h2>
       <p>「地域名＋診療科」で探す人は来院意欲が高い見込み客です。Googleビジネスプロフィールの最適化（MEO）で、Googleマップ・検索に選ばれる方法を解説します。プロフィール・写真・口コミ・最新情報が鍵です。</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>
 
   </div>
@@ -428,6 +523,17 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
 <script>
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const chips=document.querySelectorAll('.chip');
+const posts=document.querySelectorAll('.bloglist .post');
+chips.forEach(c=>c.addEventListener('click',()=>{
+  chips.forEach(x=>x.classList.remove('on'));c.classList.add('on');
+  const f=c.dataset.f;
+  posts.forEach(p=>{
+    if(f==='*'){p.classList.remove('hide');return;}
+    const cat=(p.querySelector('.post-cat')||{textContent:''}).textContent;
+    p.classList.toggle('hide',!f.split(',').some(k=>cat.includes(k)));
+  });
+}));
 </script>
 </body>
 </html>

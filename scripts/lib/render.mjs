@@ -276,10 +276,23 @@ ${related}
 }
 
 // ---- site file updates ------------------------------------------------------
+// Category → thumbnail gradient class. Keep in sync with blog/index.html CSS.
+function thumbClass(cat = '') {
+  if (/集患|コンプライアンス/.test(cat)) return 't1';
+  if (/カウンセリング|成約/.test(cat)) return 't2';
+  if (/リピート|LTV|CRM/.test(cat)) return 't3';
+  if (/データ|AI/.test(cat)) return 't5';
+  if (/経営|組織|ブランド|価格/.test(cat)) return 't6';
+  return 't4';
+}
+
 export function blogCard(a, isoDate) {
   const date = isoDate.slice(0, 10);
   const dot = date.replace(/-/g, '.');
+  const label = String(a.category).split(' / ')[0].trim();
   return `    <a class="post reveal" href="/blog/${attr(a.slug)}.html">
+      <div class="thumb ${thumbClass(a.category)}"><span>${attr(label)}</span></div>
+      <div class="fbody">
       <div class="post-meta">
         <span class="post-cat">${attr(a.category)}</span>
         <time class="post-date" datetime="${date}">${dot}</time>
@@ -288,6 +301,7 @@ export function blogCard(a, isoDate) {
       <h2>${attr(stripTags(a.title))}</h2>
       <p>${attr(stripTags(a.cardDescription || a.metaDescription))}</p>
       <span class="more">続きを読む<span class="ar">→</span></span>
+      </div>
     </a>\n\n`;
 }
 

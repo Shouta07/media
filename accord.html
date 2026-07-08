@@ -161,6 +161,9 @@ a{color:inherit;text-decoration:none;}
 .pain-card{background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:14px;padding:24px 22px;font-family:var(--jp);font-size:14px;font-weight:600;line-height:1.9;color:var(--ink-soft);position:relative;}
 .pain-card::before{content:"！";display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--green-pale);color:var(--green);font-weight:900;font-size:13px;margin-bottom:12px;}
 .pain-card b{display:block;color:var(--ink);font-weight:800;}
+.pain-link{display:inline-block;margin-top:12px;font-family:var(--jp);font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid transparent;transition:border-color 0.25s;}
+.pain-link:hover{border-color:var(--green);}
+.feat{scroll-margin-top:88px;}
 
 /* features */
 .features{padding:96px 0;background:var(--bg-soft);}
@@ -200,6 +203,38 @@ a{color:inherit;text-decoration:none;}
 .evi-sum{max-width:720px;margin:34px auto 0;text-align:center;font-family:var(--jp);font-size:14.5px;font-weight:600;line-height:2;color:var(--ink-soft);}
 .evi-sum strong{color:var(--green);}
 .note{font-family:var(--jp);font-size:11.5px;font-weight:500;color:var(--ink-mute);line-height:1.8;margin-top:18px;text-align:center;}
+
+/* compare */
+.compare{padding:96px 0;background:var(--bg-soft);}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:920px;margin:0 auto;}
+table.cmp-tbl{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -28px rgba(14,21,36,0.2);min-width:560px;}
+table.cmp-tbl th,table.cmp-tbl td{padding:16px 20px;text-align:left;font-family:var(--jp);font-size:13.5px;line-height:1.8;border-bottom:1px solid var(--line-soft);vertical-align:top;}
+table.cmp-tbl th{background:var(--bg-soft);font-weight:800;color:var(--ink);font-size:12px;letter-spacing:0.02em;}
+table.cmp-tbl td{color:var(--ink-faint);}
+table.cmp-tbl .cmp-name{font-weight:800;color:var(--ink);white-space:nowrap;}
+table.cmp-tbl tr.cmp-hl td{background:var(--green-pale);color:var(--ink-soft);}
+table.cmp-tbl tr.cmp-hl .cmp-name{color:var(--green);}
+table.cmp-tbl tr:last-child td{border-bottom:none;}
+
+/* guarantee */
+.guarantee{padding:96px 0;background:#fff;}
+.grt-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:52px;align-items:start;}
+.grt-grid h2{font-family:var(--jp);font-weight:900;font-size:clamp(24px,3vw,34px);line-height:1.45;color:var(--ink);margin-top:20px;}
+.grt-grid .sl{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:1.95;color:var(--ink-faint);margin-top:14px;}
+.grt-steps{display:flex;flex-direction:column;gap:20px;}
+.grt-step{display:flex;gap:18px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;}
+.grt-step .gn{flex:0 0 auto;font-family:var(--sans);font-style:italic;font-weight:800;font-size:22px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.grt-step p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:1.95;color:var(--ink-soft);}
+.grt-step p strong{color:var(--ink);}
+
+/* why us */
+.whyus{padding:96px 0;background:var(--bg-soft);}
+.whyus-grid{display:grid;grid-template-columns:0.7fr 1.3fr;gap:52px;align-items:start;}
+.whyus-grid h2{font-family:var(--jp);font-weight:900;font-size:clamp(22px,2.8vw,30px);line-height:1.5;color:var(--ink);margin-top:18px;}
+.whyus-body p{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.05;color:var(--ink-soft);margin-bottom:16px;}
+.whyus-body p:last-child{margin-bottom:0;}
+.whyus-body strong{color:var(--ink);}
+.whyus-body a{color:var(--green);border-bottom:1px solid var(--green);}
 
 /* app x human */
 .axh{padding:96px 0;background:var(--bg-soft);}
@@ -265,6 +300,11 @@ a{color:inherit;text-decoration:none;}
 .trusts{margin-top:24px;list-style:none;}
 .trusts li{font-family:var(--jp);font-size:14px;font-weight:600;color:var(--ink-soft);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line-soft);}
 .trusts li::before{content:"✓";position:absolute;left:0;top:9px;color:var(--green-bright);font-weight:900;}
+.docbox{margin-top:26px;background:var(--green-pale);border-radius:14px;padding:20px 22px;}
+.docbox .db-h{font-family:var(--jp);font-size:12px;font-weight:800;letter-spacing:0.06em;color:var(--green);margin-bottom:10px;}
+.db-list{list-style:none;}
+.db-list li{font-family:var(--jp);font-size:13.5px;font-weight:600;color:var(--ink-soft);padding:6px 0 6px 22px;position:relative;}
+.db-list li::before{content:"📄";position:absolute;left:0;top:5px;font-size:12px;}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 34px 30px;box-shadow:0 24px 60px -30px rgba(14,21,36,0.25);position:relative;}
 .form-card .fc-h{font-family:var(--jp);font-weight:900;font-size:20px;color:var(--ink);}
 .form-card .fc-s{font-family:var(--jp);font-size:12.5px;font-weight:600;color:var(--green);margin:6px 0 20px;}
@@ -311,15 +351,17 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
   .consult-grid{grid-template-columns:1fr;gap:40px;}
   .mock-cols{grid-template-columns:1fr;}
   .band-card{padding:34px 28px;}
+  .grt-grid,.whyus-grid{grid-template-columns:1fr;gap:28px;}
 }
 @media (max-width:680px){
   .hero{padding:56px 0 0;}
   .hero .inner{padding:0 22px;}
   .hero-mock{padding:0 22px;margin:40px auto -60px;}
   .stat-row{grid-template-columns:1fr 1fr;}
-  .pain,.features,.evi,.axh,.sanpo,.flow,.faq,.posts,.consult{padding:64px 0;}
+  .pain,.features,.evi,.axh,.sanpo,.flow,.faq,.posts,.consult,.compare,.guarantee,.whyus{padding:64px 0;}
   .pain{padding-top:110px;}
   .pain-grid,.flow-grid{grid-template-columns:1fr;}
+  .grt-step{padding:18px 20px;gap:14px;}
   .mbar{display:flex;}
   footer{padding-bottom:130px;}
 }
@@ -392,10 +434,10 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
       <p class="sl">集客はできている。でも、その先の“取りこぼし”が続いていませんか。</p>
     </div>
     <div class="pain-grid">
-      <div class="pain-card reveal"><b>「検討します」のまま</b>カウンセリング後、そのまま戻ってこない。</div>
-      <div class="pain-card reveal d1"><b>新人だと決まらない</b>ベテランは決まるのに、新人だと成約率が落ちる。</div>
-      <div class="pain-card reveal d2"><b>上位プランが通らない</b>コース・高額プランになると、急に決まらなくなる。</div>
-      <div class="pain-card reveal d3"><b>教育まで手が回らない</b>忙しくて、スタッフの接客教育が後回しに。</div>
+      <div class="pain-card reveal"><b>「検討します」のまま</b>カウンセリング後、そのまま戻ってこない。<a class="pain-link" href="#feat-01">→ 接客ロールプレイAIで対応</a></div>
+      <div class="pain-card reveal d1"><b>新人だと決まらない</b>ベテランは決まるのに、新人だと成約率が落ちる。<a class="pain-link" href="#feat-01">→ 接客ロールプレイAIで対応</a></div>
+      <div class="pain-card reveal d2"><b>上位プランが通らない</b>コース・高額プランになると、急に決まらなくなる。<a class="pain-link" href="#feat-04">→ おすすめ提案で対応</a></div>
+      <div class="pain-card reveal d3"><b>教育まで手が回らない</b>忙しくて、スタッフの接客教育が後回しに。<a class="pain-link" href="#axh">→ 月次の伴走で対応</a></div>
     </div>
   </div>
 </section>
@@ -409,7 +451,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
       <p class="sl">毎日の接客を、仕組みで底上げする5つの機能。</p>
     </div>
 
-    <div class="feat reveal">
+    <div class="feat reveal" id="feat-01">
       <div class="feat-txt">
         <div class="fno">01</div>
         <div class="ft">接客ロールプレイAI</div>
@@ -426,7 +468,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
       </div>
     </div>
 
-    <div class="feat reveal">
+    <div class="feat reveal" id="feat-02">
       <div class="feat-txt">
         <div class="fno">02</div>
         <div class="ft">成約ダッシュボード</div>
@@ -445,7 +487,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
       </div>
     </div>
 
-    <div class="feat reveal">
+    <div class="feat reveal" id="feat-03">
       <div class="feat-txt">
         <div class="fno">03</div>
         <div class="ft">症例・トークライブラリ</div>
@@ -462,7 +504,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
       </div>
     </div>
 
-    <div class="feat reveal">
+    <div class="feat reveal" id="feat-04">
       <div class="feat-txt">
         <div class="fno">04</div>
         <div class="ft">おすすめ提案</div>
@@ -477,7 +519,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
       </div>
     </div>
 
-    <div class="feat reveal">
+    <div class="feat reveal" id="feat-05">
       <div class="feat-txt">
         <div class="fno">05</div>
         <div class="ft">LINE連携（患者さま向け共有）</div>
@@ -499,7 +541,9 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
   <div class="band-in">
     <div class="band-card reveal">
       <div class="m" aria-hidden="true"></div>
-      <p>Accordの機能や導入イメージを、<br>資料にまとめてお送りします。<small>入力1分 ・ 売り込みはしません</small></p>
+      <div class="band-txt">
+        <p>資料には、<strong>機能の詳細・導入までの流れ・料金の考え方</strong>をまとめています。<small>入力1分 ・ 売り込みはしません</small></p>
+      </div>
       <a class="btn green" href="#consult"><span>資料を問い合わせる</span><span class="arr">→</span></a>
     </div>
   </div>
@@ -520,6 +564,30 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
     </div>
     <p class="evi-sum reveal">Accordは、この手法を<strong>「自由診療のカウンセリング成約」に最適化</strong>。話し方や伝え漏れまで、AIが講評します。</p>
     <p class="note">※ 日本経済新聞 2026年6月25日「新入社員、接客スキルはAIで練習」より（IDOM・プリモGHD・フロンティア 等の事例）。各社の成果であり、Accordの導入効果を示すものではありません。</p>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Compare</span>
+      <h2>研修・コンサル・運営効率化ツールとの違い。</h2>
+      <p class="sl">Accordは、これらの代わりではなく、「毎日の接客」を仕組みにする役割を担います。</p>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table class="cmp-tbl">
+        <thead>
+          <tr><th>選択肢</th><th>得意なこと</th><th>手薄になりがちなこと</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="cmp-name">研修・コンサルティング</td><td>体系的な考え方、外部視点でのアドバイス</td><td>毎日の反復練習、成約率の日々の見える化</td></tr>
+          <tr><td class="cmp-name">予約・カルテ等の運営効率化ツール</td><td>予約管理、記録の一元化、業務の省力化</td><td>カウンセリングの質そのもの、接客の型化</td></tr>
+          <tr class="cmp-hl"><td class="cmp-name">Accord</td><td><strong>接客の反復練習</strong>・<strong>成約の見える化</strong>・<strong>月次の伴走</strong></td><td>予約や会計そのものの管理（運営ツールと役割が異なります）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note reveal">研修・コンサルティングや、予約・カルテ等のツールと置き換わるものではなく、<strong>併用を前提</strong>に設計しています。</p>
   </div>
 </section>
 
@@ -592,6 +660,49 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
           <li>成約の記録が資産として貯まる</li>
           <li>全店・全スタッフで品質が均一に</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="grt-grid">
+      <div class="reveal">
+        <span class="eyebrow">Our Commitment</span>
+        <h2>効果は、約束の形にします。</h2>
+        <p class="sl">実績の数を語る代わりに、リスクの引き受け方でお応えします。</p>
+      </div>
+      <div class="grt-steps reveal d1">
+        <div class="grt-step">
+          <span class="gn">01</span>
+          <p><strong>導入前に、成功条件を数字で合意します。</strong>「上位施術の成約率が◯ポイント改善」など、御院の実数をもとに具体的に決めます。</p>
+        </div>
+        <div class="grt-step">
+          <span class="gn">02</span>
+          <p><strong>パイロット期間（8〜12週間が目安）で、実際に運用します。</strong>ロールプレイAI・ダッシュボードを使い、月次で振り返ります。</p>
+        </div>
+        <div class="grt-step">
+          <span class="gn">03</span>
+          <p><strong>条件に届かなければ、初期費用を返金します。</strong>成果報酬（売上連動）は取らない代わりに、私たちがリスクを引き受けます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US (当事者性) -->
+<section class="whyus">
+  <div class="wrap">
+    <div class="whyus-grid">
+      <div class="reveal">
+        <span class="eyebrow">Why Vitality Design</span>
+        <h2>私たちも、現場の当事者です。</h2>
+      </div>
+      <div class="whyus-body reveal d1">
+        <p>Accordは、外部から見た提案ではありません。私たちは自社サービス「<a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries</a>」を自ら運営し、接客・カウンセリングの現場に日常的に立っています。そこで得た一次情報をもとに、Accordの機能や伴走の内容を組み立てています。</p>
+        <p>実績の件数を大きく打ち出せる段階ではまだありませんが、だからこそ<strong>「成功条件に届かなければ初期費用を返金する」設計</strong>にしています。ご相談・資料請求には、創業者本人が直接目を通し、1〜3営業日以内にご返信します。</p>
       </div>
     </div>
   </div>
@@ -714,6 +825,14 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11px;color:rgba(255,2
           <li>無理な営業はいたしません</li>
           <li>創業者本人が、1〜3営業日以内にご返信します</li>
         </ul>
+        <div class="docbox">
+          <div class="db-h">資料でわかること</div>
+          <ul class="db-list">
+            <li>5つの機能の詳細と画面イメージ</li>
+            <li>導入までの流れ（資料請求 → パイロット）</li>
+            <li>料金の考え方（パイロットの目安など）</li>
+          </ul>
+        </div>
       </div>
       <div class="form-card reveal d1" id="accordFormCard">
         <div class="fc-h">資料請求・ご相談。</div>

@@ -65,7 +65,7 @@
 <style>
 :root{
   --bg:#FBFBF9;--bg-tint:#F3F4F0;--card:#FFFFFF;
-  --ink:#0C0D0B;--ink-soft:#3E423B;--ink-faint:#76796F;--ink-mute:#AAACA1;
+  --ink:#0C0D0B;--ink-soft:#3E423B;--ink-faint:#76796F;--ink-mute:#6B7367;
   --line:rgba(12,13,11,0.11);--line-soft:rgba(12,13,11,0.06);
   --green:#0B6E4F;--green-bright:#12A266;--lime:#7FD58C;--night:#0B0F0D;
   --grad:linear-gradient(120deg,#0B6E4F,#12A266);
@@ -367,9 +367,13 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
   .feat:nth-of-type(even) .feat-txt{order:0;}
   .pain,.features,.evi,.axh,.journey,.ba,.sanpo,.roi,.pricing,.faq,.philo,.cta{padding:64px 0;}
 }
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:#0B6E4F;color:#fff;padding:12px 20px;font-size:13px;font-weight:700;border-radius:0 0 10px 0;}
+.skip-link:focus{left:0;}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">本文へスキップ</a>
 
 <nav class="nav">
   <a href="/accord.html" class="nav-brand"><span class="an">Accord<em>.</em></span><span class="by">by Vitality Design</span></a>
@@ -382,7 +386,7 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="main">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-grid">
@@ -715,9 +719,9 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
               <option value="まだ決まっていない / その他">まだ決まっていない / その他</option>
             </select>
           </div>
-          <div class="field"><label for="af-msg">ご相談内容<span class="req">*</span></label><textarea id="af-msg" name="message" required placeholder="現状の課題や、実現したいことなどをお聞かせください。"></textarea></div>
+          <div class="field"><label for="af-msg">ご相談内容（任意）</label><textarea id="af-msg" name="message" placeholder="資料のご希望のみの場合は、空欄のままで大丈夫です。"></textarea></div>
           <button class="btn green form-submit" type="submit" id="afSubmit"><span>この内容で送信する</span><span class="arr">→</span></button>
-          <p class="form-fine">送信内容は contact@vitality-design.jp に届きます。営業目的の売り込みは行いません。</p>
+          <p class="form-fine">送信内容は contact@vitality-design.jp に届きます。営業目的の売り込みは行いません。送信をもって<a href="/privacy.html" target="_blank" rel="noopener" style="color:var(--green);border-bottom:1px solid var(--green);">プライバシーポリシー</a>に同意いただいたものとします。</p>
         </form>
         <div class="fsuccess">
           <div class="ck">✓</div>
@@ -738,6 +742,8 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
       <a href="#consult">お問い合わせ</a>
       <a href="/blog/">Field Notes</a>
       <a href="/principles.html">Principles</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/terms.html">利用規約</a>
     </div>
     <div class="fn">バイタリティデザイン合同会社 ｜ Vitality Design LLC ・ vitality-design.jp<br>※ 本ページの数値・画面はデモ用のサンプルです。</div>
   </div>
@@ -750,7 +756,6 @@ footer .fn{margin-top:20px;font-family:var(--jp);font-size:11.5px;color:var(--in
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('a[href*="vd-sales-marketing.vercel.app"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','outbound_click',{event_category:'accord_demo',event_label:'accord_demo'});}}catch(e){}}));
 document.querySelectorAll('a[href="#consult"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','cta_click',{event_category:'accord_page',event_label:'to_form'});}}catch(e){}}));
 
 const AF_ENDPOINT='https://formspree.io/f/xbdvobba';
@@ -761,8 +766,8 @@ const afBtn=document.getElementById('afSubmit');
 function afShowErr(m){afErr.textContent=m;afErr.style.display='block';}
 afForm.addEventListener('submit',async(e)=>{
   e.preventDefault();afErr.style.display='none';
-  const name=afForm.name.value.trim(),email=afForm.email.value.trim(),msg=afForm.message.value.trim();
-  if(!name||!email||!msg){afShowErr('お名前・メールアドレス・ご相談内容は必須です。');return;}
+  const name=afForm.name.value.trim(),email=afForm.email.value.trim();
+  if(!name||!email){afShowErr('お名前・メールアドレスは必須です。');return;}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){afShowErr('メールアドレスの形式をご確認ください。');return;}
   afBtn.disabled=true;afBtn.querySelector('span').textContent='送信中…';
   try{

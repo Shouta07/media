@@ -106,7 +106,7 @@
 </script>
 <style>
 :root{
-  --bg:#F6F7F4;--bg-2:#EDF0EA;--card:#FFFFFF;--ink:#10130F;--ink-soft:#3C4239;--ink-faint:#6B7367;--ink-mute:#A0A89C;
+  --bg:#F6F7F4;--bg-2:#EDF0EA;--card:#FFFFFF;--ink:#10130F;--ink-soft:#3C4239;--ink-faint:#6B7367;--ink-mute:#6B7367;
   --line:rgba(16,19,15,0.10);--line-soft:rgba(16,19,15,0.06);--green:#0B6E4F;--green-bright:#14B870;--lime:#9FE870;--night:#0C140F;
   --grad:linear-gradient(120deg,#0B6E4F 0%,#0FA890 52%,#14B870 100%);
   --serif:'Newsreader',Georgia,serif;--jp:'Noto Sans JP',sans-serif;--sans:'Inter','Noto Sans JP',sans-serif;
@@ -257,9 +257,13 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
   .side .swidget{flex-basis:auto;}
   .pclosing{padding:72px 0;}
 }
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:#0B6E4F;color:#fff;padding:12px 20px;font-size:13px;font-weight:700;border-radius:0 0 10px 0;}
+.skip-link:focus{left:0;}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">本文へスキップ</a>
 
 <nav class="nav">
   <a href="/" class="nav-brand" aria-label="Vitality Design LLC home">
@@ -279,7 +283,7 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
 </nav>
 
 <!-- HEADER -->
-<header class="phead">
+<header class="phead" id="main">
   <div class="phead-bg" aria-hidden="true"><div class="m m1"></div></div>
   <div class="wrap">
     <nav class="crumb2 reveal" aria-label="パンくず"><a href="/">ホーム</a><span>/</span>記事一覧</nav>
@@ -562,6 +566,8 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <a href="/#solve">What We Do</a>
       <a href="/#founder">Founder</a>
       <a href="/principles.html">Principles</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/terms.html">利用規約</a>
       <a href="/#contact">Contact</a>
     </div>
     <div class="fb-base">© 2026 Vitality Design LLC. All rights reserved.</div>

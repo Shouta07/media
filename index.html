@@ -88,7 +88,7 @@
 <style>
 :root{
   --bg:#FBFBF9;--bg-tint:#F3F4F0;--card:#FFFFFF;
-  --ink:#0C0D0B;--ink-soft:#3E423B;--ink-faint:#76796F;--ink-mute:#AAACA1;
+  --ink:#0C0D0B;--ink-soft:#3E423B;--ink-faint:#76796F;--ink-mute:#6B7367;
   --line:rgba(12,13,11,0.11);--line-soft:rgba(12,13,11,0.06);
   --green:#0B6E4F;--green-bright:#12A266;--lime:#7FD58C;--night:#0B0F0D;
   --serif:'Newsreader',Georgia,serif;--jp:'Noto Sans JP',sans-serif;--sans:'Inter','Noto Sans JP',sans-serif;
@@ -459,9 +459,13 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .modal-dialog{padding:36px 22px 30px;}
   .field-row{grid-template-columns:1fr;}
 }
+
+.skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:#0B6E4F;color:#fff;padding:12px 20px;font-size:13px;font-weight:700;border-radius:0 0 10px 0;}
+.skip-link:focus{left:0;}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">本文へスキップ</a>
 <div class="progress" id="progress"></div>
 
 <!-- NAV -->
@@ -688,7 +692,8 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
           <span class="h">Connect</span>
           <a href="/principles.html">Principles</a>
           <a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a>
-          <a href="#contact">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+          <a href="/terms.html">利用規約</a>
           <a href="mailto:contact@vitality-design.jp">Email</a>
         </div>
       </nav>
@@ -729,7 +734,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       </div>
       <div class="field"><label for="f-message">ご相談内容<span class="req">*</span></label><textarea id="f-message" name="message" required placeholder="現状の課題や、実現したいことなどをお聞かせください。"></textarea></div>
       <button class="btn solid form-submit" type="submit" id="formSubmit"><span>この内容で送信する</span><span class="arr">→</span></button>
-      <p class="form-note">送信いただいた内容は <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> 宛に届き、創業者本人が1〜3営業日以内に直接ご返信します。</p>
+      <p class="form-note">送信いただいた内容は <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> 宛に届き、創業者本人が1〜3営業日以内に直接ご返信します。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
     </form>
     <div class="form-success" id="formSuccess">
       <div class="check" aria-hidden="true">✓</div>
@@ -772,7 +777,6 @@ form.addEventListener('submit',async(e)=>{
   finally{submitBtn.disabled=false;submitBtn.querySelector('span').textContent='この内容で送信する';}
 });
 document.querySelectorAll('a[href*="hisrecoveries.com"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','outbound_click',{event_category:'his_recoveries',event_label:'his_recoveries'});}}catch(e){}}));
-document.querySelectorAll('a[href*="vd-sales-marketing.vercel.app"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','outbound_click',{event_category:'accord_lp',event_label:'accord_lp'});}}catch(e){}}));
 </script>
 </body>
 </html>

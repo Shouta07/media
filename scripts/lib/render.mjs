@@ -12,7 +12,10 @@ const attr = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // Allowlist of inline/block tags permitted inside model-authored bodyHtml.
-const ALLOWED = new Set(['p', 'ul', 'ol', 'li', 'h3', 'strong', 'em', 'a', 'br', 'blockquote']);
+const ALLOWED = new Set([
+  'p', 'ul', 'ol', 'li', 'h3', 'h4', 'strong', 'em', 'a', 'br', 'blockquote',
+  'table', 'thead', 'tbody', 'tr', 'th', 'td', 'div', 'span',
+]);
 function sanitizeHtml(html = '') {
   // Drop any tag not in the allowlist (keeps its text). Strip on* handlers and
   // disallowed href schemes on <a>.

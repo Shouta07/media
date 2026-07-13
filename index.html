@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vitality Design LLC｜人の活力を、デザインする。</title>
-<meta name="description" content="人の活力を、あらゆる形でデザインし実行するカンパニー。自らもサービスを運営する当事者として、現場の一次情報から事業をつくります。自由診療・美容・ウェルネスのオペレーションデザイン「ACCORD」、男性ウェルネスブランド「His Recoveries」を展開。">
+<meta name="description" content="人の活力を、あらゆる形でデザインし実行するカンパニー。自らもサービスを運営する当事者として、現場の一次情報から事業をつくります。システムを売らず、現場に入り込み、90日で仕組みを作って渡すオペレーションデザイン「ACCORD」、男性ウェルネスブランド「His Recoveries」を展開。">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://www.vitality-design.jp/">
 <meta property="og:site_name" content="Vitality Design LLC">
@@ -200,6 +200,28 @@ section{position:relative;}
 
 /* HOW WE WORK (3 steps) */
 .howwork{padding:100px 0;}
+/* 進め方 (How We Work) */
+.hww-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px;}
+.hww-card{border:1px solid var(--line);border-radius:18px;padding:34px 30px;background:var(--card);display:flex;flex-direction:column;}
+.hww-card.asset{border-color:var(--green);background:var(--bg-tint);}
+.hww-n{font-family:var(--sans);font-style:italic;font-weight:800;font-size:15px;color:var(--green);}
+.hww-card h3{font-family:var(--jp);font-weight:900;font-size:18px;line-height:1.5;color:var(--ink);margin:14px 0 12px;}
+.hww-card p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:1.95;color:var(--ink-soft);}
+.hww-card p strong{color:var(--ink);font-weight:700;}
+.hww-card .asset-badge{align-self:flex-start;font-family:var(--sans);font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);background:#fff;border:1px solid var(--green);border-radius:99px;padding:4px 11px;margin-bottom:16px;}
+.hww-cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:34px;}
+.hww-note{font-family:var(--jp);font-size:12.5px;font-weight:500;color:var(--ink-mute);}
+.hww-note a{color:var(--green);border-bottom:1px solid var(--green);}
+/* 3-layer loop */
+.loop3{display:grid;grid-template-columns:1fr auto 1.08fr auto 1fr;gap:14px;align-items:stretch;margin-top:52px;}
+.l3-node{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:32px 26px;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+.l3-node.core{background:rgba(159,232,112,0.08);border-color:rgba(159,232,112,0.45);}
+.l3-node.core .ln-name{color:var(--lime);}
+.l3-arw{align-self:center;font-family:var(--sans);font-size:20px;color:rgba(159,232,112,0.75);}
+.loop-back{font-family:var(--jp);font-size:13px;font-weight:600;color:rgba(251,251,249,0.7);letter-spacing:0.02em;margin-top:26px;text-align:center;}
+.loop-back em{font-style:normal;color:var(--lime);}
+.vision-close{font-family:var(--jp);font-size:15px;font-weight:500;line-height:2.05;color:rgba(251,251,249,0.78);max-width:740px;margin-top:34px;}
+.vision-close strong{color:#fff;font-weight:700;}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .step-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:40px 32px;transition:transform 0.4s,border-color 0.4s;}
 .step-card:hover{transform:translateY(-4px);border-color:var(--ink);}
@@ -435,6 +457,9 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .wedo,.friction,.blogfeed,.howwork,.faq,.belief,.whyvd,.recov,.eco,.founder,.contact,.company{padding:70px 0;}
   .vision{padding:76px 0;}
   .ov-facts{grid-template-columns:1fr;gap:14px;}
+  .hww-grid{grid-template-columns:1fr;}
+  .loop3{grid-template-columns:1fr;gap:10px;margin-top:36px;}
+  .l3-arw{transform:rotate(90deg);}
   .loop{display:flex;flex-direction:column;gap:14px;margin-top:40px;}
   .loop-mid{display:contents;}
   .loop-node.n1{order:1;}.loop-arrow.a1{order:2;}.loop-node.n2{order:3;}.loop-arrow.a2{order:4;}
@@ -515,7 +540,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
         <span class="axn">Service 01</span>
         <h3>ACCORD</h3>
         <p class="sv-tag">自由診療・美容・ウェルネスのオペレーションデザイン</p>
-        <p><strong>現場が変われば、経営が変わる。</strong>システムを売らず、現場に入り込み、人・業務・テクノロジーをひとつの仕組みとして設計します。既存のシステムを活かし、足りないものだけを作り、パートナーとして現場を磨き続けます。</p>
+        <p><strong>現場が変われば、経営が変わる。</strong>システムを売らず、現場に入り込み、人・業務・テクノロジーをひとつの仕組みとして設計します。既存のシステムはそのまま活かし、90日で仕組みを作り、資産として渡します。その先の運用も、望まれる形で支えます。</p>
         <div class="axis-tags"><span>現場理解</span><span>オペレーション設計</span><span>実装</span><span>継続改善</span></div>
         <a class="axis-link" href="/accord.html">ACCORDを詳しく見る<span>→</span></a>
       </div>
@@ -531,43 +556,67 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   </div>
 </section>
 
+<!-- HOW WE WORK (進め方) -->
+<section class="howwork" id="howwework">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">How We Work</span>
+      <h2><strong>進め方は、3つ。</strong></h2>
+      <p class="j" style="font-family:var(--jp);font-size:15px;font-weight:500;line-height:2;color:var(--ink-soft);margin-top:14px;">提案書ではなく、動くものと結果で信頼をいただきます。</p>
+    </div>
+    <div class="hww-grid">
+      <div class="hww-card reveal">
+        <span class="hww-n">01</span>
+        <h3>無料の現場診断</h3>
+        <p>まず現場を拝見し、課題と打ち手を1枚にまとめてお渡しします。売り込みはしません。</p>
+      </div>
+      <div class="hww-card reveal d1">
+        <span class="hww-n">02</span>
+        <h3>90日で、仕組みを作る</h3>
+        <p>成功条件を数字で合意し、固定価格で。既存のシステムはそのまま活かし、足りない隙間だけを作ります。</p>
+      </div>
+      <div class="hww-card asset reveal d2">
+        <span class="asset-badge">所有権は、御社に</span>
+        <span class="hww-n">03</span>
+        <h3>資産を、渡す</h3>
+        <p>作った書類・<strong>型</strong>・AIワークフローの<strong>所有権は御社に</strong>。いつでも引き継げる形で納品します。囲い込みは、設計しません。</p>
+      </div>
+    </div>
+    <div class="hww-cta reveal">
+      <a class="btn solid" href="#contact" data-open-contact><span>無料の現場診断を依頼する</span><span class="arr">→</span></a>
+      <span class="hww-note">詳しい進め方は <a href="/accord.html">ACCORD のページ</a>へ。</span>
+    </div>
+  </div>
+</section>
+
 <!-- VISION (Accord × His Recoveries loop) -->
 <section class="vision" id="vision">
   <div class="vision-glow" aria-hidden="true"></div>
   <div class="wrap">
     <span class="eyebrow reveal">The Future We Design</span>
-    <h2 class="reveal d1">現場が良くなるほど、<br>ひとりの改善も、<em>良くなる。</em></h2>
-    <p class="vision-lead reveal d1">ACCORDとHis Recoveriesは、別々の事業ではなく、<strong>ひとつの循環</strong>です。</p>
-    <div class="loop reveal d2">
-      <div class="loop-node n1">
+    <h2 class="reveal d1">改善を、<em>点から線へ。</em></h2>
+    <p class="vision-lead reveal d1">ACCORDとHis Recoveriesは、別々の事業ではなく、<strong>ひとつの循環</strong>です。そのあいだに、私たちの本体があります——現場で確かめた「<strong>型</strong>」の蓄積です。</p>
+    <div class="loop3 reveal d2">
+      <div class="l3-node">
         <span class="ln-tag">現場 / Business</span>
         <span class="ln-name">ACCORD</span>
-        <p class="ln-desc">クリニック・サロン・ジムの<br>オペレーションと顧客体験を、良くする。</p>
+        <p class="ln-desc">クリニック・サロン・ジムの<br>現場を、良くする。</p>
       </div>
-      <div class="loop-mid">
-        <div class="loop-arrow a1">
-          <span class="la-label">良い現場が、良い改善体験をつくる</span>
-          <svg viewBox="0 0 300 22" fill="none" aria-hidden="true">
-            <defs><linearGradient id="lg-a1" x1="0" y1="0" x2="300" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset="1" stop-color="#7FD58C"/></linearGradient></defs>
-            <path d="M4 16 Q150 4 286 13" stroke="url(#lg-a1)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M278 6 L290 13 L279 19" stroke="#7FD58C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="loop-arrow a2">
-          <svg viewBox="0 0 300 22" fill="none" aria-hidden="true">
-            <defs><linearGradient id="lg-a2" x1="300" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset="1" stop-color="#7FD58C"/></linearGradient></defs>
-            <path d="M296 6 Q150 18 14 9" stroke="url(#lg-a2)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M22 3 L10 9 L21 16" stroke="#7FD58C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="la-label">ひとりの一次情報が、現場の設計に還る</span>
-        </div>
+      <span class="l3-arw" aria-hidden="true">→</span>
+      <div class="l3-node core">
+        <span class="ln-tag">蓄積 / Knowledge</span>
+        <span class="ln-name">型</span>
+        <p class="ln-desc">現場で確かめた知見を、<br>横断して蓄積する。</p>
       </div>
-      <div class="loop-node n2">
+      <span class="l3-arw" aria-hidden="true">→</span>
+      <div class="l3-node">
         <span class="ln-tag">ひとり / Person</span>
         <span class="ln-name">His Recoveries</span>
-        <p class="ln-desc">コンプレックスから自信まで、<br>ひとりの改善体験に、伴走する。</p>
+        <p class="ln-desc">ひとりの改善体験に、<br>伴走する。</p>
       </div>
     </div>
+    <p class="loop-back reveal"><em>↩</em> 蓄積された「型」は、次の現場の設計と、ひとりの改善体験に、還る。</p>
+    <p class="vision-close reveal">一つの現場で解いた課題は、型として蓄積され、次の現場の設計と、ひとりの改善体験に還る。現場が良くなるほど、ひとりの改善も良くなる。<strong>私たちは、この循環そのものを事業にしています。</strong></p>
   </div>
 </section>
 
@@ -709,6 +758,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       <div class="field"><label for="f-email">メールアドレス<span class="req">*</span></label><input type="email" id="f-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
       <div class="field"><label for="f-type">ご相談の種類</label>
         <select id="f-type" name="type">
+          <option value="無料の現場診断（ACCORD）">無料の現場診断（ACCORD）</option>
           <option value="ACCORD（オペレーションデザイン）">ACCORD（オペレーションデザイン）</option>
           <option value="患者・顧客体験">患者・顧客体験</option>
           <option value="AI業務改善・現場DX">AI業務改善・現場DX</option>

@@ -229,7 +229,8 @@ a{color:inherit;text-decoration:none;}
   .blogmain .wrap{grid-template-columns:1fr;gap:52px;}
   .side{position:static;flex-direction:row;flex-wrap:wrap;gap:36px 40px;}
   .side .swidget{flex:1 1 240px;min-width:0;}
-  .side .sidecta{flex:1 1 100%;}
+  /* 下部クロージングと同一CTAのため、積み重ね時はサイドバーCTAを非表示（重複回避） */
+  .side .sidecta{display:none;}
 }
 
 /* diagnosis banner (blog top) */

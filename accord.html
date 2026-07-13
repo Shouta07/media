@@ -64,11 +64,11 @@
       "mainEntity":[
         {"@type":"Question","name":"新しいシステムの導入が前提ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。今お使いのシステムを活かすことから始めます。眠っている機能で解けることはそれで解き、それでも足りない部分だけを、現場に合わせて作ります。"}},
         {"@type":"Question","name":"コンサルティングとの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"助言や報告書で終わらないことです。設計したオペレーションを、現場で使われる形まで私たちが作り込み、回り始めるまで一緒に立ち会います。"}},
-        {"@type":"Question","name":"費用の考え方を教えてください。","acceptedAnswer":{"@type":"Answer","text":"診断は無料です。設計・実装は固定価格で、着手前に成功条件を書面で合意します。成果報酬（売上連動）は取りません。詳しくは、診断の際にご説明します。"}},
+        {"@type":"Question","name":"費用の考え方を教えてください。","acceptedAnswer":{"@type":"Answer","text":"初回、現場を拝見するところは無料です。そこから先——設計図づくり・90日の実装・継続の伴走は、いずれも有償の取り組みです。設計図と実装は固定価格で、着手前に成功条件と費用を書面で合意します。成果報酬（売上連動）は取りません。金額は現場の規模と範囲によるため、初回でご説明します。"}},
         {"@type":"Question","name":"90日の後は、どうなりますか？","acceptedAnswer":{"@type":"Answer","text":"作った仕組みと資料はすべて御院のもので、そのまま自走できます。その上で、多くの場合は改善の伴走を続けながら、長いお付き合いになることを想定しています。深く入り込んだ現場と長く関わるやり方を選んでいます。"}},
         {"@type":"Question","name":"His Recoveriesのパートナー契約とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"私たちが自ら運営する男性ウェルネスブランド「His Recoveries」と、顧客体験づくりで連携する契約です。オペレーションを共に設計した現場に、ご希望に応じてご案内します。"}},
         {"@type":"Question","name":"医療広告ガイドラインへの対応は？","acceptedAnswer":{"@type":"Answer","text":"私たちが設計するのは院内のオペレーションであり、広告表現を制作・掲載するものではありません。運用や指標の設計も、医療広告ガイドライン・薬機法に配慮して行います。"}},
-        {"@type":"Question","name":"小規模でも相談できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。診断は無料で、規模の大小は問いません。一人で切り盛りされている現場ほど、オペレーションの設計が効きます。"}}
+        {"@type":"Question","name":"小規模でも相談できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。初回の現場訪問は無料で、規模の大小は問いません。一人で切り盛りされている現場ほど、オペレーションの設計が効きます。規模に合わせて、範囲と費用を組みます。"}}
       ]
     }
   ]
@@ -120,6 +120,35 @@ a{color:inherit;text-decoration:none;}
 .hero-micro{margin-top:16px;font-family:var(--jp);font-size:12px;font-weight:500;color:var(--ink-mute);}
 
 .rule{border:none;border-top:1px solid var(--line-soft);max-width:1040px;margin:0 auto;}
+
+/* facts strip */
+.facts{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:#fff;}
+.facts-row{display:grid;grid-template-columns:repeat(4,1fr);}
+.fact{padding:26px 24px;border-left:1px solid var(--line-soft);}
+.fact:first-child{border-left:none;}
+.fact .fk{display:block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.24em;color:var(--ink-mute);margin-bottom:8px;}
+.fact .fv{font-family:var(--jp);font-size:13px;font-weight:700;line-height:1.7;color:var(--ink);}
+
+/* operation diagram */
+.odiagram{display:flex;align-items:center;gap:34px;margin-top:72px;flex-wrap:wrap;}
+.oset{display:flex;}
+.oc{width:104px;height:104px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink);background:transparent;}
+.oc + .oc{margin-left:-22px;}
+.oarw{font-family:var(--sans);font-size:20px;color:var(--ink-mute);}
+.oone{width:128px;height:128px;border-radius:50%;background:var(--bg-deep);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--serif);font-weight:600;font-size:13.5px;line-height:1.8;}
+
+/* field notes */
+.notes{padding:130px 0;background:#fff;border-top:1px solid var(--line-soft);}
+.notes h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,36px);line-height:1.8;color:var(--ink);}
+.notes .nsub{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.2;color:var(--ink-soft);margin-top:22px;max-width:620px;}
+.ngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);margin-top:56px;}
+.ncard{background:#fff;padding:36px 32px;display:flex;flex-direction:column;transition:background 0.3s;}
+.ncard:hover{background:var(--bg);}
+.ncard .nc{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:0.18em;color:var(--green);margin-bottom:16px;}
+.ncard h3{font-family:var(--serif);font-weight:600;font-size:16.5px;line-height:1.95;color:var(--ink);flex:1;}
+.ncard .nm{font-family:var(--jp);font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-top:22px;}
+.ncard:hover .nm{color:var(--green);}
+.nmore{margin-top:40px;}
 
 /* stance */
 .stance{padding:130px 0;}
@@ -249,6 +278,16 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   .hstep{grid-template-columns:1fr;gap:10px;padding:34px 0;}
   .who-grid,.consult-grid{grid-template-columns:1fr;gap:44px;}
   .form-card{padding:32px 24px;}
+  .facts-row{grid-template-columns:1fr 1fr;}
+  .fact{border-left:none;border-top:1px solid var(--line-soft);}
+  .fact:nth-child(-n+2){border-top:none;}
+  .fact:nth-child(even){border-left:1px solid var(--line-soft);}
+  .odiagram{gap:22px;margin-top:52px;}
+  .oc{width:84px;height:84px;font-size:13px;}
+  .oc + .oc{margin-left:-18px;}
+  .oone{width:104px;height:104px;font-size:12px;}
+  .ngrid{grid-template-columns:1fr;}
+  .notes{padding:88px 0;}
 }
 </style>
 </head>
@@ -280,7 +319,15 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   </div>
 </section>
 
-<hr class="rule">
+<!-- FACTS -->
+<section class="facts" aria-label="ACCORDについての事実">
+  <div class="wrap facts-row">
+    <div class="fact"><span class="fk">FOCUS</span><span class="fv">自由診療・美容・ウェルネスに特化</span></div>
+    <div class="fact"><span class="fk">FIRSTHAND</span><span class="fv">自社ウェルネスブランドを自ら運営</span></div>
+    <div class="fact"><span class="fk">FIELD NOTES</span><span class="fv">現場発の実装知を、20本以上公開</span></div>
+    <div class="fact"><span class="fk">DIRECT</span><span class="fv">ご相談は、創業者が直接担当</span></div>
+  </div>
+</section>
 
 <!-- STANCE -->
 <section class="stance">
@@ -289,6 +336,11 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
     <p class="neg reveal">私たちは、SaaS会社ではありません。<br>コンサルティング会社でもありません。<br><em>私たちは、現場のオペレーションを設計する会社です。</em></p>
     <div class="def reveal d1">
       <p>新しいシステムの提案から始めることはありません。分析報告書を納品して終わることもありません。私たちの仕事は、現場に入り、業務の流れを理解し、人がやることと仕組みに任せることを引き直すこと。<strong>今あるものを活かし、足りないものだけを作り、成果が出るオペレーションが回り続ける状態</strong>をつくることです。</p>
+    </div>
+    <div class="odiagram reveal d2" aria-hidden="true">
+      <div class="oset"><span class="oc">人</span><span class="oc">業務</span><span class="oc">テクノロジー</span></div>
+      <span class="oarw">→</span>
+      <span class="oone">ひとつの<br>オペレーション</span>
     </div>
   </div>
 </section>
@@ -467,12 +519,39 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   </div>
 </section>
 
+<!-- FIELD NOTES -->
+<section class="notes" id="notes">
+  <div class="wrap">
+    <span class="sno reveal">08 — FIELD NOTES</span>
+    <h2 class="reveal">考えは、記事で確かめられます。</h2>
+    <p class="nsub reveal d1">現場で使える形まで落とした実装知を、20本以上公開しています。私たちがどう考え、どこまで具体的に設計するか——読めば分かるようにしてあります。</p>
+    <div class="ngrid reveal d1">
+      <a class="ncard" href="/blog/jiyushinryo-genba-4-no-ana.html">
+        <span class="nc">OPERATION</span>
+        <h3>自由診療・ウェルネスの現場に空いている、4つの“設計されていない”穴</h3>
+        <span class="nm">読む →</span>
+      </a>
+      <a class="ncard" href="/blog/counseling-zokujinka.html">
+        <span class="nc">COUNSELING</span>
+        <h3>「できる人の勘」を仕組みに変える ― カウンセリング成約率の属人化からの脱出</h3>
+        <span class="nm">読む →</span>
+      </a>
+      <a class="ncard" href="/blog/data-tougou-suuchi-keiei.html">
+        <span class="nc">DATA</span>
+        <h3>予約・カルテ・会計・LINEを「一人の時系列」で見る ― データ統合と数値経営</h3>
+        <span class="nm">読む →</span>
+      </a>
+    </div>
+    <div class="nmore reveal"><a class="btn line" href="/blog/">すべての記事を見る</a></div>
+  </div>
+</section>
+
 <!-- CONSULT -->
 <section class="consult" id="consult">
   <div class="wrap">
     <div class="consult-grid">
       <div class="reveal">
-        <span class="sno">08 — CONTACT</span>
+        <span class="sno">09 — CONTACT</span>
         <h2>現場について、<br>聞かせてください。</h2>
         <p class="cl">まずは、現場を見せてください。初回訪問は無料です。そこで見えた課題をもとに、設計図づくりから実装、そして伴走へ——<strong>現場が変わりはじめる道筋</strong>を、一緒に描きます。</p>
         <ul class="trusts">

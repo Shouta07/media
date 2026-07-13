@@ -22,17 +22,18 @@
 <meta property="og:url" content="https://www.vitality-design.jp/terms.html">
 <meta property="og:image" content="https://www.vitality-design.jp/og.png">
 <meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B6E4F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F1ECE2;
-  --ink:#14100D;
-  --vermilion:#C8392B;
-  --sub:#7A7066;
+  --bg:#F6F7F4;
+  --ink:#10130F;
+  --vermilion:#0B6E4F;
+  --sub:#6B7367;
   --jp-display:'Shippori Mincho B1', 'Noto Serif JP', serif;
-  --en-display:'Cormorant Garamond', 'Shippori Mincho B1', serif;
+  --en-display:'Newsreader', 'Shippori Mincho B1', serif;
   --body:'Noto Sans JP', 'Helvetica Neue', sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
@@ -210,16 +211,19 @@ footer a:hover{color:var(--bg);}
   .tabs{gap:16px;overflow-x:auto;}
   .tokushoho-row{grid-template-columns:1fr;gap:6px;}
 }
+.skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:#0B6E4F;color:#fff;padding:12px 20px;font-size:13px;font-weight:700;border-radius:0 0 10px 0;}
+.skip-link:focus{left:0;}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">本文へスキップ</a>
 
 <svg width="0" height="0" style="position:absolute;">
   <defs>
     <symbol id="vd-mark" viewBox="0 0 60 60">
       <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
       <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
-      <circle cx="44" cy="18" r="3.5" fill="#C8392B"/>
+      <circle cx="44" cy="18" r="3.5" fill="#0B6E4F"/>
     </symbol>
   </defs>
 </svg>
@@ -235,7 +239,7 @@ footer a:hover{color:var(--bg);}
   <a href="/" class="back">← Back to Home</a>
 </nav>
 
-<main>
+<main id="main">
   <div class="eyebrow"><span class="bar"></span>Terms &amp; Tokushoho</div>
   <h1>利用規約・特定商取引法表記<span class="en">Terms of Use &amp; Specified Commercial Transactions Act.</span></h1>
 

@@ -73,6 +73,9 @@
       "inLanguage":"ja",
       "publisher":{"@id":"https://www.vitality-design.jp/#org"},
       "blogPost":[
+        {"@type":"BlogPosting","headline":"導入したシステム、使いこなせていますか ― 「眠っている機能」の棚卸しリスト","url":"https://www.vitality-design.jp/blog/system-katsuyou-tanaoroshi.html","datePublished":"2026-07-13T09:00:00+09:00","author":{"@id":"https://www.vitality-design.jp/#org"}},
+        {"@type":"BlogPosting","headline":"カウンセラーが「治療を決める」運用は、もう危ない ― 令和7年8月の厚労省通知が示したこと","url":"https://www.vitality-design.jp/blog/counselor-kisei-2025.html","datePublished":"2026-07-13T09:00:00+09:00","author":{"@id":"https://www.vitality-design.jp/#org"}},
+        {"@type":"BlogPosting","headline":"あなたの院は、どのタイプで失注しているか ― 4つの失注タイプ自己診断【10問チェック付き】","url":"https://www.vitality-design.jp/blog/shitchuu-type-jiko-shindan.html","datePublished":"2026-07-13T09:00:00+09:00","author":{"@id":"https://www.vitality-design.jp/#org"}},
         {"@type":"BlogPosting","headline":"男性客の「一度きり」を止める ― メンズ診療のリピート設計","url":"https://www.vitality-design.jp/blog/dansei-repeat-sekkei.html","datePublished":"2026-07-09T11:00:00+09:00","author":{"@id":"https://www.vitality-design.jp/#org"}},
         {"@type":"BlogPosting","headline":"AGA・メンズ美容の「うさんくささ」を払拭する ― 信頼を集患に変える設計","url":"https://www.vitality-design.jp/blog/mens-clinic-usankusasa-shinrai.html","datePublished":"2026-07-09T10:30:00+09:00","author":{"@id":"https://www.vitality-design.jp/#org"}},
         {"@type":"BlogPosting","headline":"男性患者のカウンセリング成約 ― 「売り込まれる」警戒を解く会話設計","url":"https://www.vitality-design.jp/blog/dansei-counseling-seiyaku.html","datePublished":"2026-07-09T10:00:00+09:00","author":{"@id":"https://www.vitality-design.jp/#org"}},
@@ -229,6 +232,16 @@ a{color:inherit;text-decoration:none;}
   .side .sidecta{flex:1 1 100%;}
 }
 
+/* diagnosis banner (blog top) */
+.dxbanner{position:relative;overflow:hidden;background:var(--night);color:#fff;border-radius:18px;margin:0 0 44px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;}
+.dxbanner .m{position:absolute;width:360px;height:360px;border-radius:50%;filter:blur(78px);background:radial-gradient(circle,rgba(20,184,112,0.26),transparent 64%);top:50%;right:-60px;transform:translateY(-50%);}
+.dxbanner .dx-t{position:relative;z-index:2;min-width:0;}
+.dxbanner h2{font-family:var(--jp);font-weight:900;font-size:clamp(18px,2.4vw,24px);line-height:1.5;color:#fff;margin:0 0 8px;}
+.dxbanner p{font-family:var(--jp);font-size:13px;font-weight:500;line-height:1.85;color:rgba(246,247,244,0.74);margin:0;max-width:520px;}
+.dxbanner .dx-a{position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:13.5px;font-weight:700;padding:14px 26px;border-radius:99px;background:var(--green-bright);color:#062b1d;white-space:nowrap;transition:transform 0.3s;}
+.dxbanner .dx-a:hover{transform:translateY(-2px);}
+@media (max-width:560px){.dxbanner{padding:26px 24px;}.dxbanner .dx-a{width:100%;justify-content:center;}}
+
 /* closing + footer */
 .pclosing{padding:110px 0;background:var(--night);color:var(--bg);text-align:center;position:relative;overflow:hidden;}
 .pclosing .m{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(20,184,112,0.22),transparent 64%);top:50%;left:50%;transform:translate(-50%,-50%);}
@@ -304,12 +317,50 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
 <section class="blogmain">
   <div class="wrap">
     <div class="mainCol">
+      <div class="dxbanner reveal">
+        <div class="m" aria-hidden="true"></div>
+        <div class="dx-t">
+          <h2>読むより、早いこともあります。</h2>
+          <p>御院の現場を半日〜1日、実際に観て、課題を1枚にまとめてお渡しします。診断は無料。その先の実装は、90日パッケージ（固定価格）で。</p>
+        </div>
+        <a class="dx-a" href="/accord.html#consult"><span>無料の現場診断を依頼する</span><span>→</span></a>
+      </div>
       <form class="searchbar" role="search" onsubmit="return false;">
         <input type="search" id="q" placeholder="記事を検索…" aria-label="記事を検索">
         <button type="button" id="qbtn">検索</button>
       </form>
       <div class="activefilter" id="afilter" hidden></div>
       <div class="cards" id="cards">
+    <a class="post reveal" href="/blog/system-katsuyou-tanaoroshi.html" data-cat="オペレーション / 業務効率化" data-tags="予約システム 活用|CRM 使いこなせない|クリニック システム 活用|LINE公式 機能|電子カルテ 活用|業務効率化 クリニック|システム 定着">
+      <div class="post-meta">
+        <span class="post-cat">オペレーション</span>
+        <time class="post-date" datetime="2026-07-13">2026.07.13</time>
+      </div>
+      <h2>導入したシステム、使いこなせていますか ― 「眠っている機能」の棚卸しリスト</h2>
+      <p>導入したのに使われていない機能を、自院で棚卸しできるチェックリスト。数えるのは自分でできます。ただし「なぜ使われないか」は現場を見ないと分かりません。ベンダー比較はしません。</p>
+      <div class="ptags"><span class="ptag">システム活用</span><span class="ptag">業務効率化</span><span class="ptag">予約システム</span></div>
+      <div class="pfoot"><span>Vitality Design</span><span class="fa-dot"></span><span>読了 約8分</span></div>
+    </a>
+    <a class="post reveal" href="/blog/counselor-kisei-2025.html" data-cat="規制・コンプライアンス" data-tags="美容医療 規制|カウンセラー 規制|医政発0815第21号|厚労省 通知 美容医療|美容医療 取扱い|医師 診察|自由診療 コンプライアンス">
+      <div class="post-meta">
+        <span class="post-cat">規制・コンプライアンス</span>
+        <time class="post-date" datetime="2026-07-13">2026.07.13</time>
+      </div>
+      <h2>カウンセラーが「治療を決める」運用は、もう危ない ― 令和7年8月の厚労省通知が示したこと</h2>
+      <p>令和7年8月の厚労省通知で、カウンセラーが治療を実質的に決める運用に線が引かれました。何が問題として示されたのか、御院のフローの点検軸を経営者向けに整理します。</p>
+      <div class="ptags"><span class="ptag">美容医療</span><span class="ptag">規制</span><span class="ptag">カウンセラー</span></div>
+      <div class="pfoot"><span>Vitality Design</span><span class="fa-dot"></span><span>読了 約9分</span></div>
+    </a>
+    <a class="post reveal" href="/blog/shitchuu-type-jiko-shindan.html" data-cat="カウンセリング / 成約率" data-tags="失注 クリニック|成約率 上げる|カウンセリング 成約|自由診療 失注|価格離脱|成約率 改善|美容クリニック 成約">
+      <div class="post-meta">
+        <span class="post-cat">カウンセリング</span>
+        <time class="post-date" datetime="2026-07-13">2026.07.13</time>
+      </div>
+      <h2>あなたの院は、どのタイプで失注しているか ― 4つの失注タイプ自己診断【10問チェック付き】</h2>
+      <p>失注には4つのタイプがある。価格離脱・信頼不足・決断先送り・新人格差——10問のチェックで自院の傾向を自己判定。ただし打ち手はタイプだけでは決まりません。</p>
+      <div class="ptags"><span class="ptag">失注分析</span><span class="ptag">成約率</span><span class="ptag">カウンセリング</span></div>
+      <div class="pfoot"><span>Vitality Design</span><span class="fa-dot"></span><span>読了 約8分</span></div>
+    </a>
     <a class="post reveal" href="/blog/dansei-repeat-sekkei.html" data-cat="リピート / LTV" data-tags="男性 リピート|メンズ美容 再来|AGA 継続率|男性客 LTV|リピート設計|メンズ 通い続ける">
       <div class="post-meta">
         <span class="post-cat">リピート</span>
@@ -558,19 +609,20 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
       <div class="swidget reveal">
         <div class="sh">カテゴリー</div>
         <div class="catlist">
-      <button class="catl on" data-cat="*">すべて<span class="cn">16</span></button>
-      <button class="catl" data-cat="リピート / LTV">リピート / LTV<span class="cn">2</span></button>
-      <button class="catl" data-cat="カウンセリング / 成約率">カウンセリング / 成約率<span class="cn">2</span></button>
+      <button class="catl on" data-cat="*">すべて<span class="cn">26</span></button>
+      <button class="catl" data-cat="カウンセリング / 成約率">カウンセリング / 成約率<span class="cn">5</span></button>
+      <button class="catl" data-cat="オペレーション / 業務効率化">オペレーション / 業務効率化<span class="cn">4</span></button>
+      <button class="catl" data-cat="リピート / LTV">リピート / LTV<span class="cn">3</span></button>
+      <button class="catl" data-cat="集患 / マーケティング">集患 / マーケティング<span class="cn">3</span></button>
+      <button class="catl" data-cat="規制・コンプライアンス">規制・コンプライアンス<span class="cn">1</span></button>
       <button class="catl" data-cat="集患 / 口コミ・紹介">集患 / 口コミ・紹介<span class="cn">1</span></button>
       <button class="catl" data-cat="経営 / 価格戦略">経営 / 価格戦略<span class="cn">1</span></button>
       <button class="catl" data-cat="事業成長 / オペレーション">事業成長 / オペレーション<span class="cn">1</span></button>
-      <button class="catl" data-cat="集患 / マーケティング">集患 / マーケティング<span class="cn">1</span></button>
       <button class="catl" data-cat="データ / 数値経営">データ / 数値経営<span class="cn">1</span></button>
       <button class="catl" data-cat="予約システム / 業務効率化">予約システム / 業務効率化<span class="cn">1</span></button>
       <button class="catl" data-cat="AI活用 / 業務効率化">AI活用 / 業務効率化<span class="cn">1</span></button>
       <button class="catl" data-cat="ブランド / コミュニティ">ブランド / コミュニティ<span class="cn">1</span></button>
       <button class="catl" data-cat="コンプライアンス / 集患">コンプライアンス / 集患<span class="cn">1</span></button>
-      <button class="catl" data-cat="オペレーション / 業務効率化">オペレーション / 業務効率化<span class="cn">1</span></button>
       <button class="catl" data-cat="組織 / 採用・定着">組織 / 採用・定着<span class="cn">1</span></button>
       <button class="catl" data-cat="集患 / MEO">集患 / MEO<span class="cn">1</span></button>
         </div>

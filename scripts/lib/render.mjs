@@ -262,29 +262,15 @@ ${sections}
 ${faq}
     </section>
 
-    ${
-      /カウンセリング|成約|リピート|LTV|オペレーション|価格/.test(a.category)
-        ? `<p class="soln-note">こうした現場の成約・接客・リピートを底上げする当社の現場向けソリューションが <a href="/accord.html">Accord（アコード）</a> です。接客ロールプレイAI・成約の見える化・月次の伴走で、カウンセリングの成約を仕組みに変えます。</p>\n\n    `
-        : ''
-    }<div class="cta-box">
+    <div class="cta-box">
       <div class="m" aria-hidden="true"></div>
-      <h2>${attr(stripTags(a.ctaHeading || '現場の課題は、設計できます。'))}</h2>
-      <p>発注を前提とした売り込みはしません。「まず何から手をつけるべきか」を一緒に整理するだけでも歓迎です。いただいた内容には、創業者本人が直接ご返信します。</p>
+      <p class="cta-q">${attr(stripTags(a.ctaQuestion || '型は、これで分かります。ただ、御院のどこで途切れているかは、現場を見ないと分かりません。'))}</p>
+      <h2>${attr(stripTags(a.ctaHeading || '御院の現場は、どこで途切れているか。'))}</h2>
+      <p>${attr(stripTags(a.ctaBody || 'この記事の課題が御院ではどうなっているか——無料の現場診断で、1枚にまとめてお渡しします。'))}</p>
+      <p class="cta-next">診断は無料。その先の実装は、90日パッケージ（固定価格）でお引き受けします。</p>
       <div class="acts">
-        <a class="btn bright" href="${
-          /カウンセリング|成約|リピート|LTV|オペレーション|価格/.test(a.category)
-            ? '/accord.html#consult'
-            : '/#contact'
-        }"><span>無料で相談する</span><span>→</span></a>
-        <a class="btn outline" href="${
-          /カウンセリング|成約|リピート|LTV|オペレーション|価格/.test(a.category)
-            ? '/accord.html'
-            : '/blog/'
-        }">${
-          /カウンセリング|成約|リピート|LTV|オペレーション|価格/.test(a.category)
-            ? 'Accordを見る'
-            : '記事一覧へ'
-        }</a>
+        <a class="btn bright" href="/accord.html#consult"><span>${attr(stripTags(a.ctaButton || '無料の現場診断を依頼する'))}</span><span>→</span></a>
+        <a class="btn outline" href="/accord.html">ACCORDを見る</a>
       </div>
     </div>
 

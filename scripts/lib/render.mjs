@@ -289,7 +289,6 @@ ${related}
     <div class="fb-links">
       <a href="/">Home</a>
       <a href="/blog/">Field Notes</a>
-      <a href="/principles.html">Principles</a>
       <a href="/privacy.html">プライバシーポリシー</a>
       <a href="/terms.html">利用規約</a>
       <a href="/#contact">Contact</a>

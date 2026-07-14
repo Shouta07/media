@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWTE9DWQ0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DWTE9DWQ0S');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「電話に出られなかった」で消える新患 ― 問い合わせ取りこぼしの数え方と設計｜Vitality Design</title>
+<meta name="description" content="診療中で電話に出られない、折り返しが遅れる、フォームの返信が翌日になる——その間に、新患は次の院を探し始めます。不在着信・返信時間など「取りこぼし」を自院で数える方法と、受付オペレーション設計の考え方を整理します。">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Vitality Design LLC">
+<meta name="keywords" content="電話 取りこぼし クリニック,問い合わせ対応 遅い,不在着信 折り返し,新患 機会損失,受付 業務設計,フォーム 返信 速度,予約 電話 出られない">
+<link rel="canonical" href="https://www.vitality-design.jp/blog/toiawase-torikoboshi-sekkei.html">
+<meta property="og:site_name" content="Vitality Design LLC">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="「電話に出られなかった」で消える新患 ― 問い合わせ取りこぼしの設計">
+<meta property="og:description" content="診療中で電話に出られない、折り返しが遅れる、フォームの返信が翌日になる——その間に、新患は次の院を探し始めます。不在着信・返信時間など「取りこぼし」を自院で数える方法と、受付オペレーション設計の考え方を整理します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.vitality-design.jp/blog/toiawase-torikoboshi-sekkei.html">
+<meta property="og:image" content="https://www.vitality-design.jp/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-07-14T09:00:00+09:00">
+<meta property="article:modified_time" content="2026-07-14T09:00:00+09:00">
+<meta property="article:section" content="Operations">
+<meta property="article:tag" content="問い合わせ対応">
+<meta property="article:tag" content="受付">
+<meta property="article:tag" content="取りこぼし">
+<meta property="article:tag" content="新患">
+<meta property="article:tag" content="オペレーション">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="「電話に出られなかった」で消える新患 ― 問い合わせ取りこぼしの設計">
+<meta name="twitter:description" content="診療中で電話に出られない、折り返しが遅れる、フォームの返信が翌日になる——その間に、新患は次の院を探し始めます。不在着信・返信時間など「取りこぼし」を自院で数える方法と、受付オペレーション設計の考え方を整理します。">
+<meta name="twitter:image" content="https://www.vitality-design.jp/og.png">
+<meta name="theme-color" content="#0B6E4F">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/article.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.vitality-design.jp/blog/toiawase-torikoboshi-sekkei.html#article",
+      "headline": "「電話に出られなかった」で消える新患 ― 問い合わせ取りこぼしの数え方と設計",
+      "description": "診療中で電話に出られない、折り返しが遅れる、フォームの返信が翌日になる——その間に、新患は次の院を探し始めます。不在着信・返信時間など「取りこぼし」を自院で数える方法と、受付オペレーション設計の考え方を整理します。",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.vitality-design.jp/og.png",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-07-14T09:00:00+09:00",
+      "dateModified": "2026-07-14T09:00:00+09:00",
+      "inLanguage": "ja",
+      "isAccessibleForFree": true,
+      "articleSection": "オペレーション / 業務効率化",
+      "about": {
+        "@type": "Thing",
+        "name": "オペレーション"
+      },
+      "keywords": "電話 取りこぼし クリニック, 問い合わせ対応 遅い, 不在着信 折り返し, 新患 機会損失, 受付 業務設計, フォーム 返信 速度, 予約 電話 出られない",
+      "wordCount": 2400,
+      "timeRequired": "PT8M",
+      "author": {
+        "@type": "Organization",
+        "name": "Vitality Design LLC",
+        "url": "https://www.vitality-design.jp/",
+        "description": "自由診療・ウェルネス産業の事業成長パートナー。自らもサービスを運営する当事者として、現場の一次情報をもとに事業を設計する。",
+        "knowsAbout": [
+          "電話 取りこぼし クリニック",
+          "問い合わせ対応 遅い",
+          "不在着信 折り返し",
+          "新患 機会損失",
+          "受付 業務設計",
+          "フォーム 返信 速度",
+          "予約 電話 出られない"
+        ],
+        "sameAs": [
+          "https://www.hisrecoveries.com/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vitality Design LLC",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.vitality-design.jp/icon-512.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".answer",
+          ".tldr",
+          ".afaq"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.vitality-design.jp/blog/toiawase-torikoboshi-sekkei.html"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://www.vitality-design.jp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Field Notes",
+          "item": "https://www.vitality-design.jp/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "「電話に出られなかった」で消える新患 ― 問い合わせ取りこぼしの設計",
+          "item": "https://www.vitality-design.jp/blog/toiawase-torikoboshi-sekkei.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "不在着信を数える余裕もないほど忙しいのですが、どうすれば？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "まずは1週間、着信履歴を1日の終わりに数えるだけでも十分です。それも難しい忙しさなら、そのこと自体が「受付業務が飽和している」という重要な事実です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "電話代行やチャットボットを先に入れてはだめですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "だめではありませんが、拾った問い合わせを誰がいつ処理するかが決まっていないと、遅れの発生場所が移動するだけになりがちです。原因の特定と担当の設計を先にすることをおすすめします。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "折り返しても患者につながらないことが多いです。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "つながらなかった後の動き（何回かけるか・SMSやLINEで代替連絡を残すか）まで含めて型にしておくと、担当者ごとのばらつきが減ります。型の中身は御院の患者層に合わせて設計する領域です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Web予約を強化すれば、電話は減りますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "減る部分はありますが、自由診療では「人に聞いてから決めたい」問い合わせが一定数残ります。電話をゼロにする発想より、電話とWebの役割分担を設計する方が現実的です。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<nav class="nav">
+  <a href="/" class="nav-brand" aria-label="Vitality Design LLC home">
+    <span class="nav-mark">
+      <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="22" cy="22" r="17" stroke="#10130F" stroke-width="2"/>
+        <path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="url(#pg)" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <defs><linearGradient id="pg" x1="10" y1="30" x2="40" y2="6" gradientUnits="userSpaceOnUse"><stop stop-color="#0B6E4F"/><stop offset=".55" stop-color="#0FA890"/><stop offset="1" stop-color="#14B870"/></linearGradient></defs>
+      </svg>
+    </span>
+    <span class="nav-name"><span class="n-en">Vitality Design</span><span class="n-jp">バイタリティデザイン合同会社</span></span>
+  </a>
+  <div class="nav-right">
+    <a href="/blog/" class="nav-link">Blog</a>
+    <a href="/accord.html" class="nav-link">Accord</a>
+    <a href="/#contact" class="nav-cta">お問い合わせ</a>
+  </div>
+</nav>
+
+<header class="ahead" id="main">
+  <div class="wrap">
+    <nav class="crumb" aria-label="パンくず"><a href="/">ホーム</a> <span>/</span> <a href="/blog/">Field Notes</a> <span>/</span> オペレーション</nav>
+    <div class="ameta">
+      <span class="cat">オペレーション / 業務効率化</span>
+      <time class="date" datetime="2026-07-14">2026.07.14</time>
+    </div>
+    <h1>「電話に出られなかった」で消える新患 ― <br>問い合わせ取りこぼしの数え方と設計</h1>
+    <p class="lead">広告費をかけて集めた見込み患者が、<strong>電話がつながらなかった</strong>という理由で消えていく——集患の努力が実る直前の、いちばんもったいない失い方です。まず、御院でどれだけ取りこぼしているかを「数える」ところから始めます。</p>
+    <div class="readmeta">
+      <span class="author">Vitality Design LLC</span>
+      <span class="dot"></span><span>自由診療・ウェルネスの事業成長パートナー</span>
+      <span class="dot"></span><span>読了 約8分</span>
+    </div>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+
+    <div class="answer">
+      <span class="a-lbl">結論</span>
+      <p>新患の問い合わせは、不在着信・折り返しの遅れ・フォーム返信の遅れで静かに失われます。不在着信の件数や返信までの時間は自院で数えられますが、「なぜ折り返しが遅れるのか」は受付の業務設計・時間帯の人員・責任の所在の問題であり、現場の動きを見ないと特定できません。</p>
+    </div>
+
+    <div class="tldr">
+      <div class="tl-h">この記事の要点</div>
+      <ul>
+        <li>問い合わせの取りこぼしは、<strong>集患コストを払い終えた後</strong>に起きる、いちばん高くつく失客です。</li>
+        <li>不在着信の件数・折り返しまでの時間・フォーム返信までの時間は、<strong>御院で今日から数えられます</strong>。</li>
+        <li>出られない時間帯には偏りがあります。昼休み・夕方・診療の繁忙と、問い合わせのピークは重なりがちです。</li>
+        <li>ただし「なぜ折り返しが遅れるのか」は、<strong>責任の所在・人員配置・業務の兼務</strong>という構造の問題で、数字だけでは特定できません。</li>
+        <li>電話代行やチャットツールの導入は、原因の特定が先。順番を飛ばすと「入れたのに使われない道具」が増えるだけです。</li>
+      </ul>
+    </div>
+
+    <nav class="toc" aria-label="目次">
+      <div class="toc-h">目次</div>
+      <ol>
+        <li><a href="#sec-01">なぜ取りこぼしは「見えない」のか</a></li>
+        <li><a href="#sec-02">御院で数えられる、3つの数字</a></li>
+        <li><a href="#sec-03">「なぜ遅れるのか」は、数字だけでは分からない</a></li>
+        <li><a href="#sec-04">ツールの導入は、原因の特定より後</a></li>
+        <li><a href="#summary">まとめ</a></li>
+        <li><a href="#faq">よくある質問（FAQ）</a></li>
+      </ol>
+    </nav>
+
+    <p>集患の相談を受けて現場に入ると、広告やSEOの前に、もっと手前の問題が見つかることがあります。<strong>問い合わせに応え切れていない</strong>のです。診療中で電話に出られない。折り返しは手が空いてから。フォームの返信は翌営業日——その間に、見込み患者は検索結果に戻り、次の院に電話をかけます。</p><p>この記事では、取りこぼしを「数える」方法をお渡しします。数えるのは御院でできます。ただし、先に言っておくと、<strong>数えた後の「なぜ」はリストでは分かりません</strong>。その理由も含めて書きます。</p>
+
+    <h2 id="sec-01"><span class="no">01</span>なぜ取りこぼしは「見えない」のか</h2>
+<p>無断キャンセルは予約台帳に穴が空くので気づきます。ところが問い合わせの取りこぼしは、<strong>そもそも記録に残らない</strong>ことが多い。出られなかった電話は着信履歴に残りますが、誰も集計していない。フォームの返信が何時間後だったかは、意識しなければ誰も見ていない。</p><div class="pitfall"><div class="p-h">取りこぼしが見えなくなる典型</div><ul><li>不在着信の折り返しが「手が空いた人がやる」になっていて、誰の担当でもない</li><li>折り返したかどうかを記録する場所がなく、かけたつもり・かけ忘れが混在する</li><li>フォームやLINEの通知が特定の端末・特定の人にしか届かない</li><li>「電話が多くて大変」という感覚はあるが、件数も時間帯も数字になっていない</li></ul></div><p>取りこぼした患者は、クレームを言いません。黙って他院へ行くだけです。だから、意識して数えない限り、この損失は経営の視界に入りません。</p>
+
+    <h2 id="sec-02"><span class="no">02</span>御院で数えられる、3つの数字</h2>
+<p>まず1〜2週間、次の3つを数えてみてください。特別なツールは要りません。着信履歴と受信箱があれば足ります。</p><div class="tmpl"><div class="t-h">① 不在着信の件数と時間帯</div><p>診療時間内にかかってきて、出られなかった電話の数。あわせて「何時台に多いか」もメモします。昼休み・夕方・週明けなど、偏りが見えてくるはずです。</p></div><div class="tmpl"><div class="t-h">② 折り返しまでの時間</div><p>不在着信に折り返すまでに、どれくらいかかっているか。そもそも折り返せているか。折り返してつながらなかったとき、その後どうしているか。</p></div><div class="tmpl"><div class="t-h">③ フォーム・LINEの返信までの時間</div><p>Web問い合わせに、何時間（何日）で返信できているか。営業時間外に届いた問い合わせが、翌日の何時に処理されているか。</p></div><p>数えるだけで、対策の前にひとつ効果があります。<strong>スタッフの意識が変わる</strong>のです。数えていない職場では、電話は「業務の邪魔」に見えます。数え始めた職場では、電話は「来院の一歩手前のひと」に見え方が変わります。</p>
+
+    <h2 id="sec-03"><span class="no">03</span>「なぜ遅れるのか」は、数字だけでは分からない</h2>
+<p>数えると、たとえば「昼休みの不在着信が多く、折り返しは夕方になっている」という事実が見えます。ここからが分かれ目です。同じ事実でも、原因はまるで違います。</p><ul><li>昼休みは受付も休憩に入る決まりで、<strong>電話番の設計がそもそも存在しない</strong>のか</li><li>折り返し担当は決まっているが、午後の診療準備と兼務で<strong>物理的に手が回らない</strong>のか</li><li>折り返す順番やトークが決まっておらず、<strong>心理的に後回しにされている</strong>のか</li><li>院長しか答えられない問い合わせが多く、<strong>受付では完結できない</strong>のか</li></ul><p>どれなのかで、打ち手は変わります。人員の問題なら配置の再設計、業務の兼務が原因なら優先順位のルール化、受付で完結できないのが原因なら「よくある質問と回答の型」づくり。<strong>原因と打ち手の対応を間違えると、負担だけが増えて何も改善しません</strong>。</p><p>そしてこの切り分けは、着信履歴からは読めません。昼休みの受付が実際にどう動いているか、電話を取ったスタッフが次に何をしているか——<strong>現場の動きを見て</strong>初めて特定できます。</p>
+
+    <h2 id="sec-04"><span class="no">04</span>ツールの導入は、原因の特定より後</h2>
+<p>取りこぼし対策として、電話代行・IVR（自動音声）・チャットボット・Web予約の強化など、道具の選択肢は豊富にあります。どれも有効になり得ます。ただし、順番があります。</p><div class="tmpl"><div class="t-h">健全な順番</div><ol><li>取りこぼしを数える（この記事の3つの数字）</li><li>なぜ起きているか、現場の動きから原因を特定する</li><li>いまの人員と道具でできる再設計をする（担当の明確化・時間帯ルール・回答の型）</li><li>それでも埋まらない部分にだけ、道具を足す</li></ol></div><p>順番を飛ばして道具から入ると、どうなるか。昼休みの電話番が設計されていない院にチャットボットを入れても、ボットが拾った問い合わせを<strong>誰がいつ返すのか</strong>が決まっていないので、返信の遅れがフォームからボットに場所を変えるだけです。</p><p>道具は、設計の代わりにはなりません。設計が済んだ現場では、道具は驚くほど効きます。</p>
+
+    <h2 id="summary"><span class="no">—</span>まとめ</h2>
+    <div class="takeaway"><span class="lbl">結論</span>問い合わせの取りこぼしは記録に残らず、黙って他院へ流れる。不在着信・折り返し時間・返信時間の3つは自院で数えられる。ただし「なぜ遅れるか」は受付の業務設計の問題で、現場の動きを見ないと特定できない。ツール導入は原因特定の後。</div>
+    <p>取りこぼした新患は、クレームを言わずに消えます。まず不在着信の件数・折り返しまでの時間・フォーム返信までの時間という3つの数字を、1〜2週間数えてみてください。それだけで、電話の見え方が変わります。</p><p>ただし、数字は「どこで」を教えてくれますが、「なぜ」は教えてくれません。責任の所在・人員配置・業務の兼務——原因は現場の動きの中にあります。原因の特定を飛ばした道具の導入は、遅れの場所を変えるだけです。順番を守れば、取りこぼしは設計で減らせます。</p>
+
+    <section class="afaq" id="faq" aria-label="よくある質問">
+      <span class="eyebrow">FAQ</span>
+      <details>
+        <summary>不在着信を数える余裕もないほど忙しいのですが、どうすれば？</summary>
+        <div class="fa-body">まずは1週間、着信履歴を1日の終わりに数えるだけでも十分です。それも難しい忙しさなら、そのこと自体が「受付業務が飽和している」という重要な事実です。</div>
+      </details>
+      <details>
+        <summary>電話代行やチャットボットを先に入れてはだめですか？</summary>
+        <div class="fa-body">だめではありませんが、拾った問い合わせを誰がいつ処理するかが決まっていないと、遅れの発生場所が移動するだけになりがちです。原因の特定と担当の設計を先にすることをおすすめします。</div>
+      </details>
+      <details>
+        <summary>折り返しても患者につながらないことが多いです。</summary>
+        <div class="fa-body">つながらなかった後の動き（何回かけるか・SMSやLINEで代替連絡を残すか）まで含めて型にしておくと、担当者ごとのばらつきが減ります。型の中身は御院の患者層に合わせて設計する領域です。</div>
+      </details>
+      <details>
+        <summary>Web予約を強化すれば、電話は減りますか？</summary>
+        <div class="fa-body">減る部分はありますが、自由診療では「人に聞いてから決めたい」問い合わせが一定数残ります。電話をゼロにする発想より、電話とWebの役割分担を設計する方が現実的です。</div>
+      </details>
+    </section>
+
+    <div class="cta-box">
+      <div class="m" aria-hidden="true"></div>
+      <p class="cta-q">取りこぼしの数は、御院で数えられます。ただ、なぜ折り返しが遅れるのか——受付の動きのどこで詰まっているかは、現場を見ないと分かりません。</p>
+      <h2>御院の問い合わせは、どこで消えているか。</h2>
+      <p>不在着信からフォーム返信まで、御院の問い合わせ導線のどこで新患が消えているか——無料の現場診断で、実際の受付の動きを観て1枚に可視化します。</p>
+      <p class="cta-next">診断は無料。その先の実装は、90日パッケージ（固定価格）でお引き受けします。</p>
+      <div class="acts">
+        <a class="btn bright" href="/accord.html#consult"><span>取りこぼしを、無料で診断する</span><span>→</span></a>
+        <a class="btn outline" href="/accord.html">ACCORDを見る</a>
+      </div>
+    </div>
+
+    <div class="related">
+      <span class="eyebrow">Related</span>
+      <a class="rel-link" href="/blog/mudan-cancel-taisaku.html">
+        <span>オペレーション / 業務効率化</span>
+        <h3>無断キャンセル（ドタキャン）を減らす5つの打ち手 ― 自由診療の「見えない失客」対策</h3>
+      </a>
+      <a class="rel-link" href="/blog/clinic-ai-katsuyou-doko-kara.html">
+        <span>AI活用 / 業務効率化</span>
+        <h3>クリニックのAI活用、何から始める？ ― 「手段としてのAI」の現実的な入り口</h3>
+      </a>
+      <a class="rel-link" href="/blog/yoyaku-system-erabikata.html">
+        <span>予約システム / 業務効率化</span>
+        <h3>自由診療の予約システムの選び方 ― 「予約を取る」から「顧客を育てる」へ</h3>
+      </a>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <span class="fb-en">Vitality Design LLC</span>
+    <span class="fb-jp">バイタリティデザイン合同会社 ｜ 人の活力を、デザインする。</span>
+    <div class="fb-links">
+      <a href="/">Home</a>
+      <a href="/blog/">Field Notes</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/terms.html">利用規約</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="fb-base">© 2026 Vitality Design LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -289,6 +289,25 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   .ngrid{grid-template-columns:1fr;}
   .notes{padding:88px 0;}
 }
+@media (max-width:560px){
+  /* STANCE 図: 縦積みにして矢印を下向きに。テクノロジー文字が円からはみ出さないよう調整 */
+  .odiagram{flex-direction:column;justify-content:center;align-items:center;gap:16px;margin-top:44px;}
+  .oarw{transform:rotate(90deg);}
+  .oc{width:90px;height:90px;font-size:12.5px;}
+  .oc + .oc{margin-left:-16px;}
+  .oone{width:116px;height:116px;font-size:12px;}
+}
+@media (max-width:400px){
+  .wrap,.narrow{padding:0 18px;}
+  .nav{padding:15px 18px;}
+  .nav-brand{gap:9px;}
+  .nav-brand .an{font-size:16px;letter-spacing:0.16em;}
+  .nav-cta{padding:10px 16px;font-size:12px;}
+}
+@media (max-width:370px){
+  /* 「by Vitality Design」が折り返してCTAと接触するため、極小幅では非表示 */
+  .nav-brand .by{display:none;}
+}
 </style>
 </head>
 <body>

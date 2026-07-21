@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/accord.html", "destination": "/business.html", "permanent": true },
+    { "source": "/accord", "destination": "/business.html", "permanent": true },
+    { "source": "/principles.html", "destination": "/business.html", "permanent": true }
+  ]
+}

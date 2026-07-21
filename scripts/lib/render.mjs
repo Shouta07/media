@@ -198,7 +198,7 @@ ${jsonLd(a, url, iso)}
   </a>
   <div class="nav-right">
     <a href="/blog/" class="nav-link">Blog</a>
-    <a href="/accord.html" class="nav-link">Accord</a>
+    <a href="/business.html" class="nav-link">for Business</a>
     <a href="/#contact" class="nav-cta">お問い合わせ</a>
   </div>
 </nav>
@@ -269,8 +269,8 @@ ${faq}
       <p>${attr(stripTags(a.ctaBody || 'この記事の課題が御院ではどうなっているか——無料の現場診断で、1枚にまとめてお渡しします。'))}</p>
       <p class="cta-next">診断は無料。その先の実装は、90日パッケージ（固定価格）でお引き受けします。</p>
       <div class="acts">
-        <a class="btn bright" href="/accord.html#consult"><span>${attr(stripTags(a.ctaButton || '無料の現場診断を依頼する'))}</span><span>→</span></a>
-        <a class="btn outline" href="/accord.html">ACCORDを見る</a>
+        <a class="btn bright" href="/business.html#consult"><span>${attr(stripTags(a.ctaButton || '無料の現場診断を依頼する'))}</span><span>→</span></a>
+        <a class="btn outline" href="/business.html">His Recoveries for Business を見る</a>
       </div>
     </div>
 

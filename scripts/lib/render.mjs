@@ -59,7 +59,7 @@ function jsonLd(a, url, iso) {
         name: 'Vitality Design LLC',
         url: `${SITE}/`,
         description:
-          '自由診療・ウェルネス産業の事業成長パートナー。自らもサービスを運営する当事者として、現場の一次情報をもとに事業を設計する。',
+          '男性ウェルネスブランド「His Recoveries」を自ら運営する当事者。男性がどこで迷い、なぜ離脱するかの一次情報をもとに、His Recoveries for Businessとしてクリニック・サロンの現場設計と送客を行う。',
         knowsAbout: a.keywords,
         sameAs: ['https://www.hisrecoveries.com/'],
       },
@@ -220,7 +220,7 @@ ${jsonLd(a, url, iso)}
     <p class="lead">${sanitizeHtml(a.lead)}</p>
     <div class="readmeta">
       <span class="author">Vitality Design LLC</span>
-      <span class="dot"></span><span>自由診療・ウェルネスの事業成長パートナー</span>
+      <span class="dot"></span><span>男性ウェルネスブランド〈His Recoveries〉を自ら運営</span>
       <span class="dot"></span><span>読了 約${a.readMinutes || 5}分</span>
     </div>
   </div>
@@ -267,7 +267,7 @@ ${faq}
       <p class="cta-q">${attr(stripTags(a.ctaQuestion || '型は、これで分かります。ただ、御院のどこで途切れているかは、現場を見ないと分かりません。'))}</p>
       <h2>${attr(stripTags(a.ctaHeading || '御院の現場は、どこで途切れているか。'))}</h2>
       <p>${attr(stripTags(a.ctaBody || 'この記事の課題が御院ではどうなっているか——無料の現場診断で、1枚にまとめてお渡しします。'))}</p>
-      <p class="cta-next">診断は無料。その先の実装は、90日パッケージ（固定価格）でお引き受けします。</p>
+      <p class="cta-next">診断は無料。実装は90日（固定価格）。自社ブランド〈His Recoveries〉と連携した男性送客のご相談も。</p>
       <div class="acts">
         <a class="btn bright" href="/business.html#consult"><span>${attr(stripTags(a.ctaButton || '無料の現場診断を依頼する'))}</span><span>→</span></a>
         <a class="btn outline" href="/business.html">His Recoveries for Business を見る</a>

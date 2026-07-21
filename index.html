@@ -81,6 +81,16 @@
       "areaServed":"JP",
       "serviceType":["顧客体験設計","集患支援","カウンセリング・オペレーション改善","データ統合・数値経営","AI活用","プロダクト・ブランド開発"],
       "audience":{"@type":"Audience","audienceType":"自由診療クリニック・美容医療・サロン・パーソナルジム・ウェルネス事業者"}
+    },
+    {
+      "@type":"DefinedTerm",
+      "@id":"https://www.vitality-design.jp/#maletech",
+      "name":"Maletech（メールテック）",
+      "alternateName":["Maletech","メールテック"],
+      "description":"Vitality Design LLCが提唱する概念。女性のウェルネスがフェムテックとして進んできた一方で、名前のないまま置かれてきた男性のウェルネス（見た目・髪・体型・活力・自信）の空白を指し、テクノロジーと現場の力で男性が自分の状態と向き合い、回復し、活力を取り戻すための仕組みの総称。①恥ずかしさを設計で取り除く入口 ②ウェルネスを中心に、医療が必要な場面では医師の診察を前提に専門家へつなぐ ③回復の記録は本人の資産、の3原則を持つ。",
+      "url":"https://www.vitality-design.jp/#maletech",
+      "termCode":"maletech",
+      "inDefinedTermSet":{"@type":"DefinedTermSet","name":"Vitality Design 用語集","url":"https://www.vitality-design.jp/"}
     }
   ]
 }
@@ -411,6 +421,22 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 .modal.sent .form-success{display:block;}
 
 /* WHAT WE DO (merged: who / what / how) */
+/* WHAT IS MALETECH */
+.mtech{padding:100px 0;}
+.mtech .mt-def{margin-top:36px;max-width:760px;}
+.mtech .mt-def p{font-family:var(--jp);font-size:15.5px;font-weight:500;line-height:2.15;color:var(--ink-soft);}
+.mtech .mt-def p + p{margin-top:18px;}
+.mtech .mt-def strong{color:var(--ink);font-weight:700;}
+.mtech .mt-def .coin{font-family:var(--jp);font-weight:900;color:var(--ink);font-size:17px;}
+.mt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.mt-card{border:1px solid var(--line);border-radius:16px;padding:30px 26px;background:var(--card);}
+.mt-card .mt-i{font-family:var(--sans);font-style:italic;font-weight:800;font-size:12.5px;color:var(--green);}
+.mt-card h3{font-family:var(--jp);font-weight:900;font-size:17px;line-height:1.6;color:var(--ink);margin:12px 0 10px;}
+.mt-card p{font-family:var(--jp);font-size:13.5px;font-weight:500;line-height:1.9;color:var(--ink-soft);}
+.mt-close{margin-top:36px;font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.05;color:var(--ink-soft);max-width:760px;border-left:2px solid var(--green);padding-left:18px;}
+.mt-close strong{color:var(--ink);font-weight:700;}
+@media (max-width:760px){.mt-grid{grid-template-columns:1fr;}}
+
 /* THE PROBLEM */
 .problem{padding:100px 0;background:var(--bg-tint);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
 .problem .p-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px;}
@@ -560,6 +586,38 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       <a class="btn solid" href="#contact" data-open-contact><span>無料で相談する</span><span class="arr">→</span></a>
       <a class="btn ghost" href="/business.html"><span>His Recoveries for Business を見る</span></a>
     </div>
+  </div>
+</section>
+
+<!-- WHAT IS MALETECH -->
+<section class="mtech" id="maletech">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">What is Maletech</span>
+      <h2><strong>「Maletech」とは。</strong></h2>
+    </div>
+    <div class="mt-def reveal d1">
+      <p>女性のウェルネスが「フェムテック」という名前を得て、語られ、投資され、進んできた一方で——男性の悩みは、いまも名前のないままです。見た目、髪、体型、活力、自信。<strong>名前のない領域は、語られず、設計もされない。</strong>「男なんだから」のひと言の下で、悩みは隠すものであり続けてきました。</p>
+      <p>私たちは、その空白を <span class="coin">Maletech（メールテック）</span> と呼ぶことにしました。テクノロジーと現場の力で、男性が自分の状態と向き合い、回復し、活力を取り戻していくための仕組みの総称です。</p>
+    </div>
+    <div class="mt-grid">
+      <div class="mt-card reveal">
+        <span class="mt-i">01</span>
+        <h3>隠さなくていい、入口。</h3>
+        <p>恥ずかしさを、意志の力ではなく設計で取り除く。ひとりで調べ、自分のペースで悩みと予算を整理できる、中立な情報と伴走から始まります。</p>
+      </div>
+      <div class="mt-card reveal d1">
+        <span class="mt-i">02</span>
+        <h3>ウェルネスから、専門家へ。</h3>
+        <p>中心にあるのは、生活・習慣・第一印象というウェルネス。医療が必要な場面では、<strong>医師の診察を前提に</strong>、信頼できる現場へつなぎます。</p>
+      </div>
+      <div class="mt-card reveal d2">
+        <span class="mt-i">03</span>
+        <h3>記録は、本人のもの。</h3>
+        <p>回復の記録は、事業者のものでも私たちのものでもなく、本人の資産。だから、安心して自分と向き合えます。</p>
+      </div>
+    </div>
+    <p class="mt-close reveal">Maletech は、製品の名前ではありません。<strong>私たちが埋めようとしている空白の名前</strong>です。His Recoveries も、His Recoveries for Business も、「回復の線」も——すべては、この空白を埋めるための実装です。</p>
   </div>
 </section>
 

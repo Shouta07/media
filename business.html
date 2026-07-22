@@ -64,7 +64,7 @@
       "mainEntity":[
         {"@type":"Question","name":"新しいシステムの導入が前提ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。今お使いのシステムを活かすことから始めます。眠っている機能で解けることはそれで解き、それでも足りない部分だけを、現場に合わせて作ります。"}},
         {"@type":"Question","name":"コンサルティングとの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"助言や報告書で終わらないことです。設計したオペレーションを、現場で使われる形まで私たちが作り込み、回り始めるまで一緒に立ち会います。"}},
-        {"@type":"Question","name":"費用の考え方を教えてください。","acceptedAnswer":{"@type":"Answer","text":"初回の現場診断は無料です。そこからの改善の伴走は有償で、範囲に応じた費用を着手前に書面で合意します（人月請求はしません）。成果報酬（売上連動）は取りません。送客の仕組みはまだ構想・共創の段階のため、現時点で送客手数料はいただいていません。金額は現場の規模と範囲によるため、初回でご説明します。"}},
+        {"@type":"Question","name":"費用の考え方を教えてください。","acceptedAnswer":{"@type":"Answer","text":"初回の現場診断は無料です。そこからの改善の伴走は有償で、範囲に応じた費用を着手前に書面で合意します（人月請求はしません）。成果報酬（売上連動）は取りません。送客の仕組みはまだ構想・共創の段階のため、現時点で送客手数料はいただいていません。将来は、送客数と連動しない定額のシステム利用料として提供する予定です。金額は現場の規模と範囲によるため、初回でご説明します。"}},
         {"@type":"Question","name":"「送客」はもう使えるのですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、正直にお伝えするとまだ本格稼働前です。自社ブランド〈His Recoveries〉から男性を空き枠へつなぐ仕組みは、いま最初のパートナーと一緒につくっている段階です。早く関わるほど、設計に御店の現場を反映できます。"}},
         {"@type":"Question","name":"His Recoveriesのパートナー契約とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"私たちが自ら運営する男性ウェルネスブランド「His Recoveries」と、顧客体験づくり・将来の送客連携で組む契約です。一緒に現場をつくった相手に、ご希望に応じてご案内します。"}},
         {"@type":"Question","name":"医療広告ガイドラインへの対応は？","acceptedAnswer":{"@type":"Answer","text":"私たちが設計するのは院内のオペレーションであり、広告表現を制作・掲載するものではありません。運用や指標の設計も、医療広告ガイドライン・薬機法に配慮して行います。"}},
@@ -175,6 +175,12 @@ a{color:inherit;text-decoration:none;}
 .vcell .vn{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.26em;color:var(--ink-mute);}
 .vcell h3{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.7;color:var(--ink);margin:20px 0 16px;}
 .vcell p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:2.15;color:var(--ink-soft);}
+.wedo .wlead{font-family:var(--jp);font-size:15px;font-weight:500;line-height:2.2;color:var(--ink-soft);margin:32px 0 40px;max-width:680px;}
+.wedo .wlead strong{color:var(--ink);font-weight:700;}
+.vnotes{margin-top:36px;border-left:2px solid var(--green);padding-left:20px;}
+.vnotes p{font-family:var(--jp);font-size:13.5px;font-weight:500;line-height:2.1;color:var(--ink-soft);}
+.vnotes p + p{margin-top:14px;}
+.vnotes strong{color:var(--ink);font-weight:700;}
 
 /* how */
 .how{padding:130px 0;background:var(--bg-deep);color:rgba(255,255,255,0.92);}
@@ -390,28 +396,33 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <section class="wedo" id="wedo">
   <div class="wrap">
     <span class="sno reveal">03 — WHAT WE DO</span>
-    <h2 class="reveal">私たちが提供すること</h2>
+    <h2 class="reveal">His Recoveries for Business が提供する4つの価値</h2>
+    <p class="wlead reveal d1">現場の業務を改善しながら、準備の整った男性のお客様をおつなぎします。送客ごとの手数料ではなく、<strong>定額でご利用いただく</strong>仕組みです。</p>
     <div class="vgrid reveal d1">
       <div class="vcell">
         <span class="vn">01</span>
-        <h3>現場理解</h3>
-        <p>資料ではなく、現場から始めます。受付から会計まで、業務の流れを実際に見て、聞いて、確かめる。課題は会議室ではなく、現場の動きの中にあります。</p>
+        <h3>カウンセリング工数を減らします</h3>
+        <p>ご本人が来院前に、LINE上で相場・治療の一般的な流れ・予算感を整理してから来院します。院ではゼロからの説明や長時間のクロージングが不要になり、スタッフの負担とノルマの疲弊を減らせます。<strong>治療内容の決定は、医師の診察が前提です。</strong></p>
       </div>
       <div class="vcell">
         <span class="vn">02</span>
-        <h3>オペレーション設計</h3>
-        <p>人がやることと、仕組みに任せることを引き直します。今あるシステムを否定せず、活かしながら、業務と業務の隙間——転記・二重入力・情報の分断——を塞ぎます。</p>
+        <h3>ブランドを変えずに男性のお客様を増やせます</h3>
+        <p>男性向けの集客とブランディングは〈His Recoveries〉側が担います。既存の店構えや世界観はそのままに、これまで接点のなかった男性層との接点をつくれます。御店側での追加の広告運用は必要ありません。</p>
       </div>
       <div class="vcell">
         <span class="vn">03</span>
-        <h3>実装</h3>
-        <p>設計を、紙で終わらせません。足りない部分は現場に合わせて作り込み、実際に使われて回り始めるまで、私たちが立ち会います。</p>
+        <h3>空き枠を売上に変えます</h3>
+        <p>急なキャンセルやアイドルタイムが出たときは、システムに空き枠を登録するだけで、条件の合う待機ユーザーに通知が届きます。そのままでは損失になる時間を、売上に変えるための仕組みです。</p>
       </div>
       <div class="vcell">
         <span class="vn">04</span>
-        <h3>継続改善</h3>
-        <p>現場は変わり続けます。数字を見ながら、オペレーションを磨き続ける。一度きりの納品で終わらせず、現場がよりよくなり続ける仕組みまで含めて、設計です。</p>
+        <h3>冷やかしと無断キャンセルを仕組みで減らします</h3>
+        <p>院側には強引なアップセルをしない約束を、利用者側には無断キャンセル時の利用停止という対等なルール（SLA）を設けます。ルールを守れる利用者だけが残る設計で、現場の消耗を防ぎます。</p>
       </div>
+    </div>
+    <div class="vnotes reveal">
+      <p><strong>料金の考え方</strong>：送客ごとの手数料はいただきません。定額のシステム利用料として提供する予定です。送客の数と当社の報酬が連動しないため、無理に数を送る動機を持ちません。医療機関の紹介対価に関する規制にも配慮した設計です。</p>
+      <p><strong>現在の段階</strong>：この仕組みは、最初のパートナーと一緒につくっている段階です（本格稼働前）。現場診断と改善の伴走は、いますぐご利用いただけます。</p>
     </div>
   </div>
 </section>
@@ -516,7 +527,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
       </details>
       <details class="faq-item">
         <summary>費用の考え方を教えてください。</summary>
-        <div class="fa-body"><strong>初回の現場診断は無料</strong>です。そこからの改善の伴走は有償で、範囲に応じた費用を着手前に書面で合意します（時間で膨らむ人月請求はしません）。成果報酬（売上連動）は取りません。なお<strong>送客の仕組みはまだ構想・共創の段階</strong>のため、現時点で送客手数料はいただいていません。金額は現場の規模と範囲によるため、初回でご説明します。</div>
+        <div class="fa-body"><strong>初回の現場診断は無料</strong>です。そこからの改善の伴走は有償で、範囲に応じた費用を着手前に書面で合意します（時間で膨らむ人月請求はしません）。成果報酬（売上連動）は取りません。なお<strong>送客の仕組みはまだ構想・共創の段階</strong>のため、現時点で送客手数料はいただいていません。将来は、送客数と連動しない定額のシステム利用料として提供する予定です。金額は現場の規模と範囲によるため、初回でご説明します。</div>
       </details>
       <details class="faq-item">
         <summary>「送客」はもう使えるのですか？</summary>

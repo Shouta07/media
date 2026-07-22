@@ -172,6 +172,9 @@ a{color:inherit;text-decoration:none;}
 .wedo h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:var(--ink);margin-bottom:76px;}
 .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);}
 .vcell{background:var(--bg);padding:52px 46px;}
+.vcell{position:relative;}
+.vtag{position:absolute;top:26px;right:26px;font-family:var(--jp);font-size:10.5px;font-weight:700;letter-spacing:0.06em;color:var(--green);background:var(--green-soft);border-radius:99px;padding:4px 12px;}
+.vtag.upside{color:var(--ink-mute);background:var(--line-soft);}
 .vcell .vn{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.26em;color:var(--ink-mute);}
 .vcell h3{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.7;color:var(--ink);margin:20px 0 16px;}
 .vcell p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:2.15;color:var(--ink-soft);}
@@ -339,8 +342,8 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <section class="hero" id="main">
   <div class="wrap">
     <span class="eyebrow reveal">HIS RECOVERIES FOR BUSINESS</span>
-    <h1 class="reveal d1">埋まらない空き枠が、<br>利益を圧迫している。</h1>
-    <p class="hero-lead reveal d2">広告費は上がり続け、埋まらなかった予約枠は、固定費として毎日消えていく。私たちは、男性ウェルネスブランド〈<strong>His Recoveries</strong>〉を自ら運営する当事者です。まず御店の現場を<strong>無料で診断</strong>し、改善に伴走します。そして――自社ブランドから、悩みと予算感が整理された男性を空き枠へつなぐ仕組みを、<strong>いま、最初のパートナーと一緒につくっています</strong>。対象は、クリニック・サロン・ジムなど、<strong>男性へのオフライン体験を提供する現場</strong>です。</p>
+    <h1 class="reveal d1">埋まらない空き枠を、<br>利益に変える。</h1>
+    <p class="hero-lead reveal d2">His Recoveries for Business は、患者を紹介するだけのサービスではありません。<strong>「空き枠」という失われている利益</strong>を減らし、投資対効果が合う形を数字で一緒に確かめる、<strong>利益のパートナー</strong>です。まず御院の現場を<strong>無料で診断</strong>し、稼働率とオペレーションの改善から始めます。さらに稼働後は、自社ブランド〈<strong>His Recoveries</strong>〉からの男性のお客様の送客が上乗せされます（現在、最初のパートナーと構築中）。対象は、クリニック・サロン・ジムなど、<strong>男性へのオフライン体験を提供する現場</strong>です。</p>
     <div class="hero-actions reveal d3">
       <a class="btn solid" href="#consult"><span>無料の現場診断を相談する</span></a>
       <a class="btn line" href="#why"><span>私たちの考えを読む</span></a>
@@ -396,33 +399,35 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <section class="wedo" id="wedo">
   <div class="wrap">
     <span class="sno reveal">03 — WHAT WE DO</span>
-    <h2 class="reveal">His Recoveries for Business が提供する4つの価値</h2>
-    <p class="wlead reveal d1">現場の業務を改善しながら、準備の整った男性のお客様をおつなぎします。送客ごとの手数料ではなく、<strong>定額でご利用いただく</strong>仕組みです。</p>
+    <h2 class="reveal">空き枠を、利益に変える</h2>
+    <p class="wlead reveal d1">クリニックにとって最大の損失は、売れ残った予約枠です。私たちは送客で終わらず、<strong>その枠を利益に変えるところまで、数字で一緒に確かめながら伴走します</strong>。</p>
     <div class="vgrid reveal d1">
       <div class="vcell">
+        <span class="vtag">今すぐ</span>
         <span class="vn">01</span>
-        <h3>カウンセリング工数を減らします</h3>
-        <p>ご本人が来院前に、LINE上で相場・治療の一般的な流れ・予算感を整理してから来院します。院ではゼロからの説明や長時間のクロージングが不要になり、スタッフの負担とノルマの疲弊を減らせます。<strong>治療内容の決定は、医師の診察が前提です。</strong></p>
+        <h3>空き枠を分析し、埋める打ち手を設計します</h3>
+        <p>キャンセル枠・平日昼の空き・当日予約・予約率を分析し、<strong>誰に・どのタイミングで・どの施策で案内するか</strong>を設計します。値下げに頼らず、キャンセル待ちやLINE通知なども含めて、稼働率を上げる打ち手を出します。送客が始まる前から取り組める、いちばん手前の利益改善です。</p>
       </div>
       <div class="vcell">
+        <span class="vtag upside">稼働後の上乗せ</span>
         <span class="vn">02</span>
-        <h3>ブランドを変えずに男性のお客様を増やせます</h3>
-        <p>男性向けの集客とブランディングは〈His Recoveries〉側が担います。既存の店構えや世界観はそのままに、これまで接点のなかった男性層との接点をつくれます。御店側での追加の広告運用は必要ありません。</p>
+        <h3>His Recoveries から、新患との接点をつくります</h3>
+        <p>悩みや目的に合う男性のお客様との接点を、自社ブランド〈His Recoveries〉から提供します。広告だけに依存しない集客チャネルです。来院前に相場や一般的な流れを整理された状態でつなぐため、院での説明の手間も減らせます。<strong>治療内容の決定は医師の診察が前提です。この仕組みは現在、最初のパートナーと構築中です。</strong></p>
       </div>
       <div class="vcell">
         <span class="vn">03</span>
-        <h3>空き枠を売上に変えます</h3>
-        <p>急なキャンセルやアイドルタイムが出たときは、システムに空き枠を登録するだけで、条件の合う待機ユーザーに通知が届きます。そのままでは損失になる時間を、売上に変えるための仕組みです。</p>
+        <h3>投資対効果を、数字で確かめます</h3>
+        <p>このサービスの価値は「<strong>あと何件成約すれば元が取れるか</strong>」で判断できます。導入前に、御院の粗利と料金から回収ラインを一緒に試算し、導入後は実績を継続的に可視化します。感覚ではなく、数字で判断していただけます。</p>
       </div>
       <div class="vcell">
         <span class="vn">04</span>
-        <h3>冷やかしと無断キャンセルを仕組みで減らします</h3>
-        <p>院側には強引なアップセルをしない約束を、利用者側には無断キャンセル時の利用停止という対等なルール（SLA）を設けます。ルールを守れる利用者だけが残る設計で、現場の消耗を防ぎます。</p>
+        <h3>ルールを守れる利用者だけが残る設計にします</h3>
+        <p>院側には強引なアップセルをしない約束を、利用者側には無断キャンセル時の利用停止という<strong>対等なルール（SLA）</strong>を設けます。一般的な予約サイトで起きがちな冷やかしや無断キャンセルを抑え、現場の消耗を防ぎます。</p>
       </div>
     </div>
     <div class="vnotes reveal">
-      <p><strong>料金の考え方</strong>：送客ごとの手数料はいただきません。定額のシステム利用料として提供する予定です。送客の数と当社の報酬が連動しないため、無理に数を送る動機を持ちません。医療機関の紹介対価に関する規制にも配慮した設計です。</p>
-      <p><strong>現在の段階</strong>：この仕組みは、最初のパートナーと一緒につくっている段階です（本格稼働前）。現場診断と改善の伴走は、いますぐご利用いただけます。</p>
+      <p><strong>料金の考え方</strong>：送客ごとの成果報酬はいただきません。送客数と当社の報酬が連動しない<strong>定額のシステム利用料</strong>として提供する予定です。無理に数を送る動機を持たない設計で、医療機関の紹介対価に関する規制にも配慮しています。具体的な費用と回収ラインは、御院の数字をもとに初回でご説明します。</p>
+      <p><strong>現在の段階</strong>：送客の仕組みは、最初のパートナーと一緒につくっている段階です（本格稼働前）。空き枠分析と現場改善の伴走は、いますぐご利用いただけます。</p>
     </div>
   </div>
 </section>

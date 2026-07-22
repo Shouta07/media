@@ -438,6 +438,19 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 .mt-more{margin-top:26px;}
 @media (max-width:760px){.mt-grid{grid-template-columns:1fr;}}
 
+/* FRAMEWORK (入口→体験→線) */
+.fw{padding:100px 0;border-top:1px solid var(--line-soft);}
+.fw .fw-lead{font-family:var(--jp);font-size:15px;font-weight:500;line-height:2.05;color:var(--ink-soft);margin-top:16px;max-width:640px;}
+.fw-list{margin-top:52px;display:flex;flex-direction:column;}
+.fw-row{display:grid;grid-template-columns:minmax(200px,0.9fr) 1.6fr;gap:28px;padding:36px 0;border-top:1px solid var(--line);align-items:start;}
+.fw-row:last-child{border-bottom:1px solid var(--line);}
+.fw-q{font-family:var(--jp);font-size:12.5px;font-weight:700;color:var(--ink-faint);letter-spacing:0.02em;}
+.fw-en{display:block;font-family:var(--sans);font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-0.02em;color:var(--green);margin-top:6px;}
+.fw-en .jp{font-family:var(--jp);font-weight:900;font-size:15px;letter-spacing:0.04em;color:var(--ink);margin-left:12px;}
+.fw-row p{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.05;color:var(--ink-soft);}
+.fw-row p strong{color:var(--ink);font-weight:700;}
+@media (max-width:760px){.fw{padding:70px 0;}.fw-row{grid-template-columns:1fr;gap:10px;padding:28px 0;}}
+
 /* THE PROBLEM */
 .problem{padding:100px 0;background:var(--bg-tint);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
 .problem .p-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px;}
@@ -603,13 +616,47 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   </div>
 </section>
 
+<!-- FRAMEWORK -->
+<section class="fw" id="framework">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">How We Think</span>
+      <h2><strong>男性の回復を、3つの層で設計します</strong></h2>
+      <p class="fw-lead">製品やアプリを増やすのではありません。男性がつまずいている3つの場所を、順番に設計します。</p>
+    </div>
+    <div class="fw-list">
+      <div class="fw-row reveal">
+        <div>
+          <span class="fw-q">「なぜ、相談できないのか？」に</span>
+          <span class="fw-en">Entrance<span class="jp">入口</span></span>
+        </div>
+        <p>男性の悩みは、口にする前に止まります。〈His Recoveries〉で、<strong>恥ずかしさを越えて相談できる中立の入口</strong>をつくります。</p>
+      </div>
+      <div class="fw-row reveal d1">
+        <div>
+          <span class="fw-q">「なぜ、体験は分かれているのか？」に</span>
+          <span class="fw-en">Experience<span class="jp">体験</span></span>
+        </div>
+        <p>薄毛・体型・活力——窓口はバラバラです。施術パートナーと、<strong>男性に合わせた一貫する体験</strong>を現場に設計します。医療は、医師の診察が前提です。</p>
+      </div>
+      <div class="fw-row reveal d2">
+        <div>
+          <span class="fw-q">「なぜ、回復は一度で消えるのか？」に</span>
+          <span class="fw-en">Line<span class="jp">線</span></span>
+        </div>
+        <p>施術や来店は、その場で終わりがちです。回復の記録を<strong>本人とともに</strong>残し、施設をまたいでつなぎます（下の「回復の線」・2027年構想）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- THE FUTURE WE DESIGN (回復の線) -->
 <section class="vision" id="vision">
   <div class="vision-glow" aria-hidden="true"></div>
   <div class="wrap">
     <span class="eyebrow reveal">The Future We Design</span>
     <h2 class="reveal d1">回復体験を<em>一本の線</em>につなぐ</h2>
-    <p class="vision-lead reveal d1">男性の悩みは、AGA・体型・活力……と、いまサービスごとにバラバラに分かれています。私たちは、これを<strong>一本の線</strong>につなぎ直します。〈His Recoveries〉は事業者向けと本人向けの両輪で、その中心に、施設をまたいで回復の記録を<strong>本人とともに</strong>蓄積する仕組み「<strong>回復の線</strong>」を置きます。</p>
+    <p class="vision-lead reveal d1">男性の悩みは、AGA・体型・活力……と、いまサービスごとにバラバラに分かれています。私たちは、これを<strong>一本の線</strong>につなぎ直します。医療・ウェルネス・現場のあいだにある境界をつなぐ、<strong>男性の回復の「軸」になる</strong>——それが私たちの役割です。〈His Recoveries〉は事業者向けと本人向けの両輪で、その中心に、回復の記録を<strong>本人とともに</strong>蓄積する仕組み「<strong>回復の線</strong>」を置きます。</p>
     <div class="loop3 reveal d2">
       <div class="l3-node">
         <span class="ln-tag">事業者へ / Business</span>

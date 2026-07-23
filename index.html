@@ -520,6 +520,19 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 .axis-link{display:inline-flex;align-items:center;gap:7px;margin-top:20px;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--green);}
 .axis-link span{transition:transform 0.3s;}
 .axis-link:hover span{transform:translateY(3px);}
+/* single product feature */
+.prod{max-width:840px;}
+.prod-lead{font-family:var(--jp);font-size:clamp(16px,2vw,19px);font-weight:500;line-height:2.05;color:var(--ink);margin-bottom:48px;}
+.prod-lead strong{font-weight:700;}
+.prod-points{border-top:1px solid var(--line-soft);margin-bottom:48px;}
+.pp{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:28px 0;border-bottom:1px solid var(--line-soft);}
+.ppn{font-family:var(--sans);font-weight:800;font-size:13px;color:var(--ink-mute);letter-spacing:0.08em;padding-top:5px;}
+.pp h4{font-family:var(--jp);font-weight:900;font-size:17px;line-height:1.6;color:var(--ink);margin-bottom:8px;}
+.pp p{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:1.95;color:var(--ink-soft);}
+.prod-biz{margin-top:40px;font-family:var(--jp);font-size:13.5px;font-weight:500;color:var(--ink-faint);}
+.prod-biz a{color:var(--green);font-weight:700;border-bottom:1px solid rgba(11,110,79,0.35);}
+.prob-lead{margin-top:36px;max-width:760px;font-family:var(--jp);font-size:clamp(15px,1.9vw,18px);font-weight:500;line-height:2.1;color:var(--ink-soft);}
+.prob-lead strong{color:var(--ink);font-weight:700;}
 .fields{border-top:1px solid var(--line);padding-top:34px;display:flex;flex-direction:column;gap:16px;}
 .field-row2{display:flex;align-items:flex-start;gap:18px;}
 .flabel{font-family:var(--sans);font-weight:800;font-size:13px;letter-spacing:0.04em;flex-shrink:0;padding-top:7px;width:50px;}
@@ -588,11 +601,11 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
     <span class="nav-name"><span class="n-en">Vitality Design</span><span class="n-jp">バイタリティデザイン合同会社</span></span>
   </a>
   <div class="nav-links">
+    <a href="#product">His Recoveries</a>
+    <a href="#vision">ビジョン</a>
+    <a href="#founder">創業者</a>
+    <a href="/blog/">記事</a>
     <a href="/business.html">for Business</a>
-    <a href="#solve">Services</a>
-    <a href="#founder">Founder</a>
-    <a href="/blog/">Blog</a>
-    <a href="#company">Company</a>
   </div>
   <a href="#contact" class="nav-cta" data-open-contact>お問い合わせ</a>
 </nav>
@@ -711,50 +724,29 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 <section class="problem">
   <div class="wrap">
     <div class="shead reveal">
-      <span class="eyebrow">いま起きていること</span>
-      <h2><strong>私たちが取り組む2つの課題</strong></h2>
+      <span class="eyebrow">なぜ、His Recoveries か</span>
+      <h2><strong>男性の悩みは、<br>口にする前に止まる。</strong></h2>
     </div>
-    <div class="p-grid">
-      <div class="p-card reveal">
-        <span class="p-side">利用者側の課題</span>
-        <h3>相談しにくく、信頼できる情報も見つけにくい。</h3>
-        <p>男性の見た目や活力の悩みは相談しにくく、本音で話せる相手を持たない人が少なくありません。検索で出てくる情報も、中立的とは限りません。安心して相談できる入口が不足しています。</p>
-      </div>
-      <div class="p-card reveal d1">
-        <span class="p-side">事業者側の課題</span>
-        <h3>市場は拡大しても、広告費がかさみ、空き枠が埋まらない。</h3>
-        <p>自由診療は市場が拡大する一方で、倒産は過去最多、利益率は低い水準にあります。集客を広告に依存するとコストが利益を圧迫し、埋まらない予約枠は固定費として損失になります。</p>
-      </div>
-    </div>
-    <p class="p-bridge reveal">利用者と事業者、その両方に課題があります。<br><em>私たちは、両側から取り組みます。</em></p>
+    <p class="prob-lead reveal d1">見た目、体型、活力——男性の悩みは「大したことではない」とされ、誰にも相談されないまま、自信と行動の力を静かに削っていきます。本音で話せる相手も、信頼できる中立の情報も、まだ足りていません。<strong>安心して相談できる場所が、ない。</strong>だから私たちは、〈His Recoveries〉をつくりました。</p>
   </div>
 </section>
 
-<!-- SERVICES (事業紹介) -->
-<section class="wedo" id="solve">
+<!-- PRODUCT: His Recoveries -->
+<section class="wedo" id="product">
   <div class="wrap">
     <div class="shead reveal">
-      <span class="eyebrow">事業内容</span>
-      <h2><strong>His Recoveries の2つのサービス</strong></h2>
-      <p class="j" style="font-family:var(--jp);font-size:15px;font-weight:500;line-height:2;color:var(--ink-soft);margin-top:14px;">ひとつのブランドで、事業者向けと本人向けの両方を提供しています。</p>
+      <span class="eyebrow">私たちのプロダクト</span>
+      <h2><strong>His Recoveries</strong><span class="j">男性が、自分の悩みに安心して向き合える場所。</span></h2>
     </div>
-    <div class="axes">
-      <div class="axis b reveal">
-        <span class="axn">For Business ／ 事業者へ</span>
-        <h3>His Recoveries for Business</h3>
-        <p class="sv-tag">男性に選ばれる現場づくりに伴走する</p>
-        <p><strong>御店が、男性に安心して選ばれる現場になるよう伴走します。</strong>自社ブランド〈His Recoveries〉で出会った男性を、押し売りせず、必要なときにパートナーへおつなぎする仕組みを、<strong>いま最初のパートナーと一緒につくっています</strong>（本格稼働前）。ちゃんと選ばれれば、結果として空いた枠も埋まります。<strong>クリニック・サロン・ジムなど、男性へのオフライン体験を提供する現場</strong>が対象です。</p>
-
-        <a class="axis-link" href="/business.html">His Recoveries for Business を詳しく見る<span>→</span></a>
+    <div class="prod reveal d1">
+      <p class="prod-lead">誰にも言えなかった悩みを、一人で抱えなくていい。〈His Recoveries〉は、中立的な情報と伴走で、男性の<strong>「最初の一歩」</strong>をそっと支える男性ウェルネスブランドです。私たち自身が運営しています。</p>
+      <div class="prod-points">
+        <div class="pp"><span class="ppn">01</span><div><h4>相談できる、中立の入口</h4><p>恥ずかしさを越えて、自分のペースで悩みや予算を整理できます。売り込みは、しません。</p></div></div>
+        <div class="pp"><span class="ppn">02</span><div><h4>見た目から自信まで、伴走</h4><p>一人ひとりに合わせて、回復の道のりを一緒に歩きます。医療が必要なときは、医師の診察を前提に専門家へつなぎます。</p></div></div>
+        <div class="pp"><span class="ppn">03</span><div><h4>記録は、本人のもの</h4><p>回復の記録は、事業者でも当社でもなく、利用者ご本人が持ちます。</p></div></div>
       </div>
-      <div class="axis reveal d1">
-        <span class="axn">For Person ／ 本人へ</span>
-        <h3>His Recoveries</h3>
-        <p class="sv-tag">男性ウェルネスの伴走サービス</p>
-        <p>創業者自身の経験から立ち上げた、男性の見た目や自信の悩みに向き合う自社運営ブランドです。中立的な情報提供と伴走で相談の一歩目を支えます。<strong>データは本人が保有します</strong>。ここで見えてきた男性のつまずきや本音は、for Business の現場づくりにも生かしています。</p>
-
-        <a class="axis-link" href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveriesを見る<span>↗</span></a>
-      </div>
+      <a class="btn solid" href="https://www.hisrecoveries.com/" target="_blank" rel="noopener"><span>His Recoveries を見る</span><span class="arr">↗</span></a>
+      <p class="prod-biz">クリニック・サロンなど事業者の方は <a href="/business.html">His Recoveries for Business →</a></p>
     </div>
   </div>
 </section>
@@ -852,14 +844,16 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
       <nav class="footer-nav">
         <div class="footer-col">
           <span class="h">Company</span>
-          <a href="#solve">Services</a>
-          <a href="#founder">Founder</a>
+          <a href="#product">His Recoveries</a>
+          <a href="#founder">創業者</a>
           <a href="#company">会社概要</a>
           <a href="#contact">お問い合わせ</a>
         </div>
         <div class="footer-col">
           <span class="h">Connect</span>
           <a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a>
+          <a href="/business.html">for Business</a>
+          <a href="/blog/">Field Notes</a>
           <a href="/privacy.html">プライバシーポリシー</a>
           <a href="/terms.html">利用規約</a>
           <a href="mailto:contact@vitality-design.jp">Email</a>

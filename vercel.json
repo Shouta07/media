@@ -24,6 +24,16 @@
       "source": "/cx-platform",
       "destination": "/business.html",
       "permanent": true
+    },
+    {
+      "source": "/platform.html",
+      "destination": "/business.html",
+      "permanent": true
+    },
+    {
+      "source": "/platform",
+      "destination": "/business.html",
+      "permanent": true
     }
   ]
 }

@@ -267,6 +267,13 @@ a{color:inherit;text-decoration:none;}
 .vcell p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:2.15;color:var(--ink-soft);}
 .wedo .wlead{font-family:var(--jp);font-size:15px;font-weight:500;line-height:2.2;color:var(--ink-soft);margin:32px 0 40px;max-width:680px;}
 .wedo .wlead strong{color:var(--ink);font-weight:700;}
+/* scope */
+.scope{margin-top:56px;border-top:1px solid var(--line);padding-top:32px;max-width:760px;}
+.sc-h{display:block;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--ink-mute);margin-bottom:16px;}
+.scope p{font-family:var(--jp);font-size:15px;font-weight:500;line-height:2.1;color:var(--ink-soft);}
+.scope p + p{margin-top:16px;}
+.scope strong{color:var(--ink);font-weight:700;}
+.scope .sc-n{margin-top:20px;font-size:13.5px;color:var(--ink-faint);}
 /* reasons */
 .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);margin-top:56px;}
 .rs{background:var(--bg);padding:40px 34px;}
@@ -286,6 +293,7 @@ a{color:inherit;text-decoration:none;}
 /* means */
 .means{display:flex;flex-wrap:wrap;gap:10px;margin:44px 0 40px;max-width:760px;}
 .means span{font-family:var(--jp);font-size:13.5px;font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:11px 18px;}
+.fd-claim{font-family:var(--serif);font-weight:600;font-size:clamp(18px,2.1vw,23px);line-height:1.9;color:var(--ink);margin-bottom:22px;}
 /* profile */
 .profile{margin:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;}
 .pf-h{display:block;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--ink-mute);margin-bottom:14px;}
@@ -549,6 +557,12 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
         <p>男性向けの体験は、女性向けほど設計が進んでいません。だからこそ、丁寧に設計した事業が選ばれる余地があります。</p>
       </div>
     </div>
+    <div class="scope reveal">
+      <span class="sc-h">対象とする現場</span>
+      <p>私たちが向き合うのは、<strong>自費医療（自由診療）の現場</strong>です。美容医療、AGA、ED、審美歯科、人間ドック・健診、アンチエイジングなど、保険適用外の診療を提供する医療機関を対象としています。</p>
+      <p>男性は、この領域に入るための<strong>切り口</strong>です。対象を男性向けの現場に限定しているわけではありません。女性のお客様が中心の医療機関でも、自費診療を提供していれば対象になります。</p>
+      <p class="sc-n">保険診療は対象外です。</p>
+    </div>
   </div>
 </section>
 
@@ -624,16 +638,19 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
       <div class="who-body reveal d1">
         <p>私たちは、男性市場を外から分析する会社ではありません。男性向けウェルネスブランド〈<a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries</a>〉を、自ら立ち上げて運営しています。</p>
         <p><strong>男性が何に悩み、どこで迷い、なぜ行動できないのか。</strong>それを資料ではなく、日々の事業運営のなかで確かめています。その一次情報を、御社の男性市場展開に活用します。</p>
+        <p class="fd-claim">カウンセリングは、終わった瞬間に消える工程です。</p>
+        <p>記録が残らない工程は、あとから検証できません。私は、<strong>あとから見えなくなる工程を記録し、品質を担保する仕事</strong>をしてきました。そこを設計するのが、いちばんの職能です。</p>
         <div class="profile">
           <span class="pf-h">担当者について</span>
           <ul>
-            <li><strong>男性ウェルネスブランドを自ら運営</strong>｜〈His Recoveries〉を立ち上げ、男性ユーザーと日々向き合っています。</li>
-            <li><strong>男性ユーザーとしての当事者経験</strong>｜自身が美容・ウェルネス領域のサービスを利用する側として、どこで心理障壁を感じるかを知っています。</li>
+            <li><strong>見えなくなる工程を、記録で担保する</strong>｜終わってしまえば確認できない工程を、あとから説明できる形で残す設計をしてきました。</li>
+            <li><strong>多拠点・多職種を、同じ品質で回す</strong>｜担当者が入れ替わっても品質が落ちない仕組みをつくってきました。</li>
+            <li><strong>原価と粗利の構造から、利益を読む</strong>｜施策を売上ではなく利益で判断します。</li>
             <li><strong>高単価サービスの現場経験</strong>｜期待値の高い接遇の現場に4年立ち、どこで信頼が生まれ、どこで崩れるかを体で覚えました。</li>
-            <li><strong>AIを活用した高速な仮説検証</strong>｜市場分析・競合分析・改善案作成の速度を上げ、小さく試して早く確かめます。</li>
+            <li><strong>男性ウェルネスブランドを自ら運営</strong>｜〈His Recoveries〉を立ち上げ、男性ユーザーと日々向き合っています。</li>
           </ul>
         </div>
-        <p>ご相談には、私本人が1〜3営業日以内にご返信します。</p>
+        <p>自分が患者側で、説明されないまま決めさせられそうになった。それが、この仕事の出発点です。ご相談には、私本人が1〜3営業日以内にご返信します。</p>
       </div>
     </div>
   </div>
@@ -730,9 +747,9 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
         <h2>男性市場への可能性を、<br>相談する。</h2>
         <p class="cl">いまの事業に、男性市場への展開余地があるかどうか。あるとすれば、どこから手をつけるべきか。まずはそこを一緒に確かめます。無理な売り込みはしません。優先度が低いと判断した場合は、正直にそうお伝えします。</p>
         <ul class="trusts">
-          <li><strong>対象、</strong>自由診療クリニック（美容皮膚科・AGA・メンズ美容）</li>
-          <li><strong>対象、</strong>メンズ美容サービス</li>
-          <li><strong>対象、</strong>パーソナルジム・ウェルネス企業</li>
+          <li><strong>対象、</strong>自費医療（自由診療）を提供する医療機関</li>
+          <li><strong>領域、</strong>美容医療・AGA・ED・審美歯科・人間ドック・アンチエイジング等</li>
+          <li><strong>対象外、</strong>保険診療</li>
           <li><strong>返信、</strong>私本人が1〜3営業日以内にご返信します</li>
         </ul>
       </div>

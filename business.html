@@ -328,7 +328,8 @@ a{color:inherit;text-decoration:none;}
 .tp-note{margin-top:44px;font-family:var(--jp);font-size:15px;font-weight:500;line-height:2.3;color:var(--ink-soft);max-width:680px;}
 .tp-note strong{color:var(--ink);font-weight:700;}
 @media (max-width:760px){
-  .tp-row{grid-template-columns:1fr;gap:12px;padding:22px 0;}
+  .tp-row{grid-template-columns:1fr 1fr;gap:10px 14px;padding:22px 0;}
+  .tp-row .tp-s{grid-column:1 / -1;}
   .tp-row.h{display:none;}
   .tp-l{display:block;}
 }
@@ -375,7 +376,9 @@ a{color:inherit;text-decoration:none;}
 .cont-note strong{color:var(--ink-soft);font-weight:700;}
 @media (max-width:900px){
   .cont-grid{grid-template-columns:1fr;gap:40px;}
-  .duo{grid-template-columns:1fr;}
+  .duo{grid-template-columns:1fr 1fr;}
+  .duo-c{padding:22px 16px;}
+  .duo-c li{font-size:12.5px;padding-left:15px;}
   .phone{width:100%;max-width:320px;}
 }
 
@@ -408,7 +411,11 @@ a{color:inherit;text-decoration:none;}
 .op-tl .opr{grid-template-columns:44px 1fr;gap:8px;align-items:start;}
 .op-tl .tm{font-size:9.5px;font-weight:700;color:var(--green);padding-top:1px;}
 .op-tl .ch{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.06em;color:var(--ink-mute);border:1px solid var(--line);border-radius:99px;padding:1px 7px;margin-right:6px;}
-@media (max-width:900px){.outs{grid-template-columns:1fr;margin-top:44px;}.out{padding:30px 24px;}}
+@media (max-width:900px){
+  .outs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-top:20px;border:none;background:transparent;gap:12px;padding-bottom:6px;scrollbar-width:none;}
+  .outs::-webkit-scrollbar{display:none;}
+  .out{flex:0 0 84%;scroll-snap-align:center;padding:28px 22px;border:1px solid var(--line-soft);}
+}
 
 /* plans */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);margin-top:64px;}
@@ -429,7 +436,12 @@ a{color:inherit;text-decoration:none;}
 .pl-price{margin-top:auto;padding-top:22px;font-family:var(--jp);font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.62);line-height:1.8;}
 .plans-note{margin-top:30px;font-family:var(--jp);font-size:12.5px;font-weight:500;line-height:2;color:rgba(255,255,255,0.5);max-width:760px;}
 .steps-h{margin-top:60px;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.08em;color:rgba(255,255,255,0.5);}
-@media (max-width:900px){.plans{grid-template-columns:1fr;margin-top:44px;}.pl{padding:32px 24px;}.pl-for{min-height:0;}}
+@media (max-width:900px){
+  .plans{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-top:20px;border:none;background:transparent;gap:12px;padding-bottom:6px;scrollbar-width:none;}
+  .plans::-webkit-scrollbar{display:none;}
+  .pl{flex:0 0 84%;scroll-snap-align:center;padding:30px 22px;border:1px solid rgba(255,255,255,0.16);}
+  .pl-for{min-height:0;}
+}
 
 /* mobile sticky CTA */
 .mbar{display:none;}
@@ -455,6 +467,13 @@ a{color:inherit;text-decoration:none;}
 .fs p{font-family:var(--jp);font-size:12.5px;font-weight:500;line-height:1.85;color:rgba(255,255,255,0.66);}
 @media (max-width:900px){.fstrip{grid-template-columns:1fr 1fr;}}
 @media (max-width:480px){.fstrip{grid-template-columns:1fr;}}
+
+.swipe{display:none;}
+@media (max-width:900px){
+  .swipe{display:flex;align-items:center;gap:7px;margin-top:16px;font-family:var(--jp);font-size:11.5px;font-weight:700;letter-spacing:0.04em;color:var(--ink-mute);}
+  .swipe::after{content:"→";font-family:var(--sans);font-size:13px;}
+  .swipe.on-dark{color:rgba(255,255,255,0.5);}
+}
 
 /* how */
 .how{padding:130px 0;background:var(--bg-deep);color:rgba(255,255,255,0.92);}
@@ -740,6 +759,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
     <h2 class="reveal">受け取るものを、<br>先にお見せします。</h2>
     <p class="wlead reveal d1">お渡しするのは、3つ。いずれも<strong>御社の資産として残る形</strong>です。診断のみで終える判断も含めて、そのままお使いいただけます。</p>
 
+    <p class="swipe">横にスワイプして比べられます</p>
     <div class="outs reveal d1">
       <article class="out">
         <span class="out-n">OUTPUT 01</span>
@@ -807,8 +827,8 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <section class="why" id="build">
   <div class="wrap">
     <span class="sno reveal">05 ／ 実装支援</span>
-    <h2 class="reveal">診断のあと、<br>必要な改善だけを。</h2>
-    <p class="pre reveal d1">「何でもできます」とは申し上げません。診断で特定した課題に応じて、必要な手段だけを組み合わせます。</p>
+    <h2 class="reveal">「何でもできます」とは、<br>申し上げません。</h2>
+    <p class="pre reveal d1">診断のあと、特定した課題に応じて<strong>必要な手段だけ</strong>を組み合わせます。足りているものは、そのまま使います。</p>
     <div class="means reveal d1">
       <span>LP改善</span><span>コピー設計</span><span>LINE導線改善</span><span>事前問診・情報整理</span><span>カウンセリング設計</span><span>メニュー・価格設計</span><span>継続プラットフォーム</span><span>AI活用</span><span>システム選定</span><span>デザイン改善</span>
     </div>
@@ -887,6 +907,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
     <h2 class="reveal">どこまで一緒にやるかを、<br>3つから選べます。</h2>
     <p class="hsub reveal d1">いきなり全部は必要ありません。現在地を知るだけで十分な場合もあります。<strong>診断だけで終える判断も、こちらからお伝えします。</strong></p>
 
+    <p class="swipe on-dark">横にスワイプして比べられます</p>
     <div class="plans reveal d1">
       <article class="pl">
         <span class="pl-tag">LIGHT</span>

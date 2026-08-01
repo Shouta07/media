@@ -114,14 +114,6 @@
         },
         {
           "@type": "Question",
-          "name": "AIで代替できませんか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "AIは分析速度を高める手段です。重要なのは、何を問い、何を改善するかの判断です。私たちもAIを使いますが、価値になるのはその判断のほうです。"
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Webだけ、店舗だけの改善もお願いできますか？",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -142,14 +134,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "成果保証はできません。市場環境、サービス品質、価格、地域など多くの要素が影響するためです。ただし、着手前に確認する指標を定め、仮説→実行→検証を繰り返し、投資判断できる状態をつくります。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "いま優先順位が低い場合は？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "その場合は無理に進めません。接点の改善が現在の事業課題に対して優先度が低い場合、そう判断することも私たちの役割です。いまは別の打ち手が先だとお伝えすることもあります。"
           }
         },
         {
@@ -444,7 +428,7 @@ a{color:inherit;text-decoration:none;}
 .pl-inc li.off::before{content:"·";color:rgba(255,255,255,0.22);}
 .pl-price{margin-top:auto;padding-top:22px;font-family:var(--jp);font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.62);line-height:1.8;}
 .plans-note{margin-top:30px;font-family:var(--jp);font-size:12.5px;font-weight:500;line-height:2;color:rgba(255,255,255,0.5);max-width:760px;}
-.steps-h{margin-top:80px;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.08em;color:rgba(255,255,255,0.5);}
+.steps-h{margin-top:60px;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.08em;color:rgba(255,255,255,0.5);}
 @media (max-width:900px){.plans{grid-template-columns:1fr;margin-top:44px;}.pl{padding:32px 24px;}.pl-for{min-height:0;}}
 
 /* mobile sticky CTA */
@@ -463,16 +447,19 @@ a{color:inherit;text-decoration:none;}
   .nav-cta{display:none;}
 }
 
+/* compact flow */
+.fstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);margin-top:24px;}
+.fs{background:var(--bg-deep);padding:24px 20px 22px;}
+.fs .fsn{display:block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.2em;color:rgba(255,255,255,0.45);margin-bottom:10px;}
+.fs h4{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.5;color:#fff;margin-bottom:8px;}
+.fs p{font-family:var(--jp);font-size:12.5px;font-weight:500;line-height:1.85;color:rgba(255,255,255,0.66);}
+@media (max-width:900px){.fstrip{grid-template-columns:1fr 1fr;}}
+@media (max-width:480px){.fstrip{grid-template-columns:1fr;}}
+
 /* how */
 .how{padding:130px 0;background:var(--bg-deep);color:rgba(255,255,255,0.92);}
 .how h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:#fff;}
 .how .hsub{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.2;color:rgba(255,255,255,0.66);margin-top:24px;max-width:600px;}
-.steps{margin-top:80px;display:flex;flex-direction:column;}
-.hstep{display:grid;grid-template-columns:120px 1fr;gap:36px;padding:44px 0;border-top:1px solid rgba(255,255,255,0.14);}
-.hstep .hn{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.24em;color:rgba(255,255,255,0.5);padding-top:6px;}
-.hstep h3{font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.7;color:#fff;}
-.hstep p{font-family:var(--jp);font-size:14px;font-weight:500;line-height:2.15;color:rgba(255,255,255,0.72);margin-top:12px;max-width:560px;}
-.hstep p strong{color:#fff;font-weight:700;}
 /* pricing */
 .prices{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);margin-top:64px;}
 .pcard{background:var(--bg-deep);padding:46px 40px;}
@@ -598,7 +585,6 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   .dg-col:last-child .dg-h{display:none;}
   .pcard{padding:36px 26px;}
   .pprice{font-size:30px;}
-  .hstep{grid-template-columns:1fr;gap:10px;padding:34px 0;}
   .who-grid,.consult-grid{grid-template-columns:1fr;gap:44px;}
   .form-card{padding:32px 24px;}
   .facts-row{grid-template-columns:1fr 1fr;}
@@ -670,15 +656,14 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
       <h2 class="reveal">分析する人ではなく、<br>現場を持っている人が。</h2>
       <div class="who-body reveal d1">
         <p class="fd-claim">カウンセリングは、終わった瞬間に消える工程です。</p>
-        <p>記録が残らない工程は、あとから検証できません。私は<strong>あとから見えなくなる工程を記録し、品質を担保する仕事</strong>をしてきました。そこを設計するのが、いちばんの職能です。</p>
-        <p>いまはウェルネスブランド〈<a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries</a>〉を自ら運営し、<strong>顧客がどこで迷い、どの接点で離れるか</strong>を日々確かめています。その一次情報を、御社の接点設計に使います。</p>
+        <p>私は<strong>あとから見えなくなる工程を記録し、品質を担保する仕事</strong>をしてきました。いまはウェルネスブランド〈<a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries</a>〉を自ら運営し、<strong>顧客がどこで迷い、どの接点で離れるか</strong>を日々確かめています。</p>
         <div class="profile">
           <span class="pf-h">担当者について</span>
           <ul>
-            <li><strong>見えなくなる工程を、記録で担保する</strong>｜終わってしまえば確認できない工程を、あとから説明できる形で残す設計をしてきました。</li>
-            <li><strong>多拠点・多職種を、同じ品質で回す</strong>｜担当者が入れ替わっても品質が落ちない仕組みをつくってきました。</li>
-            <li><strong>原価と粗利の構造から、利益を読む</strong>｜施策を売上ではなく利益で判断します。</li>
-            <li><strong>高単価の接遇現場に4年、いまは自社ブランドを運営</strong>｜どこで信頼が生まれ、どこで崩れるかを体で覚えました。相談しにくい領域の接点設計が専門です。</li>
+            <li><strong>見えなくなる工程を、記録で担保する</strong></li>
+            <li><strong>多拠点・多職種を、同じ品質で回す</strong>｜担当者が替わっても落ちない仕組みを。</li>
+            <li><strong>原価と粗利の構造から、利益を読む</strong>｜施策を売上ではなく利益で判断。</li>
+            <li><strong>高単価の接遇現場に4年、いまは自社ブランドを運営</strong>｜相談しにくい領域の接点設計が専門。</li>
           </ul>
         </div>
         <p>自分が患者側で、説明されないまま決めさせられそうになった。それが、この仕事の出発点です。<strong>ご相談には、私本人が1〜3営業日以内にご返信します。</strong></p>
@@ -692,19 +677,17 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   <div class="wrap">
     <span class="sno reveal">02 ／ 課題</span>
     <h2 class="reveal">満足度は、<br>いちばん弱い接点で<br>決まります。</h2>
-    <p class="pre reveal d1">顧客の印象は、いちばん良かった接点ではなく、<strong>いちばん残念だった接点</strong>で残ります。そして売上は、その接点の掛け算です。</p>
+    <p class="pre reveal d1">顧客の印象は、いちばん良かった接点ではなく<strong>いちばん残念だった接点</strong>で残ります。売上も、その接点の掛け算です。</p>
     <div class="funnel reveal d1">
       <span class="fn-i">問い合わせ率</span><span class="fn-x">×</span>
       <span class="fn-i">予約率</span><span class="fn-x">×</span>
       <span class="fn-i">成約率</span><span class="fn-x">×</span>
       <span class="fn-i">継続率</span>
     </div>
-    <p class="pre reveal d1" style="margin-top:34px;">どこか1箇所が弱いと、他をどれだけ磨いても、全体はそこに引きずられます。逆に言えば、<strong>弱い1箇所を直すだけで、全体が動く</strong>ということです。</p>
+    <p class="pre reveal d1" style="margin-top:30px;">1箇所が弱いと、他を磨いても全体が引きずられます。逆に、<strong>弱い1箇所を直すだけで全体が動く</strong>ということです。</p>
     <ul class="plist reveal d1">
       <li>問い合わせは来るが、来店・成約につながらない。</li>
-      <li>初回で終わり、次につながらない。</li>
       <li>Webで見た印象と、来店したときの印象が違う。</li>
-      <li>接客の質が、担当者ごとに違う。</li>
       <li>どこで離れているのか、数字で言えない。</li>
     </ul>
     <p class="post reveal">まず、<strong>いまある接点のどこが弱いか</strong>を確かめる。Field CX は、そこから始めます。</p>
@@ -716,7 +699,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   <div class="wrap">
     <span class="sno reveal">03 ／ 設計対象</span>
     <h2 class="reveal">顧客は、オンラインと<br>オフラインを<br>分けていません。</h2>
-    <p class="pre reveal d1">検索して、比べて、予約して、来院して、相談して、決めて、帰ってから思い出す。顧客にとっては、ひと続きの体験です。ところが設計する側は、Webは制作会社、店内は現場、フォローはLINE担当と<strong>分かれていることがほとんど</strong>です。体験が途切れるのは、たいていそのつなぎ目です。</p>
+    <p class="pre reveal d1">顧客にとっては、ひと続きの体験です。ところが設計する側は、Webは制作会社、店内は現場、フォローはLINE担当と<strong>分かれていることがほとんど</strong>。体験が途切れるのは、たいていそのつなぎ目です。</p>
     <div class="tp reveal d1">
       <div class="tp-row h"><span>段階</span><span>オンラインの接点</span><span>オフラインの接点</span></div>
       <div class="tp-row">
@@ -740,12 +723,11 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
         <div class="tp-c"><span class="tp-l">オフライン</span>会計、次回予約、再来時の応対</div>
       </div>
     </div>
-    <p class="tp-note reveal">私たちが言う「現場」は、店舗の中だけを指しません。<strong>顧客が体験するすべての場所</strong>です。オンラインとオフラインを分けずに、接点ごとに設計します。</p>
-    <p class="tp-note reveal" style="margin-top:20px;">目的は、接点を増やすことではありません。<strong>いまある接点のうち、どこが弱いかを特定して、そこだけを直す。</strong>足すより先に、つなぎ目を直します。</p>
+    <p class="tp-note reveal">私たちが言う「現場」は、店舗の中だけを指しません。<strong>顧客が体験するすべての場所</strong>です。接点を増やすのではなく、<strong>弱い接点とつなぎ目だけを直します。</strong></p>
+    
 <div class="scope reveal">
       <span class="sc-h">対象とする現場</span>
-      <p>私たちが向き合うのは、<strong>自費医療（自由診療）の現場</strong>です。美容医療、AGA、ED、審美歯科、人間ドック・健診、アンチエイジングなど、保険適用外の診療を提供する医療機関を対象としています。</p>
-      <p>対象とする顧客層は限定しません。<strong>男性の顧客体験は私たちが最も深く扱ってきた領域</strong>ですが、それは強みであって条件ではありません。女性のお客様が中心の医療機関でも対象になります。</p>
+      <p><strong>自費医療（自由診療）の現場</strong>——美容医療・AGA・ED・審美歯科・人間ドック・アンチエイジング等。顧客層は限定しません。</p>
       <p class="sc-n">保険診療は対象外です。</p>
     </div>
   </div>
@@ -756,7 +738,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   <div class="wrap">
     <span class="sno reveal">04 ／ 提供するもの</span>
     <h2 class="reveal">受け取るものを、<br>先にお見せします。</h2>
-    <p class="wlead reveal d1">Field CX がお渡しするのは、3つです。いずれも<strong>御社の資産として残る形</strong>でお渡しします。診断のみで終える判断も含めて、そのままお使いいただけます。</p>
+    <p class="wlead reveal d1">お渡しするのは、3つ。いずれも<strong>御社の資産として残る形</strong>です。診断のみで終える判断も含めて、そのままお使いいただけます。</p>
 
     <div class="outs reveal d1">
       <article class="out">
@@ -817,10 +799,6 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
       </article>
     </div>
 
-    <div class="deliv reveal">
-      <span class="dv-l">診断でみる項目</span>
-      <p>全接点の通し体験（オンライン・オフライン）／接点ごとの離脱要因の特定／顧客視点での体験レビュー／顧客構成分析・競合分析／購入障壁の分析／接点間のつなぎ目の点検／改善ポイントの優先順位設計／90日実行ロードマップ</p>
-    </div>
     <p class="wnote reveal">画面はイメージです。実際の内容は、御社の接点構成に合わせて設計します。</p>
   </div>
 </section>
@@ -830,7 +808,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   <div class="wrap">
     <span class="sno reveal">05 ／ 実装支援</span>
     <h2 class="reveal">診断のあと、<br>必要な改善だけを。</h2>
-    <p class="pre reveal d1">「何でもできます」とは申し上げません。診断で特定した課題に応じて、必要な手段だけを選び、組み合わせます。</p>
+    <p class="pre reveal d1">「何でもできます」とは申し上げません。診断で特定した課題に応じて、必要な手段だけを組み合わせます。</p>
     <div class="means reveal d1">
       <span>LP改善</span><span>コピー設計</span><span>LINE導線改善</span><span>事前問診・情報整理</span><span>カウンセリング設計</span><span>メニュー・価格設計</span><span>継続プラットフォーム</span><span>AI活用</span><span>システム選定</span><span>デザイン改善</span>
     </div>
@@ -841,7 +819,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
       <div class="cont-grid">
         <div>
           <h3>一度きりで終わらせないための、<br>顧客専用のダッシュボード。</h3>
-          <p class="cp">いちばん設計が遅れているのは、施術や来店の<strong>あと</strong>です。変化はゆるやかで、日々の実感になりにくい。だから「続けてください」と伝えるのではなく、<strong>続けたくなる材料を渡します</strong>。日々の接点はLINEで、蓄積と可視化は専用のWebアプリで受け持ちます。</p>
+          <p class="cp">いちばん設計が遅れているのは、施術や来店の<strong>あと</strong>です。「続けてください」と伝えるのではなく、<strong>続けたくなる材料を渡します</strong>。日々の接点はLINE、蓄積と可視化は顧客専用アプリが受け持ちます。</p>
           <div class="duo">
             <div class="duo-c">
               <div class="dch"><span class="dct">LINE</span><span class="dcs">日々の接点</span></div>
@@ -897,7 +875,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
           <p class="ph-cap">記録写真はご本人の経過確認のためのものです。<br>広告への使用は行いません。</p>
         </div>
       </div>
-      <p class="cont-note"><strong>アプリ上の指標は、ご本人の記録を整理して見やすくしたものです。</strong>医学的な診断ではなく、診断の代わりになるものでもありません。治療の要否と内容の判断は、医師の診察によります。記録写真はご本人の経過確認のためのもので、広告・症例掲載への利用は機能に含みません。広告として使用される場合は、医療広告ガイドラインの限定解除要件を満たす対応が別途必要です。</p>
+      <p class="cont-note"><strong>アプリ上の指標は、ご本人の記録を整理したものです。</strong>医学的な診断ではありません。治療の要否と内容の判断は医師の診察によります。記録写真は本人の経過確認用で、広告利用は機能に含みません。</p>
     </div>
   </div>
 </section>
@@ -960,35 +938,11 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
     <p class="plans-note reveal">費用は、対象となる接点の数・拠点数・既存システムの状況に応じて個別に設計します。プランの途中変更や、ライトからの段階的な移行も可能です。いきなりご契約をお願いすることはありません。</p>
 
     <p class="steps-h reveal">どのプランも、この流れで始まります</p>
-    <div class="steps reveal d1">
-      <div class="hstep">
-        <span class="hn">STEP 01</span>
-        <div>
-          <h3>無料相談</h3>
-          <p>まずはお話をうかがいます。売り込みはしません。</p>
-        </div>
-      </div>
-      <div class="hstep">
-        <span class="hn">STEP 02</span>
-        <div>
-          <h3>現状確認</h3>
-          <p>いまの集客状況、顧客構成、これまで試されたことを確認します。</p>
-        </div>
-      </div>
-      <div class="hstep">
-        <span class="hn">STEP 03</span>
-        <div>
-          <h3>課題整理</h3>
-          <p>どこに成長余地がありそうか、いま取り組むべきかを一緒に整理します。</p>
-        </div>
-      </div>
-      <div class="hstep">
-        <span class="hn">STEP 04</span>
-        <div>
-          <h3>必要な支援範囲をご提案</h3>
-          <p>診断のみか、実装まで伴走するか。範囲と費用をご提案します。<strong>優先度が低いと判断した場合は、そうお伝えします。</strong></p>
-        </div>
-      </div>
+    <div class="fstrip reveal d1">
+      <div class="fs"><span class="fsn">STEP 01</span><h4>無料相談</h4><p>お話をうかがいます。売り込みはしません。</p></div>
+      <div class="fs"><span class="fsn">STEP 02</span><h4>現状確認</h4><p>集客状況、顧客構成、これまで試されたこと。</p></div>
+      <div class="fs"><span class="fsn">STEP 03</span><h4>課題整理</h4><p>どこに余地があるか、いま取り組むべきか。</p></div>
+      <div class="fs"><span class="fsn">STEP 04</span><h4>範囲のご提案</h4><p>プランと費用を提案。優先度が低ければ、そうお伝えします。</p></div>
     </div>
     <p class="hnote reveal">成果保証は行いません。市場環境・サービス品質・価格・地域など、多くの要素が影響するためです。着手前に確認する指標を定め、投資判断できる状態をつくります。</p>
   </div>
@@ -1009,10 +963,6 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
         <div class="fa-body">制作会社は依頼された範囲をつくり、コンサルティング会社は提案までを担うことが多くあります。私たちは<strong>顧客としてすべての接点を通しで体験し、弱い接点を特定したうえで、必要な改善だけを実装まで持っていきます</strong>。すでに依頼先がある場合も、併走する形で問題ありません。なお、広告の出稿・運用は行いません。</div>
       </details>
       <details class="faq-item">
-        <summary>AIで代替できませんか？</summary>
-        <div class="fa-body">AIは分析速度を高める手段です。重要なのは、<strong>何を問い、何を改善するかの判断</strong>です。私たちもAIを使いますが、価値になるのはその判断のほうです。</div>
-      </details>
-      <details class="faq-item">
         <summary>Webだけ、店舗だけの改善もお願いできますか？</summary>
         <div class="fa-body">可能ですが、<strong>片側だけでは効果が出にくい</strong>ことが多くあります。Webで整えても、来店後の体験が同じままなら結果は変わりません。まず全接点を診断したうえで、着手範囲を決めることをおすすめしています。</div>
       </details>
@@ -1023,10 +973,6 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
       <details class="faq-item">
         <summary>成果保証はできますか？</summary>
         <div class="fa-body"><strong>成果保証はできません。</strong>市場環境、サービス品質、価格、地域など多くの要素が影響するためです。ただし、着手前に確認する指標を定め、仮説→実行→検証を繰り返し、<strong>投資判断できる状態</strong>をつくります。</div>
-      </details>
-      <details class="faq-item">
-        <summary>いま優先順位が低い場合は？</summary>
-        <div class="fa-body">その場合は無理に進めません。接点の改善が現在の事業課題に対して優先度が低い場合、<strong>そう判断することも私たちの役割</strong>です。いまは別の打ち手が先だとお伝えすることもあります。</div>
       </details>
       <details class="faq-item">
         <summary>医療広告ガイドラインへの対応は？</summary>

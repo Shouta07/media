@@ -169,7 +169,7 @@ a{color:inherit;text-decoration:none;}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
 .skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:var(--green);color:#fff;padding:12px 20px;font-size:13px;font-weight:700;border-radius:0 0 10px 0;}
 .skip-link:focus{left:0;}
-.sno{display:block;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.1em;color:var(--ink-mute);margin-bottom:28px;}
+.sno{display:block;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.1em;color:var(--ink-mute);margin-bottom:22px;}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--jp);font-size:14px;font-weight:700;letter-spacing:0.04em;padding:16px 34px;border-radius:2px;transition:background 0.3s,color 0.3s,border-color 0.3s;}
 .btn.solid{color:#fff;background:var(--ink);}
 .btn.solid:hover{background:var(--green);}
@@ -187,10 +187,10 @@ a{color:inherit;text-decoration:none;}
 .nav-cta:hover{background:var(--green);}
 
 /* hero */
-.hero{padding:170px 0 130px;position:relative;}
+.hero{padding:104px 0 96px;position:relative;}
 .hero .eyebrow{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.34em;color:var(--ink-mute);display:block;margin-bottom:40px;}
 .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.6vw,64px);line-height:1.6;letter-spacing:0.02em;color:var(--ink);}
-.hero-lead{font-family:var(--jp);font-size:15.5px;font-weight:500;line-height:2.3;color:var(--ink-soft);margin-top:44px;max-width:600px;}
+.hero-lead{font-family:var(--jp);font-size:15.5px;font-weight:500;line-height:2.3;color:var(--ink-soft);margin-top:34px;max-width:600px;}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:52px;}
 .hero-micro{margin-top:16px;font-family:var(--jp);font-size:12px;font-weight:500;color:var(--ink-mute);}
 
@@ -233,7 +233,7 @@ a{color:inherit;text-decoration:none;}
 .stance .def strong{color:var(--ink);font-weight:700;}
 
 /* why exists */
-.why{padding:130px 0;background:#fff;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.why{padding:100px 0;background:#fff;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
 .why h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:var(--ink);}
 .why .pre{font-family:var(--jp);font-size:15px;font-weight:500;line-height:2.3;color:var(--ink-soft);margin-top:36px;max-width:640px;}
 .plist{margin:64px 0 0;list-style:none;max-width:720px;}
@@ -243,7 +243,7 @@ a{color:inherit;text-decoration:none;}
 .why .post strong{color:var(--ink);font-weight:700;}
 
 /* what we do */
-.wedo{padding:130px 0;}
+.wedo{padding:100px 0;}
 .wedo h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:var(--ink);margin-bottom:76px;}
 .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);}
 .vcell{background:var(--bg);padding:52px 46px;}
@@ -427,8 +427,34 @@ a{color:inherit;text-decoration:none;}
   .swipe.on-dark{color:rgba(255,255,255,0.5);}
 }
 
+/* hero key visual */
+.kv{margin-top:52px;}
+.kv-l{display:block;font-family:var(--jp);font-size:11.5px;font-weight:700;letter-spacing:0.1em;color:var(--ink-mute);margin-bottom:18px;}
+.kv-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;}
+.kv-c{margin:0;}
+.kv-mini{background:#fff;border:1px solid var(--line);padding:12px 12px 11px;height:116px;display:flex;flex-direction:column;justify-content:flex-start;}
+.kv-mini .kvh{height:5px;background:var(--line);border-radius:2px;width:52%;margin-bottom:10px;}
+.kv-r{display:grid;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--line-soft);}
+.kv-r:last-child{border-bottom:none;}
+.kv-r b{display:block;height:4px;border-radius:2px;background:rgba(20,26,22,0.14);}
+.kv-r i{display:block;width:7px;height:7px;border-radius:50%;justify-self:center;}
+.m1 .kv-r{grid-template-columns:1fr 14px 14px;}
+.m2 .kv-r{grid-template-columns:1.2fr 1fr 1fr;}
+.m3 .kv-r{grid-template-columns:9px 1fr;}
+.m3 .kv-r i{width:7px;height:7px;justify-self:start;}
+.kv-c figcaption{margin-top:12px;font-family:var(--jp);font-size:12.5px;font-weight:700;line-height:1.6;color:var(--ink);}
+.kv-c figcaption em{display:block;font-family:var(--sans);font-style:normal;font-size:10px;font-weight:600;letter-spacing:0.18em;color:var(--ink-mute);margin-bottom:4px;}
+.kv-n{margin-top:22px;font-family:var(--jp);font-size:12.5px;font-weight:500;color:var(--ink-faint);}
+@media (max-width:760px){
+  .kv{margin-top:34px;}
+  .kv-row{gap:9px;}
+  .kv-mini{height:94px;padding:10px 9px 9px;}
+  .kv-c figcaption{font-size:11px;line-height:1.5;}
+  .kv-c figcaption em{font-size:9px;letter-spacing:0.12em;}
+}
+
 /* how */
-.how{padding:130px 0;background:var(--bg-deep);color:rgba(255,255,255,0.92);}
+.how{padding:100px 0;background:var(--bg-deep);color:rgba(255,255,255,0.92);}
 .how h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:#fff;}
 .how .hsub{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.2;color:rgba(255,255,255,0.66);margin-top:24px;max-width:600px;}
 /* pricing */
@@ -470,7 +496,7 @@ a{color:inherit;text-decoration:none;}
 .bc-plan{display:inline-block;font-family:var(--jp);font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--green);background:rgba(11,110,79,0.08);border:1px solid rgba(11,110,79,0.28);border-radius:99px;padding:5px 15px;}
 
 /* who */
-.who{padding:130px 0;}
+.who{padding:100px 0;}
 .who-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:start;}
 .who h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.6vw,30px);line-height:1.85;color:var(--ink);}
 .who-body p{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.25;color:var(--ink-soft);margin-bottom:22px;}
@@ -479,7 +505,7 @@ a{color:inherit;text-decoration:none;}
 .who-body a{color:var(--green);border-bottom:1px solid rgba(11,110,79,0.4);}
 
 /* faq */
-.faq{padding:130px 0;background:#fff;border-top:1px solid var(--line-soft);}
+.faq{padding:100px 0;background:#fff;border-top:1px solid var(--line-soft);}
 .faq h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,36px);line-height:1.8;color:var(--ink);margin-bottom:64px;}
 .faq-list{max-width:760px;}
 .faq-item{border-top:1px solid var(--line-soft);}
@@ -493,7 +519,7 @@ a{color:inherit;text-decoration:none;}
 .fa-body strong{color:var(--ink);font-weight:700;}
 
 /* contact */
-.consult{padding:130px 0 140px;}
+.consult{padding:100px 0 110px;}
 .consult-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
 .consult h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,40px);line-height:1.8;color:var(--ink);}
 .consult .cl{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.25;color:var(--ink-soft);margin-top:28px;}
@@ -534,15 +560,15 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   .wrap,.narrow{padding:0 22px;}
   .nav{padding:14px 22px;}
   .nav-links{display:none;}
-  .hero{padding:86px 0 64px;}
+  .hero{padding:40px 0 52px;}
   .hero .eyebrow{margin-bottom:26px;letter-spacing:0.22em;font-size:10.5px;}
   .hero h1{line-height:1.5;}
-  .hero-lead{margin-top:28px;font-size:15px;line-height:2.15;}
+  .hero-lead{margin-top:22px;font-size:15px;line-height:2.15;}
   .hero-actions{margin-top:34px;gap:10px;flex-direction:column;align-items:stretch;}
   .hero-actions .btn{justify-content:center;padding:17px 24px;}
   .sno{margin-bottom:20px;}
   h2,.why h2,.wedo h2,.how h2,.who h2,.faq h2,.consult h2{line-height:1.62;}
-  .stance,.why,.wedo,.how,.diff,.who,.faq,.consult{padding:64px 0;}
+  .stance,.why,.wedo,.how,.diff,.who,.faq,.consult{padding:56px 0;}
   .plist li{padding:18px 0;font-size:15px;}
   .field input,.field select,.field textarea{font-size:16px;padding:14px 14px;}
   .faq-item summary{padding:22px 40px 22px 0;font-size:15px;}
@@ -611,9 +637,41 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   <div class="wrap">
     <h1 class="reveal">顧客満足度は、<br>現場体験で向上する。</h1>
     <p class="hero-lead reveal d1">検索して、比べて、予約して、来店して、相談して、決めて、また来る。顧客にとっては、ひと続きの体験です。Field CX は、<strong>オンラインとオフラインを分けずに</strong>、そのすべての接点を設計します。</p>
-    <div class="hero-actions reveal d2">
-      <a class="btn solid" href="#consult"><span>接点を診断する</span></a>
-      <a class="btn line" href="#service"><span>受け取るものを見る</span></a>
+    <div class="kv reveal d2">
+      <span class="kv-l">診断でお渡しするもの</span>
+      <div class="kv-row">
+        <figure class="kv-c">
+          <div class="kv-mini m1" aria-hidden="true">
+            <span class="kvh"></span>
+            <div class="kv-r"><b></b><i style="background:#0B6E4F;"></i><i style="background:#C79A3A;"></i></div>
+            <div class="kv-r"><b></b><i style="background:#C79A3A;"></i><i style="background:#B4655A;"></i></div>
+            <div class="kv-r"><b></b><i style="background:#0B6E4F;"></i><i style="background:#C79A3A;"></i></div>
+            <div class="kv-r"><b></b><i style="background:#B4655A;"></i><i style="background:#B4655A;"></i></div>
+          </div>
+          <figcaption><em>OUTPUT 01</em>現状診断</figcaption>
+        </figure>
+        <figure class="kv-c">
+          <div class="kv-mini m2" aria-hidden="true">
+            <span class="kvh"></span>
+            <div class="kv-r"><b></b><b></b><b></b></div>
+            <div class="kv-r"><b></b><b></b><b></b></div>
+            <div class="kv-r"><b></b><b></b><b></b></div>
+            <div class="kv-r"><b></b><b></b><b></b></div>
+          </div>
+          <figcaption><em>OUTPUT 02</em>オペレーション整理表</figcaption>
+        </figure>
+        <figure class="kv-c">
+          <div class="kv-mini m3" aria-hidden="true">
+            <span class="kvh"></span>
+            <div class="kv-r"><i style="background:#0B6E4F;"></i><b></b></div>
+            <div class="kv-r"><i style="background:#0B6E4F;"></i><b></b></div>
+            <div class="kv-r"><i style="background:#0B6E4F;"></i><b></b></div>
+            <div class="kv-r"><i style="background:rgba(20,26,22,0.18);"></i><b></b></div>
+          </div>
+          <figcaption><em>OUTPUT 03</em>アフターフォロー設計</figcaption>
+        </figure>
+      </div>
+      <p class="kv-n">画面はイメージです。実際の内容は、御社の接点構成に合わせて設計します。</p>
     </div>
   </div>
 </section>

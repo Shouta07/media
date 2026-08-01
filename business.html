@@ -297,7 +297,7 @@ a{color:inherit;text-decoration:none;}
 /* means */
 .means{display:flex;flex-wrap:wrap;gap:10px;margin:44px 0 40px;max-width:760px;}
 .means span{font-family:var(--jp);font-size:13.5px;font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:11px 18px;}
-.fd-claim{font-family:var(--serif);font-weight:600;font-size:clamp(18px,2.1vw,23px);line-height:1.9;color:var(--ink);margin-bottom:22px;}
+.fd-claim{font-family:var(--serif);font-weight:600;font-size:clamp(19px,2.1vw,23px);line-height:1.9;color:var(--ink);margin-bottom:26px;border-left:2px solid var(--green);padding-left:18px;}
 /* profile */
 .profile{margin:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;}
 .pf-h{display:block;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--ink-mute);margin-bottom:14px;}
@@ -447,6 +447,22 @@ a{color:inherit;text-decoration:none;}
 .steps-h{margin-top:80px;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.08em;color:rgba(255,255,255,0.5);}
 @media (max-width:900px){.plans{grid-template-columns:1fr;margin-top:44px;}.pl{padding:32px 24px;}.pl-for{min-height:0;}}
 
+/* mobile sticky CTA */
+.mbar{display:none;}
+@media (max-width:900px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:120;gap:10px;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(251,251,249,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-top:1px solid var(--line-soft);}
+  .mbar a{flex:1;display:inline-flex;align-items:center;justify-content:center;
+    font-family:var(--jp);font-size:14px;font-weight:700;letter-spacing:0.04em;
+    min-height:50px;border-radius:2px;}
+  .mbar .m-solid{color:#fff;background:var(--ink);}
+  .mbar .m-line{color:var(--ink);border:1px solid var(--line);background:transparent;flex:0 0 38%;}
+  body{padding-bottom:74px;}
+  .nav-cta{display:none;}
+}
+
 /* how */
 .how{padding:130px 0;background:var(--bg-deep);color:rgba(255,255,255,0.92);}
 .how h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:#fff;}
@@ -498,7 +514,7 @@ a{color:inherit;text-decoration:none;}
 /* who */
 .who{padding:130px 0;}
 .who-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:start;}
-.who h2{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.8vw,32px);line-height:1.9;color:var(--ink);}
+.who h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.6vw,30px);line-height:1.85;color:var(--ink);}
 .who-body p{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.25;color:var(--ink-soft);margin-bottom:22px;}
 .who-body p:last-child{margin-bottom:0;}
 .who-body strong{color:var(--ink);font-weight:700;}
@@ -557,11 +573,22 @@ footer .fl a:hover{color:var(--green);}
 footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-height:1.9;}
 
 @media (max-width:900px){
-  .wrap,.narrow{padding:0 24px;}
-  .nav{padding:16px 24px;}
+  .wrap,.narrow{padding:0 22px;}
+  .nav{padding:14px 22px;}
   .nav-links{display:none;}
-  .hero{padding:100px 0 90px;}
-  .stance,.why,.wedo,.how,.diff,.who,.faq,.consult{padding:88px 0;}
+  .hero{padding:72px 0 64px;}
+  .hero .eyebrow{margin-bottom:26px;letter-spacing:0.22em;font-size:10.5px;}
+  .hero h1{line-height:1.5;}
+  .hero-lead{margin-top:28px;font-size:15px;line-height:2.15;}
+  .hero-actions{margin-top:34px;gap:10px;flex-direction:column;align-items:stretch;}
+  .hero-actions .btn{justify-content:center;padding:17px 24px;}
+  .sno{margin-bottom:20px;}
+  h2,.why h2,.wedo h2,.how h2,.who h2,.faq h2,.consult h2{line-height:1.62;}
+  .stance,.why,.wedo,.how,.diff,.who,.faq,.consult{padding:64px 0;}
+  .plist li{padding:18px 0;font-size:15px;}
+  .field input,.field select,.field textarea{font-size:16px;padding:14px 14px;}
+  .faq-item summary{padding:22px 40px 22px 0;font-size:15px;}
+  .btn{padding:16px 26px;}
   .belief{padding:100px 0;}
   .vgrid{grid-template-columns:1fr;}
   .prices{grid-template-columns:1fr;margin-top:44px;}
@@ -612,10 +639,10 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <nav class="nav">
   <a href="/business.html" class="nav-brand"><span class="an">Field CX</span><span class="by">by Vitality Design</span></a>
   <div class="nav-links">
+    <a href="#about">つくっている人</a>
     <a href="#problem">課題</a>
     <a href="#touchpoints">設計対象</a>
     <a href="#service">提供するもの</a>
-    <a href="#about">担当者</a>
     <a href="#pricing">プラン</a>
     <a href="#faq">FAQ</a>
   </div>
@@ -635,10 +662,35 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   </div>
 </section>
 
+<!-- 01 つくっている人 -->
+<section class="who" id="about">
+  <div class="wrap">
+    <span class="sno reveal">01 ／ つくっている人</span>
+    <div class="who-grid">
+      <h2 class="reveal">分析する人ではなく、<br>現場を持っている人が。</h2>
+      <div class="who-body reveal d1">
+        <p class="fd-claim">カウンセリングは、終わった瞬間に消える工程です。</p>
+        <p>記録が残らない工程は、あとから検証できません。私は<strong>あとから見えなくなる工程を記録し、品質を担保する仕事</strong>をしてきました。そこを設計するのが、いちばんの職能です。</p>
+        <p>いまはウェルネスブランド〈<a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries</a>〉を自ら運営し、<strong>顧客がどこで迷い、どの接点で離れるか</strong>を日々確かめています。その一次情報を、御社の接点設計に使います。</p>
+        <div class="profile">
+          <span class="pf-h">担当者について</span>
+          <ul>
+            <li><strong>見えなくなる工程を、記録で担保する</strong>｜終わってしまえば確認できない工程を、あとから説明できる形で残す設計をしてきました。</li>
+            <li><strong>多拠点・多職種を、同じ品質で回す</strong>｜担当者が入れ替わっても品質が落ちない仕組みをつくってきました。</li>
+            <li><strong>原価と粗利の構造から、利益を読む</strong>｜施策を売上ではなく利益で判断します。</li>
+            <li><strong>高単価の接遇現場に4年、いまは自社ブランドを運営</strong>｜どこで信頼が生まれ、どこで崩れるかを体で覚えました。相談しにくい領域の接点設計が専門です。</li>
+          </ul>
+        </div>
+        <p>自分が患者側で、説明されないまま決めさせられそうになった。それが、この仕事の出発点です。<strong>ご相談には、私本人が1〜3営業日以内にご返信します。</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 01 課題 -->
 <section class="why" id="problem">
   <div class="wrap">
-    <span class="sno reveal">01 ／ 課題</span>
+    <span class="sno reveal">02 ／ 課題</span>
     <h2 class="reveal">満足度は、<br>いちばん弱い接点で<br>決まります。</h2>
     <p class="pre reveal d1">顧客の印象は、いちばん良かった接点ではなく、<strong>いちばん残念だった接点</strong>で残ります。そして売上は、その接点の掛け算です。</p>
     <div class="funnel reveal d1">
@@ -662,7 +714,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <!-- 03 設計対象 -->
 <section class="why" id="touchpoints">
   <div class="wrap">
-    <span class="sno reveal">02 ／ 設計対象</span>
+    <span class="sno reveal">03 ／ 設計対象</span>
     <h2 class="reveal">顧客は、オンラインと<br>オフラインを<br>分けていません。</h2>
     <p class="pre reveal d1">検索して、比べて、予約して、来院して、相談して、決めて、帰ってから思い出す。顧客にとっては、ひと続きの体験です。ところが設計する側は、Webは制作会社、店内は現場、フォローはLINE担当と<strong>分かれていることがほとんど</strong>です。体験が途切れるのは、たいていそのつなぎ目です。</p>
     <div class="tp reveal d1">
@@ -702,7 +754,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <!-- 03 提供するもの -->
 <section class="wedo" id="service">
   <div class="wrap">
-    <span class="sno reveal">03 ／ 提供するもの</span>
+    <span class="sno reveal">04 ／ 提供するもの</span>
     <h2 class="reveal">受け取るものを、<br>先にお見せします。</h2>
     <p class="wlead reveal d1">Field CX がお渡しするのは、3つです。いずれも<strong>御社の資産として残る形</strong>でお渡しします。診断のみで終える判断も含めて、そのままお使いいただけます。</p>
 
@@ -760,7 +812,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
         <ul class="out-l">
           <li>タイミング・チャネル・内容の設計</li>
           <li>そのまま使える文面のひな形</li>
-          <li>運用に必要な仕組み（04でご説明します）</li>
+          <li>運用に必要な仕組み（05でご説明します）</li>
         </ul>
       </article>
     </div>
@@ -776,7 +828,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <!-- 05 実装支援 -->
 <section class="why" id="build">
   <div class="wrap">
-    <span class="sno reveal">04 ／ 実装支援</span>
+    <span class="sno reveal">05 ／ 実装支援</span>
     <h2 class="reveal">診断のあと、<br>必要な改善だけを。</h2>
     <p class="pre reveal d1">「何でもできます」とは申し上げません。診断で特定した課題に応じて、必要な手段だけを選び、組み合わせます。</p>
     <div class="means reveal d1">
@@ -846,33 +898,6 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
         </div>
       </div>
       <p class="cont-note"><strong>アプリ上の指標は、ご本人の記録を整理して見やすくしたものです。</strong>医学的な診断ではなく、診断の代わりになるものでもありません。治療の要否と内容の判断は、医師の診察によります。記録写真はご本人の経過確認のためのもので、広告・症例掲載への利用は機能に含みません。広告として使用される場合は、医療広告ガイドラインの限定解除要件を満たす対応が別途必要です。</p>
-    </div>
-  </div>
-</section>
-
-<!-- 06 担当者 -->
-<section class="who" id="about">
-  <div class="wrap">
-    <span class="sno reveal">05 ／ 担当者</span>
-    <div class="who-grid">
-      <h2 class="reveal">分析する人ではなく、<br>自分で現場を<br>持っている人が。</h2>
-      <div class="who-body reveal d1">
-        <p>私たちは、顧客体験を外から分析する会社ではありません。ウェルネスブランド〈<a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries</a>〉を、自ら立ち上げて運営しています。</p>
-        <p><strong>顧客が何に迷い、どの接点で離れていくのか。</strong>それを資料ではなく、日々の事業運営のなかで確かめています。その一次情報を、御社の接点設計に活用します。</p>
-        <p class="fd-claim">カウンセリングは、終わった瞬間に消える工程です。</p>
-        <p>記録が残らない工程は、あとから検証できません。私は、<strong>あとから見えなくなる工程を記録し、品質を担保する仕事</strong>をしてきました。そこを設計するのが、いちばんの職能です。</p>
-        <div class="profile">
-          <span class="pf-h">担当者について</span>
-          <ul>
-            <li><strong>見えなくなる工程を、記録で担保する</strong>｜終わってしまえば確認できない工程を、あとから説明できる形で残す設計をしてきました。</li>
-            <li><strong>多拠点・多職種を、同じ品質で回す</strong>｜担当者が入れ替わっても品質が落ちない仕組みをつくってきました。</li>
-            <li><strong>原価と粗利の構造から、利益を読む</strong>｜施策を売上ではなく利益で判断します。</li>
-            <li><strong>高単価サービスの現場経験</strong>｜期待値の高い接遇の現場に4年立ち、どこで信頼が生まれ、どこで崩れるかを体で覚えました。</li>
-            <li><strong>自社ブランドを運営する当事者</strong>｜〈His Recoveries〉を立ち上げ、顧客と日々向き合っています。相談しにくい領域の接点設計が専門です。</li>
-          </ul>
-        </div>
-        <p>自分が患者側で、説明されないまま決めさせられそうになった。それが、この仕事の出発点です。ご相談には、私本人が1〜3営業日以内にご返信します。</p>
-      </div>
     </div>
   </div>
 </section>
@@ -1098,5 +1123,10 @@ afForm.addEventListener('submit',async(e)=>{
   finally{afBtn.disabled=false;afBtn.querySelector('span').textContent='この内容で送信する';}
 });
 </script>
+<div class="mbar">
+  <a class="m-line" href="#service">提供するもの</a>
+  <a class="m-solid" href="#consult">無料で相談する</a>
+</div>
+
 </body>
 </html>

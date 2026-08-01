@@ -244,7 +244,7 @@ a{color:inherit;text-decoration:none;}
 
 /* what we do */
 .wedo{padding:100px 0;}
-.wedo h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:var(--ink);margin-bottom:76px;}
+.wedo h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:var(--ink);margin-bottom:26px;}
 .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);}
 .vcell{background:var(--bg);padding:52px 46px;}
 .vcell{position:relative;}
@@ -345,54 +345,12 @@ a{color:inherit;text-decoration:none;}
 .out-l li::before{content:"—";position:absolute;left:0;color:var(--green);}
 .out-note{margin-top:auto;padding-top:18px;font-family:var(--jp);font-size:11.5px;font-weight:500;line-height:1.8;color:var(--ink-mute);}
 /* paper preview */
-.op{background:#fff;border:1px solid var(--line);margin-top:24px;padding:14px 14px 12px;font-family:var(--jp);}
-.op-t{display:block;font-size:9.5px;font-weight:700;letter-spacing:0.08em;color:var(--ink-mute);padding-bottom:8px;border-bottom:1px solid var(--line-soft);margin-bottom:8px;}
-.opr{display:grid;align-items:center;padding:7px 0;border-bottom:1px solid var(--line-soft);font-size:10.5px;font-weight:500;color:var(--ink-soft);line-height:1.5;}
-.opr:last-child{border-bottom:none;}
-.op-map .opr{grid-template-columns:1fr 26px 26px;}
-.op-map .opr.h{font-size:9px;font-weight:700;color:var(--ink-mute);letter-spacing:0.04em;}
-.op-map i{width:11px;height:11px;border-radius:50%;display:block;margin:0 auto;}
-.op-map i.a{background:#0B6E4F;}
-.op-map i.b{background:#C79A3A;}
-.op-map i.c{background:#B4655A;}
-.op-map .lg{display:flex;gap:12px;margin-top:10px;font-size:9px;color:var(--ink-mute);align-items:center;}
-.op-map .lg span{display:inline-flex;align-items:center;gap:4px;}
-.op-map .lg em{width:8px;height:8px;border-radius:50%;font-style:normal;display:inline-block;}
-.op-tbl .opr{grid-template-columns:1fr 1fr 1fr;gap:6px;}
-.op-tbl .opr.h{font-size:9px;font-weight:700;color:var(--ink-mute);letter-spacing:0.04em;}
-.op-tl .opr{grid-template-columns:44px 1fr;gap:8px;align-items:start;}
-.op-tl .tm{font-size:9.5px;font-weight:700;color:var(--green);padding-top:1px;}
-.op-tl .ch{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.06em;color:var(--ink-mute);border:1px solid var(--line);border-radius:99px;padding:1px 7px;margin-right:6px;}
-@media (max-width:900px){
-  .outs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-top:20px;border:none;background:transparent;gap:12px;padding-bottom:6px;scrollbar-width:none;}
-  .outs::-webkit-scrollbar{display:none;}
-  .out{flex:0 0 84%;scroll-snap-align:center;padding:28px 22px;border:1px solid var(--line-soft);}
-}
 
 /* plans */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);margin-top:64px;}
-.pl{background:var(--bg-deep);padding:40px 30px 36px;display:flex;flex-direction:column;}
-.pl.hl{background:rgba(255,255,255,0.045);}
-.pl-tag{display:inline-block;align-self:flex-start;font-family:var(--jp);font-size:10.5px;font-weight:700;letter-spacing:0.08em;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.28);border-radius:99px;padding:4px 12px;margin-bottom:20px;}
-.pl.hl .pl-tag{color:#0B0F0D;background:#fff;border-color:#fff;}
-.pl h3{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.5;color:#fff;}
-.pl-for{font-family:var(--jp);font-size:13px;font-weight:500;line-height:1.95;color:rgba(255,255,255,0.66);margin-top:12px;min-height:56px;}
-.pl-meta{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.14);font-family:var(--jp);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);}
-.pl-meta b{display:block;font-size:14px;font-weight:700;color:#fff;margin-top:3px;}
-.pl-inc{list-style:none;margin-top:20px;}
-.pl-inc li{font-family:var(--jp);font-size:13px;font-weight:500;line-height:1.8;color:rgba(255,255,255,0.78);padding:10px 0 10px 22px;border-top:1px solid rgba(255,255,255,0.1);position:relative;}
-.pl-inc li:first-child{border-top:none;}
-.pl-inc li::before{content:"—";position:absolute;left:0;color:rgba(255,255,255,0.4);}
-.pl-inc li.off{color:rgba(255,255,255,0.3);}
-.pl-inc li.off::before{content:"·";color:rgba(255,255,255,0.22);}
-.pl-price{margin-top:auto;padding-top:22px;font-family:var(--jp);font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.62);line-height:1.8;}
 .plans-note{margin-top:30px;font-family:var(--jp);font-size:12.5px;font-weight:500;line-height:2;color:rgba(255,255,255,0.5);max-width:760px;}
 .steps-h{margin-top:60px;font-family:var(--jp);font-size:12px;font-weight:700;letter-spacing:0.08em;color:rgba(255,255,255,0.5);}
 @media (max-width:900px){
-  .plans{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-top:20px;border:none;background:transparent;gap:12px;padding-bottom:6px;scrollbar-width:none;}
   .plans::-webkit-scrollbar{display:none;}
-  .pl{flex:0 0 84%;scroll-snap-align:center;padding:30px 22px;border:1px solid rgba(255,255,255,0.16);}
-  .pl-for{min-height:0;}
 }
 
 /* mobile sticky CTA */
@@ -420,9 +378,7 @@ a{color:inherit;text-decoration:none;}
 @media (max-width:900px){.fstrip{grid-template-columns:1fr 1fr;}}
 @media (max-width:480px){.fstrip{grid-template-columns:1fr;}}
 
-.swipe{display:none;}
 @media (max-width:900px){
-  .swipe{display:flex;align-items:center;gap:7px;margin-top:16px;font-family:var(--jp);font-size:11.5px;font-weight:700;letter-spacing:0.04em;color:var(--ink-mute);}
   .swipe::after{content:"→";font-family:var(--sans);font-size:13px;}
   .swipe.on-dark{color:rgba(255,255,255,0.5);}
 }
@@ -451,6 +407,54 @@ a{color:inherit;text-decoration:none;}
   .kv-mini{height:94px;padding:10px 9px 9px;}
   .kv-c figcaption{font-size:11px;line-height:1.5;}
   .kv-c figcaption em{font-size:9px;letter-spacing:0.12em;}
+}
+
+/* outputs */
+.outs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);margin-top:44px;}
+.out{background:var(--bg);padding:30px 24px 28px;}
+.out-n{display:block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.2em;color:var(--ink-mute);margin-bottom:12px;}
+.out h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.5;color:var(--ink);}
+.out-d{font-family:var(--jp);font-size:12.5px;font-weight:500;line-height:1.95;color:var(--ink-soft);margin-top:12px;}
+.out-d strong{color:var(--ink);font-weight:700;}
+.out-l{list-style:none;margin-top:16px;}
+.out-l li{font-family:var(--jp);font-size:12px;font-weight:500;line-height:1.75;color:var(--ink-soft);padding:8px 0 8px 15px;border-top:1px solid var(--line-soft);position:relative;}
+.out-l li::before{content:"—";position:absolute;left:0;color:var(--green);}
+.out-l a{color:var(--green);border-bottom:1px solid rgba(11,110,79,0.4);}
+
+/* plan table */
+.ptbl{margin-top:44px;border-top:1px solid rgba(255,255,255,0.2);}
+.pt-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;align-items:center;border-bottom:1px solid rgba(255,255,255,0.12);}
+.pt-k{font-family:var(--jp);font-size:13px;font-weight:500;line-height:1.6;color:rgba(255,255,255,0.7);padding:14px 14px 14px 0;}
+.pt-k a{color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);}
+.pt-v{text-align:center;padding:14px 8px;}
+.pt-v.hl{background:rgba(255,255,255,0.05);}
+.pt-head{border-bottom:1px solid rgba(255,255,255,0.2);}
+.pt-head .pt-v{padding:18px 8px 16px;}
+.pt-tag{display:block;font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:0.16em;color:rgba(255,255,255,0.5);margin-bottom:7px;}
+.pt-tag.on{color:var(--bg-deep);background:#fff;border-radius:99px;padding:2px 0;}
+.pt-head b{font-family:var(--serif);font-weight:600;font-size:16px;color:#fff;letter-spacing:0.02em;}
+.pt-v.t{font-family:var(--jp);font-size:12.5px;font-weight:600;line-height:1.65;color:rgba(255,255,255,0.86);}
+.pt-v.t span{display:block;font-size:11px;font-weight:500;color:rgba(255,255,255,0.5);margin-top:4px;line-height:1.6;}
+.pt-v i{display:inline-block;font-style:normal;}
+.pt-v i.y{width:9px;height:9px;border-radius:50%;background:var(--green-soft);}
+.pt-v i.n{width:11px;height:1px;background:rgba(255,255,255,0.28);}
+.pt-foot{border-bottom:none;}
+@media (max-width:760px){
+  .outs{grid-template-columns:1fr 1fr 1fr;margin-top:32px;}
+  .out{padding:20px 12px 18px;}
+  .out-n{font-size:8.5px;letter-spacing:0.12em;margin-bottom:9px;}
+  .out h3{font-size:13.5px;line-height:1.45;}
+  .out-d{font-size:10.5px;line-height:1.8;margin-top:9px;}
+  .out-l{margin-top:12px;}
+  .out-l li{font-size:10px;line-height:1.65;padding:7px 0 7px 11px;}
+  .ptbl{margin-top:32px;}
+  .pt-row{grid-template-columns:1.25fr 1fr 1fr 1fr;}
+  .pt-k{font-size:11px;padding:12px 8px 12px 0;line-height:1.5;}
+  .pt-v{padding:12px 3px;}
+  .pt-head b{font-size:12px;}
+  .pt-tag{font-size:8px;letter-spacing:0.08em;}
+  .pt-v.t{font-size:10.5px;line-height:1.55;}
+  .pt-v.t span{font-size:9.5px;}
 }
 
 /* how */
@@ -761,74 +765,44 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   </div>
 </section>
 
-<!-- 03 提供するもの -->
+<!-- 04 提供するもの -->
 <section class="wedo" id="service">
   <div class="wrap">
     <span class="sno reveal">04 ／ 提供するもの</span>
-    <h2 class="reveal">受け取るものを、<br>先にお見せします。</h2>
-    <p class="wlead reveal d1">お渡しするのは、3つ。いずれも<strong>御社の資産として残る形</strong>です。診断のみで終える判断も含めて、そのままお使いいただけます。</p>
-
-    <p class="swipe">横にスワイプして比べられます</p>
+    <h2 class="reveal">受け取るものは、3つ。</h2>
+    <p class="wlead reveal d1">いずれも<strong>御社の資産として残る形</strong>でお渡しします。診断のみで終える判断も含めて、そのままお使いいただけます。</p>
     <div class="outs reveal d1">
       <article class="out">
         <span class="out-n">OUTPUT 01</span>
         <h3>現状診断</h3>
-        <p class="out-d">オンラインとオフラインの全接点を顧客として通しで体験し、<strong>どこが弱いか</strong>を1枚に落とします。</p>
-        <div class="op op-map" aria-hidden="true">
-          <span class="op-t">接点スコアカード</span>
-          <div class="opr h"><span>接点</span><span>On</span><span>Off</span></div>
-          <div class="opr"><span>知る・比べる</span><i class="a"></i><i class="b"></i></div>
-          <div class="opr"><span>予約する</span><i class="b"></i><i class="c"></i></div>
-          <div class="opr"><span>来店・相談</span><i class="a"></i><i class="b"></i></div>
-          <div class="opr"><span>続ける</span><i class="c"></i><i class="c"></i></div>
-          <div class="lg"><span><em style="background:#0B6E4F;"></em>良好</span><span><em style="background:#C79A3A;"></em>要改善</span><span><em style="background:#B4655A;"></em>未設計</span></div>
-        </div>
+        <p class="out-d">全接点を顧客として通しで体験し、<strong>どこが弱いか</strong>を1枚に。</p>
         <ul class="out-l">
-          <li>接点ごとの状態と、その根拠</li>
-          <li>離脱が起きている箇所の特定</li>
-          <li>着手の優先順位と、90日ロードマップ</li>
+          <li>接点ごとの状態と根拠</li>
+          <li>離脱している箇所</li>
+          <li>優先順位と90日ロードマップ</li>
         </ul>
       </article>
-
       <article class="out">
         <span class="out-n">OUTPUT 02</span>
-        <h3>オペレーション整理表</h3>
-        <p class="out-d">誰が・いつ・何を・どこに残すか。<strong>担当者が替わっても同じ品質で回る形</strong>に整理します。</p>
-        <div class="op op-tbl" aria-hidden="true">
-          <span class="op-t">オペレーション整理表（抜粋）</span>
-          <div class="opr h"><span>場面</span><span>担当</span><span>残す場所</span></div>
-          <div class="opr"><span>問い合わせ受電</span><span>受付</span><span>予約台帳</span></div>
-          <div class="opr"><span>来店前案内</span><span>受付</span><span>LINE</span></div>
-          <div class="opr"><span>初回相談</span><span>担当者</span><span>相談記録</span></div>
-          <div class="opr"><span>会計・次回</span><span>受付</span><span>予約台帳</span></div>
-        </div>
+        <h3>オペレーション<br>整理表</h3>
+        <p class="out-d">誰が・いつ・何を・どこに残すか。<strong>担当が替わっても回る形</strong>に。</p>
         <ul class="out-l">
           <li>接点ごとの担当と手順</li>
           <li>説明項目のチェックリスト</li>
-          <li>記録の置き場所と、残し方</li>
+          <li>記録の置き場所と残し方</li>
         </ul>
       </article>
-
       <article class="out">
         <span class="out-n">OUTPUT 03</span>
-        <h3>アフターフォロー設計</h3>
-        <p class="out-d">来店後に何もしなければ、体験はそこで終わります。<strong>続く接点を、あらかじめ決めておきます。</strong></p>
-        <div class="op op-tl" aria-hidden="true">
-          <span class="op-t">フォロー設計（抜粋）</span>
-          <div class="opr"><span class="tm">当日</span><span><span class="ch">LINE</span>お礼と、次にやることの確認</span></div>
-          <div class="opr"><span class="tm">3日後</span><span><span class="ch">LINE</span>経過のうかがい・質問対応</span></div>
-          <div class="opr"><span class="tm">2週間</span><span><span class="ch">アプリ</span>記録の入力と、経過の可視化</span></div>
-          <div class="opr"><span class="tm">次回前</span><span><span class="ch">LINE</span>予約リマインドと持ち物</span></div>
-        </div>
+        <h3>アフターフォロー<br>設計</h3>
+        <p class="out-d">来店後に何もしなければ、体験はそこで終わる。<strong>続く接点を先に決める</strong>。</p>
         <ul class="out-l">
-          <li>タイミング・チャネル・内容の設計</li>
+          <li>タイミング・チャネル・内容</li>
           <li>そのまま使える文面のひな形</li>
-          <li>運用に必要な仕組み（<a href="/platform.html" style="color:var(--green);border-bottom:1px solid rgba(11,110,79,0.4);">継続プラットフォーム</a>）</li>
+          <li>運用の仕組み（<a href="/platform.html">継続プラットフォーム</a>）</li>
         </ul>
       </article>
     </div>
-
-    <p class="wnote reveal">画面はイメージです。実際の内容は、御社の接点構成に合わせて設計します。</p>
   </div>
 </section>
 
@@ -839,54 +813,67 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
     <h2 class="reveal">どこまで一緒にやるかを、<br>3つから選べます。</h2>
     <p class="hsub reveal d1">いきなり全部は必要ありません。現在地を知るだけで十分な場合もあります。<strong>診断だけで終える判断も、こちらからお伝えします。</strong></p>
 
-    <p class="swipe on-dark">横にスワイプして比べられます</p>
-    <div class="plans reveal d1">
-      <article class="pl">
-        <span class="pl-tag">LIGHT</span>
-        <h3>ライト</h3>
-        <p class="pl-for">まず、現在地を知りたい。<br>投資すべきかどうかから判断したい方へ。</p>
-        <div class="pl-meta">期間の目安<b>約3週間</b></div>
-        <ul class="pl-inc">
-          <li>現状診断（接点スコアカード）</li>
-          <li>着手の優先順位と90日ロードマップ</li>
-          <li>報告会（1回）</li>
-          <li class="off">オペレーション整理表</li>
-          <li class="off">アフターフォロー設計</li>
-          <li class="off">実装伴走</li>
-        </ul>
-        <p class="pl-price">費用は個別見積<br><span style="font-weight:500;">診断のみで完結します。</span></p>
-      </article>
-
-      <article class="pl hl">
-        <span class="pl-tag">STANDARD</span>
-        <h3>スタンダード</h3>
-        <p class="pl-for">直す順番と、誰が何をやるかまで決めたい方へ。<br>いちばん多く選ばれる範囲です。</p>
-        <div class="pl-meta">期間の目安<b>約2ヶ月</b></div>
-        <ul class="pl-inc">
-          <li>現状診断（接点スコアカード）</li>
-          <li>着手の優先順位と90日ロードマップ</li>
-          <li><strong>オペレーション整理表</strong></li>
-          <li><strong>説明項目のチェックリスト</strong></li>
-          <li>実装の設計（社内で進める形も可）</li>
-          <li class="off">アフターフォロー設計・運用</li>
-        </ul>
-        <p class="pl-price">費用は個別見積<br><span style="font-weight:500;">設計をお渡しして終える形も選べます。</span></p>
-      </article>
-
-      <article class="pl">
-        <span class="pl-tag">PREMIUM</span>
-        <h3>プレミアム</h3>
-        <p class="pl-for">続く形にして、運用まで載せたい方へ。<br>設計したあとも一緒に回します。</p>
-        <div class="pl-meta">期間の目安<b>3ヶ月〜（以降は継続）</b></div>
-        <ul class="pl-inc">
-          <li>スタンダードの内容すべて</li>
-          <li><strong>アフターフォロー設計</strong></li>
-          <li><strong><a href="/platform.html" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);">継続プラットフォーム</a>の導入</strong>（LINE・顧客専用アプリ）</li>
-          <li>実装まで伴走</li>
-          <li>定例での見直しと改善</li>
-        </ul>
-        <p class="pl-price">費用は個別見積<br><span style="font-weight:500;">月額での継続伴走になります。</span></p>
-      </article>
+    <div class="ptbl reveal d1">
+      <div class="pt-row pt-head">
+        <div class="pt-k"></div>
+        <div class="pt-v"><span class="pt-tag">LIGHT</span><b>ライト</b></div>
+        <div class="pt-v hl"><span class="pt-tag on">STANDARD</span><b>スタンダード</b></div>
+        <div class="pt-v"><span class="pt-tag">PREMIUM</span><b>プレミアム</b></div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k">向いている方</div>
+        <div class="pt-v t">現在地を知りたい</div>
+        <div class="pt-v t hl">直す順番まで決めたい</div>
+        <div class="pt-v t">運用まで載せたい</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k">期間の目安</div>
+        <div class="pt-v t">約3週間</div>
+        <div class="pt-v t hl">約2ヶ月</div>
+        <div class="pt-v t">3ヶ月〜（以降は継続）</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k">現状診断・90日ロードマップ</div>
+        <div class="pt-v"><i class="y" aria-label="あり"></i></div>
+        <div class="pt-v hl"><i class="y" aria-label="あり"></i></div>
+        <div class="pt-v"><i class="y" aria-label="あり"></i></div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k">オペレーション整理表</div>
+        <div class="pt-v"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v hl"><i class="y" aria-label="あり"></i></div>
+        <div class="pt-v"><i class="y" aria-label="あり"></i></div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k">実装の設計</div>
+        <div class="pt-v"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v hl"><i class="y" aria-label="あり"></i></div>
+        <div class="pt-v"><i class="y" aria-label="あり"></i></div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k">アフターフォロー設計</div>
+        <div class="pt-v"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v hl"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v"><i class="y" aria-label="あり"></i></div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k"><a href="/platform.html">継続プラットフォーム</a>の導入</div>
+        <div class="pt-v"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v hl"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v"><i class="y" aria-label="あり"></i></div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-k">実装まで伴走・定例改善</div>
+        <div class="pt-v"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v"><i class="n" aria-label="なし"></i></div>
+        <div class="pt-v"><i class="y" aria-label="あり"></i></div>
+      </div>
+      <div class="pt-row pt-foot">
+        <div class="pt-k">費用</div>
+        <div class="pt-v t">個別見積<span>診断のみで完結</span></div>
+        <div class="pt-v t hl">個別見積<span>設計を渡して終える形も可</span></div>
+        <div class="pt-v t">個別見積<span>月額での継続伴走</span></div>
+      </div>
     </div>
     <p class="plans-note reveal">費用は、対象となる接点の数・拠点数・既存システムの状況に応じて個別に設計します。プランの途中変更や、ライトからの段階的な移行も可能です。いきなりご契約をお願いすることはありません。</p>
 

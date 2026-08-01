@@ -183,6 +183,10 @@ a{color:inherit;text-decoration:none;}
 .nav-brand .by{font-family:var(--jp);font-size:10.5px;font-weight:500;color:var(--ink-mute);letter-spacing:0.08em;}
 .nav-links{display:flex;gap:30px;font-family:var(--jp);font-size:13px;font-weight:500;color:var(--ink-soft);}
 .nav-links a:hover{color:var(--green);}
+.nav-acts{display:flex;align-items:center;gap:12px;}
+.nav-dl{font-family:var(--jp);font-size:12.5px;font-weight:700;padding:10px 18px;border-radius:2px;color:var(--ink);border:1px solid var(--line);white-space:nowrap;transition:border-color .3s,color .3s;}
+.nav-dl:hover{border-color:var(--green);color:var(--green);}
+@media (max-width:560px){.nav-dl{display:none;}}
 .nav-cta{font-family:var(--jp);font-size:12.5px;font-weight:700;padding:11px 22px;border-radius:2px;color:#fff;background:var(--ink);white-space:nowrap;transition:background 0.3s;}
 .nav-cta:hover{background:var(--green);}
 
@@ -429,6 +433,27 @@ a{color:inherit;text-decoration:none;}
   .hero-fig img{border-radius:13px;box-shadow:0 26px 48px -30px rgba(20,26,22,0.36);}
 }
 
+/* download */
+.dl{padding:100px 0;background:var(--green-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.dl-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:start;}
+.dl h2{font-family:var(--serif);font-weight:600;font-size:clamp(23px,3vw,34px);line-height:1.75;color:var(--ink);}
+.dl .dl-lead{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.25;color:var(--ink-soft);margin-top:22px;}
+.dl .dl-lead strong{color:var(--ink);font-weight:700;}
+.dl-toc{margin-top:28px;list-style:none;}
+.dl-toc li{font-family:var(--jp);font-size:13.5px;font-weight:500;line-height:1.85;color:var(--ink-soft);padding:11px 0 11px 22px;border-top:1px solid rgba(20,26,22,0.1);position:relative;}
+.dl-toc li:last-child{border-bottom:1px solid rgba(20,26,22,0.1);}
+.dl-toc li::before{content:"—";position:absolute;left:0;color:var(--green);}
+.dl-toc li b{color:var(--ink);font-weight:700;}
+.dl-card{background:#fff;border:1px solid var(--line-soft);padding:38px 34px;}
+.dl-card .dc-h{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--ink);}
+.dl-card .dc-s{font-family:var(--jp);font-size:12.5px;font-weight:500;color:var(--ink-faint);margin:8px 0 26px;}
+.dl-done{display:none;text-align:center;padding:26px 6px;}
+.dl-card.sent form,.dl-card.sent .dc-h,.dl-card.sent .dc-s{display:none;}
+.dl-card.sent .dl-done{display:block;}
+.dl-done h4{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:10px;}
+.dl-done p{font-family:var(--jp);font-size:13px;font-weight:500;line-height:2;color:var(--ink-soft);margin-bottom:22px;}
+@media (max-width:900px){.dl{padding:56px 0;}.dl-grid{grid-template-columns:1fr;gap:36px;}.dl-card{padding:28px 22px;}}
+
 /* how */
 .how{padding:100px 0;background:var(--bg-deep);color:rgba(255,255,255,0.92);}
 .how h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.8;color:#fff;}
@@ -601,9 +626,10 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
     <a href="#service">提供するもの</a>
     <a href="#howitruns">続ける仕組み</a>
     <a href="#pricing">プラン</a>
+    <a href="#download">資料</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="#consult" class="nav-cta">相談する</a>
+  <div class="nav-acts"><a href="#download" class="nav-dl">資料ダウンロード</a><a href="#consult" class="nav-cta">相談する</a></div>
 </nav>
 
 <!-- HERO -->
@@ -813,10 +839,49 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   </div>
 </section>
 
+<!-- 05 資料ダウンロード -->
+<section class="dl" id="download">
+  <div class="wrap">
+    <div class="dl-grid">
+      <div class="reveal">
+        <span class="sno">05 ／ 資料ダウンロード</span>
+        <h2>先に、中身を<br>確かめてください。</h2>
+        <p class="dl-lead">このページの内容に、<strong>継続が切れる4つの瞬間</strong>と<strong>プランごとの範囲</strong>を加えた資料です。A4・7ページ。社内でご検討・共有いただく前提でつくっています。<strong>営業のご連絡はしません。</strong></p>
+        <ul class="dl-toc">
+          <li><b>01 課題</b>｜売上は、2回目から積み上がる</li>
+          <li><b>02 設計対象</b>｜継続が切れる4つの瞬間</li>
+          <li><b>03 提供するもの</b>｜受け取る3つの成果物</li>
+          <li><b>04 続ける仕組み</b>｜LINEと顧客専用画面</li>
+          <li><b>05 プラン</b>｜3プランの比較表</li>
+          <li><b>06 進め方</b>｜4ステップと、担当者について</li>
+        </ul>
+      </div>
+      <div class="dl-card reveal d1" id="dlCard">
+        <div class="dc-h">サービス紹介資料</div>
+        <div class="dc-s">入力は30秒ほど。すぐにダウンロードできます。</div>
+        <form id="dlForm" novalidate>
+          <input type="hidden" name="_subject" value="【Field CX】サービス紹介資料のダウンロード">
+          <div class="form-status" id="dlError" role="alert"></div>
+          <div class="field"><label for="dl-name">お名前<span class="req">*</span></label><input type="text" id="dl-name" name="name" autocomplete="name" required placeholder="山田 太郎"></div>
+          <div class="field"><label for="dl-company">院名・店名</label><input type="text" id="dl-company" name="company" autocomplete="organization" placeholder="○○クリニック"></div>
+          <div class="field"><label for="dl-email">メールアドレス<span class="req">*</span></label><input type="email" id="dl-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
+          <button class="btn solid form-submit" type="submit" id="dlSubmit"><span>資料をダウンロード</span></button>
+          <p class="form-fine">PDF（A4・7ページ／約1.5MB）。しつこい営業は行いません。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
+        </form>
+        <div class="dl-done">
+          <h4>ありがとうございます。</h4>
+          <p>下のボタンからダウンロードいただけます。<br>ご不明な点は、いつでもご相談ください。</p>
+          <a class="btn solid" href="/docs/field-cx-service.pdf" download><span>資料を開く（PDF）</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 08 FAQ -->
 <section class="faq" id="faq">
   <div class="wrap">
-    <span class="sno reveal">05 ／ よくあるご質問</span>
+    <span class="sno reveal">06 ／ よくあるご質問</span>
     <h2 class="reveal">よくあるご質問</h2>
     <div class="faq-list reveal">
       <details class="faq-item">
@@ -852,7 +917,7 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
   <div class="wrap">
     <div class="consult-grid">
       <div class="reveal">
-        <span class="sno">06 ／ お問い合わせ</span>
+        <span class="sno">07 ／ お問い合わせ</span>
         <h2>どこで切れているか、<br>一緒に見立てます。</h2>
         <p class="cl">いまの継続がどこで切れているか。どこから手をつけるべきか。まずはそこを一緒に確かめます。<strong>無理な売り込みはしません。</strong>優先度が低ければ、正直にそうお伝えします。</p>
         <ul class="trusts">
@@ -916,6 +981,22 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.querySelectorAll('a[href="#consult"]').forEach(a=>a.addEventListener('click',()=>{try{if(typeof gtag==='function'){gtag('event','cta_click',{event_category:'business_page',event_label:'to_form'});}}catch(e){}}));
 
 const AF_ENDPOINT='https://formspree.io/f/xbdvobba';
+
+const dlForm=document.getElementById('dlForm');
+const dlCard=document.getElementById('dlCard');
+const dlErr=document.getElementById('dlError');
+const dlBtn=document.getElementById('dlSubmit');
+dlForm.addEventListener('submit',async(e)=>{
+  e.preventDefault();dlErr.style.display='none';
+  const name=dlForm.name.value.trim(),email=dlForm.email.value.trim();
+  if(!name||!email){dlErr.textContent='お名前・メールアドレスは必須です。';dlErr.style.display='block';return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){dlErr.textContent='メールアドレスの形式をご確認ください。';dlErr.style.display='block';return;}
+  dlBtn.disabled=true;dlBtn.querySelector('span').textContent='送信中…';
+  try{await fetch(AF_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(dlForm)});}catch(err){}
+  try{if(typeof gtag==='function'){gtag('event','generate_lead',{event_category:'download',event_label:'service_deck'});}}catch(err){}
+  dlCard.classList.add('sent');
+  dlBtn.disabled=false;dlBtn.querySelector('span').textContent='資料をダウンロード';
+});
 const afForm=document.getElementById('bizForm');
 const afCard=document.getElementById('bizFormCard');
 const afErr=document.getElementById('afError');

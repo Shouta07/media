@@ -25,6 +25,7 @@
 
 - [会社概要](https://www.vitality-design.jp/company.html): バイタリティデザイン合同会社（Vitality Design LLC）の会社概要。事業内容は、自費医療・ウェルネス事業者向け顧客接点デザイン「Field CX」の提供と、男性ウェルネスブランド「His Recoveries」の運営。連絡先は contact@vitality-design.jp。
 
+- [資料ダウンロード](https://www.vitality-design.jp/download.html): Field CX のサービス紹介資料（PDF・A4・全7ページ・約1.5MB・無料）のダウンロードページ。フォーム（お名前・院名・メールアドレス）に入力するとその場で開ける。営業の連絡は行わない。資料の実体は https://www.vitality-design.jp/docs/field-cx-service.pdf 
 - [サービス紹介資料（PDF）](https://www.vitality-design.jp/docs/field-cx-service.pdf): Field CX のサービス紹介資料。A4・7ページ。課題（売上は2回目から積み上がる）、設計対象（継続が切れる4つの瞬間）、提供するもの（継続診断／アフターフォロー設計／ご提案の設計）、続ける仕組み（LINEと顧客専用画面）、プラン3段階の比較表、進め方4ステップと担当者について。business.html の資料ダウンロードフォームから取得できる。
 
 ## ブログ（Field Notes ― 現場の実装知）

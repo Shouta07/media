@@ -18,7 +18,7 @@
 
 ## 主要ページ
 
-- [トップページ](https://www.vitality-design.jp/): 会社の位置づけ（現場CXカンパニー）、用語の定義（活力／MaleTech）、構造（会社＝現場CXカンパニー／領域＝MaleTech／届け方＝toC His Recoveries・toB 現場CXソリューション）、ビジョン（回復の線）、プロダクト（His Recoveries）、創業者、Field Notes、問い合わせ、会社概要。
+- [トップページ](https://www.vitality-design.jp/): 会社の位置づけ（現場CXカンパニー ／ 現場の体験をデザインする）、ビジョン（回復の線・2027年構想）、事業内容（toC「His Recoveries」とtoB「現場CXソリューション」の2事業）、創業者、Field Notes、問い合わせ、会社概要。
 - [現場CXソリューション ／ MaleTech Partners](https://www.vitality-design.jp/business.html): 自費医療の現場に、男性の顧客体験を実装するtoBサービス。「現場の体験を、売上につながる形へ。」広告費を増やす前に、現場で起きている取りこぼし（問い合わせは来るが来院・成約につながらない／初回で終わり次につながらない）を見つける。なぜ男性からかは、いちばん設計が遅れているのが男性の体験だから。入口は「現場CX診断」、そのあと必要な改善だけを実装支援。進め方は無料相談から始まり、費用は支援内容・事業規模に応じて個別設計。担当者は自ら男性ウェルネスブランド〈His Recoveries〉を運営する当事者。
 
 ## ブログ（Field Notes ― 現場の実装知）

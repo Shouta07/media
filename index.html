@@ -434,18 +434,6 @@ section{position:relative;}
 .contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:42px;}
 
 /* COMPANY */
-.company{padding:100px 0;background:var(--bg-tint);border-top:1px solid var(--line-soft);}
-.company-grid{display:grid;grid-template-columns:0.65fr 1.35fr;gap:56px;align-items:start;}
-.company .eyebrow{margin-bottom:22px;}
-.company h2{font-family:var(--sans);font-weight:800;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-0.025em;color:var(--ink);}
-.company h2 .j{display:block;font-family:var(--jp);font-size:14px;font-weight:600;color:var(--ink-faint);margin-top:14px;}
-.company-table .row{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);}
-.company-table .row:first-child{border-top:1px solid var(--line);}
-.company-table .th{font-family:var(--jp);font-size:13px;font-weight:700;color:var(--ink-faint);}
-.company-table .td{font-family:var(--jp);font-size:14.5px;font-weight:500;color:var(--ink);line-height:1.95;}
-.company-table .td a{color:var(--green);font-weight:700;}
-.company-table .td ul{list-style:none;}
-.company-table .td li{position:relative;padding-left:16px;}
 .company-table .td li::before{content:"";position:absolute;left:0;top:0.9em;width:5px;height:5px;border-radius:50%;background:var(--green);}
 
 /* FOOTER */
@@ -586,7 +574,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 
 /* RESPONSIVE */
 @media (max-width:1024px){
-  .recov-grid,.company-grid{grid-template-columns:1fr;gap:40px;}
+  .recov-grid{grid-template-columns:1fr;gap:40px;}
   .axes{grid-template-columns:1fr;}
   .whyvd-grid{grid-template-columns:1fr;}
 }
@@ -594,7 +582,7 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .wrap,.narrow{padding-left:22px;padding-right:22px;}
   .nav{padding:14px 22px;}.nav-links{display:none;}
   .hero{padding:74px 0 64px;}
-  .wedo,.friction,.blogfeed,.howwork,.faq,.belief,.whyvd,.recov,.eco,.contact,.company{padding:70px 0;}
+  .wedo,.friction,.blogfeed,.howwork,.faq,.belief,.whyvd,.recov,.eco,.contact{padding:70px 0;}
   .vision{padding:76px 0;}
   .ov-facts{grid-template-columns:1fr;gap:14px;}
   .hww-grid{grid-template-columns:1fr;}
@@ -614,7 +602,6 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   .axis,.whyvd-card{padding:30px 26px;}
   .field-row2{flex-direction:column;gap:8px;}
   .flabel{padding-top:0;}
-  .company-table .row{grid-template-columns:1fr;gap:5px;padding:16px 0;}
   .footer-nav{gap:30px;}
   .modal-dialog{padding:36px 22px 30px;}
   .field-row{grid-template-columns:1fr;}
@@ -764,22 +751,6 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
   </div>
 </section>
 
-<!-- COMPANY -->
-<section class="company" id="company">
-  <div class="wrap">
-    <div class="company-grid">
-      <div class="reveal">
-        <h2>会社概要<span class="j">Company Profile</span></h2>
-      </div>
-      <div class="company-table reveal d1">
-        <div class="row"><div class="th">会社名</div><div class="td">バイタリティデザイン合同会社<br>Vitality Design LLC</div></div>
-        <div class="row"><div class="th">事業内容</div><div class="td"><ul><li>自費医療・ウェルネス事業者向け顧客接点デザイン「Field CX」の提供</li><li>男性ウェルネスブランド <a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a> の運営</li></ul></div></div>
-        <div class="row"><div class="th">お問い合わせ</div><div class="td"><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -796,13 +767,14 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
           <span class="h">Company</span>
           <a href="#business">事業内容</a>
           <a href="#vision">ビジョン・創業者</a>
-          <a href="#company">会社概要</a>
+          <a href="/company.html">会社概要</a>
           <a href="#contact">お問い合わせ</a>
         </div>
         <div class="footer-col">
           <span class="h">Connect</span>
           <a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a>
           <a href="/business.html">Field CX</a>
+          <a href="/platform.html">継続プラットフォーム</a>
           <a href="/blog/">Field Notes</a>
           <a href="/privacy.html">プライバシーポリシー</a>
           <a href="/terms.html">利用規約</a>

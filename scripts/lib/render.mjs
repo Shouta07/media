@@ -59,7 +59,7 @@ function jsonLd(a, url, iso) {
         name: 'Vitality Design LLC',
         url: `${SITE}/`,
         description:
-          '男性ウェルネスブランド「His Recoveries」を自ら運営する当事者。男性がどこで迷い、なぜ離脱するかの一次情報をもとに、His Recoveries for Businessとしてクリニック・サロンの現場設計と送客を行う。',
+          '男性ウェルネスブランド「His Recoveries」を自ら運営する当事者。男性がどこで迷い、なぜ離脱するかの一次情報をもとに、現場CXソリューション（MaleTech Partners）として、自費医療の現場に男性の顧客体験を実装する。',
         knowsAbout: a.keywords,
         sameAs: ['https://www.hisrecoveries.com/'],
       },
@@ -266,11 +266,11 @@ ${faq}
       <div class="m" aria-hidden="true"></div>
       <p class="cta-q">${attr(stripTags(a.ctaQuestion || '型は、これで分かります。ただ、御院のどこで途切れているかは、現場を見ないと分かりません。'))}</p>
       <h2>${attr(stripTags(a.ctaHeading || '御院の現場は、どこで途切れているか。'))}</h2>
-      <p>${attr(stripTags(a.ctaBody || 'この記事の課題が御院ではどうなっているか——無料の現場診断で、1枚にまとめてお渡しします。'))}</p>
-      <p class="cta-next">診断は無料。実装は90日（固定価格）。自社ブランド〈His Recoveries〉と連携した男性送客のご相談も。</p>
+      <p>${attr(stripTags(a.ctaBody || 'この記事の課題が御院ではどうなっているか——現場CX診断で、1枚にまとめてお渡しします。'))}</p>
+      <p class="cta-next">入口は現場CX診断。診断のあと、必要な改善だけを実装支援します。まずは無料相談から。成果報酬（売上連動）は取りません。</p>
       <div class="acts">
-        <a class="btn bright" href="/business.html#consult"><span>${attr(stripTags(a.ctaButton || '無料の現場診断を依頼する'))}</span><span>→</span></a>
-        <a class="btn outline" href="/business.html">His Recoveries for Business を見る</a>
+        <a class="btn bright" href="/business.html#consult"><span>${attr(stripTags(a.ctaButton || '現場の体験を診断する'))}</span><span>→</span></a>
+        <a class="btn outline" href="/business.html">現場CXソリューションを見る</a>
       </div>
     </div>
 

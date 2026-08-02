@@ -553,18 +553,27 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 .fields-note{font-family:var(--jp);font-size:14px;font-weight:500;line-height:1.9;color:var(--ink-faint);margin-top:4px;}
 
 /* BUSINESS */
+/* service blocks */
+.svc{max-width:760px;margin:0 auto;}
+.svc + .svc{margin-top:92px;padding-top:92px;border-top:1px solid var(--line-soft);}
+.svc-fig{margin:0 0 34px;}
+.svc-fig img{display:block;width:100%;height:auto;border:1px solid var(--line-soft);border-radius:14px;box-shadow:0 40px 72px -44px rgba(12,13,11,0.38);background:#FBF8F3;}
+.svc-side{display:block;font-family:var(--jp);font-size:11.5px;font-weight:700;letter-spacing:0.08em;color:var(--green);margin-bottom:12px;}
+.svc h3{font-family:var(--sans);font-weight:800;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);}
+.svc p{font-family:var(--jp);font-size:16px;font-weight:500;line-height:2.05;color:var(--ink-soft);margin-top:22px;}
+.svc p strong{color:var(--ink);font-weight:700;}
+.svc .btn{width:100%;justify-content:center;margin-top:34px;border-radius:99px;padding:20px 30px;font-size:15px;}
+@media (max-width:860px){
+  .svc + .svc{margin-top:56px;padding-top:56px;}
+  .svc-fig{margin-bottom:26px;}
+  .svc p{font-size:15px;margin-top:18px;}
+  .svc .btn{margin-top:26px;padding:18px 24px;}
+}
+
 .biz{padding:88px 0;}
-.biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;}
-.biz-card{border-top:2px solid var(--ink);padding-top:30px;display:flex;flex-direction:column;align-items:flex-start;}
-.bc-side{font-family:var(--jp);font-size:11.5px;font-weight:700;letter-spacing:0.08em;color:var(--green);}
-.biz-card h3{font-family:var(--sans);font-weight:800;font-size:clamp(26px,3.2vw,38px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);margin-top:14px;}
-.bc-sub{font-family:var(--mincho);font-weight:600;font-size:clamp(17px,2vw,21px);line-height:1.75;color:var(--ink);margin-top:16px;}
-.bc-body{font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.05;color:var(--ink-soft);margin-top:20px;}
-.bc-body strong{color:var(--ink);font-weight:700;}
-.biz-card .btn{margin-top:32px;}
-.biz-note{margin-top:56px;font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.05;color:var(--ink-soft);max-width:720px;}
+.biz-note{margin-top:64px;max-width:760px;margin-left:auto;margin-right:auto;font-family:var(--jp);font-size:14.5px;font-weight:500;line-height:2.05;color:var(--ink-soft);max-width:720px;}
 .biz-note strong{color:var(--ink);font-weight:700;}
-@media (max-width:860px){.biz{padding:56px 0;}.biz-grid{grid-template-columns:1fr;gap:56px;}}
+@media (max-width:860px){.biz{padding:56px 0;}}
 
 /* RESPONSIVE */
 @media (max-width:1024px){
@@ -667,22 +676,23 @@ footer{padding:60px 0 44px;border-top:1px solid var(--line);}
 <!-- BUSINESS -->
 <section class="biz" id="business">
   <div class="wrap">
-    <div class="biz-grid">
-      <article class="biz-card reveal d1">
-        <span class="bc-side">本人へ ／ toC</span>
-        <h3>His Recoveries</h3>
-        <p class="bc-sub">男性が、自分の悩みに<br>安心して向き合える場所。</p>
-        <p class="bc-body">AGA・ED・男性更年期から見た目・体型まで——<a href="/blog/maletech-toha.html"><strong>MaleTech</strong></a>の領域。悩みは「大したことではない」とされ、口にする前に止まります。中立的な情報と伴走で、その<strong>「最初の一歩」</strong>を支えます。</p>
-        <a class="btn solid" href="https://www.hisrecoveries.com/" target="_blank" rel="noopener"><span>His Recoveries を見る</span><span class="arr">↗</span></a>
-      </article>
-      <article class="biz-card reveal d2">
-        <span class="bc-side">事業者へ ／ toB</span>
-        <h3>Field CX</h3>
-        <p class="bc-sub">施術のあとに続く接点を<br>設計し、継続をつくる。</p>
-        <p class="bc-body">新規は取れているのに、2回目がない。<strong>売上は2回目から積み上がります</strong>が、その工程だけが設計されていません。施術後に続く接点を設計する伴走ソリューションです。</p>
-        <a class="btn solid" href="/business.html"><span>Field CX を見る</span><span class="arr">→</span></a>
-      </article>
-    </div>
+    <article class="svc reveal">
+      <span class="svc-side">本人へ ／ toC</span>
+      <h3>His Recoveries</h3>
+      <p>AGA・ED・男性更年期から見た目・体型まで——<a href="/blog/maletech-toha.html"><strong>MaleTech</strong></a>の領域を扱う、男性ウェルネスブランドです。悩みは「大したことではない」とされ、口にする前に止まります。中立的な情報と伴走で、その<strong>「最初の一歩」</strong>を支えます。</p>
+      <a class="btn solid" href="https://www.hisrecoveries.com/" target="_blank" rel="noopener"><span>サービスサイトへ</span><span class="arr">↗</span></a>
+    </article>
+
+    <article class="svc reveal">
+      <figure class="svc-fig">
+        <img src="/app/hero-card.png" alt="Field CX の顧客画面。6ヶ月コースの3回目で折り返し地点に到着、はじめてから91日目。自分でつけた実感の点数が2から5に変わった記録。" width="811" height="810" loading="lazy">
+      </figure>
+      <span class="svc-side">事業者へ ／ toB</span>
+      <h3>Field CX</h3>
+      <p>施術のあとに続く接点を設計する、伴走ソリューションです。新規は取れているのに、2回目がない。<strong>売上は2回目から積み上がります</strong>が、その工程だけが設計されていません。LINEと顧客専用の画面で、続けてきた事実が本人に返る形をつくります。</p>
+      <a class="btn solid" href="/business.html"><span>サービスサイトへ</span><span class="arr">→</span></a>
+    </article>
+
     <p class="biz-note reveal">現場で得た知見は本人へ、本人から見えたことは現場へ。</p>
   </div>
 </section>

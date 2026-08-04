@@ -2,37 +2,62 @@
   "redirects": [
     {
       "source": "/accord.html",
-      "destination": "/business.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/accord",
-      "destination": "/business.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/principles.html",
-      "destination": "/business.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/cx-platform.html",
-      "destination": "/business.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/cx-platform",
-      "destination": "/business.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/platform.html",
-      "destination": "/business.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/platform",
-      "destination": "/business.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/business.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/business",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/download.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/download",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/field-cx-service.pdf",
+      "destination": "/",
       "permanent": true
     }
   ]

@@ -332,6 +332,33 @@ strong{color:var(--ink);font-weight:900;}
 .field.opt label{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:var(--ink-soft);margin:0 0 8px;cursor:pointer;}
 .field.opt input{-webkit-appearance:radio;appearance:auto;width:15px;height:15px;min-width:0;flex:none;background:none;border:0;border-radius:0;padding:0;accent-color:var(--ink);margin:0;}
 
+
+.mbr{display:none;}
+.hero .sub{margin-top:26px;font-size:clamp(16px,2.2vw,21px);font-weight:900;letter-spacing:-0.025em;line-height:1.62;color:var(--ink);max-width:720px;}
+.hero .lead{margin-top:16px;}
+.midcta{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-top:56px;padding:26px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);}
+.midcta p{font-size:clamp(15px,2vw,19px);line-height:1.7;color:var(--ink);font-weight:700;letter-spacing:-0.02em;max-width:640px;}
+.midcta strong{font-weight:900;}
+.mbtn{flex:none;font-family:var(--jp);font-size:13.5px;font-weight:800;letter-spacing:0.04em;padding:15px 28px;border-radius:2px;color:#fff;background:var(--ink);white-space:nowrap;transition:background .4s var(--ease);}
+.mbtn:hover{background:var(--green);}
+.sec.dark .midcta{border-top-color:rgba(255,255,255,0.9);border-bottom-color:rgba(255,255,255,0.16);}
+.sec.dark .midcta p{color:#fff;}
+.sec.dark .mbtn{background:#fff;color:var(--night);}
+.sec.dark .mbtn:hover{background:var(--lime);}
+.chk{border:0;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line);}
+.chk legend{font-size:11.5px;font-weight:800;color:var(--ink-soft);letter-spacing:0.06em;}
+.chk .hint{font-size:11.5px;line-height:1.7;color:var(--ink-faint);margin:6px 0 14px;}
+.chk label{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.65;font-weight:500;color:var(--ink-soft);margin:0 0 11px;cursor:pointer;}
+.chk label:last-child{margin-bottom:0;}
+.chk input{-webkit-appearance:checkbox;appearance:auto;width:15px;height:15px;min-width:0;flex:none;background:none;border:0;border-radius:0;padding:0;accent-color:var(--ink);margin:2px 0 0;}
+@media (max-width:700px){
+  .midcta{margin-top:36px;padding:22px 0;gap:18px;}
+  .mbtn{width:100%;text-align:center;padding:15px 20px;}
+  .hero .sub{margin-top:20px;}
+  .mbr{display:inline;}
+  .hero h1{font-size:26px;line-height:1.42;}
+}
+
 /* footer */
 footer{padding:72px 0 52px;border-top:1px solid var(--line);}
 .fa{font-family:var(--sans);font-size:13px;font-weight:800;letter-spacing:0.22em;color:var(--ink);}
@@ -408,6 +435,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
   footer{padding:52px 0 40px;}
 }
 @media (max-width:380px){.n-jp{display:none;}}
+@media (max-width:340px){.hero h1{font-size:22px;}}
 </style>
 </head>
 <body>
@@ -433,7 +461,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <a class="nv-opt" href="#nots">やらないこと</a>
     <a href="/blog/">Vitality Notes</a>
   </div>
-  <a href="#contact" class="nav-cta"><span class="cta-long">診断・取材を受ける</span><span class="cta-short">申し込む</span></a>
+  <a href="#contact" class="nav-cta"><span class="cta-long">話を聞かせてください</span><span class="cta-short">話を聞かせる</span></a>
 </nav>
 
 <!-- 01 HERO -->
@@ -442,8 +470,9 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
   <div class="blob b2" data-px="-0.10" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <span class="eyebrow rv">現場起点の事業改善・実装パートナー</span>
-    <h1 class="rv">現場の痛みを理解しない設計は、<br>すべて机上の空論である。</h1>
-    <p class="lead rv">経営者の「なぜ数字が動かないのか」という問いに、現場の一次情報から答えを出す。私たちは、システムを売る会社ではありません。人と現場を理解し、事業の成長を設計・実装する専門機関です。</p>
+    <h1 class="rv">現場の痛みを<br class="mbr">理解しない設計は、<br>すべて机上の空論である。</h1>
+    <p class="sub rv">経営者の「なぜ数字が動かないのか」に、現場の一次情報から答えを出します。</p>
+    <p class="lead rv">システムを売る会社ではありません。人と現場を理解し、事業の成長を設計・実装します。</p>
     <div class="tri rv">
       <div><b>UNDERSTAND</b><span>顧客と現場の一次情報を集め、比べられる形に構造化する。</span></div>
       <div><b>DESIGN</b><span>成長を止めている要因を、根拠とともに一点に絞る。</span></div>
@@ -468,6 +497,10 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
       <li><span class="n">05</span><p>次に何を改善すべきか、社内では判断できない。</p></li>
     </ul>
     <p class="close rv">これらは現場の怠慢ではありません。<strong>経営の「設計エラー」です。</strong></p>
+    <div class="midcta rv">
+      <p>当てはまるものがありましたか。<strong>その話を、30分聞かせてください。</strong></p>
+      <a class="mbtn" href="#contact">話を聞かせる →</a>
+    </div>
   </div>
 </section>
 
@@ -481,14 +514,14 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <div class="shead">
       <span class="eyebrow rv">02 ／ 解き方</span>
       <h2 class="rv">理解し、設計し、<br>必要なときだけ作る。</h2>
-      <p class="lead rv">順序を守ることが仕事のほとんどです。<strong>理解を飛ばして設計すれば、現場で使われないものができます。</strong></p>
+      <p class="lead rv"><strong>理解を飛ばして設計すれば、現場で使われないものができます。</strong></p>
     </div>
     <div class="steps rv">
-      <div class="st"><span class="n">01</span><div><span class="ph">UNDERSTAND</span><h3>現場理解</h3><p>顧客に聞き、現場の記録から読む。立ち会って見た現場は、普段どおりではないからです。</p></div></div>
+      <div class="st"><span class="n">01</span><div><span class="ph">UNDERSTAND</span><h3>現場理解</h3><p>顧客に聞き、現場の記録から読む。立ち会って見た現場は、普段どおりではない。</p></div></div>
       <div class="st"><span class="n">02</span><div><span class="ph">UNDERSTAND</span><h3>経営分析</h3><p>PL・KPI・利益構造・業務プロセスを、同じ条件で並べる。</p></div></div>
       <div class="st"><span class="n">03</span><div><span class="ph">DESIGN</span><h3>課題特定</h3><p>成長を止めている最大の要因を<strong>一点に絞る。</strong>複数は挙げません。</p></div></div>
-      <div class="st"><span class="n">04</span><div><span class="ph">DESIGN</span><h3>打ち手設計</h3><p>手段を選び、発注先と条件まで決める。誰に頼むかは、経営者がいちばん外しやすい判断です。</p></div></div>
-      <div class="st"><span class="n">05</span><div><span class="ph">BUILD</span><h3>実装・定着</h3><p>必要なときだけ作り、続く状態にする。見張らないと守られない手順は、設計のほうが間違いです。</p></div></div>
+      <div class="st"><span class="n">04</span><div><span class="ph">DESIGN</span><h3>打ち手設計</h3><p>手段を選び、発注先と条件まで決める。誰に頼むかは、いちばん外しやすい判断です。</p></div></div>
+      <div class="st"><span class="n">05</span><div><span class="ph">BUILD</span><h3>実装・定着</h3><p>必要なときだけ作り、続く状態にする。見張らないと守られない手順は、設計が間違い。</p></div></div>
     </div>
     <div class="rv"><figure class="fig">
       <svg viewBox="0 0 720 250" role="img" aria-label="左側は記録がなく点線で途切れた3本の行、右側は同じ3本の行に印が揃い、縦の基準線で並べて比較できる状態を示した線画。">
@@ -530,12 +563,12 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <div class="shead">
       <span class="eyebrow rv">03 ／ 提供するもの</span>
       <h2 class="rv">まず、診る。<br>作るのは、その後である。</h2>
-      <p class="lead rv">理解が終わる前には、作りません。二段階に分けています。</p>
+      <p class="lead rv">理解が終わる前には、作りません。</p>
     </div>
     <article class="entry rv">
       <span class="k">PHASE 1 ／ 現場解析（1拠点・月額3万円〜）</span>
       <h3>まず、システムを売り込むようなことはしません。</h3>
-      <p>御社の現場の音声やデータを解析し、<strong>どこに利益の穴があるか</strong>を、経営者向け・現場向けの2枚のレポートで可視化します。全社導入を判断するための解析費用であり、続けるための金額ではありません。</p>
+      <p>現場の音声やデータを解析し、<strong>どこに利益の穴があるか</strong>を2枚のレポートで可視化します。全社導入を判断するための解析費用であり、続けるための金額ではありません。</p>
       <ul>
         <li><b>費用</b><span>1拠点あたり 月額3万円〜（3ヶ月から）</span></li>
         <li><b>返すもの</b><span>月次で2枚（経営者向け・現場向け）</span></li>
@@ -557,7 +590,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     </article>
     <div class="pledge rv">
       <h3>この数字を、評価には使いません。</h3>
-      <p>人事評価や処遇には使いません。<strong>現場を責めるための数字は作りません。</strong>手順が守られないのは、手順の設計が現場の理屈に合っていないだけだと考えています。</p>
+      <p>人事評価や処遇には使いません。<strong>現場を責めるための数字は作りません。</strong></p>
     </div>
   </div>
 </section>
@@ -572,11 +605,11 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
       <p class="lead rv">同じことを言う会社は多いので、根拠だけを書きます。</p>
     </div>
     <div class="viz rv">
-      <div class="vz"><b>現場が動く側から<br>見てきた</b><span>手順が飛ばされる理由も、記録が残らない理由も、管理する側からではなく動く側から見てきました。</span></div>
-      <div class="vz"><b>課題が決まる前から<br>入る</b><span>依頼された施策をそのまま実行しません。それが本当に必要かを確かめるところから始めます。</span></div>
-      <div class="vz"><b>人に聞くことから<br>始める</b><span>数字の前に、顧客と現場の言葉を集めます。生活者向けの自社事業でも、同じことをしています。</span></div>
-      <div class="vz"><b>理解と実装が、<br>同じ人</b><span><strong>代表がひとりで担います。規模は意図的に小さいままです。</strong>大きくすれば、理解したことが実装に渡る過程で必ず落ちるからです。分析と実装を別会社に分けません。</span></div>
-      <div class="vz"><b>出力が<br>2種類ある</b><span>経営者向けの1枚と、現場向けの1枚。金額と手順を、同じ数字から出します。</span></div>
+      <div class="vz"><b>現場が動く側から<br>見てきた</b><span>手順が飛ばされる理由も、記録が残らない理由も、動く側から見てきました。</span></div>
+      <div class="vz"><b>課題が決まる前から<br>入る</b><span>依頼された施策をそのまま実行しません。本当に必要かを、先に確かめます。</span></div>
+      <div class="vz"><b>人に聞くことから<br>始める</b><span>数字の前に、顧客と現場の言葉を集めます。自社事業でも同じです。</span></div>
+      <div class="vz"><b>理解と実装が、<br>同じ人</b><span><strong>代表がひとりで担います。規模は意図的に小さいままです。</strong>大きくすれば、理解したことが実装に渡る過程で必ず落ちるからです。</span></div>
+      <div class="vz"><b>出力が<br>2種類ある</b><span>経営者向けの1枚と、現場向けの1枚。同じ数字から出します。</span></div>
     </div>
     <div class="lsub rv">
       <h3>他社とも、比べてください。</h3>
@@ -657,6 +690,10 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     </div>
     <p class="nonum rv"><strong>数字は開示していません。</strong>顧客企業との守秘義務があるためです。出せる範囲で、現場で何がどう変わったかだけを書いています。</p>
     <p class="note rv">企業名は記載しません。記載は実施内容と状態変化であり、成果を保証するものではありません。医療にあたる判断は医師の診察を前提とします。</p>
+    <div class="midcta rv">
+      <p><strong>御社の現場では、どこが詰まっていますか。</strong>30分、聞かせてください。</p>
+      <a class="mbtn" href="#contact">話を聞かせる →</a>
+    </div>
   </div>
 </section>
 
@@ -670,7 +707,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     </div>
     <div class="fdr rv">
       <div>
-        <p>現在も事業会社の現場にいます。数字が動かない理由も、手順が守られない理由も、情報が途中で失われる理由も、管理する側からではなく動く側から見てきました。<strong>原因はいつも人の側にあります。</strong></p>
+        <p>現在も事業会社の現場にいます。数字が動かない理由も、手順が守られない理由も、管理する側からではなく動く側から見てきました。<strong>原因はいつも人の側にあります。</strong></p>
         <p><strong>数字だけでも、現場だけでも、設計はできません。</strong></p>
       </div>
       <div class="mcard">
@@ -700,7 +737,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
       </article>
       <article class="ow">
         <span class="nm">面談解析基盤</span>
-        <p>人材紹介領域の面談を<strong>89件</strong>解析。進め方の差をメンバー別に同じ条件で並べられます。他社に渡す前に、自分の事業で動かしています。</p>
+        <p>人材紹介領域の面談を<strong>89件</strong>解析。進め方の差をメンバー別に並べられます。他社に渡す前に、自分の事業で動かしています。</p>
         <p class="fine">音声は御社側で保管し解析後に削除。当社では保存も学習もしません。</p>
       </article>
     </div>
@@ -714,47 +751,51 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <span class="folio" aria-hidden="true">09</span>
     <div class="shead">
       <span class="eyebrow rv">09 ／ CONTACT</span>
-      <h2 class="rv">診断を受けるか、<br>取材を受けるか。</h2>
-      <p class="lead rv">どちらも30分、無償です。<strong>課題がはっきりしている方には診断を、まだ言葉になっていない方には取材を用意しています。</strong></p>
+      <h2 class="rv">経営者の話を、<br>聞かせてください。</h2>
+      <p class="lead rv">30分、オンラインで。無償です。<strong>売り込みではなく、現場でいま何が起きているかを伺うのが目的です。</strong></p>
     </div>
     <div class="pick rv">
       <article class="pk">
         <span class="pn">A</span>
-        <h3>診断を受ける</h3>
-        <p>いま抱えている課題を送ってください。どこに改善余地がありそうかを1枚に整理してお返しします。箇条書きだけで構いません。</p>
+        <h3>話を聞かせてください</h3>
+        <p>課題がまだ言葉になっていなくて構いません。こちらから聞きます。人に聞くことから始めるのが私たちの仕事です。<strong>伺った内容を記事にはしません。</strong></p>
       </article>
       <article class="pk">
         <span class="pn">B</span>
-        <h3>取材を受ける</h3>
-        <p>課題がまだ言葉にならない段階なら、こちらから聞きます。現場で何が起きているかを伺うこと自体が、私たちの仕事の入口です。<strong>記事にはしません。</strong></p>
+        <h3>課題が決まっているなら</h3>
+        <p>気になっている論点を選んで送ってください。<strong>どこに改善余地がありそうかを1枚に整理してお返しします。</strong>そのうえで、進むか終えるかを決めていただければ十分です。</p>
       </article>
     </div>
     <div class="cgrid rv">
       <div>
-        <p>代表が直接内容を拝見し、私たちがお役に立てるか（改善の余地があるか）をフラットにお伝えします。<strong>売り込みは一切行いません。</strong>お引き受けできないと判断した場合は、その理由をお伝えします。</p>
+        <p>代表が直接内容を拝見します。お役に立てるかをフラットにお伝えし、<strong>お引き受けできないと判断した場合は、その理由をお伝えします。売り込みは一切行いません。</strong></p>
         <ul class="facts">
-          <li><b>費用</b><span>診断・取材とも無償</span></li>
+          <li><b>費用</b><span>無償</span></li>
           <li><b>所要</b><span>30分（テキストのみでも可）</span></li>
           <li><b>日時</b><span>夜間または土日</span></li>
           <li><b>返信</b><span>代表が直接1〜3営業日以内に</span></li>
         </ul>
       </div>
       <div class="fcard" id="fcard">
-        <div class="fh">30分の枠を申し込む</div>
-        <div class="fs">入力は1分ほどです。</div>
+        <div class="fh">話を聞かせてください</div>
+        <div class="fs">当てはまるものを選ぶだけで送れます。文章を書く必要はありません。</div>
         <form id="vdForm" novalidate>
-          <input type="hidden" name="_subject" value="【Webサイト】30分の枠のご希望">
+          <input type="hidden" name="_subject" value="【Webサイト】30分のご希望">
           <div class="fstatus" id="vdError" role="alert"></div>
-          <fieldset class="field opt">
-            <legend>ご希望</legend>
-            <label><input type="radio" name="kind" value="診断を受ける"><span>診断を受ける</span></label>
-            <label><input type="radio" name="kind" value="取材を受ける"><span>取材を受ける</span></label>
-            <label><input type="radio" name="kind" value="どちらでもよい" checked><span>どちらでもよい</span></label>
+          <fieldset class="chk">
+            <legend>いま気になっていること</legend>
+            <p class="hint">複数選べます。ひとつも当てはまらなければ、いちばん下を選んでください。</p>
+            <label><input type="checkbox" name="topic" value="案件の進捗や見積もりが、担当者の頭の中にしかない"><span>案件の進捗や見積もりが、担当者の頭の中にしかない</span></label>
+            <label><input type="checkbox" name="topic" value="利益がどこで消えているか説明できない"><span>利益がどこで消えているか説明できない</span></label>
+            <label><input type="checkbox" name="topic" value="拠点や担当者で成果が違う理由が分からない"><span>拠点や担当者で成果が違う理由が分からない</span></label>
+            <label><input type="checkbox" name="topic" value="入れたツールを、現場が使っていない"><span>入れたツールを、現場が使っていない</span></label>
+            <label><input type="checkbox" name="topic" value="次に何を改善すべきか決められない"><span>次に何を改善すべきか決められない</span></label>
+            <label><input type="checkbox" name="topic" value="まだ言葉になっていない。話しながら整理したい"><span>まだ言葉になっていない。話しながら整理したい</span></label>
           </fieldset>
           <div class="field"><label for="v-name">お名前<span class="req">*</span></label><input type="text" id="v-name" name="name" autocomplete="name" required placeholder="山田 太郎"></div>
           <div class="field"><label for="v-company">会社名<span class="req">*</span></label><input type="text" id="v-company" name="company" autocomplete="organization" required placeholder="株式会社○○"></div>
           <div class="field"><label for="v-email">メールアドレス<span class="req">*</span></label><input type="email" id="v-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
-          <div class="field"><label for="v-msg">いまの状況<span class="req">*</span></label><textarea id="v-msg" name="message" required placeholder="箇条書きだけで構いません。取材をご希望の場合は「取材希望」だけでも構いません。"></textarea></div>
+          <div class="field"><label for="v-msg">補足（任意）</label><textarea id="v-msg" name="message" placeholder="あれば一行で。なくて構いません。"></textarea></div>
           <button class="submit" type="submit" id="vdSubmit">この内容で送信する</button>
           <p class="fnote">フォームが面倒な場合は <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> へ直接どうぞ。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
         </form>
@@ -823,7 +864,9 @@ function vdShow(m){vdErr.textContent=m;vdErr.style.display='block';}
 vdForm.addEventListener('submit',async(e)=>{
   e.preventDefault();vdErr.style.display='none';
   const name=vdForm.name.value.trim(),company=vdForm.company.value.trim(),email=vdForm.email.value.trim(),msg=vdForm.message.value.trim();
-  if(!name||!company||!email||!msg){vdShow('お名前・会社名・メールアドレス・いまの状況は必須です。');return;}
+  const topics=vdForm.querySelectorAll('input[name="topic"]:checked').length;
+  if(!name||!company||!email){vdShow('お名前・会社名・メールアドレスは必須です。');return;}
+  if(!topics&&!msg){vdShow('気になっていることを1つ以上選ぶか、補足を一行お書きください。');return;}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){vdShow('メールアドレスの形式をご確認ください。');return;}
   vdBtn.disabled=true;vdBtn.textContent='送信中…';
   try{

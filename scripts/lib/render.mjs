@@ -1,4 +1,4 @@
-// Deterministic HTML assembly for Field Notes articles.
+// Deterministic HTML assembly for Vitality Notes articles.
 // The model produces STRUCTURED CONTENT (see schema in generate-article.mjs);
 // this module renders it into the exact same markup as the existing 12 posts,
 // so SEO/GEO structure (JSON-LD @graph, meta, TL;DR/TOC/FAQ) is always correct.
@@ -75,7 +75,7 @@ function jsonLd(a, url, iso) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'ホーム', item: `${SITE}/` },
-        { '@type': 'ListItem', position: 2, name: 'Field Notes', item: `${SITE}/blog/` },
+        { '@type': 'ListItem', position: 2, name: 'Vitality Notes', item: `${SITE}/blog/` },
         { '@type': 'ListItem', position: 3, name: stripTags(a.ogTitle || a.title), item: url },
       ],
     },
@@ -205,7 +205,7 @@ ${jsonLd(a, url, iso)}
 
 <header class="ahead" id="main">
   <div class="wrap">
-    <nav class="crumb" aria-label="パンくず"><a href="/">ホーム</a> <span>/</span> <a href="/blog/">Field Notes</a> <span>/</span> ${attr(a.crumb)}</nav>
+    <nav class="crumb" aria-label="パンくず"><a href="/">ホーム</a> <span>/</span> <a href="/blog/">Vitality Notes</a> <span>/</span> ${attr(a.crumb)}</nav>
     <div class="ameta">
       <span class="cat">${attr(a.category)}</span>
       <time class="date" datetime="${date}">${dateDot}</time>${
@@ -288,7 +288,7 @@ ${related}
     <span class="fb-jp">バイタリティデザイン合同会社 ｜ 男性の活力を、デザインする。</span>
     <div class="fb-links">
       <a href="/">Home</a>
-      <a href="/blog/">Field Notes</a>
+      <a href="/blog/">Vitality Notes</a>
       <a href="/privacy.html">プライバシーポリシー</a>
       <a href="/terms.html">利用規約</a>
       <a href="/#contact">Contact</a>

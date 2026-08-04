@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "AI article generation pipeline for the Field Notes blog (human-reviewed via PR).",
+  "description": "AI article generation pipeline for the Vitality Notes blog (human-reviewed via PR).",
   "scripts": {
     "gen": "node generate-article.mjs",
     "validate": "node validate-cli.mjs"

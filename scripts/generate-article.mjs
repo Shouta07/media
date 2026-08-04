@@ -1,4 +1,4 @@
-// Generate one SEO/GEO-optimized Field Notes article with Claude, matching the
+// Generate one SEO/GEO-optimized Vitality Notes article with Claude, matching the
 // existing 12 posts, then render + wire it into the blog index / sitemap /
 // llms.txt. The model returns STRUCTURED CONTENT (schema below); HTML assembly
 // is deterministic (lib/render.mjs), so structured data is always valid.
@@ -84,7 +84,7 @@ const catalog = existing
   .map((e) => `- slug=${e.slug} | ${e.category} | ${e.title}`)
   .join('\n');
 
-const SYSTEM = `あなたは「Vitality Design（バイタリティデザイン合同会社）」のオウンドメディア「Field Notes」の編集者兼ライターです。
+const SYSTEM = `あなたは「Vitality Design（バイタリティデザイン合同会社）」のオウンドメディア「Vitality Notes」の編集者兼ライターです。
 読者は自由診療・ウェルネス（美容クリニック、AGA、サロン、パーソナルジム等）の経営者・現場責任者。
 会社は「提案ではなく実行」する当事者（自社サービス His Recoveries を運営）で、現場の一次情報に基づく実践知を届けます。
 

@@ -1,4 +1,4 @@
-# Field Notes 記事生成パイプライン
+# Vitality Notes 記事生成パイプライン
 
 AIで記事の**下書きを生成 → 人がレビュー → デプロイ**する仕組みです。
 生成は自動、公開は**必ず人の承認（PRマージ）**を通します。直接デプロイはしません。
@@ -37,7 +37,7 @@ Pull Request を自動作成（＝人のレビュー必須ゲート）
 
 ## 使い方（記事を作る）
 
-GitHub → **Actions** タブ → 「Generate Field Notes article」→ **Run workflow** →
+GitHub → **Actions** タブ → 「Generate Vitality Notes article」→ **Run workflow** →
 - **topic**（必須）：記事テーマ
 - **keywords**（任意）：狙いたい検索キーワード
 - **notes**（任意）：補足メモ

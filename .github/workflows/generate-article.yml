@@ -1,4 +1,4 @@
-name: Generate Field Notes article
+name: Generate Vitality Notes article
 
 # Manual trigger. Produces a DRAFT article as a Pull Request — never a direct
 # deploy. You review the PR (Vercel gives a live preview), then merge = publish.
@@ -50,7 +50,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: article/${{ steps.gen.outputs.slug }}
-          commit-message: "Add Field Notes article: ${{ steps.gen.outputs.title }}"
+          commit-message: "Add Vitality Notes article: ${{ steps.gen.outputs.title }}"
           title: "📝 記事ドラフト: ${{ steps.gen.outputs.title }}"
           body: |
             AI生成の記事ドラフトです。**マージする前に必ず内容を確認してください。**

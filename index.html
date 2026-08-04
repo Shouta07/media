@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>バイタリティデザイン合同会社｜数字だけでも、現場だけでも、仕組みは動かない。</title>
-<meta name="description" content="数字だけを見て作られた仕組みは、現場で使われません。現場だけを見て作られた仕組みは、利益を説明できません。売上をつくっている日々の判断が、記録も評価もされていない。その一点を、数字と現場の両方から解きます。経営者向けと現場向け、2種類の1枚をお渡しします。経営診断（4週・固定期間）、仕組み化、継続改善。">
+<meta name="description" content="数字だけを見て作られた仕組みは現場で使われず、現場だけを見て作られた仕組みは利益を説明できません。売上をつくっている日々の判断が、記録も評価もされていない。その一点を、数字と現場の両方から解きます。1拠点あたり月3万円で試せます。経営者向けと現場向け、2種類の1枚をお渡しします。">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://www.vitality-design.jp/">
 <meta property="og:site_name" content="バイタリティデザイン合同会社">
@@ -102,8 +102,8 @@
       "name": "経営診断・仕組み化・継続改善",
       "provider": { "@id": "https://www.vitality-design.jp/#org" },
       "areaServed": "JP",
-      "serviceType": ["経営診断", "仕組み化", "継続改善", "発注・調達判断の設計"],
-      "description": "経営診断（4週・固定期間）で何を改善すべきかを特定し、実装仕様まで出す。仕様は顧客企業の資産であり、他社に持ち込んでもよい。仕組み化では、改善策を担当者に依存しない形へ変える。必要な場合にかぎり、システムなど適切な手段を選ぶ。継続改善では、数字と現場の変化を確認し、次の判断につなげる。費用は個別設計で、数十万円から数百万円規模の投資判断となる。成果保証は行わない。",
+      "serviceType": ["1拠点から試す", "経営診断", "仕組み化", "継続改善", "発注・調達判断の設計"],
+      "description": "入口として、1拠点から試す形を用意している。1拠点あたり月3万円、3ヶ月から。その拠点の面談・カウンセリングを解析し、月次で経営者向けと現場向けの2枚を返す。稼働は月1回30分で、それ以外は自動。全社導入を判断するための金額であり、続けるための金額ではない。音声は顧客側で保管し、解析後に削除する。当社では保存も学習もしない。拠点数に応じた提供に対応し、拠点ごとの単価で本部での一括契約が可能。フランチャイズ本部の場合は直営拠点で確認したうえで加盟店へ広げる順序を取る。経営診断（4週・固定期間）で何を改善すべきかを特定し、実装仕様まで出す。仕様は顧客企業の資産であり、他社に持ち込んでもよい。仕組み化では、改善策を担当者に依存しない形へ変える。必要な場合にかぎり、システムなど適切な手段を選ぶ。継続改善では、数字と現場の変化を確認し、次の判断につなげる。費用は個別設計で、数十万円から数百万円規模の投資判断となる。成果保証は行わない。",
       "audience": {
         "@type": "Audience",
         "audienceType": "経営者と株主が同じで、決めたら動ける会社の経営者"
@@ -210,6 +210,16 @@ strong{color:var(--ink);font-weight:700;}
 .of h3{font-size:17px;}
 .of p{margin-top:12px;font-size:14px;line-height:1.9;}
 .of.add{grid-column:1 / -1;background:var(--bg-2);border-color:var(--line);}
+.entry{background:var(--card);border:1px solid rgba(11,110,79,0.22);border-radius:16px;padding:28px 26px;margin-top:34px;position:relative;overflow:hidden;}
+.entry::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--grad);}
+.entry .k{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:rgba(11,110,79,0.07);padding:4px 9px;border-radius:6px;margin-bottom:14px;}
+.entry h3{font-size:19px;}
+.entry>p{margin-top:12px;font-size:14.5px;line-height:1.9;}
+.entry ul{margin-top:18px;display:grid;gap:8px;}
+.entry li{list-style:none;display:grid;grid-template-columns:96px 1fr;gap:14px;font-size:13.5px;line-height:1.8;color:var(--ink-soft);background:var(--bg);border-radius:10px;padding:11px 14px;}
+.entry li b{color:var(--green);font-weight:700;}
+.multi{margin-top:16px;background:var(--bg-2);border-radius:16px;padding:22px 24px;font-size:14px;line-height:1.9;color:var(--ink-soft);}
+.multi b{display:block;color:var(--ink);font-weight:700;margin-bottom:8px;font-size:15px;}
 .price{margin-top:16px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 24px;}
 .price p{font-size:14.5px;line-height:1.9;color:var(--ink);}
 
@@ -284,16 +294,6 @@ strong{color:var(--ink);font-weight:700;}
 .ow .metrics{margin-top:14px;font-size:13px;line-height:1.9;color:var(--ink-soft);}
 .ow .fine{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:12.5px;line-height:1.8;color:var(--ink-faint);}
 
-/* 11 use case */
-.ucase{margin-top:14px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:30px 28px;}
-.ucase h3{margin-top:2px;font-size:18px;}
-.ucase>p{margin-top:12px;font-size:14.5px;line-height:1.9;}
-.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;}
-.shot{margin:0;}
-.shot img{display:block;width:100%;height:auto;aspect-ratio:675/1156;object-fit:cover;object-position:top;border:1px solid var(--line-soft);border-radius:12px;background:var(--bg);}
-.shot figcaption{margin-top:10px;font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.6;}
-.shot figcaption span{display:block;font-size:11.5px;font-weight:400;color:var(--ink-faint);margin-top:3px;}
-.ucase .note{margin-top:20px;}
 
 /* 11 contact */
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;margin-top:32px;}
@@ -330,10 +330,12 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 .fl a:hover{color:var(--green);}
 .fn{margin-top:28px;padding-top:20px;border-top:1px solid var(--line-soft);font-family:var(--sans);font-size:11px;letter-spacing:0.06em;color:var(--ink-mute);}
 
+@media (max-width:1200px){
+  .nv-opt{display:none;}
+}
 @media (max-width:1000px){
   .nav-links{display:none;}
   .viz,.offers,.cases,.own{grid-template-columns:1fr;}
-  .shots{grid-template-columns:1fr 1fr;}
   .of.add{grid-column:auto;}
   .fdr,.cgrid{grid-template-columns:1fr;gap:24px;}
 }
@@ -356,7 +358,10 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
   .steps{gap:9px;margin-top:24px;}
   .st{padding:16px 16px;gap:12px;}
   .st p{margin-top:7px;font-size:13.5px;line-height:1.8;}
-  .twins,.pledge,.price{margin-top:10px;padding:20px 18px;}
+  .twins,.pledge,.price,.multi{margin-top:10px;padding:20px 18px;}
+  .entry{margin-top:24px;padding:22px 18px;}
+  .entry li{grid-template-columns:84px 1fr;gap:10px;font-size:13px;}
+  .multi{font-size:13.5px;}
   .twins>p,.pledge>p,.price p{font-size:13.5px;line-height:1.8;}
   .twins ul{margin-top:12px;gap:8px;}
   .fig{margin-top:24px;}
@@ -364,8 +369,6 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
   .nlist li,.ulist li{padding:12px 15px;font-size:14.5px;line-height:1.7;}
   .mcard{padding:20px 18px;}
   .mcard li{font-size:13.5px;line-height:1.7;}
-  .ucase{margin-top:10px;}
-  .shots{gap:10px;margin-top:18px;}
   .note{margin-top:16px;font-size:12px;line-height:1.75;}
   .fdr{margin-top:24px;}
   .lsub{margin-top:26px;padding-top:22px;}
@@ -388,11 +391,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
   .sym li,.st{padding:16px 16px;}
   .facts li{grid-template-columns:64px 1fr;gap:10px;}
   .fcard{padding:26px 20px;border-radius:16px;}
-  .ucase{padding:22px 18px;}
   .field input,.field textarea{font-size:16px;}
-}
-@media (max-width:359px){
-  .shots{grid-template-columns:1fr;}
 }
 @media (max-width:380px){
   .n-jp{display:none;}
@@ -417,7 +416,9 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
     <a href="#process">進め方</a>
     <a href="#offer">提供するもの</a>
     <a href="#why">選ばれる理由</a>
-    <a href="#nots">やらないこと</a>
+    <a href="#cases">取り組み</a>
+    <a href="#own">自社事業</a>
+    <a class="nv-opt" href="#nots">やらないこと</a>
     <a href="/blog/">Field Notes</a>
   </div>
   <a href="#contact" class="nav-cta"><span class="cta-long">1枚の見立てを受け取る</span><span class="cta-short">見立てを受け取る</span></a>
@@ -549,6 +550,18 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
       <h2>診る。作る。<br>追い続ける。</h2>
       <p class="lead">順番があります。何を解くべきかが決まる前には、作りません。</p>
     </div>
+    <div class="entry">
+      <span class="k">入口 ／ 1拠点から試す</span>
+      <h3>全社で入れる前に、1拠点だけで確かめる。</h3>
+      <p>その拠点の面談・カウンセリングを解析し、月次で2枚をお返しします。経営者向けの1枚と、現場向けの1枚です。こちらの稼働は月1回30分。それ以外は自動で動きます。全社導入を判断するための金額であり、続けるための金額ではありません。</p>
+      <ul>
+        <li><b>金額</b><span>1拠点あたり 月3万円</span></li>
+        <li><b>期間</b><span>3ヶ月から</span></li>
+        <li><b>返すもの</b><span>月次で2枚（経営者向け・現場向け）</span></li>
+        <li><b>稼働</b><span>月1回30分。それ以外は自動</span></li>
+        <li><b>音声</b><span>御社側で保管し、解析後に削除。当社では保存も学習もしません</span></li>
+      </ul>
+    </div>
     <div class="offers">
       <article class="of">
         <span class="k">経営診断｜4週・固定期間</span>
@@ -571,8 +584,9 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
         <p>誰に、どの条件で頼むか。改善分に連動する形でお引き受けすることがあります。</p>
       </article>
     </div>
+    <p class="multi"><b>拠点数に応じて広げる</b>拠点ごとの単価で、本部での一括契約に対応します。まず1拠点で確かめ、拠点数を増やす順序です。フランチャイズ本部の場合は、直営拠点で確認したうえで加盟店へ広げます。加盟店に先に入れると、本部が説明できる材料を持たないまま展開することになります。</p>
     <div class="price">
-      <p>費用は個別設計。数十万円から数百万円規模の投資判断になります。その妥当性を、診断の時点で判断できる状態にします。<strong>成果保証は行いません。</strong></p>
+      <p>1拠点から試す：<strong>1拠点あたり月3万円</strong>（3ヶ月から）。経営診断以降は個別に設計します。数十万円から数百万円規模の投資判断になります。その妥当性を、診断の時点で判断できる状態にします。<strong>成果保証は行いません。</strong></p>
     </div>
     <div class="pledge">
       <h3>評価には、使いません。</h3>
@@ -606,7 +620,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
         <li><span class="n">4</span><p>人事評価に使わない設計になっているか。</p></li>
         <li><span class="n">5</span><p>契約終了時に、指標の定義と手順が資産として残るか。</p></li>
       </ul>
-      <p class="close">5つすべてで勝てるとは限りません。合わないと思われたら、そうお伝えください。</p>
+      <p class="close">この5つで比べていただければ十分です。</p>
     </div>
   </div>
 </section>
@@ -712,7 +726,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
     <div class="shead">
       <span class="eyebrow">09 ／ 自社事業</span>
       <h2>自分の事業で、先に動かしています。</h2>
-      <p class="lead">他社にお渡しする前に、自分で確かめるための場所です。</p>
+      <p class="lead">二つとも、運用中の事業です。試作ではありません。他社にお渡しするものは、まず自分の事業で動かしてから渡します。</p>
     </div>
     <div class="own">
       <article class="ow">
@@ -721,36 +735,12 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
       </article>
       <article class="ow">
         <span class="nm">面談解析基盤</span>
-        <p>人材紹介領域の面談を対象に、2026年8月時点で89件を解析。メンバー別に、進め方の差を同じ条件で並べられます。</p>
+        <p>人材紹介領域の面談を対象に、2026年8月時点で89件を解析。メンバー別に、進め方の差を同じ条件で並べられます。<strong>運用中です。</strong></p>
         <p class="metrics">会話スタイルの分類／話す比率と時間配分／質問量とオープンクエスチョン比率／話す速度／やりとりの往復度／頻出する言葉／フィードバックの記録とCSV出力。</p>
         <p class="fine">音声は御社側で保管し、解析後に削除します。当社では保存も学習もしません。</p>
       </article>
     </div>
 
-    <div class="ucase">
-      <span class="eyebrow">ユースケース ／ 現場体験の設計</span>
-      <h3>現場での体験を、続く形に設計する。</h3>
-      <p>「担当者しだいで体験が変わる」現場では、打ち手は接点そのものの設計になります。やりとりはLINEのまま、進み具合や変化を画面で返します。</p>
-      <div class="shots">
-        <figure class="shot">
-          <img src="/app/app-today.png" alt="今日の画面。コースの進み具合が3/6回、はじめてから91日目、折り返し地点に到着の表示。自分でつけた実感の点数の変化と、担当者からのメッセージ。" loading="lazy" width="675" height="1264">
-          <figcaption>今日<span>進み具合と、担当者からのひとこと</span></figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/app/app-blood.png" alt="検査結果の画面。検査項目からつくられたガイド。6つの指標をレーダーチャートで前回と比較。" loading="lazy" width="675" height="1156">
-          <figcaption>検査の可視化<span>前回と今を、重ねて見せる</span></figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/app/app-care.png" alt="記録の画面。はじめた日といちばん最近の状態を並べて比較する表示。" loading="lazy" width="675" height="1156">
-          <figcaption>経過の記録<span>はじめた日と、いまを並べる</span></figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="/app/app-learn.png" alt="学ぶ画面。1話3分のレッスン。全7話のうち4話完了の進捗表示。" loading="lazy" width="675" height="1157">
-          <figcaption>学ぶ<span>1話3分。理解が、納得に変わる</span></figcaption>
-        </figure>
-      </div>
-      <p class="note">自社で試作している画面の<strong>想定イメージ</strong>です。表示はサンプルデータで、納品事例ではありません。数値は医学的な診断ではありません。</p>
-    </div>
   </div>
 </section>
 
@@ -765,6 +755,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
         <div class="cgrid">
           <div>
             <p>課題が明確でない段階で構いません。現状を伺い、どこに改善余地がありそうかを1枚に整理してお返しします。どの数字がいくらの差になりうるか、金額の仮説まで入れます。</p>
+            <p style="margin-top:14px;">見立てのあとは、1拠点から試す／経営診断に進む／ここで終える、の3つから選べます。どれを選んでも、こちらから売り込みの連絡はしません。</p>
             <ul class="facts">
               <li><b>費用</b><span>無償</span></li>
               <li><b>所要</b><span>2時間程度</span></li>
@@ -802,7 +793,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <footer>
   <div class="wrap">
     <div class="fa">VITALITY <span style="opacity:.55">DESIGN</span></div>
-    <div class="fj">バイタリティデザイン合同会社<br>数字だけでも、現場だけでも、仕組みは動かない。</div>
+    <div class="fj">バイタリティデザイン合同会社<br>経営数字と現場の事実から、事業の課題を特定し、仕組みに変える会社です。</div>
     <div class="fl">
       <a href="/company.html">会社概要</a>
       <a href="/blog/">Field Notes</a>

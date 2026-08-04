@@ -347,7 +347,7 @@ footer .fb-base{margin-top:24px;font-family:var(--sans);font-size:12px;color:var
         <a class="dx-a" href="/#contact"><span>取材を受ける</span><span>→</span></a>
       </div>
       <form class="searchbar" role="search" onsubmit="return false;">
-        <input type="search" id="q" placeholder="記事を検索…" aria-label="記事を検索">
+        <input type="search" id="q" placeholder="記事を検索（例：予約 リマインド／厚労省通知）" aria-label="記事を検索">
         <button type="button" id="qbtn">検索</button>
       </form>
       <div class="activefilter" id="afilter" hidden></div>
@@ -783,11 +783,34 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const state={q:'',cat:'*',tag:''};
   let page=1;
 
+  // 検索対象は見出し・要約・主題タグ・方法に限る（著者名や読了時間は含めない）
+  const hay=new WeakMap();
+  function haystack(p){
+    if(hay.has(p)) return hay.get(p);
+    const t=[(p.querySelector('h2')||{textContent:''}).textContent,
+             (p.querySelector('p')||{textContent:''}).textContent,
+             (p.dataset.tags||'').split('|').join(' '),
+             p.dataset.cat||''].join(' ').toLowerCase();
+    hay.set(p,t);return t;
+  }
+  // 空白（半角・全角）区切りで分割し、すべて含む記事だけを残す
+  const terms=s=>s.trim().split(/[\s　]+/).filter(Boolean).map(x=>x.toLowerCase());
   function matches(p){
     if(state.cat!=='*' && (p.dataset.cat||'')!==state.cat) return false;
     if(state.tag){const tags=(p.dataset.tags||'').split('|');if(!tags.includes(state.tag)) return false;}
-    if(state.q){const t=(p.textContent+' '+(p.dataset.tags||'')).toLowerCase();if(!t.includes(state.q.toLowerCase())) return false;}
+    if(state.q){const h=haystack(p);if(!terms(state.q).every(t=>h.includes(t))) return false;}
     return true;
+  }
+  // 0件のときは主題から辿り直せるようにする
+  function showSuggestions(){
+    const tags=[...document.querySelectorAll('.side .tagb')].slice(0,14).map(b=>b.dataset.tag);
+    noresult.innerHTML='該当する記事が見つかりませんでした。主題から探せます。'+
+      '<div class="tagcloud" style="justify-content:center;margin-top:16px;">'+
+      tags.map(t=>'<button class="tagb" data-tag="'+t+'">'+t+'</button>').join('')+'</div>';
+    noresult.querySelectorAll('.tagb').forEach(b=>b.addEventListener('click',()=>{
+      state.q='';q.value='';state.tag=b.dataset.tag;state.cat='*';page=1;syncActive();render();
+      document.querySelector('.blogmain').scrollIntoView({behavior:'smooth'});
+    }));
   }
   function render(){
     const shown=posts.filter(matches);
@@ -796,6 +819,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     posts.forEach(p=>p.classList.add('hide'));
     shown.slice((page-1)*PER,page*PER).forEach(p=>p.classList.remove('hide'));
     noresult.hidden=shown.length>0;
+    if(!shown.length) showSuggestions();
     // pager
     pager.innerHTML='';
     if(shown.length>PER){

@@ -314,6 +314,17 @@ strong{color:var(--ink);font-weight:900;}
 .fdone h3{font-size:19px;}
 .fdone p{margin-top:12px;font-size:13.5px;}
 
+
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;margin-top:48px;border-top:1px solid rgba(255,255,255,0.9);}
+.pk{padding:28px 0 0;}
+.pk .pn{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:0.2em;color:var(--lime);}
+.pk h3{margin-top:12px;font-size:clamp(19px,2.4vw,25px);letter-spacing:-0.03em;}
+.pk p{margin-top:14px;font-size:14.5px;line-height:1.95;}
+.field.opt{border:0;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--line);}
+.field.opt legend{font-size:11.5px;font-weight:800;color:var(--ink-soft);letter-spacing:0.06em;margin-bottom:10px;}
+.field.opt label{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:var(--ink-soft);margin:0 0 8px;cursor:pointer;}
+.field.opt input{-webkit-appearance:radio;appearance:auto;width:15px;height:15px;min-width:0;flex:none;background:none;border:0;border-radius:0;padding:0;accent-color:var(--ink);margin:0;}
+
 /* footer */
 footer{padding:72px 0 52px;border-top:1px solid var(--line);}
 .fa{font-family:var(--sans);font-size:13px;font-weight:800;letter-spacing:0.22em;color:var(--ink);}
@@ -372,6 +383,10 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
   .facts li{grid-template-columns:66px 1fr;gap:12px;}
   .subhead{margin-top:40px;padding-top:26px;}
   .cgrid{margin-top:36px;}
+  .pick{grid-template-columns:1fr;gap:0;margin-top:34px;}
+  .pk{padding-top:22px;}
+  .pk+.pk{border-top:1px solid rgba(255,255,255,0.16);}
+  .pk p{font-size:14px;}
   .fcard{padding:28px 22px;}
   .field input,.field textarea{font-size:16px;}
   .n-en{font-size:13px;}
@@ -407,7 +422,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <a class="nv-opt" href="#nots">やらないこと</a>
     <a href="/blog/">Vitality Notes</a>
   </div>
-  <a href="#contact" class="nav-cta"><span class="cta-long">30分の診断を申し込む</span><span class="cta-short">診断を申し込む</span></a>
+  <a href="#contact" class="nav-cta"><span class="cta-long">診断・取材を受ける</span><span class="cta-short">申し込む</span></a>
 </nav>
 
 <!-- 01 HERO -->
@@ -687,32 +702,49 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <span class="folio" aria-hidden="true">09</span>
     <div class="shead">
       <span class="eyebrow rv">09 ／ CONTACT</span>
-      <h2 class="rv">30分の、<br>オンライン診断。</h2>
+      <h2 class="rv">診断を受けるか、<br>取材を受けるか。</h2>
+      <p class="lead rv">どちらも30分、無償です。<strong>課題がはっきりしている方には診断を、まだ言葉になっていない方には取材を用意しています。</strong></p>
+    </div>
+    <div class="pick rv">
+      <article class="pk">
+        <span class="pn">A</span>
+        <h3>診断を受ける</h3>
+        <p>いま抱えている課題を送ってください。どこに改善余地がありそうかを1枚に整理してお返しします。箇条書きだけで構いません。</p>
+      </article>
+      <article class="pk">
+        <span class="pn">B</span>
+        <h3>取材を受ける</h3>
+        <p>課題がまだ言葉にならない段階なら、こちらから聞きます。現場で何が起きているかを伺うこと自体が、私たちの仕事の入口です。<strong>記事にはしません。</strong></p>
+      </article>
     </div>
     <div class="cgrid rv">
       <div>
-        <p>課題が明確でない段階で構いません。<strong>現在抱えている課題の箇条書きだけでも構いません。</strong>代表が直接内容を拝見し、私たちがお役に立てるか（改善の余地があるか）をフラットにお伝えします。</p>
-        <p style="margin-top:18px;"><strong>売り込みは一切行いません。</strong>お引き受けできないと判断した場合は、その理由をお伝えします。</p>
+        <p>代表が直接内容を拝見し、私たちがお役に立てるか（改善の余地があるか）をフラットにお伝えします。<strong>売り込みは一切行いません。</strong>お引き受けできないと判断した場合は、その理由をお伝えします。</p>
         <ul class="facts">
-          <li><b>費用</b><span>無償</span></li>
+          <li><b>費用</b><span>診断・取材とも無償</span></li>
           <li><b>所要</b><span>30分（テキストのみでも可）</span></li>
           <li><b>日時</b><span>夜間または土日</span></li>
           <li><b>返信</b><span>代表が直接1〜3営業日以内に</span></li>
         </ul>
       </div>
       <div class="fcard" id="fcard">
-        <div class="fh">30分のオンライン診断を申し込む</div>
+        <div class="fh">30分の枠を申し込む</div>
         <div class="fs">入力は1分ほどです。</div>
         <form id="vdForm" novalidate>
-          <input type="hidden" name="_subject" value="【Webサイト】30分のオンライン診断ご希望">
+          <input type="hidden" name="_subject" value="【Webサイト】30分の枠のご希望">
           <div class="fstatus" id="vdError" role="alert"></div>
+          <fieldset class="field opt">
+            <legend>ご希望</legend>
+            <label><input type="radio" name="kind" value="診断を受ける"><span>診断を受ける</span></label>
+            <label><input type="radio" name="kind" value="取材を受ける"><span>取材を受ける</span></label>
+            <label><input type="radio" name="kind" value="どちらでもよい" checked><span>どちらでもよい</span></label>
+          </fieldset>
           <div class="field"><label for="v-name">お名前<span class="req">*</span></label><input type="text" id="v-name" name="name" autocomplete="name" required placeholder="山田 太郎"></div>
           <div class="field"><label for="v-company">会社名<span class="req">*</span></label><input type="text" id="v-company" name="company" autocomplete="organization" required placeholder="株式会社○○"></div>
           <div class="field"><label for="v-email">メールアドレス<span class="req">*</span></label><input type="email" id="v-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
-          <div class="field"><label for="v-ref">ご紹介者（任意）</label><input type="text" id="v-ref" name="referrer" placeholder="お名前、または知ったきっかけ"></div>
-          <div class="field"><label for="v-msg">現在抱えている課題<span class="req">*</span></label><textarea id="v-msg" name="message" required placeholder="箇条書きだけで構いません。"></textarea></div>
+          <div class="field"><label for="v-msg">いまの状況<span class="req">*</span></label><textarea id="v-msg" name="message" required placeholder="箇条書きだけで構いません。取材をご希望の場合は「取材希望」だけでも構いません。"></textarea></div>
           <button class="submit" type="submit" id="vdSubmit">この内容で送信する</button>
-          <p class="fnote">送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
+          <p class="fnote">フォームが面倒な場合は <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> へ直接どうぞ。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
         </form>
         <div class="fdone">
           <div class="ck" aria-hidden="true">✓</div>
@@ -775,7 +807,7 @@ function vdShow(m){vdErr.textContent=m;vdErr.style.display='block';}
 vdForm.addEventListener('submit',async(e)=>{
   e.preventDefault();vdErr.style.display='none';
   const name=vdForm.name.value.trim(),company=vdForm.company.value.trim(),email=vdForm.email.value.trim(),msg=vdForm.message.value.trim();
-  if(!name||!company||!email||!msg){vdShow('お名前・会社名・メールアドレス・現在抱えている課題は必須です。');return;}
+  if(!name||!company||!email||!msg){vdShow('お名前・会社名・メールアドレス・いまの状況は必須です。');return;}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){vdShow('メールアドレスの形式をご確認ください。');return;}
   vdBtn.disabled=true;vdBtn.textContent='送信中…';
   try{

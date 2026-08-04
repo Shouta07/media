@@ -45,6 +45,12 @@
     {
       "@type": "Organization",
       "@id": "https://www.vitality-design.jp/#org",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "houjinBangou",
+        "name": "法人番号",
+        "value": "1011003024109"
+      },
       "name": "バイタリティデザイン合同会社",
       "alternateName": "Vitality Design LLC",
       "url": "https://www.vitality-design.jp/",
@@ -333,7 +339,11 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
 .fl{display:flex;gap:24px;flex-wrap:wrap;margin-top:32px;}
 .fl a{font-size:12.5px;color:var(--ink-soft);}
 .fl a:hover{color:var(--green);}
-.fn{margin-top:34px;padding-top:22px;border-top:1px solid var(--line-soft);font-family:var(--sans);font-size:10.5px;letter-spacing:0.1em;color:var(--ink-mute);}
+.freg{display:grid;grid-template-columns:88px 1fr;gap:8px 20px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line-soft);font-size:12.5px;line-height:1.8;}
+.freg dt{color:var(--ink-mute);font-weight:500;}
+.freg dd{color:var(--ink-soft);}
+@media (max-width:700px){.freg{grid-template-columns:74px 1fr;gap:6px 14px;font-size:12px;}}
+.fn{margin-top:26px;padding-top:22px;border-top:1px solid var(--line-soft);font-family:var(--sans);font-size:10.5px;letter-spacing:0.1em;color:var(--ink-mute);}
 
 @media (max-width:1200px){.nv-opt{display:none;}}
 @media (max-width:1000px){
@@ -770,6 +780,10 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
       <a href="/terms.html">利用規約</a>
       <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a>
     </div>
+    <dl class="freg">
+      <dt>商号</dt><dd>バイタリティデザイン合同会社（Vitality Design LLC）</dd>
+      <dt>法人番号</dt><dd>1011003024109</dd>
+    </dl>
     <div class="fn">© 2026 Vitality Design LLC ・ vitality-design.jp</div>
   </div>
 </footer>

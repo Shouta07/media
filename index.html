@@ -772,7 +772,7 @@ function vdShow(m){vdErr.textContent=m;vdErr.style.display='block';}
 vdForm.addEventListener('submit',async(e)=>{
   e.preventDefault();vdErr.style.display='none';
   const name=vdForm.name.value.trim(),company=vdForm.company.value.trim(),email=vdForm.email.value.trim(),msg=vdForm.message.value.trim();
-  if(!name||!company||!email||!msg){vdShow('お名前・会社名・メールアドレス・現在の状況は必須です。');return;}
+  if(!name||!company||!email||!msg){vdShow('お名前・会社名・メールアドレス・いま気になっていることは必須です。');return;}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){vdShow('メールアドレスの形式をご確認ください。');return;}
   vdBtn.disabled=true;vdBtn.textContent='送信中…';
   try{

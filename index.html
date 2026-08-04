@@ -28,7 +28,7 @@
 <meta name="twitter:title" content="バイタリティデザイン合同会社｜記録されていない判断を、見える数字にする。">
 <meta name="twitter:description" content="売れた理由が、どこにも残っていない。記録されていない判断を、見える数字にする会社です。判断が変わるものだけを作ります。">
 <meta name="twitter:image" content="https://www.vitality-design.jp/og.png">
-<meta name="theme-color" content="#F5F2EA">
+<meta name="theme-color" content="#F6F7F4">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,219 +112,218 @@
 </script>
 <style>
 :root{
-  --paper:#F5F2EA;
-  --paper-2:#EFEBE1;
-  --paper-3:#E8E3D7;
-  --ink:#1B1B18;
-  --ink-soft:#4B4941;
-  --ink-mute:#8A8779;
-  --line:rgba(27,27,24,0.16);
-  --line-soft:rgba(27,27,24,0.08);
-  --accent:#2F4A3A;
-  --deep:#20261F;
-  --on-deep:rgba(245,242,234,0.76);
-  --on-deep-line:rgba(245,242,234,0.16);
-  --head:'Noto Sans JP','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic Medium',Meiryo,sans-serif;
-  --serif:'Newsreader',Georgia,serif;
-  --jp:'Noto Sans JP',sans-serif;
-  --sans:'Inter','Noto Sans JP',sans-serif;
+  --bg:#F6F7F4;--bg-2:#EDF0EA;--card:#FFFFFF;
+  --ink:#10130F;--ink-soft:#3C4239;--ink-faint:#6B7367;--ink-mute:#6B7367;
+  --line:rgba(16,19,15,0.10);--line-soft:rgba(16,19,15,0.06);
+  --green:#0B6E4F;--green-bright:#14B870;--lime:#9FE870;--night:#0C140F;
+  --grad:linear-gradient(120deg,#0B6E4F 0%,#0FA890 52%,#14B870 100%);
+  --serif:'Newsreader',Georgia,serif;--jp:'Noto Sans JP',sans-serif;--sans:'Inter','Noto Sans JP',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:var(--jp);font-size:16.5px;line-height:1.8;overflow-x:hidden;}
-::selection{background:var(--ink);color:var(--paper);}
+body{background:var(--bg);color:var(--ink);font-family:var(--jp);font-size:16px;line-height:1.8;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
 a{color:inherit;text-decoration:none;}
 section{position:relative;}
-section[id]{scroll-margin-top:88px;}
-.wrap{max-width:1080px;margin:0 auto;padding:0 56px;}
-.col{max-width:760px;}
-.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 20px;z-index:300;}
+section[id]{scroll-margin-top:86px;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 40px;}
+.col{max-width:800px;}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:var(--green);color:#fff;padding:12px 20px;font-size:13px;font-weight:700;border-radius:0 0 10px 0;}
 .skip-link:focus{left:0;}
 
-h1,h2,h3{font-family:var(--head);font-weight:700;letter-spacing:0.005em;color:var(--ink);}
-h2{font-size:clamp(26px,3.4vw,42px);line-height:1.52;}
-h3{font-size:19px;line-height:1.65;}
-p{font-size:16.5px;line-height:1.95;color:var(--ink-soft);}
+h1,h2,h3,h4{font-family:var(--jp);font-weight:900;letter-spacing:-0.01em;color:var(--ink);}
+h2{font-size:clamp(24px,3.2vw,38px);line-height:1.45;}
+h3{font-size:18px;line-height:1.55;font-weight:700;}
+p{font-size:15.5px;line-height:1.95;color:var(--ink-soft);}
 strong{color:var(--ink);font-weight:700;}
 
-.snum{display:block;font-family:var(--serif);font-size:12px;letter-spacing:0.24em;color:var(--ink-mute);margin-bottom:22px;}
-.klabel{display:block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink-mute);}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:0.14em;color:var(--green);margin-bottom:16px;}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--grad);border-radius:2px;flex:none;}
+.lead{margin-top:20px;font-size:15.5px;line-height:1.95;color:var(--ink-soft);}
+.lead strong{color:var(--ink);font-weight:700;}
+.close{margin-top:30px;font-size:clamp(16px,1.9vw,20px);font-weight:700;line-height:1.8;color:var(--ink);}
+.blob{position:absolute;border-radius:50%;filter:blur(78px);pointer-events:none;}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:26px;padding:18px 56px;background:rgba(245,242,234,0.94);border-bottom:1px solid var(--line-soft);}
-.nav-brand{display:flex;align-items:center;gap:12px;}
-.nav-mark{width:28px;height:28px;flex:none;}
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:16px 40px;background:rgba(246,247,244,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);}
+.nav-brand{display:flex;align-items:center;gap:11px;}
+.nav-mark{width:30px;height:30px;flex:none;}
 .nav-mark svg{width:100%;height:100%;display:block;}
-.nav-name{display:flex;flex-direction:column;line-height:1.3;}
-.n-en{font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-mute);}
-.n-jp{font-family:var(--head);font-size:13.5px;font-weight:700;letter-spacing:0.03em;color:var(--ink);}
-.nav-links{display:flex;gap:28px;}
-.nav-links a{font-size:13px;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;}
-.nav-links a:hover{border-bottom-color:var(--ink);}
-.nav-cta{font-size:12.5px;letter-spacing:0.03em;padding:12px 22px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);white-space:nowrap;}
-.nav-cta:hover{background:var(--accent);border-color:var(--accent);}
+.nav-name{display:flex;flex-direction:column;line-height:1.28;}
+.n-en{font-family:var(--sans);font-size:15px;font-weight:700;letter-spacing:0.01em;color:var(--ink);}
+.n-jp{font-family:var(--jp);font-size:10px;font-weight:500;color:var(--ink-mute);letter-spacing:0.04em;}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink-soft);}
+.nav-links a:hover{color:var(--green);}
+.nav-cta{font-family:var(--jp);font-size:12.5px;font-weight:700;letter-spacing:0.03em;padding:11px 22px;border-radius:99px;color:#fff;background:var(--ink);white-space:nowrap;transition:transform .35s,background .35s;}
+.nav-cta:hover{background:var(--green);transform:translateY(-2px);}
 .cta-short{display:none;}
 
-/* section frame */
-.sec{padding:120px 0;border-top:1px solid var(--line-soft);}
-.sec.tint{background:var(--paper-2);}
-.sec.dark{background:var(--deep);color:var(--paper);border-top:none;}
-.sec.dark h2,.sec.dark h3{color:var(--paper);}
-.sec.dark p{color:var(--on-deep);}
-.sec.dark .snum{color:rgba(245,242,234,0.5);}
-.sec.dark .klabel{color:rgba(245,242,234,0.5);}
-.sec.dark strong{color:var(--paper);}
-.lead{margin-top:28px;font-size:16.5px;line-height:1.95;}
-.close{margin-top:38px;font-family:var(--head);font-weight:700;font-size:clamp(17px,2vw,21px);line-height:1.85;color:var(--ink);}
-.sec.dark .close{color:var(--paper);}
-
 /* hero */
-.hero{padding:120px 0 108px;}
-.hero .kicker{font-size:13px;color:var(--ink-mute);letter-spacing:0.06em;margin-bottom:40px;padding-left:38px;position:relative;}
-.hero .kicker::before{content:"";position:absolute;left:0;top:11px;width:26px;height:1px;background:var(--ink-mute);}
-.hero h1{font-size:clamp(30px,4.4vw,54px);line-height:1.5;}
-.hero p{margin-top:40px;font-size:16.5px;line-height:2;}
+.hero{position:relative;overflow:hidden;padding:78px 0 66px;}
+.hero .b1{width:460px;height:460px;top:-200px;right:-100px;background:radial-gradient(circle,rgba(20,184,112,0.20),transparent 64%);}
+.hero .b2{width:340px;height:340px;bottom:-190px;left:-120px;background:radial-gradient(circle,rgba(11,110,79,0.13),transparent 66%);}
+.hero-in{position:relative;z-index:2;}
+.hero h1{font-size:clamp(30px,4.8vw,54px);line-height:1.32;letter-spacing:-0.025em;}
+.hero .sub{margin-top:18px;font-size:clamp(15px,2vw,19px);font-weight:700;color:var(--ink);line-height:1.7;}
+.hero .lead{max-width:740px;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.hero-meta span{font-size:11.5px;font-weight:600;color:var(--green);background:rgba(11,110,79,0.07);padding:6px 12px;border-radius:99px;}
 
-/* 02 symptoms */
-.sym{margin-top:44px;border-top:1px solid var(--line);}
-.sym li{list-style:none;padding:24px 0;border-bottom:1px solid var(--line-soft);font-size:16.5px;line-height:1.9;color:var(--ink);}
+/* section frame */
+.sec{padding:76px 0;}
+.sec.tint{background:var(--bg-2);}
+.shead{max-width:800px;}
 
-/* 03 cause */
-.struct{margin-top:40px;border-left:2px solid var(--accent);padding-left:26px;}
-.struct li{list-style:none;font-size:15.5px;line-height:1.95;color:var(--ink-soft);padding:7px 0;}
+/* 01 symptoms */
+.sym{display:grid;gap:12px;margin-top:34px;}
+.sym li{list-style:none;display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:18px 20px;}
+.sym .n{width:26px;height:26px;border-radius:8px;background:var(--grad);color:#fff;font-family:var(--sans);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;}
+.sym p{font-size:15px;line-height:1.8;color:var(--ink);}
 
-/* 04 approach */
-.viz{margin-top:44px;border-top:1px solid var(--line);}
-.viz-row{padding:26px 0;border-bottom:1px solid var(--line-soft);display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:baseline;}
-.viz-row b{font-size:16px;font-weight:700;color:var(--ink);}
-.viz-row span{font-size:14.5px;line-height:1.9;color:var(--ink-soft);}
-.fig{margin:52px 0 0;}
-.fig svg{width:100%;height:auto;display:block;max-width:720px;color:var(--ink);}
-.fig figcaption{margin-top:16px;font-size:13px;line-height:1.85;color:var(--ink-mute);}
+/* 02 cause */
+.struct{margin-top:30px;display:grid;gap:10px;max-width:720px;}
+.struct li{list-style:none;display:flex;gap:12px;align-items:baseline;font-size:15px;line-height:1.85;color:var(--ink-soft);}
+.struct li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green-bright);flex:none;transform:translateY(-1px);}
 
-/* 05 process */
-.steps{margin-top:44px;border-top:1px solid var(--line);}
-.step{display:grid;grid-template-columns:56px 1fr;gap:26px;padding:30px 0;border-bottom:1px solid var(--line-soft);}
-.step .n{font-family:var(--serif);font-size:13px;letter-spacing:0.18em;color:var(--ink-mute);padding-top:5px;}
-.step p{margin-top:10px;font-size:15.5px;line-height:1.95;}
+/* 03 approach */
+.viz{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;}
+.vz{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:24px 22px;}
+.vz b{display:block;font-size:15px;font-weight:700;color:var(--ink);line-height:1.6;}
+.vz span{display:block;margin-top:12px;font-size:13.5px;line-height:1.85;color:var(--ink-soft);}
+.fig{margin:34px 0 0;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:30px 28px 24px;}
+.fig svg{width:100%;height:auto;display:block;max-width:720px;margin:0 auto;color:var(--ink);}
+.fig figcaption{margin-top:18px;font-size:12.5px;line-height:1.8;color:var(--ink-faint);text-align:center;}
 
-/* 06 offer */
-.offer{margin-top:44px;border-top:1px solid var(--line);}
-.of{padding:34px 0;border-bottom:1px solid var(--line-soft);}
-.of .k{display:block;font-size:12.5px;color:var(--ink-mute);margin-bottom:10px;letter-spacing:0.04em;}
-.of p{margin-top:12px;font-size:15.5px;line-height:1.95;}
-.of.add{border-bottom:none;}
-.price{margin-top:34px;padding:26px 28px;background:var(--paper-3);}
-.price p{font-size:15px;line-height:1.95;color:var(--ink);}
+/* 04 process */
+.steps{display:grid;gap:12px;margin-top:34px;}
+.st{display:grid;grid-template-columns:30px 1fr;gap:16px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 24px;}
+.st .n{width:30px;height:30px;border-radius:9px;background:var(--grad);color:#fff;font-family:var(--sans);font-weight:800;font-size:12.5px;display:flex;align-items:center;justify-content:center;}
+.st p{margin-top:9px;font-size:14.5px;line-height:1.9;}
 
-/* 07 / 08 lists */
-.plain{margin-top:40px;border-top:1px solid var(--on-deep-line);}
-.plain li{list-style:none;padding:19px 0;border-bottom:1px solid rgba(245,242,234,0.09);font-size:16px;color:var(--paper);}
-.plain.light{border-top-color:var(--line);}
-.plain.light li{border-bottom-color:var(--line-soft);color:var(--ink);}
+/* 05 offer */
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;}
+.of{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;}
+.of .k{display:inline-block;align-self:flex-start;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:rgba(11,110,79,0.07);padding:4px 9px;border-radius:6px;margin-bottom:14px;}
+.of h3{font-size:17px;}
+.of p{margin-top:12px;font-size:14px;line-height:1.9;}
+.of.add{grid-column:1 / -1;background:var(--bg-2);border-color:var(--line);}
+.price{margin-top:16px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 24px;}
+.price p{font-size:14.5px;line-height:1.9;color:var(--ink);}
 
-/* 09 cases */
-.case{padding:38px 0;border-bottom:1px solid var(--line-soft);}
-.case:first-of-type{border-top:1px solid var(--line);}
-.case h3{margin-top:14px;font-size:18px;}
-.case .kv{margin-top:20px;display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:baseline;}
-.case .kv .k{font-size:12.5px;color:var(--ink-mute);}
-.case .kv p{font-size:15px;line-height:1.95;}
-.note{margin-top:36px;font-size:13px;line-height:1.9;color:var(--ink-mute);}
+/* dark blocks */
+.night{position:relative;overflow:hidden;background:var(--night);color:#fff;border-radius:20px;padding:52px 48px;}
+.night .b{width:520px;height:520px;top:-200px;right:-140px;background:radial-gradient(circle,rgba(20,184,112,0.22),transparent 64%);}
+.night-in{position:relative;z-index:2;}
+.night h2,.night h3{color:#fff;}
+.night .eyebrow{color:var(--lime);}
+.night p{color:rgba(255,255,255,0.74);}
+.night .close{color:#fff;}
+.night strong{color:#fff;}
+.night .fcard p{color:var(--ink-soft);}
+.night .fcard .fnote{color:var(--ink-faint);}
+.night .fcard strong{color:var(--ink);}
+.nlist{display:grid;gap:9px;margin-top:30px;max-width:640px;}
+.nlist li{list-style:none;display:flex;gap:12px;align-items:baseline;font-size:15px;line-height:1.8;color:#fff;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;}
+.nlist li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex:none;transform:translateY(-2px);}
 
-/* 10 founder */
-.fdr p + p{margin-top:22px;}
-.solo{margin-top:36px;padding-top:28px;border-top:1px solid var(--line);}
-.solo p{font-size:15.5px;}
-.marks{margin-top:32px;border-top:1px solid var(--line-soft);}
-.marks li{list-style:none;padding:14px 0;border-bottom:1px solid var(--line-soft);font-size:15px;color:var(--ink-soft);}
+/* 07 unfit */
+.ulist{display:grid;gap:10px;margin-top:30px;max-width:760px;}
+.ulist li{list-style:none;display:flex;gap:12px;align-items:baseline;font-size:15px;line-height:1.85;color:var(--ink);background:var(--card);border:1px solid var(--line-soft);border-radius:12px;padding:14px 18px;}
+.ulist li::before{content:"";width:12px;height:2px;border-radius:2px;background:var(--ink-mute);flex:none;transform:translateY(-4px);}
 
-/* 11 own */
-.own{margin-top:44px;border-top:1px solid var(--line);}
-.own-row{padding:28px 0;border-bottom:1px solid var(--line-soft);display:grid;grid-template-columns:200px 1fr;gap:30px;align-items:baseline;}
-.own-row .nm{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);line-height:1.5;}
-.own-row .nm a{border-bottom:1px solid var(--line);}
-.own-row .sub{display:block;font-size:12px;font-weight:400;color:var(--ink-mute);margin-top:4px;}
-.own-row p{font-size:15px;line-height:1.95;}
+/* 08 cases */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px;}
+.cs{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:26px 24px;}
+.cs .tag{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:rgba(11,110,79,0.07);padding:4px 9px;border-radius:6px;}
+.cs h3{margin-top:13px;font-size:17px;line-height:1.6;}
+.cs dl{margin-top:16px;}
+.cs dt{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:0.08em;color:var(--ink-faint);margin-top:14px;}
+.cs dd{margin-top:6px;font-size:14px;line-height:1.9;color:var(--ink-soft);}
+.note{margin-top:22px;font-size:12.5px;line-height:1.85;color:var(--ink-faint);}
 
-/* 12 contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:44px;}
-.facts{border-top:1px solid var(--on-deep-line);}
-.facts li{list-style:none;display:grid;grid-template-columns:78px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid rgba(245,242,234,0.09);font-size:14.5px;color:var(--paper);}
-.facts li b{font-weight:400;color:rgba(245,242,234,0.55);}
-.fcard{background:var(--paper);padding:38px 36px;}
-.fcard .fh{font-family:var(--head);font-weight:700;font-size:19px;color:var(--ink);}
-.fcard .fs{margin:8px 0 26px;font-size:13px;color:var(--ink-mute);line-height:1.85;}
-.field{margin-bottom:18px;display:flex;flex-direction:column;}
-.field label{font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;letter-spacing:0.03em;}
-.field .req{color:#9A3B26;margin-left:4px;}
-.field input,.field textarea{width:100%;min-width:0;font-family:var(--jp);font-size:15px;color:var(--ink);background:#FFFDF8;border:1px solid var(--line);padding:13px 14px;outline:none;transition:border-color .3s ease;}
-.field input:focus,.field textarea:focus{border-color:var(--accent);}
-.field textarea{min-height:110px;resize:vertical;line-height:1.85;}
-.submit{width:100%;margin-top:6px;padding:19px 24px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-family:var(--jp);font-size:15px;letter-spacing:0.03em;cursor:pointer;transition:background .3s ease,border-color .3s ease;}
-.submit:hover{background:var(--accent);border-color:var(--accent);}
-.fnote{margin-top:14px;font-size:11.5px;line-height:1.85;color:var(--ink-mute);}
-.fnote a{border-bottom:1px solid var(--line);}
-.fstatus{display:none;padding:12px 15px;font-size:13px;margin-bottom:16px;background:#F6E7E3;color:#7A2E1E;}
-.fdone{display:none;padding:40px 0;text-align:center;}
+/* 09 founder */
+.fdr{display:grid;grid-template-columns:1.05fr 0.95fr;gap:32px;align-items:start;margin-top:34px;}
+.fdr p + p{margin-top:18px;}
+.mcard{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:24px 24px;}
+.mcard .h{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);}
+.mcard ul{margin-top:14px;display:grid;gap:9px;}
+.mcard li{list-style:none;display:flex;gap:11px;align-items:baseline;font-size:14px;line-height:1.8;color:var(--ink-soft);}
+.mcard li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex:none;transform:translateY(-1px);}
+.mcard .solo{margin-top:20px;padding-top:18px;border-top:1px solid var(--line-soft);font-size:14px;line-height:1.9;color:var(--ink-soft);}
+
+/* 10 own */
+.own{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px;}
+.ow{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:26px 24px;}
+.ow .nm{font-family:var(--sans);font-size:16px;font-weight:700;color:var(--ink);}
+.ow .nm a:hover{color:var(--green);}
+.ow .sub{display:block;font-family:var(--jp);font-size:11.5px;font-weight:500;color:var(--ink-faint);margin-top:4px;}
+.ow p{margin-top:14px;font-size:14px;line-height:1.9;}
+
+/* 11 contact */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;margin-top:32px;}
+.facts{display:grid;gap:8px;margin-top:24px;}
+.facts li{list-style:none;display:grid;grid-template-columns:74px 1fr;gap:14px;font-size:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:12px 16px;color:#fff;}
+.facts li b{font-weight:500;color:rgba(255,255,255,0.55);}
+.fcard{background:var(--card);border-radius:18px;padding:32px 30px;}
+.fcard .fh{font-size:18px;font-weight:900;color:var(--ink);}
+.fcard .fs{margin:8px 0 22px;font-size:12.5px;line-height:1.8;color:var(--ink-faint);}
+.field{margin-bottom:15px;display:flex;flex-direction:column;}
+.field label{font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:7px;letter-spacing:0.02em;}
+.field .req{color:#B4553F;margin-left:4px;}
+.field input,.field textarea{width:100%;min-width:0;-webkit-appearance:none;appearance:none;font-family:var(--jp);font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 16px;outline:none;transition:border-color .25s;}
+.field input:focus,.field textarea:focus{border-color:var(--green-bright);}
+.field textarea{min-height:104px;resize:vertical;line-height:1.85;}
+.submit{width:100%;margin-top:6px;padding:16px 24px;border:none;border-radius:99px;background:var(--ink);color:#fff;font-family:var(--jp);font-size:14.5px;font-weight:700;letter-spacing:0.02em;cursor:pointer;transition:background .3s,transform .3s;}
+.submit:hover{background:var(--green);transform:translateY(-2px);}
+.fnote{margin-top:13px;font-size:11px;line-height:1.8;color:var(--ink-faint);}
+.fnote a{color:var(--green);border-bottom:1px solid rgba(11,110,79,0.35);}
+.fstatus{display:none;padding:11px 15px;font-size:13px;margin-bottom:14px;border-radius:10px;background:rgba(180,85,63,0.07);border:1px solid rgba(180,85,63,0.25);color:#8A3A28;}
+.fdone{display:none;padding:36px 0;text-align:center;}
 .fcard.sent form,.fcard.sent .fh,.fcard.sent .fs{display:none;}
 .fcard.sent .fdone{display:block;}
-.fdone h3{font-size:19px;}
-.fdone p{margin-top:12px;font-size:14px;}
+.fdone .ck{width:44px;height:44px;margin:0 auto 16px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;}
+.fdone h3{font-size:18px;}
+.fdone p{margin-top:10px;font-size:13.5px;}
 
 /* footer */
-footer{background:var(--paper);padding:70px 0 46px;border-top:1px solid var(--line-soft);}
-.fa{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);}
-.fj{margin-top:14px;font-size:13px;line-height:1.95;color:var(--ink-mute);}
-.fl{display:flex;gap:26px;flex-wrap:wrap;margin-top:32px;}
-.fl a{font-size:13.5px;color:var(--ink-soft);}
-.fl a:hover{color:var(--ink);}
-.fn{margin-top:36px;padding-top:22px;border-top:1px solid var(--line-soft);font-family:var(--sans);font-size:10.5px;letter-spacing:0.1em;color:var(--ink-mute);}
+footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
+.fa{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:0.16em;color:var(--ink);}
+.fj{margin-top:12px;font-size:12.5px;line-height:1.9;color:var(--ink-faint);}
+.fl{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;}
+.fl a{font-size:13px;color:var(--ink-soft);}
+.fl a:hover{color:var(--green);}
+.fn{margin-top:28px;padding-top:20px;border-top:1px solid var(--line-soft);font-family:var(--sans);font-size:11px;letter-spacing:0.06em;color:var(--ink-mute);}
 
 @media (max-width:1000px){
   .nav-links{display:none;}
-  .viz-row{grid-template-columns:1fr;gap:8px;}
-  .own-row{grid-template-columns:1fr;gap:10px;}
-  .contact-grid{grid-template-columns:1fr;gap:40px;}
+  .viz,.offers,.cases,.own{grid-template-columns:1fr;}
+  .of.add{grid-column:auto;}
+  .fdr,.cgrid{grid-template-columns:1fr;gap:24px;}
 }
 @media (max-width:700px){
-  body{font-size:16px;}
-  .wrap{padding:0 24px;}
-  .nav{padding:15px 24px;}
-  .n-jp{font-size:12px;white-space:nowrap;}
-  .n-en{font-size:8.5px;letter-spacing:0.16em;}
-  .nav-mark{width:24px;height:24px;}
-  .nav-cta{font-size:11.5px;padding:11px 12px;}
+  .wrap{padding:0 20px;}
+  .nav{padding:13px 20px;gap:12px;}
+  .nav-brand{min-width:0;gap:9px;}
+  .nav-mark{width:26px;height:26px;}
+  .n-en{font-size:13.5px;}
+  .n-jp{font-size:9px;white-space:nowrap;}
+  .nav-cta{font-size:11.5px;padding:10px 15px;}
   .cta-long{display:none;}
   .cta-short{display:inline;}
-  .nav{gap:12px;}
-  .nav-brand{min-width:0;gap:9px;}
-  section[id]{scroll-margin-top:70px;}
-  .hero{padding:64px 0 62px;}
-  .hero .kicker{margin-bottom:26px;font-size:12px;padding-left:30px;}
-  .hero .kicker::before{width:20px;}
-  .hero h1{line-height:1.58;}
-  .hero p{margin-top:28px;font-size:16px;line-height:1.95;}
-  .sec{padding:70px 0;}
-  .lead{margin-top:22px;font-size:16px;}
-  .close{margin-top:30px;line-height:1.8;}
-  p{font-size:16px;}
-  .sym{margin-top:32px;}
-  .sym li{padding:19px 0;font-size:15.5px;line-height:1.85;}
-  .struct{padding-left:20px;margin-top:30px;}
-  .viz,.steps,.offer,.own{margin-top:32px;}
-  .step{grid-template-columns:1fr;gap:8px;padding:24px 0;}
-  .step .n{padding-top:0;}
-  .price{padding:22px 20px;}
-  .case .kv{grid-template-columns:1fr;gap:8px;}
-  .fcard{padding:30px 22px;}
+  section[id]{scroll-margin-top:68px;}
+  .hero{padding:44px 0 46px;}
+  .hero h1{line-height:1.42;}
+  .sec{padding:52px 0;}
+  .night{padding:34px 22px;border-radius:16px;}
+  .fig{padding:22px 16px 18px;}
+  .sym li,.st{padding:16px 16px;}
+  .facts li{grid-template-columns:64px 1fr;gap:10px;}
+  .fcard{padding:26px 20px;border-radius:16px;}
   .field input,.field textarea{font-size:16px;}
-  .facts li{grid-template-columns:70px 1fr;gap:12px;}
-  .fl{gap:18px;}
 }
-@media (max-width:400px){
+@media (max-width:380px){
   .n-jp{display:none;}
-  .n-en{font-size:10px;letter-spacing:0.14em;}
 }
 </style>
 </head>
@@ -335,8 +334,8 @@ footer{background:var(--paper);padding:70px 0 46px;border-top:1px solid var(--li
   <a href="/" class="nav-brand" aria-label="バイタリティデザイン合同会社 ホーム">
     <span class="nav-mark">
       <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
-        <circle cx="22" cy="22" r="17" stroke="#1B1B18" stroke-width="2"/>
-        <path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="#2F4A3A" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <circle cx="22" cy="22" r="17" stroke="#10130F" stroke-width="2"/>
+        <path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="#14B870" stroke-width="2.6" fill="none" stroke-linecap="round"/>
       </svg>
     </span>
     <span class="nav-name"><span class="n-en">Vitality Design</span><span class="n-jp">バイタリティデザイン合同会社</span></span>
@@ -346,17 +345,24 @@ footer{background:var(--paper);padding:70px 0 46px;border-top:1px solid var(--li
     <a href="#process">進め方</a>
     <a href="#offer">提供するもの</a>
     <a href="#nots">やらないこと</a>
+    <a href="/blog/">Field Notes</a>
   </div>
   <a href="#contact" class="nav-cta"><span class="cta-long">1枚の見立てを受け取る</span><span class="cta-short">見立てを受け取る</span></a>
 </nav>
 
 <!-- 01 HERO -->
 <section class="hero" id="top">
-  <div class="wrap">
-    <div class="col">
-      <p class="kicker">記録されていない判断を、見える数字にする。</p>
-      <h1>売れた理由が、<br>どこにも残っていない。</h1>
-      <p>売上をつくっているのは、人の判断と会話です。どの担当者が何を説明したのか。どの発注先を、なぜ選んだのか。どの店長が、何を変えたのか。そのどれもが記録されていません。残っていないものは比べられず、比べられないものは説明できない。伸びた理由も、伸びなかった理由も、そこで途切れます。</p>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">VITALITY DESIGN</span>
+    <h1>売れた理由が、<br>どこにも残っていない。</h1>
+    <p class="sub">記録されていない判断を、見える数字にする。</p>
+    <p class="lead">売上をつくっているのは、人の判断と会話です。どの担当者が何を説明したのか。どの発注先を、なぜ選んだのか。どの店長が、何を変えたのか。そのどれもが記録されていません。残っていないものは比べられず、比べられないものは説明できない。伸びた理由も、伸びなかった理由も、そこで途切れます。</p>
+    <div class="hero-meta">
+      <span>経営診断（4週・固定期間）</span>
+      <span>可視化ソリューションの構築</span>
+      <span>月次の判断</span>
     </div>
   </div>
 </section>
@@ -364,27 +370,27 @@ footer{background:var(--paper);padding:70px 0 46px;border-top:1px solid var(--li
 <!-- 02 SYMPTOMS -->
 <section class="sec tint" id="symptoms">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">01</span>
+    <div class="shead">
+      <span class="eyebrow">01 ／ 経営者が抱える課題</span>
       <h2>この状態に、<br>見覚えがありますか。</h2>
       <p class="lead">業種は違っても、経営者から出てくる言葉はよく似ています。並べてみると、同じ形をしています。</p>
-      <ul class="sym">
-        <li>「A院とB院で同じことをやっているはずなのに、なぜ数字が違うのか分からない」</li>
-        <li>「カウンセラーによって成約率が違う。その理由を説明できない」</li>
-        <li>「あいつが辞めたら、どこに頼めばいいか分かる人間がいなくなる」</li>
-        <li>「見積もった原価と、実際の原価が合わない。どこでずれたのか追えない」</li>
-        <li>「出店したいが、任せられる人がいない。店長の育て方が人によって違う」</li>
-      </ul>
-      <p class="close">どれも、打ち手が足りないのではありません。どこが詰まっているかが、特定できていない状態です。</p>
     </div>
+    <ul class="sym">
+      <li><span class="n">1</span><p>「A院とB院で同じことをやっているはずなのに、なぜ数字が違うのか分からない」</p></li>
+      <li><span class="n">2</span><p>「カウンセラーによって成約率が違う。その理由を説明できない」</p></li>
+      <li><span class="n">3</span><p>「あいつが辞めたら、どこに頼めばいいか分かる人間がいなくなる」</p></li>
+      <li><span class="n">4</span><p>「見積もった原価と、実際の原価が合わない。どこでずれたのか追えない」</p></li>
+      <li><span class="n">5</span><p>「出店したいが、任せられる人がいない。店長の育て方が人によって違う」</p></li>
+    </ul>
+    <p class="close">どれも、打ち手が足りないのではありません。どこが詰まっているかが、特定できていない状態です。</p>
   </div>
 </section>
 
 <!-- 03 CAUSE -->
 <section class="sec" id="cause">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">02</span>
+    <div class="shead">
+      <span class="eyebrow">02 ／ 問題の構造</span>
       <h2>売上を決めているのは、<br>記録されていない会話です。</h2>
       <p class="lead">数字が出るのは、契約のあとです。契約を決めたのは、その手前の説明であり、選定であり、指導でした。そこは人の判断と会話でできていて、どこにも残りません。分院ごとの差も、発注先の当たり外れも、店舗ごとの継続率の違いも、原因は同じ一点にあります。良し悪しの問題ではなく、確かめる材料がないという問題です。</p>
       <ul class="struct">
@@ -399,79 +405,64 @@ footer{background:var(--paper);padding:70px 0 46px;border-top:1px solid var(--li
 <!-- 04 APPROACH -->
 <section class="sec tint" id="approach">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">03</span>
+    <div class="shead">
+      <span class="eyebrow">03 ／ 解き方</span>
       <h2>判断が変わるものだけを、<br>数字にします。</h2>
       <p class="lead">ダッシュボードを作る会社ではありません。見て終わる数字は作りません。作るのは、見たあとに誰かの判断が変わるものだけです。何を数字にすべきかは、事業ごとに違います。だから、作る前に決めます。</p>
-      <div class="viz">
-        <div class="viz-row"><b>説明した内容と、決まったかどうか</b><span>担当者ごと・拠点ごとに、同じ条件で比べられる形に。</span></div>
-        <div class="viz-row"><b>発注先ごとの、見積と実原価の差</b><span>次に誰へ頼むかを、勘ではなく履歴で決められる形に。</span></div>
-        <div class="viz-row"><b>店舗ごとの継続率と粗利</b><span>何をした店舗が続いているかを、後から追える形に。</span></div>
-      </div>
-      <p class="close">いずれも、一枚で意思決定できる粒度まで削ります。項目を増やすほど、見られなくなります。</p>
-      <figure class="fig">
-        <svg viewBox="0 0 720 250" role="img" aria-label="左側は記録がなく点線で途切れた3本の行、右側は同じ3本の行に印が揃い、縦の基準線で並べて比較できる状態を示した線画。">
-          <g fill="none" stroke="currentColor" stroke-width="1">
-            <text x="0" y="20" font-size="11" fill="currentColor" stroke="none" opacity="0.55" letter-spacing="2">いま</text>
-            <text x="420" y="20" font-size="11" fill="currentColor" stroke="none" opacity="0.55" letter-spacing="2">設計後</text>
-            <g opacity="0.45" stroke-dasharray="4 5">
-              <line x1="0" y1="70" x2="300" y2="70"/>
-              <line x1="0" y1="130" x2="300" y2="130"/>
-              <line x1="0" y1="190" x2="300" y2="190"/>
-            </g>
-            <g opacity="0.32">
-              <line x1="46" y1="62" x2="46" y2="78"/><line x1="150" y1="122" x2="150" y2="138"/><line x1="238" y1="182" x2="238" y2="198"/>
-            </g>
-            <g opacity="0.45"><path d="M330 130 L378 130 M366 122 L378 130 L366 138"/></g>
-            <g>
-              <line x1="420" y1="70" x2="720" y2="70"/>
-              <line x1="420" y1="130" x2="720" y2="130"/>
-              <line x1="420" y1="190" x2="720" y2="190"/>
-              <g stroke-width="1.6">
-                <line x1="466" y1="62" x2="466" y2="78"/><line x1="536" y1="62" x2="536" y2="78"/><line x1="606" y1="62" x2="606" y2="78"/><line x1="676" y1="62" x2="676" y2="78"/>
-                <line x1="466" y1="122" x2="466" y2="138"/><line x1="536" y1="122" x2="536" y2="138"/><line x1="606" y1="122" x2="606" y2="138"/><line x1="676" y1="122" x2="676" y2="138"/>
-                <line x1="466" y1="182" x2="466" y2="198"/><line x1="536" y1="182" x2="536" y2="198"/><line x1="606" y1="182" x2="606" y2="198"/><line x1="676" y1="182" x2="676" y2="198"/>
-              </g>
-              <line x1="606" y1="46" x2="606" y2="214" stroke-dasharray="3 4" opacity="0.55"/>
-              <text x="606" y="236" font-size="10.5" fill="currentColor" stroke="none" opacity="0.55" text-anchor="middle">同じ条件で並べて比べる</text>
-            </g>
-          </g>
-        </svg>
-        <figcaption>記録がなければ、拠点も担当者も並べて比べられません。並べられる形にすることが、可視化の目的です。</figcaption>
-      </figure>
     </div>
+    <div class="viz">
+      <div class="vz"><b>説明した内容と、<br>決まったかどうか</b><span>担当者ごと・拠点ごとに、同じ条件で比べられる形に。</span></div>
+      <div class="vz"><b>発注先ごとの、<br>見積と実原価の差</b><span>次に誰へ頼むかを、勘ではなく履歴で決められる形に。</span></div>
+      <div class="vz"><b>店舗ごとの<br>継続率と粗利</b><span>何をした店舗が続いているかを、後から追える形に。</span></div>
+    </div>
+    <figure class="fig">
+      <svg viewBox="0 0 720 250" role="img" aria-label="左側は記録がなく点線で途切れた3本の行、右側は同じ3本の行に印が揃い、縦の基準線で並べて比較できる状態を示した線画。">
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          <text x="0" y="20" font-size="11" fill="currentColor" stroke="none" opacity="0.5" letter-spacing="2">いま</text>
+          <text x="420" y="20" font-size="11" fill="currentColor" stroke="none" opacity="0.5" letter-spacing="2">設計後</text>
+          <g opacity="0.4" stroke-dasharray="4 5">
+            <line x1="0" y1="70" x2="300" y2="70"/>
+            <line x1="0" y1="130" x2="300" y2="130"/>
+            <line x1="0" y1="190" x2="300" y2="190"/>
+          </g>
+          <g opacity="0.3">
+            <line x1="46" y1="62" x2="46" y2="78"/><line x1="150" y1="122" x2="150" y2="138"/><line x1="238" y1="182" x2="238" y2="198"/>
+          </g>
+          <g opacity="0.4"><path d="M330 130 L378 130 M366 122 L378 130 L366 138"/></g>
+          <g>
+            <line x1="420" y1="70" x2="720" y2="70"/>
+            <line x1="420" y1="130" x2="720" y2="130"/>
+            <line x1="420" y1="190" x2="720" y2="190"/>
+            <g stroke="#0B6E4F" stroke-width="1.8">
+              <line x1="466" y1="62" x2="466" y2="78"/><line x1="536" y1="62" x2="536" y2="78"/><line x1="606" y1="62" x2="606" y2="78"/><line x1="676" y1="62" x2="676" y2="78"/>
+              <line x1="466" y1="122" x2="466" y2="138"/><line x1="536" y1="122" x2="536" y2="138"/><line x1="606" y1="122" x2="606" y2="138"/><line x1="676" y1="122" x2="676" y2="138"/>
+              <line x1="466" y1="182" x2="466" y2="198"/><line x1="536" y1="182" x2="536" y2="198"/><line x1="606" y1="182" x2="606" y2="198"/><line x1="676" y1="182" x2="676" y2="198"/>
+            </g>
+            <line x1="606" y1="46" x2="606" y2="214" stroke="#14B870" stroke-dasharray="3 4" opacity="0.8"/>
+            <text x="606" y="236" font-size="10.5" fill="#0B6E4F" stroke="none" text-anchor="middle">同じ条件で並べて比べる</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>記録がなければ、拠点も担当者も並べて比べられません。並べられる形にすることが、可視化の目的です。</figcaption>
+    </figure>
+    <p class="close">いずれも、一枚で意思決定できる粒度まで削ります。項目を増やすほど、見られなくなります。</p>
   </div>
 </section>
 
 <!-- 05 PROCESS -->
 <section class="sec" id="process">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">04</span>
+    <div class="shead">
+      <span class="eyebrow">04 ／ 進め方</span>
       <h2>現場は、記録で読む。</h2>
       <p class="lead">立ち会って見た現場は、見られている現場です。普段どおりではありません。私たちは、すでに残っている記録から読みます。記録が残っていない工程があれば、それ自体が最初の発見です。</p>
-      <div class="steps">
-        <div class="step">
-          <span class="n">01</span>
-          <div><h3>現場を記録で読む</h3><p>すでに残っている作業記録・入力ログ・音声・映像から、実際の動きを読みます。立ち会いはしません。</p></div>
-        </div>
-        <div class="step">
-          <span class="n">02</span>
-          <div><h3>経営数字と突き合わせる</h3><p>PL、粗利、リードタイム、決定率。現場で見えた動きと、数字のどこが噛み合っていないかを確かめます。</p></div>
-        </div>
-        <div class="step">
-          <span class="n">03</span>
-          <div><h3>詰まっている一点を定める</h3><p>複数は挙げません。根拠とともに、一点に絞ります。</p></div>
-        </div>
-        <div class="step">
-          <span class="n">04</span>
-          <div><h3>打ち手を設計し、発注先と条件まで決める</h3><p>誰に頼めばよいかの判断は、経営者がいちばん外しやすい場所です。発注先と条件まで決めます。</p></div>
-        </div>
-        <div class="step">
-          <span class="n">05</span>
-          <div><h3>使われる状態を、設計で担保する</h3><p>人が見張らないと守られない手順は、手順の設計のほうが間違っています。見張らなくても残る形にします。</p></div>
-        </div>
-      </div>
+    </div>
+    <div class="steps">
+      <div class="st"><span class="n">01</span><div><h3>現場を記録で読む</h3><p>すでに残っている作業記録・入力ログ・音声・映像から、実際の動きを読みます。立ち会いはしません。</p></div></div>
+      <div class="st"><span class="n">02</span><div><h3>経営数字と突き合わせる</h3><p>PL、粗利、リードタイム、決定率。現場で見えた動きと、数字のどこが噛み合っていないかを確かめます。</p></div></div>
+      <div class="st"><span class="n">03</span><div><h3>詰まっている一点を定める</h3><p>複数は挙げません。根拠とともに、一点に絞ります。</p></div></div>
+      <div class="st"><span class="n">04</span><div><h3>打ち手を設計し、発注先と条件まで決める</h3><p>誰に頼めばよいかの判断は、経営者がいちばん外しやすい場所です。発注先と条件まで決めます。</p></div></div>
+      <div class="st"><span class="n">05</span><div><h3>使われる状態を、設計で担保する</h3><p>人が見張らないと守られない手順は、手順の設計のほうが間違っています。見張らなくても残る形にします。</p></div></div>
     </div>
   </div>
 </section>
@@ -479,176 +470,198 @@ footer{background:var(--paper);padding:70px 0 46px;border-top:1px solid var(--li
 <!-- 06 OFFER -->
 <section class="sec tint" id="offer">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">05</span>
+    <div class="shead">
+      <span class="eyebrow">05 ／ 提供するもの</span>
       <h2>診る。作る。<br>追い続ける。</h2>
       <p class="lead">順番があります。何を数字にすべきかが決まる前には、作りません。</p>
-      <div class="offer">
-        <div class="of">
-          <span class="k">経営診断｜4週・固定期間</span>
-          <h3>何を数字にすべきかを、特定する</h3>
-          <p>実装仕様まで出します。診断だけで終える判断も含みます。仕様は御社の資産です。他社に持ち込んでいただいて構いません。</p>
-        </div>
-        <div class="of">
-          <span class="k">可視化ソリューションの構築</span>
-          <h3>作れば動き続ける資産として納める</h3>
-          <p>人の運用に依存しない形にします。誰かが入力し続けなければ止まるものは、資産になりません。</p>
-        </div>
-        <div class="of">
-          <span class="k">月次の判断｜継続</span>
-          <h3>数字のズレを追い、次の一手を決める</h3>
-          <p>月に一度、2時間。それ以外の時間は取りません。</p>
-        </div>
-        <div class="of add">
-          <span class="k">加えて</span>
-          <h3>発注・調達判断の設計</h3>
-          <p>誰に、どの条件で頼むか。改善した分に連動する形でお引き受けすることがあります。</p>
-        </div>
-      </div>
-      <div class="price">
-        <p>費用は個別に設計します。数十万円から数百万円規模の投資判断になります。金額の妥当性そのものを、診断の時点で判断できる状態にします。<strong>成果保証は行いません。</strong></p>
-      </div>
+    </div>
+    <div class="offers">
+      <article class="of">
+        <span class="k">経営診断｜4週・固定期間</span>
+        <h3>何を数字にすべきかを、特定する</h3>
+        <p>実装仕様まで出します。診断だけで終える判断も含みます。仕様は御社の資産です。他社に持ち込んでいただいて構いません。</p>
+      </article>
+      <article class="of">
+        <span class="k">可視化ソリューションの構築</span>
+        <h3>作れば動き続ける資産として納める</h3>
+        <p>人の運用に依存しない形にします。誰かが入力し続けなければ止まるものは、資産になりません。</p>
+      </article>
+      <article class="of">
+        <span class="k">月次の判断｜継続</span>
+        <h3>数字のズレを追い、次の一手を決める</h3>
+        <p>月に一度、2時間。それ以外の時間は取りません。</p>
+      </article>
+      <article class="of add">
+        <span class="k">加えて</span>
+        <h3>発注・調達判断の設計</h3>
+        <p>誰に、どの条件で頼むか。改善した分に連動する形でお引き受けすることがあります。</p>
+      </article>
+    </div>
+    <div class="price">
+      <p>費用は個別に設計します。数十万円から数百万円規模の投資判断になります。金額の妥当性そのものを、診断の時点で判断できる状態にします。<strong>成果保証は行いません。</strong></p>
     </div>
   </div>
 </section>
 
 <!-- 07 WHAT WE DON'T DO -->
-<section class="sec dark" id="nots">
+<section class="sec" id="nots">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">06</span>
-      <h2>やらないことを、<br>先に決めています。</h2>
-      <p class="lead">現場を持つ会社ほど、日中に会議の時間はありません。人を集めて時間を合わせること自体が、現場を止めます。決めるべきことは、月に一度2時間で足ります。それ以外は、文字と記録で進めます。やりとりは非同期を基本とします。</p>
-      <ul class="plain">
-        <li>現場への常駐、日中の会議</li>
-        <li>営業の代行、商談への同席</li>
-        <li>随時対応、時間を拘束する形の請負</li>
-        <li>人を貼って現場を回す運用の受託</li>
-        <li>大手の下請け、稟議で決まる案件</li>
-      </ul>
-      <p class="close">人が張り付いて回っている状態は、仕組みが未完成だという意味です。私たちが張り付かないのは、張り付かなくても回る形をつくるためです。</p>
+    <div class="night">
+      <div class="blob b" aria-hidden="true"></div>
+      <div class="night-in col">
+        <span class="eyebrow">06 ／ やらないこと</span>
+        <h2>やらないことを、<br>先に決めています。</h2>
+        <p class="lead">現場を持つ会社ほど、日中に会議の時間はありません。人を集めて時間を合わせること自体が、現場を止めます。決めるべきことは、月に一度2時間で足ります。それ以外は、文字と記録で進めます。やりとりは非同期を基本とします。</p>
+        <ul class="nlist">
+          <li>現場への常駐、日中の会議</li>
+          <li>営業の代行、商談への同席</li>
+          <li>随時対応、時間を拘束する形の請負</li>
+          <li>人を貼って現場を回す運用の受託</li>
+          <li>大手の下請け、稟議で決まる案件</li>
+        </ul>
+        <p class="close">人が張り付いて回っている状態は、仕組みが未完成だという意味です。私たちが張り付かないのは、張り付かなくても回る形をつくるためです。</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 08 UNFIT -->
-<section class="sec" id="unfit">
+<section class="sec tint" id="unfit">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">07</span>
+    <div class="shead">
+      <span class="eyebrow">07 ／ 向かない相手</span>
       <h2>向かない場合は、<br>先にお伝えします。</h2>
       <p class="lead">私たちが向くのは、何を解くべきかがまだ定まっていない段階です。すでに定まっているなら、専門の会社に直接頼むほうが速く、安く済みます。</p>
-      <ul class="plain light">
-        <li>課題が特定済みで、作るものが決まっている</li>
-        <li>現場が人に依存しておらず、判断がすでに記録されている</li>
-        <li>日中の常駐や、随時の対応を必要とする</li>
-        <li>決裁に稟議を要し、決めてから動くまでに時間がかかる</li>
-      </ul>
-      <p class="close">この場合、私たちに頼む理由がありません。そうお伝えします。</p>
     </div>
+    <ul class="ulist">
+      <li>課題が特定済みで、作るものが決まっている</li>
+      <li>現場が人に依存しておらず、判断がすでに記録されている</li>
+      <li>日中の常駐や、随時の対応を必要とする</li>
+      <li>決裁に稟議を要し、決めてから動くまでに時間がかかる</li>
+    </ul>
+    <p class="close">この場合、私たちに頼む理由がありません。そうお伝えします。</p>
   </div>
 </section>
 
 <!-- 09 CASES -->
-<section class="sec tint" id="cases">
+<section class="sec" id="cases">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">08</span>
-      <h2>同じ型を、<br>違う現場で。</h2>
+    <div class="shead">
+      <span class="eyebrow">08 ／ 取り組み</span>
+      <h2>同じ型を、違う現場で。</h2>
       <p class="lead">扱っている型は一つです。判断と会話が記録されていないために、原因を特定できない。業種が違っても、詰まっていた場所は同じでした。</p>
-      <article class="case">
-        <span class="klabel">Case 01</span>
-        <h3>現場を持つ事業者を、顧客に抱えるエージェント</h3>
-        <div class="kv"><span class="k">起点</span><p>営業改善のご相談。分析の結果、営業量ではなく、案件がどう進んだかを後から追えないことが原因でした。</p></div>
-        <div class="kv"><span class="k">実施</span><p>企業PLの分析／営業KPIの分析／リードタイムの分析／決定率の分析／目標値とのギャップ分析／改善施策の設計／記録が残る形への組み替え</p></div>
-      </article>
-      <article class="case">
-        <span class="klabel">Case 02</span>
-        <h3>医療・美容領域</h3>
-        <div class="kv"><span class="k">起点</span><p>施設間で顧客の情報が分断していました。作ることが目的ではなく、記録の断絶を埋めることが目的でした。</p></div>
-        <div class="kv"><span class="k">実施</span><p>顧客体験の把握／現場オペレーションの把握／情報が途切れる箇所の特定／連携と手順の設計／記録が残る形への組み替え</p></div>
-      </article>
-      <p class="note">守秘義務により、企業名および特定につながる詳細は記載しません。記載しているのは実施した内容であり、成果を保証するものではありません。医療にあたる判断は、医師の診察を前提とします。</p>
     </div>
+    <div class="cases">
+      <article class="cs">
+        <span class="tag">Case 01</span>
+        <h3>現場を持つ事業者を、顧客に抱えるエージェント</h3>
+        <dl>
+          <dt>起点</dt>
+          <dd>営業改善のご相談。分析の結果、営業量ではなく、案件がどう進んだかを後から追えないことが原因でした。</dd>
+          <dt>実施</dt>
+          <dd>企業PLの分析／営業KPIの分析／リードタイムの分析／決定率の分析／目標値とのギャップ分析／改善施策の設計／記録が残る形への組み替え</dd>
+        </dl>
+      </article>
+      <article class="cs">
+        <span class="tag">Case 02</span>
+        <h3>医療・美容領域</h3>
+        <dl>
+          <dt>起点</dt>
+          <dd>施設間で顧客の情報が分断していました。作ることが目的ではなく、記録の断絶を埋めることが目的でした。</dd>
+          <dt>実施</dt>
+          <dd>顧客体験の把握／現場オペレーションの把握／情報が途切れる箇所の特定／連携と手順の設計／記録が残る形への組み替え</dd>
+        </dl>
+      </article>
+    </div>
+    <p class="note">守秘義務により、企業名および特定につながる詳細は記載しません。記載しているのは実施した内容であり、成果を保証するものではありません。医療にあたる判断は、医師の診察を前提とします。</p>
   </div>
 </section>
 
 <!-- 10 FOUNDER -->
-<section class="sec" id="founder">
+<section class="sec tint" id="founder">
   <div class="wrap">
-    <div class="col fdr">
-      <span class="snum">09</span>
+    <div class="shead">
+      <span class="eyebrow">09 ／ 代表</span>
       <h2>図面どおりに終わらない理由を、<br>現場の側から知っている。</h2>
-      <p class="lead">現場を重んじる会社の中にいます。職人が動く現場を持つ事業です。人が足りない日に手順が飛ばされること。確認したはずのことが記録に残っていないこと。後から検証しようとしても、材料が残っていないこと。そのどれも、管理する側からではなく、現場が動く側から見てきました。</p>
-      <p><strong>数字だけでも、現場だけでも、設計はできません。</strong></p>
-      <ul class="marks">
-        <li>見えなくなる工程を、記録で担保する</li>
-        <li>多拠点・多職種を、担当者が替わっても同じ品質で回す</li>
-        <li>原価と粗利の構造から、施策を売上ではなく利益で判断する</li>
-      </ul>
-      <div class="solo">
-        <span class="klabel" style="margin-bottom:14px;">一人であることについて</span>
-        <p>分析する人と、実装する人が同じです。分析で見えたことが、実装に渡る過程で落ちません。規模は小さく、その代わり情報が欠けません。</p>
+    </div>
+    <div class="fdr">
+      <div>
+        <p>現場を重んじる会社の中にいます。職人が動く現場を持つ事業です。人が足りない日に手順が飛ばされること。確認したはずのことが記録に残っていないこと。後から検証しようとしても、材料が残っていないこと。そのどれも、管理する側からではなく、現場が動く側から見てきました。</p>
+        <p><strong>数字だけでも、現場だけでも、設計はできません。</strong></p>
+      </div>
+      <div class="mcard">
+        <span class="h">担ってきた仕事</span>
+        <ul>
+          <li>見えなくなる工程を、記録で担保する</li>
+          <li>多拠点・多職種を、担当者が替わっても同じ品質で回す</li>
+          <li>原価と粗利の構造から、施策を売上ではなく利益で判断する</li>
+        </ul>
+        <p class="solo">分析する人と、実装する人が同じです。分析で見えたことが、実装に渡る過程で落ちません。規模は小さく、その代わり情報が欠けません。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 11 OWN -->
-<section class="sec tint" id="own">
+<section class="sec" id="own">
   <div class="wrap">
-    <div class="col">
-      <span class="snum">10</span>
-      <h2>自分の事業で、<br>先に確かめています。</h2>
+    <div class="shead">
+      <span class="eyebrow">10 ／ 自社事業</span>
+      <h2>自分の事業で、先に確かめています。</h2>
       <p class="lead">二つの事業を自社で運営しています。どちらも、他社にお渡しする前に自分で確かめるための場所です。</p>
-      <div class="own">
-        <div class="own-row">
-          <span class="nm"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a></span>
-          <p>需要側の一次情報を、自分で確かめている媒体です。人がどこで迷い、どこで離れるかを、他社の話ではなく自分の数字で見ています。</p>
-        </div>
-        <div class="own-row">
-          <span class="nm">可視化ソリューション<span class="sub">名称準備中</span></span>
-          <p>記録されていない判断を数字にする仕組みを、自社の事業で先に動かしています。</p>
-        </div>
-      </div>
-      <p class="close">試していないものを、お渡ししません。</p>
+    </div>
+    <div class="own">
+      <article class="ow">
+        <span class="nm"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a></span>
+        <p>需要側の一次情報を、自分で確かめている媒体です。人がどこで迷い、どこで離れるかを、他社の話ではなく自分の数字で見ています。</p>
+      </article>
+      <article class="ow">
+        <span class="nm">可視化ソリューション<span class="sub">名称準備中</span></span>
+        <p>記録されていない判断を数字にする仕組みを、自社の事業で先に動かしています。試していないものを、お渡ししません。</p>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- 12 CONTACT -->
-<section class="sec dark" id="contact">
+<section class="sec" id="contact">
   <div class="wrap">
-    <span class="snum">11</span>
-    <h2>1枚の見立てを、<br>受け取ってください。</h2>
-    <div class="contact-grid">
-      <div>
-        <p>現状を伺い、どこで利益が消えている可能性があるかを、1枚にしてお返しします。無償です。以降、こちらから売り込みの連絡はしません。優先度が低ければ、正直にそうお伝えします。</p>
-        <ul class="facts">
-          <li><b>費用</b><span>無償</span></li>
-          <li><b>所要</b><span>2時間程度</span></li>
-          <li><b>日時</b><span>夜間、または土日</span></li>
-          <li><b>返信</b><span>代表が直接、1〜3営業日以内に</span></li>
-          <li><b>その後</b><span>売り込みの連絡はしません</span></li>
-        </ul>
-      </div>
-      <div class="fcard" id="fcard">
-        <div class="fh">1枚の見立てを受け取る</div>
-        <div class="fs">入力は1分ほどです。課題が言葉になっていない段階で構いません。</div>
-        <form id="vdForm" novalidate>
-          <input type="hidden" name="_subject" value="【Webサイト】1枚の見立てのご依頼">
-          <div class="fstatus" id="vdError" role="alert"></div>
-          <div class="field"><label for="v-name">お名前<span class="req">*</span></label><input type="text" id="v-name" name="name" autocomplete="name" required placeholder="山田 太郎"></div>
-          <div class="field"><label for="v-company">会社名<span class="req">*</span></label><input type="text" id="v-company" name="company" autocomplete="organization" required placeholder="株式会社○○"></div>
-          <div class="field"><label for="v-email">メールアドレス<span class="req">*</span></label><input type="email" id="v-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
-          <div class="field"><label for="v-ref">ご紹介者（任意）</label><input type="text" id="v-ref" name="referrer" placeholder="お名前、または知ったきっかけ"></div>
-          <div class="field"><label for="v-msg">現在の状況<span class="req">*</span></label><textarea id="v-msg" name="message" required placeholder="いま説明できずにいること、社内で出ている論点など。断片的で構いません。"></textarea></div>
-          <button class="submit" type="submit" id="vdSubmit">この内容で送信する</button>
-          <p class="fnote">送信いただいた内容は contact@vitality-design.jp 宛に届き、代表が1〜3営業日以内に直接返信します。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
-        </form>
-        <div class="fdone">
-          <h3>送信しました。</h3>
-          <p>ありがとうございます。<br>代表が1〜3営業日以内に、直接返信します。</p>
+    <div class="night">
+      <div class="blob b" aria-hidden="true"></div>
+      <div class="night-in">
+        <span class="eyebrow">11 ／ CONTACT</span>
+        <h2>1枚の見立てを、受け取ってください。</h2>
+        <div class="cgrid">
+          <div>
+            <p>現状を伺い、どこで利益が消えている可能性があるかを、1枚にしてお返しします。無償です。以降、こちらから売り込みの連絡はしません。優先度が低ければ、正直にそうお伝えします。</p>
+            <ul class="facts">
+              <li><b>費用</b><span>無償</span></li>
+              <li><b>所要</b><span>2時間程度</span></li>
+              <li><b>日時</b><span>夜間、または土日</span></li>
+              <li><b>返信</b><span>代表が直接、1〜3営業日以内に</span></li>
+              <li><b>その後</b><span>売り込みの連絡はしません</span></li>
+            </ul>
+          </div>
+          <div class="fcard" id="fcard">
+            <div class="fh">1枚の見立てを受け取る</div>
+            <div class="fs">入力は1分ほどです。課題が言葉になっていない段階で構いません。</div>
+            <form id="vdForm" novalidate>
+              <input type="hidden" name="_subject" value="【Webサイト】1枚の見立てのご依頼">
+              <div class="fstatus" id="vdError" role="alert"></div>
+              <div class="field"><label for="v-name">お名前<span class="req">*</span></label><input type="text" id="v-name" name="name" autocomplete="name" required placeholder="山田 太郎"></div>
+              <div class="field"><label for="v-company">会社名<span class="req">*</span></label><input type="text" id="v-company" name="company" autocomplete="organization" required placeholder="株式会社○○"></div>
+              <div class="field"><label for="v-email">メールアドレス<span class="req">*</span></label><input type="email" id="v-email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
+              <div class="field"><label for="v-ref">ご紹介者（任意）</label><input type="text" id="v-ref" name="referrer" placeholder="お名前、または知ったきっかけ"></div>
+              <div class="field"><label for="v-msg">現在の状況<span class="req">*</span></label><textarea id="v-msg" name="message" required placeholder="いま説明できずにいること、社内で出ている論点など。断片的で構いません。"></textarea></div>
+              <button class="submit" type="submit" id="vdSubmit">この内容で送信する</button>
+              <p class="fnote">送信いただいた内容は contact@vitality-design.jp 宛に届き、代表が1〜3営業日以内に直接返信します。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
+            </form>
+            <div class="fdone">
+              <div class="ck" aria-hidden="true">✓</div>
+              <h3>送信しました。</h3>
+              <p>ありがとうございます。<br>代表が1〜3営業日以内に、直接返信します。</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -657,7 +670,7 @@ footer{background:var(--paper);padding:70px 0 46px;border-top:1px solid var(--li
 
 <footer>
   <div class="wrap">
-    <div class="fa">Vitality Design LLC</div>
+    <div class="fa">VITALITY <span style="opacity:.55">DESIGN</span></div>
     <div class="fj">バイタリティデザイン合同会社<br>記録されていない判断を、見える数字にする。</div>
     <div class="fl">
       <a href="/company.html">会社概要</a>

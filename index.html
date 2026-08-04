@@ -225,7 +225,10 @@ strong{color:var(--ink);font-weight:700;}
 .night .fcard p{color:var(--ink-soft);}
 .night .fcard .fnote{color:var(--ink-faint);}
 .night .fcard strong{color:var(--ink);}
-.nlist{display:grid;gap:9px;margin-top:30px;max-width:640px;}
+.subhead{margin-top:34px;padding-top:26px;border-top:1px solid rgba(245,242,234,0.14);}
+.subhead h3{font-size:17px;}
+.subhead p{margin-top:8px;font-size:14px;}
+.nlist{display:grid;gap:9px;margin-top:20px;max-width:640px;}
 .nlist li{list-style:none;display:flex;gap:12px;align-items:baseline;font-size:15px;line-height:1.8;color:#fff;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;}
 .nlist li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex:none;transform:translateY(-2px);}
 
@@ -262,7 +265,13 @@ strong{color:var(--ink);font-weight:700;}
 .ow .sub{display:block;font-family:var(--jp);font-size:11.5px;font-weight:500;color:var(--ink-faint);margin-top:4px;}
 .ow p{margin-top:14px;font-size:14px;line-height:1.9;}
 
-/* 04 twins / 06 pledge / 08 compare */
+.lsub{margin-top:38px;padding-top:30px;border-top:1px solid var(--line);}
+.lsub h3{font-size:19px;}
+.lsub>p{margin-top:12px;font-size:15px;line-height:1.9;color:var(--ink-soft);}
+.lsub .struct,.lsub .sym{margin-top:20px;}
+.lsub .close{margin-top:22px;}
+
+/* 04 twins / 06 pledge */
 .twins,.pledge{margin-top:16px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:28px 26px;}
 .twins h3,.pledge h3{font-size:18px;}
 .twins>p,.pledge>p{margin-top:12px;font-size:14.5px;line-height:1.9;}
@@ -272,6 +281,7 @@ strong{color:var(--ink);font-weight:700;}
 .ow ul{margin-top:16px;display:grid;gap:7px;}
 .ow li{list-style:none;display:flex;gap:10px;align-items:baseline;font-size:13.5px;line-height:1.8;color:var(--ink-soft);}
 .ow li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green-bright);flex:none;transform:translateY(-1px);}
+.ow .metrics{margin-top:14px;font-size:13px;line-height:1.9;color:var(--ink-soft);}
 .ow .fine{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:12.5px;line-height:1.8;color:var(--ink-faint);}
 
 /* 11 use case */
@@ -329,6 +339,38 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 }
 @media (max-width:700px){
   .wrap{padding:0 20px;}
+  .sec{padding:44px 0;}
+  .hero{padding:36px 0 38px;}
+  h2{line-height:1.4;}
+  .lead{margin-top:16px;font-size:15px;line-height:1.85;}
+  p{font-size:15px;}
+  .close{margin-top:22px;font-size:16.5px;line-height:1.7;}
+  .sym{gap:9px;margin-top:24px;}
+  .sym li{padding:14px 15px;gap:11px;}
+  .sym p{font-size:14.5px;line-height:1.7;}
+  .struct{margin-top:22px;gap:7px;}
+  .struct li{font-size:14.5px;line-height:1.75;}
+  .viz,.offers,.cases,.own{gap:10px;margin-top:24px;}
+  .vz,.of,.cs,.ow{padding:20px 18px;}
+  .vz span,.of p,.cs dd,.ow p{font-size:13.5px;line-height:1.8;}
+  .steps{gap:9px;margin-top:24px;}
+  .st{padding:16px 16px;gap:12px;}
+  .st p{margin-top:7px;font-size:13.5px;line-height:1.8;}
+  .twins,.pledge,.price{margin-top:10px;padding:20px 18px;}
+  .twins>p,.pledge>p,.price p{font-size:13.5px;line-height:1.8;}
+  .twins ul{margin-top:12px;gap:8px;}
+  .fig{margin-top:24px;}
+  .nlist,.ulist,.facts{margin-top:22px;gap:8px;}
+  .nlist li,.ulist li{padding:12px 15px;font-size:14.5px;line-height:1.7;}
+  .mcard{padding:20px 18px;}
+  .mcard li{font-size:13.5px;line-height:1.7;}
+  .ucase{margin-top:10px;}
+  .shots{gap:10px;margin-top:18px;}
+  .note{margin-top:16px;font-size:12px;line-height:1.75;}
+  .fdr{margin-top:24px;}
+  .lsub{margin-top:26px;padding-top:22px;}
+  .lsub>p{margin-top:10px;font-size:14.5px;line-height:1.8;}
+  .sec{padding:38px 0;}
   .nav{padding:13px 20px;gap:12px;}
   .nav-brand{min-width:0;gap:9px;}
   .nav-mark{width:26px;height:26px;}
@@ -375,7 +417,6 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
     <a href="#process">進め方</a>
     <a href="#offer">提供するもの</a>
     <a href="#why">選ばれる理由</a>
-    <a href="#compare">比較の軸</a>
     <a href="#nots">やらないこと</a>
     <a href="/blog/">Field Notes</a>
   </div>
@@ -390,7 +431,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
     <span class="eyebrow">VITALITY DESIGN</span>
     <h1>売上を決めている判断が、<br>記録も評価もされていない。</h1>
     <p class="sub">数字と現場の両方から、その一点を解きます。</p>
-    <p class="lead">数字だけを見て作られた仕組みは、現場で使われません。現場だけを見て作られた仕組みは、利益を説明できません。売上をつくっているのは、日々の判断です。誰が何を選び、どう進めたのか。それが、どこにも記録されず、良し悪しも評価されていない。だから、伸びた理由も、伸びなかった理由も分かりません。</p>
+    <p class="lead">数字だけを見て作られた仕組みは、現場で使われません。現場だけを見て作られた仕組みは、利益を説明できません。売上をつくっているのは日々の判断です。それが記録も評価もされていないから、伸びた理由も分かりません。</p>
     <div class="hero-meta">
       <span>経営診断（4週・固定期間）</span>
       <span>仕組み化</span>
@@ -405,7 +446,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
     <div class="shead">
       <span class="eyebrow">01 ／ 経営者が抱える課題</span>
       <h2>この状態に、<br>見覚えがありますか。</h2>
-      <p class="lead">業種は違っても、経営者から出てくる言葉はよく似ています。並べてみると、同じ形をしています。</p>
+      <p class="lead">業種は違っても、出てくる言葉はよく似ています。</p>
     </div>
     <ul class="sym">
       <li><span class="n">1</span><p>優秀な社員の経験や判断が、会社の資産として残っていない。</p></li>
@@ -415,16 +456,9 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
       <li><span class="n">5</span><p>次に何を改善すべきか、社内だけでは判断できない。</p></li>
     </ul>
     <p class="close">どれも、打ち手が足りないのではありません。どこが詰まっているかが、特定できていない状態です。</p>
-  </div>
-</section>
-
-<!-- 03 CAUSE -->
-<section class="sec" id="cause">
-  <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">02 ／ 問題の構造</span>
-      <h2>問題は、<br>努力不足ではありません。</h2>
-      <p class="lead">多くの場合、経営判断に必要な情報が、現場の中に埋もれていることが原因です。数字だけでは原因は分かりません。現場だけでは優先順位は決められません。両方を見ることで、初めて解くべき課題が見えてきます。</p>
+    <div class="lsub">
+      <h3>問題は、努力不足ではありません。</h3>
+      <p>経営判断に必要な情報が、現場の中に埋もれています。数字だけでは原因が分からず、現場だけでは優先順位が決められません。</p>
       <ul class="struct">
         <li>経営数字は、結果しか教えてくれない</li>
         <li>現場の事実は、判断の材料として残っていない</li>
@@ -438,14 +472,14 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <section class="sec tint" id="approach">
   <div class="wrap">
     <div class="shead">
-      <span class="eyebrow">03 ／ 解き方</span>
+      <span class="eyebrow">02 ／ 解き方</span>
       <h2>現場に埋もれた事実を、<br>経営判断に使える状態へ。</h2>
-      <p class="lead">記録されていない判断や、拠点・担当者ごとの差分を、経営判断に使える形に変えます。数字を見るためではなく、正しい判断をするためです。見て終わる資料は作りません。何を見えるようにすべきかは事業ごとに違うので、作る前に決めます。</p>
+      <p class="lead">記録されていない判断や、拠点・担当者ごとの差分を、経営判断に使える形に変えます。数字を見るためではなく、正しい判断をするためです。</p>
     </div>
     <div class="viz">
-      <div class="vz"><b>担当者ごとの、<br>進め方と決まり方</b><span>誰が何をして決まったのかを、同じ条件で比べられる形に。</span></div>
-      <div class="vz"><b>見積と実原価の、<br>差が生まれる場所</b><span>どこで利益が失われているかを、案件単位で追える形に。</span></div>
-      <div class="vz"><b>拠点ごとの<br>成果と粗利</b><span>何をした拠点が伸びているかを、後から確かめられる形に。</span></div>
+      <div class="vz"><b>担当者ごとの、<br>進め方と決まり方</b><span>誰が何をして決まったのかを、同じ条件で比べる。</span></div>
+      <div class="vz"><b>見積と実原価の、<br>差が生まれる場所</b><span>どこで利益が失われているかを、案件単位で追う。</span></div>
+      <div class="vz"><b>拠点ごとの<br>成果と粗利</b><span>何をした拠点が伸びているかを、後から確かめる。</span></div>
     </div>
     <figure class="fig">
       <svg viewBox="0 0 720 250" role="img" aria-label="左側は記録がなく点線で途切れた3本の行、右側は同じ3本の行に印が揃い、縦の基準線で並べて比較できる状態を示した線画。">
@@ -475,12 +509,12 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
           </g>
         </g>
       </svg>
-      <figcaption>記録がなければ、拠点も担当者も並べて比べられません。並べられる形にすることが、可視化の目的です。</figcaption>
+      <figcaption>記録がなければ、並べて比べられません。</figcaption>
     </figure>
-    <p class="close">いずれも、一枚で意思決定できる粒度まで削ります。項目を増やすほど、見られなくなります。</p>
+    <p class="close">項目を増やすほど、見られなくなります。一枚で決められる粒度まで削ります。</p>
     <div class="twins">
       <h3>同じ数字を、2枚に分けて渡す。</h3>
-      <p>経営者向けの1枚には、その差が金額でいくらになっているかを書きます。現場の担当者向けの1枚には、明日どこを変えるかを書きます。どちらか一方では足りません。金額だけでは現場が動かず、手順だけでは投資の判断ができないからです。</p>
+      <p>金額だけでは現場が動かず、手順だけでは投資の判断ができません。</p>
       <ul>
         <li><b>経営者向け</b><span>その差が、金額でいくらになっているか</span></li>
         <li><b>現場向け</b><span>明日、どこを変えるか</span></li>
@@ -493,16 +527,16 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <section class="sec" id="process">
   <div class="wrap">
     <div class="shead">
-      <span class="eyebrow">04 ／ 進め方</span>
+      <span class="eyebrow">03 ／ 進め方</span>
       <h2>課題を特定し、<br>必要な仕組みに変える。</h2>
-      <p class="lead">最初に施策のご提案はしません。まず現場と数字の両方を確かめ、解くべき一点を決めてから、手段を選びます。</p>
+      <p class="lead">まず両方を確かめ、解くべき一点を決めてから、手段を選びます。</p>
     </div>
     <div class="steps">
-      <div class="st"><span class="n">01</span><div><h3>現場理解</h3><p>実際の業務・顧客接点・判断プロセスを理解します。すでに残っている記録から読みます。立ち会って見た現場は、見られている現場だからです。</p></div></div>
-      <div class="st"><span class="n">02</span><div><h3>経営分析</h3><p>PL、KPI、利益構造、業務プロセスを確認します。現場で見えた動きと、数字のどこが噛み合っていないかを確かめます。</p></div></div>
-      <div class="st"><span class="n">03</span><div><h3>課題特定</h3><p>成長を止めている最大の要因を特定します。複数は挙げません。根拠とともに、一点に絞ります。</p></div></div>
-      <div class="st"><span class="n">04</span><div><h3>打ち手設計</h3><p>営業改善、業務改善、仕組み化など、必要な手段を選択します。誰に頼めばよいかの判断は経営者がいちばん外しやすい場所なので、発注先と条件まで決めます。</p></div></div>
-      <div class="st"><span class="n">05</span><div><h3>実装・定着</h3><p>現場で使われ、継続できる状態まで設計します。人が見張らないと守られない手順は、手順の設計のほうが間違っています。</p></div></div>
+      <div class="st"><span class="n">01</span><div><h3>現場理解</h3><p>残っている記録から読みます。立ち会って見た現場は、普段どおりではないからです。</p></div></div>
+      <div class="st"><span class="n">02</span><div><h3>経営分析</h3><p>PL、KPI、利益構造、業務プロセス。現場の動きと、どこが噛み合っていないかを確かめます。</p></div></div>
+      <div class="st"><span class="n">03</span><div><h3>課題特定</h3><p>成長を止めている最大の要因を、根拠とともに一点に絞ります。</p></div></div>
+      <div class="st"><span class="n">04</span><div><h3>打ち手設計</h3><p>必要な手段を選び、発注先と条件まで決めます。誰に頼むかは、経営者がいちばん外しやすい判断です。</p></div></div>
+      <div class="st"><span class="n">05</span><div><h3>実装・定着</h3><p>人が見張らないと守られない手順は、設計のほうが間違っています。</p></div></div>
     </div>
   </div>
 </section>
@@ -511,7 +545,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <section class="sec tint" id="offer">
   <div class="wrap">
     <div class="shead">
-      <span class="eyebrow">05 ／ 提供するもの</span>
+      <span class="eyebrow">04 ／ 提供するもの</span>
       <h2>診る。作る。<br>追い続ける。</h2>
       <p class="lead">順番があります。何を解くべきかが決まる前には、作りません。</p>
     </div>
@@ -519,30 +553,30 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
       <article class="of">
         <span class="k">経営診断｜4週・固定期間</span>
         <h3>何を改善すべきかを、特定する</h3>
-        <p>経営数字と現場の事実から、解くべき課題を確定します。実装仕様まで出します。診断だけで終える判断も含みます。仕様は御社の資産です。他社に持ち込んでいただいて構いません。</p>
+        <p>解くべき課題を確定し、実装仕様まで出します。仕様は御社の資産です。他社に持ち込んでも構いません。</p>
       </article>
       <article class="of">
         <span class="k">仕組み化</span>
         <h3>改善策を、担当者に依存しない形へ変える</h3>
-        <p>人が入れ替わっても同じ結果が出る形にします。誰かが入力し続けなければ止まるものは、資産になりません。必要な場合にかぎり、システムなど適切な手段を選びます。</p>
+        <p>人が入れ替わっても同じ結果が出る形にします。必要な場合にかぎり、システムなど適切な手段を選びます。</p>
       </article>
       <article class="of">
         <span class="k">継続改善｜月次</span>
         <h3>数字と現場の変化を確認し、次の判断につなげる</h3>
-        <p>月に一度、2時間。それ以外の時間は取りません。そのかわり、数字は毎週、担当者本人に自動で届きます。30日・60日・90日で定着を確認します。導入時の説明は録画でお渡しするので、都度の説明は行いません。人が張り付いて維持するものは、仕組みとして未完成です。</p>
+        <p>月に一度、2時間。数字は毎週、担当者本人に自動で届きます。30日・60日・90日で定着を確認します。説明は録画でお渡しします。</p>
       </article>
       <article class="of add">
         <span class="k">加えて</span>
         <h3>発注・調達判断の設計</h3>
-        <p>誰に、どの条件で頼むか。改善した分に連動する形でお引き受けすることがあります。</p>
+        <p>誰に、どの条件で頼むか。改善分に連動する形でお引き受けすることがあります。</p>
       </article>
     </div>
     <div class="price">
-      <p>費用は個別に設計します。数十万円から数百万円規模の投資判断になります。金額の妥当性そのものを、診断の時点で判断できる状態にします。<strong>成果保証は行いません。</strong></p>
+      <p>費用は個別設計。数十万円から数百万円規模の投資判断になります。その妥当性を、診断の時点で判断できる状態にします。<strong>成果保証は行いません。</strong></p>
     </div>
     <div class="pledge">
       <h3>評価には、使いません。</h3>
-      <p>人事評価や処遇には使いません。改善のためにだけ使います。契約するのは経営者ですが、現場が損をする設計にはしません。実装の最初の協力者は、いちばん成果が出ている現場の担当者です。その人の進め方を、他の人に移す仕組みとして始めます。現場を責めるための数字は作りません。手順が守られないのは、手順の設計が現場の理屈に合っていないだけです。</p>
+      <p>人事評価や処遇には使いません。最初の協力者は、いちばん成果が出ている担当者です。その進め方を他の人に移すところから始めます。現場を責めるための数字は作りません。</p>
     </div>
   </div>
 </section>
@@ -551,36 +585,29 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <section class="sec" id="why">
   <div class="wrap">
     <div class="shead">
-      <span class="eyebrow">06 ／ 選ばれる理由</span>
+      <span class="eyebrow">05 ／ 選ばれる理由と、比較の軸</span>
       <h2>なぜ、私たちなのか。</h2>
       <p class="lead">同じことを言う会社は多いので、根拠だけを書きます。</p>
     </div>
     <div class="viz">
-      <div class="vz"><b>現場が動く側から<br>見てきた</b><span>管理する側からではありません。手順が飛ばされる理由も、記録が残らない理由も、動く側から見てきました。</span></div>
+      <div class="vz"><b>現場が動く側から<br>見てきた</b><span>手順が飛ばされる理由も、記録が残らない理由も、動く側から見てきました。</span></div>
       <div class="vz"><b>分析と実装が、<br>同じ人</b><span>規模は小さく、その代わり情報が欠けません。分析で見えたことが、実装に渡る過程で落ちません。</span></div>
-      <div class="vz"><b>自社の事業で<br>先に動かしている</b><span>面談を解析する仕組みを、自分の事業で運用しています。試していないものは、お渡ししません。</span></div>
+      <div class="vz"><b>自社の事業で<br>先に動かしている</b><span>面談を解析する仕組みを、自分の事業で運用しています。試していないものは渡しません。</span></div>
       <div class="vz"><b>出力が<br>2種類ある</b><span>経営者向けの1枚と、現場向けの1枚。金額と手順を、同じ数字から出します。</span></div>
       <div class="vz"><b>記録と規制まで<br>設計する</b><span>説明、同意、広告表現。業種固有の決まりごとを外して作ると、現場では使えません。</span></div>
     </div>
-  </div>
-</section>
-
-<!-- 07 COMPARE -->
-<section class="sec" id="compare">
-  <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">07 ／ 比較の軸</span>
-      <h2>他社とも、比べてください。</h2>
-      <p class="lead">複数社を検討されるはずです。その際、この5つで見れば足ります。名前を挙げて比べる必要はありません。</p>
+    <div class="lsub">
+      <h3>他社とも、比べてください。</h3>
+      <p>複数社を検討されるはずです。この5つで見れば足ります。</p>
+      <ul class="sym">
+        <li><span class="n">1</span><p>経営者向けと現場向け、両方の出力があるか。</p></li>
+        <li><span class="n">2</span><p>業種固有の記録と規制（説明・同意・広告表現）に対応しているか。</p></li>
+        <li><span class="n">3</span><p>導入後、誰が定着させるのか。</p></li>
+        <li><span class="n">4</span><p>人事評価に使わない設計になっているか。</p></li>
+        <li><span class="n">5</span><p>契約終了時に、指標の定義と手順が資産として残るか。</p></li>
+      </ul>
+      <p class="close">5つすべてで勝てるとは限りません。合わないと思われたら、そうお伝えください。</p>
     </div>
-    <ul class="sym">
-      <li><span class="n">1</span><p>経営者向けと現場向け、両方の出力があるか。</p></li>
-      <li><span class="n">2</span><p>業種固有の記録と規制（説明・同意・広告表現）に対応しているか。</p></li>
-      <li><span class="n">3</span><p>導入後、誰が定着させるのか。</p></li>
-      <li><span class="n">4</span><p>人事評価に使わない設計になっているか。</p></li>
-      <li><span class="n">5</span><p>契約終了時に、指標の定義と手順が資産として残るか。</p></li>
-    </ul>
-    <p class="close">5つすべてで私たちが勝てるとは限りません。合わないと思われたら、そうお伝えください。</p>
   </div>
 </section>
 
@@ -590,9 +617,9 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
     <div class="night">
       <div class="blob b" aria-hidden="true"></div>
       <div class="night-in col">
-        <span class="eyebrow">08 ／ やらないこと</span>
+        <span class="eyebrow">06 ／ やらないこと・向かない相手</span>
         <h2>やらないことを、<br>先に決めています。</h2>
-        <p class="lead">現場を持つ会社ほど、日中に会議の時間はありません。人を集めて時間を合わせること自体が、現場を止めます。決めるべきことは、月に一度2時間で足ります。それ以外は、文字と記録で進めます。やりとりは非同期を基本とします。</p>
+        <p class="lead">現場を持つ会社ほど、日中に会議の時間はありません。決めるべきことは月に一度2時間で足り、それ以外は文字と記録で進めます。</p>
         <ul class="nlist">
           <li>現場への常駐、日中の会議</li>
           <li>営業の代行、商談への同席</li>
@@ -600,27 +627,19 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
           <li>人を貼って現場を回す運用の受託</li>
           <li>大手の下請け、稟議で決まる案件</li>
         </ul>
-        <p class="close">人が張り付いて回っている状態は、仕組みが未完成だという意味です。私たちが張り付かないのは、張り付かなくても回る形をつくるためです。</p>
+        <p class="close">人が張り付いて回っている状態は、仕組みが未完成だという意味です。</p>
+        <div class="subhead">
+          <h3>向かない相手</h3>
+          <p>頼む理由がない場合は、先にそうお伝えします。</p>
+        </div>
+        <ul class="nlist">
+          <li>課題が特定済みで、作るものが決まっている</li>
+          <li>現場が人に依存しておらず、判断がすでに記録されている</li>
+          <li>日中の常駐や、随時の対応を必要とする</li>
+          <li>決裁に稟議を要し、決めてから動くまでに時間がかかる</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- 08 UNFIT -->
-<section class="sec tint" id="unfit">
-  <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">09 ／ 向かない相手</span>
-      <h2>向かない場合は、<br>先にお伝えします。</h2>
-      <p class="lead">私たちが向くのは、何を解くべきかがまだ定まっていない段階です。すでに定まっているなら、専門の会社に直接頼むほうが速く、安く済みます。</p>
-    </div>
-    <ul class="ulist">
-      <li>課題が特定済みで、作るものが決まっている</li>
-      <li>現場が人に依存しておらず、判断がすでに記録されている</li>
-      <li>日中の常駐や、随時の対応を必要とする</li>
-      <li>決裁に稟議を要し、決めてから動くまでに時間がかかる</li>
-    </ul>
-    <p class="close">この場合、私たちに頼む理由がありません。そうお伝えします。</p>
   </div>
 </section>
 
@@ -628,41 +647,37 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <section class="sec" id="cases">
   <div class="wrap">
     <div class="shead">
-      <span class="eyebrow">10 ／ 取り組み</span>
+      <span class="eyebrow">07 ／ 取り組み</span>
       <h2>同じ型を、違う現場で。</h2>
-      <p class="lead">扱っている型は一つです。経営判断に必要な情報が、現場の中に埋もれている。業種が違っても、詰まっていた場所は同じでした。</p>
+      <p class="lead">業種が違っても、詰まっていた場所は同じでした。</p>
     </div>
     <div class="cases">
       <article class="cs">
         <span class="tag">Case 01 ／ 建設業界向けサービス企業</span>
         <h3>営業改善ではなく、<br>事業構造の改善へ。</h3>
         <dl>
-          <dt>起点</dt>
-          <dd>営業改善のご相談から始まりました。</dd>
-          <dt>判断</dt>
-          <dd>PL・営業KPI・リードタイム・決定率を分析した結果、課題は営業量ではなく、案件管理や情報蓄積の構造にあると判断しました。</dd>
+          <dt>起点と判断</dt>
+          <dd>営業改善のご相談から。課題は営業量ではなく、案件管理と情報蓄積の構造にありました。</dd>
           <dt>実施</dt>
-          <dd>企業PLの分析／営業KPIの分析／リードタイムの分析／決定率の分析／目標値とのギャップ分析／改善施策の設計／必要な仕組み化の推進</dd>
+          <dd>企業PL・営業KPI・リードタイム・決定率の分析／改善施策の設計／仕組み化の推進</dd>
           <dt>ポイント</dt>
-          <dd>依頼されたことを行うのではなく、事業成長に必要な課題を特定しました。</dd>
+          <dd>依頼されたことではなく、事業成長に必要な課題を特定しました。</dd>
         </dl>
       </article>
       <article class="cs">
         <span class="tag">Case 02 ／ 医療・美容領域</span>
         <h3>作ることではなく、<br>情報の断絶を埋める。</h3>
         <dl>
-          <dt>起点</dt>
-          <dd>施設間で顧客の情報が分断していました。</dd>
-          <dt>判断</dt>
-          <dd>実際の顧客体験と現場の動きを確認し、原因は担当者の努力ではなく、情報が途切れる箇所にあると判断しました。</dd>
+          <dt>起点と判断</dt>
+          <dd>施設間で顧客の情報が分断。原因は担当者の努力ではなく、情報が途切れる箇所にありました。</dd>
           <dt>実施</dt>
-          <dd>顧客体験の把握／現場オペレーションの把握／情報が途切れる箇所の特定／連携と手順の設計／記録が残る形への組み替え</dd>
+          <dd>顧客体験と現場の把握／途切れる箇所の特定／連携と手順の設計／記録が残る形への組み替え</dd>
           <dt>ポイント</dt>
           <dd>作ることが目的ではなく、情報の断絶を埋めることが目的でした。</dd>
         </dl>
       </article>
     </div>
-    <p class="note">守秘義務により、企業名および特定につながる詳細は記載しません。記載しているのは実施した内容であり、成果を保証するものではありません。医療にあたる判断は、医師の診察を前提とします。</p>
+    <p class="note">守秘義務により企業名は記載しません。記載は実施内容であり、成果を保証するものではありません。医療にあたる判断は、医師の診察を前提とします。</p>
   </div>
 </section>
 
@@ -670,12 +685,12 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <section class="sec tint" id="founder">
   <div class="wrap">
     <div class="shead">
-      <span class="eyebrow">11 ／ 代表</span>
+      <span class="eyebrow">08 ／ 代表</span>
       <h2>机上の提案だけでは、<br>現場で使われる仕組みは作れません。</h2>
     </div>
     <div class="fdr">
       <div>
-        <p>現在も事業会社の現場で、営業・事業推進に携わっています。数字が動かない理由。現場で手順が守られない理由。情報が途中で失われる理由。そのどれも、管理する側からではなく、現場が動く側から見てきました。</p>
+        <p>現在も事業会社の現場で、営業・事業推進に携わっています。数字が動かない理由。手順が守られない理由。情報が途中で失われる理由。そのどれも、現場が動く側から見てきました。</p>
         <p>そのズレを理解した上で、経営と現場をつなぐ仕組みを設計します。</p>
         <p><strong>数字だけでも、現場だけでも、設計はできません。</strong></p>
       </div>
@@ -686,7 +701,6 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
           <li>多拠点・多職種を、担当者が替わっても同じ品質で回す</li>
           <li>原価と粗利の構造から、施策を売上ではなく利益で判断する</li>
         </ul>
-        <p class="solo">数字が動かない理由も、現場で手順が守られない理由も、管理する側からではなく、現場が動く側から見てきました。</p>
       </div>
     </div>
   </div>
@@ -696,35 +710,27 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
 <section class="sec" id="own">
   <div class="wrap">
     <div class="shead">
-      <span class="eyebrow">12 ／ 自社事業</span>
+      <span class="eyebrow">09 ／ 自社事業</span>
       <h2>自分の事業で、先に動かしています。</h2>
-      <p class="lead">二つの事業を自社で運営しています。どちらも、他社にお渡しする前に自分で確かめるための場所です。</p>
+      <p class="lead">他社にお渡しする前に、自分で確かめるための場所です。</p>
     </div>
     <div class="own">
       <article class="ow">
         <span class="nm"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a></span>
-        <p>需要側の一次情報を、自分で確かめている媒体です。人がどこで迷い、どこで離れるかを、他社の話ではなく自分の数字で見ています。</p>
+        <p>需要側の一次情報を、自分で確かめている媒体です。人がどこで迷い、どこで離れるかを、自分の数字で見ています。</p>
       </article>
       <article class="ow">
         <span class="nm">面談解析基盤</span>
-        <p>人材紹介領域の面談を対象に、2026年8月時点で89件を解析しています。チームのメンバー別に、進め方の差を同じ条件で並べられます。他社にお渡しする前に、自社の事業で動かしています。</p>
-        <ul>
-          <li>会話スタイルの分類</li>
-          <li>話す比率と、面談内の時間配分</li>
-          <li>質問の量と、オープンクエスチョンの比率</li>
-          <li>話す速度</li>
-          <li>やりとりの往復度</li>
-          <li>頻出する言葉</li>
-          <li>フィードバックの記録と、CSV出力</li>
-        </ul>
-        <p class="fine">音声は御社側で保管していただきます。解析後は削除します。当社では保存せず、学習にも使いません。</p>
+        <p>人材紹介領域の面談を対象に、2026年8月時点で89件を解析。メンバー別に、進め方の差を同じ条件で並べられます。</p>
+        <p class="metrics">会話スタイルの分類／話す比率と時間配分／質問量とオープンクエスチョン比率／話す速度／やりとりの往復度／頻出する言葉／フィードバックの記録とCSV出力。</p>
+        <p class="fine">音声は御社側で保管し、解析後に削除します。当社では保存も学習もしません。</p>
       </article>
     </div>
 
     <div class="ucase">
       <span class="eyebrow">ユースケース ／ 現場体験の設計</span>
       <h3>現場での体験を、続く形に設計する。</h3>
-      <p>現場の課題が「担当者しだいで体験が変わる」ことにある場合、打ち手は顧客との接点そのものの設計になります。やりとりはいつものLINEのまま。そこから開く画面で、進み具合や変化を本人に返します。担当者が替わっても同じ順番で届くよう、内容と送るタイミングまで決めます。</p>
+      <p>「担当者しだいで体験が変わる」現場では、打ち手は接点そのものの設計になります。やりとりはLINEのまま、進み具合や変化を画面で返します。</p>
       <div class="shots">
         <figure class="shot">
           <img src="/app/app-today.png" alt="今日の画面。コースの進み具合が3/6回、はじめてから91日目、折り返し地点に到着の表示。自分でつけた実感の点数の変化と、担当者からのメッセージ。" loading="lazy" width="675" height="1264">
@@ -743,7 +749,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
           <figcaption>学ぶ<span>1話3分。理解が、納得に変わる</span></figcaption>
         </figure>
       </div>
-      <p class="note">自社で試作している画面の<strong>想定イメージ</strong>です。表示はすべてサンプルデータで、実在の顧客・施設のものではありません。納品事例ではありません。画面に出る数値は本人の記録を整理したものであり、医学的な診断ではありません。医療にあたる判断は、医師の診察を前提とします。</p>
+      <p class="note">自社で試作している画面の<strong>想定イメージ</strong>です。表示はサンプルデータで、納品事例ではありません。数値は医学的な診断ではありません。</p>
     </div>
   </div>
 </section>
@@ -754,11 +760,11 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
     <div class="night">
       <div class="blob b" aria-hidden="true"></div>
       <div class="night-in">
-        <span class="eyebrow">13 ／ CONTACT</span>
+        <span class="eyebrow">10 ／ CONTACT</span>
         <h2>1枚の見立てを、受け取ってください。</h2>
         <div class="cgrid">
           <div>
-            <p>課題が明確ではない段階でも構いません。現在の状況を伺い、どこに改善余地がある可能性があるかを、1枚の見立てとして整理してお返しします。どの数字が、いくらの差になっている可能性があるか。金額の仮説まで入れてお返しします。無償です。以降、こちらから売り込みの連絡はしません。優先度が低ければ、正直にそうお伝えします。</p>
+            <p>課題が明確でない段階で構いません。現状を伺い、どこに改善余地がありそうかを1枚に整理してお返しします。どの数字がいくらの差になりうるか、金額の仮説まで入れます。</p>
             <ul class="facts">
               <li><b>費用</b><span>無償</span></li>
               <li><b>所要</b><span>2時間程度</span></li>
@@ -769,7 +775,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
           </div>
           <div class="fcard" id="fcard">
             <div class="fh">1枚の見立てを受け取る</div>
-            <div class="fs">入力は1分ほどです。課題が言葉になっていない段階で構いません。</div>
+            <div class="fs">入力は1分ほどです。</div>
             <form id="vdForm" novalidate>
               <input type="hidden" name="_subject" value="【Webサイト】1枚の見立てのご依頼">
               <div class="fstatus" id="vdError" role="alert"></div>
@@ -779,7 +785,7 @@ footer{padding:56px 0 44px;border-top:1px solid var(--line-soft);}
               <div class="field"><label for="v-ref">ご紹介者（任意）</label><input type="text" id="v-ref" name="referrer" placeholder="お名前、または知ったきっかけ"></div>
               <div class="field"><label for="v-msg">現在の状況<span class="req">*</span></label><textarea id="v-msg" name="message" required placeholder="いま説明できずにいること、社内で出ている論点など。断片的で構いません。"></textarea></div>
               <button class="submit" type="submit" id="vdSubmit">この内容で送信する</button>
-              <p class="fnote">送信いただいた内容は contact@vitality-design.jp 宛に届き、代表が1〜3営業日以内に直接返信します。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
+              <p class="fnote">代表が1〜3営業日以内に直接返信します。送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。</p>
             </form>
             <div class="fdone">
               <div class="ck" aria-hidden="true">✓</div>

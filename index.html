@@ -390,7 +390,14 @@ strong{color:var(--ink);font-weight:900;}
 .ly .hd img{width:30px;height:30px;border-radius:50%;flex:none;display:block;}
 .ly .hd a:hover{color:var(--green);}
 .ly .nt{font-size:13.5px;line-height:1.85;color:var(--ink-faint);}
-.ly .nt::before{content:"持っていない相手 ／ ";color:var(--ink-mute);}
+.lay .hdr{display:grid;grid-template-columns:minmax(150px,0.7fr) 1.5fr 1.2fr;gap:34px;padding:0 0 12px;font-family:var(--sans);font-size:9.5px;font-weight:800;letter-spacing:0.16em;color:var(--ink-mute);}
+.lay .hdr span:nth-child(2){grid-column:2;}
+.vs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+.vs .c{display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 3px;border:1px solid var(--line);border-radius:2px;}
+.vs .c b{font-family:var(--sans);font-size:9px;font-weight:800;letter-spacing:0.04em;color:var(--ink-mute);white-space:nowrap;}
+.vs .c i{font-style:normal;font-size:11.5px;font-weight:700;color:var(--ink-faint);line-height:1;}
+.vs .c i.y{color:var(--green);}
+.vn{display:block;margin-top:8px;font-size:11.5px;line-height:1.7;color:var(--ink-faint);}
 .lay.q .ly .nt::before{content:"記録されていない問い ／ ";}
 .lay.q .ly{grid-template-columns:minmax(210px,0.95fr) 1.4fr 1.1fr;}
 .lay.q .ly b{color:var(--ink);}
@@ -449,6 +456,10 @@ strong{color:var(--ink);font-weight:900;}
 .fit .nlist{margin-top:16px;border-top:0;}
 @media (max-width:1000px){.do{grid-template-columns:1fr;gap:9px;}.fit{grid-template-columns:1fr;gap:0;}.ft+.ft{margin-top:12px;}}
 @media (max-width:700px){.does{margin-top:36px;}.do{padding:20px 0;}.do .wt{font-size:14.5px;line-height:1.85;}.fit{margin-top:32px;}.ft{padding-top:20px;}}
+
+
+  .vs .c b{font-size:8px;}
+}
 
 /* footer */
 footer{padding:72px 0 52px;border-top:1px solid var(--line);}
@@ -527,6 +538,32 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
 }
 @media (max-width:380px){.n-jp{display:none;}}
 @media (max-width:340px){.hero h1{font-size:22px;}}
+
+@media (max-width:700px){
+  .tri{grid-template-columns:repeat(3,1fr);margin-top:34px;}
+  .tri div{padding:16px 8px 0 0;border-bottom:0;}
+  .tri div+div{border-left:1px solid var(--line);padding-left:8px;}
+  .tri b{font-size:9px;letter-spacing:0.1em;}
+  .tri span{margin-top:8px;font-size:12px;line-height:1.7;}
+  .lay .hdr{display:none;}
+  .lay .ly{grid-template-columns:1fr;gap:10px;}
+  .vs .c{padding:7px 2px;}
+  .vs .c b{font-size:8.5px;}
+  .lay.q{grid-template-columns:repeat(3,1fr);gap:0 8px;border-top:1px solid var(--ink);}
+  .lay.q .ly{grid-template-columns:1fr;gap:7px;padding:18px 0;border-bottom:0;}
+  .lay.q .ly+.ly{border-left:1px solid var(--line);padding-left:8px;}
+  .lay.q .ly b{font-size:13.5px;line-height:1.45;}
+  .lay.q .ly .hv{font-size:11.5px;line-height:1.65;}
+  .lay.q .ly .nt{font-size:11px;line-height:1.65;}
+  .lay.q .ly .nt::before{content:"問い ／ ";}
+  .fit{grid-template-columns:1fr 1fr;gap:0 16px;}
+  .ft{padding-top:20px;}
+  .ft+.ft{margin-top:0;border-top:0;border-left:1px solid rgba(255,255,255,0.16);padding-left:16px;}
+  .fit .nlist li{font-size:12.5px;line-height:1.65;padding:11px 0;}
+  .fh2{font-size:9.5px;letter-spacing:0.12em;}
+}
+@media (max-width:360px){
+  .lay.q .ly b{font-size:12.5px;}
 </style>
 </head>
 <body>
@@ -574,9 +611,9 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <p class="sub rv">売上を作った理由は、どこにも残っていません。</p>
     <p class="lead rv">顧客と現場の一次情報から、事業の成長を設計します。システムを売る会社ではありません。</p>
     <div class="tri rv">
-      <div><b>UNDERSTAND</b><span>顧客と現場の一次情報を集め、比べられる形に構造化する。</span></div>
-      <div><b>DESIGN</b><span>成長を止めている要因を、根拠とともに一点に絞る。</span></div>
-      <div><b>BUILD</b><span>必要なときだけ実装する。作らない判断も、ここに含まれる。</span></div>
+      <div><b>UNDERSTAND</b><span>聞いて、比べられる形にする。</span></div>
+      <div><b>DESIGN</b><span>要因を、一点に絞る。</span></div>
+      <div><b>BUILD</b><span>必要なときだけ作る。</span></div>
     </div>
   </div>
 </section>
@@ -653,10 +690,11 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
       <p class="lead rv">能力ではなく、在庫の話です。<strong>能力は真似できます。街頭で聞いた時間と、現場にいた年数は真似できません。</strong></p>
     </div>
     <div class="lay rv">
-      <div class="ly"><b>生活者の声</b><span class="hv"><span class="hd"><img src="/app/hr-logo.png" width="30" height="30" alt="His Recoveries" loading="lazy" decoding="async"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a></span>街頭でのインタビュー。ウェルネスメディアを自分で運営しています。</span><span class="nt">コンサル・SaaS・代理店</span></div>
-      <div class="ly"><b>現場の声</b><span class="hv">職人が動く現場を持つ事業会社に在籍。手順が飛ばされる理由を、動く側から見てきました。</span><span class="nt">コンサル（管理する側からしか見ていない）</span></div>
-      <div class="ly"><b>業務の記録</b><span class="hv">人材紹介領域の面談を<strong>89件</strong>解析。進め方の差を、メンバー別に同じ条件で並べられます。</span><span class="nt">コンサル・代理店</span></div>
-      <div class="ly"><b>当事者の実感</b><span class="hv">自分が患者として通った経験。説明され、迷い、続けるかを決める側にいました。</span><span class="nt">ほぼ全員</span></div>
+      <div class="hdr"><span></span><span>ほかの会社は持っているか</span></div>
+      <div class="ly"><b>生活者の声</b><span class="hv"><span class="hd"><img src="/app/hr-logo.png" width="30" height="30" alt="His Recoveries" loading="lazy" decoding="async"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a></span>街頭でのインタビュー。ウェルネスメディアを自分で運営しています。</span><span class="nt"><span class="vs"><span class="c"><b>コンサル</b><i>なし</i></span><span class="c"><b>SaaS</b><i>なし</i></span><span class="c"><b>代理店</b><i>なし</i></span></span></span></div>
+      <div class="ly"><b>現場の声</b><span class="hv">職人が動く現場を持つ事業会社に在籍。手順が飛ばされる理由を、動く側から見てきました。</span><span class="nt"><span class="vs"><span class="c"><b>コンサル</b><i>なし</i></span><span class="c"><b>SaaS</b><i>なし</i></span><span class="c"><b>代理店</b><i>なし</i></span></span><span class="vn">管理する側からしか見ていない</span></span></div>
+      <div class="ly"><b>業務の記録</b><span class="hv">人材紹介領域の面談を<strong>89件</strong>解析。進め方の差を、メンバー別に同じ条件で並べられます。</span><span class="nt"><span class="vs"><span class="c"><b>コンサル</b><i>なし</i></span><span class="c has"><b>SaaS</b><i class="y">あり</i></span><span class="c"><b>代理店</b><i>なし</i></span></span></span></div>
+      <div class="ly"><b>当事者の実感</b><span class="hv">自分が患者として通った経験。説明され、迷い、続けるかを決める側にいました。</span><span class="nt"><span class="vs"><span class="c"><b>コンサル</b><i>なし</i></span><span class="c"><b>SaaS</b><i>なし</i></span><span class="c"><b>代理店</b><i>なし</i></span></span></span></div>
     </div>
     <p class="close rv">コンサルが持っているのは他社事例です。<strong>4つが揃っている会社を、私たちは見たことがありません。</strong></p>
     

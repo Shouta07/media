@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="noindex,nofollow">
+<title>【下書き】サービスLPテンプレート｜バイタリティデザイン合同会社</title>
+<meta name="description" content="サービスLPの構成テンプレート。文言はすべて差し替え前のプレースホルダです。">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--bg-soft:#F4F9FD;--bg-band:#1FA7E8;--band-2:#0B8FD0;
+  --ink:#16212B;--ink-soft:#4A5866;--ink-faint:#7A8794;
+  --line:rgba(22,33,43,0.12);--line-soft:rgba(22,33,43,0.07);
+  --key:#0B6E4F;--key-bright:#14B870;--accent:#FFB020;--danger:#E4572E;
+  --jp:'Noto Sans JP',sans-serif;--sans:'Inter','Noto Sans JP',sans-serif;
+  --r:14px;--ease:cubic-bezier(.16,1,.3,1);
+  --shadow:0 10px 30px rgba(22,33,43,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--jp);font-size:16px;line-height:1.85;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+.narrow{max-width:900px;}
+h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
+.sec{padding:88px 0;}
+.sec.soft{background:var(--bg-soft);}
+.shead{text-align:center;margin-bottom:48px;}
+.shead h2{font-size:clamp(24px,3.4vw,38px);}
+.shead h2 em{font-style:normal;color:var(--key);}
+.shead p{margin-top:14px;font-size:15px;color:var(--ink-soft);}
+.slot{background:repeating-linear-gradient(135deg,#EEF3F7,#EEF3F7 8px,#E6EDF3 8px,#E6EDF3 16px);
+  border:1px dashed rgba(22,33,43,0.18);border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--ink-faint);font-family:var(--sans);font-size:11px;letter-spacing:0.1em;text-align:center;padding:8px;}
+
+/* header */
+.hd{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft);}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 24px;max-width:1200px;margin:0 auto;}
+.hd-logo{display:flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:800;font-size:17px;}
+.hd-logo .slot{width:34px;height:34px;border-radius:9px;}
+.hd-nav{display:flex;gap:22px;font-size:13px;font-weight:600;color:var(--ink-soft);}
+.hd-nav a:hover{color:var(--key);}
+.hd-act{display:flex;gap:10px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:14px;
+  padding:13px 26px;border-radius:99px;transition:transform .3s var(--ease),box-shadow .3s;white-space:nowrap;border:0;cursor:pointer;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,33,43,0.14);}
+.btn.pri{background:var(--accent);color:#3A2600;}
+.btn.sec{background:var(--key);color:#fff;}
+.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);}
+.btn.sm{font-size:12.5px;padding:10px 18px;}
+.btn.lg{font-size:16px;padding:18px 44px;}
+
+/* hero */
+.hero{position:relative;background:linear-gradient(180deg,#EAF6FE 0%,#F7FCFF 100%);overflow:hidden;padding:64px 0 72px;}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:56px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0;}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:center;}
+.hero .tagline{display:inline-block;font-size:12.5px;font-weight:800;color:var(--key);background:rgba(11,110,79,0.08);padding:6px 14px;border-radius:99px;}
+.hero h1{margin-top:18px;font-size:clamp(30px,4.6vw,52px);line-height:1.28;}
+.hero h1 em{font-style:normal;color:var(--key);}
+.hero .sub{margin-top:18px;font-size:clamp(15px,1.8vw,18px);font-weight:700;color:var(--ink-soft);}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+.hero-vis{position:relative;}
+.hero-vis .shot{width:100%;aspect-ratio:16/11;border-radius:var(--r);box-shadow:var(--shadow);background:#fff;}
+.badges{position:absolute;top:-18px;right:-6px;display:flex;gap:10px;}
+.badge{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:12px 16px;text-align:center;min-width:104px;}
+.badge b{display:block;font-family:var(--sans);font-size:22px;font-weight:900;color:var(--key);line-height:1.1;}
+.badge span{display:block;font-size:10.5px;font-weight:700;color:var(--ink-faint);margin-top:4px;}
+
+/* logo band */
+.logos{padding:34px 0 40px;}
+.logos .cap{text-align:center;font-size:12px;font-weight:800;letter-spacing:0.14em;color:var(--ink-faint);margin-bottom:20px;}
+.logos .row{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:center;}
+.logos .slot{height:44px;}
+
+/* cta band */
+.band{background:var(--key);color:#fff;padding:26px 0;}
+.band .in{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.band.wide{padding:64px 0;text-align:center;}
+.band.wide h2{font-size:clamp(22px,3.2vw,36px);color:#fff;}
+.band.wide p{margin-top:12px;color:rgba(255,255,255,0.86);font-size:15px;}
+.band.wide .in{margin-top:28px;}
+
+/* 3 problems */
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.prob{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);padding:26px 22px 28px;position:relative;box-shadow:var(--shadow);}
+.prob .no{position:absolute;left:20px;bottom:14px;font-family:var(--sans);font-size:52px;font-weight:900;color:rgba(11,110,79,0.10);line-height:1;}
+.prob .bubble{background:var(--bg-soft);border-radius:10px;padding:12px 14px;font-size:13.5px;font-weight:700;color:var(--ink);}
+.prob .slot{margin-top:16px;height:104px;}
+.prob h3{margin-top:18px;font-size:16.5px;}
+.prob p{margin-top:10px;font-size:13.5px;line-height:1.9;color:var(--ink-soft);}
+
+/* use cases */
+.cases2{display:grid;gap:14px;}
+.case2{display:grid;grid-template-columns:190px 1fr;gap:18px;align-items:center;background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);}
+.case2 .lbl{background:linear-gradient(135deg,var(--key),var(--key-bright));color:#fff;border-radius:10px;padding:18px 16px;}
+.case2 .lbl b{display:block;font-size:17px;font-weight:900;}
+.case2 .lbl span{display:block;margin-top:6px;font-size:11.5px;opacity:.85;}
+.case2 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:start;}
+.case2 .step{text-align:center;}
+.case2 .step .slot{height:52px;border-radius:9px;}
+.case2 .step p{margin-top:8px;font-size:11.5px;line-height:1.7;color:var(--ink-soft);}
+.case2 .note{grid-column:1/-1;margin-top:4px;font-size:12px;color:var(--ink-faint);}
+
+/* strengths */
+.strs{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.str{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);padding:26px 24px;box-shadow:var(--shadow);}
+.str .slot{height:78px;width:100%;margin-bottom:16px;}
+.str h3{font-size:16.5px;}
+.str p{margin-top:10px;font-size:13.5px;line-height:1.9;color:var(--ink-soft);}
+
+/* compare table */
+.cmp{overflow:hidden;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--shadow);background:#fff;}
+.cmp table{width:100%;border-collapse:collapse;font-size:13px;}
+.cmp th,.cmp td{padding:14px 12px;border-bottom:1px solid var(--line-soft);text-align:center;vertical-align:middle;}
+.cmp thead th{background:var(--bg-soft);font-size:12.5px;font-weight:800;}
+.cmp thead th.us{background:rgba(11,110,79,0.10);color:var(--key);}
+.cmp tbody th{background:var(--bg-soft);font-weight:800;font-size:12px;width:96px;text-align:left;padding-left:16px;}
+.cmp td.us{background:rgba(11,110,79,0.05);color:var(--key);font-weight:800;}
+.cmp .mark{font-size:17px;font-weight:900;}
+
+/* feature grid */
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.feat{text-align:center;padding:22px 14px;border-radius:var(--r);background:#fff;border:1px solid var(--line-soft);}
+.feat .slot{height:48px;width:48px;margin:0 auto 12px;border-radius:12px;}
+.feat b{display:block;font-size:13.5px;font-weight:800;}
+.feat span{display:block;margin-top:7px;font-size:11.5px;line-height:1.75;color:var(--ink-faint);}
+
+/* pricing */
+.price3{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;}
+.pc{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;text-align:center;}
+.pc .h{background:var(--key);color:#fff;font-size:13px;font-weight:800;padding:11px;}
+.pc .b{padding:24px 18px;}
+.pc .b em{font-style:normal;font-family:var(--sans);font-size:30px;font-weight:900;color:var(--ink);}
+.pc .b small{display:block;margin-top:8px;font-size:11.5px;color:var(--ink-faint);line-height:1.7;}
+.plus{display:flex;align-items:center;font-size:26px;font-weight:900;color:var(--ink-faint);}
+.pnote{margin-top:16px;text-align:center;font-size:12px;color:var(--ink-faint);}
+
+/* flow diagram */
+.diag{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);box-shadow:var(--shadow);padding:34px 24px;}
+.diag .top{display:flex;justify-content:center;}
+.diag .top .slot{width:120px;height:70px;}
+.diag .arrowdown{width:1px;height:26px;background:var(--line);margin:14px auto;}
+.diag .fan{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.diag .fan .slot{height:64px;}
+.diag .fan p{margin-top:9px;font-size:11.5px;text-align:center;color:var(--ink-soft);line-height:1.7;}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:860px;margin:0 auto;}
+.qa{background:#fff;border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;}
+.qa summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:flex-start;padding:18px 20px;font-size:14.5px;font-weight:800;}
+.qa summary::-webkit-details-marker{display:none;}
+.qa summary::before{content:"Q";flex:none;width:24px;height:24px;border-radius:50%;background:var(--key);color:#fff;
+  font-family:var(--sans);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.qa summary::after{content:"＋";margin-left:auto;color:var(--ink-faint);font-weight:700;}
+.qa[open] summary::after{content:"−";}
+.qa .a{display:flex;gap:12px;padding:0 20px 20px 20px;font-size:13.5px;line-height:1.95;color:var(--ink-soft);}
+.qa .a::before{content:"A";flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#3A2600;
+  font-family:var(--sans);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+
+/* other services */
+.others{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+.oth{background:#fff;border:1px solid var(--line-soft);border-radius:12px;padding:18px 12px;text-align:center;}
+.oth .slot{height:40px;width:40px;margin:0 auto 10px;border-radius:10px;}
+.oth b{font-size:12.5px;font-weight:800;}
+
+/* footer */
+.ft{background:var(--ink);color:#fff;padding:52px 0 34px;}
+.ft-top{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start;}
+.ft-logo{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:800;font-size:17px;}
+.ft-logo .slot{width:32px;height:32px;border-radius:8px;}
+.ft-nav{display:flex;gap:22px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,0.72);}
+.ft-nav a:hover{color:#fff;}
+.ft-cp{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.14);font-family:var(--sans);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.5);}
+
+@media (max-width:1000px){
+  .hero-in{grid-template-columns:1fr;gap:32px;}
+  .badges{position:static;margin-bottom:14px;}
+  .probs,.strs,.feats,.others{grid-template-columns:1fr 1fr;}
+  .logos .row{grid-template-columns:repeat(3,1fr);}
+  .price3{grid-template-columns:1fr;}
+  .plus{justify-content:center;}
+  .hd-nav{display:none;}
+}
+@media (max-width:700px){
+  .sec{padding:56px 0;}
+  .wrap{padding:0 18px;}
+  .probs,.strs,.feats,.others{grid-template-columns:1fr;}
+  .case2{grid-template-columns:1fr;}
+  .case2 .flow{grid-template-columns:repeat(2,1fr);}
+  .diag .fan{grid-template-columns:repeat(2,1fr);}
+  .cmp{overflow-x:auto;}
+  .cmp table{min-width:620px;}
+  .hero{padding:40px 0 48px;}
+  .btn{width:100%;}
+  .hd-act .btn{width:auto;}
+  .band .in .btn,.hero .acts .btn{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ ヘッダー ═══ -->
+<header class="hd">
+  <div class="hd-in">
+    <a class="hd-logo" href="#top"><div class="slot ">LOGO</div><span>サービス名</span></a>
+    <nav class="hd-nav">
+      <a href="#problem">課題</a><a href="#usecase">利用シーン</a><a href="#strength">強み</a>
+      <a href="#compare">他社比較</a><a href="#feature">機能</a><a href="#price">料金</a><a href="#faq">Q&amp;A</a>
+    </nav>
+    <div class="hd-act">
+      <a class="btn ghost sm" href="#contact">資料ダウンロード</a>
+      <a class="btn pri sm" href="#contact">お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 01 ヒーロー ═══ -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <span class="tagline">▼サービスの一言説明（例：〇〇型サービス）</span>
+      <h1>ここに<em>主見出し</em>を<br>2行で入れる</h1>
+      <p class="sub">サブコピー。誰の何をどう変えるかを1文で。</p>
+      <div class="acts">
+        <a class="btn pri lg" href="#contact">主CTA（例：資料をもらう）</a>
+        <a class="btn ghost lg" href="#contact">副CTA（例：相談する）</a>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="badges">
+        <div class="badge"><b>0,000</b><span>実績指標①</span></div>
+        <div class="badge"><b>000</b><span>実績指標②</span></div>
+      </div>
+      <div class="slot shot">プロダクト画面／キービジュアル<br>1600×1100 目安</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 導入企業ロゴ ═══ -->
+<section class="logos">
+  <div class="wrap">
+    <p class="cap">導入企業</p>
+    <div class="row">
+      <div class="slot ">LOGO 1</div><div class="slot ">LOGO 2</div><div class="slot ">LOGO 3</div><div class="slot ">LOGO 4</div><div class="slot ">LOGO 5</div><div class="slot ">LOGO 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA帯 ═══ -->
+<section class="band">
+  <div class="wrap in">
+    <a class="btn ghost" href="#contact">資料ダウンロード</a>
+    <a class="btn pri" href="#contact">お問い合わせ</a>
+  </div>
+</section>
+
+<!-- ═══ 03 課題（3枚） ═══ -->
+<section class="sec soft" id="problem">
+  <div class="wrap">
+    <div class="shead"><h2><em>◯◯業務</em>の課題</h2></div>
+    <div class="probs">
+      
+      <article class="prob">
+        <span class="no">1</span>
+        <p class="bubble">「顧客の声で書く、よくある不満」</p>
+        <div class="slot ">イラスト</div>
+        <h3>課題の見出し1</h3>
+        <p>課題の説明を2〜3行で。読者が自分のことだと気づく粒度まで具体的に書く。</p>
+      </article>
+      <article class="prob">
+        <span class="no">2</span>
+        <p class="bubble">「顧客の声で書く、よくある不満」</p>
+        <div class="slot ">イラスト</div>
+        <h3>課題の見出し2</h3>
+        <p>課題の説明を2〜3行で。読者が自分のことだと気づく粒度まで具体的に書く。</p>
+      </article>
+      <article class="prob">
+        <span class="no">3</span>
+        <p class="bubble">「顧客の声で書く、よくある不満」</p>
+        <div class="slot ">イラスト</div>
+        <h3>課題の見出し3</h3>
+        <p>課題の説明を2〜3行で。読者が自分のことだと気づく粒度まで具体的に書く。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 利用シーン ═══ -->
+<section class="sec" id="usecase">
+  <div class="wrap">
+    <div class="shead"><h2>利用シーン</h2></div>
+    <div class="cases2">
+      
+      <article class="case2">
+        <div class="lbl"><b>シーン1</b><span>対象・場面の補足</span></div>
+        <div class="flow">
+          <div class="step"><div class="slot ">図</div><p>ステップ1の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ2の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ3の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ4の説明</p></div>
+          <p class="note">補足：この行の説明を1行で。</p>
+        </div>
+      </article>
+      <article class="case2">
+        <div class="lbl"><b>シーン2</b><span>対象・場面の補足</span></div>
+        <div class="flow">
+          <div class="step"><div class="slot ">図</div><p>ステップ1の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ2の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ3の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ4の説明</p></div>
+          <p class="note">補足：この行の説明を1行で。</p>
+        </div>
+      </article>
+      <article class="case2">
+        <div class="lbl"><b>シーン3</b><span>対象・場面の補足</span></div>
+        <div class="flow">
+          <div class="step"><div class="slot ">図</div><p>ステップ1の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ2の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ3の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ4の説明</p></div>
+          <p class="note">補足：この行の説明を1行で。</p>
+        </div>
+      </article>
+      <article class="case2">
+        <div class="lbl"><b>シーン4</b><span>対象・場面の補足</span></div>
+        <div class="flow">
+          <div class="step"><div class="slot ">図</div><p>ステップ1の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ2の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ3の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ4の説明</p></div>
+          <p class="note">補足：この行の説明を1行で。</p>
+        </div>
+      </article>
+      <article class="case2">
+        <div class="lbl"><b>シーン5</b><span>対象・場面の補足</span></div>
+        <div class="flow">
+          <div class="step"><div class="slot ">図</div><p>ステップ1の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ2の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ3の説明</p></div><div class="step"><div class="slot ">図</div><p>ステップ4の説明</p></div>
+          <p class="note">補足：この行の説明を1行で。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA帯 ═══ -->
+<section class="band">
+  <div class="wrap in">
+    <a class="btn ghost" href="#contact">資料ダウンロード</a>
+    <a class="btn pri" href="#contact">お問い合わせ</a>
+  </div>
+</section>
+
+<!-- ═══ 05 強み（4枚） ═══ -->
+<section class="sec soft" id="strength">
+  <div class="wrap">
+    <div class="shead"><h2><em>サービス名</em>の強み</h2></div>
+    <div class="strs">
+      
+      <article class="str">
+        <div class="slot ">図解</div>
+        <h3>強み1の見出し</h3>
+        <p>強みの説明。競合が言えないことを書く。数字があれば入れる。</p>
+      </article>
+      <article class="str">
+        <div class="slot ">図解</div>
+        <h3>強み2の見出し</h3>
+        <p>強みの説明。競合が言えないことを書く。数字があれば入れる。</p>
+      </article>
+      <article class="str">
+        <div class="slot ">図解</div>
+        <h3>強み3の見出し</h3>
+        <p>強みの説明。競合が言えないことを書く。数字があれば入れる。</p>
+      </article>
+      <article class="str">
+        <div class="slot ">図解</div>
+        <h3>強み4の見出し</h3>
+        <p>強みの説明。競合が言えないことを書く。数字があれば入れる。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 他社比較表 ═══ -->
+<section class="sec" id="compare">
+  <div class="wrap">
+    <div class="shead"><h2>他サービスとの違い</h2></div>
+    <div class="cmp">
+      <table>
+        <thead><tr><th></th><th></th><th class="us">自社サービス</th><th>比較対象A</th><th>比較対象B</th></tr></thead>
+        <tbody>
+          <tr><th rowspan="3">費用</th><td>初期費用</td><td class="us">◯◯円</td><td>—</td><td>—</td></tr>
+          <tr><td>月額費用</td><td class="us">◯◯円</td><td>—</td><td>—</td></tr>
+          <tr><td>従量課金</td><td class="us">◯◯円</td><td>—</td><td>—</td></tr>
+          <tr><th rowspan="2">機能</th><td>機能A</td><td class="us"><span class="mark">◯</span></td><td><span class="mark">△</span></td><td><span class="mark">×</span></td></tr>
+          <tr><td>機能B</td><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span></td><td><span class="mark">×</span></td></tr>
+          <tr><th rowspan="2">運用</th><td>導入までの期間</td><td class="us">◯日</td><td>—</td><td>—</td></tr>
+          <tr><td>サポート</td><td class="us"><span class="mark">◯</span></td><td><span class="mark">△</span></td><td><span class="mark">×</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 07 価格訴求帯 ═══ -->
+<section class="band wide">
+  <div class="wrap">
+    <h2>価格や優位性の<br>強い一言をここに</h2>
+    <p>補足を1行。</p>
+    <div class="in">
+      <a class="btn ghost" href="#contact">資料ダウンロード</a>
+      <a class="btn pri" href="#contact">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 08 機能一覧 ═══ -->
+<section class="sec" id="feature">
+  <div class="wrap">
+    <div class="shead"><h2>機能の一覧</h2><p>できることを一覧で。多いほど検討の安心材料になる。</p></div>
+    <div class="feats">
+      
+      <article class="feat"><div class="slot ">ICON</div><b>機能1</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能2</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能3</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能4</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能5</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能6</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能7</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能8</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能9</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能10</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能11</b><span>1行の説明</span></article>
+      <article class="feat"><div class="slot ">ICON</div><b>機能12</b><span>1行の説明</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 09 料金イメージ ═══ -->
+<section class="sec soft" id="price">
+  <div class="wrap">
+    <div class="shead"><h2>利用料金イメージ</h2><p>実際のご利用条件により変動します。目安としてご覧ください。</p></div>
+    <div class="price3">
+      <div class="pc"><div class="h">項目①</div><div class="b"><em>0,000円</em><small>単位・条件の補足</small></div></div>
+      <div class="plus">＋</div>
+      <div class="pc"><div class="h">項目②</div><div class="b"><em>0,000円</em><small>単位・条件の補足</small></div></div>
+      <div class="plus">＋</div>
+      <div class="pc"><div class="h">項目③</div><div class="b"><em>従量</em><small>単位・条件の補足</small></div></div>
+    </div>
+    <p class="pnote">※ 表示価格は税抜です。詳細はお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- ═══ 10 利用フロー図 ═══ -->
+<section class="sec">
+  <div class="wrap narrow">
+    <div class="shead"><h2>ご利用の流れ</h2><p>導入から運用までの全体像。</p></div>
+    <div class="diag">
+      <div class="top"><div class="slot ">中心となる仕組み</div></div>
+      <div class="arrowdown"></div>
+      <div class="fan">
+        <div><div class="slot ">接続先</div><p>接続先1の説明</p></div><div><div class="slot ">接続先</div><p>接続先2の説明</p></div><div><div class="slot ">接続先</div><p>接続先3の説明</p></div><div><div class="slot ">接続先</div><p>接続先4の説明</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11 Q&A ═══ -->
+<section class="sec soft" id="faq">
+  <div class="wrap">
+    <div class="shead"><h2>Q&amp;A</h2></div>
+    <div class="faq">
+      
+      <details class="qa" open>
+        <summary>よくある質問1をここに書く</summary>
+        <div class="a"><div>回答を2〜3行で。断定できないことは断定しない。</div></div>
+      </details>
+      <details class="qa">
+        <summary>よくある質問2をここに書く</summary>
+        <div class="a"><div>回答を2〜3行で。断定できないことは断定しない。</div></div>
+      </details>
+      <details class="qa">
+        <summary>よくある質問3をここに書く</summary>
+        <div class="a"><div>回答を2〜3行で。断定できないことは断定しない。</div></div>
+      </details>
+      <details class="qa">
+        <summary>よくある質問4をここに書く</summary>
+        <div class="a"><div>回答を2〜3行で。断定できないことは断定しない。</div></div>
+      </details>
+      <details class="qa">
+        <summary>よくある質問5をここに書く</summary>
+        <div class="a"><div>回答を2〜3行で。断定できないことは断定しない。</div></div>
+      </details>
+      <details class="qa">
+        <summary>よくある質問6をここに書く</summary>
+        <div class="a"><div>回答を2〜3行で。断定できないことは断定しない。</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 12 その他の機能 ═══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="shead"><h2>その他の機能</h2><p>組み合わせて使える関連機能。</p></div>
+    <div class="others">
+      <article class="oth"><div class="slot ">ICON</div><b>関連機能1</b></article><article class="oth"><div class="slot ">ICON</div><b>関連機能2</b></article><article class="oth"><div class="slot ">ICON</div><b>関連機能3</b></article><article class="oth"><div class="slot ">ICON</div><b>関連機能4</b></article><article class="oth"><div class="slot ">ICON</div><b>関連機能5</b></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 13 フッターCTA ═══ -->
+<section class="band wide" id="contact">
+  <div class="wrap">
+    <h2>締めのCTA見出しをここに</h2>
+    <p>行動を後押しする一言。ハードルの低さを明示する。</p>
+    <div class="in">
+      <a class="btn ghost lg" href="#">資料ダウンロード</a>
+      <a class="btn pri lg" href="#">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ フッター ═══ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <a class="ft-logo" href="#top"><div class="slot ">LOGO</div><span>サービス名</span></a>
+      <nav class="ft-nav">
+        <a href="#problem">課題</a><a href="#usecase">利用シーン</a><a href="#strength">強み</a>
+        <a href="#compare">他社比較</a><a href="#feature">機能</a><a href="#price">料金</a>
+        <a href="#faq">Q&amp;A</a><a href="/privacy.html">プライバシーポリシー</a><a href="/terms.html">利用規約</a>
+      </nav>
+    </div>
+    <div class="ft-cp">© 2026 Vitality Design LLC ・ vitality-design.jp</div>
+  </div>
+</footer>
+
+</body>
+</html>

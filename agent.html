@@ -65,6 +65,14 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "すでに文字起こしツールを使っています。入れ替えが必要ですか。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "まずは現状のまま伺います。溜まっている文字起こしをどう使えているかを見たうえで、何が足りないかを伝えます。置き換えありきでは考えません。"
+      }
+    },
+    {
+      "@type": "Question",
       "name": "録音データは、御社が持つのですか。",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -341,6 +349,28 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 @media (max-width:1000px){.bn{grid-template-columns:1fr;gap:10px;}}
 @media (max-width:700px){.ben{margin-top:30px;}.bn{padding:20px 0;}.bn span{font-size:14px;line-height:1.85;}}
 
+
+.callout{background:var(--ink);color:#fff;border-radius:var(--r);padding:52px 48px;box-shadow:var(--shadow);}
+.callout .k{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.16em;color:var(--key-bright);
+  background:rgba(20,184,112,.14);padding:6px 14px;border-radius:99px;}
+.callout h2{margin-top:20px;font-size:clamp(23px,3.4vw,40px);line-height:1.36;color:#fff;}
+.callout h2 em{font-style:normal;color:var(--key-bright);}
+.co2{display:grid;grid-template-columns:1fr 1fr;gap:0 52px;margin-top:38px;padding-top:32px;border-top:1px solid rgba(255,255,255,.18);}
+.co2 h3{font-size:16.5px;color:#fff;}
+.co2 p{margin-top:12px;font-size:14.5px;line-height:1.95;color:rgba(255,255,255,.74);}
+.co2 p strong{color:#fff;font-weight:900;}
+.co2 .col+.col{border-left:1px solid rgba(255,255,255,.18);padding-left:52px;}
+.costat{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.18);}
+.costat div b{display:block;font-family:var(--sans);font-size:clamp(24px,3vw,34px);font-weight:900;color:var(--key-bright);line-height:1.1;}
+.costat div span{display:block;margin-top:6px;font-size:12px;color:rgba(255,255,255,.62);}
+.coend{margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.9);font-size:clamp(17px,2.4vw,25px);font-weight:900;line-height:1.6;letter-spacing:-.03em;color:#fff;}
+@media (max-width:900px){
+  .callout{padding:34px 24px;}
+  .co2{grid-template-columns:1fr;gap:0;}
+  .co2 .col+.col{border-left:0;padding-left:0;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);}
+  .costat{gap:22px;}
+}
+
 /* form */
 .formwrap{max-width:620px;margin:28px auto 0;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:30px 28px;text-align:left;color:var(--ink);}
 .formwrap .fh{font-size:18px;font-weight:900;letter-spacing:-0.02em;}
@@ -392,7 +422,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
     <a class="hd-logo" href="/"><span class="mk"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="17" stroke="currentColor" stroke-width="2"/><path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="#14B870" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></span><span>Vitality Design</span></a>
     <nav class="hd-nav">
       <a href="#problem">課題</a><a href="#industry">業界事情</a><a href="#usecase">使い方</a><a href="#strength">強み</a>
-      <a href="#compare">比較</a><a href="#feature">機能</a><a href="#price">費用</a><a href="#faq">Q&amp;A</a>
+      <a href="#transcript">文字起こし</a><a href="#compare">比較</a><a href="#feature">機能</a><a href="#price">費用</a><a href="#faq">Q&amp;A</a>
     </nav>
     <div class="hd-act"><a class="btn pri sm" href="#contact">動いている画面を見る</a></div>
   </div>
@@ -403,7 +433,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
     <div>
       <span class="tagline">エージェント業のための、面談可視化</span>
       <h1>トップの30分と、<br>新人の30分。<br><em>違いを、説明できますか。</em></h1>
-      <p class="sub">面談は、いちばん売上に近い場所で、いちばん記録が残っていない場所です。<br>密室の30分を、担当者別に比べられる記録に変えます。</p>
+      <p class="sub">面談は、いちばん売上に近い場所で、いちばん記録が残っていない場所です。<br>録るだけでは足りません。<strong style="color:var(--key)">比べられて、はじめて資産になります。</strong></p>
       <div class="acts">
         <a class="btn pri lg" href="#contact">動いている画面を見る</a>
         <a class="btn ghost lg" href="#compare">他の手段と比べる</a>
@@ -546,6 +576,32 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   </div>
 </section>
 
+
+<section class="sec soft" id="transcript">
+  <div class="wrap">
+    <div class="callout">
+      <span class="k">すでに文字起こしを入れている方へ</span>
+      <h2>文字起こしは、記録です。<br><em>まだ、資産ではありません。</em></h2>
+      <div class="costat">
+        <div><b>約1万字</b><span>30分の面談を文字にした量</span></div>
+        <div><b>100件で100万字</b><span>半年ぶんの面談</span></div>
+        <div><b>約33時間</b><span>100件を読み返すのに必要な時間</span></div>
+      </div>
+      <div class="co2">
+        <div class="col">
+          <h3>溜まるほど、読まれなくなる</h3>
+          <p>文字起こしは、面談が増えるほど積み上がります。<strong>そして増えるほど、誰も開かなくなります。</strong>1件を読み返すだけで20分。100件なら丸2日近くかかります。<strong>読み返す前提のない記録は、置いてあるだけです。</strong></p>
+        </div>
+        <div class="col">
+          <h3>資産になるのは、比べられる形になってから</h3>
+          <p>質問量、やりとりの往復度、話す比率、話す速度。<strong>同じ物差しに載せて、はじめて「誰の何が違うのか」が言えます。</strong>読まなくても、並べれば分かる。そこまで来て、ようやく資産です。</p>
+        </div>
+      </div>
+      <p class="coend">文字起こしそのものは否定しません。<em style="font-style:normal;color:var(--key-bright)">足りていないのは、比べる物差しのほうです。</em></p>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="compare">
   <div class="wrap">
     <div class="shead"><h2>他の手段と、<em>比べてください</em></h2><p>面談を記録するだけなら、他にも方法があります。何が違うかを書きます。</p></div>
@@ -553,7 +609,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
       <table>
         <thead><tr><th style="width:230px"></th><th class="us">面談可視化</th><th>汎用の文字起こしツール</th><th>自社で開発</th></tr></thead>
         <tbody>
-          <tr><th>担当者別に同じ条件で比べる</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">△</span><br><small>文字起こしまで</small></td><td>要開発</td></tr>
+          <tr><th>担当者別に同じ条件で比べる</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">△</span><br><small>文字は残るが比べられない</small></td><td>要開発</td></tr>
           <tr><th>できる人の型を手順に落とす</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span></td><td>要設計</td></tr>
           <tr><th>現場の操作が増えない</th><td class="us"><span class="mark">◯</span><br><small>録音だけ</small></td><td><span class="mark">△</span></td><td>設計次第</td></tr>
           <tr><th>職業紹介の法定記録に合わせて設計する</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span></td><td>要調査</td></tr>
@@ -650,6 +706,11 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
         <div class="a"><div>やることが決まってから、打ち合わせのなかで具体的にお伝えします。値引きはしません。ご予算に合わせる場合は、金額ではなく範囲を狭めます。成果保証は行いません。</div></div>
       </details>
 
+
+      <details class="qa">
+        <summary>すでに文字起こしツールを使っています。入れ替えが必要ですか。</summary>
+        <div class="a"><div>まずは現状のまま伺わせてください。溜まっている文字起こしをどう使えているかを見たうえで、何が足りないかをお伝えします。置き換えありきでは考えません。</div></div>
+      </details>
       <details class="qa">
         <summary>職業安定法の帳簿の代わりになりますか。</summary>
         <div class="a"><div>なりません。法定帳簿は法定帳簿として整えていただく前提です。私たちが残すのは、その帳簿に載らない面談の中身です。両方あって、はじめて「何を伝えたか」まで説明できる状態になります。</div></div>

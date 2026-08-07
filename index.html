@@ -209,20 +209,11 @@ strong{color:var(--ink);font-weight:900;}
 .sec+.sec{border-top:1px solid var(--line-soft);}
 .shead{max-width:820px;}
 
-/* vision values */
-.vals{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--ink);}
-.vals div{padding:24px 22px 24px 0;border-bottom:1px solid var(--line);}
-.vals div+div{border-left:1px solid var(--line);padding-left:22px;}
-.vals b{display:block;font-size:15px;font-weight:900;letter-spacing:-0.02em;color:var(--ink);}
-.vals span{display:block;margin-top:10px;font-size:13px;line-height:1.85;color:var(--ink-faint);}
-
 /* what we do */
 .does{display:grid;margin-top:56px;border-top:1px solid var(--ink);}
-.do{display:grid;grid-template-columns:minmax(180px,0.8fr) 1.4fr 1.15fr;gap:34px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+.do{display:grid;grid-template-columns:minmax(180px,0.7fr) 1.9fr;gap:34px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;}
 .do b{font-size:clamp(17px,2.1vw,22px);font-weight:900;line-height:1.42;letter-spacing:-0.03em;color:var(--ink);}
 .do .wt{font-size:15px;line-height:1.95;color:var(--ink-soft);}
-.do .wy{font-size:13.5px;line-height:1.9;color:var(--ink-faint);}
-.do .wy::before{content:"なぜやるか ／ ";color:var(--ink-mute);}
 
 /* strengths */
 .str{margin-top:56px;padding-top:32px;border-top:2px solid var(--ink);}
@@ -230,9 +221,7 @@ strong{color:var(--ink);font-weight:900;}
 .str>.k{display:block;font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:0.2em;color:var(--green);margin-bottom:16px;}
 .str h3{font-size:clamp(21px,3vw,32px);line-height:1.42;letter-spacing:-0.035em;}
 .str>p{margin-top:18px;font-size:15.5px;line-height:2;max-width:680px;}
-.str ul{margin-top:28px;border-top:1px solid var(--line);max-width:820px;}
-.str li{list-style:none;display:grid;grid-template-columns:150px 1fr;gap:22px;font-size:14.5px;line-height:1.9;color:var(--ink-soft);padding:15px 0;border-bottom:1px solid var(--line);}
-.str li b{color:var(--ink);font-weight:800;font-size:12.5px;letter-spacing:0.06em;}
+.str .fine{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.9;color:var(--ink-faint);max-width:680px;}
 
 /* own practice */
 .own{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:56px;border-top:1px solid var(--ink);align-items:start;}
@@ -242,7 +231,6 @@ strong{color:var(--ink);font-weight:900;}
 .ow .hd img{width:34px;height:34px;border-radius:50%;flex:none;display:block;}
 .ow .nm a:hover{color:var(--green);}
 .ow p{margin-top:16px;font-size:14.5px;line-height:1.95;}
-.ow .fine{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.85;color:var(--ink-faint);}
 
 /* mid cta */
 .midcta{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-top:56px;padding:26px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);}
@@ -263,13 +251,6 @@ strong{color:var(--ink);font-weight:900;}
 .sec.dark .fcard p{color:var(--ink-soft);}
 .sec.dark .fcard .fnote{color:var(--ink-faint);}
 .sec.dark .fcard strong{color:var(--ink);}
-.nlist{display:grid;margin-top:26px;max-width:720px;border-top:1px solid rgba(255,255,255,0.14);}
-.nlist li{list-style:none;font-size:15.5px;line-height:1.75;color:#fff;padding:15px 0;border-bottom:1px solid rgba(255,255,255,0.14);}
-.fit{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;margin-top:48px;border-top:1px solid rgba(255,255,255,0.9);}
-.ft{padding:26px 0 0;}
-.fh2{display:block;font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:0.2em;color:var(--lime);}
-.fit .nlist{margin-top:16px;border-top:0;}
-
 /* contact */
 .cgrid{display:grid;grid-template-columns:1fr 0.92fr;gap:60px;align-items:start;margin-top:48px;}
 .facts{display:grid;margin-top:34px;border-top:1px solid rgba(255,255,255,0.9);}
@@ -316,13 +297,10 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
 
 @media (max-width:1000px){
   .folio{display:none;}
-  .own,.cgrid,.fit{grid-template-columns:1fr;gap:0;}
+  .own,.cgrid{grid-template-columns:1fr;gap:0;}
   .cgrid{gap:44px;}
   .ow+.ow{border-top:1px solid var(--line);margin-top:8px;}
-  .ft+.ft{margin-top:12px;}
   .do{grid-template-columns:1fr;gap:9px;}
-  .vals{grid-template-columns:1fr 1fr;}
-  .vals div:nth-child(odd){border-left:0;padding-left:0;}
   .sec{padding:82px 0;}
   .hero{padding:92px 0 78px;}
 }
@@ -343,31 +321,19 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
   .tri div+div{padding-left:8px;}
   .tri b{font-size:9px;letter-spacing:0.1em;}
   .tri span{margin-top:8px;font-size:12px;line-height:1.7;}
-  .vals{margin-top:34px;}
-  .vals div{padding:18px 12px 18px 0;}
-  .vals div+div{padding-left:12px;}
-  .vals b{font-size:13.5px;}
-  .vals span{font-size:11.5px;line-height:1.7;}
   .does{margin-top:36px;}
   .do{padding:20px 0;}
   .do .wt{font-size:14.5px;line-height:1.85;}
   .str{margin-top:38px;padding-top:26px;}
   .str+.str{margin-top:38px;}
-  .str ul{margin-top:22px;}
-  .str li{grid-template-columns:104px 1fr;gap:14px;font-size:13.5px;padding:13px 0;}
-  .str li b{font-size:11.5px;}
+  .str .fine{margin-top:16px;padding-top:14px;font-size:13px;line-height:1.85;}
   .own{margin-top:36px;}
   .ow{padding-top:26px;}
   .ow p{font-size:14px;line-height:1.85;}
   .midcta{margin-top:36px;padding:22px 0;gap:18px;}
   .mbtn{width:100%;text-align:center;padding:15px 20px;}
-  .fit{grid-template-columns:1fr 1fr;gap:0 16px;margin-top:32px;}
-  .ft{padding-top:20px;}
-  .ft+.ft{margin-top:0;border-left:1px solid rgba(255,255,255,0.16);padding-left:16px;}
-  .fit .nlist li{font-size:12.5px;line-height:1.65;padding:11px 0;}
-  .fh2{font-size:9.5px;letter-spacing:0.12em;}
-  .nlist,.facts{margin-top:22px;}
-  .nlist li,.facts li{font-size:14.5px;padding:13px 0;}
+  .facts{margin-top:22px;}
+  .facts li{font-size:14.5px;padding:13px 0;}
   .facts li{grid-template-columns:66px 1fr;gap:12px;}
   .cgrid{margin-top:36px;}
   .fcard{padding:28px 22px;}
@@ -410,8 +376,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <a href="#service"><b>02</b>やっていること</a>
     <a href="#strength"><b>03</b>得意なこと</a>
     <a href="#own"><b>04</b>自分たちで確かめていること</a>
-    <a href="#nots"><b>05</b>合う会社と、合わない会社</a>
-    <a href="#contact"><b>06</b>話を聞かせてください</a>
+    <a href="#contact"><b>05</b>話を聞かせてください</a>
     <a href="/agent.html" class="ext">エージェント業の方へ（AI議事録を活かす）↗</a>
     <a href="/blog/" class="ext">Vitality Notes ↗</a>
     <a href="/company.html" class="ext">会社概要 ↗</a>
@@ -442,16 +407,9 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <div class="shead">
       <span class="eyebrow rv">01 ／ ビジョン</span>
       <h2 class="rv">誰もが、自分らしく<br>価値を発揮できる社会へ。</h2>
-      <p class="lead rv">成果の差は、才能の差だと思われがちです。ですが実際に見てきたのは、<strong>うまくいっている人のやり方が、その人の中にしか残っていない</strong>という状態でした。</p>
-      <p class="lead rv" style="margin-top:18px;">残っていないから、誰にも渡せない。渡せないから、いつまでも同じ人に頼ることになる。<strong>努力の問題ではなく、材料がないだけです。</strong></p>
+      <p class="lead rv">成果の差は、才能の差だと思われがちです。実際に見てきたのは、<strong>うまくいっている人のやり方が、その人の中にしか残っていない</strong>という状態でした。残っていないから、誰にも渡せません。</p>
     </div>
     <p class="close rv">人の中にあるものを、組織が使える形に変える。<strong>それができれば、もっと多くの人が力を出せます。</strong></p>
-    <div class="vals rv">
-      <div><b>現場から考える</b><span>机上ではなく、動いている場所を起点にする。</span></div>
-      <div><b>本質を探る</b><span>症状ではなく、要因を一点に絞る。</span></div>
-      <div><b>仕組みに変える</b><span>気合いではなく、続く形にする。</span></div>
-      <div><b>人を中心に置く</b><span>数字のためではなく、人が働きやすくなるために。</span></div>
-    </div>
   </div>
 </section>
 
@@ -462,26 +420,23 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <div class="shead">
       <span class="eyebrow rv">02 ／ やっていること</span>
       <h2 class="rv">聞いて、形にして、<br>使われる場所に置く。</h2>
-      <p class="lead rv">やることは大きく3つです。順番があり、<strong>理解が終わる前には作りません。</strong></p>
+      <p class="lead rv">順番があります。<strong>理解が終わる前には作りません。</strong></p>
     </div>
     <div class="does rv">
       <article class="do">
         <b>聞く</b>
         <span class="wt">契約に至らなかった人・途中で来なくなった人に、第三者として直接伺います。面談やカウンセリングは、担当者別に同じ条件で解析します。</span>
-        <span class="wy">御社が聞くと本音は出ません。断った相手ほど、断った理由を言わないからです。</span>
       </article>
       <article class="do">
         <b>形にする</b>
-        <span class="wt">上位者の進め方を、手順と判断基準に落とします。経営数字と現場の記録を突き合わせ、利益が消えている場所を一点に絞ります。</span>
-        <span class="wy">型が残らないと、採用と教育をやり直し続けることになります。</span>
+        <span class="wt">できる人の進め方を、手順と判断基準に落とします。経営数字と現場の記録から、利益が消えている場所を一点に絞ります。</span>
       </article>
       <article class="do">
         <b>導線に置く</b>
-        <span class="wt">作った手順を、実際に使われる場所に置きます。数字は担当者本人に毎週自動で届くようにし、30日・60日・90日で定着を確認します。</span>
-        <span class="wy">見に行かないと分からない数字は、やがて見られなくなります。</span>
+        <span class="wt">その手順を、実際に使われる場所に置きます。数字は担当者本人に毎週自動で届くようにします。</span>
       </article>
     </div>
-    <p class="note rv">費用は、やることが決まってからです。打ち合わせのなかで具体的にお伝えします。入口として1拠点から試す形もあります。成果保証は行いません。人事評価や処遇には使いません。音声は御社側で保管し、解析後に削除します。当社では保存も学習もしません。</p>
+    <p class="note rv">費用は、やることが決まってからお伝えします。入口として1拠点から試す形もあります。成果保証は行いません。人事評価には使いません。音声は御社側で保管し、解析後に削除します。</p>
     <div class="midcta rv">
       <p><strong>御社の現場では、どこが詰まっていますか。</strong>30分、聞かせてください。</p>
       <a class="mbtn" href="#contact">話を聞かせる →</a>
@@ -496,29 +451,20 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <div class="shead">
       <span class="eyebrow rv">03 ／ 得意なこと</span>
       <h2 class="rv">得意なことは、<br>二つです。</h2>
-      <p class="lead rv">何でもできます、とは言いません。<strong>この二つに寄せています。</strong></p>
     </div>
 
     <div class="str rv">
       <span class="k">STRENGTH 01</span>
       <h3>現場の暗黙知を、<br>形式知に変える。</h3>
       <p>できる人は、なぜできるのかを説明できません。本人にとっては当たり前になっているからです。そこを聞き取りと解析で言語化し、<strong>担当者が替わっても同じ結果が出る手順にします。</strong></p>
-      <ul>
-        <li><b>やること</b><span>上位者への聞き取り、面談・カウンセリングの担当者別解析、判断基準の言語化、手順への落とし込み</span></li>
-        <li><b>見るもの</b><span>話す比率、質問量、話す速度、やりとりの往復度。感想ではなく、同じ条件で並べられる形にします。</span></li>
-        <li><b>出るもの</b><span>「できる人は、この場面でこう聞いている」が読める形の手順と基準。御社に残ります。</span></li>
-      </ul>
+      <p class="fine">話す比率・質問量・やりとりの往復度まで、担当者別に同じ条件で並べます。感想では比べられないからです。</p>
     </div>
 
     <div class="str rv">
       <span class="k">STRENGTH 02</span>
       <h3>使われるところまで、<br>導線を設計する。</h3>
       <p>手順を作っても、置き場所が悪ければ使われません。使われない仕組みは、<strong>内容ではなく導線が間違っています。</strong>顧客が知ってから決めるまで、現場が判断してから記録が残るまで。その間の動線を組み替えます。</p>
-      <ul>
-        <li><b>顧客の導線</b><span>知る・迷う・相談する・決める。どこで止まっているかを特定し、次の一歩を置き直します。</span></li>
-        <li><b>現場の導線</b><span>人が見張らないと守られない手順は、手順の設計のほうが間違っている、という立場を取ります。</span></li>
-        <li><b>定着まで</b><span>入れて終わりにしません。使われているかを数字で確認し、使われていなければ導線を直します。</span></li>
-      </ul>
+      <p class="fine">人が見張らないと守られない手順は、手順の設計のほうが間違っている、という立場を取ります。</p>
     </div>
   </div>
 </section>
@@ -531,7 +477,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <div class="shead">
       <span class="eyebrow rv">04 ／ 自分たちで確かめていること</span>
       <h2 class="rv">人に勧める前に、<br>自分の事業でやっています。</h2>
-      <p class="lead rv">貢献できると思う領域では、自分たちでも同じことを回しています。<strong>他社に渡す方法は、まず自分の事業で確かめてからにしています。</strong></p>
+      <p class="lead rv">貢献できると思う領域では、自分たちでも同じことを回しています。</p>
     </div>
     <div class="own rv">
       <article class="ow">
@@ -539,67 +485,34 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
           <img src="/app/hr-logo.png" width="34" height="34" alt="His Recoveries" loading="lazy" decoding="async">
           <span class="nm"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a></span>
         </div>
-        <p>男性の見た目と健康を扱うウェルネスメディアを自社運営しています。記事は<strong>55本</strong>まで自分で書きました。needが言葉になる前の生活者の関心を、検索と反応から直接読むための場です。</p>
-        <p class="fine">髪・肌・におい・歯。男性が気にする場所と、女性が見る場所のズレ。そして、行こうと思って行かなかった理由。需要側の一次情報を、人づてではなく自分で確かめています。</p>
+        <p>男性の見た目と健康を扱うウェルネスメディアを自社運営しています。記事は<strong>55本</strong>まで自分で書きました。<strong>行こうと思って行かなかった理由</strong>を、検索と反応から直接読むための場です。</p>
       </article>
       <article class="ow">
         <div class="hd">
           <span class="nm">面談解析の実践</span>
         </div>
-        <p>人材紹介領域の面談を<strong>89件</strong>解析し、進め方の差をメンバー別に同じ条件で並べました。人の話を構造化する方法を、<strong>他社に渡す前に自分の事業で検証しています。</strong></p>
-        <p class="fine">あわせて、代表は職人が動く現場を持つ事業会社に在籍しています。手順が飛ばされる理由も、あとから検証できなくなる工程も、管理する側からではなく動く側から見てきました。</p>
+        <p>人材紹介領域の面談を<strong>89件</strong>解析し、進め方の差をメンバー別に並べました。人の話を構造化する方法を、<strong>他社に渡す前に自分の事業で確かめています。</strong>代表は、職人が動く現場を持つ事業会社に在籍しています。</p>
       </article>
     </div>
-    <p class="note rv">顧客企業名は、守秘義務により公開していません。記載しているのは状態の変化であり、成果を保証するものではありません。医療にあたる判断は医師の診察を前提とします。</p>
+    <p class="note rv">顧客企業名は、守秘義務により公開していません。医療にあたる判断は医師の診察を前提とします。</p>
   </div>
 </section>
 
-<!-- 05 FIT -->
-<section class="sec dark" id="nots">
-  <div class="blob b" aria-hidden="true"></div>
-  <div class="wrap">
-    <span class="folio" aria-hidden="true">05</span>
-    <div class="shead">
-      <span class="eyebrow rv">05 ／ 相性</span>
-      <h2 class="rv">合う会社と、<br>合わない会社があります。</h2>
-      <p class="lead rv">先にお伝えしておいたほうが、お互いの時間が助かると思うので書いておきます。</p>
-    </div>
-    <div class="fit rv">
-      <div class="ft">
-        <span class="fh2">合うと思います</span>
-        <ul class="nlist">
-          <li>経営者が決めたら、動ける</li>
-          <li>人がやっている仕事が、売上の中心にある</li>
-          <li>うまくいっている理由が、説明しきれていない</li>
-        </ul>
-      </div>
-      <div class="ft">
-        <span class="fh2">たぶん合いません</span>
-        <ul class="nlist">
-          <li>作るものが、すでに決まっている</li>
-          <li>日中の常駐や、随時の対応が要る</li>
-          <li>決裁に稟議を要する</li>
-        </ul>
-      </div>
-    </div>
-    <p class="close rv">私たちは常駐せず、日中の会議にも出ません。<strong>その時間を、聞くことと読むことに使いたいからです。</strong></p>
-  </div>
-</section>
-
-<!-- 06 CONTACT -->
+<!-- 05 CONTACT -->
 <section class="sec dark" id="contact">
   <div class="blob b" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="folio" aria-hidden="true">06</span>
+    <span id="nots" aria-hidden="true"></span>
+    <span class="folio" aria-hidden="true">05</span>
     <div class="shead">
-      <span class="eyebrow rv">06 ／ CONTACT</span>
+      <span class="eyebrow rv">05 ／ CONTACT</span>
       <h2 class="rv">経営者の話を、<br>聞かせてください。</h2>
       <p class="lead rv">30分、オンラインで。無償です。<strong>売り込みではなく、現場でいま何が起きているかを伺うのが目的です。</strong>課題がまだ言葉になっていなくて構いません。</p>
     </div>
 
     <div class="cgrid rv">
       <div>
-        <p>代表が直接内容を拝見します。お役に立てるかをフラットにお伝えし、<strong>お引き受けできないと判断した場合は、その理由をお伝えします。売り込みは一切行いません。</strong></p>
+        <p>経営者が決めたら動ける会社、人がやっている仕事が売上の中心にある会社に向いています。<strong>常駐・日中の会議・稟議で決まる案件は、お受けしていません。</strong></p>
         <ul class="facts">
           <li><b>費用</b><span>無償</span></li>
           <li><b>所要</b><span>30分（テキストのみでも可）</span></li>
@@ -619,8 +532,6 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
             <label><input type="checkbox" name="topic" value="うまくいっている理由が、担当者の中にしかない"><span>うまくいっている理由が、担当者の中にしかない</span></label>
             <label><input type="checkbox" name="topic" value="拠点や担当者で成果が違う理由が分からない"><span>拠点や担当者で成果が違う理由が分からない</span></label>
             <label><input type="checkbox" name="topic" value="入れたツールや手順を、現場が使っていない"><span>入れたツールや手順を、現場が使っていない</span></label>
-            <label><input type="checkbox" name="topic" value="利益がどこで消えているか説明できない"><span>利益がどこで消えているか説明できない</span></label>
-            <label><input type="checkbox" name="topic" value="次に何を改善すべきか決められない"><span>次に何を改善すべきか決められない</span></label>
             <label><input type="checkbox" name="topic" value="まだ言葉になっていない。話しながら整理したい"><span>まだ言葉になっていない。話しながら整理したい</span></label>
           </fieldset>
           <div class="field"><label for="v-name">お名前<span class="req">*</span></label><input type="text" id="v-name" name="name" autocomplete="name" required placeholder="山田 太郎"></div>

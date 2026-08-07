@@ -371,6 +371,93 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   .costat{gap:22px;}
 }
 
+
+/* mobile comparison cards */
+.cmp-m{display:none;}
+.cm{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);padding:20px 18px;box-shadow:var(--shadow);}
+.cm+.cm{margin-top:12px;}
+.cm>b{display:block;font-size:15px;font-weight:900;letter-spacing:-.02em;color:var(--ink);}
+.cm>b small{display:block;font-size:11px;font-weight:600;color:var(--ink-faint);margin-top:3px;}
+.cm ul{margin-top:14px;display:grid;gap:9px;}
+.cm li{list-style:none;display:block;position:relative;padding-left:24px;font-size:13.5px;line-height:1.6;color:var(--ink-soft);}
+.cm li::before{content:"×";position:absolute;left:0;top:0;font-weight:900;color:var(--danger);}
+.cm li.w::before{content:"△";color:var(--ink-faint);}
+.cm li.o::before{content:"○";color:var(--key);}
+.cm li span{display:block;font-size:12px;color:var(--ink-faint);margin-top:2px;line-height:1.6;}
+.cm p{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-soft);font-size:12.5px;line-height:1.8;color:var(--ink-faint);}
+.cm.us{border-color:rgba(11,110,79,.3);background:rgba(11,110,79,.035);}
+.cm.us>b{color:var(--key);}
+.cm.us li{color:var(--ink);font-weight:700;}
+/* sticky mobile cta */
+.stickycta{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;align-items:center;justify-content:space-between;gap:12px;
+  padding:11px 16px calc(11px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s var(--ease);}
+.stickycta.on{transform:none;}
+.stickycta span{font-size:11.5px;font-weight:800;color:var(--ink-soft);letter-spacing:.02em;}
+.stickycta .btn{width:auto;flex:none;padding:11px 20px;font-size:13px;}
+@media (max-width:900px){
+  .cmp{display:none;}
+  .cmp-m{display:block;}
+  .stickycta{display:flex;}
+  body{padding-bottom:0;}
+}
+@media (max-width:700px){
+  .sec{padding:48px 0;}
+  .shead{margin-bottom:32px;}
+  .feats{grid-template-columns:1fr 1fr;gap:10px;}
+  .feat{padding:16px 10px;}
+  .feat b{font-size:12.5px;}
+  .feat span{font-size:11px;margin-top:5px;}
+  .others{grid-template-columns:1fr 1fr;gap:10px;}
+  .oth{padding:14px 10px;}
+  .oth b{font-size:12px;}
+  .probs{gap:12px;}
+  .prob{padding:20px 18px 22px;}
+  .prob p{font-size:13px;}
+  .cases2{gap:10px;}
+  .case2{padding:14px;}
+  .case2 .step p{font-size:11px;}
+  .case2 .note{font-size:11.5px;}
+  .callout{padding:28px 20px;}
+  .costat{gap:18px 26px;}
+  .costat div span{font-size:11.5px;}
+  .co2 p,.bn span,.str p{font-size:13.5px;line-height:1.85;}
+  .qa summary{font-size:14px;padding:15px 16px;}
+  .qa .a{font-size:13px;padding:0 16px 17px;}
+  .pnote,.fnote{font-size:11.5px;}
+  .band.wide{padding:44px 0;}
+  .formwrap{padding:22px 18px;}
+  .hero{padding:34px 0 40px;}
+  .badges{gap:8px;}
+  .badge{padding:10px 12px;min-width:0;flex:1;}
+}
+
+
+@media (max-width:900px){
+  .cm{padding:16px 15px;}
+  .cm+.cm{margin-top:9px;}
+  .cm>b{font-size:14.5px;}
+  .cm ul{margin-top:11px;gap:7px;}
+  .cm li{font-size:13px;line-height:1.55;padding-left:22px;}
+  .cm li span{font-size:12px;margin-top:1px;}
+  .cm p{margin-top:11px;padding-top:10px;font-size:12px;line-height:1.7;}
+}
+@media (max-width:700px){
+  .feat span{font-size:12px;line-height:1.65;}
+  .case2 .flow{gap:8px;}
+  .case2 .step .slot,.case2 .step .ic{width:40px;height:40px;}
+  .case2 .step .ic svg{width:24px;height:24px;}
+  .case2 .step p{font-size:11.5px;line-height:1.6;margin-top:6px;}
+  .bn{padding:17px 0;}
+  .ben{margin-top:26px;}
+  .co2 .col+.col{margin-top:20px;padding-top:20px;}
+  .costat{margin-top:26px;padding-top:22px;}
+  .strs{gap:10px;}
+  .str{padding:20px 18px;}
+  .qa+.qa{margin-top:8px;}
+  .faq{gap:8px;}
+}
+
 /* form */
 .formwrap{max-width:620px;margin:28px auto 0;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:30px 28px;text-align:left;color:var(--ink);}
 .formwrap .fh{font-size:18px;font-weight:900;letter-spacing:-0.02em;}
@@ -622,6 +709,47 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
         </tbody>
       </table>
     </div>
+    <div class="cmp-m">
+      <article class="cm">
+        <b>AI議事録ツール<small>いま入っているもの</small></b>
+        <ul>
+          <li>担当者別に同じ条件で比べる<span>1件ずつ読む前提</span></li>
+          <li>できる人の型を手順に落とす</li>
+          <li>紹介業の返戻・明示義務に合わせる</li>
+          <li>現場に入ってから仕様を決める</li>
+        </ul>
+        <p>足りていないのは、比べる物差しのほうです。入れ替える必要はありません。</p>
+      </article>
+      <article class="cm">
+        <b>採用面接の評価SaaS</b>
+        <ul>
+          <li>いまのツールを入れ替えない<span>面接基盤ごと入れ替え</span></li>
+          <li>紹介業の返戻・明示義務に合わせる<span>事業会社の採用向け</span></li>
+          <li>人を採点しない設計<span>面接官を評価する前提</span></li>
+        </ul>
+        <p>担当者別に比べる点は同じです。ただ、買い手も目的も違います。</p>
+      </article>
+      <article class="cm">
+        <b>BIで自作</b>
+        <ul>
+          <li class="w">担当者別に同じ条件で比べる<span>要構築</span></li>
+          <li>できる人の型を手順に落とす</li>
+          <li class="w">現場に入ってから仕様を決める<span>社内工数</span></li>
+        </ul>
+        <p>作れます。ただ、時間と人が要ります。立ち上がりは数ヶ月〜。</p>
+      </article>
+      <article class="cm us">
+        <b>この物差し</b>
+        <ul>
+          <li class="o">担当者別に同じ条件で比べる</li>
+          <li class="o">できる人の型を手順に落とす</li>
+          <li class="o">いまのツールを入れ替えない</li>
+          <li class="o">紹介業の返戻・明示義務に合わせる</li>
+          <li class="o">現場に入ってから仕様を決める<span>3ヶ月</span></li>
+          <li class="o">人を採点しない設計</li>
+        </ul>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -785,7 +913,21 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   </div>
 </footer>
 
+<div class="stickycta" id="stickyCta" aria-hidden="true">
+  <span>30分・無償・オンライン</span>
+  <a class="btn pri sm" href="#contact">画面を見る</a>
+</div>
+
 <script>
+(function(){
+  var bar=document.getElementById('stickyCta'),hero=document.getElementById('top'),ct=document.getElementById('contact');
+  if(!bar||!hero||!ct||!('IntersectionObserver' in window))return;
+  var pastHero=false,atContact=false;
+  function sync(){bar.classList.toggle('on',pastHero&&!atContact);}
+  new IntersectionObserver(function(e){pastHero=!e[0].isIntersecting;sync();},{threshold:0}).observe(hero);
+  new IntersectionObserver(function(e){atContact=e[0].isIntersecting;sync();},{threshold:0}).observe(ct);
+})();
+
 const VD_ENDPOINT='https://formspree.io/f/xbdvobba';
 const vdForm=document.getElementById('vdForm');
 const vdCard=document.getElementById('fcard');

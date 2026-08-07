@@ -306,6 +306,16 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   .band .in .btn,.hero .acts .btn{width:100%;}
 }
 
+
+.ic{display:flex;align-items:center;justify-content:center;width:46px;height:46px;margin:0 auto;border-radius:12px;
+  background:var(--bg-soft);border:1px solid var(--line-soft);color:var(--ink);}
+.ic svg{width:28px;height:28px;display:block;}
+.ic.lg{width:62px;height:62px;border-radius:14px;}
+.ic.lg svg{width:36px;height:36px;}
+.dnode{display:flex;flex-direction:column;align-items:center;gap:9px;}
+.dnode b{font-size:12px;font-weight:800;color:var(--ink);}
+.diag .fan .dnode b{font-size:11.5px;}
+
 /* form */
 .formwrap{max-width:620px;margin:28px auto 0;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:30px 28px;text-align:left;color:var(--ink);}
 .formwrap .fh{font-size:18px;font-weight:900;letter-spacing:-0.02em;}
@@ -446,35 +456,35 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
       <article class="case2">
         <div class="lbl"><b>面談を録る</b><span>録るだけで、あとは自動</span></div>
         <div class="flow">
-          <div class="step"><div class="slot ">01</div><p>面談の音声を録る</p></div><div class="step"><div class="slot ">02</div><p>自動で解析</p></div><div class="step"><div class="slot ">03</div><p>指標が出る</p></div><div class="step"><div class="slot ">04</div><p>担当者別に並ぶ</p></div>
+          <div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="17" y="8" width="10" height="17" rx="5" stroke="currentColor" stroke-width="2"/><path d="M12 21a10 10 0 0 0 20 0" stroke="#14B870" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M22 31v5M17 36h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><p>面談の音声を録る</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M7 22h4l3-9 3.5 18 3-13 3 8 2.5-5h3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 22h6" stroke="#14B870" stroke-width="2.6" stroke-linecap="round"/><circle cx="37" cy="22" r="2.6" fill="#14B870"/></svg></span><p>自動で解析</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M9 33V24" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M17 33V16" stroke="#14B870" stroke-width="2.6" stroke-linecap="round"/><path d="M25 33V21" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M33 33V11" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M6 37h30" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".35"/></svg></span><p>指標が出る</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="7" y="10" width="12" height="24" rx="2.5" stroke="currentColor" stroke-width="2"/><rect x="23" y="10" width="12" height="24" rx="2.5" stroke="#14B870" stroke-width="2.4"/><path d="M11 27v-9M15 27v-13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M27 27v-13M31 27v-6" stroke="#14B870" stroke-width="1.8" stroke-linecap="round"/></svg></span><p>担当者別に並ぶ</p></div>
           <p class="note">現場の操作は録音だけ。集計も入力もお願いしません。</p>
         </div>
       </article>
       <article class="case2">
         <div class="lbl"><b>差を見つける</b><span>なぜ決まるのかを、項目で見る</span></div>
         <div class="flow">
-          <div class="step"><div class="slot ">01</div><p>質問量を比べる</p></div><div class="step"><div class="slot ">02</div><p>やりとりの往復度</p></div><div class="step"><div class="slot ">03</div><p>話す比率と速度</p></div><div class="step"><div class="slot ">04</div><p>差が出た項目を特定</p></div>
+          <div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M9 12h24a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H20l-8 6v-6H9a3 3 0 0 1-3-3V15a3 3 0 0 1 3-3z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M18 18.5a3.5 3.5 0 1 1 4 3.4v1.6" stroke="#14B870" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="22" cy="27" r="1.4" fill="#14B870"/></svg></span><p>質問量を比べる</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M9 16h22l-5-5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M35 28H13l5 5" stroke="#14B870" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>やりとりの往復度</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M8 30a14 14 0 1 1 28 0" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M22 30l8-8" stroke="#14B870" stroke-width="2.6" stroke-linecap="round"/><circle cx="22" cy="30" r="2.6" fill="currentColor"/></svg></span><p>話す比率と速度</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="13" stroke="currentColor" stroke-width="2"/><circle cx="22" cy="22" r="7" stroke="currentColor" stroke-width="2" opacity=".45"/><circle cx="22" cy="22" r="2.8" fill="#14B870"/></svg></span><p>差が出た項目を特定</p></div>
           <p class="note">「上手い」で終わっていたものが、比べられる項目になります。</p>
         </div>
       </article>
       <article class="case2">
         <div class="lbl"><b>型を移す</b><span>エースのやり方を、手順にする</span></div>
         <div class="flow">
-          <div class="step"><div class="slot ">01</div><p>上位者の進め方を抽出</p></div><div class="step"><div class="slot ">02</div><p>手順に落とす</p></div><div class="step"><div class="slot ">03</div><p>新人が使う</p></div><div class="step"><div class="slot ">04</div><p>30・60・90日で確認</p></div>
+          <div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="16" r="6" stroke="currentColor" stroke-width="2"/><path d="M10 35c0-6 5.4-9 12-9s12 3 12 9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M33 8l1.4 3 3.2.4-2.3 2.2.6 3.2-2.9-1.6-2.9 1.6.6-3.2-2.3-2.2 3.2-.4z" fill="#14B870"/></svg></span><p>上位者の進め方を抽出</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="9" y="8" width="26" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M15 17h14M15 23h14M15 29h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/><path d="M14 17l2 2 4-4" stroke="#14B870" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>手順に落とす</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="15" r="6" stroke="#14B870" stroke-width="2.4"/><path d="M10 34c0-6 5.4-9 12-9s12 3 12 9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span><p>新人が使う</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="8" y="11" width="28" height="25" rx="3" stroke="currentColor" stroke-width="2"/><path d="M8 19h28M15 8v6M29 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 27l3.5 3.5L29 22" stroke="#14B870" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>30・60・90日で確認</p></div>
           <p class="note">教育が同行と背中から、手順に変わります。</p>
         </div>
       </article>
       <article class="case2">
         <div class="lbl"><b>記録に備える</b><span>言った・言わないに、材料を持つ</span></div>
         <div class="flow">
-          <div class="step"><div class="slot ">01</div><p>いつ何を伝えたか記録</p></div><div class="step"><div class="slot ">02</div><p>あとから検索</p></div><div class="step"><div class="slot ">03</div><p>該当箇所を確認</p></div><div class="step"><div class="slot ">04</div><p>事実として説明</p></div>
+          <div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="9" y="8" width="26" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M15 16h14M15 22h14M15 28h9" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".5"/><circle cx="32" cy="30" r="6" fill="#fff" stroke="#14B870" stroke-width="2.2"/><path d="M32 27.5V30l1.8 1.2" stroke="#14B870" stroke-width="1.8" stroke-linecap="round"/></svg></span><p>いつ何を伝えたか記録</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="2.2"/><path d="M27.5 27.5L36 36" stroke="#14B870" stroke-width="2.8" stroke-linecap="round"/></svg></span><p>あとから検索</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M12 7h13l8 8v22a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M25 7v8h8" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M16 27l3.5 3.5L28 22" stroke="#14B870" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>該当箇所を確認</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M22 7l12 4.5v9c0 8-5 14-12 16.5-7-2.5-12-8.5-12-16.5v-9z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M16.5 21l4 4 7.5-8" stroke="#14B870" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>事実として説明</p></div>
           <p class="note">トラブルが起きてからでは、材料は作れません。</p>
         </div>
       </article>
       <article class="case2">
         <div class="lbl"><b>記事にする</b><span>面談の言葉を、そのまま集客へ</span></div>
         <div class="flow">
-          <div class="step"><div class="slot ">01</div><p>出た質問を抽出</p></div><div class="step"><div class="slot ">02</div><p>下書きを自動生成</p></div><div class="step"><div class="slot ">03</div><p>人が確認・修正</p></div><div class="step"><div class="slot ">04</div><p>公開</p></div>
+          <div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="7" y="9" width="18" height="24" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M12 16h8M12 21h8M12 26h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".5"/><path d="M27 21h10l-4-4M37 21l-4 4" stroke="#14B870" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>出た質問を抽出</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M12 7h13l8 8v22a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M25 7v8h8" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M16 23h12M16 28h12M16 33h7" stroke="#14B870" stroke-width="2" stroke-linecap="round"/></svg></span><p>下書きを自動生成</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M10 34l1.8-6 15-15a3.5 3.5 0 0 1 5 5l-15 15z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M25 15l4 4" stroke="#14B870" stroke-width="2.4" stroke-linecap="round"/><path d="M9 38h26" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".4"/></svg></span><p>人が確認・修正</p></div><div class="step"><span class="ic"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="14" stroke="currentColor" stroke-width="2"/><path d="M8 22h28" stroke="currentColor" stroke-width="1.8" opacity=".5"/><path d="M22 8c4 4.5 4 23.5 0 28M22 8c-4 4.5-4 23.5 0 28" stroke="#14B870" stroke-width="2" fill="none"/></svg></span><p>公開</p></div>
           <p class="note">書く作業は発生しません。確認だけをお願いします。</p>
         </div>
       </article>
@@ -553,13 +563,13 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   <div class="wrap narrow">
     <div class="shead"><h2>一つの記録が、<em>四方向に効きます</em></h2></div>
     <div class="diag">
-      <div class="top"><div class="slot ">面談の記録</div></div>
+      <div class="top"><div class="dnode"><span class="ic lg"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="14" stroke="currentColor" stroke-width="2"/><circle cx="22" cy="22" r="6" fill="#14B870"/></svg></span><b>面談の記録</b></div></div>
       <div class="arrowdown"></div>
       <div class="fan">
-        <div><div class="slot ">比較</div><p>担当者別の<br>進め方の比較</p></div>
-        <div><div class="slot ">教育</div><p>新人に移せる<br>手順</p></div>
-        <div><div class="slot ">記録</div><p>言った・言わないの<br>確認</p></div>
-        <div><div class="slot ">集客</div><p>記事の<br>下書き</p></div>
+        <div><div class="dnode"><span class="ic lg"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="7" y="10" width="12" height="24" rx="2.5" stroke="currentColor" stroke-width="2"/><rect x="23" y="10" width="12" height="24" rx="2.5" stroke="#14B870" stroke-width="2.4"/><path d="M11 27v-9M15 27v-13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M27 27v-13M31 27v-6" stroke="#14B870" stroke-width="1.8" stroke-linecap="round"/></svg></span><b>比較</b></div><p>担当者別の<br>進め方の比較</p></div>
+        <div><div class="dnode"><span class="ic lg"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M22 9l14 6-14 6-14-6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M13 19v8c0 3 4 5 9 5s9-2 9-5v-8" stroke="#14B870" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></span><b>教育</b></div><p>新人に移せる<br>手順</p></div>
+        <div><div class="dnode"><span class="ic lg"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M22 7l12 4.5v9c0 8-5 14-12 16.5-7-2.5-12-8.5-12-16.5v-9z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M16.5 21l4 4 7.5-8" stroke="#14B870" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>記録</b></div><p>言った・言わないの<br>確認</p></div>
+        <div><div class="dnode"><span class="ic lg"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="14" stroke="currentColor" stroke-width="2"/><path d="M8 22h28" stroke="currentColor" stroke-width="1.8" opacity=".5"/><path d="M22 8c4 4.5 4 23.5 0 28M22 8c-4 4.5-4 23.5 0 28" stroke="#14B870" stroke-width="2" fill="none"/></svg></span><b>集客</b></div><p>記事の<br>下書き</p></div>
       </div>
     </div>
   </div>

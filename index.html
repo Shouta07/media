@@ -38,8 +38,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -80,13 +79,23 @@
         "多拠点オペレーション設計"
       ],
       "areaServed": "JP",
-      "sameAs": ["https://www.hisrecoveries.com/"],
+      "sameAs": [
+        "https://www.hisrecoveries.com/"
+      ],
       "founder": {
         "@type": "Person",
         "name": "バイタリティデザイン合同会社 代表",
         "jobTitle": "代表",
         "description": "職人が動く現場を持つ事業会社に在籍しながら、バイタリティデザイン合同会社を経営している。人が足りない日に手順が飛ばされること、確認したはずのことが記録に残っていないこと、あとから検証しようとしても材料がないことを、管理する側ではなく現場が動く側から見てきた。見えなくなる工程を記録で担保すること、多拠点・多職種を担当者が替わっても同じ品質で回すこと、原価と粗利の構造から施策を売上ではなく利益で判断すること。数字だけでも現場だけでも設計はできないという立場を取る。"
-      }
+      },
+      "owns": [
+        {
+          "@type": "Brand",
+          "name": "His Recoveries",
+          "url": "https://www.hisrecoveries.com/",
+          "description": "男性の見た目と健康を扱う自社運営の媒体。髪・肌・におい・歯といった関心を、記事と街頭での聞き取りから直接集めている。2026年8月時点で記事55本を代表が自分で書いている。生活者側の一次情報を自社で持ち続けるための事業。"
+        }
+      ]
     },
     {
       "@type": "WebSite",
@@ -95,32 +104,65 @@
       "name": "バイタリティデザイン合同会社",
       "description": "顧客・現場・経営の一次情報から企業の成長を設計する会社。",
       "inLanguage": "ja",
-      "publisher": { "@id": "https://www.vitality-design.jp/#org" }
+      "publisher": {
+        "@id": "https://www.vitality-design.jp/#org"
+      }
     },
     {
       "@type": "WebPage",
       "@id": "https://www.vitality-design.jp/#webpage",
       "url": "https://www.vitality-design.jp/",
       "name": "バイタリティデザイン合同会社｜記録されていないものは、改善できない。",
-      "isPartOf": { "@id": "https://www.vitality-design.jp/#website" },
-      "about": { "@id": "https://www.vitality-design.jp/#org" },
+      "isPartOf": {
+        "@id": "https://www.vitality-design.jp/#website"
+      },
+      "about": {
+        "@id": "https://www.vitality-design.jp/#org"
+      },
       "inLanguage": "ja"
     },
     {
       "@type": "Service",
-      "name": "経営診断・仕組み化・継続改善",
-      "provider": { "@id": "https://www.vitality-design.jp/#org" },
+      "name": "一次情報からの事業改善・実装（受託）",
+      "provider": {
+        "@id": "https://www.vitality-design.jp/#org"
+      },
       "areaServed": "JP",
-      "serviceType": ["顧客の声の収集", "面談解析", "経営診断", "仕組み化", "継続改善", "発注・調達判断の設計"],
-      "description": "費用はサイトに掲載せず、やることが決まってから打ち合わせのなかで具体的に提示する。値引きはしない。予算に合わせる場合は金額ではなく範囲を狭める。成果保証は行わない。理解が終わる前には作らない。二段階に分けている。Phase 1「現場解析」（1拠点・月額3万円〜、3ヶ月から）で現場の音声やデータを解析し、どこに利益の穴があるかを経営者向け・現場向けの2枚のレポートで可視化する。これは全社導入を判断するための解析費用であり、続けるための金額ではない。Phase 2「事業改善の設計と実装」は個別設計で、数十万〜数百万円規模の経営投資となる。現場の協力が得られない場合は引き受けないことがある。入口として、1拠点から試す形を用意している。1拠点あたり月3万円、3ヶ月から。その拠点の面談・カウンセリングを解析し、月次で経営者向けと現場向けの2枚を返す。稼働は月1回30分で、それ以外は自動。全社導入を判断するための金額であり、続けるための金額ではない。音声は顧客側で保管し、解析後に削除する。当社では保存も学習もしない。拠点数に応じた提供に対応し、拠点ごとの単価で本部での一括契約が可能。フランチャイズ本部の場合は直営拠点で確認したうえで加盟店へ広げる順序を取る。経営診断（4週・固定期間）で何を改善すべきかを特定し、実装仕様まで出す。仕様は顧客企業の資産であり、他社に持ち込んでもよい。仕組み化では、改善策を担当者に依存しない形へ変える。必要な場合にかぎり、システムなど適切な手段を選ぶ。継続改善では、数字と現場の変化を確認し、次の判断につなげる。費用は個別設計で、数十万円から数百万円規模の投資判断となる。成果保証は行わない。",
+      "serviceType": [
+        "顧客の声の収集",
+        "面談解析",
+        "経営診断",
+        "仕組み化",
+        "継続改善",
+        "発注・調達判断の設計"
+      ],
+      "description": "費用はサイトに掲載せず、やることが決まってから打ち合わせのなかで具体的に提示する。値引きはしない。予算に合わせる場合は金額ではなく範囲を狭める。成果保証は行わない。理解が終わる前には作らない。やることは6つ。断った人・やめた人に第三者として聞く（記録は顧客企業に残る）／面談・カウンセリングを担当者別に同じ条件で並べる／PL・KPI・利益構造と現場の記録を突き合わせて一点に絞る／上位者の型を担当者が替わっても同じ結果が出る手順にする／説明と同意をあとから追える形に組み替える／数字が毎週担当者本人に自動で届く状態にし、30日・60日・90日で定着を確認する。経営診断（4週・固定期間）で何を改善すべきかを特定し、実装仕様まで出す。仕様は顧客企業の資産であり、他社に持ち込んでもよい。仕組み化では、改善策を担当者に依存しない形へ変える。必要な場合にかぎり、システムなど適切な手段を選ぶ。継続改善では、数字と現場の変化を確認し、次の判断につなげる。人事評価や処遇には使わない。現場を責めるための数字は作らない。音声は顧客側で保管し、解析後に削除する。当社では保存も学習もしない。現場の協力が得られない場合は引き受けないことがある。",
       "audience": {
         "@type": "Audience",
         "audienceType": "経営者と株主が同じで、決めたら動ける会社の経営者"
       }
+    },
+    {
+      "@type": "Service",
+      "name": "面談可視化システム",
+      "url": "https://www.vitality-design.jp/agent.html",
+      "provider": {
+        "@id": "https://www.vitality-design.jp/#org"
+      },
+      "areaServed": "JP",
+      "serviceType": [
+        "面談解析",
+        "会話の構造化",
+        "担当者別の比較"
+      ],
+      "description": "録音済みの面談を、担当者別に同じ条件で並べるための物差し。話す比率、質問の量、やりとりの往復といった進め方の差を、同じ条件で比較できる形にする。人材紹介領域の面談89件を自社で解析して作った。AI議事録や文字起こしをすでに導入している会社が対象で、既存のツールを置き換えるものではなく、その上に載せる比較の軸を足すもの。表情解析やリアルタイムの助言は行わない。人事評価や処遇には使わない。音声は顧客側で保管し、解析後に削除する。当社では保存も学習もしない。成果保証は行わない。",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "AI議事録を導入済みの人材紹介・エージェント業の経営者"
+      }
     }
   ]
-}
-</script>
+}</script>
 <style>
 :root{
   --bg:#F6F7F4;--bg-2:#EDF0EA;--card:#FFFFFF;
@@ -310,6 +352,11 @@ strong{color:var(--ink);font-weight:900;}
 .ow .nm a:hover{color:var(--green);}
 .ow p{margin-top:16px;font-size:14.5px;line-height:1.95;}
 .ow .fine{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.85;color:var(--ink-faint);}
+.ow .tag{display:block;font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:0.18em;color:var(--green);margin-bottom:14px;}
+.ow .fine a{font-weight:800;color:var(--green);white-space:nowrap;}
+.ow .fine a:hover{border-bottom:1px solid var(--green);}
+.lsub .does{margin-top:34px;}
+.lsub .note{margin-top:16px;}
 
 .lsub{margin-top:64px;padding-top:36px;border-top:2px solid var(--ink);}
 .lsub h3{font-size:clamp(19px,2.6vw,26px);letter-spacing:-0.03em;}
@@ -591,7 +638,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <a href="#ai"><b>02</b>AIは、書かれていないことには答えられない</a>
     <a href="#why"><b>03</b>一次情報の4層</a>
     <a href="#founder"><b>04</b>誰が聞くのか</a>
-    <a href="#offer"><b>05</b>できること</a>
+    <a href="#offer"><b>05</b>事業内容</a>
     <a href="#cases"><b>06</b>取り組み</a>
     <a href="#nots"><b>07</b>合う会社と、合わない会社</a>
     <a href="#contact"><b>08</b>話を聞かせてください</a>
@@ -609,7 +656,7 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
     <span class="eyebrow rv">一次情報からの事業改善・実装</span>
     <h1 class="rv">記録されていないものは、<br>改善できない。</h1>
     <p class="sub rv">売上を作った理由は、どこにも残っていません。</p>
-    <p class="lead rv">顧客と現場の一次情報から、事業の成長を設計します。システムを売る会社ではありません。</p>
+    <p class="lead rv">顧客と現場の一次情報から、事業の成長を設計します。作るのは、聞いたあとです。</p>
     <div class="tri rv">
       <div><b>UNDERSTAND</b><span>聞いて、比べられる形にする。</span></div>
       <div><b>DESIGN</b><span>要因を、一点に絞る。</span></div>
@@ -733,43 +780,61 @@ footer{padding:72px 0 52px;border-top:1px solid var(--line);}
   <div class="wrap">
     <span class="folio" aria-hidden="true">05</span>
     <div class="shead">
-      <span class="eyebrow rv">05 ／ できること</span>
-      <h2 class="rv">やることは、<br>ぜんぶ「聞いて、残す」です。</h2>
-      <p class="lead rv">何をするかと、なぜそれをやるのかを並べます。<strong>費用は、やることが決まってからです。打ち合わせのなかで具体的にお伝えします。</strong></p>
+      <span class="eyebrow rv">05 ／ 事業内容</span>
+      <h2 class="rv">自社で運営して、<br>そこで使った型を渡しています。</h2>
+      <p class="lead rv">受託だけの会社ではありません。<strong>聞いて残す技術は、自分の事業で毎週使っていないと鈍ります。</strong>だから、生活者に聞く自社事業と、業務の記録を読むプロダクトを、両方いま動かしています。</p>
     </div>
-    <div class="does rv">
-      <article class="do">
+    <div class="own rv">
+      <article class="ow">
+        <span class="tag">自社事業 ／ 生活者に聞く</span>
+        <div class="nm"><span class="hd"><img src="/app/hr-logo.png" width="34" height="34" alt="" loading="lazy" decoding="async"><a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a></span></div>
+        <p>男性の見た目と健康を扱う媒体を、自社で運営しています。髪・肌・におい・歯。<strong>記事55本を自分で書き</strong>、街頭でも直接聞いています。</p>
+        <p class="fine">行こうと思って行かなかった理由は、事業者の側には届きません。外から聞くしかない情報を、自分の事業として取り続けています。</p>
+      </article>
+      <article class="ow">
+        <span class="tag">プロダクト ／ 業務の記録を読む</span>
+        <div class="nm"><a href="/agent.html">面談可視化システム →</a></div>
+        <p>録音済みの面談を、担当者別に同じ条件で並べる物差しです。話す比率、質問の量、やりとりの往復。<strong>人材紹介領域の面談89件</strong>を自分で解析して作りました。</p>
+        <p class="fine">AI議事録をすでに入れている会社が対象です。音声は御社側で保管し、解析後に削除します。当社では保存も学習もしません。<a href="/agent.html">エージェント業の方へ →</a></p>
+      </article>
+    </div>
+    <div class="lsub rv">
+      <h3>受託でやることは、<br>ぜんぶ「聞いて、残す」です。</h3>
+      <p class="lead">何をするかと、なぜそれをやるのかを並べます。<strong>費用は、やることが決まってからです。打ち合わせのなかで具体的にお伝えします。</strong></p>
+      <div class="does">
+        <article class="do">
         <b>断った人・やめた人に聞く</b>
-        <span class="wt">契約に至らなかった人、途中で来なくなった人に、第三者として直接伺います。記録は御社に残ります。</span>
-        <span class="wy">御社が聞くと本音は出ません。断った相手ほど、断った理由を言わないからです。</span>
+          <span class="wt">契約に至らなかった人、途中で来なくなった人に、第三者として直接伺います。記録は御社に残ります。</span>
+          <span class="wy">御社が聞くと本音は出ません。断った相手ほど、断った理由を言わないからです。</span>
       </article>
-      <article class="do">
-        <b>面談・カウンセリングを解析する</b>
-        <span class="wt">話す比率、質問量、話す速度、やりとりの往復度を、担当者別に同じ条件で並べます。</span>
-        <span class="wy">成約率の差は才能ではなく進め方の差です。並べないと、どこが違うのか誰も説明できません。</span>
+        <article class="do">
+          <b>面談・カウンセリングを解析する</b>
+          <span class="wt">話す比率、質問量、話す速度、やりとりの往復度を、担当者別に同じ条件で並べます。</span>
+          <span class="wy">成約率の差は才能ではなく進め方の差です。並べないと、どこが違うのか誰も説明できません。</span>
       </article>
-      <article class="do">
-        <b>数字と現場を突き合わせる</b>
-        <span class="wt">PL・KPI・利益構造と、現場に残っている記録を並べ、どこで利益が消えているかを一点に絞ります。</span>
-        <span class="wy">数字だけでは原因が分からず、現場だけでは優先順位が決まりません。</span>
+        <article class="do">
+          <b>数字と現場を突き合わせる</b>
+          <span class="wt">PL・KPI・利益構造と、現場に残っている記録を並べ、どこで利益が消えているかを一点に絞ります。</span>
+          <span class="wy">数字だけでは原因が分からず、現場だけでは優先順位が決まりません。</span>
       </article>
-      <article class="do">
-        <b>できる人の型を、残る形にする</b>
-        <span class="wt">上位者の進め方を手順に落とし、担当者が替わっても同じ結果が出る形にします。</span>
-        <span class="wy">型が残らないと、採用と教育をやり直し続けることになります。</span>
+        <article class="do">
+          <b>できる人の型を、残る形にする</b>
+          <span class="wt">上位者の進め方を手順に落とし、担当者が替わっても同じ結果が出る形にします。</span>
+          <span class="wy">型が残らないと、採用と教育をやり直し続けることになります。</span>
       </article>
-      <article class="do">
-        <b>説明と同意を、記録が残る形にする</b>
-        <span class="wt">誰が何を説明し、どこで医師の診察を経たのかが、あとから追える形に手順を組み替えます。</span>
-        <span class="wy">令和7年8月の通知以降、説明できない運用は成約以前の問題になりました。記録は、そのまま守りにも攻めにも効きます。</span>
+        <article class="do">
+          <b>説明と同意を、記録が残る形にする</b>
+          <span class="wt">誰が何を説明し、どこで医師の診察を経たのかが、あとから追える形に手順を組み替えます。</span>
+          <span class="wy">令和7年8月の通知以降、説明できない運用は成約以前の問題になりました。記録は、そのまま守りにも攻めにも効きます。</span>
       </article>
-      <article class="do">
-        <b>数字が毎週、本人に届く状態にする</b>
-        <span class="wt">担当者本人に毎週自動で届きます。30日・60日・90日で定着を確認します。</span>
-        <span class="wy">見に行かないと分からない数字は、やがて見られなくなります。</span>
-      </article>
+        <article class="do">
+          <b>数字が毎週、本人に届く状態にする</b>
+          <span class="wt">担当者本人に毎週自動で届きます。30日・60日・90日で定着を確認します。</span>
+          <span class="wy">見に行かないと分からない数字は、やがて見られなくなります。</span>
+        </article>
+      </div>
+      <p class="note">人事評価や処遇には使いません。現場を責めるための数字は作りません。成果保証は行いません。音声は御社側で保管し、解析後に削除します。当社では保存も学習もしません。</p>
     </div>
-    <p class="note rv">人事評価や処遇には使いません。現場を責めるための数字は作りません。成果保証は行いません。音声は御社側で保管し、解析後に削除します。当社では保存も学習もしません。</p>
   </div>
 </section>
 

@@ -29,7 +29,7 @@
 <meta name="twitter:title" content="会社概要｜バイタリティデザイン合同会社">
 <meta name="twitter:description" content="既存事業を持つ経営者の「次の一手」を、事業と仕組みに変える会社です。">
 <meta name="twitter:image" content="https://www.vitality-design.jp/og.png">
-<meta name="theme-color" content="#F5F2EA">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
@@ -65,9 +65,9 @@
 <style>
 
 :root{
-  --bg:#FBFBF9;--bg-deep:#10201A;--ink:#141A16;--ink-soft:#3E463F;--ink-faint:#6A7169;--ink-mute:#8A908A;
-  --line:rgba(20,26,22,0.14);--line-soft:rgba(20,26,22,0.08);
-  --green:#0B6E4F;--green-soft:#EDF2EE;
+  --bg:#FFFFFF;--bg-deep:#0A0A0A;--ink:#0A0A0A;--ink-soft:#33373B;--ink-faint:#5C6165;--ink-mute:#6E7276;
+  --line:#DCDFE1;--line-soft:#E9EBED;
+  --green:#0A0A0A;--green-soft:#F4F5F6;
   --serif:'Noto Sans JP','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic Medium',Meiryo,sans-serif;--jp:'Noto Sans JP',sans-serif;--sans:'Inter','Noto Sans JP',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
@@ -91,14 +91,14 @@ a{color:inherit;text-decoration:none;}
 .btn.line:hover{border-color:var(--green);color:var(--green);}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(251,251,249,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);}
-.nav-brand{display:flex;align-items:baseline;gap:12px;}
-.nav-brand .an{font-family:var(--sans);font-weight:700;font-size:16px;letter-spacing:0.01em;color:var(--ink);}
-.nav-brand .by{font-family:var(--jp);font-size:10.5px;font-weight:500;color:var(--ink-mute);letter-spacing:0.08em;}
+.nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 40px;background:rgba(255,255,255,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);}
+.nav-brand{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.nav-brand .an{font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:-0.02em;color:var(--ink);white-space:nowrap;line-height:1.2;}
+.nav-brand .by{font-family:var(--jp);font-size:10.5px;font-weight:500;color:var(--ink-faint);letter-spacing:0.02em;white-space:nowrap;line-height:1.2;}
 .nav-links{display:flex;gap:30px;font-family:var(--jp);font-size:13px;font-weight:500;color:var(--ink-soft);}
 .nav-links a:hover{color:var(--green);}
 .nav-cta{font-family:var(--jp);font-size:12.5px;font-weight:700;padding:11px 22px;border-radius:2px;color:#fff;background:var(--ink);white-space:nowrap;transition:background 0.3s;}
-.nav-cta:hover{background:var(--green);}
+.nav-cta:hover{background:#33373B;}
 
 /* hero */
 .hero{padding:150px 0 130px;position:relative;}
@@ -314,7 +314,7 @@ a{color:inherit;text-decoration:none;}
 .op-map .opr{grid-template-columns:1fr 26px 26px;}
 .op-map .opr.h{font-size:9px;font-weight:700;color:var(--ink-mute);letter-spacing:0.04em;}
 .op-map i{width:11px;height:11px;border-radius:50%;display:block;margin:0 auto;}
-.op-map i.a{background:#0B6E4F;}
+.op-map i.a{background:#0A0A0A;}
 .op-map i.b{background:#C79A3A;}
 .op-map i.c{background:#B4655A;}
 .op-map .lg{display:flex;gap:12px;margin-top:10px;font-size:9px;color:var(--ink-mute);align-items:center;}

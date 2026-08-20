@@ -548,9 +548,12 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 .cmp .td a{color:var(--green);border-bottom:1px solid rgba(11,110,79,0.4);}
 @media (max-width:760px){.cmp .row{grid-template-columns:1fr;gap:8px;padding:22px 0;}}
 
+.prog{position:fixed;top:0;left:0;width:100%;height:2px;background:var(--ink);transform:scaleX(0);transform-origin:left;z-index:250;pointer-events:none;will-change:transform;}
+@media (prefers-reduced-motion:reduce){.prog{display:none;}}
 </style>
 </head>
 <body>
+<div class="prog" id="prog" aria-hidden="true"></div>
 <a class="skip-link" href="#main">本文へスキップ</a>
 
 <nav class="nav">
@@ -625,6 +628,16 @@ footer .fn{font-family:var(--jp);font-size:11px;color:var(--ink-mute);line-heigh
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var el=document.getElementById('prog'),t=false;
+  if(!el)return;
+  function f(){var h=document.documentElement.scrollHeight-window.innerHeight,y=window.pageYOffset;
+    el.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';t=false;}
+  addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(f);}},{passive:true});f();
+})();
 </script>
 </body>
 </html>

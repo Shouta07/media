@@ -10,6 +10,7 @@
   gtag('config', 'G-DWTE9DWQ0S');
 </script>
 <meta charset="UTF-8">
+<script>document.documentElement.className+=" js";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>これ、仕組みにできない？｜バイタリティデザイン合同会社</title>
 <meta name="description" content="既存事業を持つ経営者の「次の一手」を、事業と仕組みに変えます。新しいサービスの立ち上げ、社内業務の仕組み化、業務システムやWebサービスの開発。要件が固まっていない段階から入り、何を作るべきかを決めて、必要なものだけを小さく作ります。従業員20〜100人程度のBtoB企業の経営者・次世代経営者向け。">
@@ -176,17 +177,40 @@ strong{color:var(--ink);font-weight:700;}
 .lab{display:block;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:0.18em;color:var(--ink-4);margin-bottom:26px;}
 .lead{margin-top:26px;font-size:16.5px;line-height:2.1;color:var(--ink-2);max-width:660px;}
 .lead strong{color:var(--ink);}
-.sec{padding:118px 0;border-top:1px solid var(--line);}
+.sec{padding:94px 0;border-top:1px solid var(--line);}
 .shead{max-width:760px;}
-.close{margin-top:48px;padding-top:30px;border-top:1px solid var(--ink);font-size:clamp(18px,2.4vw,25px);font-weight:900;line-height:1.7;letter-spacing:-0.025em;color:var(--ink);max-width:840px;}
+.close{margin-top:40px;padding-top:26px;border-top:1px solid var(--ink);font-size:clamp(18px,2.4vw,25px);font-weight:900;line-height:1.7;letter-spacing:-0.025em;color:var(--ink);max-width:840px;}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(12px);transition:opacity .55s var(--ease),transform .55s var(--ease);}
+/* motion */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .62s var(--ease),transform .62s var(--ease);}
 .rv.in{opacity:1;transform:none;}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+.js .stg>*{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease);}
+.stg.in>*{opacity:1;transform:none;}
+.stg.in>*:nth-child(1){transition-delay:.02s;}
+.stg.in>*:nth-child(2){transition-delay:.09s;}
+.stg.in>*:nth-child(3){transition-delay:.16s;}
+.stg.in>*:nth-child(4){transition-delay:.23s;}
+.stg.in>*:nth-child(5){transition-delay:.30s;}
+.stg.in>*:nth-child(6){transition-delay:.37s;}
+/* the rule at the top of each section draws itself */
+.js section.sec::before{content:"";position:absolute;top:-1px;left:0;width:100%;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 1.05s var(--ease);}
+section.sec.on::before{transform:none;}
+section.inv::before{background:var(--inv-ink);}
+/* scroll progress */
+.prog{position:fixed;top:0;left:0;width:100%;height:2px;background:var(--ink);transform:scaleX(0);transform-origin:left;z-index:250;pointer-events:none;will-change:transform;}
+@media (prefers-reduced-motion:reduce){
+  .rv,.stg>*{opacity:1;transform:none;transition:none;}
+  section.sec::before{transform:none;transition:none;}
+  .hero h1 .l i{transform:none;transition:none;}
+  .prog{display:none;}
+  html{scroll-behavior:auto;}
+}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 40px;background:rgba(255,255,255,0.9);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line);}
+.nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 40px;background:rgba(255,255,255,0.9);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line);transition:padding .4s var(--ease);}
+.nav.tight{padding-top:9px;padding-bottom:9px;}
+.nav.tight .n-jp{opacity:0;max-height:0;}
+.n-jp{transition:opacity .35s var(--ease),max-height .35s var(--ease);max-height:16px;}
 .nav-brand{display:flex;align-items:center;gap:11px;}
 .nav-mark{width:26px;height:26px;flex:none;}
 .nav-name{display:flex;flex-direction:column;line-height:1.15;}
@@ -194,7 +218,8 @@ strong{color:var(--ink);font-weight:700;}
 .n-jp{font-size:10.5px;font-weight:500;color:var(--ink-3);letter-spacing:0.02em;}
 .nav-right{display:flex;align-items:center;gap:10px;}
 .nav-cta{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:0.02em;color:#fff;background:var(--ink);padding:9px 18px;border-radius:2px;}
-.nav-cta:hover{background:var(--ink-2);}
+.nav-cta{transition:background .22s var(--ease),transform .22s var(--ease);}
+.nav-cta:hover{background:var(--ink-2);transform:translateY(-1px);}
 .menu-btn{width:38px;height:34px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:none;border:1px solid var(--line);border-radius:2px;cursor:pointer;}
 .menu-btn span{display:block;width:15px;height:1.5px;background:var(--ink);}
 .menu-panel{position:sticky;top:63px;z-index:190;background:var(--bg);border-bottom:1px solid var(--line);}
@@ -202,27 +227,35 @@ strong{color:var(--ink);font-weight:700;}
 .menu-panel a{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-2);font-size:15px;font-weight:700;letter-spacing:-0.015em;line-height:1.5;}
 .menu-panel a b{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--ink-4);min-width:24px;flex:none;}
 .menu-panel a.ext{color:var(--ink-3);font-weight:500;font-size:14px;}
-.menu-panel a:hover{color:var(--ink);}
+.menu-panel a{transition:transform .28s var(--ease),color .2s;}
+.menu-panel a:hover{color:var(--ink);transform:translateX(4px);}
 
 /* hero */
-.hero{padding:104px 0 96px;}
+.hero{padding:96px 0 84px;}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em;}
+.hero h1 .l i{display:block;font-style:normal;}
+.js .hero h1 .l i{transform:translateY(108%);transition:transform 1s var(--ease);}
+.hero.on h1 .l:nth-child(1) i{transition-delay:.06s;}
+.hero.on h1 .l:nth-child(2) i{transition-delay:.16s;}
+.hero.on h1 .l i{transform:none;}
 .hero .eb{display:block;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.2em;color:var(--ink-4);margin-bottom:34px;}
 .hero h1 em{font-style:normal;}
 .hero .sub{margin-top:36px;font-size:clamp(17px,1.9vw,21px);line-height:1.95;color:var(--ink-2);max-width:660px;font-weight:500;}
 .hero .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:46px;}
-.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:0.01em;padding:15px 30px;border-radius:2px;border:1px solid var(--ink);transition:background .18s,color .18s;}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:0.01em;padding:15px 30px;border-radius:2px;border:1px solid var(--ink);transition:background .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease);}
+.btn:hover{transform:translateY(-2px);}
 .btn.pri{background:var(--ink);color:#fff;}
 .btn.pri:hover{background:var(--ink-2);border-color:var(--ink-2);}
-.btn.sec{background:transparent;color:var(--ink);border-color:var(--line);}
-.btn.sec:hover{border-color:var(--ink);}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+.btn.ghost:hover{border-color:var(--ink);}
 
 
 /* quotes */
-.quotes{margin-top:52px;border-top:1px solid var(--ink);}
+.quotes{margin-top:44px;border-top:1px solid var(--ink);}
 .quotes li{list-style:none;padding:25px 0;border-bottom:1px solid var(--line);font-size:clamp(16px,2vw,20px);font-weight:700;letter-spacing:-0.022em;line-height:1.7;color:var(--ink);}
 
 /* sub block */
-.sub2{margin-top:60px;padding-top:32px;border-top:2px solid var(--ink);}
+.sub2{margin-top:48px;padding-top:28px;border-top:2px solid var(--ink);}
 .sub2 h3{font-size:clamp(19px,2.6vw,26px);letter-spacing:-0.038em;line-height:1.45;}
 .sub2 .lead{margin-top:18px;}
 
@@ -234,7 +267,7 @@ strong{color:var(--ink);font-weight:700;}
 .vl span{display:block;margin-top:10px;font-size:13.5px;line-height:1.8;color:var(--ink-3);}
 
 /* scope */
-.scope{display:grid;grid-template-columns:1fr 1fr;margin-top:52px;border-top:1px solid var(--ink);}
+.scope{display:grid;grid-template-columns:1fr 1fr;margin-top:44px;border-top:1px solid var(--ink);}
 .sc{padding:26px 26px 26px 0;}
 .sc:nth-child(2n){border-left:1px solid var(--line);padding-left:26px;}
 .sc:nth-child(n+3){border-top:1px solid var(--line);}
@@ -242,7 +275,7 @@ strong{color:var(--ink);font-weight:700;}
 .sc span{display:block;margin-top:13px;font-size:15.5px;line-height:1.95;color:var(--ink-2);}
 
 /* what we do */
-.wwd{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:52px;border-top:1px solid var(--ink);}
+.wwd{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;border-top:1px solid var(--ink);}
 .wd{padding:26px 24px 30px 0;}
 .wd+.wd{border-left:1px solid var(--line);padding-left:24px;}
 .wd .no{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:0.14em;color:var(--ink-4);}
@@ -307,7 +340,8 @@ strong{color:var(--ink);font-weight:700;}
 .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--ink);}
 .fstatus{display:none;margin-top:14px;font-size:13px;line-height:1.7;color:#B3261E;}
 .fbtn{width:100%;margin-top:22px;font-family:var(--sans);font-size:14px;font-weight:700;color:#fff;background:var(--ink);border:0;border-radius:2px;padding:15px;cursor:pointer;}
-.fbtn:hover{background:var(--ink-2);}
+.fbtn{transition:background .22s var(--ease),transform .22s var(--ease);}
+.fbtn:hover{background:var(--ink-2);transform:translateY(-2px);}
 .fbtn:disabled{opacity:.5;cursor:default;}
 .fpriv{margin-top:16px;font-size:12.5px;line-height:1.8;color:var(--ink-3);}
 .fpriv a{border-bottom:1px solid var(--line);}
@@ -333,6 +367,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
 .fa span{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:-0.02em;}
 .fj{margin-top:16px;font-size:14px;line-height:1.95;color:var(--ink-3);}
 .fl{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:32px;padding-top:26px;border-top:1px solid var(--line-2);font-size:14px;color:var(--ink-3);}
+.fl a{transition:color .2s;}
 .fl a:hover{color:var(--ink);}
 .fn{margin-top:30px;font-family:var(--sans);font-size:11.5px;letter-spacing:0.08em;color:var(--ink-4);}
 
@@ -349,9 +384,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
   .wrap{padding:0 20px;}
   .nav{padding:12px 20px;}
   .menu-panel{top:59px;}
-  .sec{padding:66px 0;}
+  .sec{padding:56px 0;}
   section[id]{scroll-margin-top:60px;}
-  .hero{padding:52px 0 58px;}
+  .hero{padding:46px 0 50px;}
   .hero .eb{margin-bottom:24px;font-size:11px;letter-spacing:0.15em;}
   .hero .sub{margin-top:26px;}
   .hero .btns{margin-top:34px;gap:9px;}
@@ -407,6 +442,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
 </head>
 <body>
 <a class="skip-link" href="#main">本文へ移動</a>
+<div class="prog" id="prog" aria-hidden="true"></div>
 
 <nav class="nav">
   <a href="/" class="nav-brand" aria-label="バイタリティデザイン合同会社 ホーム">
@@ -445,12 +481,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
 <section class="hero" id="top">
   <div class="wrap">
     <span class="eb rv">BUSINESS × DESIGN × ENGINEERING</span>
-    <h1 class="rv">これ、<br>仕組みにできない？</h1>
+    <h1><span class="l"><i>これ、</i></span><span class="l"><i>仕組みにできない？</i></span></h1>
     <p class="sub rv">既存事業を持つ経営者の「次の一手」を、<strong>事業と仕組みに変える。</strong></p>
-    <p class="lead rv">新しいサービスを作りたい。業務を効率化したい。社内の属人化をなくしたい。新しい売上をつくりたい。<br><strong>まだ「システムを作る」という段階でなくて構いません。</strong>頭の中にある構想や、現場で感じている違和感から、一緒に整理します。</p>
+    <p class="lead rv">まだ「システムを作る」段階でなくて構いません。<strong>構想と違和感から、一緒に整理します。</strong></p>
     <div class="btns rv">
       <a class="btn pri" href="#contact">まず話してみる</a>
-      <a class="btn sec" href="#about">私たちについて</a>
+      <a class="btn ghost" href="#about">私たちについて</a>
     </div>
   </div>
 </section>
@@ -462,7 +498,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
       <span class="lab rv">01 ／ FOR WHOM</span>
       <h2 class="rv">こんな経営者のための<br>会社です。</h2>
     </div>
-    <ul class="quotes rv">
+    <ul class="quotes stg">
       <li>「新しい事業を始めたい。でも、何から始めればいいかわからない。」</li>
       <li>「社内業務を仕組み化したい。でも、要件を作れる人がいない。」</li>
       <li>「システム会社に相談したら、仕様を決めてから来てと言われた。」</li>
@@ -479,37 +515,37 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
     <div class="shead">
       <span class="lab rv">02 ／ WHAT WE DO</span>
       <h2 class="rv">何をする会社か。</h2>
-      <p class="lead rv">開発を売る会社ではありません。<strong>何を解くべきかを決めるところから入り、必要なものだけを作ります。</strong></p>
+      <p class="lead rv">開発を売る会社ではありません。<strong>何を解くべきかを決めるところから入ります。</strong></p>
     </div>
-    <div class="wwd rv">
+    <div class="wwd stg">
       <article class="wd">
         <span class="no">01</span>
         <span class="en">UNDERSTAND</span>
         <h3>経営と現場を理解する</h3>
-        <p>経営者・顧客・社員・現場の話を聞き、課題を整理します。本当に解くべき問題は何かを、ここで決めます。</p>
+        <p>経営者・顧客・社員・現場に聞き、解くべき問題を決めます。</p>
       </article>
       <article class="wd">
         <span class="no">02</span>
         <span class="en">DESIGN</span>
         <h3>解決方法を設計する</h3>
-        <p>新しい事業なのか。業務改善なのか。社内の仕組み化なのか。プロダクトなのか。<strong>何も作らない、という判断もします。</strong></p>
+        <p>事業か、業務改善か、プロダクトか。<strong>何も作らない、という判断もします。</strong></p>
       </article>
       <article class="wd">
         <span class="no">03</span>
         <span class="en">BUILD</span>
         <h3>必要なものだけ、作る</h3>
-        <p>UX・UI、Webサービス、業務システム、自動化。必要な範囲で実装します。最初から大規模開発を前提にしません。</p>
+        <p>UX・UI、Webサービス、業務システム、自動化。大規模開発は前提にしません。</p>
       </article>
     </div>
     <div class="sub2 rv">
       <h3>早く、小さく、試す。</h3>
-      <p class="lead">道具は内側で使います。表に出すものではありません。<strong>経営者にとっての価値は、そこではないからです。</strong></p>
-      <div class="vals">
-        <div class="vl"><b>早く試せる</b><span>思いついたものを、数週間で触れる形に。</span></div>
-        <div class="vl"><b>小さく始められる</b><span>全社に入れる前に、ひとつの業務で確かめる。</span></div>
+      <div class="vals stg">
+        <div class="vl"><b>早く試せる</b><span>数週間で、触れる形に。</span></div>
+        <div class="vl"><b>小さく始める</b><span>全社の前に、ひとつの業務で。</span></div>
         <div class="vl"><b>検証が速い</b><span>合わなければ、早くやめられる。</span></div>
-        <div class="vl"><b>人の仕事が残る</b><span>判断と交渉は、人にしかできません。</span></div>
+        <div class="vl"><b>人の仕事が残る</b><span>判断と交渉は、人にしか。</span></div>
       </div>
+      <p class="note">道具は内側で使います。<strong>表に出すものではありません。</strong></p>
     </div>
   </div>
 </section>
@@ -521,13 +557,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
       <span class="lab rv">03 ／ SCOPE</span>
       <h2 class="rv">何を作るかは、<br>決めていません。</h2>
     </div>
-    <div class="scope rv">
-      <div class="sc"><b>NEW BUSINESS</b><span>既存事業から、新しいデジタルサービスを作る。</span></div>
-      <div class="sc"><b>INTERNAL OPS</b><span>社内業務・Excel・紙・属人化した仕事を、仕組みに変える。</span></div>
-      <div class="sc"><b>PRODUCT</b><span>顧客向けのWebサービス・アプリ・業務プロダクトを作る。</span></div>
-      <div class="sc"><b>AUTOMATION</b><span>既存の業務に、自動化を組み込む。必要ならAIも使います。</span></div>
+    <div class="scope stg">
+      <div class="sc"><b>NEW BUSINESS</b><span>既存事業から、新しいサービスを。</span></div>
+      <div class="sc"><b>INTERNAL OPS</b><span>Excel・紙・属人化した仕事を、仕組みに。</span></div>
+      <div class="sc"><b>PRODUCT</b><span>顧客向けのWebサービス・アプリを。</span></div>
+      <div class="sc"><b>AUTOMATION</b><span>既存の業務に、自動化を。</span></div>
     </div>
-    <p class="close rv">課題によって、作るものは変わります。<strong>「何を作るか」ではなく、「何を変えるべきか」から考えます。</strong></p>
+    <p class="close rv">「何を作るか」ではなく、<strong>「何を変えるべきか」から考えます。</strong></p>
   </div>
 </section>
 
@@ -547,17 +583,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
       <div>
         <dl>
           <dt>CHALLENGE</dt>
-          <dd>面談の評価が、担当者の感覚に依存していました。同じ相手を見ても、担当者によって評価が変わります。</dd>
+          <dd>面談の評価が、担当者の感覚に依存していました。</dd>
           <dt>INSIGHT</dt>
-          <dd>基準がなかったのではありません。<strong>基準が言葉になっていませんでした。</strong>上手い人が何を見ているかを、本人も説明できない状態でした。</dd>
+          <dd>基準がなかったのではありません。<strong>基準が言葉になっていませんでした。</strong></dd>
           <dt>DESIGN</dt>
-          <dd>評価の観点を分解し、面談のどこで何を見るかを決めました。点数を出すことより、なぜその点になったかが分かる画面にしています。</dd>
+          <dd>観点を分解し、なぜその点になったかが分かる画面にしました。</dd>
           <dt>BUILD</dt>
-          <dd>評価項目の構造、採点の仕組み、確認する画面。試作から実装まで行いました。</dd>
+          <dd>評価項目の構造、採点の仕組み、確認画面。試作から実装まで。</dd>
           <dt>RESULT</dt>
-          <dd><strong>実際に動くプロダクトとして、検証できる状態まで作りました。</strong></dd>
+          <dd><strong>動くプロダクトとして、検証できる状態まで。</strong></dd>
         </dl>
-        <p class="note">公開できる範囲のみ掲載しています。顧客名は掲載しません。守秘義務があるためです。数値は検証が終わってから載せます。担当者の人事評価や処遇には使いません。成果を保証するものではありません。</p>
+        <p class="note">顧客名・数値は掲載しません。守秘義務があるためです。人事評価や処遇には使いません。</p>
       </div>
     </div>
   </div>
@@ -572,10 +608,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
     </div>
     <div class="abt rv">
       <div>
-        <p>経営者と直接話し、課題を見つけ、事業として成立するかを考え、必要なものをデザイナー・エンジニアと形にします。</p>
-        <p>代表はSaaS企業での法人営業と事業開発、現場を持つ産業での事業経験、プロダクト開発を経験してきました。<strong>持ち込むのは、特定の業界の知識ではありません。事業を立ち上げ、売り、形にするまでの進め方です。</strong></p>
-        <p>だから、作れるかどうかだけではなく、<strong>なぜ作るのか。誰が使うのか。それで何が変わるのか。</strong>そこから考えます。</p>
-        <p>初期フェーズには代表が直接入ります。必要に応じて、デザイナーとエンジニアで小さなチームを組みます。</p>
+        <p>経営者と直接話し、課題を見つけ、事業として成立するかを考え、デザイナー・エンジニアと形にします。</p>
+        <p>代表はSaaS企業での法人営業と事業開発、現場を持つ産業での事業経験、プロダクト開発を経験してきました。<strong>持ち込むのは業界の知識ではなく、事業を立ち上げ、売り、形にするまでの進め方です。</strong></p>
+        <p><strong>なぜ作るのか。誰が使うのか。それで何が変わるのか。</strong>初期フェーズには代表が直接入ります。</p>
       </div>
       <div class="mcard">
         <span class="h">こういう会社と合います</span>
@@ -586,7 +621,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
           <li>経営者・事業責任者と直接話せる</li>
           <li>決めたら動ける</li>
         </ul>
-        <p class="note">業界は限定しません。建設、設備、製造、物流、不動産、人材、保守、サービス。顧客・現場・業務・人がある会社であれば、どこでも。</p>
+        <p class="note">業界は限定しません。顧客・現場・業務・人がある会社であれば、どこでも。</p>
       </div>
     </div>
   </div>
@@ -599,12 +634,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
       <span class="lab rv">06 ／ DIFFERENCE</span>
       <h2 class="rv">コンサルだけでも、<br>開発だけでもない。</h2>
     </div>
-    <div class="ctt rv">
+    <div class="ctt stg">
       <div><b>CONSULTING</b><span>考えて終わる。</span></div>
       <div><b>DEVELOPMENT</b><span>要件をもらって作る。</span></div>
       <div><b>VITALITY DESIGN</b><span>考える → 作る → 試す。</span></div>
     </div>
-    <p class="close rv">要件が決まっていなくて構いません。「何を作るべきか」から考えます。そして、必要なら実際に作ります。</p>
+    <p class="close rv">要件が決まっていなくて構いません。<strong>「何を作るべきか」から考え、必要なら作ります。</strong></p>
   </div>
 </section>
 
@@ -615,7 +650,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
       <span class="lab rv">07 ／ PHILOSOPHY</span>
       <h2 class="rv">3つだけ、決めています。</h2>
     </div>
-    <div class="phil rv">
+    <div class="phil stg">
       <div class="ph"><b>SMALL FIRST</b><span>最初から大きく作らない。</span></div>
       <div class="ph"><b>REAL USERS</b><span>会議室ではなく、実際の利用者を見る。</span></div>
       <div class="ph"><b>BUSINESS FIRST</b><span>技術を目的にしない。事業に必要なものだけ作る。</span></div>
@@ -629,15 +664,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
     <div class="shead">
       <span class="lab rv">08 ／ CONTACT</span>
       <h2 class="rv">まだ、相談レベルでいい。</h2>
-      <p class="lead rv">「こんなことできないかな」「この業務、もっと楽にならないかな」「新しいサービスを作りたい」「でも、誰に相談すればいいかわからない」。<strong>その段階で構いません。</strong>まず話を聞かせてください。</p>
+      <p class="lead rv">「こんなことできないかな」。<strong>その段階で構いません。</strong>まず話を聞かせてください。</p>
     </div>
     <div class="cgrid rv">
       <div>
-        <p>代表が直接内容を見ます。お役に立てるかをそのままお伝えします。<strong>お引き受けできないと判断した場合は、その理由をお伝えします。売り込みはしません。</strong>相談の段階から対応します。</p>
+        <p>代表が直接内容を見ます。<strong>お引き受けできない場合は、その理由をお伝えします。売り込みはしません。</strong></p>
         <ul class="facts">
           <li><b>費用</b><span>無償</span></li>
-          <li><b>所要</b><span>30分</span></li>
-          <li><b>形式</b><span>オンライン</span></li>
+          <li><b>所要</b><span>30分・オンライン</span></li>
           <li><b>日時</b><span>夜間または土日</span></li>
           <li><b>返信</b><span>代表が1〜3営業日以内に</span></li>
         </ul>
@@ -692,15 +726,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
       <div class="r"><dt>代表者</dt><dd>代表社員　山本 翔太</dd></div>
       <div class="r"><dt>所在地</dt><dd>〒153-0064　東京都目黒区下目黒一丁目1番14号 コノトラビル7F</dd></div>
       <div class="r"><dt>法人番号</dt><dd>1011003024109</dd></div>
-      <div class="r"><dt>事業内容</dt><dd><ul>
-        <li>事業開発・業務設計の支援</li>
-        <li>プロダクトの企画・UI/UX設計</li>
-        <li>Webサービス・業務システムの開発</li>
-        <li>自社メディア「<a href="https://www.hisrecoveries.com/" target="_blank" rel="noopener">His Recoveries ↗</a>」の運営</li>
-      </ul></dd></div>
       <div class="r"><dt>お問い合わせ</dt><dd><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></dd></div>
     </dl>
-    <p class="note rv">登記事項の詳細は、<a href="/terms.html">利用規約・特定商取引法に基づく表記</a>に掲載しています。</p>
+    <p class="note rv">事業内容と登記事項は、<a href="/company.html">会社概要</a>と<a href="/terms.html">利用規約・特定商取引法に基づく表記</a>に掲載しています。</p>
   </div>
 </section>
 
@@ -741,12 +769,35 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;}
 
 (function(){
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els=[].slice.call(document.querySelectorAll('.rv'));
-  if(rm||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var els=[].slice.call(document.querySelectorAll('.rv,.stg'));
+  var secs=[].slice.call(document.querySelectorAll('section.sec'));
+  var hero=document.querySelector('.hero');
+  if(rm||!('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('in');});
+    secs.forEach(function(e){e.classList.add('on');});
+    if(hero)hero.classList.add('on');
+    return;
+  }
   var io=new IntersectionObserver(function(en){
     en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});
   },{rootMargin:'0px 0px -8% 0px',threshold:0.05});
   els.forEach(function(e){io.observe(e);});
+  var io2=new IntersectionObserver(function(en){
+    en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io2.unobserve(x.target);}});
+  },{rootMargin:'0px 0px -12% 0px',threshold:0});
+  secs.forEach(function(e){io2.observe(e);});
+  if(hero)requestAnimationFrame(function(){hero.classList.add('on');});
+
+  var prog=document.getElementById('prog'),nav=document.querySelector('.nav'),tick=false;
+  function frame(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var y=window.pageYOffset;
+    if(prog)prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(nav)nav.classList.toggle('tight',y>40);
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame);}},{passive:true});
+  frame();
 })();
 
 (function(){

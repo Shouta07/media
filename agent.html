@@ -210,7 +210,7 @@ img{max-width:100%;display:block;}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
 .narrow{max-width:900px;}
 h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
-.sec{padding:88px 0;}
+.sec{padding:62px 0;}
 .sec.soft{background:var(--bg-soft);}
 .shead{text-align:center;margin-bottom:48px;}
 .shead h2{font-size:clamp(24px,3.4vw,38px);}
@@ -360,6 +360,21 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 .calcform{margin-top:22px;font-size:12px;line-height:1.8;color:var(--ink-faint);border-top:1px solid var(--line-soft);padding-top:16px;}
 .calcform code{font-family:var(--sans);font-size:12px;color:var(--ink-soft);}
 .calcact{margin-top:22px;text-align:center;}
+.lyl{display:inline-block;font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--key);background:rgba(11,110,79,.08);padding:5px 10px;border-radius:99px;margin-bottom:12px;}
+.featwrap{margin-top:40px;padding-top:30px;border-top:1px solid var(--line);}
+.fh3{font-size:clamp(17px,2.2vw,21px);font-weight:900;letter-spacing:-.03em;margin-bottom:18px;}
+.mkt{margin-top:20px;padding:16px 18px;background:rgba(11,110,79,.05);border-radius:10px;font-size:13px;line-height:1.9;color:var(--ink-soft);}
+.mkt b{color:var(--ink);font-weight:800;}
+.mkt span{font-size:11.5px;color:var(--ink-faint);}
+.quickform{margin-top:26px;padding-top:24px;border-top:1px solid var(--line);}
+.qfh{font-size:16px;font-weight:900;letter-spacing:-.02em;color:var(--ink);}
+.qfh span{display:block;margin-top:8px;font-size:12.5px;font-weight:500;line-height:1.8;color:var(--ink-faint);}
+.qfg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+.quickform .submit{margin-top:16px;}
+.quickform.sent form,.quickform.sent .qfh{display:none;}
+.quickform .fdone{display:none;}
+.quickform.sent .fdone{display:block;}
+@media (max-width:760px){.qfg{grid-template-columns:1fr;gap:10px;}.mkt{font-size:12.5px;padding:14px;}}
 .calcrate{margin-top:16px;text-align:center;font-size:12.5px;color:var(--ink-faint);}
 .calcrate .rl{display:inline-flex;align-items:center;gap:9px;}
 .calcrate .rl b{font-weight:800;color:var(--ink-soft);}
@@ -428,7 +443,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   .hd-nav{display:none;}
 }
 @media (max-width:700px){
-  .sec{padding:56px 0;}
+  .sec{padding:44px 0;}
   .wrap{padding:0 18px;}
   .probs,.strs,.feats,.others{grid-template-columns:1fr;}
   .case2{grid-template-columns:1fr;}
@@ -514,7 +529,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   body{padding-bottom:0;}
 }
 @media (max-width:700px){
-  .sec{padding:48px 0;}
+  .sec{padding:38px 0;}
   .shead{margin-bottom:32px;}
   .feats{grid-template-columns:1fr 1fr;gap:10px;}
   .feat{padding:16px 10px;}
@@ -621,7 +636,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
     <a class="hd-logo" href="/"><span class="mk"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="17" stroke="currentColor" stroke-width="2"/><path d="M12 25 Q18 9 22 22 Q26 35 39 5" stroke="#14B870" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></span><span>Vitality Design</span></a>
     <nav class="hd-nav">
       <a href="#problem">課題</a><a href="#transcript">なぜ使われないか</a><a href="#industry">業界事情</a><a href="#usecase">使い方</a><a href="#strength">強み</a>
-      <a href="#market">返戻の金額</a><a href="#calc">試算</a><a href="#both">両面型だから</a><a href="#compare">比較</a><a href="#feature">機能</a><a href="#price">費用</a><a href="#faq">Q&amp;A</a>
+      <a href="#layer">三方向に効く</a><a href="#calc">試算</a><a href="#both">両面型だから</a><a href="#compare">比較</a><a href="#price">費用</a><a href="#faq">Q&amp;A</a>
     </nav>
     <div class="hd-act"><a class="btn pri sm" href="#contact">動いている画面を見る</a></div>
   </div>
@@ -630,13 +645,13 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 <section class="hero" id="top">
   <div class="wrap hero-in">
     <div>
-      <span class="tagline">両面型の人材紹介会社へ</span>
-      <h1>決めた案件のうち、<br><em>何件が返ってきましたか。</em></h1>
-      <p class="sub">即答できなければ、それが返戻の正体です。<strong style="color:var(--key)">決定率は測られています。返戻の理由だけが、誰にも測られていません。</strong></p>
-      <p class="sub2">早期離職の理由の多くは「聞いていた話と違う」。原因は面談の中にあります。でも、辞めた案件と続いた案件を並べて見た人は、社内に一人もいません。<br>売る前に、<strong>自社の面談89件</strong>で回しています。建設エージェント会社には<strong>3ヶ月</strong>入り込んでから設計しました。</p>
+      <span class="tagline">両面型エージェントの、AI議事録を活かす</span>
+      <h1>AI議事録は、もうある。<br><em>その面談データを、<br>「決定」に活かせていますか。</em></h1>
+      <p class="sub">面談データを「記録」で終わらせず、<strong style="color:var(--key)">エージェントの成長と、決定率の向上につなげます。</strong>エースの面談と担当者の面談を比べ、何が違うのか、何を改善すべきかを明らかにします。</p>
+      <p class="sub2">面談を記録するためではなく、<strong>面談から生まれる決定を増やすため</strong>のシステムです。既存のAI議事録はそのまま使います。<br>売る前に、<strong>自社の面談89件</strong>で回しています。建設エージェント会社には<strong>3ヶ月</strong>入り込んでから設計しました。</p>
       <div class="acts">
-        <a class="btn pri lg" href="#calc">返戻額を試算する</a>
-        <a class="btn ghost lg" href="#contact">動いている画面を見る</a>
+        <a class="btn pri lg" href="#contact">動いている画面を見る</a>
+        <a class="btn ghost lg" href="#layer">何が分かるのか</a>
       </div>
     </div>
     <div class="hero-vis">
@@ -678,25 +693,47 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   </div>
 </section>
 
-<section class="sec soft" id="market">
+<section class="sec soft" id="problem">
   <div class="wrap">
-    <div class="shead"><h2>返戻は、<em>金額で戻っています</em></h2><p>市場は伸びています。伸びた分だけ、戻る額も増えています。</p></div>
-    <div class="stats">
-      <div class="st1"><em>約1.88倍</em><b>4年間の手数料収入の伸び</b><span>2020年度 5,240億円 → 2024年度 9,835億円</span></div>
-      <div class="st1"><em>888,993件</em><b>2024年度の常用就職件数</b><span>前年度比 5.3％増</span></div>
-      <div class="st1"><em>約110万円</em><b>1件あたりの手数料（参考値）</b><span>9,835億円 ÷ 888,993件 で算出</span></div>
+    <div class="shead"><h2>面談データを、<em>眠らせない</em></h2><p>AI議事録によって、面談内容は大量に蓄積されるようになりました。ただ、そこで止まっている会社がほとんどです。</p></div>
+
+    <div class="probs">
+      
+      <article class="prob"><span class="no">1</span>
+        <p class="bubble">「最初の月は見た。いまは誰も開いていない」</p>
+        <h3>ダッシュボードが、開かれなくなった</h3><p>導入した本人以外、ほとんど見ていません。1件ずつ読む前提の画面は、件数が増えるほど開かれなくなります。ツールが悪いのではなく、読む設計だからです。</p>
+      </article>
+      <article class="prob"><span class="no">2</span>
+        <p class="bubble">「議事録を読んでも、なぜ決まるのかは分からない」</p>
+        <h3>テキストはあるのに、差が見えない</h3><p>決定率が担当者で2倍違う。その理由を探そうと議事録を開いても、書いてあるのは会話の中身だけです。<strong>並べる軸がないので、比べようがありません。</strong></p>
+      </article>
+      <article class="prob"><span class="no">3</span>
+        <p class="bubble">「返戻が出た。あの面談、見返してすらいない」</p>
+        <h3>辞めた案件を、遡らない</h3><p>早期離職の理由の多くは「聞いていた話と違う」——原因は面談の中にあります。記録は残っているのに、辞めた案件と続いた案件を並べて見た人が、社内に一人もいません。</p>
+      </article>
     </div>
-    <p class="srcnote">出典：厚生労働省「職業紹介事業報告書の集計結果」令和2年度／令和6年度（速報）。有料職業紹介事業の数値です。<br>1件あたり約110万円は、手数料収入の総額を常用就職件数で割った<strong>参考値</strong>です。分子には常用就職以外に係る手数料も含まれるため、常用就職1件あたりの実額はこれより低くなります。厳密な比較には同報告書の該当項目をご確認ください。</p>
-    <div class="exbox">
-      <p>紹介手数料は、採用者の年収に概ね30〜35％を掛けた成功報酬が一般的です。そして返戻は、一般に入社1ヶ月未満で8割前後、3ヶ月未満で5割前後が戻る設計になっています。</p>
-      <p style="margin-top:14px">たとえば、<strong>決定単価110万・年間100件・早期離職1割</strong>の会社なら、返戻で戻る額は<strong>年700万円規模</strong>になります。あくまで例示であり、実額は返戻規定と按分方法によって変わります。</p>
+    <p style="text-align:center;margin-top:34px;font-size:clamp(17px,2.3vw,23px);font-weight:900;letter-spacing:-.02em;">
+      記録がないのではありません。<em style="font-style:normal;color:var(--key)">比べる物差しがないだけです。</em></p>
+  
+  </div>
+</section>
+
+<section class="sec" id="layer">
+  <div class="wrap">
+    <div class="shead"><h2>同じデータが、<em>三方向に効きます</em></h2><p>面談を「記録」から「改善」へ変えると、見える相手が三つに分かれます。</p></div>
+    <div class="strs">
+      <article class="str"><span class="lyl">個人には</span><h3>自分の面談の、強みと弱みが分かる</h3><p>話す比率、質問の量、やりとりの往復。自分の面談がどこで詰まっているかを、次の面談で直せる形にします。<strong>人と比べて落ち込ませるためではありません。</strong></p></article>
+      <article class="str"><span class="lyl">マネージャーには</span><h3>担当者ごとの面談品質を、比べられる</h3><p>同じ条件で並ぶので、誰に何を教えればいいかが具体的になります。<strong>「もっと聞け」ではなく、「この場面で一問足りない」と言えます。</strong></p></article>
+      <article class="str"><span class="lyl">経営には</span><h3>何をすると決定につながるかが、残る</h3><p>面談と、推薦・決定・返戻などの成果をつなぎます。<strong>どんな面談が決定につながるのかを、個人の勘ではなく組織として蓄積できます。</strong></p></article>
     </div>
+    <p class="pnote" style="margin-top:24px">人事評価や処遇には使いません。現場を責めるための数字は作りません。</p>
   </div>
 </section>
 
 <section class="sec" id="calc">
   <div class="wrap">
-    <div class="shead"><h2><em>御社の場合を、出してみてください</em></h2><p>3つ入れるだけです。入力はこの画面から出ません。送信もしません。</p></div>
+    <div class="shead"><h2>成果とつなぐと、<em>金額で見えます</em></h2><p>経営から見た一例です。3つ入れるだけ。入力はこの画面から出ません。送信もしません。</p></div>
+    <p class="mkt">有料職業紹介の手数料収入は<b>2020年度 5,240億円 → 2024年度 9,835億円</b>。常用就職は<b>888,993件</b>。1件あたりは約110万円（総額÷件数の参考値。分子に常用就職以外の手数料を含むため実額はこれより低い）。紹介手数料は年収の概ね30〜35％で、返戻は一般に入社1ヶ月未満で8割前後・3ヶ月未満で5割前後が戻ります。<br><span>出典：厚生労働省「職業紹介事業報告書の集計結果」令和2年度／令和6年度（速報）</span></p>
     <div class="calcbox">
       <div class="calcgrid">
         <div class="cf"><label for="c-num">年間の決定数</label><div class="inp"><input id="c-num" type="number" inputmode="numeric" min="0" max="100000" step="1" value="100"><span class="u">件／年</span></div></div>
@@ -715,7 +752,24 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
       <div class="calcout" id="c-unknown" hidden>
         <p class="unk">「わからない」が最も多い回答です。<strong>それ自体が、いま解くべき課題です。</strong></p>
       </div>
-      <div class="calcact"><a class="btn pri lg" href="#contact" id="c-cta">この金額を持って、30分話す</a></div>
+      <div class="calcact"><button class="btn pri lg" type="button" id="c-cta">この金額を持って、30分話す</button></div>
+      <div class="quickform" id="qf" hidden>
+        <p class="qfh">3つだけ、教えてください。<span>試算した金額は自動で添えられます。代表が1〜3営業日以内に直接返信します。夜間・土日も対応します。</span></p>
+        <form id="qForm" novalidate>
+          <input type="hidden" name="_subject" value="【エージェント向けLP】返戻試算からの相談">
+          <input type="hidden" name="page" value="agent-lp-calc">
+          <input type="hidden" name="message" id="q-msg">
+          <div class="fstatus" id="qError" role="alert"></div>
+          <div class="qfg">
+            <div class="field"><label for="q-company">会社名<span class="req">*</span></label><input type="text" id="q-company" name="company" autocomplete="organization" placeholder="株式会社○○"></div>
+            <div class="field"><label for="q-name">お名前<span class="req">*</span></label><input type="text" id="q-name" name="name" autocomplete="name" placeholder="山田 太郎"></div>
+            <div class="field"><label for="q-email">メールアドレス<span class="req">*</span></label><input type="email" id="q-email" name="email" autocomplete="email" placeholder="you@example.com"></div>
+          </div>
+          <button class="submit" type="submit" id="qSubmit">この金額を添えて送る</button>
+          <p class="fnote">送信をもって<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意いただいたものとします。売り込みはしません。</p>
+        </form>
+        <div class="fdone" id="qDone"><div class="ck" aria-hidden="true">✓</div><h3>送信しました。</h3><p>代表が1〜3営業日以内に直接返信します。</p></div>
+      </div>
       <p class="calcform">試算式：<code>年間の決定件数 × 早期離職率 × 平均の決定単価 × 返戻率</code>。<br>これは<strong>概算</strong>です。実際の返戻規定・按分方法は契約により異なるため、実額を保証するものではありません。</p>
     </div>
   </div>
@@ -734,67 +788,19 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
   </div>
 </section>
 
-<section class="sec soft" id="problem">
-  <div class="wrap">
-    <div class="shead"><h2>導入して1年。<em>そのデータ、働いていますか</em></h2><p>文字起こしは動いています。書き起こされてもいます。<br>けれど、意思決定を変えた回数はゼロではありませんか。</p></div>
-    <div class="probs">
-      
-      <article class="prob"><span class="no">1</span>
-        <p class="bubble">「最初の月は見た。いまは誰も開いていない」</p>
-        <h3>ダッシュボードが、開かれなくなった</h3><p>導入した本人以外、ほとんど見ていません。1件ずつ読む前提の画面は、件数が増えるほど開かれなくなります。ツールが悪いのではなく、読む設計だからです。</p>
-      </article>
-      <article class="prob"><span class="no">2</span>
-        <p class="bubble">「議事録を読んでも、なぜ決まるのかは分からない」</p>
-        <h3>テキストはあるのに、差が見えない</h3><p>決定率が担当者で2倍違う。その理由を探そうと議事録を開いても、書いてあるのは会話の中身だけです。<strong>並べる軸がないので、比べようがありません。</strong></p>
-      </article>
-      <article class="prob"><span class="no">3</span>
-        <p class="bubble">「返戻が出た。あの面談、見返してすらいない」</p>
-        <h3>辞めた案件を、遡らない</h3><p>早期離職の理由の多くは「聞いていた話と違う」——原因は面談の中にあります。記録は残っているのに、辞めた案件と続いた案件を並べて見た人が、社内に一人もいません。</p>
-      </article>
-    </div>
-    <p style="text-align:center;margin-top:34px;font-size:clamp(17px,2.3vw,23px);font-weight:900;letter-spacing:-.02em;">
-      記録がないのではありません。<em style="font-style:normal;color:var(--key)">比べる物差しがないだけです。</em></p>
-  </div>
-</section>
-
-
-<section class="sec soft" id="transcript">
-  <div class="wrap">
-    <div class="callout">
-      <span class="k">なぜ、使われないのか</span>
-      <h2>読む前提の記録は、<br><em>件数が増えるほど開かれない。</em></h2>
-      <div class="costat">
-        <div><b>約1万字</b><span>30分の面談を文字にした量</span></div>
-        <div><b>100件で100万字</b><span>半年ぶんの面談</span></div>
-        <div><b>約33時間</b><span>100件を読み返すのに必要な時間</span></div>
-      </div>
-      <div class="co2">
-        <div class="col">
-          <h3>問題は、量です</h3>
-          <p>文字起こしは、面談が増えるほど積み上がります。<strong>そして増えるほど、誰も開かなくなります。</strong>1件を読み返すだけで20分。100件なら丸2日近くかかります。<strong>読み返す前提のない記録は、置いてあるだけです。</strong></p>
-        </div>
-        <div class="col">
-          <h3>読まずに分かる形にする</h3>
-          <p>質問量、やりとりの往復度、話す比率、話す速度。<strong>同じ物差しに載せて、はじめて「誰の何が違うのか」が言えます。</strong>読まなくても、並べれば分かる。そこまで来て、ようやく資産です。</p>
-        </div>
-      </div>
-      <p class="coend">いま入っているツールは、正しく動いています。<em style="font-style:normal;color:var(--key-bright)">足りていないのは、その上に載せる物差しのほうです。</em></p>
-    </div>
-  </div>
-</section>
 
 <section class="sec" id="industry">
   <div class="wrap">
     <div class="shead">
       <h2>エージェント業だから、<em>ここが効きます</em></h2>
-      <p>他の業種にはない事情が5つあります。どれも、面談の記録がないことに跳ね返ります。</p>
+      <p>他の業種にはない事情があります。どれも、面談の記録がないことに跳ね返ります。</p>
     </div>
     <div class="ben">
-      <div class="bn"><b>決めて終わり、<br>ではない</b><span>紹介手数料には返戻の規定が付きます。一般に、入社1ヶ月未満で8割前後、3ヶ月未満で5割前後が戻る設計です。<strong>決定率だけ追っても、3ヶ月後に半分返る商売です。</strong>そして早期離職の理由の多くは「聞いていた話と違う」——つまり原因は面談の中にあります。</span></div>
+      <div class="bn"><b>決めて終わり、<br>ではない</b><span>紹介手数料には返戻の規定が付きます。一般に、入社1ヶ月未満で8割前後、3ヶ月未満で5割前後が戻る設計です。<strong>決定率だけ追っても、3ヶ月後に半分返る商売です。</strong>そして早期離職の理由の多くは「聞いていた話と違う」——つまり原因は面談の中にあります。</span>
+    </div>
       <div class="bn"><b>面談は、法令上の<br>説明の場でもある</b><span>2024年4月から、就業場所と従事すべき業務の<strong>「変更の範囲」</strong>の明示が加わりました。職業紹介事業者にも、求職者へ適切に情報提供する責務があります。<strong>伝えたことを、あとから示せますか。</strong>記録がなければ、示しようがありません。</span></div>
       <div class="bn"><b>帳簿は整っているのに、<br>中身だけ残っていない</b><span>求職者管理簿・求人管理簿・手数料管理簿。備付けと保存が義務づけられ、どの会社も整えています。<strong>いちばん売上に近い面談の中身だけが、どの帳簿にも載っていません。</strong></span></div>
       <div class="bn"><b>1件の差が、<br>そのまま大きい</b><span>決定単価が高い商売です。決定率が数ポイント動くだけで、年間の着地が変わります。<strong>1件の重みが大きいということは、差の理由が分からないことのコストも大きいということです。</strong></span></div>
-      <div class="bn"><b>仕入れているのは、<br>人の時間だけ</b><span>在庫がありません。原価はCAとRAの時間です。<strong>製造業が加工時間を測らずに原価を語ることはありません。</strong>エージェント業だけが、唯一の仕入れである面談の30分を測っていません。</span></div>
     </div>
     <p class="pnote" style="text-align:left;margin-top:20px">※ 法令の解釈および個別の対応可否については、所轄の労働局または専門家にご確認ください。当社は記録と手順の設計をお手伝いする立場です。</p>
     <div style="text-align:center;margin-top:30px"><a class="btn pri lg" href="#contact">動いている画面を見る</a></div>
@@ -836,6 +842,12 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
       </article>
       
     </div>
+    <div class="featwrap">
+      <h3 class="fh3">面談1件から、これだけ出ます</h3>
+    <div class="feats">
+      <article class="feat"><b>話す比率</b><span>担当者と相手の時間配分</span></article><article class="feat"><b>質問量</b><span>1面談あたりの発話数</span></article><article class="feat"><b>オープン質問比率</b><span>開いた質問の割合</span></article><article class="feat"><b>話す速度</b><span>早口になる場面の特定</span></article><article class="feat"><b>やりとりの往復度</b><span>会話が続いた回数</span></article><article class="feat"><b>頻出する言葉</b><span>よく使う語の抽出</span></article><article class="feat"><b>会話スタイル分類</b><span>進め方のタイプ分け</span></article><article class="feat"><b>担当者別の比較</b><span>同じ条件で横に並べる</span></article><article class="feat"><b>フィードバック記録</b><span>振り返りを残す</span></article><article class="feat"><b>CSV出力</b><span>既存の集計に流せる</span></article><article class="feat"><b>面談ごとの推移</b><span>同じ人の変化を追う</span></article><article class="feat"><b>拠点・チーム別集計</b><span>組織単位で並べる</span></article>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -860,7 +872,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 
 <section class="sec" id="compare">
   <div class="wrap">
-    <p class="oneline">商談解析ツールは「決まるまで」を見ます。<br><em>私たちは「決まった後」を見ます。</em></p>
+    <p class="oneline">商談解析ツールは「決まるまで」を見ます。<br><em>私たちは「決まった後」まで見ます。</em></p>
     <div class="shead"><h2>いまのツールと、<em>比べてください</em></h2><p>入れ替えを勧めているわけではありません。何が足りていないかを書きます。</p></div>
     <div class="cmp">
       <table>
@@ -926,15 +938,6 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
     <h2>作る前に、3ヶ月<br>現場にいました。</h2>
     <p>建設エージェント会社に入り込み、非効率を洗い出してから設計しました。要件定義書からは作りません。</p>
     <div class="in"><a class="btn pri lg" href="#contact">動いている画面を見る</a></div>
-  </div>
-</section>
-
-<section class="sec" id="feature">
-  <div class="wrap">
-    <div class="shead"><h2>出せる<em>指標と機能</em></h2><p>面談1件から、これだけ出ます。</p></div>
-    <div class="feats">
-      <article class="feat"><b>話す比率</b><span>担当者と相手の時間配分</span></article><article class="feat"><b>質問量</b><span>1面談あたりの発話数</span></article><article class="feat"><b>オープン質問比率</b><span>開いた質問の割合</span></article><article class="feat"><b>話す速度</b><span>早口になる場面の特定</span></article><article class="feat"><b>やりとりの往復度</b><span>会話が続いた回数</span></article><article class="feat"><b>頻出する言葉</b><span>よく使う語の抽出</span></article><article class="feat"><b>会話スタイル分類</b><span>進め方のタイプ分け</span></article><article class="feat"><b>担当者別の比較</b><span>同じ条件で横に並べる</span></article><article class="feat"><b>フィードバック記録</b><span>振り返りを残す</span></article><article class="feat"><b>CSV出力</b><span>既存の集計に流せる</span></article><article class="feat"><b>面談ごとの推移</b><span>同じ人の変化を追う</span></article><article class="feat"><b>拠点・チーム別集計</b><span>組織単位で並べる</span></article>
-    </div>
   </div>
 </section>
 
@@ -1059,7 +1062,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 
 <section class="band wide" id="contact">
   <div class="wrap">
-    <h2>動いているものを、<br>お見せします。</h2>
+    <h2>AI議事録の、<br>その先へ。</h2>
     <p>30分、オンラインで。無償です。資料ではなく、実際の画面をお見せします。<br>そのうえで、御社の面談でいま何が起きているかを伺わせてください。売り込みは一切行いません。</p>
     <div class="formwrap" id="fcard">
       <div class="fh">デモと、30分の相談を申し込む</div>
@@ -1160,10 +1163,37 @@ vdForm.addEventListener('submit',async(e)=>{
   [num,fee,rate].forEach(function(el){el.addEventListener('input',calc);});
   quit.addEventListener('change',calc);
   calc();
-  var cta=document.getElementById('c-cta');
-  if(cta&&msg)cta.addEventListener('click',function(){
-    if(isUnknown){msg.value='早期離職率は、いまのところ把握できていません。';}
-    else if(last>0){msg.value='サイトの試算では、年間およそ'+fmt(last)+'万円を返戻で失っている計算でした。';}
+  function summary(){
+    if(isUnknown)return '早期離職率は、いまのところ把握できていません。サイトの試算は出していません。';
+    if(last>0)return 'サイトの試算では、年間およそ'+fmt(last)+'万円を返戻で失っている計算でした（決定'+fmt(clamp(num,0,100000))+'件／単価'+fmt(clamp(fee,0,100000))+'万円／早期離職'+parseFloat(quit.value)+'％／返戻率'+fmt(clamp(rate,0,100))+'％）。';
+    return '';
+  }
+  var cta=document.getElementById('c-cta'),qf=document.getElementById('qf'),
+      qMsg=document.getElementById('q-msg');
+  if(cta&&qf)cta.addEventListener('click',function(){
+    qf.hidden=false;
+    if(qMsg)qMsg.value=summary();
+    if(msg&&!msg.value)msg.value=summary();
+    var f=document.getElementById('q-company');
+    if(f){qf.scrollIntoView({behavior:'smooth',block:'nearest'});setTimeout(function(){f.focus();},260);}
+  });
+  var qForm=document.getElementById('qForm'),qErr=document.getElementById('qError'),
+      qBtn=document.getElementById('qSubmit');
+  if(qForm)qForm.addEventListener('submit',function(e){
+    e.preventDefault();qErr.style.display='none';
+    var c=qForm.company.value.trim(),n=qForm.name.value.trim(),m=qForm.email.value.trim();
+    if(!c||!n||!m){qErr.textContent='会社名・お名前・メールアドレスをご入力ください。';qErr.style.display='block';return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){qErr.textContent='メールアドレスの形式をご確認ください。';qErr.style.display='block';return;}
+    if(qMsg)qMsg.value=summary();
+    qBtn.disabled=true;qBtn.textContent='送信中…';
+    fetch('https://formspree.io/f/xbdvobba',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(qForm)})
+      .then(function(r){
+        if(r.ok){try{if(typeof gtag==='function'){gtag('event','generate_lead',{event_category:'contact',event_label:'agent_lp_calc'});}}catch(e2){}
+          qf.classList.add('sent');}
+        else{qErr.textContent='送信に失敗しました。時間をおいて再度お試しください。';qErr.style.display='block';}
+      })
+      .catch(function(){qErr.textContent='通信エラーが発生しました。contact@vitality-design.jp まで直接ご連絡ください。';qErr.style.display='block';})
+      .then(function(){qBtn.disabled=false;qBtn.textContent='この金額を添えて送る';});
   });
 })();
 </script>

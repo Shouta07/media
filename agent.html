@@ -258,6 +258,11 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 /* logo band */
 .logos{padding:34px 0 44px;}
 .tagline.strong{background:var(--key);color:#fff;font-weight:800;letter-spacing:.06em;}
+.nots{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;list-style:none;}
+.nots li{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 15px;}
+.nots li::before{content:"—";color:var(--key);font-weight:800;}
+.nots li b{font-weight:800;color:var(--ink);}
+@media (max-width:760px){.nots{gap:6px;margin-top:18px;}.nots li{font-size:11.5px;padding:6px 11px;}}
 .logos .cap{text-align:center;font-size:12px;font-weight:800;letter-spacing:0.14em;color:var(--ink-faint);margin-bottom:20px;}
 .logos .row{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:center;}
 .logos .slot{height:44px;}
@@ -680,6 +685,11 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
       <h1>AI議事録は、もうある。<br><em>その面談データを、<br>「決定」に活かせていますか。</em></h1>
       <p class="sub">面談データを「記録」で終わらせず、<strong style="color:var(--key)">エージェントの成長と、決定率の向上につなげます。</strong>エースの面談と担当者の面談を比べ、何が違うのか、何を改善すべきかを明らかにします。</p>
       <p class="sub2">面談を記録するためではなく、<strong>面談から生まれる決定を増やすため</strong>のシステムです。既存のAI議事録はそのまま使います。<br>売る前に、<strong>自社の面談89件</strong>で回しています。建設エージェント会社には<strong>3ヶ月</strong>入り込んでから設計しました。</p>
+      <ul class="nots">
+        <li>ツールを<b>入れ替えません</b></li>
+        <li>機器を<b>置きません</b></li>
+        <li>現場の操作は<b>増えません</b></li>
+      </ul>
       <div class="acts">
         <a class="btn pri lg" href="#contact">動いている画面を見る</a>
         <a class="btn ghost lg" href="#layer">何が分かるのか</a>
@@ -773,13 +783,13 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
       <article class="str"><span class="lyl">マネージャーには</span><h3>担当者ごとの面談品質を、比べられる</h3><p>同じ条件で並ぶので、誰に何を教えればいいかが具体的になります。<strong>「もっと聞け」ではなく、「この場面で一問足りない」と言えます。</strong></p></article>
       <article class="str"><span class="lyl">経営には</span><h3>何をすると決定につながるかが、残る</h3><p>面談と、推薦・決定・返戻などの成果をつなぎます。<strong>どんな面談が決定につながるのかを、個人の勘ではなく組織として蓄積できます。</strong></p></article>
     </div>
-    <p class="pnote" style="margin-top:24px">人事評価や処遇には使いません。現場を責めるための数字は作りません。</p>
+    <p class="pnote" style="margin-top:24px"><strong>全員に自動でフィードバックを飛ばす設計にはしません。</strong>人事評価や処遇にも使いません。現場を責めるための数字を作ると、記録そのものを避けられるようになり、いずれデータが取れなくなります。</p>
   </div>
 </section>
 
 <section class="sec" id="calc">
   <div class="wrap">
-    <div class="shead"><h2>成果とつなぐと、<em>金額で見えます</em></h2><p>経営から見た一例です。3つ入れるだけ。入力はこの画面から出ません。送信もしません。</p></div>
+    <div class="shead"><h2>成果とつなぐと、<em>金額で見えます</em></h2><p>「平均◯％改善」といった数字は出しません。<strong>平均値は、御社の数字ではないからです。</strong>代わりに、御社の数字を出せるようにしました。3つ入れるだけ。入力はこの画面から出ません。</p></div>
     <p class="mkt">有料職業紹介の手数料収入は<b>2020年度 5,240億円 → 2024年度 9,835億円</b>。常用就職は<b>888,993件</b>。1件あたりは約110万円（総額÷件数の参考値。分子に常用就職以外の手数料を含むため実額はこれより低い）。紹介手数料は年収の概ね30〜35％で、返戻は一般に入社1ヶ月未満で8割前後・3ヶ月未満で5割前後が戻ります。<br><span>出典：厚生労働省「職業紹介事業報告書の集計結果」令和2年度／令和6年度（速報）</span></p>
     <div class="calcbox">
       <div class="calcgrid">
@@ -887,16 +897,17 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
     <div class="shead"><h2>いまのツールと、<em>比べてください</em></h2><p>入れ替えを勧めているわけではありません。何が足りていないかを書きます。</p></div>
     <div class="cmp">
       <table>
-        <thead><tr><th style="width:230px"></th><th class="us">この物差し</th><th>AI議事録ツール<br><small>いま入っているもの</small></th><th>採用面接の評価SaaS</th><th>BIで自作</th></tr></thead>
+        <thead><tr><th style="width:196px"></th><th class="us">この物差し</th><th>AI議事録ツール<br><small>いま入っているもの</small></th><th>音声を録る解析ツール<br><small>専用機器を置く型</small></th><th>採用面接の評価SaaS</th><th>BIで自作</th></tr></thead>
         <tbody>
-          <tr><th>担当者別に同じ条件で比べる</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span><br><small>1件ずつ読む前提</small></td><td><span class="mark">◯</span></td><td>要構築</td></tr>
-          <tr><th>できる人の型を手順に落とす</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span></td><td><span class="mark">△</span></td><td><span class="mark">×</span></td></tr>
-          <tr><th>いまのツールを入れ替えない</th><td class="us"><span class="mark">◯</span></td><td>—</td><td><span class="mark">×</span><br><small>面接基盤ごと</small></td><td><span class="mark">◯</span></td></tr>
-          <tr><th>紹介業の返戻・明示義務に合わせる</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span></td><td><span class="mark">×</span><br><small>事業会社の採用向け</small></td><td>要調査</td></tr>
-          <tr><th>現場に入ってから仕様を決める</th><td class="us"><span class="mark">◯</span><br><small>3ヶ月</small></td><td><span class="mark">×</span></td><td><span class="mark">×</span></td><td>社内工数</td></tr>
-          <tr><th>人を採点しない設計</th><td class="us"><span class="mark">◯</span></td><td>—</td><td><span class="mark">×</span><br><small>面接官を評価する前提</small></td><td>設計次第</td></tr>
-          <tr><th>人事評価に使わない設計</th><td class="us"><span class="mark">◯</span></td><td>明示なし</td><td>明示なし</td><td>設計次第</td></tr>
-          <tr><th>立ち上がり</th><td class="us">現場理解から</td><td>導入済み</td><td>数ヶ月</td><td>数ヶ月〜</td></tr>
+          <tr><th>担当者別に同じ条件で比べる</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span><br><small>1件ずつ読む前提</small></td><td><span class="mark">◯</span></td><td><span class="mark">◯</span></td><td>要構築</td></tr>
+          <tr><th>できる人の型を手順に落とす</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span></td><td><span class="mark">△</span></td><td><span class="mark">△</span></td><td><span class="mark">×</span></td></tr>
+          <tr><th>いまのツールを入れ替えない</th><td class="us"><span class="mark">◯</span></td><td>—</td><td><span class="mark">×</span><br><small>機器の設置から</small></td><td><span class="mark">×</span><br><small>面接基盤ごと</small></td><td><span class="mark">◯</span></td></tr>
+          <tr><th>現場の操作を増やさない</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">◯</span></td><td><span class="mark">×</span><br><small>録音の運用が増える</small></td><td><span class="mark">×</span></td><td><span class="mark">◯</span></td></tr>
+          <tr><th>紹介業の返戻・明示義務に合わせる</th><td class="us"><span class="mark">◯</span></td><td><span class="mark">×</span></td><td><span class="mark">×</span><br><small>店舗向けが中心</small></td><td><span class="mark">×</span><br><small>事業会社の採用向け</small></td><td>要調査</td></tr>
+          <tr><th>現場に入ってから仕様を決める</th><td class="us"><span class="mark">◯</span><br><small>3ヶ月</small></td><td><span class="mark">×</span></td><td><span class="mark">×</span></td><td><span class="mark">×</span></td><td>社内工数</td></tr>
+          <tr><th>人を採点しない設計</th><td class="us"><span class="mark">◯</span></td><td>—</td><td><span class="mark">×</span><br><small>全員へ自動送信</small></td><td><span class="mark">×</span><br><small>面接官を評価する前提</small></td><td>設計次第</td></tr>
+          <tr><th>人事評価に使わない設計</th><td class="us"><span class="mark">◯</span></td><td>明示なし</td><td>明示なし</td><td>明示なし</td><td>設計次第</td></tr>
+          <tr><th>立ち上がり</th><td class="us">現場理解から</td><td>導入済み</td><td>機器設置から</td><td>数ヶ月</td><td>数ヶ月〜</td></tr>
         </tbody>
       </table>
     </div>
@@ -910,6 +921,15 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
           <li>現場に入ってから仕様を決める</li>
         </ul>
         <p>足りていないのは、比べる物差しのほうです。入れ替える必要はありません。</p>
+      </article>
+      <article class="cm">
+        <b>音声を録る解析ツール<small>専用機器を置く型</small></b>
+        <ul>
+          <li>いまのツールを入れ替えない<span>機器の設置から始まる</span></li>
+          <li>現場の操作を増やさない<span>録音の運用が増える</span></li>
+          <li>人を採点しない設計<span>全員へ自動送信</span></li>
+        </ul>
+        <p>狙いは近いところもあります。ただ、始めるのに機器と運用の変更が要ります。</p>
       </article>
       <article class="cm">
         <b>採用面接の評価SaaS</b>
@@ -935,6 +955,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
           <li class="o">担当者別に同じ条件で比べる</li>
           <li class="o">できる人の型を手順に落とす</li>
           <li class="o">いまのツールを入れ替えない</li>
+          <li class="o">現場の操作を増やさない</li>
           <li class="o">紹介業の返戻・明示義務に合わせる</li>
           <li class="o">現場に入ってから仕様を決める<span>3ヶ月</span></li>
           <li class="o">人を採点しない設計</li>
@@ -942,7 +963,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
       </article>
     </div>
     <div class="strwrap">
-      <h3 class="fh3">選ばれる理由は、4つあります</h3>
+      <h3 class="fh3">売る前に、自分で使っています</h3>
       <div class="strs"><article class="str"><h3>要件定義書から、作っていません。</h3><p>建設エージェント会社に3ヶ月入り込み、面談と案件管理のどこで非効率が起きているかを洗い出してから設計しました。現場を見る前に仕様を決めていません。</p></article><article class="str"><h3>他社に渡す前に、自分の事業で回しています。</h3><p>人材紹介領域の面談を89件解析し、メンバー別に進め方の差を並べて運用しています。売る前に自分で使っていないものは、現場で何が起きるか分かりません。</p></article></div>
     </div>
   </div>

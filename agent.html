@@ -16,13 +16,14 @@
 <meta property="og:url" content="https://www.vitality-design.jp/agent.html">
 <meta property="og:title" content="両面型の人材紹介会社へ｜返戻を面談から減らす｜バイタリティデザイン合同会社">
 <meta property="og:description" content="決めた案件のうち、何件が返ってきましたか。即答できなければ、それが返戻の正体です。両面型の人材紹介会社に絞っています。">
-<meta property="og:image" content="https://www.vitality-design.jp/og.png">
+<meta property="og:image" content="https://www.vitality-design.jp/og-agent.png">
+<meta property="og:image:alt" content="両面型エージェント専門｜AI議事録は、もうある。その面談データを、「決定」に活かせていますか。">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="両面型の人材紹介会社へ｜返戻を面談から減らす｜バイタリティデザイン合同会社">
 <meta name="twitter:description" content="決めた案件のうち、何件が返ってきましたか。即答できなければ、それが返戻の正体です。両面型の人材紹介会社に絞っています。">
-<meta name="twitter:image" content="https://www.vitality-design.jp/og.png">
+<meta name="twitter:image" content="https://www.vitality-design.jp/og-agent.png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -241,9 +242,9 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 /* hero */
 .hero{position:relative;background:linear-gradient(180deg,#EAF6FE 0%,#F7FCFF 100%);overflow:hidden;padding:64px 0 72px;}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:56px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0;}
-.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.42fr 1fr;gap:36px;align-items:center;}
 .hero .tagline{display:inline-block;font-size:12.5px;font-weight:800;color:var(--key);background:rgba(11,110,79,0.08);padding:6px 14px;border-radius:99px;}
-.hero h1{margin-top:18px;font-size:clamp(28px,3.7vw,46px);line-height:1.3;}
+.hero h1{margin-top:18px;font-size:clamp(23px,3.1vw,40px);line-height:1.34;letter-spacing:-.032em;}
 .hero h1 em{font-style:normal;color:var(--key);}
 .hero .sub{margin-top:18px;font-size:clamp(15px,1.8vw,18px);font-weight:700;color:var(--ink-soft);}
 .hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
@@ -255,7 +256,8 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 .badge span{display:block;font-size:10.5px;font-weight:700;color:var(--ink-faint);margin-top:4px;}
 
 /* logo band */
-.logos{padding:34px 0 40px;}
+.logos{padding:34px 0 44px;}
+.tagline.strong{background:var(--key);color:#fff;font-weight:800;letter-spacing:.06em;}
 .logos .cap{text-align:center;font-size:12px;font-weight:800;letter-spacing:0.14em;color:var(--ink-faint);margin-bottom:20px;}
 .logos .row{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:center;}
 .logos .slot{height:44px;}
@@ -315,7 +317,35 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 
 /* pricing */
 .price3{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;max-width:760px;margin:0 auto;}
-.tgtlead{margin-top:14px;font-size:clamp(19px,2.6vw,26px);font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1.5;}
+.tgtlead{margin-top:14px;text-align:center;font-size:clamp(19px,3.2vw,32px);font-weight:900;letter-spacing:-.035em;color:var(--ink);line-height:1.45;}
+.tgtlead em{font-style:normal;color:var(--key);}
+.fdia{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;align-items:stretch;}
+.fd{border:1px solid var(--line);border-radius:var(--r);padding:20px 18px 18px;background:#fff;text-align:center;}
+.fd.out{opacity:.55;background:transparent;}
+.fd.in{border:2px solid var(--key);box-shadow:var(--shadow);}
+.fd .fl{display:inline-block;font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--ink-faint);padding:4px 12px;border-radius:99px;background:rgba(22,33,43,.06);}
+.fd.in .fl{color:#fff;background:var(--key);}
+.fd.in .fl em{font-style:normal;opacity:.85;}
+.fd .fr{display:flex;align-items:center;justify-content:center;gap:6px;margin:18px 0 14px;flex-wrap:nowrap;}
+.fd .fr i{font-style:normal;font-size:11px;font-weight:700;color:var(--ink-faint);white-space:nowrap;}
+.fd .fr b{display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:36px;padding:0 9px;border:1px solid var(--line);border-radius:8px;font-size:12.5px;font-weight:800;color:var(--ink-soft);background:#fff;white-space:nowrap;}
+.fd .fr b.me{min-width:78px;height:44px;border:2px solid var(--key);color:var(--key);font-size:14px;box-shadow:0 4px 14px rgba(11,110,79,.16);}
+.fd .fr s{width:14px;height:1px;background:var(--line);text-decoration:none;flex:none;}
+.fd.in .fr s{background:var(--key);height:2px;}
+.fd .fr .gap{font-size:11px;color:var(--ink-faint);}
+.fd .fn{display:block;font-size:12.5px;line-height:1.8;color:var(--ink-faint);}
+.fd.in .fn{color:var(--ink-soft);}
+.fd.in .fn strong{color:var(--ink);font-weight:800;}
+@media (max-width:760px){
+  .fdia{grid-template-columns:1fr;gap:10px;margin-top:20px;}
+  .fd{padding:16px 14px 14px;}
+  .fd .fr{margin:14px 0 12px;gap:4px;}
+  .fd .fr i{font-size:10px;}
+  .fd .fr b{min-width:44px;height:32px;font-size:11.5px;padding:0 7px;}
+  .fd .fr b.me{min-width:62px;height:38px;font-size:13px;}
+  .fd .fr s{width:9px;}
+  .fd .fn{font-size:11.5px;}
+}
 .tgtnote{margin-top:10px;font-size:13.5px;line-height:1.85;color:var(--ink-faint);}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px;}
 .st1{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 20px;text-align:center;}
@@ -646,7 +676,7 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 <section class="hero" id="top">
   <div class="wrap hero-in">
     <div>
-      <span class="tagline">両面型エージェントの、AI議事録を活かす</span>
+      <span class="tagline strong">両面型エージェント専門</span>
       <h1>AI議事録は、もうある。<br><em>その面談データを、<br>「決定」に活かせていますか。</em></h1>
       <p class="sub">面談データを「記録」で終わらせず、<strong style="color:var(--key)">エージェントの成長と、決定率の向上につなげます。</strong>エースの面談と担当者の面談を比べ、何が違うのか、何を改善すべきかを明らかにします。</p>
       <p class="sub2">面談を記録するためではなく、<strong>面談から生まれる決定を増やすため</strong>のシステムです。既存のAI議事録はそのまま使います。<br>売る前に、<strong>自社の面談89件</strong>で回しています。建設エージェント会社には<strong>3ヶ月</strong>入り込んでから設計しました。</p>
@@ -681,9 +711,25 @@ h1,h2,h3,h4{font-weight:900;letter-spacing:-0.02em;line-height:1.4;}
 
 <section class="logos">
   <div class="wrap">
-    <p class="cap">こういう会社に向いています</p>
-    <p class="tgtlead"><strong>両面型の人材紹介会社へ。</strong></p>
-    <p class="tgtnote">建設エージェント・不動産・M&amp;A・士業紹介など、同じ両面型の業種にも同じ仕組みで対応します。</p>
+    <p class="cap">対象</p>
+    <h2 class="tgtlead">両面型の人材紹介会社に、<em>絞っています</em></h2>
+    <div class="fdia">
+      <div class="fd out">
+        <span class="fl">分業型</span>
+        <div class="fr">
+          <i>求人企業</i><s></s><b>RA</b><span class="gap">／</span><b>CA</b><s></s><i>求職者</i>
+        </div>
+        <span class="fn">担当が分かれます。返戻が出ても、<br>どちらの面談の問題かが曖昧なまま終わります。</span>
+      </div>
+      <div class="fd in">
+        <span class="fl">両面型 <em>― 対象</em></span>
+        <div class="fr">
+          <i>求人企業</i><s></s><b class="me">担当者</b><s></s><i>求職者</i>
+        </div>
+        <span class="fn">求人も求職者も、同じ人が見ています。<br><strong>決定率も返戻も、一人の面談の中にあります。</strong></span>
+      </div>
+    </div>
+    <p class="tgtnote">建設エージェント・不動産・M&amp;A・士業紹介など、同じ両面型の業種にも同じ仕組みで対応します。分業型の会社は、対象外です。</p>
   </div>
 </section>
 

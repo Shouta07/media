@@ -59,6 +59,48 @@
       "source": "/docs/field-cx-service.pdf",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/standardization",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/standardization.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/management-data",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/management-data.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/hiring",
+      "destination": "/hiring.html"
+    },
+    {
+      "source": "/backoffice",
+      "destination": "/backoffice.html"
+    },
+    {
+      "source": "/monthly-report",
+      "destination": "/monthly-report.html"
+    },
+    {
+      "source": "/estimate",
+      "destination": "/estimate.html"
+    },
+    {
+      "source": "/handover",
+      "destination": "/handover.html"
     }
   ]
 }

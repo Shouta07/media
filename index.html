@@ -743,8 +743,129 @@ footer{border-top:1px solid var(--ink);padding:clamp(56px,6vw,92px) 0 clamp(36px
   .smp-b{padding:16px 14px;}
 }
 </style>
+<style>
+body.home{--tone:#EDEAE4; --tone-2:#E4E0D8;}
+body.home main{overflow-x:clip;}
+
+/* ---- header ------------------------------------------------------------- */
+body.home .nav-cta{background:var(--ink);color:var(--paper);border-radius:999px;padding:13px 22px;letter-spacing:0.08em;white-space:nowrap;transition:background .25s var(--ease);}
+body.home .nav-cta:hover{background:var(--accent);color:var(--paper);}
+body.home .nav.small .nav-cta{padding:11px 19px;}
+
+/* ---- right-margin keyword rail ------------------------------------------ */
+.krail{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:150;display:grid;gap:30px;pointer-events:none;}
+.krail span{writing-mode:vertical-rl;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.36em;color:var(--ink-4);}
+@media (max-width:1420px){.krail{display:none;}}
+
+/* ---- split composition -------------------------------------------------- */
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(34px,4vw,56px);align-items:center;}
+.split .pan{margin-right:calc(50% - 50vw - 56px);}
+@media (min-width:1025px){
+  .split{grid-template-columns:minmax(0,1.02fr) minmax(0,0.98fr);gap:clamp(40px,4.4vw,72px);}
+  .split.wide{grid-template-columns:minmax(0,1.18fr) minmax(0,0.82fr);}
+  .split.rev{grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);align-items:start;}
+}
+@media (max-width:1080px){.split .pan{margin-right:calc(50% - 50vw - 40px);}}
+@media (max-width:700px){.split .pan{margin-right:calc(50% - 50vw - 22px);}}
+
+/* a designed flat panel standing in for the reference's photography */
+.pan{position:relative;background:var(--tone);min-height:clamp(280px,42vw,520px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(26px,3vw,46px);overflow:hidden;}
+.pan.ink{background:var(--inv);}
+.pan.ink .pq{color:var(--inv-ink);}
+.pan.ink .pn{color:var(--inv-ink-2);}
+.pan .pq{font-family:var(--serif);font-size:clamp(18px,2.1vw,27px);font-weight:600;letter-spacing:-0.022em;line-height:1.85;color:var(--ink);max-width:16em;}
+.pan .pq em{font-style:italic;color:var(--accent);}
+.pan .pn{margin-top:18px;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:0.2em;line-height:1.9;color:var(--ink-4);}
+.pan .pk{position:absolute;right:clamp(18px,2vw,30px);top:clamp(22px,2.6vw,38px);display:grid;gap:9px;text-align:right;}
+.pan .pk span{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.28em;color:var(--inv-ink-3);}
+.pan:not(.ink) .pk span{color:var(--ink-4);}
+.pan .rule{position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--rule);}
+.pan.ink .rule{background:var(--inv-rule);}
+
+/* ---- hero --------------------------------------------------------------- */
+body.home .hero{padding-top:clamp(28px,3vw,48px);}
+body.home h1{font-size:clamp(40px,5.2vw,74px);line-height:1.18;}
+body.home h2{font-size:clamp(25px,3.1vw,44px);line-height:1.38;}
+.hnote{margin-top:clamp(30px,3.4vw,52px);padding-top:20px;border-top:1px solid var(--rule);display:flex;align-items:center;gap:14px;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.24em;color:var(--ink-4);}
+.hnote::before{content:"";width:34px;height:1px;background:var(--accent);flex:0 0 auto;}
+
+/* ---- method wheel ------------------------------------------------------- */
+.wheel{display:block;width:100%;max-width:420px;margin:0 auto;height:auto;}
+.wheel .arc{fill:none;stroke:currentColor;stroke-width:1;opacity:0.55;}
+.wheel .hd{font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;}
+.wheel .ct{font-family:'Inter','Noto Sans JP',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:0.2em;}
+.mgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(34px,4vw,60px);align-items:center;}
+@media (min-width:1025px){.mgrid{grid-template-columns:minmax(0,1.16fr) minmax(0,0.92fr) minmax(0,0.56fr);}}
+
+/* ---- method side note / wheel ------------------------------------------- */
+.mwheel{color:var(--inv-ink-2);}
+.mside{font-family:var(--serif);font-size:clamp(16px,1.7vw,21px);font-weight:600;letter-spacing:-0.02em;line-height:2;color:var(--inv-ink);position:relative;padding-left:22px;}
+.mside::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--inv-rule);}
+@media (max-width:1024px){.mside{padding-left:0;}.mside::before{display:none;}}
+
+/* ---- how-we-build strip (light ground) ---------------------------------- */
+.strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule);}
+.strip>div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(14px,1.5vw,20px) clamp(10px,1.1vw,14px) clamp(18px,2vw,24px);display:grid;gap:10px;align-content:start;}
+.strip b{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:0.18em;color:var(--ink-4);}
+.strip .en{font-family:var(--sans);font-size:clamp(9.5px,0.78vw,11.5px);font-weight:600;letter-spacing:0.02em;color:var(--ink);overflow-wrap:anywhere;}
+.strip .ja{font-size:10.5px;line-height:1.8;color:var(--ink-3);}
+.strip .tile{width:100%;height:clamp(50px,5.4vw,78px);background:var(--tone);}
+@media (max-width:1080px){.strip{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media (max-width:560px){.strip{grid-template-columns:repeat(2,minmax(0,1fr));}}
+
+/* ---- work cards --------------------------------------------------------- */
+.wc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2vw,28px);margin-top:clamp(30px,3.4vw,48px);}
+.wc a{display:block;border:1px solid var(--rule);background:var(--paper);transition:border-color .25s var(--ease);}
+.wc a:hover{border-color:var(--ink);}
+.wc .top{height:clamp(120px,14vw,188px);background:var(--tone);border-bottom:1px solid var(--rule);display:flex;align-items:flex-end;padding:clamp(14px,1.6vw,20px);}
+.wc .top span{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.22em;color:var(--ink-4);}
+.wc .bd{padding:clamp(18px,2vw,26px);}
+.wc h3{font-family:var(--serif);font-size:clamp(16px,1.8vw,20px);font-weight:600;letter-spacing:-0.02em;line-height:1.55;color:var(--ink);}
+.wc p{margin-top:10px;font-size:13px;line-height:1.95;color:var(--ink-3);}
+.wc .ft{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding-top:15px;border-top:1px solid var(--rule-2);font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:0.18em;color:var(--ink-4);}
+.wc .ft i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid var(--rule);border-radius:50%;color:var(--accent);}
+@media (max-width:760px){.wc{grid-template-columns:minmax(0,1fr);}}
+
+/* ---- venture cards (reference form) ------------------------------------- */
+body.home .vcards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2vw,28px);border-top:0;}
+body.home .vc{display:flex;flex-direction:column;align-items:stretch;border:1px solid var(--rule);padding:0;grid-template-columns:none;transition:border-color .25s var(--ease);}
+body.home .vc:hover{border-color:var(--ink);}
+body.home .vc::before{display:none;}
+body.home .vc>*{padding-left:clamp(18px,2vw,26px);padding-right:clamp(18px,2vw,26px);}
+body.home .vc .vtop{display:flex;align-items:flex-end;height:clamp(110px,13vw,176px);background:var(--tone);border-bottom:1px solid var(--rule);padding-bottom:clamp(13px,1.5vw,18px);}
+body.home .vc .vtop span{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:0.22em;color:var(--ink-4);}
+body.home .vc .nm{padding-top:clamp(18px,2vw,26px);font-size:clamp(17px,1.9vw,22px);}
+body.home .vc .ds{margin-top:11px;font-size:13.5px;line-height:2;}
+body.home .vc .mt{margin-top:16px;}
+body.home .vc .lk{margin-top:auto;padding-top:18px;padding-bottom:clamp(18px,2vw,26px);}
+@media (max-width:760px){body.home .vcards{grid-template-columns:minmax(0,1fr);}}
+
+/* ---- closing band -------------------------------------------------------- */
+.band{background:var(--inv);color:var(--inv-ink);padding:clamp(48px,6vw,92px) 0;}
+.band .in{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(24px,3vw,48px);}
+.band .bm{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.24em;line-height:2.1;color:var(--inv-ink-3);}
+.band .bt{font-family:var(--serif);font-size:clamp(18px,2.2vw,28px);font-weight:600;letter-spacing:-0.022em;line-height:1.9;color:var(--inv-ink);}
+.band .ba{display:inline-flex;align-items:center;gap:14px;margin-top:22px;border:1px solid var(--inv-rule);border-radius:999px;padding:14px 26px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.08em;color:var(--inv-ink);transition:background .25s var(--ease),color .25s var(--ease);}
+.band .ba:hover{background:var(--inv-ink);color:var(--inv);}
+
+@media (max-width:1024px){
+  .pan .pk{display:none;}
+  .split .pan{margin-right:0;}
+}
+@media (max-width:860px){
+  body.home .nav-cta{font-size:11px;padding:11px 17px;gap:9px;}
+}
+@media (max-width:560px){
+  body.home .nav-cta{font-size:10.5px;padding:10px 15px;gap:8px;}
+  body.home .nav{gap:12px;}
+}
+@media (max-width:700px){
+  .pan{min-height:230px;}
+  .wc .top{height:112px;}
+}
+</style>
 </head>
-<body>
+<body class="home">
 <a class="skip-link" href="#main">本文へ移動</a>
 <div class="prog" id="prog" aria-hidden="true"></div>
 <nav class="nav">
@@ -762,6 +883,7 @@ footer{border-top:1px solid var(--ink);padding:clamp(56px,6vw,92px) 0 clamp(36px
       <a href="#cases">Cases</a>
       <a href="/blog/">Notes</a>
       <a href="#founder">About</a>
+      <a href="/service">Service</a>
     </div>
     <div class="nav-right">
     <a href="#contact" class="nav-cta" data-cta="nav">Contact</a>
@@ -793,31 +915,43 @@ footer{border-top:1px solid var(--ink);padding:clamp(56px,6vw,92px) 0 clamp(36px
 
 <section class="hero" id="top">
   <div class="wrap">
-   <div style="max-width:900px">
-    <span class="eb rv">HUMAN INSIGHT INTO BUSINESS.</span>
-    <h1><span class="l"><i>人と人の関係を、</i></span><span class="l"><i>前へ。</i></span></h1>
-    <p class="sub rv">人を見る。問いを見つける。<br>仕組みにする。事業にする。</p>
-    <p class="lead rv">Vitality Designは、人間への理解を起点に、<br>AIとソフトウェアを使った<strong>新しい事業をつくる会社</strong>です。</p>
-    <div class="btns rv">
-      <a class="btn" href="#ventures" data-cta="hero-ventures">Ventures</a>
-      <a class="btn" href="#founder" data-cta="hero-about">About</a>
+   <div class="split wide">
+    <div>
+     <h1><span class="l"><i>人と人の関係を、</i></span><span class="l"><i>前へ。</i></span></h1>
+     <p class="sub rv">人を見る。問いを見つける。<br>仕組みにする。事業にする。</p>
+     <p class="lead rv">Vitality Designは、人間への理解を起点に、<br>AIとソフトウェアを使った<strong>新しい事業をつくる会社</strong>です。</p>
+     <div class="btns rv">
+       <a class="btn pri" href="#ventures" data-cta="hero-ventures">Ventures</a>
+       <a class="btn" href="#founder" data-cta="hero-about">私たちについて</a>
+     </div>
+    </div>
+    <div class="pan ink rv">
+      <span class="rule" aria-hidden="true"></span>
+      <div class="pk" aria-hidden="true"><span>PEOPLE</span><span>AI</span><span>SOFTWARE</span><span>BUSINESS</span></div>
+      <p class="pq">まだ見ぬ<br>人の可能性を、<br>ともにつくる。</p>
+      <p class="pn">VITALITY DESIGN<br>TOKYO, JAPAN<br>LLC 1011003024109</p>
     </div>
    </div>
-   <div class="heromark rv">
-     <b>VITALITY DESIGN</b>
-     TOKYO, JAPAN<br>
-     LLC 1011003024109
-   </div>
+   <p class="hnote rv">HUMAN INSIGHT INTO BUSINESS.</p>
   </div>
 </section>
 
 
 <section class="sec" id="human" data-view="human">
   <div class="wrap">
-    <div class="shead">
-      <span class="lab rv">01 ／ HUMAN FIRST</span>
-      <h2 class="rv">TECHNOLOGY<br>STARTS WITH PEOPLE.</h2>
-      <p class="lead rv">AIによって、情報を集めることも、分析することも、ソフトウェアをつくることも、急速に容易になっています。<br><strong>だからこそ私たちは、テクノロジーから考え始めません。</strong></p>
+    <div class="split">
+      <div>
+        <div class="shead">
+          <span class="lab rv">01 ／ HUMAN FIRST</span>
+          <h2 class="rv">TECHNOLOGY<br>STARTS WITH PEOPLE.</h2>
+          <p class="lead rv">AIによって、情報を集めることも、分析することも、ソフトウェアをつくることも、急速に容易になっています。<br><strong>だからこそ私たちは、テクノロジーから考え始めません。</strong></p>
+        </div>
+        <div class="btns rv"><a class="btn" href="#method" data-cta="human-method">私たちの考え方</a></div>
+      </div>
+      <div class="pan rv">
+        <span class="rule" aria-hidden="true"></span>
+        <p class="pq"><em>Technology<br>for a more<br>human tomorrow.</em></p>
+      </div>
     </div>
     <div class="toks stg">
       <div class="tk"><b>人を見る。</b><span>なぜその人はそう判断したのか。</span></div>
@@ -830,40 +964,50 @@ footer{border-top:1px solid var(--ink);padding:clamp(56px,6vw,92px) 0 clamp(36px
 </section>
 
 
-<section class="sec" id="method" data-view="method">
+<section class="sec inv" id="method" data-view="method">
   <div class="wrap">
-    <div class="shead">
-      <span class="lab rv">02 ／ METHOD</span>
-      <h2 class="rv">人は、自分がどうやって<br>うまくやっているのかを、<br>意外と説明できない。</h2>
+    <div class="mgrid">
+      <div>
+        <div class="shead">
+          <span class="lab rv">02 ／ METHOD</span>
+          <h2 class="rv">人は、自分がどうやって<br>うまくやっているのかを、<br>意外と説明できない。</h2>
+          <p class="lead rv">優秀な人の判断や行動の裏には、<strong>言葉になっていない知恵</strong>があります。私たちは、その知恵を観察し、構造化し、プロダクトや事業へと変えていきます。</p>
+        </div>
+        <div class="btns rv"><a class="btn" href="#build" data-cta="method-build">私たちのメソッド</a></div>
+      </div>
+      <div class="rv mwheel"><svg class="wheel" viewBox="0 0 430 430" role="img" aria-label="観察する、話を聞く、パターンを見つける、構造化する、仕組みにする、の5段階が循環する図"><text class="hd" x="215.0" y="52.0" text-anchor="middle" fill="currentColor">観察する</text><path class="arc" d="M249.5 102.2 A118 118 0 0 1 311.7 147.3"/><path class="arc" style="opacity:.8" d="M310.3 138.5 L311.7 147.3"/><path class="arc" style="opacity:.8" d="M303.8 143.1 L311.7 147.3"/><text class="hd" x="374.8" y="168.1" text-anchor="middle" fill="currentColor">話を聞く</text><path class="arc" d="M333.0 212.9 A118 118 0 0 1 309.2 286.0"/><path class="arc" style="opacity:.8" d="M317.2 282.0 L309.2 286.0"/><path class="arc" style="opacity:.8" d="M310.9 277.2 L309.2 286.0"/><text class="hd" x="313.7" y="346.9" text-anchor="middle" fill="currentColor">パターンを</text><text class="hd" x="313.7" y="365.9" text-anchor="middle" fill="currentColor">見つける</text><path class="arc" d="M253.4 326.6 A118 118 0 0 1 176.6 326.6"/><path class="arc" style="opacity:.8" d="M182.8 333.0 L176.6 326.6"/><path class="arc" style="opacity:.8" d="M185.4 325.4 L176.6 326.6"/><text class="hd" x="116.3" y="355.9" text-anchor="middle" fill="currentColor">構造化する</text><path class="arc" d="M120.8 286.0 A118 118 0 0 1 97.0 212.9"/><path class="arc" style="opacity:.8" d="M92.9 220.9 L97.0 212.9"/><path class="arc" style="opacity:.8" d="M100.9 221.0 L97.0 212.9"/><text class="hd" x="55.2" y="168.1" text-anchor="middle" fill="currentColor">仕組みにする</text><path class="arc" d="M118.3 147.3 A118 118 0 0 1 180.5 102.2"/><path class="arc" style="opacity:.8" d="M171.7 100.7 L180.5 102.2"/><path class="arc" style="opacity:.8" d="M174.0 108.3 L180.5 102.2"/><text class="ct" x="215" y="201" text-anchor="middle" fill="currentColor">PEOPLE</text><text class="ct" x="215" y="218" text-anchor="middle" fill="currentColor">INSIGHT</text><text class="ct" x="215" y="235" text-anchor="middle" fill="currentColor">TO ACTION</text></svg></div>
+      <div class="rv">
+        <p class="mside">人の深い理解から、<br>社会を前に進める<br>事業をつくる。</p>
+      </div>
     </div>
     <div class="red stg">
       <div class="rd"><b>優秀な営業は</b><span>なぜこのタイミングで顧客に連絡するのか。</span></div>
       <div class="rd"><b>優秀な面接官は</b><span>相手のどこを見て判断しているのか。</span></div>
       <div class="rd"><b>優秀な担当者は</b><span>なぜ問題が起きる前に気づけるのか。</span></div>
     </div>
-    <p class="lead rv" style="margin-top:40px">経験の中で身についた判断は、<strong>必ずしも言葉になっていません。</strong></p>
-    <div class="pipe rv">
-      <span>観察する</span><i>→</i><span>話を聞く</span><i>→</i><span>パターンを見つける</span><i>→</i><span>構造化する</span><i>→</i><span>仕組みにする</span>
-    </div>
-    <p class="close rv">人の中にある知恵を、<br>プロダクトや事業へ変えていきます。</p>
+    <p class="close rv">経験の中で身についた判断は、<br>必ずしも言葉になっていません。</p>
   </div>
 </section>
 
 
-<section class="sec inv" id="build" data-view="build">
+<section class="sec" id="build" data-view="build">
   <div class="wrap">
-    <div class="shead">
-      <span class="lab rv">03 ／ HOW WE BUILD</span>
-      <h2 class="rv">問いから始めて、<br>また問いに戻る。</h2>
-    </div>
-    <div class="cyc stg">
-      <div class="cy"><b>01</b><span class="en">OBSERVE</span><span class="ja">人を見る。</span></div><div class="cy"><b>02</b><span class="en">QUESTION</span><span class="ja">問いを見つける。</span></div><div class="cy"><b>03</b><span class="en">STRUCTURE</span><span class="ja">パターンを構造化する。</span></div><div class="cy"><b>04</b><span class="en">BUILD</span><span class="ja">プロダクトにする。</span></div><div class="cy"><b>05</b><span class="en">TEST</span><span class="ja">実際の市場に出す。</span></div><div class="cy"><b>06</b><span class="en">LEARN</span><span class="ja">また人間を理解する。</span></div>
-      <div class="cyback">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 5v6h-6"/></svg>
-        <span>01 OBSERVE へ戻る</span>
+    <div class="split rev">
+      <div>
+        <div class="shead">
+          <span class="lab rv">03 ／ HOW WE BUILD</span>
+          <h2 class="rv">問いから始めて、<br>また問いに戻る。</h2>
+          <p class="lead rv">完成された答えを持っている会社ではありません。<strong>問い、仮説、実装、市場、学習を繰り返します。</strong></p>
+        </div>
+        <div class="btns rv"><a class="btn" href="#cases" data-cta="build-cases">私たちのプロセス</a></div>
+      </div>
+      <div class="rv">
+        <div class="strip">
+          <div><b>01</b><span class="tile" aria-hidden="true"></span><span class="en">OBSERVE</span><span class="ja">人を見る。</span></div><div><b>02</b><span class="tile" aria-hidden="true"></span><span class="en">QUESTION</span><span class="ja">問いを見つける。</span></div><div><b>03</b><span class="tile" aria-hidden="true"></span><span class="en">STRUCTURE</span><span class="ja">パターンを構造化する。</span></div><div><b>04</b><span class="tile" aria-hidden="true"></span><span class="en">BUILD</span><span class="ja">プロダクトにする。</span></div><div><b>05</b><span class="tile" aria-hidden="true"></span><span class="en">TEST</span><span class="ja">実際の市場に出す。</span></div><div><b>06</b><span class="tile" aria-hidden="true"></span><span class="en">LEARN</span><span class="ja">また人間を理解する。</span></div>
+        </div>
+        <p class="note" style="margin-top:18px">06 LEARN のあと、また 01 OBSERVE に戻ります。</p>
       </div>
     </div>
-    <p class="close rv">完成された答えを持っている会社ではありません。<br>問い、仮説、実装、市場、学習を繰り返します。</p>
   </div>
 </section>
 
@@ -923,6 +1067,7 @@ footer{border-top:1px solid var(--ink);padding:clamp(56px,6vw,92px) 0 clamp(36px
     </div>
     <div class="vcards stg">
       <div class="vc">
+        <span class="vtop" aria-hidden="true"><span>MEDIA ／ WELLNESS</span></span>
         <span class="nm">His Recoveries</span>
         <span class="ds">男性の見た目と健康を扱うウェルネスメディア。自分の体について、誰にも相談しないまま放置している人が多い。その前提で何が読まれるのかを確かめています。</span>
         <span class="fct">記事55本を自社で執筆し、運営しています。</span>
@@ -930,6 +1075,7 @@ footer{border-top:1px solid var(--ink);padding:clamp(56px,6vw,92px) 0 clamp(36px
         <a class="lk" href="https://www.hisrecoveries.com/" target="_blank" rel="noopener" data-cta="venture-hisrecoveries">サイトを見る ↗</a>
       </div>
       <div class="vc">
+        <span class="vtop" aria-hidden="true"><span>B2B SOFTWARE ／ HR</span></span>
         <span class="nm">面談可視化システム</span>
         <span class="ds">面談の判断基準を構造化する仕組み。上手い担当者が何を見ているのかを言葉にして、担当者ごとの差を同じ条件で並べられるようにします。人事評価や処遇には使わない設計です。</span>
         <span class="fct">人材紹介領域の面談89件を自社で解析し、稼働しています。</span>
@@ -1076,6 +1222,19 @@ footer{border-top:1px solid var(--ink);padding:clamp(56px,6vw,92px) 0 clamp(36px
 </section>
 
 </main>
+
+<section class="band">
+  <div class="wrap">
+    <div class="in">
+      <p class="bm">VITALITY DESIGN<br>TOKYO, JAPAN</p>
+      <div>
+        <p class="bt">人を理解することから、<br>まだ見ぬ事業をつくる。</p>
+        <a class="ba" href="#contact" data-cta="band">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="fmark rv"><span>VITALITY</span><span>DESIGN</span></div>

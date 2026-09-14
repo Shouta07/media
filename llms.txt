@@ -31,6 +31,7 @@
 ## 主要ページ
 
 - [トップページ](https://www.vitality-design.jp/): HERO「人と人の関係を、前へ。」／01 HUMAN FIRST（TECHNOLOGY STARTS WITH PEOPLE. なぜ人間から考えるのか）／02 METHOD（人は、自分がどうやってうまくやっているのかを、意外と説明できない）／03 HOW WE BUILD（OBSERVE→QUESTION→STRUCTURE→BUILD→TEST→LEARN→OBSERVEへ戻る循環）／04 CASES（上手い人が何を見ているのか、本人も説明できていなかった）／05 VENTURES（問いから、事業へ）／06 NOTES（人間を、もっと知る）／07 FOUNDER（人間を理解することから、事業をつくる）／08 CLIENT WORK／09 COMPANY／CONTACT
+- [見積フォロー業務の仕組み化（サービス）](https://www.vitality-design.jp/service): Google Workspace（Gmail・Google Sheets・Google Drive）で業務が回っている専門商社・卸売会社向け。見積を提出したあとの、顧客からの回答待ち、仕入先・メーカーからの回答待ち、案件の滞留、次の対応が決まっていない案件、受注・失注・検討中の把握といった、営業担当者が覚えて・探して・確認して・追いかけている作業を対象にする。見積の作成そのものは対象外。新しいSFAへの全面移行は前提にせず、既存のGoogle Workspace環境を活用する。進め方は現状を見る→測る→1つだけ仕組みにする→実際に使う→もう一度測る→続けるか決める、の6段階で、効果がなければ広げない。SFAで案件管理ができている企業、見積件数が少ない企業、単純な期限通知だけが必要な企業、コードだけの納品を希望する企業には推奨しない。まず30分のオンラインで現状を確認し、仕組みにする価値があるかを判断する（費用はかからない）。サイト上に改善率や導入実績は掲載していない。
 - [Client Work](https://www.vitality-design.jp/client-work): 限定的な企業支援の受け皿。対応領域4つ、業務チェックリスト、課題別ページへの導線、進め方、価格の考え方、FAQ、相談フォーム。
 - [人を増やす前の業務整理](https://www.vitality-design.jp/hiring): 事務職を募集している企業向け。求人票の仕事内容を、人が担当すべき業務／廃止候補／標準化候補／SaaSで解決できる業務／自動化候補／AI活用候補に分解する。採用不要や人数削減といった成果は保証しない。
 - [事務作業を減らす](https://www.vitality-design.jp/backoffice): 転記、二重入力、目視での照合、帳票作成。

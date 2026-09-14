@@ -93,6 +93,10 @@
   ],
   "rewrites": [
     {
+      "source": "/service",
+      "destination": "/service.html"
+    },
+    {
       "source": "/client-work",
       "destination": "/client-work.html"
     },

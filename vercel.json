@@ -79,9 +79,23 @@
       "source": "/management-data.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/draft-lp",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/draft-lp.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
+    {
+      "source": "/client-work",
+      "destination": "/client-work.html"
+    },
     {
       "source": "/hiring",
       "destination": "/hiring.html"

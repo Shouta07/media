@@ -60,6 +60,30 @@
 .nav.on-inv{background:rgba(10,10,10,0.93);border-bottom-color:var(--inv-line-2);color:var(--inv-ink)}
 .nav.on-inv .brand .b2{color:var(--inv-ink-3)}
 .nav.on-inv .burger span{background:var(--inv-ink)}
+
+/* ---- いま / 渡したあと ------------------------------------------------ */
+.tfr{margin-top:clamp(18px,2.2vw,28px);border-top:1px solid var(--inv-line)}
+.tfr-h{display:none}
+@media (min-width:820px){
+  .tfr-h{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);
+    gap:24px;padding:11px 0;border-bottom:1px solid var(--inv-line-2)}
+  .tfr-h span{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--inv-ink-3)}
+  .tfr-h span:last-child{color:var(--acid)}
+  .tfr>div:not(.tfr-h){grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);align-items:baseline}
+}
+.tfr>div:not(.tfr-h){display:grid;gap:6px 24px;padding:clamp(13px,1.6vw,18px) 0;
+  border-bottom:1px solid var(--inv-line-2)}
+.tfr b{font-size:13px;font-weight:900;letter-spacing:-.01em;color:var(--inv-ink)}
+.tfr .be,.tfr .af{font-size:13px;line-height:1.8}
+.tfr .be{color:var(--inv-ink-3);position:relative;padding-left:17px}
+.tfr .be::before{content:"";position:absolute;left:0;top:10px;width:9px;height:1px;background:var(--inv-ink-3)}
+.tfr .af{color:var(--inv-ink);font-weight:700;position:relative;padding-left:17px}
+.tfr .af::before{content:"";position:absolute;left:0;top:9px;width:9px;height:3px;background:var(--acid)}
+.sec:not(.inv) .tfr{border-top-color:var(--line)}
+.sec:not(.inv) .tfr>div:not(.tfr-h){border-bottom-color:var(--line-2)}
+.sec:not(.inv) .tfr b{color:var(--ink)}
+.sec:not(.inv) .tfr .be{color:var(--ink-3)}
+.sec:not(.inv) .tfr .af{color:var(--ink)}
 /* ---- バクラク型の骨格 ------------------------------------------------- */
 .phero.sec{padding-block:clamp(104px,13vh,168px) clamp(44px,5.4vw,76px)}
 .phero .lead{color:var(--inv-ink-2);max-width:40em}
@@ -229,7 +253,7 @@
     <p class="lab r">CA・RAが20〜60名の人材紹介会社へ</p>
     <h1 class="d2 r">同じ求人で、決まる人と<br><span class="hl">決まらない人</span>がいる。</h1>
     <p class="sub r">その差は、たいてい才能ではなく手順です。</p>
-    <p class="lead r">面談を89件、1件ずつ聞いてそう思いました。いまは建築領域の人材紹介会社に入って、その手順を仕組みに落としています。<strong>同じことを、御社でもやります。</strong></p>
+    <p class="lead r">面談を89件、1件ずつ聞いてそう思いました。いまは建築領域の人材紹介会社に入って、その手順を仕組みに落としています。<strong>御社の面談から型を取り出して、全員が同じ順番で聞ける状態にして渡します。</strong></p>
     <div class="btns r"><a class="btn pri" href="#paper" data-cta="hero-paper">89件の分析を読む（無料）</a><a class="btn" href="#contact" data-cta="hero-talk">30分、話を聞かせてください</a></div>
     <p class="microcta r">メールアドレスだけで読めます。売り込みはしません。</p>
   </div>
@@ -267,17 +291,27 @@
 </section>
 
 <section class="sec inv" id="scope">
-<span class="anchor" id="service" aria-hidden="true"></span><span class="anchor" id="pl" aria-hidden="true"></span><span class="anchor" id="concept" aria-hidden="true"></span>
+<span class="anchor" id="service" aria-hidden="true"></span><span class="anchor" id="pl" aria-hidden="true"></span><span class="anchor" id="concept" aria-hidden="true"></span><span class="anchor" id="deliver" aria-hidden="true"></span>
   <div class="wrap">
-    <p class="lab r"><b>02</b>／ どこを見るか</p>
-    <h2 class="d2 r">集客から請求まで、全部見ます。</h2>
-    <p class="body r">手を入れるのは詰まっているところだけです。ただ、どこが詰まっているかは、全部見ないと分かりません。</p>
-    <div class="grps" data-stagger>
-      <div class="grp r-s"><h3>候補者まわり</h3><ul><li>集客・求職者獲得</li><li>面談・候補者理解</li><li>応募意思の獲得</li><li>面接対策・フォロー</li></ul></div>
-      <div class="grp r-s"><h3>企業まわり</h3><ul><li>求人獲得・企業対応</li><li>求人選定・提案</li><li>推薦・選考管理</li><li>内定・条件交渉・承諾</li></ul></div>
-      <div class="grp r-s"><h3>会社まわり</h3><ul><li>入社・売上計上・請求</li><li>KPI管理・マネジメント</li><li>新人育成・教育</li><li>CRM・データ・自動化</li></ul></div>
+    <p class="lab r"><b>02</b>／ 何が残るか</p>
+    <h2 class="d2 r">渡すのは、面談の型です。</h2>
+    <p class="body r">会社によって中身は変わりますが、だいたいこの4つが手元に残ります。<strong>私がいなくなっても、これだけで回ります。</strong></p>
+    <div class="flags" data-stagger>
+      <div class="r-s"><b>面談の確認項目</b><span>何を、どの順番で聞くか。全員が同じ順番で聞ける状態にします。</span></div>
+      <div class="r-s"><b>担当者ごとの改善テーマ</b><span>抜けている項目は人によって違います。一人に1つだけ渡します。</span></div>
+      <div class="r-s"><b>マネージャーが見る指標</b><span>録音を全部聞かなくても、見るべき面談が特定できる状態にします。</span></div>
+      <div class="r-s"><b>議事録の最低ライン</b><span>ここが埋まっていない案件を、危険信号として拾えるようにします。</span></div>
     </div>
-    <p class="small r" style="margin-top:clamp(20px,2.4vw,30px)">この12か所のうち、実際に手を入れるのは1〜2か所です。全部やると現場が止まります。</p>
+
+    <h3 class="subh r" style="margin-top:clamp(30px,3.6vw,50px)">会社がどう変わるか。</h3>
+    <div class="tfr r" data-stagger>
+      <div class="tfr-h"><span></span><span>いま</span><span>渡したあと</span></div>
+      <div class="r-s"><b>決まった理由</b><span class="be">本人も説明できない</span><span class="af">項目として言葉になっている</span></div>
+      <div class="r-s"><b>新人の育成</b><span class="be">横について覚えてもらう</span><span class="af">確認項目とスコアで渡せる</span></div>
+      <div class="r-s"><b>マネージャー</b><span class="be">録音を聞くか、勘で見る</span><span class="af">見るべき面談が特定できる</span></div>
+      <div class="r-s"><b>経営</b><span class="be">決定数しか見えない</span><span class="af">どの工程で落ちているかが見える</span></div>
+    </div>
+    <p class="small r" style="margin-top:clamp(20px,2.4vw,30px)">集客から請求まで一通り見ますが、手を入れるのは詰まっている1〜2か所だけです。全部やると現場が止まります。</p>
     <div class="btns r" style="margin-top:clamp(26px,3.2vw,42px)"><a class="btn pri" href="#paper" data-cta="scope-paper">89件の分析を読む</a><a class="btn" href="#contact" data-cta="scope-talk">30分、話を聞かせてください</a></div>
   </div>
 </section>
@@ -290,7 +324,7 @@
     <ol class="nsteps2" data-stagger>
       <li class="r-s"><b>01</b><span class="t">見る</span><span class="d">面談に同席して、議事録を読んで、CRMの中を開いて、朝会に出ます。だいたいここで、数字に出ていないものが見つかります。面談から求人提案まで平均4日かかっているとか。RAが持っている求人の背景が口頭で止まっていて、CAに届いていないとか。</span></li>
       <li class="r-s"><b>02</b><span class="t">決める</span><span class="d">どこを直すか決めます。集客から請求まで一通り見ますが、手を入れるのは詰まっているところだけです。全部やると現場が止まるので。</span></li>
-      <li class="r-s"><b>03</b><span class="t">作る</span><span class="d">手順書のこともあれば、スプレッドシートのことも、議事録を自動で要約させることもあります。会議を1つなくすだけで片づいて、結局なにも作らずに終わったこともあります。</span></li>
+      <li class="r-s"><b>03</b><span class="t">作る</span><span class="d">02で挙げた4つを作ります。手順書とスプレッドシートで足りることもあれば、議事録の要約を自動化することもあります。ただ、会議を1つなくすだけで片づくなら、そこで終わりにします。必要以上には作りません。</span></li>
       <li class="r-s"><b>04</b><span class="t">渡す</span><span class="d">私がいなくなっても回る形にして渡します。運用のしかたと、数字の見かたごと。</span></li>
     </ol>
     <p class="pblk r"><strong>いま使っているCRM・ATSは、そのままで大丈夫です。</strong>PORTERSでもSalesforceでもスプレッドシートでも、入れ替えは提案しません。今あるものの上に、足りないところだけ足します。</p>

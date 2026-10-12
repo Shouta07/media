@@ -52,6 +52,75 @@
   .burger{width:32px}
   .nav-cta{padding:8px 13px;font-size:11px}
 }
+
+
+/* ヘッダーは常時ベタ塗り（濃色ヒーローに重なるため） */
+.nav{background:rgba(250,250,250,0.93);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  backdrop-filter:saturate(180%) blur(14px);border-bottom-color:var(--line-2)}
+.nav.on-inv{background:rgba(10,10,10,0.93);border-bottom-color:var(--inv-line-2);color:var(--inv-ink)}
+.nav.on-inv .brand .b2{color:var(--inv-ink-3)}
+.nav.on-inv .burger span{background:var(--inv-ink)}
+/* ---- バクラク型の骨格 ------------------------------------------------- */
+.phero.sec{padding-block:clamp(104px,13vh,168px) clamp(44px,5.4vw,76px)}
+.phero .lead{color:var(--inv-ink-2);max-width:40em}
+.phero .lead strong{color:var(--inv-ink)}
+.phero .microcta{color:var(--inv-ink-2)}
+
+.factbar{background:var(--paper-2);border-bottom:1px solid var(--line-2);
+  padding-block:clamp(26px,3.2vw,46px)}
+.fb-l{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--ink-3)}
+.fb{list-style:none;margin-top:clamp(16px,2vw,26px);display:grid;gap:clamp(16px,2vw,30px)}
+@media (min-width:820px){.fb{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.fb li{display:grid;gap:8px;align-content:start;padding-left:16px;border-left:3px solid var(--acid)}
+.fb b{font-family:var(--en);font-size:clamp(30px,3.6vw,46px);font-weight:900;
+  letter-spacing:-.05em;line-height:1}
+.fb b i{font-style:normal;font-family:var(--jp);font-size:.34em;font-weight:700;margin-left:3px}
+.fb span{font-size:12.5px;line-height:1.9;color:var(--ink-2)}
+.fb-n{margin-top:clamp(16px,2vw,26px);font-size:11.5px;line-height:1.9;color:var(--ink-3);max-width:60em}
+
+.grps{margin-top:clamp(22px,2.8vw,38px);display:grid;gap:clamp(14px,1.8vw,22px)}
+@media (min-width:820px){.grps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.grp{border:1px solid var(--inv-line);padding:clamp(18px,2.2vw,26px)}
+.grp h3{font-size:13px;font-weight:900;letter-spacing:.02em;color:var(--inv-ink);
+  padding-bottom:12px;border-bottom:1px solid var(--inv-line-2)}
+.grp ul{list-style:none;margin-top:12px;display:grid;gap:9px}
+.grp li{position:relative;padding-left:17px;font-size:13px;line-height:1.75;color:var(--inv-ink-2)}
+.grp li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:2px;background:var(--acid)}
+.sec:not(.inv) .grp{border-color:var(--line)}
+.sec:not(.inv) .grp h3{color:var(--ink);border-bottom-color:var(--line-2)}
+.sec:not(.inv) .grp li{color:var(--ink-2)}
+
+.nsteps2{list-style:none;margin-top:clamp(22px,2.8vw,38px);counter-reset:ns;
+  border-top:1px solid var(--line)}
+.nsteps2 li{display:grid;gap:7px 24px;padding:clamp(18px,2.2vw,26px) 0;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.nsteps2 li{grid-template-columns:56px 150px minmax(0,1fr);align-items:baseline}}
+.nsteps2 b{font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--ink-3)}
+.nsteps2 .t{font-size:clamp(17px,1.9vw,23px);font-weight:900;letter-spacing:-.03em}
+.nsteps2 .d{font-size:13.5px;line-height:2;color:var(--ink-2)}
+.inv .nsteps2{border-top-color:var(--inv-line)}
+.inv .nsteps2 li{border-bottom-color:var(--inv-line-2)}
+.inv .nsteps2 b{color:var(--inv-ink-2)}
+.inv .nsteps2 .d{color:var(--inv-ink-2)}
+
+.why3{margin-top:clamp(22px,2.8vw,38px);display:grid;gap:1px;
+  background:var(--inv-line-2);border:1px solid var(--inv-line-2)}
+@media (min-width:860px){.why3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.why3>div{background:var(--inv);padding:clamp(20px,2.4vw,30px);display:grid;gap:11px;align-content:start}
+.why3 b{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--acid)}
+.why3 .t{font-size:clamp(16px,1.8vw,21px);font-weight:900;letter-spacing:-.03em;color:var(--inv-ink)}
+.why3 .d{font-size:13px;line-height:2;color:var(--inv-ink-2)}
+
+.endcta{background:var(--inv-2);color:var(--inv-ink);
+  padding-block:clamp(44px,5.4vw,80px);border-top:1px solid var(--inv-line-2)}
+.ec{display:grid;gap:1px;background:var(--inv-line-2);border:1px solid var(--inv-line-2)}
+@media (min-width:820px){.ec{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ec>div{background:var(--inv-2);padding:clamp(24px,3vw,40px);display:grid;gap:13px;align-content:start}
+.ec-l{font-family:var(--en);font-size:10.5px;font-weight:700;letter-spacing:.2em;color:var(--acid)}
+.ec b{font-size:clamp(19px,2.2vw,27px);font-weight:900;letter-spacing:-.04em;line-height:1.45}
+.ec-d{font-size:13px;line-height:2;color:var(--inv-ink-2)}
+.ec .btn{justify-self:start;margin-top:6px;background:var(--acid);color:var(--ink);border-color:var(--acid)}
+.ec .btn:hover{background:var(--inv-ink);border-color:var(--inv-ink);color:var(--inv-2)}
+.ec-m{margin-top:clamp(18px,2.2vw,28px);font-size:12px;line-height:1.9;color:var(--inv-ink-2)}
 /* ---- 資料ダウンロード ------------------------------------------------ */
 .nav-cta2{display:none;align-items:center;padding:9px 15px;border:1px solid currentColor;
   border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em;white-space:nowrap;
@@ -155,17 +224,30 @@
 </div>
 <main id="main">
 
-<section class="phero wrap" id="top">
-  <p class="lab r">CA・RAが5〜30名の人材紹介会社へ</p>
-  <h1 class="d2 r">同じ求人で、決まる人と<br><span class="hl">決まらない人</span>がいる。</h1>
-  <p class="sub r">その差は、たいてい才能ではなく手順です。</p>
-  <p class="lead r">面談を89件、1件ずつ聞いてそう思いました。いまは建築領域の人材紹介会社に入って、その手順を仕組みに落としています。<strong>同じことを、御社でもやります。</strong></p>
-  <div class="btns r"><a class="btn pri" href="#contact" data-cta="ag-hero">30分、話を聞かせてください</a><a class="btn" href="#paper" data-cta="ag-hero-paper">89件の分析を読む（無料）</a></div>
-  <p class="microcta r">売り込みはしません。初回で見積りも出しません。</p>
-  <div class="badges r"><span>面談89件を1件ずつ分析</span><span>建築領域の紹介会社に3か月</span><span>CRM・ATSはそのまま</span></div>
+<section class="sec inv phero" id="top">
+  <div class="wrap">
+    <p class="lab r">CA・RAが5〜30名の人材紹介会社へ</p>
+    <h1 class="d2 r">同じ求人で、決まる人と<br><span class="hl">決まらない人</span>がいる。</h1>
+    <p class="sub r">その差は、たいてい才能ではなく手順です。</p>
+    <p class="lead r">面談を89件、1件ずつ聞いてそう思いました。いまは建築領域の人材紹介会社に入って、その手順を仕組みに落としています。<strong>同じことを、御社でもやります。</strong></p>
+    <div class="btns r"><a class="btn pri" href="#paper" data-cta="hero-paper">89件の分析を読む（無料）</a><a class="btn" href="#contact" data-cta="hero-talk">30分、話を聞かせてください</a></div>
+    <p class="microcta r">メールアドレスだけで読めます。売り込みはしません。</p>
+  </div>
 </section>
 
-<section class="sec inv" id="fit">
+<section class="factbar">
+  <div class="wrap">
+    <p class="fb-l r">確かめられる事実は、この3つだけです</p>
+    <ul class="fb" data-stagger>
+      <li class="r-s"><b>89<i>件</i></b><span>1件ずつ聞いた面談。倍速もかけず、AIにも要約させていません。</span></li>
+      <li class="r-s"><b>3<i>か月</i></b><span>建築領域の人材紹介会社に入って、設計から運用まで。いまも動いています。</span></li>
+      <li class="r-s"><b>0<i>件</i></b><span>入れ替えをお願いしたシステム。今あるものの上に足すだけです。</span></li>
+    </ul>
+    <p class="fb-n r">顧客名・改善率・導入社数は、守秘義務と誇張を避けるため掲載していません。89件は分析した件数で、導入後の成果ではありません。</p>
+  </div>
+</section>
+
+<section class="sec" id="fit">
 <span class="anchor" id="problem" aria-hidden="true"></span><span class="anchor" id="ba" aria-hidden="true"></span>
   <div class="wrap">
     <p class="lab r"><b>01</b>／ 誰の話か</p>
@@ -180,30 +262,59 @@
       <li class="r-s">人を増やした。決定数は、そこまで増えていない</li>
     </ul>
     <p class="small r" style="margin-top:clamp(20px,2.4vw,30px)">逆に、手順が決まっていて数字の管理も回っている会社なら、私が入る余地はあまりありません。そこは最初に言います。</p>
-    <div class="btns r" style="margin-top:clamp(24px,3vw,38px)"><a class="btn pri" href="#contact" data-cta="ag-fit">当てはまったので相談する</a></div>
+    <div class="btns r" style="margin-top:clamp(26px,3.2vw,42px)"><a class="btn pri" href="#paper" data-cta="fit-paper">89件の分析を読む</a><a class="btn" href="#contact" data-cta="fit-talk">30分、話を聞かせてください</a></div>
+  </div>
+</section>
+
+<section class="sec inv" id="scope">
+<span class="anchor" id="service" aria-hidden="true"></span><span class="anchor" id="pl" aria-hidden="true"></span><span class="anchor" id="concept" aria-hidden="true"></span>
+  <div class="wrap">
+    <p class="lab r"><b>02</b>／ どこを見るか</p>
+    <h2 class="d2 r">集客から請求まで、全部見ます。</h2>
+    <p class="body r">手を入れるのは詰まっているところだけです。ただ、どこが詰まっているかは、全部見ないと分かりません。</p>
+    <div class="grps" data-stagger>
+      <div class="grp r-s"><h3>候補者まわり</h3><ul><li>集客・求職者獲得</li><li>面談・候補者理解</li><li>応募意思の獲得</li><li>面接対策・フォロー</li></ul></div>
+      <div class="grp r-s"><h3>企業まわり</h3><ul><li>求人獲得・企業対応</li><li>求人選定・提案</li><li>推薦・選考管理</li><li>内定・条件交渉・承諾</li></ul></div>
+      <div class="grp r-s"><h3>会社まわり</h3><ul><li>入社・売上計上・請求</li><li>KPI管理・マネジメント</li><li>新人育成・教育</li><li>CRM・データ・自動化</li></ul></div>
+    </div>
+    <p class="small r" style="margin-top:clamp(20px,2.4vw,30px)">この12か所のうち、実際に手を入れるのは1〜2か所です。全部やると現場が止まります。</p>
+    <div class="btns r" style="margin-top:clamp(26px,3.2vw,42px)"><a class="btn pri" href="#paper" data-cta="scope-paper">89件の分析を読む</a><a class="btn" href="#contact" data-cta="scope-talk">30分、話を聞かせてください</a></div>
   </div>
 </section>
 
 <section class="sec" id="what">
-<span class="anchor" id="process" aria-hidden="true"></span><span class="anchor" id="how" aria-hidden="true"></span><span class="anchor" id="scope" aria-hidden="true"></span><span class="anchor" id="service" aria-hidden="true"></span><span class="anchor" id="concept" aria-hidden="true"></span><span class="anchor" id="diff" aria-hidden="true"></span><span class="anchor" id="keep" aria-hidden="true"></span><span class="anchor" id="pl" aria-hidden="true"></span>
+<span class="anchor" id="process" aria-hidden="true"></span><span class="anchor" id="how" aria-hidden="true"></span><span class="anchor" id="diff" aria-hidden="true"></span><span class="anchor" id="keep" aria-hidden="true"></span>
   <div class="wrap">
-    <p class="lab r"><b>02</b>／ やること</p>
+    <p class="lab r"><b>03</b>／ 進め方</p>
     <h2 class="d2 r">最初の2週間は、ほとんど何も作りません。</h2>
-    <div class="jrail r"><span>見る</span><span>決める</span><span>作る</span><span>渡す</span></div>
-    <p class="body r" style="margin-top:clamp(22px,2.6vw,34px)">見ているだけです。面談に同席して、議事録を読んで、CRMの中を開いて、朝会に出ます。</p>
-    <p class="body r">だいたいここで、数字に出ていないものが見つかります。面談から求人提案まで平均4日かかっているとか。RAが持っている求人の背景が口頭で止まっていて、CAに届いていないとか。</p>
-    <p class="body r">そのあと、どこを直すか決めます。集客から請求まで一通り見ますが、手を入れるのは詰まっているところだけです。全部やると現場が止まるので。</p>
-    <p class="body r">作るものは、そのとき決まります。手順書のこともあれば、スプレッドシートのことも、議事録を自動で要約させることもあります。会議を1つなくすだけで片づいて、結局なにも作らずに終わったこともあります。</p>
-    <p class="body r">最後に、私がいなくなっても回る形にして渡します。運用のしかたと、数字の見かたごと。</p>
-
+    <ol class="nsteps2" data-stagger>
+      <li class="r-s"><b>01</b><span class="t">見る</span><span class="d">面談に同席して、議事録を読んで、CRMの中を開いて、朝会に出ます。だいたいここで、数字に出ていないものが見つかります。面談から求人提案まで平均4日かかっているとか。RAが持っている求人の背景が口頭で止まっていて、CAに届いていないとか。</span></li>
+      <li class="r-s"><b>02</b><span class="t">決める</span><span class="d">どこを直すか決めます。集客から請求まで一通り見ますが、手を入れるのは詰まっているところだけです。全部やると現場が止まるので。</span></li>
+      <li class="r-s"><b>03</b><span class="t">作る</span><span class="d">手順書のこともあれば、スプレッドシートのことも、議事録を自動で要約させることもあります。会議を1つなくすだけで片づいて、結局なにも作らずに終わったこともあります。</span></li>
+      <li class="r-s"><b>04</b><span class="t">渡す</span><span class="d">私がいなくなっても回る形にして渡します。運用のしかたと、数字の見かたごと。</span></li>
+    </ol>
     <p class="pblk r"><strong>いま使っているCRM・ATSは、そのままで大丈夫です。</strong>PORTERSでもSalesforceでもスプレッドシートでも、入れ替えは提案しません。今あるものの上に、足りないところだけ足します。</p>
+    <div class="btns r" style="margin-top:clamp(26px,3.2vw,42px)"><a class="btn pri" href="#paper" data-cta="what-paper">89件の分析を読む</a><a class="btn" href="#contact" data-cta="what-talk">30分、話を聞かせてください</a></div>
+  </div>
+</section>
+
+<section class="sec inv" id="why">
+  <div class="wrap">
+    <p class="lab r"><b>04</b>／ 選ばれる理由</p>
+    <h2 class="d2 r">理由は、3つだけです。</h2>
+    <div class="why3" data-stagger>
+      <div class="r-s"><b>01</b><span class="t">現場に座ります</span><span class="d">ツールを売る会社は現場に来ません。コンサルは資料を作って帰ります。私は朝会に出て、面談に同席します。数字に出ていない問題は、そこでしか見つかりません。</span></div>
+      <div class="r-s"><b>02</b><span class="t">入れ替えません</span><span class="d">PORTERSもSalesforceもスプレッドシートも、そのまま使ってください。乗り換えの提案はしません。新しいシステムを入れる前提にも立ちません。</span></div>
+      <div class="r-s"><b>03</b><span class="t">置いていきます</span><span class="d">運用のしかたと、数字の見かたごと渡します。契約が続くことを前提にしていません。私がいないと回らない仕組みは、作った意味がないので。</span></div>
+    </div>
+    <div class="btns r" style="margin-top:clamp(26px,3.2vw,42px)"><a class="btn pri" href="#paper" data-cta="why-paper">89件の分析を読む</a><a class="btn" href="#contact" data-cta="why-talk">30分、話を聞かせてください</a></div>
   </div>
 </section>
 
 <section class="sec" id="proof">
 <span class="anchor" id="case" aria-hidden="true"></span><span class="anchor" id="exp" aria-hidden="true"></span>
   <div class="wrap">
-    <p class="lab r"><b>03</b>／ やったこと</p>
+    <p class="lab r"><b>05</b>／ やったこと</p>
     <h2 class="d2 r">89件。</h2>
     <p class="sub r">建築の人材紹介会社に3か月入って、面談を1件ずつ聞きました。倍速もかけずに。</p>
     <p class="body r" style="margin-top:clamp(22px,2.6vw,34px)">AIに要約させたのではありません。分かったことはいろいろありますが、いちばん差が出たのはここでした。</p>
@@ -213,13 +324,13 @@
     <p class="body r">転職理由は全員が聞いています。そこは差になりません。差が出たのは、条件が揃ったら本当に動くのか、何が引っかかっているのかを、その場で確認できているかどうかでした。<strong>これはセンスではなく、聞く順番の問題です。順番なら、教えられます。</strong></p>
     <p class="body r">そこから面談の確認項目と、担当者ごとの改善テーマと、マネージャーが見る指標を作りました。いまも動いています。</p>
     <p class="small r" style="margin-top:clamp(18px,2.2vw,28px)">顧客名と改善率は守秘義務で出せません。89件は分析した件数で、導入後の成果ではありません。</p>
-    <div class="btns r" style="margin-top:clamp(24px,3vw,38px)"><a class="btn pri" href="#paper" data-cta="ag-proof-paper">分析の中身を読む</a><a class="btn" href="#contact" data-cta="ag-proof">うちの面談も見てほしい</a></div>
+    <div class="btns r" style="margin-top:clamp(26px,3.2vw,42px)"><a class="btn pri" href="#paper" data-cta="proof-paper">89件の分析を読む</a><a class="btn" href="#contact" data-cta="proof-talk">30分、話を聞かせてください</a></div>
   </div>
 </section>
 
 <section class="sec inv" id="paper">
   <div class="wrap">
-    <p class="lab r"><b>04</b>／ 資料</p>
+    <p class="lab r"><b>06</b>／ 資料</p>
     <div class="paper">
       <div class="paper-t">
         <h2 class="d2 r">89件、全部書きました。</h2>
@@ -262,7 +373,7 @@
 <section class="sec inv" id="money">
 <span class="anchor" id="value" aria-hidden="true"></span><span class="anchor" id="roi" aria-hidden="true"></span>
   <div class="wrap">
-    <p class="lab r"><b>05</b>／ お金の話</p>
+    <p class="lab r"><b>07</b>／ お金の話</p>
     <h2 class="d2 r">応募率が5ポイント上がると、月225万円です。</h2>
     <p class="body r">面談の数は増やしません。300件のまま、応募率だけが20%から25%になった場合の計算です。</p>
     <div class="simw r">
@@ -286,13 +397,14 @@
       <p>3か月で決定数が倍になる、みたいな話はできません。手を入れてから決定数に出るまで、選考期間の分だけ遅れます。だいたい2〜3か月。先に動くのは提案までの日数と提案数のほうなので、そこを見ながら進めます。それでもいい、という会社とやりたいです。</p>
     </div>
     <div class="btns r" style="margin-top:clamp(24px,3vw,38px)"><a class="btn pri" href="#contact" data-cta="ag-money">うちの数字で試算してほしい</a></div>
+    <div class="btns r" style="margin-top:clamp(26px,3.2vw,42px)"><a class="btn pri" href="#paper" data-cta="money-paper">89件の分析を読む</a><a class="btn" href="#contact" data-cta="money-talk">30分、話を聞かせてください</a></div>
   </div>
 </section>
 
 <section class="sec" id="faq">
 <span class="anchor" id="engagement" aria-hidden="true"></span><span class="anchor" id="price" aria-hidden="true"></span>
   <div class="wrap">
-    <p class="lab r"><b>06</b>／ 聞かれること</p>
+    <p class="lab r"><b>08</b>／ 聞かれること</p>
     <h2 class="d2 r">「で、いくらなんですか。」</h2>
     <p class="body r">だいたいこの順番で聞かれます。</p>
     <div class="faq r">
@@ -309,7 +421,7 @@
 
 <section class="sec inv" id="contact">
   <div class="wrap">
-    <p class="lab r"><b>07</b>／ まず30分</p>
+    <p class="lab r"><b>09</b>／ まず30分</p>
     <h2 class="d2 r">30分ください。</h2>
     <p class="body r">資料は要りません。数字が手元になくても大丈夫です。いま気になっていることを話してもらえれば、あとはこちらから聞きます。</p>
     <ol class="mini30" data-stagger>
@@ -351,6 +463,27 @@
   </div>
 </section>
 </main>
+
+<section class="endcta" id="endcta">
+  <div class="wrap">
+    <div class="ec">
+      <div class="r-s">
+        <p class="ec-l">はじめての方へ</p>
+        <b>89件の分析を、全部読む</b>
+        <p class="ec-d">何を聞いて、何が違ったのか。自社の議事録を確かめるチェックリスト付き。PDF6ページ、メールアドレスだけで読めます。</p>
+        <a class="btn pri" href="#paper" data-cta="end-paper">資料を受け取る</a>
+      </div>
+      <div class="r-s">
+        <p class="ec-l">話が早い方へ</p>
+        <b>30分、話を聞かせてください</b>
+        <p class="ec-d">いまの数字と気になっていることを伺って、どこが怪しそうかをその場でお伝えします。売り込みはしません。初回で見積りも出しません。</p>
+        <a class="btn pri" href="#contact" data-cta="end-talk">相談する</a>
+      </div>
+    </div>
+    <p class="ec-m">contact@vitality-design.jp ／ 一人でやっているので、同時に入れるのは3社までです。</p>
+  </div>
+</section>
+
 
 <div class="scta" id="scta" aria-hidden="true">
   <p><b>89件の面談を聞いて分かったこと、全部書きました。</b><span>メールアドレスだけで読めます。</span></p>

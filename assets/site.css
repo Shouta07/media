@@ -1,21 +1,21 @@
 /* ============================================================== tokens */
 :root{
-  --paper:#F7F5EC; --sage:#E5E6DB; --cream:#DEDFD1; --card:#F2F0E6;
-  --navy:#0B1620; --navy-2:#13202B; --navy-3:#1C2C38;
-  --green:#38503E; --green-2:#2D4233;
-  --ink:#191A16; --ink-2:#4F5048; --ink-3:#5A5B52;
-  --on-d:#F2EFE6; --on-d-2:#AFBEC6; --on-d-3:#93A4AD;
-  --on-g:#F2EFE6; --on-g-2:#C3CEBF;
-  --terra:#A1402A; --terra-2:#D98E73;
-  --gold:#8E7540; --gold-t:#70551F; --gold-2:#E0C184;
-  --line:rgba(25,26,22,0.17); --line-2:rgba(25,26,22,0.09);
-  --d-line:rgba(242,239,230,0.20); --d-line-2:rgba(242,239,230,0.10);
-  --g-line:rgba(242,239,230,0.22); --g-line-2:rgba(242,239,230,0.12);
+  --paper:#FAFAF8; --sage:#EFEFEB; --cream:#E6E6E1; --card:#F4F4F0;
+  --navy:#0E0E0D; --navy-2:#191918; --navy-3:#232321;
+  --green:#2A2A28; --green-2:#1E1E1C;
+  --ink:#121211; --ink-2:#4A4A45; --ink-3:#56564F;
+  --on-d:#F5F5F1; --on-d-2:#B9B9B2; --on-d-3:#8E8E86;
+  --on-g:#F5F5F1; --on-g-2:#B9B9B2;
+  --terra:#9A4228; --terra-2:#D99173;
+  --gold:#8C8470; --gold-t:#6E6045; --gold-2:#D4C7A6;
+  --line:rgba(18,18,17,0.15); --line-2:rgba(18,18,17,0.08);
+  --d-line:rgba(245,245,241,0.20); --d-line-2:rgba(245,245,241,0.10);
+  --g-line:rgba(245,245,241,0.22); --g-line-2:rgba(245,245,241,0.12);
   --en:'Cormorant Garamond','Times New Roman',serif;
   --mi:'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
   --se:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',system-ui,sans-serif;
   --ui:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --gut:clamp(22px,5vw,88px);
+  --gut:clamp(22px,5vw,96px);
   --navh:66px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -110,8 +110,8 @@ html:not(.js) .ln>span{transform:none}
 .gr .sl em{color:var(--on-g-2)}
 
 .dh{font-family:var(--mi);font-weight:400;letter-spacing:.035em;line-height:1.62}
-.d1{font-size:clamp(30px,5.3vw,66px)}
-.d2{font-size:clamp(25px,3.6vw,47px)}
+.d1{font-size:clamp(32px,5.8vw,76px)}
+.d2{font-size:clamp(26px,4vw,54px)}
 .d3{font-size:clamp(19px,2.2vw,29px);line-height:1.72}
 .d4{font-size:clamp(16px,1.6vw,21px);line-height:1.78}
 .ac{color:var(--terra)}
@@ -145,7 +145,7 @@ html:not(.js) .ln>span{transform:none}
 .cbtn:hover svg{transform:translate(3px,-3px)}
 
 /* ============================================================== sections */
-.sec{padding-block:clamp(60px,8vw,142px);position:relative}
+.sec{padding-block:clamp(66px,9vw,168px);position:relative}
 .pp{background:var(--paper)}
 .sg{background:var(--sage)}
 .cr{background:var(--cream)}
@@ -317,6 +317,89 @@ html:not(.js) .ln>span{transform:none}
 .hl .hb p{font-size:12.5px;line-height:2.15;color:var(--ink-2);max-width:42em}
 .hl .hb .sub{margin-top:9px;font-size:11.5px;color:var(--terra)}
 html:not(.js) .hl .hb{max-height:none}
+
+/* ============================================================== 列挙（存在するもの） */
+.exists{list-style:none;margin-top:clamp(22px,2.6vw,32px);display:grid;gap:0;
+  border-top:1px solid var(--line)}
+.exists li{padding:clamp(11px,1.4vw,15px) 0;border-bottom:1px solid var(--line-2);
+  font-family:var(--mi);font-size:clamp(15px,1.5vw,20px);letter-spacing:.035em;line-height:1.5}
+.nv .exists{border-top-color:var(--d-line-2)}
+.nv .exists li{border-bottom-color:var(--d-line-2)}
+
+/* ---- 循環 ---- */
+.cycle{list-style:none;margin-top:clamp(20px,2.4vw,30px);position:relative;padding-left:0}
+.cycle li{position:relative;padding:clamp(11px,1.4vw,15px) 0 clamp(11px,1.4vw,15px) 46px;
+  display:grid;gap:2px}
+.cycle li::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:1px;background:var(--d-line-2)}
+.cycle li:first-child::before{top:50%}
+.cycle li:last-child::before{bottom:50%}
+.cycle li::after{content:"";position:absolute;left:7px;top:calc(50% - 4px);width:9px;height:9px;
+  border-radius:50%;border:1px solid var(--gold-2);background:var(--navy)}
+.cycle b{font-family:var(--ui);font-size:8.5px;font-weight:600;letter-spacing:.2em;color:var(--on-d-3)}
+.cycle span{font-size:13.5px;line-height:1.85;color:var(--on-d)}
+.cycle-back{margin-top:clamp(14px,1.8vw,20px);padding-left:46px;display:flex;align-items:center;gap:10px;
+  font-size:12px;line-height:1.8;color:var(--gold-2)}
+.cycle-back span{font-size:15px;line-height:1}
+.pp .cycle li::before,.sg .cycle li::before,.cr .cycle li::before{background:var(--line)}
+.pp .cycle li::after,.sg .cycle li::after,.cr .cycle li::after{border-color:var(--gold-t);background:var(--paper)}
+.pp .cycle b,.sg .cycle b,.cr .cycle b{color:var(--ink-3)}
+.pp .cycle span,.sg .cycle span,.cr .cycle span{color:var(--ink)}
+.pp .cycle-back,.sg .cycle-back,.cr .cycle-back{color:var(--gold-t)}
+
+/* ---- 4ステップ ---- */
+.steps4{list-style:none;margin-top:clamp(34px,4.2vw,60px);display:grid;gap:1px;
+  background:var(--line);border:1px solid var(--line)}
+@media (min-width:760px){.steps4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1240px){.steps4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.steps4 li{background:var(--paper);padding:clamp(24px,2.8vw,36px);display:grid;gap:12px;align-content:start}
+.sg .steps4 li{background:var(--sage)}
+.steps4 b{font-family:var(--ui);font-size:9.5px;font-weight:600;letter-spacing:.22em;color:var(--gold-t)}
+.steps4 h3{font-family:var(--mi);font-weight:400;letter-spacing:.035em;
+  font-size:clamp(17px,1.75vw,22px);line-height:1.6}
+.steps4 p{font-size:12.5px;line-height:2.05;color:var(--ink-2)}
+
+/* ---- 創るもの ---- */
+.creates{list-style:none;margin-top:clamp(30px,3.8vw,52px);border-top:1px solid var(--line)}
+.creates li{padding:clamp(15px,1.9vw,24px) 0 clamp(15px,1.9vw,24px) 34px;position:relative;
+  border-bottom:1px solid var(--line-2);font-family:var(--mi);
+  font-size:clamp(15.5px,1.75vw,23px);letter-spacing:.035em;line-height:1.6}
+.creates li::before{content:"";position:absolute;left:0;top:1.05em;width:18px;height:1px;background:var(--gold-t)}
+
+/* ---- 何のために ---- */
+.forwhat{list-style:none;border-top:1px solid var(--d-line-2)}
+.forwhat li{padding:clamp(13px,1.6vw,19px) 0;border-bottom:1px solid var(--d-line-2);
+  font-family:var(--mi);font-size:clamp(15px,1.6vw,21px);letter-spacing:.035em;line-height:1.5;color:var(--on-d)}
+
+/* ---- 都市 ---- */
+.cities{list-style:none;margin-top:clamp(18px,2.2vw,26px);display:grid;gap:0;
+  border-top:1px solid var(--line)}
+.cities li{padding:clamp(9px,1.2vw,14px) 0;border-bottom:1px solid var(--line-2);
+  font-family:var(--en);font-size:clamp(22px,3vw,40px);font-weight:600;letter-spacing:.06em;line-height:1.2}
+.nv .cities{border-top-color:var(--d-line-2)}
+.nv .cities li{border-bottom-color:var(--d-line-2)}
+
+/* ---- 社会的意義 ---- */
+.impact4{list-style:none;border-top:1px solid var(--line)}
+.impact4 li{display:grid;gap:3px 22px;padding:clamp(15px,1.9vw,24px) 0;
+  border-bottom:1px solid var(--line-2);align-items:baseline}
+@media (min-width:480px){.impact4 li{grid-template-columns:38px minmax(0,1fr)}}
+.impact4 b{font-family:var(--ui);font-size:9.5px;font-weight:600;letter-spacing:.18em;color:var(--gold-t)}
+.impact4 span{font-family:var(--mi);font-size:clamp(16px,1.8vw,23px);letter-spacing:.035em;line-height:1.5}
+
+/* ---- 役割 ---- */
+.roles{list-style:none;margin-top:clamp(20px,2.4vw,30px);display:grid;gap:0;
+  border-top:1px solid var(--line)}
+.roles li{padding:clamp(10px,1.3vw,15px) 0;border-bottom:1px solid var(--line-2);
+  font-family:var(--mi);font-size:clamp(15px,1.6vw,21px);letter-spacing:.035em;line-height:1.5}
+
+/* ---- バッジ ---- */
+.badge{display:inline-block;margin-top:clamp(14px,1.8vw,22px);padding:7px 13px;
+  border:1px solid var(--line);font-family:var(--ui);font-size:8.5px;font-weight:600;
+  letter-spacing:.2em;color:var(--ink-3)}
+.nv .badge,.split .badge{border-color:var(--line);color:var(--ink-3)}
+
+/* ---- 欧文見出し ---- */
+.en-h{font-family:var(--en);font-weight:600;letter-spacing:.01em;line-height:1.12}
 
 /* ============================================================== Experience Asset */
 .asset{list-style:none;margin-top:clamp(30px,3.8vw,52px);display:grid;gap:1px;

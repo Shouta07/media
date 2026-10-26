@@ -84,6 +84,18 @@
     });
   }
 
+  /* ---------- 相談種別のプリフィル ---------- */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('[data-topic]');
+    if(!a) return;
+    var sel = document.getElementById('f-topic');
+    if(!sel) return;
+    var want = a.getAttribute('data-topic');
+    for(var i = 0; i < sel.options.length; i++){
+      if(sel.options[i].value === want || sel.options[i].text === want){ sel.selectedIndex = i; break; }
+    }
+  });
+
   /* ---------- cta tracking ---------- */
   document.addEventListener('click', function(e){
     var a = e.target.closest('[data-cta]');

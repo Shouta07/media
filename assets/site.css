@@ -315,6 +315,56 @@ html:not(.js) .ln>span{transform:none}
 .hl .hb .sub{margin-top:9px;font-size:11.5px;color:var(--terra)}
 html:not(.js) .hl .hb{max-height:none}
 
+/* ============================================================== 問いのリスト */
+.qs{list-style:none;margin-top:clamp(18px,2.2vw,26px);display:grid;gap:0;
+  border-top:1px solid var(--line)}
+.qs li{padding:clamp(11px,1.4vw,15px) 0 clamp(11px,1.4vw,15px) 24px;position:relative;
+  border-bottom:1px solid var(--line-2);font-family:var(--mi);
+  font-size:clamp(14px,1.3vw,17.5px);letter-spacing:.03em;line-height:1.6}
+.qs li::before{content:"";position:absolute;left:0;top:1.05em;width:12px;height:1px;background:var(--gold-t)}
+.nv .qs{border-top-color:var(--d-line-2)}
+.nv .qs li{border-bottom-color:var(--d-line-2)}
+.nv .qs li::before{background:var(--gold-2)}
+
+/* ---- 浅草の歩き ---- */
+.walk{list-style:none;margin-top:clamp(20px,2.4vw,30px);border-top:1px solid var(--d-line-2)}
+.walk li{display:grid;gap:3px 22px;padding:clamp(13px,1.6vw,18px) 0;
+  border-bottom:1px solid var(--d-line-2);align-items:baseline}
+@media (min-width:560px){.walk li{grid-template-columns:104px minmax(0,1fr)}}
+.walk b{font-family:var(--mi);font-size:clamp(14px,1.3vw,17px);font-weight:400;letter-spacing:.04em;
+  line-height:1.5;color:var(--gold-2)}
+.walk span{font-size:12.5px;line-height:1.95;color:var(--on-d-2)}
+.pp .walk,.sg .walk,.cr .walk{border-top-color:var(--line)}
+.pp .walk li,.sg .walk li,.cr .walk li{border-bottom-color:var(--line-2)}
+.pp .walk b,.sg .walk b,.cr .walk b{color:var(--gold-t)}
+.pp .walk span,.sg .walk span,.cr .walk span{color:var(--ink-2)}
+
+/* ---- SOCIAL IMPACT ---- */
+.impact{margin-top:clamp(30px,3.8vw,52px);display:grid;gap:1px;background:var(--line);
+  border:1px solid var(--line)}
+@media (min-width:900px){.impact{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.impact>article{background:var(--sage);padding:clamp(24px,2.8vw,38px);display:grid;gap:12px;align-content:start}
+.pp .impact>article{background:var(--paper)}
+.cr .impact>article{background:var(--cream)}
+.impact .ik{font-family:var(--ui);font-size:9px;font-weight:600;letter-spacing:.22em;color:var(--gold-t)}
+.impact h3{font-family:var(--mi);font-weight:400;letter-spacing:.035em;
+  font-size:clamp(17px,1.8vw,23px);line-height:1.6}
+.impact p:last-child{font-size:12.5px;line-height:2.05;color:var(--ink-2)}
+
+/* ---- 連鎖（プロセス／要素） ---- */
+.chain{list-style:none;margin-top:clamp(16px,2vw,24px);display:flex;flex-wrap:wrap;
+  gap:8px 0;align-items:center}
+.chain li{display:inline-flex;align-items:center;font-size:12px;line-height:1.5;color:var(--ink-2)}
+.chain li+li::before{content:"›";margin:0 10px;color:var(--gold-t);font-size:12px}
+.nv .chain li{color:var(--on-d-2)}
+.nv .chain li+li::before{color:var(--gold-2)}
+.chain.big li{font-family:var(--mi);font-size:clamp(15px,1.5vw,20px);letter-spacing:.04em;color:var(--ink)}
+.chain.big li+li::before{margin:0 14px;font-size:14px}
+
+/* ---- 中央寄せブロック ---- */
+.ctr .bd{max-width:44em}
+.btns{margin-top:clamp(24px,3vw,38px);display:flex;flex-wrap:wrap;gap:14px 28px}
+
 /* ============================================================== pull quote */
 .creed{margin-top:clamp(26px,3.4vw,46px);padding-left:clamp(16px,2vw,26px);
   border-left:2px solid var(--gold-t);font-family:var(--mi);font-weight:400;
@@ -464,6 +514,7 @@ html:not(.js) .stp .sb{max-height:none}
 .tags{margin-top:clamp(16px,2vw,24px);display:flex;flex-wrap:wrap;gap:7px}
 .tags span{border:1px solid var(--line);padding:6px 12px;font-size:10.5px;letter-spacing:.06em;
   color:var(--ink-2)}
+.nv .tags span{border-color:var(--d-line);color:var(--on-d-2)}
 .cc hr{margin-top:clamp(18px,2.2vw,28px);border:none;border-top:1px solid var(--line-2)}
 .cc .ft{margin-top:15px}
 .cc .ft b{display:block;font-size:12.5px;font-weight:500;letter-spacing:.04em}

@@ -12,8 +12,8 @@
   --d-line:rgba(242,239,230,0.20); --d-line-2:rgba(242,239,230,0.10);
   --g-line:rgba(242,239,230,0.22); --g-line-2:rgba(242,239,230,0.12);
   --en:'Cormorant Garamond','Times New Roman',serif;
-  --mi:'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
-  --se:'Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+  --mi:'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --se:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',system-ui,sans-serif;
   --ui:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --gut:clamp(22px,5vw,88px);
   --navh:66px;
@@ -22,7 +22,7 @@
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--paper);color:var(--ink);font-family:var(--se);font-weight:400;
-  line-height:1.9;letter-spacing:.01em;overflow-x:hidden;
+  line-height:1.85;letter-spacing:.015em;overflow-x:hidden;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -116,7 +116,7 @@ html:not(.js) .ln>span{transform:none}
 .ac{color:var(--terra)}
 .nv .ac,.gr .ac{color:var(--terra-2)}
 
-.bd{font-size:clamp(13.5px,.95vw,15px);line-height:2.15;color:var(--ink-2);max-width:40em}
+.bd{font-size:clamp(13.5px,.95vw,15px);line-height:2.05;color:var(--ink-2);max-width:40em}
 .bd p+p{margin-top:1.5em}
 .bd strong{color:var(--ink);font-weight:500}
 .nv .bd{color:var(--on-d-2)}
@@ -314,6 +314,82 @@ html:not(.js) .ln>span{transform:none}
 .hl .hb p{font-size:12.5px;line-height:2.15;color:var(--ink-2);max-width:42em}
 .hl .hb .sub{margin-top:9px;font-size:11.5px;color:var(--terra)}
 html:not(.js) .hl .hb{max-height:none}
+
+/* ============================================================== pull quote */
+.creed{margin-top:clamp(26px,3.4vw,46px);padding-left:clamp(16px,2vw,26px);
+  border-left:2px solid var(--gold-t);font-family:var(--mi);font-weight:400;
+  font-size:clamp(18px,2.3vw,30px);line-height:1.68;letter-spacing:.035em;color:var(--ink)}
+.nv .creed,.gr .creed{border-left-color:var(--gold-2);color:var(--on-d)}
+
+/* ============================================================== dark form */
+.nv .fld label{color:var(--on-d-2)}
+.nv .fld .rq{color:var(--gold-2)}
+.nv .fld input,.nv .fld select,.nv .fld textarea{border-bottom-color:var(--d-line);color:var(--on-d)}
+.nv .fld input:focus,.nv .fld select:focus,.nv .fld textarea:focus{border-color:var(--gold-2)}
+.nv .fld select{background-image:linear-gradient(45deg,transparent 50%,var(--on-d-3) 50%),linear-gradient(135deg,var(--on-d-3) 50%,transparent 50%)}
+.nv .fld select option{color:var(--ink)}
+.nv .fstat{color:var(--terra-2)}
+.nv .fbtn{background:var(--on-d);color:var(--navy)}
+.nv .fnote{color:var(--on-d-3)}
+.nv .fnote a{border-bottom-color:var(--d-line)}
+.nv #fwrap.sent .fdone{border-top-color:var(--d-line-2)}
+.nv .fdone p{color:var(--on-d-2)}
+.nv .cbtn{border-color:var(--d-line);color:var(--on-d)}
+.nv .cbtn:hover{background:var(--on-d);color:var(--navy);border-color:var(--on-d)}
+.nv .lk{border-color:var(--d-line);color:var(--on-d)}
+.nv .kk{color:var(--gold-2)}
+.nv .kk em{color:var(--on-d-3)}
+
+/* ============================================================== hypothesis */
+.hyp{list-style:none;margin-top:clamp(18px,2.2vw,26px);border-top:1px solid var(--d-line-2)}
+.hyp li{padding:clamp(14px,1.7vw,20px) 0 clamp(14px,1.7vw,20px) 30px;position:relative;
+  border-bottom:1px solid var(--d-line-2);font-size:13.5px;line-height:1.95;color:var(--on-d-2)}
+.hyp li::before{content:"?";position:absolute;left:0;top:calc(clamp(14px,1.7vw,20px) + 1px);
+  font-family:var(--ui);font-size:12px;font-weight:600;color:var(--gold-2)}
+.pp .hyp,.sg .hyp,.cr .hyp{border-top-color:var(--line)}
+.pp .hyp li,.sg .hyp li,.cr .hyp li{border-bottom-color:var(--line-2);color:var(--ink-2)}
+.pp .hyp li::before,.sg .hyp li::before,.cr .hyp li::before{color:var(--gold-t)}
+
+/* ---- やらないこと ---- */
+.not{list-style:none;margin-top:clamp(14px,1.8vw,20px);display:grid;gap:9px}
+.not li{position:relative;padding-left:26px;font-size:13px;line-height:1.95;color:var(--ink-2)}
+.not li::before{content:"";position:absolute;left:0;top:.82em;width:13px;height:1px;background:var(--ink-3)}
+
+/* ---- 進め方の5段階 ---- */
+.fl{list-style:none;border-top:1px solid var(--line)}
+.fl li{display:grid;grid-template-columns:38px minmax(0,1fr);gap:4px 16px;align-items:baseline;
+  padding:clamp(15px,1.9vw,22px) 2px;border-bottom:1px solid var(--line-2);position:relative}
+.fl .n{font-family:var(--ui);font-size:9.5px;font-weight:600;letter-spacing:.17em;color:var(--gold-t)}
+.fl .t{font-family:var(--mi);font-size:clamp(16px,1.6vw,21px);letter-spacing:.03em;line-height:1.5}
+.fl .d{grid-column:2;font-size:12.5px;line-height:1.95;color:var(--ink-2)}
+.fl li+li::after{content:"";position:absolute;left:14px;top:-9px;width:1px;height:12px;background:var(--line)}
+
+/* ---- 1室→数字→広げる ---- */
+.three{list-style:none;margin-top:clamp(22px,2.8vw,34px);display:grid;gap:1px;
+  background:var(--line);border:1px solid var(--line)}
+@media (min-width:560px){.three{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.three li{background:var(--card);padding:clamp(16px,2vw,22px);display:grid;gap:7px;align-content:start}
+.three b{font-family:var(--ui);font-size:9.5px;font-weight:600;letter-spacing:.18em;color:var(--gold-t)}
+.three span{font-family:var(--mi);font-size:clamp(14.5px,1.4vw,18px);letter-spacing:.03em;line-height:1.5}
+
+/* ---- 対応表 ---- */
+.map{list-style:none;margin-top:clamp(18px,2.2vw,26px);border-top:1px solid var(--line)}
+.map li{display:grid;gap:3px 14px;padding:clamp(13px,1.6vw,18px) 2px;border-bottom:1px solid var(--line-2);
+  align-items:baseline}
+@media (min-width:520px){.map li{grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr)}}
+.map b{font-size:12.5px;font-weight:500;line-height:1.8;color:var(--ink-3)}
+.map i{font-style:normal;font-size:11px;color:var(--gold-t);text-align:center}
+@media (max-width:519px){.map i{display:none}}
+.map span{font-family:var(--mi);font-size:clamp(14px,1.3vw,17px);letter-spacing:.03em;line-height:1.7}
+
+/* ---- 伺っていること ---- */
+.ask{list-style:none;margin-top:clamp(18px,2.2vw,26px);border-top:1px solid var(--line);
+  counter-reset:ask}
+.ask li{counter-increment:ask;position:relative;padding:clamp(14px,1.7vw,20px) 0 clamp(14px,1.7vw,20px) 36px;
+  border-bottom:1px solid var(--line-2);font-family:var(--mi);
+  font-size:clamp(14px,1.35vw,17.5px);letter-spacing:.03em;line-height:1.72}
+.ask li::before{content:"0" counter(ask);position:absolute;left:0;top:calc(clamp(14px,1.7vw,20px) + 4px);
+  font-family:var(--ui);font-size:9px;font-weight:600;letter-spacing:.14em;color:var(--gold-t)}
 
 /* ============================================================== six elements */
 .elems{margin-top:clamp(30px,3.8vw,52px);display:grid;gap:1px;background:var(--line);

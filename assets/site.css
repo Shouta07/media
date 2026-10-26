@@ -145,7 +145,7 @@ html:not(.js) .ln>span{transform:none}
 .cbtn:hover svg{transform:translate(3px,-3px)}
 
 /* ============================================================== sections */
-.sec{padding-block:clamp(66px,9vw,168px);position:relative}
+.sec{padding-block:clamp(58px,7.4vw,136px);position:relative}
 .pp{background:var(--paper)}
 .sg{background:var(--sage)}
 .cr{background:var(--cream)}
@@ -321,14 +321,14 @@ html:not(.js) .hl .hb{max-height:none}
 /* ============================================================== 列挙（存在するもの） */
 .exists{list-style:none;margin-top:clamp(22px,2.6vw,32px);display:grid;gap:0;
   border-top:1px solid var(--line)}
-.exists li{padding:clamp(11px,1.4vw,15px) 0;border-bottom:1px solid var(--line-2);
+.exists li{padding:clamp(9px,1.2vw,13px) 0;border-bottom:1px solid var(--line-2);
   font-family:var(--mi);font-size:clamp(15px,1.5vw,20px);letter-spacing:.035em;line-height:1.5}
 .nv .exists{border-top-color:var(--d-line-2)}
 .nv .exists li{border-bottom-color:var(--d-line-2)}
 
 /* ---- 循環 ---- */
 .cycle{list-style:none;margin-top:clamp(20px,2.4vw,30px);position:relative;padding-left:0}
-.cycle li{position:relative;padding:clamp(11px,1.4vw,15px) 0 clamp(11px,1.4vw,15px) 46px;
+.cycle li{position:relative;padding:clamp(9px,1.1vw,13px) 0 clamp(9px,1.1vw,13px) 46px;
   display:grid;gap:2px}
 .cycle li::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:1px;background:var(--d-line-2)}
 .cycle li:first-child::before{top:50%}
@@ -350,7 +350,7 @@ html:not(.js) .hl .hb{max-height:none}
 .steps4{list-style:none;margin-top:clamp(34px,4.2vw,60px);display:grid;gap:1px;
   background:var(--line);border:1px solid var(--line)}
 @media (min-width:760px){.steps4{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:1240px){.steps4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
 .steps4 li{background:var(--paper);padding:clamp(24px,2.8vw,36px);display:grid;gap:12px;align-content:start}
 .sg .steps4 li{background:var(--sage)}
 .steps4 b{font-family:var(--ui);font-size:9.5px;font-weight:600;letter-spacing:.22em;color:var(--gold-t)}
@@ -360,9 +360,9 @@ html:not(.js) .hl .hb{max-height:none}
 
 /* ---- 創るもの ---- */
 .creates{list-style:none;margin-top:clamp(30px,3.8vw,52px);border-top:1px solid var(--line)}
-.creates li{padding:clamp(15px,1.9vw,24px) 0 clamp(15px,1.9vw,24px) 34px;position:relative;
+.creates li{padding:clamp(12px,1.5vw,19px) 0 clamp(12px,1.5vw,19px) 32px;position:relative;
   border-bottom:1px solid var(--line-2);font-family:var(--mi);
-  font-size:clamp(15.5px,1.75vw,23px);letter-spacing:.035em;line-height:1.6}
+  font-size:clamp(15px,1.6vw,21px);letter-spacing:.035em;line-height:1.55}
 .creates li::before{content:"";position:absolute;left:0;top:1.05em;width:18px;height:1px;background:var(--gold-t)}
 
 /* ---- 何のために ---- */
@@ -371,26 +371,37 @@ html:not(.js) .hl .hb{max-height:none}
   font-family:var(--mi);font-size:clamp(15px,1.6vw,21px);letter-spacing:.035em;line-height:1.5;color:var(--on-d)}
 
 /* ---- 都市 ---- */
-.cities{list-style:none;margin-top:clamp(18px,2.2vw,26px);display:grid;gap:0;
-  border-top:1px solid var(--line)}
-.cities li{padding:clamp(9px,1.2vw,14px) 0;border-bottom:1px solid var(--line-2);
-  font-family:var(--en);font-size:clamp(22px,3vw,40px);font-weight:600;letter-spacing:.06em;line-height:1.2}
+.cities{list-style:none;margin-top:clamp(16px,2vw,24px);display:flex;flex-wrap:wrap;
+  gap:4px 0;align-items:baseline;padding-top:clamp(14px,1.8vw,20px);border-top:1px solid var(--line)}
+.cities li{font-family:var(--en);font-size:clamp(20px,2.4vw,32px);font-weight:600;
+  letter-spacing:.05em;line-height:1.3}
+.cities li+li::before{content:"／";margin:0 .5em;font-family:var(--se);font-size:.5em;
+  color:var(--ink-3);vertical-align:.25em}
 .nv .cities{border-top-color:var(--d-line-2)}
-.nv .cities li{border-bottom-color:var(--d-line-2)}
+.nv .cities li+li::before{color:var(--on-d-3)}
 
 /* ---- 社会的意義 ---- */
 .impact4{list-style:none;border-top:1px solid var(--line)}
-.impact4 li{display:grid;gap:3px 22px;padding:clamp(15px,1.9vw,24px) 0;
+.impact4 li{display:grid;gap:3px 22px;padding:clamp(12px,1.5vw,18px) 0;
   border-bottom:1px solid var(--line-2);align-items:baseline}
 @media (min-width:480px){.impact4 li{grid-template-columns:38px minmax(0,1fr)}}
 .impact4 b{font-family:var(--ui);font-size:9.5px;font-weight:600;letter-spacing:.18em;color:var(--gold-t)}
 .impact4 span{font-family:var(--mi);font-size:clamp(16px,1.8vw,23px);letter-spacing:.035em;line-height:1.5}
+.nv .impact4{border-top-color:var(--d-line-2)}
+.nv .impact4 li{border-bottom-color:var(--d-line-2)}
+.nv .impact4 b{color:var(--gold-2)}
+.nv .impact4 span{color:var(--on-d)}
 
 /* ---- 役割 ---- */
 .roles{list-style:none;margin-top:clamp(20px,2.4vw,30px);display:grid;gap:0;
   border-top:1px solid var(--line)}
-.roles li{padding:clamp(10px,1.3vw,15px) 0;border-bottom:1px solid var(--line-2);
+.roles li{padding:clamp(8px,1.1vw,13px) 0;border-bottom:1px solid var(--line-2);
   font-family:var(--mi);font-size:clamp(15px,1.6vw,21px);letter-spacing:.035em;line-height:1.5}
+
+/* ---- サブブロック ---- */
+.sub{margin-top:clamp(34px,4.2vw,56px);padding-top:clamp(26px,3.2vw,40px);
+  border-top:1px solid var(--line)}
+.sub .bd{margin-top:clamp(14px,1.8vw,22px)}
 
 /* ---- バッジ ---- */
 .badge{display:inline-block;margin-top:clamp(14px,1.8vw,22px);padding:7px 13px;
@@ -656,7 +667,7 @@ html:not(.js) .stp .sb{max-height:none}
 @media (min-width:980px){.split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}}
 .split .art{min-height:clamp(240px,42vw,560px);aspect-ratio:4/3}
 @media (min-width:980px){.split .art{aspect-ratio:auto}}
-.split .sp-txt{padding:clamp(34px,5vw,86px) var(--gut)}
+.split .sp-txt{padding:clamp(34px,4.4vw,72px) var(--gut)}
 @media (min-width:980px){.split .sp-txt{padding-inline:clamp(34px,4.4vw,78px)}}
 .split h2{margin-top:clamp(18px,2.4vw,30px)}
 .split .lk{margin-top:clamp(26px,3.4vw,46px);width:100%;justify-content:space-between}

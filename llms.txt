@@ -46,9 +46,7 @@
 - ホテルと地域文化をつないだ滞在体験
 - 歴史的建築とテクノロジーを組み合わせた没入体験
 - 酒蔵や工房と旅行者をつなぐ文化体験
-- 食、音、光、映像、空間を統合した体験
 - 街全体を舞台にした体験
-- 複数の地域事業者が一緒に参加する体験
 - 世界のクリエイターと地域文化を掛け合わせた体験
 
 これはサービス一覧ではなく、扱う可能性を示す例である。
@@ -103,7 +101,7 @@
 
 ## 主要ページ
 
-- [トップページ](https://www.vitality-design.jp/): 構成は HERO、01 WHY WE EXIST、02 OUR PURPOSE、03 WHAT WE DO、04 WHAT WE CREATE、05 CURRENT FOCUS、06 TECHNOLOGY、07 GLOBAL、08 SOCIAL IMPACT、09 PROJECTS、10 PARTNERSHIP、11 COMPANY、12 CONTACT。問い合わせフォームは会社名・氏名・メールの3項目が必須。
+- [トップページ](https://www.vitality-design.jp/): 構成は HERO、01 WHY WE EXIST、02 OUR PURPOSE（循環と社会的意義）、03 WHAT WE DO（DISCOVER/CONNECT/CREATE/EVOLVE と創るものの例）、04 CURRENT FOCUS（One Room Project を含む）、05 TECHNOLOGY、06 GLOBAL、07 PARTNERSHIP、08 COMPANY、09 CONTACT の9セクション。問い合わせフォームは会社名・氏名・メールの3項目が必須。
 - [英語版](https://www.vitality-design.jp/en/)
 - [簡体中国語版](https://www.vitality-design.jp/zh/)
 - [プライバシーポリシー](https://www.vitality-design.jp/privacy.html)

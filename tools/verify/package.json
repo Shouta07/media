@@ -1,0 +1,11 @@
+{
+  "name": "vitality-design-verify",
+  "private": true,
+  "description": "表示チェック。ルートに package.json を置くと Vercel のビルド判定が変わるおそれがあるため、ここに隔離している。",
+  "scripts": {
+    "check": "node check.cjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

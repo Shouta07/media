@@ -47,7 +47,7 @@ FONTS = {
     'en': (
         'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600'
         '&amp;family=Inter:wght@400;500;600&amp;display=swap',
-        ":root{--mi:'Cormorant Garamond',Georgia,serif;--se:'Inter',system-ui,sans-serif}\n"
+        ":root{--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif}\n"
         ".dh{letter-spacing:0;line-height:1.24}\n"
         ".d1{font-size:clamp(34px,5.6vw,76px)}.d2{font-size:clamp(27px,3.9vw,52px)}\n"
         ".d3{font-size:clamp(20px,2.3vw,31px);line-height:1.32}\n"
@@ -61,7 +61,7 @@ FONTS = {
         'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600'
         '&amp;family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@300;400;500'
         '&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap',
-        ":root{--mi:'Noto Serif SC','Songti SC',serif;--se:'Noto Sans SC','PingFang SC',sans-serif}\n"
+        ":root{--serif:'Noto Serif SC','Songti SC',serif;--sans:'Noto Sans SC','PingFang SC',sans-serif}\n"
         ".dh{letter-spacing:.015em}\n.hero h1{letter-spacing:.03em}"
     ),
 }
@@ -117,8 +117,8 @@ def build(lang):
     # ---- フォント（言語別の上書きを site.css の後ろに挿す） ----
     url, extra = FONTS[lang]
     s = re.sub(r'https://fonts\.googleapis\.com/css2\?family=Cormorant\+Garamond[^"]*', url, s)
-    s = s.replace('<link rel="stylesheet" href="/assets/site.css">',
-                  '<link rel="stylesheet" href="/assets/site.css">\n<style>%s</style>' % extra)
+    s = s.replace('<link rel="stylesheet" href="/assets/vision.css">',
+                  '<link rel="stylesheet" href="/assets/vision.css">\n<style>%s</style>' % extra)
 
     # ---- JS が読む文言 ----
     m = re.search(r'<script>window\.VD_S=\{[\s\S]*?\};</script>', s)
@@ -134,6 +134,10 @@ def build(lang):
           'zh': '<a href="/">日本語</a><a href="/en/">English</a><a href="/zh/" aria-current="true">中文</a>'}),
     ):
         s = s.replace(ja_markup, per_lang[lang])
+
+    s = s.replace('href="/" lang="ja" aria-current="true"', 'href="/" lang="ja"')
+    current = '/en/' if lang == 'en' else '/zh/'
+    s = s.replace('href="%s" lang=' % current, 'href="%s" aria-current="true" lang=' % current)
 
     # ---- 本文の置換（長い文字列から順に。短い語が長い文の一部を壊さないため） ----
     for row in sorted(TEXT, key=lambda r: -len(r[0])):
@@ -175,7 +179,7 @@ def build(lang):
     # ---- 言語ごとの細かい調整 ----
     if lang == 'en':
         # 日本語では <br> で改行していた箇所が、英語では単語が繋がるので空白を補う
-        s = s.replace('<br class="sp-br">', '<br class="sp-br"> ')
+        s = s.replace('<br', ' <br')
     if lang == 'zh':
         s = s.replace('・', '·')  # 中黒 → 間隔点
 

@@ -93,6 +93,14 @@
   ],
   "rewrites": [
     {
+      "source": "/locue",
+      "destination": "/locue/index.html"
+    },
+    {
+      "source": "/locue/",
+      "destination": "/locue/index.html"
+    },
+    {
       "source": "/service",
       "destination": "/service.html"
     },

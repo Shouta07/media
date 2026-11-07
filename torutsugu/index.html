@@ -661,6 +661,7 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
     }
   },5000);
   dismiss.addEventListener('click',()=>{
+    dismissed=true;
     window.clearTimeout(timer);
     bar.hidden=true;
     document.body.classList.remove('mobile-cta-visible');

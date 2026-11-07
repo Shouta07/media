@@ -357,6 +357,47 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
 .fd-results .fd-features-grid{padding-top:0}
 @media(max-width:850px){.fd-benefit{padding:22px 20px}.fd-benefit h3{font-size:17px}.fd-before,.fd-after{padding:12px 10px}.fd-before p,.fd-after p{font-size:11px}.fd-dx-band{padding:28px;gap:15px}.fd-dx-mark{font-size:22px}}
 @media(max-width:600px){.fd-results{padding:65px 0 75px}.fd-results .fd-section-center h2{font-size:clamp(27px,7vw,33px)}.fd-benefits-grid{grid-template-columns:minmax(0,1fr);gap:14px}.fd-benefit{padding:20px 17px}.fd-benefit h3{font-size:17px}.fd-benefit-top{margin-bottom:14px}.fd-before-after{gap:7px;grid-template-columns:minmax(0,1fr) 15px minmax(0,1fr)}.fd-before,.fd-after{padding:12px 10px;min-height:109px}.fd-before p,.fd-after p{font-size:11px;line-height:1.6}.fd-metric{margin-top:14px}.fd-results-disclaimer{text-align:left;margin:12px 0 30px}.fd-dx-band{flex-direction:column;align-items:flex-start;padding:25px 21px}.fd-dx-band h3{font-size:21px}.fd-dx-band p{font-size:11px}.fd-dx-mark{font-size:19px}.fd-results .fd-functions-title{margin-top:58px;margin-bottom:28px}}
+
+/* Mobile conversion flow: screenshot first, message next, persistent bottom CTA */
+.mobile-cta-bar{display:none}
+@media (max-width:850px){
+  .fd-hero-grid{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+  .fd-hero-stage{order:0;width:100%;max-width:640px;margin:0 auto}
+  .fd-hero-copy{order:1;width:100%;padding-bottom:16px}
+}
+@media (max-width:600px){
+  /* Keep the header minimal and the sole primary CTA at the bottom. */
+  .topbar{position:sticky;top:0;z-index:40}
+  .topbar-inner{min-height:62px}
+  .topbar .nav{display:none}
+  .topbar .brand{font-size:24px}
+  .fd-hero{padding:6px 0 8px}
+  .fd-hero-grid{gap:2px}
+  .fd-hero-stage{order:0;min-height:0;padding:19px 0 4px;max-width:100%;margin:0 auto}
+  .fd-green-shape{inset:0 -20px 95px 12%;border-radius:45% 30% 45% 35%;transform:rotate(-8deg)}
+  .fd-screen{max-width:100%;width:100%}
+  .fd-mobile-preview{margin:12px auto 0}
+  .fd-mock-caption{font-size:8px;margin:8px auto 0}
+  .fd-hero-copy{order:1;padding-top:17px}
+  .fd-overline{font-size:10px;margin-bottom:12px}
+  .fd-hero-copy h1{font-size:clamp(32px,8.7vw,41px);line-height:1.38;margin-bottom:14px}
+  .fd-hero-lead{font-size:13px;line-height:1.75;margin-bottom:12px}
+  .fd-hero-desc{font-size:12px;line-height:1.8}
+  .fd-hero-actions{display:none}
+  .fd-hint{font-size:10px;margin:12px 0 0}
+  .fd-value-strip{margin-top:16px}
+  /* Reserve room so the fixed bar never obscures FAQ, links or footer. */
+  body{padding-bottom:calc(80px + env(safe-area-inset-bottom, 0px))}
+  .mobile-cta-bar{position:fixed;display:block;z-index:90;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0px));background:rgba(255,255,255,.96);border-top:1px solid #dce9e3;box-shadow:0 -8px 25px rgba(16,68,51,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+  .mobile-cta-link{display:flex;align-items:center;justify-content:center;gap:16px;min-height:52px;width:100%;border-radius:32px;background:#dafa4a;color:#183b32;font-size:14px;line-height:1.4;font-weight:900;box-shadow:0 4px 12px rgba(122,153,38,.14)}
+  .mobile-cta-link span:last-child{font-size:20px}
+  .mobile-cta-link:focus-visible{outline:3px solid #067a68;outline-offset:3px}
+}
+@media (max-width:380px){
+  .fd-hero-stage{padding-top:15px}
+  .fd-hero-copy h1{font-size:clamp(29px,8.3vw,34px)}
+  .mobile-cta-bar{padding-left:12px;padding-right:12px}
+}
 </style>
 </head>
 <body>
@@ -438,6 +479,7 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
 <section class="faq" id="faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ / よくあるご質問</span><h2 class="heading">導入前の疑問を、<br>まとめて解決。</h2><p class="section-copy">Excelとの違い、利用端末、協力業者との連携、料金やセキュリティまで。<br>ご検討時に気になるポイントをまとめました。</p></div><div class="faq-teaser"><div><span class="faq-teaser-num">20</span><span class="faq-teaser-unit">の質問</span><p>導入・操作・料金・セキュリティを4つのカテゴリで掲載</p></div><a class="button teal" href="/torutsugu/faq/">よくあるご質問を見る <span aria-hidden="true">→</span></a></div></div></section>
 </main>
 <footer class="wrap foot"><span>© 2026 VITALITY DESIGN LLC</span><div><a href="/">会社概要</a>　 /　 <a href="/privacy.html">プライバシーポリシー</a>　 /　 <a href="mailto:contact@vitality-design.jp">お問い合わせ</a></div></footer>
+<div class="mobile-cta-bar" aria-label="サービス資料請求"><a href="/?request=torutsugu#contact" class="mobile-cta-link"><span>サービス資料を請求</span><span aria-hidden="true">→</span></a></div>
 
 <script>
 (function(){

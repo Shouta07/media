@@ -150,44 +150,56 @@ html{scroll-padding-top:71px}
 .footer-inner{align-items:flex-start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Visual-first business cards */
+.service.service-visual{padding:0;display:flex;min-height:0;flex-direction:column;overflow:hidden}
+.service-photo{display:block;position:relative;width:100%;height:250px;background:#e7eeea;overflow:hidden}
+.service-photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.service-photo:hover img{transform:scale(1.035)}
+.photo-tag{position:absolute;bottom:16px;left:20px;font:700 10px/1.4 'Inter',sans-serif;letter-spacing:.11em;color:#fff;text-shadow:0 1px 8px #0009}
+.service-photo:after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,#0b271b66);pointer-events:none}
+.service-photo .photo-tag{z-index:1}
+.service-content{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:26px 30px 31px}
+.service-content h3{margin:12px 0 10px}
+.service-content p{font-size:13px;line-height:1.9;margin-bottom:22px}
+.home-about-link{border-top:1px solid #e2ebe5;background:#f7faf8;padding:37px 0}
+.home-about-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}
+.home-about-inner h2{font-size:23px;letter-spacing:-.055em;margin:7px 0}
+.home-about-inner p:not(.section-label){font-size:12px;color:#63796c}
+.outline-link{border:1px solid #b7cec0;border-radius:5px;padding:12px 21px;white-space:nowrap;color:#17563b;font-size:12px;font-weight:700}
+.outline-link span{margin-left:15px}
+@media(max-width:760px){.service-photo{height:220px}.service-content{padding:23px}.home-about-inner{align-items:flex-start;flex-direction:column;gap:20px}.home-about-inner h2{font-size:21px}}
+@media(max-width:450px){.service-photo{height:190px}.service-content p{font-size:12px}.home-about-link{padding:29px 0}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
 <header class="header" id="top"><div class="container header-inner">
 <a href="/" class="brand" aria-label="Vitality Design ホーム">VITALITY DESIGN<small>現場の仕事を、仕組みで前へ。</small></a>
-<nav class="desktop-nav" aria-label="メインナビゲーション"><a href="#business">事業紹介</a><a href="#approach">私たちについて</a><a href="#company">会社概要</a><a href="#contact" class="nav-contact">お問い合わせ <span>↗</span></a></nav>
+<nav class="desktop-nav" aria-label="メインナビゲーション"><a href="#business">事業紹介</a><a href="/about.html">私たちについて</a><a href="/company.html">会社概要</a><a href="#contact" class="nav-contact">お問い合わせ <span>↗</span></a></nav>
 <button class="menu-toggle" id="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button>
 </div></header>
-<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション" hidden><a href="#business">事業紹介</a><a href="#approach">私たちについて</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ ↗</a></nav>
+<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション" hidden><a href="#business">事業紹介</a><a href="/about.html">私たちについて</a><a href="/company.html">会社概要</a><a href="#contact">お問い合わせ ↗</a></nav>
 <main id="main">
 <section class="hero"><div class="container hero-layout">
 <div class="hero-copy"><p class="eyebrow">VITALITY DESIGN LLC</p><h1>現場の仕事を、<br>仕組みで前へ。</h1><p class="hero-lead">現場を理解し、人と業務をつなぐ。</p><p class="hero-detail">日々の業務を見つめ直し、仕組みとして整える。課題の整理から業務設計、実装、運用定着まで。現場で使われる仕組みづくりに取り組んでいます。</p><a class="btn" href="#business">事業紹介を見る <span>↗</span></a></div>
 <div><figure class="hero-figure"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=82&auto=format&fit=crop" alt="建設・設備工事の現場のイメージ" fetchpriority="high"></figure><p class="hero-caption">※掲載写真は現場のイメージです。</p></div>
 </div></section>
 
-<section class="section intro" id="about"><div class="container intro-grid">
-<div><p class="section-label">OUR PURPOSE</p><h2>仕組みで、<br>現場を支える。</h2></div>
-<div class="intro-copy"><p>現場には、人の経験や工夫によって支えられている仕事が数多くあります。</p><p>私たちは、その仕事を理解するところから始め、関係者の連携や業務の進め方を整えます。一時的な改善ではなく、現場で続けられる形を大切にしています。</p></div>
-</div></section>
-
 <section class="section" id="business"><div class="container">
 <div class="section-head"><p class="section-label">BUSINESS</p><h2>事業紹介</h2></div>
 <div class="service-grid">
-<article class="service"><span class="service-type">PRODUCT / FACILITY OPERATIONS</span><h3>トルツグ</h3><p>ホテル・旅館を起点に、不具合の報告から管理者の判断、業者への手配、修繕履歴までの流れを整える設備・修繕管理サービスです。</p><a class="service-link" href="/locue/">トルツグのサービスサイトへ <span>↗</span></a></article>
-<article class="service"><span class="service-type">OPERATIONS DESIGN</span><h3>オペレーションデザイン</h3><p>現場業務の可視化、業務設計・標準化、外部パートナーとの連携体制づくり、デジタル技術の活用を支援します。</p><a class="service-link" href="#contact">業務改善について相談する <span>↗</span></a></article>
+<article class="service service-visual">
+<a class="service-photo" href="/locue/" aria-label="トルツグのサービスサイトへ"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1100&q=82&auto=format&fit=crop" loading="lazy" alt="設備メンテナンスの現場イメージ"><span class="photo-tag">FACILITY MAINTENANCE</span></a>
+<div class="service-content"><span class="service-type">PRODUCT</span><h3>トルツグ</h3><p>不具合の報告から、管理者の判断、業者への手配、修繕履歴まで。<br>施設の修繕業務をひとつの流れに。</p><a class="service-link" href="/locue/">サービスサイトを見る <span>↗</span></a></div>
+</article>
+<article class="service service-visual">
+<a class="service-photo" href="#contact" aria-label="オペレーションデザインについて相談する"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1100&q=82&auto=format&fit=crop" loading="lazy" alt="ホテル・施設運営の現場イメージ"><span class="photo-tag">FIELD OPERATIONS</span></a>
+<div class="service-content"><span class="service-type">OPERATIONS DESIGN</span><h3>オペレーションデザイン</h3><p>現場業務の可視化・標準化から、外部パートナーとの連携、DXの実装まで。<br>現場に合う運用を設計します。</p><a class="service-link" href="#contact">業務改善について相談する <span>↗</span></a></div>
+</article>
 </div></div></section>
 
-<section class="section approach" id="approach"><div class="container approach-grid">
-<div><p class="section-label">OUR APPROACH</p><h2>現場を知り、<br>実行まで向き合う。</h2><p class="quote">現場で起きることを見て、<br>仕事の流れから考える。</p></div>
-<div><p>代表者はこれまで、法人営業、多拠点での設備導入、IoT・ネットワークを伴う現場DX、施工パートナーとの連携、業務の標準化に携わってきました。</p><p style="margin-top:18px">その経験をもとに、技術を導入すること自体ではなく、現場の仕事がより円滑に進むことを大切にしています。</p><p class="note">※代表者の過去の勤務先での実務経験です。当社としての受注実績を示すものではありません。</p></div>
-</div></section>
-
-<section class="section company" id="company"><div class="container">
-<div class="section-head"><p class="section-label">COMPANY</p><h2>会社概要</h2></div>
-<dl><div><dt>会社名</dt><dd>バイタリティデザイン合同会社<br><small>Vitality Design LLC</small></dd></div><div><dt>代表</dt><dd>代表社員　山本 翔太</dd></div><div><dt>所在地</dt><dd>〒153-0064<br>東京都目黒区下目黒一丁目1番14号 コノトラビル7F</dd></div><div><dt>事業内容</dt><dd>設備・修繕管理サービスの企画・開発<br>業務設計・標準化・DXの実装支援</dd></div><div><dt>法人番号</dt><dd>1011003024109</dd></div><div><dt>メール</dt><dd><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></dd></div></dl>
-</div></section>
-
+<section class="home-about-link"><div class="container home-about-inner"><div><p class="section-label">ABOUT US</p><h2>現場を知り、実行まで向き合う。</h2><p>私たちの考え方と、代表者の実務経験について。</p></div><a class="outline-link" href="/about.html">私たちについて <span>↗</span></a></div></section>
 <section class="contact" id="contact"><div class="container">
 <div class="contact-top"><p class="section-label">CONTACT</p><h2 style="font-size:clamp(27px,2.7vw,37px);line-height:1.55;letter-spacing:-.06em;margin-top:14px">お問い合わせ</h2><p>事業についてのご相談、トルツグの導入・資料請求、協業のご提案など、お気軽にお問い合わせください。</p></div>
 <div class="contact-content"><div class="contact-side"><p>フォームからお問い合わせいただくか、メールにて直接ご連絡ください。</p><a class="contact-mail" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp ↗</a></div>

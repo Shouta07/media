@@ -606,6 +606,21 @@ html{scroll-padding-top:71px}
  .vd-conviction-body .vd-conviction-lead{font-size:19px;line-height:1.85;margin-bottom:25px}
  .vd-conviction-body .vd-conviction-close{font-size:16px;margin-top:32px}
 }
+
+/* Larger statement: wider canvas keeps the desktop vision on one line. */
+@media(min-width:761px){
+ .ed-hero-inner.container{max-width:1540px;padding-left:clamp(24px,4vw,64px);padding-right:clamp(24px,4vw,64px)}
+ .ed-hero h1{font-size:clamp(43px,5.35vw,90px);line-height:1.24;letter-spacing:-.085em;white-space:nowrap;text-wrap:nowrap;max-width:none}
+}
+@media(max-width:760px){
+ .ed-hero h1{font-size:clamp(42px,11.8vw,82px);line-height:1.36;letter-spacing:-.085em}
+}
+@media(max-width:450px){
+ .ed-hero h1{font-size:clamp(42px,11.7vw,54px);line-height:1.38}
+}
+@media(max-width:360px){
+ .ed-hero h1{font-size:clamp(39px,11.7vw,44px)}
+}
 </style>
 </head>
 <body>

@@ -232,22 +232,66 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 .solution-demo-note{font-size:11px;line-height:1.8;color:#748b83;margin:14px 6px 0}
 @media(max-width:900px){.solution-function-grid{grid-template-columns:1fr 1fr}.solution-panel{padding:25px}}
 @media(max-width:700px){.solution-panel{padding:20px 15px;border-radius:19px}.solution-panel-head{display:block}.solution-panel-flag{display:inline-block;margin-top:13px}.workflow-compare{grid-template-columns:1fr}.workflow-track{padding:19px}.solution-benefit{display:block;padding:18px}.solution-benefit>div{margin-top:12px}.solution-function-grid{grid-template-columns:1fr 1fr;gap:8px}.solution-function-grid>div{padding:13px}.solution-select .tile-title{font-size:21px}}
+
+/* Hero v4: wide saturated green marketing banner */
+.hero-new{background:#f5faf9;padding:26px 0 70px;overflow:hidden}
+.hero-new:before{display:none}
+.hero-banner{position:relative;min-height:610px;border-radius:36px;overflow:hidden;background:linear-gradient(116deg,#2bad99 0%,#43c5a2 51%,#9bf3b7 100%);display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:10px;padding:62px 6.3%;box-shadow:0 18px 55px #328d7e17}
+.hero-banner:before{content:"";position:absolute;left:-12%;bottom:-48%;width:110%;height:75%;background:#3fbdc4a3;clip-path:ellipse(52% 45% at 50% 58%);transform:rotate(-9deg)}
+.hero-banner:after{content:"";position:absolute;right:-18%;top:19%;width:60%;height:72%;background:#acffb480;border-radius:50%;transform:rotate(-18deg)}
+.hero-left{position:relative;z-index:5;min-width:0;color:white}
+.hero-new .hero-kicker{display:inline-block;background:#168375b5;padding:10px 18px;color:#fff;font-size:11px;font-weight:800;border-radius:100px;letter-spacing:.03em}
+.hero-new h1{margin:22px 0 18px;text-align:left;max-width:none;color:#fff;font-size:clamp(35px,3.5vw,54px);line-height:1.44;font-weight:900;letter-spacing:-.045em}
+.hero-new h1 em{color:#fff;font-style:normal}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0 24px}
+.hero-pills span{border-radius:100px;background:#fff;color:#23665c;padding:7px 11px;font-size:10px;font-weight:900;white-space:nowrap}
+.hero-new .hero-explain{max-width:590px;color:#eefef8;font-size:13px;line-height:2.1;font-weight:600}
+.hero-new .hero-actions{display:flex;justify-content:flex-start;gap:12px;flex-wrap:wrap;margin:25px 0 10px}
+.hero-request{background:#f4fc37;color:#203c34;padding:16px 26px;box-shadow:0 6px 0 #d8e52055}
+.hero-request:hover{background:#f9ff70}
+.hero-secondary{background:#fff;color:#183f37;padding:16px 24px}
+.hero-new .hero-honesty{font-size:10px;color:#e9fdf7;margin:23px 0 0}
+.hero-right{position:relative;height:500px;min-width:0;z-index:2}
+.hero-swoosh{position:absolute;width:450px;height:200px;background:#5fe4ad87;border-radius:50%;transform:rotate(-21deg)}
+.hero-swoosh.one{top:11px;right:-160px}
+.hero-swoosh.two{background:#22aaba90;bottom:14px;left:-35px}
+.hero-banner .showcase{height:490px;width:100%;margin:0;position:relative;z-index:2}
+.hero-banner .showcase:before{display:none}
+.hero-banner .showcase .phone{box-shadow:0 26px 56px #124d4460}
+.hero-banner .showcase .phone.center{left:calc(50% - 110px);top:20px;width:222px;height:442px;transform:rotate(8deg)}
+.hero-banner .showcase .phone.left{left:-4%;top:110px;transform:rotate(-14deg) scale(.77)}
+.hero-banner .showcase .phone.right{right:-16%;top:110px;transform:rotate(17deg) scale(.77)}
+.hero-banner .showcase .bubble{background:#ffffffec;box-shadow:0 8px 30px #125d4940}
+.hero-banner .showcase .bubble.l{left:-8%;top:16%}
+.hero-banner .showcase .bubble.r{right:-10%;top:80%}
+@media(max-width:1040px){.hero-banner{grid-template-columns:1fr .85fr;padding:45px 5%;min-height:560px}.hero-new h1{font-size:clamp(32px,4vw,46px)}.hero-banner .showcase .phone.left{left:-16%}.hero-banner .showcase .phone.right{right:-26%}.hero-banner .showcase .bubble{display:none}}
+@media(max-width:760px){.hero-new{padding:12px 0 45px}.hero-new .wrap.hero-banner{width:calc(100% - 22px)}.hero-banner{grid-template-columns:1fr;gap:15px;padding:37px 25px 10px;border-radius:25px}.hero-new h1{font-size:clamp(31px,7.9vw,45px)}.hero-new .hero-explain{font-size:12px}.hero-pills span{font-size:9px;padding:7px 10px}.hero-new .hero-actions{gap:9px}.hero-request,.hero-secondary{padding:14px 16px;font-size:12px}.hero-right{height:350px}.hero-banner .showcase{height:350px}.hero-banner .showcase .phone.center{width:155px;height:310px;left:calc(50% - 78px);top:20px}.hero-banner .showcase .phone.left{left:1%;top:68px;transform:rotate(-12deg) scale(.73)}.hero-banner .showcase .phone.right{right:1%;top:68px;transform:rotate(15deg) scale(.73)}}
 </style>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='10px'" onblur="this.style.left='-9999px'">本文へスキップ</a>
 <header class="site-header"><div class="wrap header-inner">
 <a href="/locue/" class="logo" aria-label="LOCUE トップ">locue<span class="logo-dot">.</span><small>FIELD INTELLIGENCE PLATFORM</small></a>
-<nav class="navlinks" aria-label="メインナビゲーション"><a href="#services">サービス</a><a href="#features">特徴</a><a href="#maintenance-functions">機能一覧</a><a href="#pricing">料金</a><a class="btn primary" href="#contact">導入相談 <span class="arr">↗</span></a></nav>
+<nav class="navlinks" aria-label="メインナビゲーション"><a href="#services">サービス</a><a href="#features">特徴</a><a href="#maintenance-functions">機能一覧</a><a href="#pricing">料金</a><a class="btn primary" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">資料請求 <span style="font-size:10px;background:#ddf648;border-radius:4px;color:#236959;padding:2px 5px">無料</span></a></nav>
 </div></header>
 <main id="main">
-<section class="hero-new"><div class="wrap intro"><span class="pill">現場の一次情報を、AIで次のアクションへ</span><h1>現場の「困った」を、<br><em>解決までつなぐ。</em></h1><p class="lead">写真を撮る。声で伝える。LOCUEが状況を整理し、必要な人につなぎ、実行までをサポート。現場の報告・確認・手配に追われる毎日を、もっとシンプルに。</p><div class="hero-actions"><a class="btn primary" href="#contact">共同実証について相談する <span class="arr">↗</span></a><a class="btn outline" href="#services">サービスを見る ↓</a></div><div class="hero-foot">LOCUEは現在、サービス構想・共同実証段階です。画面はコンセプトイメージです。</div>
-<div class="showcase" role="img" aria-label="LOCUEの現場報告・AI整理・対応管理のスマートフォン画面イメージ">
-<div class="phone left"><div class="phone-top">9:41<b>locue.</b>現場から報告</div><div class="phone-card"><b>305号室</b><small>写真を撮って、気になる場所を送信</small><div class="phone-photo"></div><div class="phone-button">写真を送る →</div></div></div>
-<div class="phone center"><div class="phone-top">9:41<b>locue.</b>今日の対応</div><div class="phone-card"><b>おはようございます</b><small>必要な対応をまとめました</small><div class="phone-a"><i>📷</i>現場からの報告</div><div class="phone-a"><i>✦</i>AIが内容を整理</div><div class="phone-a"><i>📅</i>業者の日程を確認</div><div class="phone-button">確認が必要な2件を見る</div></div></div>
-<div class="phone right"><div class="phone-top">9:41<b>locue.</b>業者との日程</div><div class="phone-card"><b>空調修繕の訪問予定</b><small>305号室・空調設備</small><div class="phone-a"><i>✓</i>11/12 午前 候補</div><div class="phone-a"><i>✓</i>11/13 午後 候補</div><div class="phone-button">候補日を回答 →</div></div></div>
-<div class="bubble l">📷 <b>撮るだけ</b>で報告</div><div class="bubble r">✦ AIが整理して<br>次の対応へ</div>
-</div></div></section>
+<section class="hero-new"><div class="wrap hero-banner">
+<div class="hero-left">
+<span class="hero-kicker">現場の一次情報 × AI × 業務実行 ／ LOCUE</span>
+<h1>現場の報告を、<br>AIでそのまま<br><em>課題解決へ。</em></h1>
+<div class="hero-pills"><span>✓ 入力の手間を最小化</span><span>✓ AIで状況を整理</span><span>✓ 連絡・手配までつなぐ</span></div>
+<p class="hero-explain">写真を撮る、声で伝える。それだけで、設備の不具合や現場の気づきが、担当者への連絡・外注手配・改善アクションへ。現場を動かすための仕事を、もっとシンプルに。</p>
+<div class="hero-actions"><a class="btn hero-request" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">無料で資料請求 <span class="arr">→</span></a><a class="btn hero-secondary" href="#services">機能・サービスを見る <span class="arr">→</span></a></div>
+<p class="hero-honesty">※サービス構想・実証準備中。資料請求はメールで受け付けています。</p>
+</div>
+<div class="hero-right"><div class="hero-swoosh one"></div><div class="hero-swoosh two"></div>
+<div class="showcase" role="img" aria-label="LOCUEの入力・AI整理・日程調整のスマホ画面イメージ">
+<div class="phone left"><div class="phone-top">9:41<b>locue.</b>現場から報告</div><div class="phone-card"><b>305号室 / 設備</b><small>写真を撮って気づいたことを送信</small><div class="phone-photo"></div><div class="phone-button">撮影して報告 →</div></div></div>
+<div class="phone center"><div class="phone-top">9:41<b>locue.</b>今日の対応</div><div class="phone-card"><b>対応が必要なこと</b><small>AIが内容をまとめました</small><div class="phone-a"><i>📷</i>写真を受信</div><div class="phone-a"><i>✦</i>AIが問題を整理</div><div class="phone-a"><i>🔧</i>修繕手配を準備</div><div class="phone-button">確認して進める →</div></div></div>
+<div class="phone right"><div class="phone-top">9:41<b>locue.</b>業者への依頼</div><div class="phone-card"><b>訪問候補日時</b><small>305号室・空調設備の修繕</small><div class="phone-a"><i>✓</i>11/12 午前</div><div class="phone-a"><i>✓</i>11/13 午後</div><div class="phone-button">候補を回答 →</div></div></div>
+<div class="bubble l">📷 現場からすぐ報告</div><div class="bubble r">✦ AIが次の対応へ</div>
+</div></div>
+</div></section>
 <div class="value-strip"><div class="wrap"><span>✓ 入力工数を最小限に</span><span>✓ AIが一次情報を理解</span><span>✓ 連絡・日程調整を省力化</span><span>✓ 解決までつなぐ</span></div></div>
 
 
@@ -314,12 +358,12 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 <article class="cap-group"><span class="tag">05 / INVENTORY</span><h4>備品・在庫管理</h4><p>消耗品の数量や保管場所、不足通知、発注判断を支援。共通の現場入力インターフェースから利用する構想。</p></article>
 <article class="cap-group"><span class="tag">06 / INSIGHTS</span><h4>レポート・多拠点管理</h4><p>修繕件数、対応時間、費用、点検実施状況を見える化。施設ごとの権限を守りながら本部で横断確認する。</p></article>
 </div>
-<div class="cap-cta"><a class="btn primary" href="#contact">設備管理の共同実証について相談する <span class="arr">↗</span></a></div>
+<div class="cap-cta"><a class="btn primary" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">無料で資料請求 <span class="arr">→</span></a></div>
 <p class="tiny center" style="margin-top:18px">※上記はLOCUEの機能設計方針です。開発・検証段階のため、すべての機能が現在利用可能という意味ではありません。</p>
 </div></section>
-<section class="section intro-flow" id="start"><div class="wrap"><div class="center"><span class="eyebrow">IMPLEMENTATION FLOW</span><h2 class="section-title">今の現場を大切にしながら、<br>新しい業務の形へ。</h2><p class="section-copy">現場の業務を伺い、共同実証で使い勝手と工数削減効果を確かめます。</p></div><div class="intro-steps"><div class="intro-step"><div class="num">STEP 01</div><div class="mark">💬</div><h3>お問い合わせ</h3><p>ご相談の背景と現在の運用を伺います。</p></div><div class="intro-step"><div class="num">STEP 02</div><div class="mark">🔎</div><h3>現場業務の確認</h3><p>報告・確認・外注調整の実態を整理します。</p></div><div class="intro-step"><div class="num">STEP 03</div><div class="mark">🧪</div><h3>共同実証</h3><p>対象業務を絞り、操作性と工数を検証します。</p></div><div class="intro-step"><div class="num">STEP 04</div><div class="mark">🤝</div><h3>導入計画</h3><p>成果と要件を確認し、提供範囲を決めます。</p></div></div></div></section>
+
 <section class="section pricing" id="pricing"><div class="wrap"><div class="center"><span class="eyebrow">PRICING CONCEPT</span><h2 class="section-title">現場の課題解決を、<br>ひとつのプラットフォームで。</h2><p class="section-copy">複雑な機能別契約ではなく、現場で必要なソリューションをまとめて利用できる料金体系を検討しています。</p></div>
-<div class="pricebox"><div class="price-head"><div><span class="pill">料金プラン構想</span><h3 style="font-size:24px;margin:14px 0 0">LOCUE Business</h3></div><div><div class="price"><small>月額</small> ¥50,000</div><div class="tiny">1施設あたり / 税抜（仮説）</div></div></div><div class="price-features"><div>Maintenance（設備・点検・修繕）</div><div>Quality（品質管理）</div><div>Experience（体験改善）</div><div>LOCUE AI Core（共通基盤）</div><div>現地スタッフ・協力業者向け入力UI</div><div>外注手配・日程調整の構想</div></div><a class="btn primary" href="#contact">料金・共同実証について相談する <span class="arr">↗</span></a><div class="price-foot">※正式提供前の料金案です。点検・備品管理を含めた提供範囲、初期導入費、AI利用量、外部連携費は今後の実証を経て決定します。</div></div>
+<div class="pricebox"><div class="price-head"><div><span class="pill">料金プラン構想</span><h3 style="font-size:24px;margin:14px 0 0">LOCUE Business</h3></div><div><div class="price"><small>月額</small> ¥50,000</div><div class="tiny">1施設あたり / 税抜（仮説）</div></div></div><div class="price-features"><div>Maintenance（設備・点検・修繕）</div><div>Quality（品質管理）</div><div>Experience（体験改善）</div><div>LOCUE AI Core（共通基盤）</div><div>現地スタッフ・協力業者向け入力UI</div><div>外注手配・日程調整の構想</div></div><a class="btn primary" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">無料で資料請求 <span class="arr">→</span></a><div class="price-foot">※正式提供前の料金案です。点検・備品管理を含めた提供範囲、初期導入費、AI利用量、外部連携費は今後の実証を経て決定します。</div></div>
 </div></section>
 <section class="section faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ</span><h2 class="section-title">よくあるご質問</h2></div><div class="faq-list">
 <details><summary>LOCUEは現在利用できますか？</summary><p>現在はサービス構想・顧客検証段階です。実際の現場課題を伺いながら、共同実証パートナーを募集しています。完成済みの提供機能としてご案内しているものではありません。</p></details>
@@ -327,7 +371,7 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 <details><summary>設備管理以外の業務にも使えますか？</summary><p>Maintenanceに加え、Quality・Experienceを展開する構想です。現場の入力・AI変換を共通基盤として、用途ごとに必要な業務実行フローを整備していきます。</p></details>
 <details><summary>既存の管理システムと連携できますか？</summary><p>CSV等によるデータ移行や、既存システムとの連携を想定しています。対応範囲は今後の検証・開発で決定します。</p></details>
 </div></div></section>
-<section class="contact" id="contact"><div class="wrap"><span class="eyebrow">LET'S BUILD TOGETHER</span><h2>現場の「面倒」を、<br>一緒になくしませんか。</h2><p>不具合報告、修繕手配、点検、品質管理。現場で繰り返される手間を知る事業者の皆さまと、LOCUEを育てていきたいと考えています。まずは実際の業務課題をお聞かせください。</p><a class="btn white" href="mailto:contact@vitality-design.jp?subject=LOCUE%E3%81%AE%E5%85%B1%E5%90%8C%E5%AE%9F%E8%A8%BC%E3%83%BB%E5%B0%8E%E5%85%A5%E7%9B%B8%E8%AB%87">共同実証・導入について相談する <span class="arr">↗</span></a><div style="font-size:11px;color:#c5e9df;margin-top:21px">運営：バイタリティデザイン合同会社</div></div></section>
+<section class="contact" id="contact"><div class="wrap"><span class="eyebrow">FREE SERVICE MATERIALS</span><h2>LOCUEの仕組みと機能を、<br>もっと詳しく。</h2><p>現場の一次入力からAI変換、修繕手配・点検・品質改善まで。LOCUEの構想や機能をご紹介します。資料をご希望の方はメールからお問い合わせください。</p><a class="btn white" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">無料で資料請求 <span class="arr">→</span></a><div style="font-size:11px;color:#c5e9df;margin-top:21px">現在はサービス構想・実証準備中です。資料はメールでのご依頼を受け付けています。</div></div></section>
 </main><footer class="wrap foot"><div>© 2026 VITALITY DESIGN LLC</div><div><a href="/">コーポレートサイト</a>　 /　 <a href="/privacy.html">プライバシーポリシー</a>　 /　 <a href="mailto:contact@vitality-design.jp">お問い合わせ</a></div></footer>
 <script>
 (function(){

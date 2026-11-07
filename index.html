@@ -747,6 +747,11 @@ html{scroll-padding-top:71px}
 #f-topic-wrap select{min-height:52px;cursor:pointer}
 #f-topic-wrap select:invalid{color:#718987}
 #f-topic-wrap select option{color:#173a3c}
+
+/* Keep the corporate inquiry selector visible for every entry point. */
+.locue-request #f-topic-wrap{display:block!important}
+#contact{scroll-margin-top:116px}
+@media(max-width:760px){#contact{scroll-margin-top:83px}}
 </style>
 </head>
 <body>
@@ -830,7 +835,7 @@ html{scroll-padding-top:71px}
 <div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
           <input type="hidden" id="f-subject" name="_subject" value="コーポレートサイトからのお問い合わせ">
           <input type="hidden" id="f-source" name="source" value="コーポレートサイト">
-          <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグの資料請求</strong><p>ご希望の内容を選んで、必要事項をご入力ください。</p></div>
+          <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグについてのお問い合わせ</strong><p>資料請求・導入検討・有償PoCのご相談はこちらから。</p></div>
           <p class="fstat" id="fstat" role="alert"></p>
           <div class="fld" id="f-topic-wrap"><label for="f-topic">お問い合わせの種類 <span class="rq">*</span></label>
               <select id="f-topic" name="topic" required>
@@ -854,13 +859,13 @@ html{scroll-padding-top:71px}
             <p class="f-purpose-hint" id="f-purpose-hint">今のご状況に近いものを1つお選びください。</p>
             <div class="f-purpose-options">
               <label class="f-purpose-choice"><input type="radio" name="purpose" value="情報収集" id="f-purpose-info"><span><strong>情報収集</strong><small>まずはサービスを知りたい</small></span></label>
-              <label class="f-purpose-choice"><input type="radio" name="purpose" value="導入検討" id="f-purpose-consider"><span><strong>導入検討</strong><small>自社での導入を検討したい</small></span></label>
+              <label class="f-purpose-choice"><input type="radio" name="purpose" value="導入検討・有償PoC相談" id="f-purpose-consider"><span><strong>導入検討</strong><small>有償PoCも含めて相談したい</small></span></label>
               <label class="f-purpose-choice"><input type="radio" name="purpose" value="打ち合わせ希望" id="f-purpose-meeting"><span><strong>打ち合わせ希望</strong><small>詳しく話を聞きたい</small></span></label>
             </div>
           </fieldset>
           <details class="f-optional" id="f-message-wrap"><summary>補足事項を入力する <span>任意</span></summary><div class="fld"><label for="f-message" id="f-message-label">お問い合わせ内容</label>
             <textarea id="f-message" name="message"
-              placeholder="ご相談したい内容があればご記入ください。" rows="4"></textarea></div></details>
+              placeholder="ご相談内容や、ご希望の時期などがあればご記入ください。" rows="4"></textarea></div></details>
           <button class="fbtn" id="fbtn" type="submit" data-cta="contact-submit">お問い合わせを送る</button>
           <p class="fnote">ご入力いただいた情報は、お問い合わせへの対応に使用します。<a href="/privacy.html">プライバシーポリシー</a></p>
         </form><div class="fdone" role="status" tabindex="-1"><p>お問い合わせを受け付けました。</p><p>内容を確認して、メールでご連絡します。</p></div></div>

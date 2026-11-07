@@ -634,6 +634,22 @@ body{background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
 .fd-feature-item h3{font-size:15px}.cta-band p{font-size:13px}.faq-teaser{border-radius:16px}
 }
 @media(prefers-reduced-motion:reduce){.fd-benefit,.fd-feature-item,.fd-ux-item,.button,.fd-btn{transition:none}}
+
+/* Mobile hero first-screen spacing: tighten gap below sticky header */
+@media(max-width:600px){
+  .fd-hero{padding-top:8px}
+  .fd-hero-grid{gap:0}
+  .fd-hero-stage{height:312px;max-height:312px;padding-top:10px}
+  .fd-green-shape{top:3px;bottom:38px}
+  .fd-screen{margin-top:18px}
+  .fd-mini-phone{top:86px}
+  .fd-hero-copy{padding-top:0}
+}
+@media(max-width:380px){
+  .fd-hero-stage{height:285px;max-height:285px;padding-top:8px}
+  .fd-screen{margin-top:14px}
+  .fd-mini-phone{top:78px}
+}
 </style>
 </head>
 <body>

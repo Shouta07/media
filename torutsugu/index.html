@@ -143,6 +143,92 @@ body{font-family:"Noto Sans JP",sans-serif;background:#fff}
 
 /* 2026-11-07: visual-first repair pain cards */
 .pains{background:#f6faf9}.pains .pain-heading{max-width:850px;margin:0 auto}.pains .pain-heading .heading{display:block;max-width:100%;font-size:clamp(27px,3.15vw,40px);line-height:1.45;letter-spacing:-.04em;margin:13px auto 0;overflow-wrap:anywhere;text-wrap:balance;background:transparent;box-shadow:none}.pains .pain-grid{gap:20px;margin-top:43px;align-items:stretch}.pains .pain-card{padding:0;overflow:hidden;border:1px solid #d9e9e5;border-radius:20px;background:white;box-shadow:0 10px 35px rgba(11,75,70,.055);display:flex;flex-direction:column;min-width:0}.pain-visual{height:182px;background:linear-gradient(145deg,#e9f8f3,#f4fbf8);display:grid;place-items:center;padding:19px;border-bottom:1px solid #e0eee9}.pain-visual svg{width:100%;max-width:320px;height:100%;display:block}.pain-content{padding:22px 23px 24px;display:flex;flex-direction:column;flex:1}.pains .pain-mark{font-size:11px;letter-spacing:.08em}.pains .pain-card h3{font-size:clamp(16px,1.45vw,19px);line-height:1.5;letter-spacing:-.035em;margin:9px 0 8px;overflow-wrap:anywhere}.pains .pain-card p{font-size:13px;line-height:1.75;letter-spacing:-.015em;margin:0}.pains .pain-card .answer{border-top:1px solid #e8efec;margin-top:auto;padding-top:17px;color:#076c62;font-weight:800;font-size:12px}.pains .pain-card .answer span{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#d8f2e8;color:#078477;font-size:12px;margin-right:5px}@media(max-width:850px){.pains .pain-grid{gap:17px;max-width:570px;margin:28px auto 0}.pain-visual{height:180px}.pain-content{padding:21px}}@media(max-width:600px){.pains .pain-heading .heading{font-size:clamp(24px,6.3vw,30px);line-height:1.55}.pains .pain-grid{gap:16px}.pain-visual{height:165px}.pains .pain-card h3{font-size:18px}.pains .pain-card p{font-size:12px}}
+
+/* Visual storytelling inspired by modern SaaS editorial layouts; original Torutsugu UI */
+:root{--story-ink:#123840;--story-green:#0e9a8c}
+body{font-size:15px;line-height:1.75}
+.hero{background:#f0f9f6;padding:30px 0 56px}
+.hero-card{min-height:510px;padding:48px 46px 49px 62px;border-radius:27px;box-shadow:0 20px 65px rgba(8,91,78,.1);background:linear-gradient(126deg,#118e89 0%,#23b8a4 68%,#7edab6 100%);isolation:isolate}
+.hero-card:before{opacity:.7}
+.hero h1{font-size:clamp(35px,3.5vw,57px);line-height:1.4;letter-spacing:-.055em}
+.hero-lead{margin-top:17px;font-size:15px}
+.hero-desc{max-width:410px;font-size:12px;line-height:1.85}
+.hero-actions{margin:22px 0 12px}
+.hero-note{font-size:9px}
+.hero-media{transform:scale(.96);transform-origin:center}
+.hero-kicker{background:#087b76b8}
+.field-context{background:#fff}
+.field-context-head{gap:25px}
+.field-context-head p{max-width:465px}
+.field-photos{gap:16px}
+.field-photos figure{border-radius:15px;overflow:hidden}
+.field-photos figure img{height:215px;object-fit:cover}
+.section{padding:76px 0}
+.pains{padding:90px 0}
+.pains .pain-heading .heading{font-weight:900}
+.feature-story{background:#fff;padding:84px 0 0;overflow:hidden}
+.feature-intro{text-align:center;padding-bottom:58px}
+.feature-intro .heading{font-size:clamp(30px,3.3vw,45px);line-height:1.48;margin:13px auto 14px}
+.feature-intro em,.feature-text em{font-style:normal;color:#099386}
+.feature-sub{color:#657b7d;font-size:14px;line-height:1.95}
+.feature-strip{padding:77px 0;overflow:hidden}
+.strip-a{background:#ecf8f5}.strip-b{background:#f2f4fb}.strip-c{background:#edf7f8}
+.feature-layout{display:grid;grid-template-columns:45% 55%;align-items:center;gap:20px;min-height:355px}
+.feature-layout.reverse{grid-template-columns:55% 45%}
+.feature-layout.reverse .feature-text{grid-column:2;grid-row:1;padding-left:38px}
+.feature-layout.reverse .feature-art{grid-column:1;grid-row:1}
+.feature-text{position:relative;z-index:2;padding-right:18px}
+.feature-label{display:inline-block;color:#078779;font-size:12px;font-weight:900;letter-spacing:.06em}
+.feature-text h3{font-size:clamp(29px,3.2vw,43px);letter-spacing:-.06em;line-height:1.52;margin:16px 0 15px;font-weight:900}
+.feature-text p{font-size:14px;color:#526e75;line-height:2}
+.feature-chips{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}
+.feature-chips span{background:#fff;border:1px solid #d5e8e4;border-radius:40px;padding:7px 11px;color:#1a6661;font-size:11px;font-weight:800}
+.feature-link{display:inline-flex;align-items:center;gap:16px;color:#fff;background:#0b9183;border-radius:9px;padding:11px 19px;font-size:12px;font-weight:900;transition:transform .2s,background .2s}
+.feature-link:hover{transform:translateY(-2px);background:#076f69}
+.feature-art{position:relative;min-height:354px;display:flex;justify-content:center;align-items:center;isolation:isolate}
+.feature-orb{position:absolute;width:390px;height:290px;border-radius:49% 51% 47% 53%;filter:blur(0);z-index:-1;background:#c6eee5;transform:rotate(-16deg)}
+.orb-b{background:#dee3fd}.orb-c{background:#cbeaf0}
+.feature-device{position:relative;background:white;border:1px solid #dceae9;box-shadow:0 25px 60px rgba(16,65,67,.14);color:#173b45}
+.phone-device{width:236px;border:8px solid #21474a;border-radius:31px;padding:13px 15px 17px;transform:rotate(5deg)}
+.device-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ebf2ef;padding-bottom:9px}
+.device-top strong{font-size:13px}.device-top small{font-size:8px;color:#79928d}
+.device-room{font-weight:800;font-size:11px;padding:14px 0 9px}
+.device-photo{height:120px;background:url("https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&q=75&auto=format&fit=crop") center/cover;border-radius:8px}
+.device-field{display:grid;gap:5px;background:#f5f9f7;padding:10px;border-radius:7px;margin-top:12px}
+.device-field small{font-size:9px;color:#79938b}.device-field strong{font-size:10px}
+.device-submit{background:#0b998a;color:#fff;border-radius:7px;padding:10px;text-align:center;font-weight:900;font-size:10px;margin-top:12px}
+.floating-note{position:absolute;z-index:2;display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:13px 17px;box-shadow:0 12px 38px rgba(25,93,86,.14);border:1px solid #dcefe8}
+.floating-note .note-icon{width:32px;height:32px;display:grid;place-items:center;background:#d7f5e9;color:#087c72;border-radius:50%;font-weight:900}
+.floating-note strong,.floating-note small{display:block;white-space:nowrap}
+.floating-note strong{font-size:11px}.floating-note small{font-size:9px;color:#73918a;margin-top:3px}
+.note-a{right:6%;bottom:16%}.note-b{right:0;bottom:9%}.note-c{right:5%;bottom:13%}
+.board-device{width:min(440px,88%);border-radius:14px;padding:0 20px 18px;transform:rotate(-3deg)}
+.board-top{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #e1eceb;padding:18px 0 13px}
+.board-top strong{font-size:14px}.board-top small{font-size:10px;color:#849e99}
+.board-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:17px 0}
+.board-summary>div{background:#eef8f5;padding:12px 13px;border-radius:9px}
+.board-summary small{font-size:9px;color:#5b847e;display:block}.board-summary strong{font-size:23px;line-height:1.3;color:#0a7970}
+.board-line{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid #edf2f0}
+.board-line>div{flex:1;min-width:0}.board-line strong{font-size:11px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.board-line small{font-size:9px;color:#839a96}.board-line>b{font-size:9px;color:#168477;background:#e5f6f0;padding:5px 7px;border-radius:40px}
+.board-dot{height:10px;width:10px;border-radius:50%;background:#8ebfdd;flex-shrink:0}.board-dot.amber{background:#e7ae4b}.board-dot.green{background:#20bba1}
+.timeline-device{width:min(405px,84%);border-radius:15px;padding:0 22px 18px;transform:rotate(3deg)}
+.timeline-item{display:flex;gap:16px;position:relative;padding:16px 0 2px 2px}
+.timeline-item:before{content:"";position:absolute;top:28px;bottom:-22px;left:7px;width:2px;background:#d8eee7}
+.timeline-item:last-child:before{display:none}
+.timeline-item i{width:13px;height:13px;background:#11aa96;border:3px solid #d6f4e8;border-radius:50%;flex-shrink:0;z-index:1;margin-top:3px}
+.timeline-item small{display:block;color:#078d80;font-size:9px;font-weight:900}
+.timeline-item strong{font-size:12px;display:block;margin-top:4px}
+.timeline-item p{font-size:10px;color:#809a92;margin-top:3px}
+.feature-disclaimer{text-align:center;background:#edf7f8;padding:0 20px 26px;color:#819996;font-size:10px}
+.difference{background:#fff;padding:85px 0}.compare{gap:22px;margin-top:37px}
+.compare-col{padding:29px;border-radius:19px}.compare-col.new{background:#e4f7ef}
+.compare-item{border:1px solid #e7eeee;border-radius:10px;padding:17px 16px}
+.demo-section{padding:87px 0}.demo-section .heading{font-size:clamp(29px,3vw,40px)}
+.demo-view{box-shadow:0 23px 65px rgba(0,25,38,.12)}
+.cta-band{padding:81px 20px}
+@media(max-width:850px){.hero-card{padding:40px 32px}.hero-media{transform:none}.feature-layout,.feature-layout.reverse{grid-template-columns:1fr;gap:25px}.feature-layout.reverse .feature-text,.feature-layout.reverse .feature-art{grid-column:1;grid-row:auto}.feature-layout.reverse .feature-text{padding-left:0}.feature-art{min-height:350px}.feature-strip{padding:62px 0}.feature-text{padding-right:0}.feature-intro{padding-bottom:30px}.feature-text h3{font-size:34px}.note-b{right:10%}}
+@media(max-width:600px){.hero{padding:16px 0 35px}.hero-card{padding:27px 19px 31px}.hero h1{font-size:clamp(31px,8vw,43px)}.hero-desc{font-size:12px}.hero-media{transform:none}.feature-story{padding-top:59px}.feature-intro .heading{font-size:28px}.feature-sub{font-size:12px}.feature-text h3{font-size:30px}.feature-text p{font-size:12px}.feature-strip{padding:49px 0}.feature-art{min-height:320px}.phone-device{transform:rotate(3deg) scale(.91)}.board-device{width:94%;transform:rotate(-2deg)}.timeline-device{width:91%}.note-a,.note-c{right:-2%;bottom:7%}.note-b{right:0;bottom:1%}.floating-note{padding:9px}.floating-note strong{font-size:10px}.floating-note small{font-size:8px}.floating-note .note-icon{width:25px;height:25px}.feature-chips{gap:6px}.feature-chips span{font-size:10px}.feature-disclaimer{font-size:9px}}
 </style>
 </head>
 <body>
@@ -164,7 +250,16 @@ body{font-family:"Noto Sans JP",sans-serif;background:#fff}
 <div class="demo-panel" role="tabpanel" id="demo-vendor" aria-labelledby="tab-vendor" hidden><div class="app-window"><div class="app-bar"><strong>トルツグ</strong><small>施設A / 修繕手配</small></div><div class="app-body"><p class="app-page-title">空調修繕 / 業者回答</p><span class="status-chip">見積回答待ち</span><div class="app-ticket"><strong>依頼先：空調保守会社</strong><p>客室：305号室 ／ 症状：運転中に異音<br>写真1枚 ／ 依頼：原因確認・見積</p><div class="meta-grid"><div class="meta-cell"><small>見積回答</small><strong>業者待ち</strong></div><div class="meta-cell"><small>訪問日</small><strong>候補日を確認中</strong></div></div></div><span class="app-field-label">次の対応</span><div class="app-field">回答者：空調保守会社 ／ 次の担当：設備主任</div><div class="app-button" aria-label="画面イメージの確認ボタン（操作できません）">回答を確認（画面イメージ）</div></div></div></div>
 <div class="demo-panel" role="tabpanel" id="demo-complete" aria-labelledby="tab-complete" hidden><div class="app-window"><div class="app-bar"><strong>トルツグ</strong><small>施設A / 設備履歴</small></div><div class="app-body"><p class="app-page-title">305号室 / エアコン異音の対応履歴</p><div class="progress"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div><div class="timeline-row"><span class="dot"></span><div><time>2026.11.07</time><strong>修繕完了</strong><p>訪問・修繕結果を記録</p></div></div><div class="timeline-row"><span class="dot"></span><div><time>2026.11.06</time><strong>業者と訪問日を確定</strong><p>担当者に対応予定を共有</p></div></div><div class="timeline-row"><span class="dot"></span><div><time>2026.11.05</time><strong>空調の異音を報告</strong><p>写真と症状を登録</p></div></div></div></div></div>
 </div></div><p class="demo-caveat">※架空のホテル・案件を用いた操作イメージです。デモ内のボタンは送信・発注を行いません。提供範囲はお打ち合わせ時にご案内します。</p></div></section>
-<section class="section flowline" id="flow"><div class="wrap"><div class="center"><span class="eyebrow">役割ごとの仕事</span><h2 class="heading">現場・管理者・協力業者。<br>全員の仕事がつながる。</h2></div><div class="flow-grid"><article class="flow-card"><span>01 / FIELD</span><h3>現場は、撮るだけ。</h3><p>客室・共用部での気づきを、写真と場所で報告する。</p></article><article class="flow-card"><span>02 / MANAGER</span><h3>管理者は、判断だけ。</h3><p>必要な情報が揃い、誰が次に動くべきかを判断する。</p></article><article class="flow-card"><span>03 / PARTNER</span><h3>業者は、答えるだけ。</h3><p>見積・訪問日・完了報告を、案件ごとにまとめる。</p></article></div></div></section>
+<section class="feature-story" id="flow" aria-label="トルツグでつながる3つの仕事">
+<div class="wrap feature-intro"><span class="eyebrow">HOW IT WORKS</span><h2 class="heading">それぞれが、<br><em>自分の仕事だけに集中できる。</em></h2><p class="feature-sub">写真で報告、状況を判断、必要な回答を返す。<br>修繕に関わる人の仕事を、ひとつの流れへ。</p></div>
+<div class="feature-strip strip-a"><div class="wrap feature-layout"><div class="feature-text"><span class="feature-label">01　現場スタッフ</span><h3>見つけたら、<br><em>写真を撮って報告。</em></h3><p>客室や共用部の不具合を、その場で記録。<br>電話で何度も説明する手間を減らします。</p><div class="feature-chips"><span>写真で伝わる</span><span>場所を記録</span><span>引き継ぎがスムーズ</span></div><a class="feature-link" href="#demo">報告画面を見る <span aria-hidden="true">↗</span></a></div>
+<div class="feature-art" aria-label="写真で修繕報告するスマートフォン画面のサンプル"><div class="feature-orb orb-a"></div><div class="feature-device phone-device"><div class="device-top"><strong>トルツグ</strong><small>不具合を報告</small></div><div class="device-room">305号室 · 客室設備</div><div class="device-photo"></div><div class="device-field"><small>症状</small><strong>エアコンから異音がする</strong></div><div class="device-submit">この内容で報告する</div></div><div class="floating-note note-a"><span class="note-icon">✓</span><div><strong>写真付きで共有</strong><small>説明のやり直しを減らす</small></div></div></div></div></div>
+<div class="feature-strip strip-b"><div class="wrap feature-layout reverse"><div class="feature-text"><span class="feature-label">02　支配人・設備担当</span><h3>誰が動くか、<br><em>ひと目でわかる。</em></h3><p>案件ごとの状況と、次の担当者を一覧で確認。<br>催促や伝達に追われず、判断に集中できます。</p><div class="feature-chips"><span>進捗を一覧化</span><span>回答待ちを可視化</span><span>対応漏れを防ぐ</span></div><a class="feature-link" href="#demo">管理画面を見る <span aria-hidden="true">↗</span></a></div>
+<div class="feature-art" aria-label="修繕案件の進捗管理画面のサンプル"><div class="feature-orb orb-b"></div><div class="feature-device board-device"><div class="board-top"><strong>トルツグ</strong><small>修繕案件 / 一覧</small></div><div class="board-summary"><div><small>対応中</small><strong>03</strong></div><div><small>回答待ち</small><strong>02</strong></div><div><small>完了</small><strong>12</strong></div></div><div class="board-line"><span class="board-dot amber"></span><div><strong>305号室｜エアコン異音</strong><small>見積回答待ち</small></div><b>業者</b></div><div class="board-line"><span class="board-dot"></span><div><strong>2F廊下｜照明不点灯</strong><small>日程を確認中</small></div><b>設備担当</b></div><div class="board-line"><span class="board-dot green"></span><div><strong>210号室｜水栓の水漏れ</strong><small>修繕完了</small></div><b>完了</b></div></div><div class="floating-note note-b"><span class="note-icon">↗</span><div><strong>次に動く人が明確</strong><small>案件の停滞に気づける</small></div></div></div></div></div>
+<div class="feature-strip strip-c"><div class="wrap feature-layout"><div class="feature-text"><span class="feature-label">03　協力業者</span><h3>必要なことだけ、<br><em>案件ごとに回答。</em></h3><p>見積、訪問日、作業結果をひとつに整理。<br>やり取りが履歴としてつながります。</p><div class="feature-chips"><span>見積回答</span><span>日程調整</span><span>作業履歴</span></div><a class="feature-link" href="#demo">対応の流れを見る <span aria-hidden="true">↗</span></a></div>
+<div class="feature-art" aria-label="協力業者との修繕対応履歴の画面サンプル"><div class="feature-orb orb-c"></div><div class="feature-device timeline-device"><div class="board-top"><strong>305号室 / エアコン異音</strong><small>案件の対応履歴</small></div><div class="timeline-item"><i></i><div><small>報告</small><strong>客室スタッフが不具合を発見</strong><p>写真・発生場所を共有</p></div></div><div class="timeline-item"><i></i><div><small>業者への依頼</small><strong>現地確認・見積を依頼</strong><p>依頼内容を案件に記録</p></div></div><div class="timeline-item"><i></i><div><small>完了記録</small><strong>修繕結果を設備履歴へ</strong><p>次の対応にも活かせる</p></div></div></div><div class="floating-note note-c"><span class="note-icon">✓</span><div><strong>対応履歴を一元化</strong><small>次のトラブルに備える</small></div></div></div></div></div>
+<p class="feature-disclaimer">※画面・施設・案件は説明用のサンプルです。実際の提供範囲は個別にご案内します。</p>
+</section>
 <section class="section difference" id="why"><div class="wrap"><div class="center"><span class="eyebrow">導入で目指すこと</span><h2 class="heading">入力するためのシステムから、<br>仕事が進む仕組みへ。</h2><p class="section-copy">「情報を残すこと」ではなく「修繕が終わること」を中心に考えています。</p></div><div class="compare"><div class="compare-col"><h3>バラバラな管理</h3><div class="compare-item"><strong>REPORT</strong>写真はLINE、詳細は電話で確認</div><div class="compare-item"><strong>FOLLOW UP</strong>見積待ち・日程調整を個人が管理</div><div class="compare-item"><strong>HISTORY</strong>過去の修繕記録を探し直す</div></div><div class="compare-col new"><h3>トルツグが目指す業務</h3><div class="compare-item"><strong>REPORT</strong>報告した内容を次の担当者につなぐ</div><div class="compare-item"><strong>FOLLOW UP</strong>誰の回答待ちか、次の行動が分かる</div><div class="compare-item"><strong>HISTORY</strong>対応の過程を設備ごとの記録に残す</div></div></div></div></section>
 <section class="cta-band" id="materials"><div class="wrap"><span class="eyebrow" style="color:#b9e1df">サービス資料</span><h2>まずは、サービス資料をご覧ください。</h2><p>「自社でも使える？」「どこまで対応できる？」<br>施設の運用に合わせた導入方法をご案内します。</p><a class="button lime" href="/?request=torutsugu#contact">サービス資料を見る <span>→</span></a></div></section>
 <section class="faq" id="faq"><div class="wrap"><div class="center"><span class="eyebrow">よくあるご質問</span><h2 class="heading">よくあるご質問</h2></div><div class="faq-list"><details><summary>今使っているLINEやExcelを、すべてやめる必要がありますか？</summary><p>いいえ。現在の業務フローを伺い、負担の大きい工程から導入方法をご提案します。既存システムとの連携可否は個別にご確認ください。</p></details><details><summary>いつもの修繕業者とも使えますか？</summary><p>既存の協力業者との連携を前提に、依頼から回答・完了までの流れをご提案します。実際の機能提供範囲はお打ち合わせでご案内します。</p></details><details><summary>料金はどのくらいですか？</summary><p>施設数、対象業務、運用設計・導入支援の範囲によって異なります。ご要望を伺ったうえでお見積もりをご案内します。</p></details><details><summary>ホテル以外の施設でも利用できますか？</summary><p>ホテル・旅館の設備・修繕管理を中心にご案内しています。その他の施設も対象業務に応じてご相談ください。</p></details></div></div></section>

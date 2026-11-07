@@ -179,6 +179,59 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 .cap-cta{display:flex;justify-content:center;margin-top:38px}
 @media(max-width:800px){.cap-layout{grid-template-columns:1fr}.cap-screen{min-height:auto}.cap-groups{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.cap-app-body{grid-template-columns:75px 1fr}.cap-screen{padding:12px}.cap-content{padding:11px}.cap-metrics{gap:4px}.cap-metric strong{font-size:17px}.cap-features{gap:8px}.cap-info h3{font-size:27px}.cap-groups{grid-template-columns:1fr}.cap-app{min-height:355px}.cap-app-body{min-height:305px}}
+
+/* Selectable, workflow-first solution cards */
+.solution-select{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;padding:0;appearance:none;display:flex;flex-direction:column;transition:transform .18s,border-color .18s,box-shadow .18s}
+.solution-select:hover{transform:translateY(-4px);box-shadow:0 16px 34px #176d601c}
+.solution-select.is-active{border:2px solid #26aa9a;box-shadow:0 12px 32px #178f8022}
+.solution-select:focus-visible{outline:3px solid #188d80;outline-offset:4px}
+.solution-select .photo{display:block;width:100%;flex:none}
+.solution-select .body{display:flex;flex-direction:column;flex:1;width:100%}
+.solution-select .tile-title{display:block;font-size:22px;margin:10px 0;letter-spacing:-.04em}
+.solution-select .tile-desc{display:block;font-size:13px;color:#627f77;line-height:1.85;flex:1}
+.solution-select .tile-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.solution-select .tile-footer .phase{margin:0}
+.solution-select .tile-open{font-size:11px;font-weight:900;color:#178d80}
+.solution-select.is-active .tile-open{color:#13584f}
+.solution-detail{margin:35px 0 0}
+.solution-panel{border:1px solid #d8e9e4;border-radius:26px;padding:36px;background:#f7fcfa;box-shadow:0 12px 32px #115c4e0b}
+.solution-panel[hidden]{display:none}
+.solution-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:26px}
+.solution-panel-head h3{font-size:clamp(23px,2.55vw,33px);margin:10px 0 9px;line-height:1.5;letter-spacing:-.04em}
+.solution-panel-head p{font-size:13px;color:#638077;margin:0}
+.solution-panel-flag{white-space:nowrap;background:#d7f3e9;color:#147a6a;border-radius:100px;font-size:11px;font-weight:900;padding:8px 15px}
+.solution-panel-flag.future{background:#edf0f5;color:#75828e}
+.workflow-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.workflow-track{border-radius:17px;background:white;padding:24px 23px;border:1px solid #dfece7}
+.workflow-track.old{background:#fff;border-color:#ece7e4}
+.workflow-track.new{background:#effaf5;border-color:#c9e8db}
+.workflow-track-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #e4eee8;padding-bottom:14px}
+.workflow-track-heading strong{font-size:15px}
+.workflow-label{font:800 10px "DM Sans",sans-serif;letter-spacing:.07em;color:#8a9691}
+.workflow-track.new .workflow-label{color:#138e79}
+.workflow-steps{padding:0;margin:18px 0 0;list-style:none;counter-reset:flow}
+.workflow-steps li{position:relative;margin:0;padding:0 0 19px 36px;color:#556d67;font-size:13px;line-height:1.8;min-height:43px}
+.workflow-steps li:last-child{padding-bottom:0}
+.workflow-steps li:before{counter-increment:flow;content:counter(flow);position:absolute;top:1px;left:0;border-radius:50%;width:25px;height:25px;display:grid;place-items:center;color:#6b7f78;background:#eef1ef;font-size:11px;font-weight:900}
+.workflow-steps li:not(:last-child):after{content:"";position:absolute;top:28px;bottom:3px;left:12px;width:1px;background:#d8e8e1}
+.workflow-track.new li:before{background:#bce9d9;color:#116e5d}
+.workflow-track.new li{color:#204e45}
+.solution-benefit{border:1px solid #d2e9e0;border-radius:17px;padding:22px 25px;margin-top:16px;background:white;display:flex;align-items:flex-start;gap:20px}
+.solution-benefit>strong{font-size:13px;white-space:nowrap;color:#168d77;margin-top:7px}
+.solution-benefit>div{display:flex;gap:8px;flex-wrap:wrap}
+.solution-benefit span{background:#eaf8f3;color:#1d7669;padding:7px 11px;border-radius:9px;font-size:11px;font-weight:800}
+.solution-function-block{margin-top:30px}
+.solution-function-block h4{font-size:19px;margin:0 0 16px}
+.solution-function-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.solution-function-grid>div{border:1px solid #e0ede7;border-radius:13px;background:white;padding:18px 15px}
+.solution-function-grid b{display:block;font-size:13px;margin-bottom:9px}
+.solution-function-grid small{display:block;color:#71837c;line-height:1.9;font-size:11px}
+.solution-panel-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.solution-panel-bottom span{font-size:11px;color:#70867e}
+.solution-panel-bottom a{font-size:12px;font-weight:900;color:#128775;text-decoration:underline;text-underline-offset:4px}
+.solution-demo-note{font-size:11px;line-height:1.8;color:#748b83;margin:14px 6px 0}
+@media(max-width:900px){.solution-function-grid{grid-template-columns:1fr 1fr}.solution-panel{padding:25px}}
+@media(max-width:700px){.solution-panel{padding:20px 15px;border-radius:19px}.solution-panel-head{display:block}.solution-panel-flag{display:inline-block;margin-top:13px}.workflow-compare{grid-template-columns:1fr}.workflow-track{padding:19px}.solution-benefit{display:block;padding:18px}.solution-benefit>div{margin-top:12px}.solution-function-grid{grid-template-columns:1fr 1fr;gap:8px}.solution-function-grid>div{padding:13px}.solution-select .tile-title{font-size:21px}}
 </style>
 </head>
 <body>
@@ -199,10 +252,38 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 
 
 <section class="section work-flow" id="how"><div class="wrap"><div class="center"><span class="eyebrow">HOW IT WORKS</span><h2 class="section-title">現場から解決まで、<br>ひとつの流れに。</h2><p class="section-copy">LOCUEの中心となる、3ステップの仕組み。</p></div><div class="flow-cards"><div class="flow-card"><span class="n">STEP 01 / INPUT</span><div class="pict">📷</div><h3>一次情報を取得</h3><p>現場スタッフ、協力業者、施設利用者が写真・動画・音声で素早く報告。</p></div><div class="flow-card"><span class="n">STEP 02 / ENGINE</span><div class="pict">✦</div><h3>AIが業務情報に変換</h3><p>場所・設備・状況を理解し、必要な担当者や次のアクションを整理。</p></div><div class="flow-card"><span class="n">STEP 03 / ACTION</span><div class="pict">⚡</div><h3>課題解決まで実行</h3><p>連絡、修繕手配、日程調整、改善アクション、完了確認へつなぐ。</p></div></div></div></section>
-<section class="section service-overview" id="services"><div class="wrap"><div class="center"><span class="eyebrow">OUR SERVICE</span><h2 class="section-title">現場の情報を、<br>そのまま課題解決の力に。</h2><p class="overview-lead">LOCUEは、情報の入力を簡単にするだけのツールではありません。現場の一次情報をAIで業務情報に変え、修繕・品質改善・顧客対応などの実行につなげるプラットフォームです。</p></div><div class="service-tiles">
-<article class="service-tile"><div class="photo" role="img" aria-label="宿泊施設の客室イメージ"></div><div class="body"><span class="eyebrow">01 / MAINTENANCE</span><h3>設備管理・保全</h3><p>設備の異常報告から、修繕手配、外注業者との日程調整、完了記録まで。</p><span class="phase">最初の重点領域</span></div></article>
-<article class="service-tile"><div class="photo" role="img" aria-label="清掃現場のイメージ"></div><div class="body"><span class="eyebrow">02 / QUALITY</span><h3>現場の品質管理</h3><p>清掃・衛生・サービス品質の問題を、報告から是正・再確認までつなぐ。</p><span class="phase">展開構想</span></div></article>
-<article class="service-tile"><div class="photo" role="img" aria-label="観光・施設案内のイメージ"></div><div class="body"><span class="eyebrow">03 / EXPERIENCE</span><h3>顧客体験の改善</h3><p>施設利用者の気づきや不便から、案内・サービス改善のアクションへ。</p><span class="phase">展開構想</span></div></article>
+<section class="section service-overview" id="services"><div class="wrap">
+<div class="center"><span class="eyebrow">OUR SOLUTIONS</span><h2 class="section-title">現場の業務を、<br>ここまでシンプルに。</h2><p class="overview-lead">3つのソリューションから、気になる業務を選んでください。<br>今の仕事の流れと、LOCUE導入後に目指す業務フロー・機能を比較できます。</p></div>
+<div class="service-tiles" role="tablist" aria-label="ソリューション別の業務フロー">
+<button type="button" class="service-tile solution-select is-active" role="tab" id="tab-maintenance" aria-controls="panel-maintenance" aria-selected="true" tabindex="0" data-solution="maintenance"><span class="photo" role="img" aria-label="ホテル客室"></span><span class="body"><span class="eyebrow">01 / MAINTENANCE</span><strong class="tile-title">設備管理・保全</strong><span class="tile-desc">不具合報告、修繕手配、業者日程調整、点検・設備台帳まで。</span><span class="tile-footer"><span class="phase">最初の重点領域</span><span class="tile-open">機能・業務フローを見る <span aria-hidden="true">↗</span></span></span></span></button>
+<button type="button" class="service-tile solution-select" role="tab" id="tab-quality" aria-controls="panel-quality" aria-selected="false" tabindex="-1" data-solution="quality"><span class="photo" role="img" aria-label="清掃スタッフによる施設管理"></span><span class="body"><span class="eyebrow">02 / QUALITY</span><strong class="tile-title">現場の品質管理</strong><span class="tile-desc">清掃・衛生の確認、再対応指示、完了確認を少ない操作で。</span><span class="tile-footer"><span class="phase">展開構想</span><span class="tile-open">機能・業務フローを見る <span aria-hidden="true">↗</span></span></span></span></button>
+<button type="button" class="service-tile solution-select" role="tab" id="tab-experience" aria-controls="panel-experience" aria-selected="false" tabindex="-1" data-solution="experience"><span class="photo" role="img" aria-label="観光地や施設案内"></span><span class="body"><span class="eyebrow">03 / EXPERIENCE</span><strong class="tile-title">顧客体験の改善</strong><span class="tile-desc">お客様の気づきを集め、問題整理から現場の改善実行へ。</span><span class="tile-footer"><span class="phase">展開構想</span><span class="tile-open">機能・業務フローを見る <span aria-hidden="true">↗</span></span></span></span></button>
+</div>
+<div class="solution-detail" id="solution-detail" aria-live="off">
+<section class="solution-panel" id="panel-maintenance" role="tabpanel" aria-labelledby="tab-maintenance" tabindex="0">
+<div class="solution-panel-head"><div><span class="eyebrow">MAINTENANCE / OPERATIONS</span><h3>設備の発見・確認・修繕が、<br>一つの流れで進む。</h3><p>設備の不具合対応を例に、現場で行われる仕事を比較します。</p></div><span class="solution-panel-flag">最優先で検証</span></div>
+<div class="workflow-compare">
+<div class="workflow-track old"><div class="workflow-track-heading"><span class="workflow-label">BEFORE</span><strong>現在の業務フロー</strong></div>
+<ol class="workflow-steps"><li>清掃スタッフが不具合を発見</li><li>電話・チャット・フォームで報告</li><li>管理者が内容を確認・転記</li><li>協力業者へ電話・メールで依頼</li><li>ホテルと業者で候補日を往復確認</li><li>完了後に状態と履歴を手動更新</li></ol></div>
+<div class="workflow-track new"><div class="workflow-track-heading"><span class="workflow-label">WITH LOCUE</span><strong>目指す業務フロー</strong></div>
+<ol class="workflow-steps"><li><b>撮るだけ</b>で設備・場所を紐づけて報告</li><li>AIが内容・優先度・依頼文を整理</li><li>条件に合う担当者・業者へ依頼</li><li>URLで業者が候補日を回答し自動照合</li><li>必要な発注・安全確認だけ承認</li><li>作業結果を受けて履歴へ自動反映</li></ol></div>
+</div><div class="solution-benefit"><strong>なくしたい業務</strong><div><span>報告内容の書き直し</span><span>関係者への転記</span><span>日程調整の電話往復</span><span>進捗の手動更新</span></div></div>
+<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>不具合・修繕</b><small>写真・動画・音声報告、AI分類、案件別共有、修繕履歴</small></div><div><b>点検・設備台帳</b><small>点検チェック、周期・年間計画、施設・設備情報の管理</small></div><div><b>外注業者連携</b><small>依頼書作成、候補日の回答、日程照合、作業完了報告</small></div><div><b>費用・備品・分析</b><small>見積・費用記録、在庫管理、レポート、多拠点集計</small></div></div></div>
+<div class="solution-panel-bottom"><span>PoCでは、管理者工数・日程調整の往復回数・修繕完了時間を計測します。</span><a href="#maintenance-functions">設備管理の詳細機能を見る ↗</a></div>
+</section>
+<section class="solution-panel" id="panel-quality" role="tabpanel" aria-labelledby="tab-quality" tabindex="0" hidden>
+<div class="solution-panel-head"><div><span class="eyebrow">QUALITY / OPERATIONS</span><h3>清掃・品質チェックを、<br>確認作業ではなく改善へ。</h3><p>客室の清掃不備を発見した場面を例に、対応までの流れを比較します。</p></div><span class="solution-panel-flag future">展開構想</span></div>
+<div class="workflow-compare"><div class="workflow-track old"><div class="workflow-track-heading"><span class="workflow-label">BEFORE</span><strong>現在の業務フロー</strong></div><ol class="workflow-steps"><li>清掃・点検スタッフが状態を確認</li><li>チェックシートや写真を別々に入力</li><li>責任者が報告を読んで内容を仕分け</li><li>清掃担当へ電話・チャットで再依頼</li><li>再清掃後に再び現場を確認</li><li>報告書とチェック結果を更新</li></ol></div><div class="workflow-track new"><div class="workflow-track-heading"><span class="workflow-label">WITH LOCUE</span><strong>目指す業務フロー</strong></div><ol class="workflow-steps"><li><b>写真・音声</b>で不備の状況を素早く共有</li><li>AIが客室・内容・確認項目を整理</li><li>品質基準との照合を支援</li><li>再清掃の依頼と必要情報を自動共有</li><li>作業後の写真・記録から再確認を支援</li><li>対応履歴と品質傾向を集約</li></ol></div></div>
+<div class="solution-benefit"><strong>なくしたい業務</strong><div><span>紙チェックの転記</span><span>不備内容の説明し直し</span><span>再清掃の個別連絡</span><span>二重の完了入力</span></div></div>
+<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>品質の現地報告</b><small>写真・動画・音声、場所・客室の紐づけ</small></div><div><b>AIによる分類</b><small>清掃・衛生・備品不足、基準との照合補助</small></div><div><b>是正フロー</b><small>担当者への連携、再清掃、確認・完了記録</small></div><div><b>品質履歴</b><small>不備の発生傾向、施設別の改善状況の把握</small></div></div></div><div class="solution-panel-bottom"><span>品質判定や完了確認には、人の判断が必要な場面を残します。</span><a href="#contact">品質管理の共同実証を相談する ↗</a></div>
+</section>
+<section class="solution-panel" id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" tabindex="0" hidden>
+<div class="solution-panel-head"><div><span class="eyebrow">EXPERIENCE / OPERATIONS</span><h3>お客様の「困った」を、<br>現場の改善アクションへ。</h3><p>ホテルの案内表示が分かりにくい場面を例に、問い合わせから改善までを比較します。</p></div><span class="solution-panel-flag future">展開構想</span></div>
+<div class="workflow-compare"><div class="workflow-track old"><div class="workflow-track-heading"><span class="workflow-label">BEFORE</span><strong>現在の業務フロー</strong></div><ol class="workflow-steps"><li>お客様が案内の不備に気づく</li><li>フロントへ問い合わせ・口頭で説明</li><li>スタッフが案内してその場で対応</li><li>不便だった場所が記録に残らない</li><li>類似の問い合わせが繰り返される</li><li>改善案の整理・担当部署への共有が手作業</li></ol></div><div class="workflow-track new"><div class="workflow-track-heading"><span class="workflow-label">WITH LOCUE</span><strong>目指す業務フロー</strong></div><ol class="workflow-steps"><li>お客様が<b>QR・写真・音声</b>で簡単に共有</li><li>AIが場所・内容・言語を整理</li><li>必要ならすぐ案内・対応先につなぐ</li><li>同じ不便をまとめて傾向を把握</li><li>改善が必要な場所と対応候補を提示</li><li>案内更新・是正の実施結果を記録</li></ol></div></div>
+<div class="solution-benefit"><strong>なくしたい業務</strong><div><span>同じ問い合わせの反復</span><span>口頭情報の転記</span><span>声の個別集計</span><span>改善依頼の手動共有</span></div></div>
+<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>利用者向け入力UI</b><small>アプリ登録を前提としない簡単な報告窓口</small></div><div><b>AIによる課題整理</b><small>多言語の声・場所・画像の分類、重複の集約</small></div><div><b>改善アクション</b><small>問い合わせへの案内、担当部署への是正依頼</small></div><div><b>改善の可視化</b><small>発生場所・内容の傾向と改善履歴を確認</small></div></div></div><div class="solution-panel-bottom"><span>入力する利用者は無料、課題解決に活用する企業が契約するモデルです。</span><a href="#contact">体験改善の共同実証を相談する ↗</a></div>
+</section>
+<p class="solution-demo-note">※業務フローは業界で見られる運用の一例です。LOCUE導入後の動き・削減効果は開発構想であり、実証済みの成果ではありません。</p>
 </div></div></section><section class="story-band" id="features"><div class="wrap">
 <div class="story"><div class="story-copy"><span class="story-label">01 / LOCUE INPUT</span><h3>現場の情報は、<br>撮るだけ、話すだけ。</h3><p>報告のために、項目をいくつも選び、文章を書く必要はありません。写真・動画・音声・QRなどから、状況に合った最小限の操作で一次情報を届けられる入力体験を目指します。</p><div class="story-points"><span>フォームレス設計</span><span>アプリ登録不要を想定</span><span>役割に応じた入力UI</span></div></div><div class="story-art photo"><div class="story-window"><div class="top">LOCUE Input <small>現場スタッフ向け</small></div><div class="mock-item"><div class="mock-icon">📍</div><div>客室305 / エアコン<small>QRから開くと場所を自動セット</small></div></div><div class="mock-item"><div class="mock-icon">📷</div><div>写真を撮って共有<small>気になる箇所をカメラで撮影</small></div></div><div class="mock-cta">撮影して報告 →</div></div><div class="story-callout">入力は必要なことだけ ✓</div></div></div>
 <div class="story reverse"><div class="story-copy"><span class="story-label">02 / LOCUE ENGINE</span><h3>現場の気づきを、<br>AIが使える情報へ。</h3><p>バラバラな写真、動画、音声から「どこで何が起きたか」を整理。既存設備情報や過去の対応履歴と照合して、次に必要な確認や手配を準備します。AIが判断しきれない部分だけ、人が確認します。</p><div class="story-points"><span>AIによる情報構造化</span><span>設備・場所との照合</span><span>確認すべき点を提示</span></div></div><div class="story-art blue"><div class="story-window"><div class="top">✦ LOCUE Engine <small>情報変換デモ</small></div><div class="mock-item"><div class="mock-icon">📷</div><div>写真・音声を受信<small>現場スタッフによる一次報告</small></div></div><div class="mock-item"><div class="mock-icon">✦</div><div>設備：エアコン / 305号室<small>現場データを整理・分類</small></div></div><div class="mock-item"><div class="mock-icon">↗</div><div>設備担当への確認候補<small>過去の対応履歴を参照</small></div></div></div><div class="story-callout">入力情報 → 業務情報</div></div></div>
@@ -248,4 +329,40 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 </div></div></section>
 <section class="contact" id="contact"><div class="wrap"><span class="eyebrow">LET'S BUILD TOGETHER</span><h2>現場の「面倒」を、<br>一緒になくしませんか。</h2><p>不具合報告、修繕手配、点検、品質管理。現場で繰り返される手間を知る事業者の皆さまと、LOCUEを育てていきたいと考えています。まずは実際の業務課題をお聞かせください。</p><a class="btn white" href="mailto:contact@vitality-design.jp?subject=LOCUE%E3%81%AE%E5%85%B1%E5%90%8C%E5%AE%9F%E8%A8%BC%E3%83%BB%E5%B0%8E%E5%85%A5%E7%9B%B8%E8%AB%87">共同実証・導入について相談する <span class="arr">↗</span></a><div style="font-size:11px;color:#c5e9df;margin-top:21px">運営：バイタリティデザイン合同会社</div></div></section>
 </main><footer class="wrap foot"><div>© 2026 VITALITY DESIGN LLC</div><div><a href="/">コーポレートサイト</a>　 /　 <a href="/privacy.html">プライバシーポリシー</a>　 /　 <a href="mailto:contact@vitality-design.jp">お問い合わせ</a></div></footer>
-</body></html>
+<script>
+(function(){
+  const tabs=Array.from(document.querySelectorAll('[data-solution]'));
+  const ids=['maintenance','quality','experience'];
+  function selectSolution(name,focus){
+    if(!ids.includes(name)) return;
+    tabs.forEach(tab=>{
+      const selected=tab.dataset.solution===name;
+      tab.classList.toggle('is-active',selected);
+      tab.setAttribute('aria-selected',String(selected));
+      tab.tabIndex=selected?0:-1;
+      if(selected&&focus) tab.focus();
+    });
+    ids.forEach(id=>{
+      const panel=document.getElementById('panel-'+id);
+      if(panel) panel.hidden=id!==name;
+    });
+  }
+  tabs.forEach((tab,i)=>{
+    tab.addEventListener('click',()=>{
+      selectSolution(tab.dataset.solution,false);
+      const panel=document.getElementById('solution-detail');
+      if(panel) panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    });
+    tab.addEventListener('keydown',event=>{
+      let next;
+      if(event.key==='ArrowRight') next=(i+1)%tabs.length;
+      if(event.key==='ArrowLeft') next=(i+tabs.length-1)%tabs.length;
+      if(event.key==='Home') next=0;
+      if(event.key==='End') next=tabs.length-1;
+      if(next!==undefined){event.preventDefault();selectSolution(tabs[next].dataset.solution,true);}
+    });
+  });
+  const hash=location.hash.replace('#','');
+  if(ids.includes(hash))selectSolution(hash,false);
+})();
+</script></body></html>

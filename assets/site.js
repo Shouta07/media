@@ -84,18 +84,18 @@
     });
   }
 
-  /* ---------- LOCUE資料請求: サイト外からの流入 ---------- */
+  /* ---------- トルツグ資料請求: サイト外からの流入（旧URLにも対応） ---------- */
   (function(){
     var params=new URLSearchParams(window.location.search);
-    if(params.get('request')!=='locue') return;
+    if(params.get('request')!=='torutsugu' && params.get('request')!=='locue') return;
     var form=document.getElementById('vdForm');
     if(!form) return;
     var topic=document.getElementById('f-topic');
-    if(topic) topic.value='LOCUE 資料請求';
+    if(topic) topic.value='トルツグ 資料請求';
     var subject=document.getElementById('f-subject');
-    if(subject) subject.value='LOCUE 無料資料請求';
+    if(subject) subject.value='トルツグ 無料資料請求';
     var source=document.getElementById('f-source');
-    if(source) source.value='LOCUEサービスサイト';
+    if(source) source.value='トルツグ サービスサイト';
     var intro=document.getElementById('locueRequestIntro');
     if(intro) intro.hidden=false;
     form.classList.add('locue-request');

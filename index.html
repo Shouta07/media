@@ -700,6 +700,22 @@ html{scroll-padding-top:71px}
  .vd-story-chapter p{font-size:14px;line-height:2;max-width:100%}
  .vd-story-end{font-size:clamp(21px,5.7vw,29px);margin-top:0;padding-top:28px}
 }
+
+/* Continuous editorial narrative instead of discrete chapter cards */
+.vd-story{padding:112px 0 115px;background:#f7faf9}
+.vd-story-intro{max-width:760px;margin-bottom:45px}
+.vd-story-narrative{max-width:770px;margin-left:auto}
+.vd-story-narrative>p{margin:0 0 25px;font-size:16px;line-height:2.2;letter-spacing:.005em;color:#435e65}
+.vd-story-narrative>.vd-story-emphasis{font-size:clamp(23px,2.55vw,33px);font-weight:800;letter-spacing:-.055em;color:#0d444a;line-height:1.7;margin:44px 0 29px}
+.vd-story-narrative>.vd-story-end{font-size:clamp(21px,2.4vw,30px);font-weight:800;letter-spacing:-.06em;line-height:1.65;color:#087f75;border-top:1px solid #d4e3df;padding-top:29px;margin:46px 0 0;max-width:none}
+@media(max-width:760px){
+ .vd-story{padding:73px 0 78px}
+ .vd-story-intro{margin-bottom:32px}
+ .vd-story-narrative{margin-left:0}
+ .vd-story-narrative>p{font-size:14px;line-height:2.05;margin-bottom:20px}
+ .vd-story-narrative>.vd-story-emphasis{font-size:clamp(22px,5.8vw,28px);line-height:1.7;margin:32px 0 24px}
+ .vd-story-narrative>.vd-story-end{font-size:clamp(20px,5.4vw,27px);line-height:1.75;margin-top:37px;padding-top:24px}
+}
 </style>
 </head>
 <body>
@@ -734,29 +750,15 @@ html{scroll-padding-top:71px}
       <p class="vd-story-kicker">OUR ORIGIN / 私たちの原点</p>
       <h2 id="vd-story-title">旅と仕事。<br>その交差点から。</h2>
     </div>
-    <div class="vd-story-chapters">
-      <article class="vd-story-chapter">
-        <span class="vd-story-number" aria-hidden="true">01 / JOURNEY</span>
-        <h3>現地に行くから、<br>見えてくるものがある。</h3>
-        <p>国内外を旅し、その土地の文化や食、人との出会いに触れてきた。画面越しでは分からない発見が、いつも現地にはあった。</p>
-      </article>
-      <article class="vd-story-chapter">
-        <span class="vd-story-number" aria-hidden="true">02 / WORK</span>
-        <h3>現場は、一つとして<br>同じではない。</h3>
-        <p>仕事では映像IoT企業で、設備導入や工事、業務の仕組み化に携わってきた。共通する流れを整えながら、一つひとつ異なる現場の事情にも向き合った。</p>
-      </article>
-      <article class="vd-story-chapter">
-        <span class="vd-story-number" aria-hidden="true">03 / BELIEF</span>
-        <h3>AIの時代だからこそ、<br>自分の足で確かめる。</h3>
-        <p>情報を得ることが容易になるほど、まだ言葉やデータになっていない事実が大切になる。誰かの伝聞だけで決めず、自分の目で見て、現場の声を聞く。</p>
-      </article>
-      <article class="vd-story-chapter">
-        <span class="vd-story-number" aria-hidden="true">04 / ACTION</span>
-        <h3>大きな志を、<br>小さな実践から。</h3>
-        <p>まずは日本から。ともに旅をしてきた仲間と、お客様の課題に向き合う。仮説を立て、つくり、試し、直す。その繰り返しから、世界に通じる事業を育てていく。</p>
-      </article>
+    <div class="vd-story-narrative">
+      <p>国内外を旅することが好きだった。友人と訪れた街も、一人で歩いた土地もある。その土地ならではの文化や食事を味わい、現地の人と交流する。実際に足を運んだからこそ出会える景色や発見が、いつもあった。</p>
+      <p>一方、仕事では映像を活用したIoT企業で、設備導入や工事、業務の仕組み化に携わってきた。似た仕事でも、現場が違えば設備も人も運用も異なる。共通する流れを仕組みにしながら、一つひとつの事情に向き合う。その積み重ねから、現場にはまだ活かしきれていない情報があると感じた。</p>
+      <p class="vd-story-emphasis">旅も仕事も、大切なことは現場にあった。</p>
+      <p>AIによって、誰もが瞬時に情報を得られる時代。だからこそ、私たちはリアルの価値がますます高まると考えている。誰かの伝聞だけで意思決定するのではなく、自分の足で訪れ、自分の目で確かめ、その場にいる人の声を聞く。まだデータにも言葉にもなっていない課題や可能性は、そこにある。</p>
+      <p>世界中の現場には、国や業界が違っても共通する課題や仕事の流れがあるはずだ。そこで得た一次情報をテクノロジーと仕組みの力で活かし、働く人にも、サービスを受ける人にも、より良い体験を届けたい。</p>
+      <p>まずは日本から。ともに旅をしてきた仲間と、お客様の課題に向き合い、仮説を立て、つくり、試し、直す。大きなことを語るだけではなく、目の前の現場で小さな実践を積み重ね、事業に育てていく。</p>
+      <p class="vd-story-end">現場へ行く。愚直に試す。事業にする。</p>
     </div>
-    <p class="vd-story-end">現場へ行く。愚直に試す。事業にする。</p>
   </div>
 </section>
 

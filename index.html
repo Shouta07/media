@@ -198,6 +198,70 @@ html{scroll-padding-top:71px}
 .home-about-link .outline-link:hover{background:#fff;color:#143e2d}
 @media(max-width:760px){.vision-hero-inner{padding-top:55px;padding-bottom:58px}.vision-hero h1{font-size:clamp(36px,8.2vw,56px)}.vision-subtitle{font-size:17px}.vision-summary{font-size:13px}.vision-photo{height:255px;margin-top:35px}.mission{padding:63px 0}.mission-grid{grid-template-columns:1fr;gap:12px}.mission-lead{font-size:17px}.mission-grid>div:last-child{font-size:13px}}
 @media(max-width:450px){.vision-hero-inner{padding-top:43px;padding-bottom:47px}.vision-hero h1{font-size:clamp(32px,8.7vw,42px)}.vision-photo{height:205px}.vision-photo-label{left:15px;bottom:15px;font-size:9px}.mission h2{font-size:30px}}
+
+/* Cinematic brand storytelling */
+.cinematic-hero{height:calc(100svh - 78px);min-height:630px;max-height:980px;padding:0!important;position:relative;color:#fff;background:#1b3c34;overflow:hidden;isolation:isolate}
+.cinematic-hero-images,.cinematic-hero-shade{position:absolute;inset:0}
+.cinematic-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);animation:heroSlide 21s infinite;will-change:opacity,transform}
+.hero-frame-a{animation-delay:-0s}.hero-frame-b{animation-delay:-14s}.hero-frame-c{animation-delay:-7s}
+@keyframes heroSlide{0%{opacity:0;transform:scale(1.08)}4%,29%{opacity:1}33.33%,100%{opacity:0;transform:scale(1)}}
+.cinematic-hero-shade{z-index:1;background:linear-gradient(90deg,rgba(7,26,23,.80) 0%,rgba(7,26,23,.44) 63%,rgba(7,26,23,.27) 100%)}
+.cinematic-hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center;padding-top:50px;padding-bottom:70px}
+.cinematic-hero-copy{max-width:930px}.cinematic-hero .vision-overline{color:#d0e9dc}
+.cinematic-hero h1{color:#fff;font-size:clamp(43px,5.6vw,83px);line-height:1.43;margin:26px 0 19px;text-shadow:0 2px 16px #02150a24}
+.cinematic-hero h1 em{color:#fff}.cinematic-hero .vision-subtitle{font-size:21px;color:#fff}
+.cinematic-hero .vision-summary{color:#e1ebe5;font-size:14px;line-height:2.15;max-width:680px}
+.cinematic-hero .vision-text-link{color:#fff;border-color:#f5fff98a;margin-top:32px}
+.cinematic-side-label{position:absolute;right:15px;top:50%;writing-mode:vertical-rl;transform:translateY(-50%);color:#ffffffca;font:600 10px 'Inter',sans-serif;letter-spacing:.24em}
+.cinematic-side-label span{margin:16px 0}.cinematic-scroll-indicator{position:absolute;bottom:29px;left:30px;color:#fff;font:600 10px 'Inter',sans-serif;letter-spacing:.17em;display:flex;gap:20px;align-items:center}
+.cinematic-scroll-indicator span{font-size:18px}
+.visual-disclaimer{position:absolute;z-index:2;right:24px;bottom:19px;color:#ffffffc5;font-size:9px;line-height:1.5;text-align:right}
+.world-intro{padding:100px 0;background:#fff}.world-intro-inner{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:end}
+.world-intro h2{font-size:clamp(32px,3.6vw,50px);line-height:1.55;letter-spacing:-.07em;margin-top:17px}
+.world-intro-inner>p{font-size:14px;line-height:2.4;color:#53695a;max-width:450px}
+.world-journey{position:relative;background:#173a33}
+.world-stage{height:100svh;min-height:620px;max-height:1000px;position:sticky;top:0;overflow:hidden;background:#102820}
+.world-stage-image{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .8s ease;will-change:opacity}
+.world-stage-image.is-active{opacity:1}
+.world-stage-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.82);transform:scale(1.035);transition:transform 2.5s ease}
+.world-stage-image.is-active img{transform:scale(1)}
+.world-stage-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,24,19,.73),rgba(5,24,19,.20));pointer-events:none}
+.world-stage-counter{position:absolute;top:45px;right:max(30px,calc((100vw - 1120px)/2));font:700 13px 'Inter',sans-serif;letter-spacing:.16em;color:#fff;z-index:2}
+.world-stage-counter span{color:#d3f2dd;margin-left:14px}
+.world-progress{position:absolute;z-index:2;right:max(30px,calc((100vw - 1120px)/2));top:100px;display:grid;gap:9px}
+.world-progress span{display:block;width:27px;height:2px;background:#ffffff70;transition:width .3s,background .3s}
+.world-progress span.is-active{width:48px;background:#fff}
+.world-journey-steps{position:relative;z-index:2;margin-top:-100svh}
+.world-step{height:100svh;min-height:620px;max-height:1000px;display:flex;align-items:center;pointer-events:none}
+.world-step-inner{margin:0 auto;width:min(1120px,calc(100% - 60px));max-width:1120px;color:white;text-shadow:0 2px 15px #04231430}
+.world-step-type{font:700 12px 'Inter',sans-serif;letter-spacing:.19em;color:#cbf5d9}
+.world-step h3{font-size:clamp(42px,5.2vw,73px);letter-spacing:-.07em;line-height:1.5;font-weight:700;margin:19px 0 22px}
+.world-step p{font-size:15px;line-height:2.2;max-width:570px;color:#e7f2eb}
+.world-step-category{display:inline-block;font:700 11px 'Inter',sans-serif;letter-spacing:.16em;margin-top:34px;padding-top:15px;border-top:1px solid #ffffff9c}
+.world-caption{background:#f4f8f5;color:#71887a;font-size:10px;padding:14px 5%;text-align:center}
+@media(max-width:760px){
+.cinematic-hero{height:min(820px,calc(100svh - 65px));min-height:540px}
+.cinematic-hero-inner{padding-top:35px;padding-bottom:60px}
+.cinematic-hero h1{font-size:clamp(35px,8vw,59px);margin:19px 0}
+.cinematic-hero .vision-subtitle{font-size:17px}
+.cinematic-hero .vision-summary{font-size:12px}
+.cinematic-side-label{display:none}.visual-disclaimer{left:22px;right:22px;bottom:12px;text-align:left;font-size:8px}
+.cinematic-scroll-indicator{left:22px;bottom:54px}
+.world-intro{padding:68px 0}.world-intro-inner{grid-template-columns:1fr;gap:20px}
+.world-intro h2{font-size:31px}.world-intro-inner>p{font-size:13px}
+.world-stage,.world-step{height:100svh;min-height:560px;max-height:850px}
+.world-journey-steps{margin-top:-100svh}
+.world-stage-counter{top:28px;right:23px;font-size:11px}.world-progress{top:67px;right:23px}
+.world-step-inner{width:calc(100% - 44px)}
+.world-step h3{font-size:clamp(34px,8vw,53px)}
+.world-step p{font-size:13px}
+}
+@media(max-width:480px){.cinematic-hero{min-height:565px}.cinematic-hero h1{font-size:clamp(30px,8.1vw,40px)}.cinematic-hero .vision-summary{line-height:2}.world-step h3{font-size:clamp(32px,7.6vw,40px)}.world-step p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){
+.cinematic-hero-img{animation:none!important;opacity:0;transform:none}
+.cinematic-hero-img:first-child{opacity:1}
+.world-stage-image,.world-stage-image img,.world-progress span{transition:none!important;transform:none!important}
+}
 </style>
 </head>
 <body>
@@ -209,8 +273,44 @@ html{scroll-padding-top:71px}
 </div></header>
 <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション" hidden><a href="#business">事業紹介</a><a href="/about.html">私たちについて</a><a href="/company.html">会社概要</a><a href="#contact">お問い合わせ ↗</a></nav>
 <main id="main">
-<section class="vision-hero" aria-labelledby="vision-heading"><div class="container vision-hero-inner"><div class="vision-hero-copy"><span class="vision-overline">VITALITY DESIGN / OUR MISSION</span><h1 id="vision-heading">世界のリアルアセットを、<br><em>輝かせる。</em></h1><p class="vision-subtitle">人と、場所と、可能性をつなぐ。</p><p class="vision-summary">建物や施設には、まだ生かしきれていない価値がある。現場の仕事を仕組みで変え、運営を磨き、そこで生まれる体験をもっと豊かにする。日本の現場から、世界へ。</p><a class="vision-text-link" href="#mission">私たちが目指す未来 <span>↘</span></a></div><div class="vision-photo" role="img" aria-label="日本の都市と建物のイメージ"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1600&q=82&auto=format&fit=crop" fetchpriority="high" alt="日本の都市と建物の景観イメージ"><span class="vision-photo-label">REAL PLACES. REAL POSSIBILITIES.</span></div></div></section>
+<section class="vision-hero cinematic-hero" aria-labelledby="vision-heading">
+<div class="cinematic-hero-images" aria-hidden="true">
+<img class="cinematic-hero-img hero-frame-a" src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1800&q=84&auto=format&fit=crop" alt="" fetchpriority="high">
+<img class="cinematic-hero-img hero-frame-b" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1800&q=82&auto=format&fit=crop" alt="" loading="lazy">
+<img class="cinematic-hero-img hero-frame-c" src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=82&auto=format&fit=crop" alt="" loading="lazy">
+</div>
+<div class="cinematic-hero-shade"></div>
+<div class="container cinematic-hero-inner">
+<div class="cinematic-hero-copy"><span class="vision-overline">VITALITY DESIGN / OUR MISSION</span>
+<h1 id="vision-heading">世界のリアルアセットを、<br><em>輝かせる。</em></h1>
+<p class="vision-subtitle">人と、場所と、可能性をつなぐ。</p>
+<p class="vision-summary">建物や施設の可能性を、現場からひらく。<br>運営を変え、体験を磨き、施設の価値を次の未来へ。</p>
+<a class="vision-text-link" href="#mission">私たちのミッション <span>↓</span></a>
+</div>
+<div class="cinematic-side-label">FROM JAPAN TO THE WORLD <span>—</span> REAL ASSETS</div>
+<div class="cinematic-scroll-indicator">SCROLL TO EXPLORE <span>↓</span></div>
+</div>
+<p class="visual-disclaimer">※掲載写真は世界観を示すイメージで、当社の運営・開発実績や海外拠点を示すものではありません。</p>
+</section>
 <section class="mission" id="mission"><div class="container mission-grid"><div><p class="section-label">OUR VISION</p><h2>施設の価値を、<br>その先へ。</h2></div><div><p class="mission-lead">現場がよくなれば、施設の可能性はもっと広がる。</p><p>設備・修繕管理、運営の仕組み、サービスの届け方。人が集まり、働き、滞在する場所を、もっと使いやすく、魅力あるものにしていきたいと考えています。</p><p>目指すのは、建物を管理するだけでなく、運営と体験の両面から価値を高めること。日本で磨いた知恵と仕組みを、世界のリアルアセットへ届けていきます。</p><a class="vision-text-link dark" href="/about.html">私たちについて <span>↗</span></a></div></div></section>
+<section class="world-intro" id="world"><div class="container world-intro-inner"><div><p class="section-label">THE WORLD WE ENVISION</p><h2>場所には、<br>まだ見ぬ可能性がある。</h2></div><p>ホテルも、住宅も、街も。人が集まり、働き、滞在する場所には、それぞれの価値がある。私たちは運営と体験を磨き、その可能性をひらきたい。</p></div></section>
+<section class="world-journey" aria-label="世界の建物と施設の可能性を紹介するスクロールギャラリー">
+<div class="world-stage" aria-hidden="true">
+<figure class="world-stage-image is-active" data-scene="0"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=2000&q=84&auto=format&fit=crop" alt="" loading="lazy"></figure>
+<figure class="world-stage-image" data-scene="1"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2000&q=84&auto=format&fit=crop" alt="" loading="lazy"></figure>
+<figure class="world-stage-image" data-scene="2"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=2000&q=84&auto=format&fit=crop" alt="" loading="lazy"></figure>
+<figure class="world-stage-image" data-scene="3"><img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=2000&q=84&auto=format&fit=crop" alt="" loading="lazy"></figure>
+<div class="world-stage-shade"></div><div class="world-stage-counter">VISION <span id="scene-count">01</span> / 04</div><div class="world-progress" id="world-progress"><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="world-journey-steps">
+<article class="world-step" data-scene-step="0"><div class="world-step-inner"><span class="world-step-type">01 / FROM THE FIELD</span><h3>日本の現場から、<br>変えていく。</h3><p>一つひとつの施設に向き合い、そこで働く人の仕事を知る。現場で使える仕組みが、次の価値をつくる。</p><span class="world-step-category">FIELD OPERATIONS</span></div></article>
+<article class="world-step" data-scene-step="1"><div class="world-step-inner"><span class="world-step-type">02 / HOSPITALITY</span><h3>滞在する場所を、<br>もっと豊かに。</h3><p>設備が整い、運営が行き届く。その積み重ねが、訪れる人の心に残る体験へとつながる。</p><span class="world-step-category">HOTELS &amp; HOSPITALITY</span></div></article>
+<article class="world-step" data-scene-step="2"><div class="world-step-inner"><span class="world-step-type">03 / REAL ASSETS</span><h3>建物の可能性は、<br>ひとつじゃない。</h3><p>住宅、商業施設、文化を受け継ぐ建物。場所ごとの役割を見つめ、価値を高める仕組みを考える。</p><span class="world-step-category">LIVING &amp; CULTURE</span></div></article>
+<article class="world-step" data-scene-step="3"><div class="world-step-inner"><span class="world-step-type">04 / TO THE WORLD</span><h3>世界のリアルアセットへ、<br>価値を届ける。</h3><p>日本で磨いた現場への理解と実行力を、国境を越えて。世界の施設が持つ可能性を、さらに大きく。</p><span class="world-step-category">GLOBAL AMBITION</span></div></article>
+</div>
+</section>
+<p class="world-caption">※写真は事業の将来像を表現するイメージです。各施設・建物への当社の関与を示すものではありません。</p>
+
 <section class="section" id="business"><div class="container">
 <div class="section-head"><p class="section-label">BUSINESS</p><h2>事業紹介</h2></div>
 <div class="service-grid">
@@ -274,4 +374,36 @@ html{scroll-padding-top:71px}
 <script>window.VD_S={menuO:'メニューを開く',menuC:'メニューを閉じる',f1:'会社名・団体名',f2:'お名前',f3:'メールアドレス',sep:'、',eReq:'未入力の項目があります：',eMail:'メールアドレスの形式をご確認ください。',sending:'送信しています…',eSend:'送信できませんでした。お手数ですが contact@vitality-design.jp まで直接ご連絡ください。',submit:'お問い合わせを送る'};</script>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/vision.js" defer></script>
-</body></html>
+<script>
+(function(){
+ const section=document.querySelector('.world-journey');
+ if(!section)return;
+ const steps=Array.from(section.querySelectorAll('[data-scene-step]'));
+ const scenes=Array.from(section.querySelectorAll('[data-scene]'));
+ const bars=Array.from(section.querySelectorAll('.world-progress span'));
+ const counter=document.getElementById('scene-count');
+ if(!steps.length||!scenes.length)return;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let current=-1,queued=false;
+ function update(){
+   queued=false;
+   const probe=window.innerHeight*.53;
+   let best=0,distance=Infinity;
+   steps.forEach((el,i)=>{const rect=el.getBoundingClientRect();const d=Math.abs((rect.top+rect.height*.5)-probe);if(d<distance){distance=d;best=i}});
+   if(best===current)return;
+   current=best;
+   scenes.forEach((el,i)=>el.classList.toggle('is-active',i===best));
+   bars.forEach((el,i)=>el.classList.toggle('is-active',i===best));
+   if(counter)counter.textContent=String(best+1).padStart(2,'0');
+ }
+ function onScroll(){if(!queued){queued=true;requestAnimationFrame(update)}}
+ const io=new IntersectionObserver(entries=>{
+   if(entries.some(e=>e.isIntersecting)){window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
+   else{window.removeEventListener('scroll',onScroll)}
+ },{rootMargin:'150px 0px 150px 0px'});
+ io.observe(section);
+ window.addEventListener('resize',onScroll,{passive:true});
+ update();
+ if(reduce){const imgs=document.querySelectorAll('.cinematic-hero-img');imgs.forEach((im,i)=>im.style.opacity=i===0?'1':'0')}
+})();
+</script></body></html>

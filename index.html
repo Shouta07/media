@@ -449,6 +449,37 @@ html{scroll-padding-top:71px}
 }
 @media(max-width:450px){.ed-hero-inner{padding-top:35px;padding-bottom:39px;gap:19px}.ed-hero h1{font-size:clamp(32px,8.6vw,40px);margin-bottom:0}.ed-hero-gallery{height:280px}.ed-hero-slide figcaption{left:17px;bottom:14px;font-size:11px}.ed-gallery-index{right:16px;bottom:15px;font-size:10px}.ed-hero-bottom p{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.ed-hero-slide{transition:none}}
+
+/* Immersive photographic corporate vision */
+.ed-hero{position:relative;isolation:isolate;height:min(820px,calc(100svh - 78px));min-height:590px;background:#153b3c;color:#fff;overflow:hidden;border:0}
+.ed-hero-gallery{position:absolute;z-index:0;inset:0;width:100%;height:100%;background:#163b3d;overflow:hidden}
+.ed-hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.5s ease,visibility 1.5s ease;overflow:hidden}
+.ed-hero-slide.is-active{opacity:1;visibility:visible}
+.ed-hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center 48%;transform:scale(1.025)}
+.ed-hero-slide:after{display:none}
+.ed-hero-slide figcaption{bottom:35px;right:max(30px,calc((100vw - 1120px)/2));left:auto;font-size:12px;z-index:3;color:#fff}
+.ed-hero-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(4,27,32,.80) 0%,rgba(4,27,32,.49) 57%,rgba(4,27,32,.26) 100%),linear-gradient(0deg,rgba(3,24,28,.31),transparent 34%)}
+.ed-hero-inner{position:relative;z-index:3;display:flex;align-items:center;min-height:0;height:100%;padding-top:0;padding-bottom:0}
+.ed-hero-copy{width:100%;display:block}
+.ed-hero h1{font-size:clamp(55px,7.1vw,108px);font-weight:800;letter-spacing:-.09em;line-height:1.42;white-space:normal;color:#fff;margin:0;text-shadow:0 3px 28px #061b2055}
+.ed-hero-meta{position:absolute;z-index:4;left:50%;bottom:28px;transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;color:#f0f6f3;font:700 11px 'Inter',sans-serif;letter-spacing:.12em}
+.ed-gallery-index{position:static;z-index:auto;font-size:11px}
+.ed-hero-slide figcaption{display:none}
+.ed-primary-copy h3{margin-top:4px}
+@media(max-width:760px){
+ .ed-hero{height:calc(85svh - 65px);min-height:460px;max-height:720px}
+ .ed-hero-inner{display:flex;padding-top:0;padding-bottom:0}
+ .ed-hero-copy{display:block}
+ .ed-hero h1{font-size:clamp(39px,9vw,70px);margin:0;line-height:1.5}
+ .ed-hero-shade{background:linear-gradient(90deg,rgba(4,27,32,.80),rgba(4,27,32,.40)),linear-gradient(0deg,rgba(3,24,28,.26),transparent 42%)}
+ .ed-hero-meta{bottom:22px}
+}
+@media(max-width:450px){
+ .ed-hero{height:calc(78svh - 65px);min-height:430px}
+ .ed-hero h1{font-size:clamp(35px,9.1vw,46px)}
+ .ed-hero-meta{bottom:17px;font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.ed-hero-slide{transition:none}}
 </style>
 </head>
 <body>
@@ -463,19 +494,15 @@ html{scroll-padding-top:71px}
 
 
 <section class="ed-hero" aria-labelledby="ed-hero-title">
- <div class="container ed-hero-inner">
-  <div class="ed-hero-copy">
-   <h1 id="ed-hero-title">現場の可能性を、<br>世界へ。</h1>
-   <div class="ed-hero-bottom"><p>現場で見つけた課題から、<br>自分たちの事業をつくる。</p><a href="#business" class="ed-textlink">事業を見る <span aria-hidden="true">↘</span></a></div>
+  <div class="ed-hero-gallery" aria-label="ホテル・旅館・施設などの現場イメージ">
+    <figure class="ed-hero-slide is-active" data-hero-slide="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=84" alt="ホテルの空間イメージ" fetchpriority="high" decoding="async"><figcaption>ホテル</figcaption></figure>
+    <figure class="ed-hero-slide" data-hero-slide="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=2000&q=84" alt="日本の街並みと施設のイメージ" loading="lazy" decoding="async"><figcaption>日本の街</figcaption></figure>
+    <figure class="ed-hero-slide" data-hero-slide="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=2000&q=84" alt="ホテル客室のイメージ" loading="lazy" decoding="async"><figcaption>ホテルの客室</figcaption></figure>
+    <figure class="ed-hero-slide" data-hero-slide="3" aria-hidden="true"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=84" alt="建築・施設のイメージ" loading="lazy" decoding="async"><figcaption>施設と建築</figcaption></figure>
+    <div class="ed-hero-shade" aria-hidden="true"></div>
   </div>
-  <div class="ed-hero-gallery" aria-label="旅館、ホテル、客室設備、商業施設の写真イメージ">
-   <figure class="ed-hero-slide is-active" data-hero-slide="0" aria-hidden="false"><img src="https://download.pakutaso.com/shared/img/thumb/pakuryokan_0I9A0244_TP_V.jpg" alt="畳、障子、広縁のある旅館の和室" fetchpriority="high" decoding="async"><figcaption>旅館の客室</figcaption></figure>
-   <figure class="ed-hero-slide" data-hero-slide="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80" alt="ベッドと照明が整えられたホテルの客室" loading="lazy" decoding="async"><figcaption>ホテルの客室</figcaption></figure>
-   <figure class="ed-hero-slide" data-hero-slide="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1759772238012-9d5ad59ae637?auto=format&fit=crop&w=1200&q=80" alt="客室のエアコン設備" loading="lazy" decoding="async"><figcaption>客室設備</figcaption></figure>
-   <figure class="ed-hero-slide" data-hero-slide="3" aria-hidden="true"><img src="https://images.unsplash.com/photo-1677321303414-f41bfd5c46d5?auto=format&fit=crop&w=1200&q=80" alt="吹き抜けとエスカレーターのあるショッピングモール" loading="lazy" decoding="async"><figcaption>商業施設</figcaption></figure>
-   <div class="ed-gallery-index" aria-hidden="true"><span id="ed-gallery-current">01</span><span> / 04</span></div>
-  </div>
- </div>
+  <div class="container ed-hero-inner"><div class="ed-hero-copy"><h1 id="ed-hero-title">現場の可能性を、<br>世界へ。</h1></div></div>
+  <div class="container ed-hero-meta"><span>VITALITY DESIGN</span><span class="ed-gallery-index" aria-hidden="true"><span id="ed-gallery-current">01</span> / 04</span></div>
 </section>
 
 <section class="ed-business" id="business" aria-labelledby="ed-business-title">
@@ -507,12 +534,6 @@ html{scroll-padding-top:71px}
 </section>
 
 
-<section class="ed-world" aria-label="日本から世界へ広がるビジョン">
- <div class="ed-world-scene ed-world-japan"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=2000&q=84&auto=format&fit=crop" alt="日本の街並みのイメージ" loading="lazy"><div class="ed-world-shade"></div><div class="container ed-world-content"><span>JAPAN</span><h2>日本の現場から。</h2></div></div>
- <div class="ed-world-scene ed-world-global"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=2000&q=84&auto=format&fit=crop" alt="世界の建築と街のイメージ" loading="lazy"><div class="ed-world-shade"></div><div class="container ed-world-content"><span>THE WORLD</span><h2>その可能性を、世界へ。</h2></div></div>
- <p class="ed-world-note">※写真はビジョンを表現するイメージです。掲載場所での当社の活動実績を示すものではありません。</p>
-</section>
-<section class="ed-about-short" id="mission"><div class="container ed-about-short-inner"><h2>私たちについて</h2><p>現場から生まれるアイデアを、事業にする。</p><a href="/about.html" class="ed-textlink">もっと見る <span aria-hidden="true">↗</span></a></div></section>
 <section class="contact" id="contact"><div class="container">
 <div class="contact-top"><p class="section-label">CONTACT</p><h2 style="font-size:clamp(27px,2.7vw,37px);line-height:1.55;letter-spacing:-.06em;margin-top:14px">お問い合わせ</h2></div>
 <div class="contact-content"><div class="contact-side"><p>事業・サービスについてのお問い合わせはこちらから。</p><a class="contact-mail" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp ↗</a></div>

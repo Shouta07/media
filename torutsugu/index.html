@@ -515,21 +515,140 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
 .fd-ux-promise .fd-ux-caveat{font-size:10px;line-height:1.8;color:#b5d1c8;margin:15px 0 0;max-width:none}
 @media(max-width:850px){.fd-ux-promise{padding:31px 27px}.fd-ux-grid{grid-template-columns:1fr;gap:10px}.fd-ux-item{padding:18px 20px}.fd-ux-head h3{font-size:26px}}
 @media(max-width:600px){.fd-ux-promise{padding:27px 20px}.fd-ux-head h3{font-size:23px}.fd-ux-promise .fd-ux-lead{font-size:12px}.fd-ux-item strong{font-size:15px}.fd-ux-support{padding:15px 13px;gap:10px}.fd-ux-support strong{font-size:12px}}
+
+/* TORUTSUGU / UNIFIED DESIGN SYSTEM */
+:root{--navy:#103c40;--deep:#103c40;--teal:#008c78;--teal-dark:#007466;--ink:#183b3e;--sub:#5a7472;--mist:#f4f9f7;--line:#dbe9e4;--lime:#e4f77d;--radius:18px;--site-radius:20px;--site-shadow:0 15px 42px rgba(16,60,64,.075);--site-space:clamp(72px,7.5vw,116px)}
+html{scroll-padding-top:92px}
+body{background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
+:where(a,button,[role="tab"],summary):focus-visible{outline:3px solid #32bda5;outline-offset:4px}
+:where(button,a){-webkit-tap-highlight-color:transparent}
+.wrap{max-width:1220px}
+.topbar{border-bottom:1px solid #e0ece8;box-shadow:0 6px 24px rgba(16,60,64,.035)}
+.brand{color:var(--navy)}
+.nav{gap:clamp(12px,2vw,29px);font-size:13px}
+.nav>a:not(.button){color:#254b4c;transition:color .18s ease}
+.nav>a:not(.button):hover{color:var(--teal)}
+.button,.fd-btn{box-shadow:none;transition:background .18s ease,transform .18s ease,box-shadow .18s ease}
+.button:hover,.fd-btn:hover{transform:translateY(-2px);box-shadow:0 9px 24px rgba(7,85,74,.13)}
+.button.teal,.fd-btn-primary{background:var(--teal);color:#fff}
+.button.teal:hover,.fd-btn-primary:hover{background:var(--teal-dark);color:#fff}
+.button.lime{background:#dcf58d;color:#163d39;box-shadow:none}
+.button.lime:hover{background:#e7fca4}
+.fd-btn-outline{border:1px solid #8abeb3;color:#126c60}
+.fd-btn-outline:hover{border-color:var(--teal)}
+.fd-hero{padding:clamp(52px,6.4vw,92px) 0 clamp(66px,7vw,100px);background:linear-gradient(155deg,#fff 10%,#f6fbf8 100%)}
+.fd-hero-grid{min-height:560px;gap:clamp(28px,4vw,58px)}
+.fd-hero-copy h1{font-size:clamp(36px,3.7vw,56px);line-height:1.37;letter-spacing:-.06em;color:var(--navy)}
+.fd-hero-copy h1 span{color:var(--teal)}
+.fd-overline,.fd-label,.eyebrow,.feature-label{letter-spacing:.075em;color:var(--teal)}
+.fd-spark{background:#16af8d}
+.fd-hero-lead{font-size:clamp(16px,1.5vw,19px);color:#173e3d}
+.fd-hero-desc{font-size:14px;line-height:2;max-width:500px;color:var(--sub)}
+.fd-hint{color:#687e79}
+.fd-hero-stage .fd-screen,.demo-view{border:1px solid #dcebe6;box-shadow:var(--site-shadow)}
+.fd-problem{padding:var(--site-space) 0;background:#f5f9f7}
+.fd-problem-grid{gap:clamp(30px,5vw,68px)}
+.fd-problem-copy h2{font-size:clamp(30px,3.1vw,43px);line-height:1.5;letter-spacing:-.055em;color:var(--navy);margin:15px 0 19px}
+.fd-problem-copy>p{font-size:14px;line-height:1.95;color:var(--sub);max-width:590px;margin:0 0 33px}
+.fd-problem-list{gap:22px}.fd-problem-list li{gap:15px}
+.fd-problem-list strong{color:var(--ink)}.fd-problem-list small{color:var(--sub)}
+.fd-check{background:#dff5ed;color:#078e78}
+.section.demo-section{padding:var(--site-space) 0}
+.demo-section{background:#123d41}
+.demo-section .eyebrow,.demo-section .section-copy{color:#c0eadf}
+.demo-section .heading{color:#fff}
+.demo-nav{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);border-radius:16px;gap:5px}
+.demo-tab{border-radius:11px;background:transparent;color:#f2fcf8;padding:12px 17px;min-height:44px}
+.demo-tab:hover{background:rgba(255,255,255,.14)}
+.demo-tab[aria-selected=true]{background:#e5f7d2;color:#133e38;box-shadow:0 2px 8px rgba(0,0,0,.11)}
+.demo-view{border-radius:var(--site-radius);padding:clamp(22px,3vw,38px)}
+.feature-story{background:#fff;padding:var(--site-space) 0 0}
+.feature-intro{padding-bottom:clamp(42px,5vw,70px)}
+.feature-intro .heading,.fd-section-center h2{color:var(--navy);font-size:clamp(30px,3.1vw,43px);letter-spacing:-.055em;line-height:1.48}
+.feature-intro em,.feature-text em{color:var(--teal)}
+.feature-sub,.fd-section-center p{color:var(--sub);font-size:14px;line-height:1.9}
+.feature-strip{padding:clamp(58px,6.5vw,92px) 0}
+.strip-a{background:#f2faf6}.strip-b{background:#f8faf8}.strip-c{background:#f2faf6}
+.feature-text h3{color:var(--navy);line-height:1.45}
+.feature-text p{color:var(--sub)}
+.feature-chips span{border-color:#cfe6de;background:#fff;color:#285d51}
+.feature-art{min-width:0}
+.fd-results{background:#fff;padding:var(--site-space) 0}
+.fd-results .fd-section-center{margin-bottom:clamp(33px,4vw,50px)}
+.fd-benefits-grid{gap:18px}
+.fd-benefit{border:1px solid var(--line);border-radius:var(--site-radius);padding:clamp(20px,2.2vw,29px);box-shadow:0 4px 22px rgba(16,60,64,.035)}
+.fd-benefit h3{color:var(--navy)}.fd-benefit-num{color:var(--teal)}
+.fd-before,.fd-after{border-radius:12px}
+.fd-before{background:#f7f9f8}.fd-after{background:#edf8f2}
+.fd-results-disclaimer{text-align:left;color:var(--sub)}
+.fd-ux-promise{border-radius:var(--site-radius);background:#123f3e;box-shadow:var(--site-shadow);padding:clamp(28px,4vw,48px)}
+.fd-ux-head h3{font-size:clamp(25px,2.8vw,36px);letter-spacing:-.055em}
+.fd-ux-item{border-radius:14px;background:rgba(255,255,255,.055);border-color:rgba(205,243,224,.22)}
+.fd-ux-support{border-radius:14px}
+.fd-results .fd-functions-title{margin-top:clamp(64px,7vw,100px);margin-bottom:40px}
+.fd-features-grid{gap:16px;max-width:none}
+.fd-feature-item{padding:23px 25px;border:1px solid var(--line);border-radius:var(--site-radius);background:#fff;gap:19px;align-items:center;box-shadow:0 3px 18px rgba(16,60,64,.035)}
+.fd-feature-icon{width:60px;height:60px;flex:none;border-radius:16px;background:#e6f6ef;color:var(--teal);box-shadow:none}
+.fd-feature-icon svg{width:30px;height:30px}
+.fd-feature-item h3{font-size:17px;color:var(--navy);margin:0 0 5px;line-height:1.55}
+.fd-feature-item p{font-size:12px;color:var(--sub);line-height:1.85}
+.fd-features-note{color:var(--sub);max-width:760px}
+.cta-band{background:#123f3e;padding:clamp(70px,7vw,100px) 20px}
+.cta-band h2{letter-spacing:-.055em}.cta-band p{color:#d5eae6;font-size:14px}
+.faq{background:#f5f9f7;padding:var(--site-space) 0}
+.faq .heading{color:var(--navy)}.faq .section-copy{color:var(--sub)}
+.faq-teaser{border:1px solid var(--line);border-radius:var(--site-radius);box-shadow:0 6px 28px rgba(16,60,64,.05);background:#fff}
+.foot{color:var(--sub);padding:33px 0}
+:where(.fd-benefit,.fd-feature-item,.fd-ux-item){transition:border-color .18s ease,box-shadow .18s ease}
+:where(.fd-benefit,.fd-feature-item):hover{border-color:#b3dbcc;box-shadow:0 10px 30px rgba(16,60,64,.065)}
+@media(max-width:1080px){.fd-hero-grid{gap:22px}.fd-hero-copy h1{font-size:clamp(34px,4.3vw,49px)}}
+@media(max-width:850px){
+.topbar-inner{min-height:68px}
+.fd-hero{padding:47px 0 61px}.fd-hero-grid{min-height:0;gap:36px}.fd-hero-copy{padding:0}
+.fd-problem-grid{gap:28px}.fd-problem-copy h2{max-width:620px}
+.demo-nav{width:100%;border-radius:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.demo-tab{font-size:12px;white-space:normal;line-height:1.5}
+.fd-features-grid{gap:13px}.fd-feature-item{padding:18px}.fd-feature-icon{width:54px;height:54px}
+}
+@media(max-width:600px){
+:root{--site-space:64px}html{scroll-padding-top:76px}
+.fd-hero{padding:35px 0 53px}
+.fd-hero-copy h1{font-size:clamp(32px,8.7vw,43px);line-height:1.37;letter-spacing:-.06em}
+.fd-hero-lead{font-size:15px}.fd-hero-desc{font-size:13px}
+.fd-hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:26px}
+.fd-hero-actions .fd-btn{width:100%;justify-content:center;min-height:50px}
+.fd-problem-copy h2{font-size:30px;margin-bottom:15px}
+.fd-problem-copy>p{font-size:13px;margin-bottom:25px}
+.fd-problem-list{gap:19px}
+.demo-nav{margin:25px auto 20px;padding:5px}.demo-tab{padding:10px 8px;min-height:48px}
+.demo-view{padding:19px 16px;border-radius:16px}
+.feature-story{padding-top:64px}.feature-intro{padding-bottom:37px}.feature-strip{padding:55px 0}
+.fd-benefits-grid{gap:13px}.fd-benefit{padding:20px 17px}
+.fd-ux-promise{padding:27px 19px}.fd-ux-head h3{font-size:clamp(23px,6.2vw,29px)}
+.fd-ux-item{padding:17px 16px}.fd-ux-grid{margin-top:22px}
+.fd-results .fd-functions-title{margin-top:64px}
+.fd-features-grid{grid-template-columns:1fr;gap:11px}
+.fd-feature-item{padding:17px 15px;gap:13px}
+.fd-feature-icon{width:48px;height:48px;border-radius:12px}
+.fd-feature-icon svg{width:25px;height:25px}
+.fd-feature-item h3{font-size:15px}.cta-band p{font-size:13px}.faq-teaser{border-radius:16px}
+}
+@media(prefers-reduced-motion:reduce){.fd-benefit,.fd-feature-item,.fd-ux-item,.button,.fd-btn{transition:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
-<header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="/torutsugu/" aria-label="トルツグ ホーム">トルツグ</a><nav class="nav" aria-label="メインナビゲーション"><a href="#pain">お悩み</a><a href="#demo">仕組み</a><a href="#why">選ばれる理由</a><a href="/torutsugu/faq/">よくある質問</a><a class="button teal" href="/?request=torutsugu#contact">資料請求 <span>→</span></a></nav><div class="mobile-header-actions"><a class="mobile-header-request" href="/?request=torutsugu#contact">資料請求</a><button type="button" class="mobile-menu-toggle" aria-controls="mobile-site-menu" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span><span></span></button></div></div></header>
+<header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="/torutsugu/" aria-label="トルツグ ホーム">トルツグ</a><nav class="nav" aria-label="メインナビゲーション"><a href="#pain">お悩み</a><a href="#demo">仕組み</a><a href="#why">導入効果</a><a href="/torutsugu/faq/">よくある質問</a><a class="button teal" href="/?request=torutsugu#contact">導入を相談 <span aria-hidden="true">→</span></a></nav><div class="mobile-header-actions"><a class="mobile-header-request" href="/?request=torutsugu#contact">導入相談</a><button type="button" class="mobile-menu-toggle" aria-controls="mobile-site-menu" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span><span></span></button></div></div></header>
 <div class="mobile-menu-backdrop" hidden></div>
-<div class="mobile-menu-panel" id="mobile-site-menu" role="dialog" aria-modal="true" aria-label="トルツグのメニュー" hidden><div class="mobile-menu-head"><a class="mobile-menu-logo" href="/torutsugu/">トルツグ</a><button class="mobile-menu-close" type="button" aria-label="メニューを閉じる">×</button></div><div class="mobile-menu-inner"><a href="/?request=torutsugu#contact" class="mobile-menu-primary">資料請求 <span aria-hidden="true">→</span></a><a href="/?request=torutsugu#contact" class="mobile-menu-secondary">お問い合わせ <span aria-hidden="true">→</span></a><h2>サービスについて</h2><nav aria-label="スマートフォン用ナビゲーション"><a href="/torutsugu/#pain">お悩み</a><a href="/torutsugu/#demo">使い方・デモ</a><a href="/torutsugu/#flow">業務の流れ</a><a href="/torutsugu/#why">導入で目指す効果</a><a href="/torutsugu/faq/">よくある質問</a></nav><h2>会社情報</h2><nav aria-label="会社情報"><a href="/">運営会社</a><a href="/privacy.html">プライバシーポリシー</a></nav></div></div>
+<div class="mobile-menu-panel" id="mobile-site-menu" role="dialog" aria-modal="true" aria-label="トルツグのメニュー" hidden><div class="mobile-menu-head"><a class="mobile-menu-logo" href="/torutsugu/">トルツグ</a><button class="mobile-menu-close" type="button" aria-label="メニューを閉じる">×</button></div><div class="mobile-menu-inner"><a href="/?request=torutsugu#contact" class="mobile-menu-primary">導入を相談 <span aria-hidden="true">→</span></a><a href="/?request=torutsugu#contact" class="mobile-menu-secondary">お問い合わせ <span aria-hidden="true">→</span></a><h2>サービスについて</h2><nav aria-label="スマートフォン用ナビゲーション"><a href="/torutsugu/#pain">お悩み</a><a href="/torutsugu/#demo">使い方・デモ</a><a href="/torutsugu/#flow">業務の流れ</a><a href="/torutsugu/#why">導入で目指す効果</a><a href="/torutsugu/faq/">よくある質問</a></nav><h2>会社情報</h2><nav aria-label="会社情報"><a href="/">運営会社</a><a href="/privacy.html">プライバシーポリシー</a></nav></div></div>
 <main id="main">
 <section class="fd-hero" aria-labelledby="fd-hero-title"><div class="wrap fd-hero-grid">
 <div class="fd-hero-copy"><span class="fd-overline"><span class="fd-spark" aria-hidden="true"></span>ホテル・旅館の設備・修繕管理</span>
 <h1 id="fd-hero-title">修繕対応を速く。<br><span>施設品質を高く。</span><br>管理コストを低く。</h1>
 <p class="fd-hero-lead">現場の入力も、管理者の確認・承認も。<br>協力業者との調整も、もっと簡単に。</p>
 <p class="fd-hero-desc">発見・報告から、判断、見積・日程調整、完了まで。説明書を読まずとも迷わず操作できる体験を追求し、現場の業務を理解した導入支援とともに、修繕業務を前に進めます。</p>
-<div class="fd-hero-actions"><a class="fd-btn fd-btn-primary" href="/?request=torutsugu#contact">サービス資料を請求 <span aria-hidden="true">↗</span></a><a class="fd-btn fd-btn-outline" href="#demo">画面で使い方を見る <span aria-hidden="true">→</span></a></div>
-<p class="fd-hint">施設の状況に合わせた導入方法をご案内します。</p>
+<div class="fd-hero-actions"><a class="fd-btn fd-btn-primary" href="/?request=torutsugu#contact">有償PoC・導入を相談 <span aria-hidden="true">↗</span></a><a class="fd-btn fd-btn-outline" href="#demo">画面で使い方を見る <span aria-hidden="true">→</span></a></div>
+<p class="fd-hint">紙・Excelからの導入も、既存システムからの切り替えもご相談いただけます。</p>
 </div>
 <div class="fd-hero-stage"><div class="fd-green-shape" aria-hidden="true"></div>
 <div class="fd-screen" role="img" aria-label="ホテルAの修繕案件一覧のデモ画面"><div class="fd-screen-header"><strong>トルツグ</strong><span>ホテルA / 設備管理</span></div>
@@ -610,7 +729,7 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
 <section class="faq" id="faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ / よくあるご質問</span><h2 class="heading">導入前の疑問を、<br>まとめて解決。</h2><p class="section-copy">Excelとの違い、利用端末、協力業者との連携、料金やセキュリティまで。<br>ご検討時に気になるポイントをまとめました。</p></div><div class="faq-teaser"><div><span class="faq-teaser-num">20</span><span class="faq-teaser-unit">の質問</span><p>導入・操作・料金・セキュリティを4つのカテゴリで掲載</p></div><a class="button teal" href="/torutsugu/faq/">よくあるご質問を見る <span aria-hidden="true">→</span></a></div></div></section>
 </main>
 <footer class="wrap foot"><span>© 2026 VITALITY DESIGN LLC</span><div><a href="/">会社概要</a>　 /　 <a href="/privacy.html">プライバシーポリシー</a>　 /　 <a href="mailto:contact@vitality-design.jp">お問い合わせ</a></div></footer>
-<div class="mobile-cta-bar" aria-label="サービス資料請求" hidden><a href="/?request=torutsugu#contact" class="mobile-cta-link"><span>サービス資料を請求</span><span aria-hidden="true">→</span></a><button type="button" class="mobile-cta-dismiss" aria-label="資料請求バーを閉じる">×</button></div>
+<div class="mobile-cta-bar" aria-label="有償PoC・導入相談" hidden><a href="/?request=torutsugu#contact" class="mobile-cta-link"><span>有償PoC・導入を相談</span><span aria-hidden="true">→</span></a><button type="button" class="mobile-cta-dismiss" aria-label="導入相談バーを閉じる">×</button></div>
 
 <script>
 (function(){

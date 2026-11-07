@@ -621,6 +621,19 @@ html{scroll-padding-top:71px}
 @media(max-width:360px){
  .ed-hero h1{font-size:clamp(39px,11.7vw,44px)}
 }
+
+/* Center the full vision statement across the viewport */
+.ed-hero-inner.container{max-width:none;width:100%;justify-content:center}
+.ed-hero-copy{display:flex;align-items:center;justify-content:center;width:100%;min-width:0}
+.ed-hero h1{text-align:center;margin-left:auto;margin-right:auto}
+@media(min-width:761px){
+ .ed-hero-inner.container{padding-left:clamp(18px,2.5vw,45px);padding-right:clamp(18px,2.5vw,45px)}
+ .ed-hero h1{width:max-content;max-width:none;white-space:nowrap;text-wrap:nowrap}
+}
+@media(max-width:760px){
+ .ed-hero-inner.container{padding-left:20px;padding-right:20px}
+ .ed-hero h1{width:100%;max-width:100%;white-space:normal;text-wrap:wrap;overflow-wrap:anywhere}
+}
 </style>
 </head>
 <body>

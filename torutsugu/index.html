@@ -482,6 +482,20 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
   .mobile-menu-inner{padding:12px 24px 27px}
 }
 @media(max-width:360px){.mobile-header-request{padding:6px 9px;font-size:10px}.mobile-header-actions{gap:3px}.mobile-menu-toggle{width:34px}}
+
+/* Delayed, dismissible mobile CTA */
+.mobile-cta-bar[hidden]{display:none!important}
+.mobile-cta-bar{position:fixed}
+.mobile-cta-dismiss{position:absolute;right:11px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:31px;height:31px;padding:0;border-radius:50%;border:1px solid #d7e2df;background:#fff;color:#425f5c;font-size:22px;line-height:1;cursor:pointer}
+.mobile-cta-dismiss:focus-visible{outline:3px solid #057e73;outline-offset:2px}
+@media(max-width:600px){
+  .mobile-cta-bar:not([hidden]){display:flex;align-items:center;gap:9px;padding-right:51px}
+  .mobile-cta-bar .mobile-cta-link{min-width:0}
+  .mobile-cta-bar .mobile-cta-dismiss{right:12px}
+  body:not(.mobile-cta-visible){padding-bottom:0}
+  body.mobile-cta-visible{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+}
+@media(min-width:601px){.mobile-cta-bar{display:none!important}}
 </style>
 </head>
 <body>
@@ -566,7 +580,7 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
 <section class="faq" id="faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ / よくあるご質問</span><h2 class="heading">導入前の疑問を、<br>まとめて解決。</h2><p class="section-copy">Excelとの違い、利用端末、協力業者との連携、料金やセキュリティまで。<br>ご検討時に気になるポイントをまとめました。</p></div><div class="faq-teaser"><div><span class="faq-teaser-num">20</span><span class="faq-teaser-unit">の質問</span><p>導入・操作・料金・セキュリティを4つのカテゴリで掲載</p></div><a class="button teal" href="/torutsugu/faq/">よくあるご質問を見る <span aria-hidden="true">→</span></a></div></div></section>
 </main>
 <footer class="wrap foot"><span>© 2026 VITALITY DESIGN LLC</span><div><a href="/">会社概要</a>　 /　 <a href="/privacy.html">プライバシーポリシー</a>　 /　 <a href="mailto:contact@vitality-design.jp">お問い合わせ</a></div></footer>
-<div class="mobile-cta-bar" aria-label="サービス資料請求"><a href="/?request=torutsugu#contact" class="mobile-cta-link"><span>サービス資料を請求</span><span aria-hidden="true">→</span></a></div>
+<div class="mobile-cta-bar" aria-label="サービス資料請求" hidden><a href="/?request=torutsugu#contact" class="mobile-cta-link"><span>サービス資料を請求</span><span aria-hidden="true">→</span></a><button type="button" class="mobile-cta-dismiss" aria-label="資料請求バーを閉じる">×</button></div>
 
 <script>
 (function(){
@@ -628,6 +642,40 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
     }
   });
   window.addEventListener('resize',()=>{if(window.innerWidth>850&&!panel.hidden)setOpen(false)});
+})();
+</script>
+<script>
+(function(){
+  const bar=document.querySelector('.mobile-cta-bar');
+  const dismiss=bar?.querySelector('.mobile-cta-dismiss');
+  if(!bar||!dismiss)return;
+  const storageKey='torutsugu-mobile-cta-dismissed';
+  let dismissed=false;
+  try{dismissed=sessionStorage.getItem(storageKey)==='1'}catch(e){}
+  if(dismissed)return;
+  const timer=window.setTimeout(()=>{
+    if(window.matchMedia('(max-width: 600px)').matches && !document.body.classList.contains('mobile-menu-open')){
+      bar.hidden=false;
+      bar.dataset.shown='true';
+      document.body.classList.add('mobile-cta-visible');
+    }
+  },5000);
+  dismiss.addEventListener('click',()=>{
+    window.clearTimeout(timer);
+    bar.hidden=true;
+    document.body.classList.remove('mobile-cta-visible');
+    try{sessionStorage.setItem(storageKey,'1')}catch(e){}
+  });
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth>600){
+      bar.hidden=true;
+      document.body.classList.remove('mobile-cta-visible');
+    } else if(!dismissed && bar.dataset.shown==='true'){
+      bar.hidden=false;
+      document.body.classList.add('mobile-cta-visible');
+    }
+  });
+  // Allow the existing menu drawer to cover the CTA as already defined.
 })();
 </script>
 </body>

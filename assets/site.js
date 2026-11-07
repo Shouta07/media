@@ -62,6 +62,12 @@
         if(!el || !el.value.trim()) missing.push(REQ[i][1]);
       }
       if(missing.length){ stat.textContent = S.eReq + missing.join(S.sep); for(var k=0;k<REQ.length;k++){ var first=document.getElementById(REQ[k][0]); if(first&&!first.value.trim()){ first.focus(); break; } } return; }
+      var topic=document.getElementById('f-topic');
+      if(topic && !form.classList.contains('locue-request') && !topic.value){
+        stat.textContent='お問い合わせの種類を選択してください。';
+        topic.focus();
+        return;
+      }
       if(form.classList.contains('locue-request') && !form.querySelector('input[name="purpose"]:checked')){
         stat.textContent='お問い合わせの目的を選択してください。';
         var firstPurpose=document.getElementById('f-purpose-info');
@@ -121,6 +127,21 @@
     S.submit='無料で資料請求する';
     var stat=document.getElementById('fstat');
     if(stat) stat.textContent='';
+  })();
+
+  /* ---------- 通常問い合わせの受信件名を相談種別別に整理 ---------- */
+  (function(){
+    var form=document.getElementById('vdForm');
+    if(!form) return;
+    var topic=document.getElementById('f-topic');
+    if(!topic) return;
+    topic.addEventListener('change',function(){
+      if(form.classList.contains('locue-request')) return;
+      var subject=document.getElementById('f-subject');
+      if(subject) subject.value='Vitality Design お問い合わせ｜'+topic.value;
+      var stat=document.getElementById('fstat');
+      if(stat && stat.textContent==='お問い合わせの種類を選択してください。')stat.textContent='';
+    });
   })();
 
   /* ---------- 相談種別のプリフィル ---------- */

@@ -634,6 +634,47 @@ html{scroll-padding-top:71px}
  .ed-hero-inner.container{padding-left:20px;padding-right:20px}
  .ed-hero h1{width:100%;max-width:100%;white-space:normal;text-wrap:wrap;overflow-wrap:anywhere}
 }
+
+/* Accessible mobile inquiry: full width, clear tap targets, low-friction optional details */
+.f-optional{margin:0 0 22px;border:1px solid #d7e3e0;border-radius:10px;background:#fff;overflow:hidden}
+.f-optional summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px;font-size:14px;font-weight:700;color:#164e51;min-height:52px}
+.f-optional summary::-webkit-details-marker{display:none}
+.f-optional summary:after{content:"＋";font-size:20px;line-height:1;font-weight:400;margin-left:auto}
+.f-optional[open] summary:after{content:"−"}
+.f-optional summary span{font-size:11px;font-weight:500;color:#718b89}
+.f-optional .fld{padding:0 17px 15px;margin:0}
+.fld input:focus-visible,.fld select:focus-visible,.fld textarea:focus-visible,.f-optional summary:focus-visible,.fbtn:focus-visible{outline:3px solid #52bbae;outline-offset:2px}
+.fld input::placeholder{color:#8b9f9e;opacity:1}
+@media(max-width:760px){
+ #contact{scroll-margin-top:70px;padding:48px 0 66px}
+ #contact .container{padding-left:18px;padding-right:18px;max-width:560px}
+ #contact .contact-top{margin-bottom:12px}
+ #contact .contact-top h2{font-size:29px!important;line-height:1.35!important;margin-top:5px!important}
+ #contact .contact-content{display:flex;flex-direction:column;gap:0;min-width:0}
+ #contact #fwrap{order:1;width:100%;min-width:0}
+ #contact .contact-side{order:2;width:100%;margin-top:24px;padding:0 4px}
+ #contact .contact-side p{font-size:12px;line-height:1.7}
+ #contact .contact-mail{font-size:13px;margin-top:8px;display:inline-block;overflow-wrap:anywhere}
+ #contact .cform{border:0;background:transparent;box-shadow:none;border-radius:0;padding:0!important}
+ #contact .f2{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+ #contact .fld{margin-bottom:17px}
+ #contact .fld label{font-size:14px;font-weight:700;line-height:1.5;margin-bottom:8px;color:#173a3c}
+ #contact .rq{color:#ba493b}
+ #contact .fld input,#contact .fld select,#contact .fld textarea{font-size:16px!important;line-height:1.45;min-height:55px;border-radius:10px;border:1.5px solid #c9d8d5;background:#fff;color:#173a3c;padding:14px 15px;box-sizing:border-box;box-shadow:none}
+ #contact .fld select{padding-right:38px}
+ #contact .fld textarea{min-height:125px;resize:vertical}
+ #contact .locue-request-intro{border:0;border-left:4px solid #087f75;border-radius:6px;background:#f0f9f6;padding:13px 15px;margin-bottom:20px}
+ #contact .locue-request-intro strong{font-size:17px;display:block}
+ #contact .locue-request-intro p{font-size:12px;line-height:1.8;margin-top:5px}
+ #contact .f-optional{margin-bottom:19px}
+ #contact .f-optional .fld{margin:0;padding:0 15px 15px}
+ #contact .fbtn{min-height:58px;border-radius:12px;background:#087f75;color:#fff;font-size:16px;font-weight:800;letter-spacing:.02em;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+ #contact .fbtn:active{transform:scale(.99)}
+ #contact .fnote{font-size:11px;line-height:1.8;color:#667b78;margin:15px 2px 0}
+ #contact .fstat{font-size:13px;line-height:1.65;border-radius:8px}
+ #contact .fstat:not(:empty){padding:10px 12px;background:#fff3f0;border:1px solid #f0cbc0;margin:0 0 16px}
+ #contact .fdone{padding:24px 18px;border-radius:10px}
+}
 </style>
 </head>
 <body>
@@ -727,15 +768,15 @@ html{scroll-padding-top:71px}
               </select></div>
           <div class="f2">
             <div class="fld"><label for="f-company">会社名・団体名 <span class="rq">*</span></label>
-              <input id="f-company" name="company" type="text" autocomplete="organization" required></div>
+              <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="例）株式会社〇〇" enterkeyhint="next" required></div>
             <div class="fld"><label for="f-name">お名前 <span class="rq">*</span></label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required></div>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="例）山田 太郎" enterkeyhint="next" required></div>
           </div>
           <div class="fld"><label for="f-email">メールアドレス <span class="rq">*</span></label>
-            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
-          <div class="fld" id="f-message-wrap"><label for="f-message" id="f-message-label">お問い合わせ内容（任意）</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" enterkeyhint="done" required></div>
+          <details class="f-optional" id="f-message-wrap"><summary>相談内容を追加する <span>任意</span></summary><div class="fld"><label for="f-message" id="f-message-label">お問い合わせ内容</label>
             <textarea id="f-message" name="message"
-              placeholder="例）客室の修繕依頼と業者の日程調整に時間がかかっています。導入方法や費用について知りたいです。" rows="5"></textarea></div>
+              placeholder="ご相談したい内容があればご記入ください。" rows="4"></textarea></div></details>
           <button class="fbtn" id="fbtn" type="submit" data-cta="contact-submit">お問い合わせを送る</button>
           <p class="fnote">ご入力いただいた情報は、お問い合わせへの対応に使用します。<a href="/privacy.html">プライバシーポリシー</a></p>
         </form><div class="fdone" role="status" tabindex="-1"><p>お問い合わせを受け付けました。</p><p>内容を確認して、メールでご連絡します。</p></div></div>

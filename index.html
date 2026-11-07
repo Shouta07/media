@@ -420,6 +420,35 @@ html{scroll-padding-top:71px}
 .contact{padding:58px 0}
 }
 @media(max-width:450px){.ed-world-scene{min-height:310px;height:54svh}.ed-world-content h2{font-size:clamp(29px,8vw,40px)}.ed-world-note{font-size:9px;padding:12px 20px}.ed-about-short{padding:36px 0}.ed-about-short h2{font-size:20px}}
+
+/* Corporate hero: authentic-world visual rotation in the former white space */
+.ed-hero{background:#fff}
+.ed-hero-inner{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);align-items:center;gap:5%;padding-top:74px;padding-bottom:76px;min-height:680px}
+.ed-hero-copy{min-width:0}
+.ed-hero h1{font-size:clamp(43px,4.8vw,70px);margin:0 0 64px;line-height:1.47;letter-spacing:-.092em;white-space:nowrap}
+.ed-hero-bottom{align-items:flex-start;flex-wrap:wrap}
+.ed-hero-bottom p{font-size:16px}
+.ed-hero-gallery{height:510px;min-width:0;position:relative;overflow:hidden;background:#e9efec}
+.ed-hero-slide{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transition:opacity 1s ease,visibility 1s ease}
+.ed-hero-slide.is-active{opacity:1;visibility:visible}
+.ed-hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.ed-hero-slide:after{content:"";position:absolute;left:0;right:0;bottom:0;height:29%;background:linear-gradient(transparent,rgba(4,29,34,.4));pointer-events:none}
+.ed-hero-slide figcaption{position:absolute;z-index:1;left:25px;bottom:21px;font-size:13px;font-weight:700;letter-spacing:.07em;color:#fff}
+.ed-gallery-index{position:absolute;z-index:3;right:25px;bottom:21px;color:#fff;font:700 11px 'Inter',sans-serif;letter-spacing:.08em;text-shadow:0 1px 6px #0008}
+.ed-gallery-index span:last-child{opacity:.8}
+.ed-primary-copy h3{margin-top:4px}
+@media(max-width:1050px){.ed-hero h1{font-size:clamp(36px,4.55vw,56px)}.ed-hero-inner{min-height:570px}.ed-hero-gallery{height:440px}.ed-hero-bottom p{font-size:14px}}
+@media(max-width:760px){
+ .ed-hero-inner{grid-template-columns:1fr;gap:23px;min-height:0;padding-top:50px;padding-bottom:49px}
+ .ed-hero h1{font-size:clamp(36px,8.4vw,57px);white-space:normal;line-height:1.47;margin:0 0 27px}
+ .ed-hero-copy{display:contents}
+ .ed-hero-copy h1{grid-row:1}
+ .ed-hero-gallery{grid-row:2;height:clamp(270px,74vw,455px)}
+ .ed-hero-bottom{grid-row:3;align-items:center;gap:18px}
+ .ed-hero-bottom p{font-size:14px}
+}
+@media(max-width:450px){.ed-hero-inner{padding-top:35px;padding-bottom:39px;gap:19px}.ed-hero h1{font-size:clamp(32px,8.6vw,40px);margin-bottom:0}.ed-hero-gallery{height:280px}.ed-hero-slide figcaption{left:17px;bottom:14px;font-size:11px}.ed-gallery-index{right:16px;bottom:15px;font-size:10px}.ed-hero-bottom p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.ed-hero-slide{transition:none}}
 </style>
 </head>
 <body>
@@ -435,9 +464,19 @@ html{scroll-padding-top:71px}
 
 <section class="ed-hero" aria-labelledby="ed-hero-title">
  <div class="container ed-hero-inner">
-   <p class="ed-overline">VITALITY DESIGN</p>
+  <div class="ed-hero-copy">
    <h1 id="ed-hero-title">現場の可能性を、<br>世界へ。</h1>
    <div class="ed-hero-bottom"><p>現場で見つけた課題から、<br>自分たちの事業をつくる。</p><a href="#business" class="ed-textlink">事業を見る <span aria-hidden="true">↘</span></a></div>
+  </div>
+  <div class="ed-hero-gallery" aria-label="旅館、ホテル、点検、施設運営、商業施設、介護・福祉などの現場イメージ">
+   <figure class="ed-hero-slide is-active" data-hero-slide="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=1300&h=1400&q=82" alt="旅館の現場をイメージした写真" fetchpriority="high" decoding="async"><figcaption>旅館</figcaption></figure>
+<figure class="ed-hero-slide" data-hero-slide="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1300&h=1400&q=82" alt="ホテルの現場をイメージした写真" loading="lazy" decoding="async"><figcaption>ホテル</figcaption></figure>
+<figure class="ed-hero-slide" data-hero-slide="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1300&h=1400&q=82" alt="設備点検の現場をイメージした写真" loading="lazy" decoding="async"><figcaption>設備点検</figcaption></figure>
+<figure class="ed-hero-slide" data-hero-slide="3" aria-hidden="true"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1300&h=1400&q=82" alt="施設運営の現場をイメージした写真" loading="lazy" decoding="async"><figcaption>施設運営</figcaption></figure>
+<figure class="ed-hero-slide" data-hero-slide="4" aria-hidden="true"><img src="https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1300&h=1400&q=82" alt="商業施設の現場をイメージした写真" loading="lazy" decoding="async"><figcaption>商業施設</figcaption></figure>
+<figure class="ed-hero-slide" data-hero-slide="5" aria-hidden="true"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1300&h=1400&q=82" alt="介護・福祉の現場をイメージした写真" loading="lazy" decoding="async"><figcaption>介護・福祉</figcaption></figure>
+   <div class="ed-gallery-index" aria-hidden="true"><span id="ed-gallery-current">01</span><span> / 06</span></div>
+  </div>
  </div>
 </section>
 
@@ -446,7 +485,7 @@ html{scroll-padding-top:71px}
   <div class="ed-section-title"><span>01</span><h2 id="ed-business-title">事業紹介</h2></div>
   <article class="ed-primary-business">
    <div class="ed-primary-copy">
-    <span class="ed-type">自社サービス / ホテル・旅館向け</span>
+    
     <h3>トルツグ</h3>
     <p class="ed-primary-lead">修繕の連絡も、進捗確認も。ひとつに。</p>
     <p class="ed-primary-detail">客室や設備の不具合を、現場から報告。管理者の判断、修繕業者とのやり取り、完了記録までをひとつの流れにつなぐ、設備・修繕管理サービスを開発しています。</p>
@@ -511,4 +550,23 @@ html{scroll-padding-top:71px}
 <script>window.VD_S={menuO:'メニューを開く',menuC:'メニューを閉じる',f1:'会社名・団体名',f2:'お名前',f3:'メールアドレス',sep:'、',eReq:'未入力の項目があります：',eMail:'メールアドレスの形式をご確認ください。',sending:'送信しています…',eSend:'送信できませんでした。お手数ですが contact@vitality-design.jp まで直接ご連絡ください。',submit:'お問い合わせを送る'};</script>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/vision.js" defer></script>
-</body></html>
+<script>
+(function(){
+ const slides=[...document.querySelectorAll('[data-hero-slide]')];
+ const count=document.getElementById('ed-gallery-current');
+ if(slides.length<2)return;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(reduce)return;
+ let current=0;
+ const show=(i)=>{
+  slides[current].classList.remove('is-active');
+  slides[current].setAttribute('aria-hidden','true');
+  current=i;
+  slides[current].classList.add('is-active');
+  slides[current].setAttribute('aria-hidden','false');
+  if(count)count.textContent=String(current+1).padStart(2,'0');
+ };
+ const timer=window.setInterval(()=>{if(!document.hidden)show((current+1)%slides.length)},4800);
+ window.addEventListener('pagehide',()=>clearInterval(timer),{once:true});
+})();
+</script></body></html>

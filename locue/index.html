@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LOCUE（ロキュー）｜現場の気づきを、すぐ解決へ。</title>
-<meta name="description" content="LOCUEは、写真・動画・音声などの現場の一次情報をAIで業務アクションに変換し、設備管理・品質管理・顧客体験改善につなぐB2Bプラットフォームです。共同実証パートナー募集中。">
+<meta name="description" content="LOCUEは、現場の写真・動画・音声などの一次情報をAIで業務アクションに変換。設備管理・品質管理・顧客体験改善まで、課題解決を支えるB2Bプラットフォームです。">
 <meta name="robots" content="noindex,follow">
 <meta name="theme-color" content="#e6f8f5">
 <link rel="canonical" href="https://www.vitality-design.jp/locue/">
@@ -53,52 +53,119 @@
 .problem-card h3{font-size:18px;margin-bottom:9px}
 .problem-card p{font-size:12px;line-height:1.85}
 @media(max-width:700px){.problem{padding-top:58px;padding-bottom:60px}.problem-illus{height:170px}}
+
+/* LOCUE 2026 product-led redesign: generous mint panels, product-first mockups, alternating narratives */
+:root{--ink:#1e302f;--deep:#163f3d;--green:#16978f;--mint:#e8f7f4;--pale:#f5fbfa;--line:#dcece8}
+body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
+.site-header{height:80px;border-bottom:1px solid #e3f1ee;background:#fffffff5}
+.logo{font-family:"DM Sans",sans-serif;font-weight:800;letter-spacing:-.065em}
+.navlinks{gap:28px}
+.section{padding:105px 0}
+.section-title{font-size:clamp(31px,3.4vw,46px);line-height:1.53;letter-spacing:-.05em}
+.eyebrow{letter-spacing:.1em;font-size:11px}
+.btn.primary{background:#168f87}
+.btn.primary:hover{background:#0b6e67}
+.hero-new{background:#e9f8f5;overflow:hidden;position:relative;padding:72px 0 0}
+.hero-new:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 490px 330px at 91% 12%,#d0f2eb,transparent),radial-gradient(ellipse 580px 450px at -10% 85%,#d8f4ee,transparent)}
+.hero-new .intro{position:relative;text-align:center;z-index:3}
+.hero-new h1{font-size:clamp(37px,4.45vw,64px);line-height:1.43;font-weight:900;letter-spacing:-.07em;margin:18px auto;max-width:1020px}
+.hero-new h1 em{font-style:normal;color:#168f87}
+.hero-new .lead{max-width:680px;margin:0 auto;color:#4e736e;font-size:15px;line-height:2.15}
+.hero-new .hero-actions{justify-content:center;margin:25px 0}
+.hero-new .hero-foot{font-size:11px;color:#70958e;margin-top:5px}
+.showcase{height:550px;position:relative;width:min(1050px,100%);margin:32px auto -30px}
+.showcase:before{content:"";width:720px;height:370px;position:absolute;bottom:5px;left:calc(50% - 360px);border-radius:60% 60% 0 0;background:#c5eee6}
+.showcase .phone{position:absolute;width:220px;height:447px;border:7px solid #193634;border-radius:35px;background:#f7fbfa;box-shadow:0 20px 52px #22665a35;overflow:hidden;z-index:2;padding:0}
+.showcase .phone.left{left:10%;top:70px;transform:rotate(-11deg) scale(.93)}
+.showcase .phone.right{right:9%;top:70px;transform:rotate(11deg) scale(.93)}
+.showcase .phone.center{left:calc(50% - 116px);top:4px;width:232px;height:468px;z-index:5;transform:none;box-shadow:0 25px 68px #14534944}
+.phone-top{height:99px;background:#45c1b3;color:white;padding:20px 15px 10px;font-size:10px}
+.phone-top b{display:block;font-size:18px;margin-top:10px}
+.phone-card{margin:14px 12px;border-radius:12px;background:#fff;border:1px solid #e5f0ed;padding:12px;box-shadow:0 4px 12px #1c65520c;font-size:11px}
+.phone-card b{display:block;font-size:11px}.phone-card small{color:#6a9088;font-size:9px;line-height:1.6;display:block;margin-top:7px}
+.phone-a{background:#e8f8f3;border-radius:10px;padding:12px;display:flex;align-items:center;gap:8px;font-size:10px;font-weight:800;margin-top:10px}
+.phone-a i{width:30px;height:30px;display:grid;place-items:center;background:#bcebe0;border-radius:9px;font-size:16px;font-style:normal}
+.phone-photo{height:112px;background:linear-gradient(135deg,#ddeee9,#acc8bf),url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=500&q=82') center/cover;border-radius:9px;margin:10px 0 0}
+.phone-button{background:#18a193;color:white;text-align:center;font-size:10px;font-weight:900;border-radius:9px;padding:11px;margin-top:11px}
+.showcase .bubble{position:absolute;z-index:6;background:#fff;border:1px solid #dbefea;box-shadow:0 10px 35px #21796c19;border-radius:14px;padding:13px 18px;font-size:12px;font-weight:900}
+.showcase .bubble b{color:var(--green)}.showcase .bubble.l{left:1%;top:32%}.showcase .bubble.r{right:0;top:45%}
+.value-strip{background:white;border-bottom:1px solid #eaf1ef;padding:30px 0}
+.value-strip .wrap{display:flex;align-items:center;justify-content:center;gap:35px;flex-wrap:wrap}
+.value-strip span{font-size:12px;font-weight:800;color:#457d75}
+.service-overview{background:white}
+.overview-lead{max-width:750px;margin:0 auto 46px;font-size:14px;text-align:center;line-height:2.1;color:#628079}
+.service-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-tile{border:1px solid #e3efeb;border-radius:23px;background:#fff;overflow:hidden;box-shadow:0 7px 30px #22665a0a}
+.service-tile .photo{height:215px;background-size:cover;background-position:center}
+.service-tile:nth-child(1) .photo{background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=700&q=84')}
+.service-tile:nth-child(2) .photo{background-image:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=84')}
+.service-tile:nth-child(3) .photo{background-image:url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=700&q=84')}
+.service-tile .body{padding:25px 24px 30px}.service-tile h3{font-size:23px;line-height:1.3;margin:10px 0}.service-tile p{color:#637f78;font-size:13px;line-height:1.95;margin:0}.service-tile .phase{display:block;margin-top:16px;color:#198d80;font-size:11px;font-weight:800}
+.story-band{background:#f3fbf9}
+.story{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:68px;padding:90px 0;border-bottom:1px solid #deebe7}
+.story:last-child{border:0}
+.story.reverse .story-copy{order:2}.story.reverse .story-art{order:1}
+.story-label{font-size:12px;font-weight:800;color:var(--green);letter-spacing:.06em}
+.story-copy h3{font-size:clamp(27px,3.1vw,40px);letter-spacing:-.05em;line-height:1.6;margin:15px 0 19px}
+.story-copy p{color:#5c7972;font-size:14px;line-height:2.2;margin:0}
+.story-points{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.story-points span{border:1px solid #cfe9e1;background:white;padding:8px 13px;border-radius:100px;font-size:11px;color:#227c72;font-weight:800}
+.story-art{min-height:430px;position:relative;display:grid;place-items:center;border-radius:30px;background:#d7f4ec;overflow:hidden}
+.story-art.blue{background:#e5f2fc}.story-art.peach{background:#fff0db}
+.story-art.photo{background:linear-gradient(135deg,#dbf4eca3,#eaf7f0b0),url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=950&q=84') center/cover}
+.story-art.photo2{background:linear-gradient(135deg,#eef8fdc0,#f5faf6ba),url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=950&q=84') center/cover}
+.story-art.photo3{background:linear-gradient(135deg,#fff4dec9,#eef6f1b8),url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=950&q=84') center/cover}
+.story-window{width:85%;max-width:405px;background:#fff;border-radius:19px;border:1px solid #e0eee9;box-shadow:0 25px 48px #184f4630;padding:20px}
+.story-window .top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8efed;padding-bottom:12px;margin-bottom:15px;font-size:12px;font-weight:900}
+.story-window .top small{font-size:10px;color:#399589}
+.mock-item{display:flex;gap:10px;align-items:center;margin:9px 0;padding:11px;border-radius:10px;background:#f5fbf9;font-size:11px;font-weight:800}
+.mock-icon{font-size:18px;background:#def4ee;border-radius:9px;width:37px;height:37px;display:grid;place-items:center}
+.mock-item small{font-size:9px;color:#718b83;display:block;font-weight:500}
+.mock-cta{background:#1b9b8e;color:white;border-radius:10px;padding:11px;text-align:center;font-size:11px;font-weight:900;margin-top:14px}
+.story-art .story-callout{position:absolute;right:0;bottom:35px;background:white;border:1px solid #d8ebe6;border-radius:12px;padding:14px 17px;box-shadow:0 12px 30px #306a5b1c;font-size:11px;font-weight:800}
+.work-flow{background:white}
+.flow-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:42px}
+.flow-card{position:relative;background:#effaf7;padding:30px;border-radius:22px}
+.flow-card .n{font-size:11px;font-weight:900;color:#158d80}.flow-card .pict{font-size:38px;margin:15px 0}.flow-card h3{margin:0 0 9px;font-size:19px}.flow-card p{font-size:13px;color:#648079;line-height:2;margin:0}
+.flow-card:not(:last-child):after{content:"→";position:absolute;right:-23px;top:45%;z-index:1;background:white;border-radius:50%;width:34px;height:34px;text-align:center;line-height:34px;color:#1b9b8c;font-size:21px}
+.intro-flow{background:#f7fbfa}
+.intro-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-top:40px}
+.intro-step{background:#fff;border:1px solid #e4efec;border-radius:19px;padding:25px 20px}
+.intro-step .num{font:800 12px "DM Sans";color:#16998b}
+.intro-step .mark{font-size:34px;margin:16px 0}.intro-step h3{font-size:16px;margin:0 0 10px}.intro-step p{font-size:12px;color:#718780;line-height:1.95;margin:0}
+.pricing{background:#fff}.faq{background:#f4faf8}
+@media(max-width:900px){.story{gap:30px}.service-tiles{gap:12px}.intro-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.site-header{height:68px}.section{padding:75px 0}.hero-new{padding-top:55px}.hero-new h1{font-size:clamp(32px,8.4vw,45px)}.hero-new .lead{font-size:13px}.showcase{height:340px;margin-top:27px}.showcase:before{width:420px;height:235px;left:calc(50% - 210px)}.showcase .phone{width:140px;height:290px;border-width:5px;border-radius:25px}.showcase .phone.left{left:2%;top:55px}.showcase .phone.right{right:2%;top:55px}.showcase .phone.center{left:calc(50% - 75px);width:150px;height:309px}.phone-top{height:68px;padding:12px 9px 6px;font-size:7px}.phone-top b{font-size:12px;margin-top:8px}.phone-card{padding:7px;margin:9px 6px;font-size:8px}.phone-card b{font-size:8px}.phone-card small{font-size:7px}.phone-a{padding:8px;margin-top:7px;font-size:7px}.phone-a i{height:22px;width:22px;font-size:11px}.phone-photo{height:70px}.phone-button{padding:7px;font-size:7px}.showcase .bubble{font-size:9px;padding:9px 10px}.showcase .bubble.l{left:0;top:20%}.showcase .bubble.r{right:0;top:63%}.value-strip{padding:20px 0}.value-strip .wrap{gap:10px 17px}.value-strip span{font-size:10px}.service-tiles,.flow-cards{grid-template-columns:1fr}.service-tile .photo{height:180px}.story{grid-template-columns:1fr;padding:63px 0;gap:25px}.story.reverse .story-copy{order:0}.story.reverse .story-art{order:1}.story-art{min-height:330px}.story-copy h3{font-size:28px}.flow-card:not(:last-child):after{right:calc(50% - 17px);top:auto;bottom:-23px;transform:rotate(90deg)}.intro-steps{grid-template-columns:1fr 1fr;gap:10px}.intro-step{padding:18px 13px}.intro-step .mark{font-size:27px}.intro-step h3{font-size:13px}.intro-step p{font-size:11px}.pricebox{margin-top:28px}}
 </style>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='10px'" onblur="this.style.left='-9999px'">本文へスキップ</a>
 <header class="site-header"><div class="wrap header-inner">
 <a href="/locue/" class="logo" aria-label="LOCUE トップ">locue<span class="logo-dot">.</span><small>FIELD INTELLIGENCE PLATFORM</small></a>
-<nav class="navlinks" aria-label="メインナビゲーション"><a href="#how">仕組み</a><a href="#solutions">ソリューション</a><a href="#pricing">料金</a><a class="btn primary" href="#contact">導入相談 <span class="arr">↗</span></a></nav>
+<nav class="navlinks" aria-label="メインナビゲーション"><a href="#services">サービス</a><a href="#features">特徴</a><a href="#how">仕組み</a><a href="#pricing">料金</a><a class="btn primary" href="#contact">導入相談 <span class="arr">↗</span></a></nav>
 </div></header>
 <main id="main">
-<section class="hero"><div class="wrap hero-grid">
-<div class="hero-copy"><span class="hero-kicker">写真・動画・音声を、AIで次のアクションへ</span>
-<h1>現場の気づきを、<br><em>すぐ解決へ。</em></h1>
-<p class="hero-desc">写真を撮る、声で伝える。それだけで、現場の情報が次のアクションにつながる。LOCUEは、報告・確認・連絡・手配の手間を減らす、AI現場オペレーションプラットフォームです。</p>
-<div class="hero-actions"><a class="btn primary" href="#contact">共同実証について相談する <span class="arr">↗</span></a><a class="btn outline" href="#how">LOCUEの仕組みを見る ↓</a></div>
-<p class="hero-note">現在、サービス構想・共同実証パートナー募集中</p></div>
-<div class="hero-visual" aria-label="LOCUEの管理画面とスマートフォン入力画面のコンセプトイメージ">
-<div class="hero-photo-scene" role="img" aria-label="ホテル客室のイメージ写真"></div><div class="dashboard"><div class="dash-head"><div class="dash-title">● locue business</div><div class="dash-actions"><span class="dots"><i></i><i></i><i></i></span>ホテルA / 管理者</div></div><div class="dash-body"><aside class="side"><b>WORKSPACE</b><span class="selected">⌁ 今日の対応</span><span>▦ 設備・修繕</span><span>◷ 点検</span><span>◇ 品質</span><span>◈ 体験改善</span></aside><div class="dash-content"><div class="label">今日のオペレーション</div><h3>対応が必要なことだけ、ひと目で。</h3><div class="statrow"><div class="stat"><strong>2</strong><span>確認が必要</span></div><div class="stat"><strong>8</strong><span>対応中の案件</span></div><div class="stat"><strong>12</strong><span>今月の完了</span></div></div><div class="dash-case"><div class="dash-case-top">305号室 / 空調設備 <span class="status">日程調整中</span></div><p>写真から不具合を整理。協力業者へ候補日を送信しました。</p><div class="progress"></div></div><div class="dash-case"><div class="dash-case-top">共用エリア / 清掃品質 <span class="status" style="background:#e3f5e8;color:#327954">確認済み</span></div><p>現場の報告をもとに、担当者へ共有しました。</p></div></div></div></div>
-<div class="mini-phone"><div class="phone-inner"><div class="phone-notch"></div><div class="phone-time">9:41</div><h4>気になる場所を<br>撮るだけ。</h4><div class="phone-text">写真や動画で現場の様子を伝えよう。<br>詳しい入力は必要ありません。</div><div class="camera-box"><div><div class="camera-symbol">▣</div><small>写真・動画を撮影</small></div></div><div class="phone-action">送信する →</div></div></div>
-<div class="float-chip"><strong>✦ AIが情報を整理</strong><small>次の対応までスムーズにつなぐ</small></div></div>
-</div></section>
+<section class="hero-new"><div class="wrap intro"><span class="pill">現場の一次情報を、AIで次のアクションへ</span><h1>現場の「困った」を、<br><em>解決までつなぐ。</em></h1><p class="lead">写真を撮る。声で伝える。LOCUEが状況を整理し、必要な人につなぎ、実行までをサポート。現場の報告・確認・手配に追われる毎日を、もっとシンプルに。</p><div class="hero-actions"><a class="btn primary" href="#contact">共同実証について相談する <span class="arr">↗</span></a><a class="btn outline" href="#services">サービスを見る ↓</a></div><div class="hero-foot">LOCUEは現在、サービス構想・共同実証段階です。画面はコンセプトイメージです。</div>
+<div class="showcase" role="img" aria-label="LOCUEの現場報告・AI整理・対応管理のスマートフォン画面イメージ">
+<div class="phone left"><div class="phone-top">9:41<b>locue.</b>現場から報告</div><div class="phone-card"><b>305号室</b><small>写真を撮って、気になる場所を送信</small><div class="phone-photo"></div><div class="phone-button">写真を送る →</div></div></div>
+<div class="phone center"><div class="phone-top">9:41<b>locue.</b>今日の対応</div><div class="phone-card"><b>おはようございます</b><small>必要な対応をまとめました</small><div class="phone-a"><i>📷</i>現場からの報告</div><div class="phone-a"><i>✦</i>AIが内容を整理</div><div class="phone-a"><i>📅</i>業者の日程を確認</div><div class="phone-button">確認が必要な2件を見る</div></div></div>
+<div class="phone right"><div class="phone-top">9:41<b>locue.</b>業者との日程</div><div class="phone-card"><b>空調修繕の訪問予定</b><small>305号室・空調設備</small><div class="phone-a"><i>✓</i>11/12 午前 候補</div><div class="phone-a"><i>✓</i>11/13 午後 候補</div><div class="phone-button">候補日を回答 →</div></div></div>
+<div class="bubble l">📷 <b>撮るだけ</b>で報告</div><div class="bubble r">✦ AIが整理して<br>次の対応へ</div>
+</div></div></section>
+<div class="value-strip"><div class="wrap"><span>✓ 入力工数を最小限に</span><span>✓ AIが一次情報を理解</span><span>✓ 連絡・日程調整を省力化</span><span>✓ 解決までつなぐ</span></div></div>
 
-<section class="section problem" id="problems"><div class="wrap"><div class="center"><span class="eyebrow">CHALLENGES</span><h2 class="section-title">こんな現場の「手間」、<br>当たり前になっていませんか？</h2><p class="section-copy">必要なのは、管理する仕事を増やすことではなく、<br>現場で起きたことが自然に解決へ進む仕組み。</p></div><div class="problem-grid">
-<div class="problem-card"><div class="problem-illus p1"></div><article><h3>報告するだけなのに、<br>入力が多い。</h3><p>場所や設備を選び、文章を書き、写真を添付する。小さな不具合ほど報告が後回しになりがちです。</p></article></div>
-<div class="problem-card"><div class="problem-illus p2"></div><article><h3>電話・チャット・メールが<br>行き交っている。</h3><p>担当者や業者への説明、候補日の確認、催促。情報を渡すだけで、何度も同じやり取りが発生します。</p></article></div>
-<div class="problem-card"><div class="problem-illus p3"></div><article><h3>進捗を更新することが、<br>新たな仕事になっている。</h3><p>対応は進んでいるのに、ステータス更新や履歴入力が追いつかず、管理のための管理が生まれます。</p></article></div>
-</div></div></section>
-<section class="section engine" id="how"><div class="wrap"><div class="center"><span class="eyebrow">HOW LOCUE WORKS</span><h2 class="section-title">撮る。AIがつなぐ。<br>現場が動く。</h2><p class="section-copy">現場の一次情報を取得するシンプルなUIと、課題解決まで導くAIエンジン。<br>情報を集めるだけで終わらせません。</p></div><div class="steps">
-<div class="step"><span class="step-num">STEP 01 / INPUT</span><div class="step-icon">📷</div><h3>シンプルに入力<small>LOCUE Input</small></h3><p>写真・動画・音声・QRから、必要な現場情報を素早く取得。スタッフ、協力業者、一般利用者も使える入口へ。</p><div class="step-arrow">→</div></div>
-<div class="step"><span class="step-num">STEP 02 / INTELLIGENCE</span><div class="step-icon">✦</div><h3>AIが情報を変換<small>LOCUE Engine</small></h3><p>何が、どこで起きたかを理解して、設備・場所・優先度などを整理。必要な業務アクションを準備します。</p><div class="step-arrow">→</div></div>
-<div class="step"><span class="step-num">STEP 03 / ACTION</span><div class="step-icon">⚡</div><h3>解決までつなぐ<small>LOCUE Action</small></h3><p>担当者への連携、外注手配、日程調整、改善・完了記録まで。人は重要な判断と現場対応に集中できます。</p></div>
-</div></div></section>
-<section class="section solutions" id="solutions"><div class="wrap"><div class="center"><span class="eyebrow">SOLUTIONS</span><h2 class="section-title">ひとつの入力から、<br>さまざまな現場課題へ。</h2><p class="section-copy">共通のLOCUE Engineを中心に、用途ごとの実行フローを提供する構想です。</p></div><div class="solutions-grid">
-<article class="solution-card"><div class="solution-art maintenance"><div class="illustration"><div class="ill-heading">🔧 設備の不具合を報告</div><div class="ill-line"></div><div class="ill-line s"></div><div class="ill-tick">✓ 修繕依頼を準備</div></div></div><div class="solution-text"><span class="solution-tag">FIRST FOCUS / 初期開発の中心</span><h3>Maintenance</h3><p>設備の不具合報告、点検、修繕依頼、外注業者との日程調整、対応履歴までを省力化します。</p><div class="solution-mini">設備保全・点検・修繕管理 →</div></div></article>
-<article class="solution-card"><div class="solution-art quality"><div class="illustration"><div class="ill-heading">🧹 清掃状況を共有</div><div class="ill-line"></div><div class="ill-line s"></div><div class="ill-tick">✓ 是正内容を整理</div></div></div><div class="solution-text"><span class="solution-tag future">SOLUTION CONCEPT / 展開構想</span><h3>Quality</h3><p>清掃・衛生・サービス品質に関する現場情報を整理し、必要な是正対応と確認へつなげます。</p><div class="solution-mini">品質管理・清掃・衛生改善 →</div></div></article>
-<article class="solution-card"><div class="solution-art experience"><div class="illustration"><div class="ill-heading">🗺 現地の不便を発見</div><div class="ill-line"></div><div class="ill-line s"></div><div class="ill-tick">✓ 改善候補として共有</div></div></div><div class="solution-text"><span class="solution-tag future">SOLUTION CONCEPT / 展開構想</span><h3>Experience</h3><p>施設利用者が感じた不便や気づきを整理し、案内やサービス改善のアクションにつなげます。</p><div class="solution-mini">顧客体験・施設案内改善 →</div></div></article>
-</div></div></section>
-<section class="section case-section" id="maintenance"><div class="wrap case-grid">
-<div><span class="eyebrow">FIRST USE CASE / MAINTENANCE</span><h2 class="section-title">不具合の発見から、<br>業者の手配、修繕まで。</h2><p class="section-copy">ホテルの空調設備が壊れたとき、現場の報告だけで終わらせず、協力業者との調整や修繕完了までの仕事を前に進める。LOCUEが最初に挑むユースケースです。</p>
-<ul class="checklist"><li>撮影・音声で報告の入力時間を削減</li><li>業者との日程調整の往復を削減</li><li>管理者は重要な承認に集中</li><li>作業結果から履歴を作成</li><li>既存運用からの移行負担を抑える</li></ul></div>
-<div class="case-pane" aria-label="修繕手配フローのコンセプト画面"><div class="case-pane-head"><span>305号室 / エアコン不具合</span><span class="status">デモ画面</span></div>
-<div class="case-msg"><b>📷 09:12 現場スタッフから報告</b>エアコンの警告ランプが点滅。写真を受信しました。</div>
-<div class="case-event"><div class="event-icon">✦</div><div><strong>AIが設備・不具合を整理</strong><small>設備情報と過去の履歴を参照して対応候補を提示</small></div></div>
-<div class="case-event"><div class="event-icon">↗</div><div><strong>設備担当者へ確認依頼</strong><small>必要な承認だけをワンタップで確認</small></div></div>
-<div class="case-event"><div class="event-icon">▣</div><div><strong>協力業者と候補日を照合</strong><small>専用URLから業者が回答。日程確定を支援</small></div></div>
-<div class="case-event"><div class="event-icon">✓</div><div><strong>作業後の報告・完了記録</strong><small>写真・作業内容を履歴に反映</small></div></div><p class="tiny">※画面はプロダクト構想を示すデモです。写真はイメージであり、実際の導入事例ではありません。</p></div>
+
+<section class="section work-flow" id="how"><div class="wrap"><div class="center"><span class="eyebrow">HOW IT WORKS</span><h2 class="section-title">現場から解決まで、<br>ひとつの流れに。</h2><p class="section-copy">LOCUEの中心となる、3ステップの仕組み。</p></div><div class="flow-cards"><div class="flow-card"><span class="n">STEP 01 / INPUT</span><div class="pict">📷</div><h3>一次情報を取得</h3><p>現場スタッフ、協力業者、施設利用者が写真・動画・音声で素早く報告。</p></div><div class="flow-card"><span class="n">STEP 02 / ENGINE</span><div class="pict">✦</div><h3>AIが業務情報に変換</h3><p>場所・設備・状況を理解し、必要な担当者や次のアクションを整理。</p></div><div class="flow-card"><span class="n">STEP 03 / ACTION</span><div class="pict">⚡</div><h3>課題解決まで実行</h3><p>連絡、修繕手配、日程調整、改善アクション、完了確認へつなぐ。</p></div></div></div></section>
+<section class="section service-overview" id="services"><div class="wrap"><div class="center"><span class="eyebrow">OUR SERVICE</span><h2 class="section-title">現場の情報を、<br>そのまま課題解決の力に。</h2><p class="overview-lead">LOCUEは、情報の入力を簡単にするだけのツールではありません。現場の一次情報をAIで業務情報に変え、修繕・品質改善・顧客対応などの実行につなげるプラットフォームです。</p></div><div class="service-tiles">
+<article class="service-tile"><div class="photo" role="img" aria-label="宿泊施設の客室イメージ"></div><div class="body"><span class="eyebrow">01 / MAINTENANCE</span><h3>設備管理・保全</h3><p>設備の異常報告から、修繕手配、外注業者との日程調整、完了記録まで。</p><span class="phase">最初の重点領域</span></div></article>
+<article class="service-tile"><div class="photo" role="img" aria-label="清掃現場のイメージ"></div><div class="body"><span class="eyebrow">02 / QUALITY</span><h3>現場の品質管理</h3><p>清掃・衛生・サービス品質の問題を、報告から是正・再確認までつなぐ。</p><span class="phase">展開構想</span></div></article>
+<article class="service-tile"><div class="photo" role="img" aria-label="観光・施設案内のイメージ"></div><div class="body"><span class="eyebrow">03 / EXPERIENCE</span><h3>顧客体験の改善</h3><p>施設利用者の気づきや不便から、案内・サービス改善のアクションへ。</p><span class="phase">展開構想</span></div></article>
+</div></div></section><section class="story-band" id="features"><div class="wrap">
+<div class="story"><div class="story-copy"><span class="story-label">01 / LOCUE INPUT</span><h3>現場の情報は、<br>撮るだけ、話すだけ。</h3><p>報告のために、項目をいくつも選び、文章を書く必要はありません。写真・動画・音声・QRなどから、状況に合った最小限の操作で一次情報を届けられる入力体験を目指します。</p><div class="story-points"><span>フォームレス設計</span><span>アプリ登録不要を想定</span><span>役割に応じた入力UI</span></div></div><div class="story-art photo"><div class="story-window"><div class="top">LOCUE Input <small>現場スタッフ向け</small></div><div class="mock-item"><div class="mock-icon">📍</div><div>客室305 / エアコン<small>QRから開くと場所を自動セット</small></div></div><div class="mock-item"><div class="mock-icon">📷</div><div>写真を撮って共有<small>気になる箇所をカメラで撮影</small></div></div><div class="mock-cta">撮影して報告 →</div></div><div class="story-callout">入力は必要なことだけ ✓</div></div></div>
+<div class="story reverse"><div class="story-copy"><span class="story-label">02 / LOCUE ENGINE</span><h3>現場の気づきを、<br>AIが使える情報へ。</h3><p>バラバラな写真、動画、音声から「どこで何が起きたか」を整理。既存設備情報や過去の対応履歴と照合して、次に必要な確認や手配を準備します。AIが判断しきれない部分だけ、人が確認します。</p><div class="story-points"><span>AIによる情報構造化</span><span>設備・場所との照合</span><span>確認すべき点を提示</span></div></div><div class="story-art blue"><div class="story-window"><div class="top">✦ LOCUE Engine <small>情報変換デモ</small></div><div class="mock-item"><div class="mock-icon">📷</div><div>写真・音声を受信<small>現場スタッフによる一次報告</small></div></div><div class="mock-item"><div class="mock-icon">✦</div><div>設備：エアコン / 305号室<small>現場データを整理・分類</small></div></div><div class="mock-item"><div class="mock-icon">↗</div><div>設備担当への確認候補<small>過去の対応履歴を参照</small></div></div></div><div class="story-callout">入力情報 → 業務情報</div></div></div>
+<div class="story"><div class="story-copy"><span class="story-label">03 / LOCUE ACTION</span><h3>記録して終わりにしない。<br>解決まで進める。</h3><p>必要な担当者への連絡、外注業者への修繕依頼、候補日の照合、進捗共有までをスムーズに。管理者は重要な承認だけに集中し、対応結果は次の業務に使える履歴として蓄積されます。</p><div class="story-points"><span>業者への依頼</span><span>日程調整の省力化</span><span>完了・履歴管理</span></div></div><div class="story-art peach"><div class="story-window"><div class="top">LOCUE Action <small>修繕手配デモ</small></div><div class="mock-item"><div class="mock-icon">🔧</div><div>空調修繕の依頼を準備<small>写真・設備情報・作業条件を整理</small></div></div><div class="mock-item"><div class="mock-icon">📅</div><div>候補日時を収集<small>業者は専用URLから回答</small></div></div><div class="mock-item"><div class="mock-icon">✓</div><div>必要な承認だけを確認<small>確定した日時を関係者に共有</small></div></div></div><div class="story-callout">連絡の往復を減らす</div></div></div>
 </div></section>
+<section class="section intro-flow" id="start"><div class="wrap"><div class="center"><span class="eyebrow">IMPLEMENTATION FLOW</span><h2 class="section-title">今の現場を大切にしながら、<br>新しい業務の形へ。</h2><p class="section-copy">現場の業務を伺い、共同実証で使い勝手と工数削減効果を確かめます。</p></div><div class="intro-steps"><div class="intro-step"><div class="num">STEP 01</div><div class="mark">💬</div><h3>お問い合わせ</h3><p>ご相談の背景と現在の運用を伺います。</p></div><div class="intro-step"><div class="num">STEP 02</div><div class="mark">🔎</div><h3>現場業務の確認</h3><p>報告・確認・外注調整の実態を整理します。</p></div><div class="intro-step"><div class="num">STEP 03</div><div class="mark">🧪</div><h3>共同実証</h3><p>対象業務を絞り、操作性と工数を検証します。</p></div><div class="intro-step"><div class="num">STEP 04</div><div class="mark">🤝</div><h3>導入計画</h3><p>成果と要件を確認し、提供範囲を決めます。</p></div></div></div></section>
 <section class="section pricing" id="pricing"><div class="wrap"><div class="center"><span class="eyebrow">PRICING CONCEPT</span><h2 class="section-title">現場の課題解決を、<br>ひとつのプラットフォームで。</h2><p class="section-copy">複雑な機能別契約ではなく、現場で必要なソリューションをまとめて利用できる料金体系を検討しています。</p></div>
 <div class="pricebox"><div class="price-head"><div><span class="pill">料金プラン構想</span><h3 style="font-size:24px;margin:14px 0 0">LOCUE Business</h3></div><div><div class="price"><small>月額</small> ¥50,000</div><div class="tiny">1施設あたり / 税抜（仮説）</div></div></div><div class="price-features"><div>Maintenance（設備管理）</div><div>Quality（品質管理）</div><div>Experience（体験改善）</div><div>LOCUE AI Core（共通基盤）</div><div>現地スタッフ・協力業者向け入力UI</div><div>対応フロー・権限管理</div></div><a class="btn primary" href="#contact">料金・共同実証について相談する <span class="arr">↗</span></a><div class="price-foot">※正式提供前の料金案です。各ソリューションの提供時期・範囲、初期導入費、AI利用量、外部連携費などは検証後に決定します。</div></div>
 </div></section>

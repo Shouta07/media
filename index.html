@@ -95,46 +95,159 @@ body{background:#fff}.header{background:#fff}.corp-hero{background:#fff}.photo-h
 @media(max-width:980px){.photo-hero-grid{grid-template-columns:1fr 1fr;min-height:450px}.photo-hero-message{padding:42px 6% 42px 0}.photo-hero-message h1{font-size:clamp(39px,5vw,55px)}.photo-hero-mosaic{min-height:430px}.field-visual-inner{gap:30px}}
 @media(max-width:760px){.photo-hero .corp-hero-inner{padding-left:5%;padding-right:5%}.photo-hero-grid{display:flex;flex-direction:column;min-height:0}.photo-hero-message{padding:24px 0 40px}.photo-hero-message h1{font-size:clamp(41px,9.5vw,60px)}.photo-hero-lead{margin-top:22px;font-size:12px}.photo-hero-message .corp-link-button{margin-top:24px}.photo-hero-mosaic{min-height:325px;height:325px}.photo-hero-foot{flex-wrap:wrap;padding:16px 5%;gap:6px;font-size:10px}.field-visual-strip{padding:44px 0}.field-visual-inner{display:flex;flex-direction:column;align-items:stretch}.field-visual-inner figure{height:225px}.corp-product-art,.corp-ops-art{height:245px}.field-photo figcaption{font-size:8px;letter-spacing:.06em}}
 @media(prefers-reduced-motion:reduce){.field-photo img{transition:none}}
+</style>
+<style id="reference-redesign">
+/* Photo-led layout closely following the supplied visual reference */
+:root{--paper:#fff;--ink:#172c24;--muted:#51685b;--line:#d9e3dc;--accent:#07583a}
+html{scroll-padding-top:76px}body{background:#fff;color:#172c24;font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.75}
+.header.ref-header{height:72px;padding:0 3.2%;background:#fff;display:flex;align-items:center;border-bottom:1px solid #e8ece8;position:sticky;top:0;z-index:40}
+.ref-header .brand{display:flex;align-items:center;gap:11px;font-family:'Inter',sans-serif;font-weight:700;font-size:23px;letter-spacing:-.025em;line-height:1.1;white-space:nowrap}
+.ref-brand-mark{display:grid!important;place-items:center;width:29px;height:31px;margin:0!important;font:bold 31px/1 'Inter',sans-serif!important;color:#09593b!important;letter-spacing:-.18em!important;transform:skew(-8deg)}
+.ref-brand-name{display:inline!important;margin:0!important;font:700 23px/1 'Inter',sans-serif!important;letter-spacing:-.035em!important}
+.ref-header .desktop-nav{gap:0;font-size:12px}.ref-header .desktop-nav>a{padding:0 19px;border-right:1px solid #d9e4db;font-weight:600}.ref-header .desktop-nav .nav-contact{margin-left:12px;border:0;border-radius:5px;background:#0f5d3e;padding:12px 21px;color:#fff}.ref-header .desktop-nav .nav-contact span{margin-left:9px}
+.reference-hero{position:relative;min-height:485px;display:grid;grid-template-columns:43% 57%;overflow:hidden}
+.reference-hero-copy{z-index:2;padding:50px 28px 50px 7%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;background:linear-gradient(90deg,#fff 0%,#fff 78%,#ffffffef 100%)}
+.reference-eyebrow{font:600 9px 'Inter',sans-serif;letter-spacing:.17em;color:#477564;margin-bottom:16px}
+.reference-hero h1{font:700 clamp(38px,3.4vw,60px)/1.47 'Noto Sans JP',sans-serif;letter-spacing:-.065em;color:#0b3624}
+.reference-accent-line{width:45px;height:3px;background:#176d49;display:block;margin:23px 0 16px}
+.reference-hero-copy p{color:#25382f;font-size:13px;font-weight:500;line-height:2.05;letter-spacing:-.015em;max-width:470px}
+.reference-primary-cta{background:#075c3d;color:#fff;display:inline-flex;align-items:center;justify-content:space-between;gap:26px;padding:15px 24px;border-radius:5px;font-weight:700;font-size:13px;margin-top:27px;min-width:220px;transition:background .2s,transform .2s}
+.reference-primary-cta:hover{color:#fff;background:#093e2a;transform:translateY(-1px)}
+.reference-hero-pictures{height:485px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;background:#fff}
+.reference-hero-pictures figure{margin:0;overflow:hidden;position:relative;background:#d4ddd6}
+.reference-hero-pictures img{height:100%;width:100%;object-fit:cover;display:block}
+.ref-mosaic-first{grid-row:1 / 3;grid-column:1}.ref-mosaic-second{grid-row:1;grid-column:2}.ref-mosaic-third{grid-row:1;grid-column:3}.ref-mosaic-fourth{grid-row:2;grid-column:2}.ref-mosaic-fifth{grid-row:2;grid-column:3}
+.ref-mosaic-first img{object-position:center}.ref-mosaic-second img{object-position:center}.ref-mosaic-third img{object-position:center}
+.reference-business{display:grid;grid-template-columns:23% 1fr;gap:24px;padding:36px 3.2% 31px;align-items:stretch;max-width:1550px;margin:auto}
+.reference-business-intro{padding:6px 14px 0 0}.ref-kicker{color:#0b5b3b;font-size:11px;font-weight:800;letter-spacing:.03em;display:block}
+.ref-kicker::before{content:"";display:inline-block;width:4px;height:16px;background:#126545;vertical-align:-3px;margin-right:10px}
+.reference-business-intro h2{font-size:clamp(19px,1.7vw,27px);letter-spacing:-.055em;line-height:1.65;margin:12px 0 7px;font-weight:700}
+.reference-business-intro>p{font-size:11px;color:#587063;line-height:1.85}
+.reference-business-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;min-width:0}
+.reference-service-card{border:1px solid #d9e2db;border-radius:8px;overflow:hidden;background:#fff;display:grid;grid-template-columns:1.1fr .9fr;min-height:202px}
+.reference-service-copy{padding:20px 17px 17px 22px;display:flex;flex-direction:column;align-items:flex-start;min-width:0;position:relative;z-index:1}
+.reference-service-copy .ref-kicker{font-size:9px;color:#216848}.reference-service-copy .ref-kicker::before{height:12px;width:3px;margin-right:7px}
+.reference-service-copy h3{font-size:20px;font-weight:700;line-height:1.4;letter-spacing:-.065em;margin:9px 0}
+.reference-service-copy p{font-size:11px;line-height:1.85;color:#314c3f}
+.reference-text-link{display:inline-flex;align-items:center;gap:16px;border-bottom:1px solid #115d40;font-weight:700;color:#075e3d;font-size:11px;line-height:1.4;padding-bottom:4px;margin-top:auto;padding-top:10px}
+.reference-text-link:hover{color:#042f20}
+.reference-card-photo{height:100%;overflow:hidden;background:#e0ebe5}.reference-card-photo img{width:100%;height:100%;object-fit:cover}
+.reference-strength{background:#e9f1ec;display:grid;grid-template-columns:23% 1fr;gap:24px;align-items:center;padding:26px 3.2%;max-width:none}
+.reference-strength-title h2{font-size:clamp(19px,1.8vw,26px);line-height:1.6;font-weight:700;letter-spacing:-.065em;margin-top:8px}
+.reference-strength-points{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.reference-strength-point{display:flex;align-items:center;gap:15px;min-height:98px;padding:8px 15px;border-left:1px solid #cadaD1}
+.ref-strength-icon{color:#156443;font-size:35px;line-height:1;min-width:40px;text-align:center}
+.reference-strength-point h3{font-size:16px;letter-spacing:-.04em;line-height:1.5;margin:0 0 6px}.reference-strength-point p{font-size:10px;line-height:1.7;color:#355344}
+.reference-about{display:grid;grid-template-columns:1.45fr 1fr;gap:45px;padding:38px 4.5% 40px;max-width:1550px;margin:0 auto}
+.reference-about-message{display:grid;grid-template-columns:.85fr 1.15fr;gap:25px}
+.reference-about-message h2{font-size:clamp(21px,2.2vw,32px);line-height:1.6;letter-spacing:-.065em;font-weight:700;margin-top:9px}
+.reference-about-details>p{font-size:11px;line-height:1.95;margin-bottom:8px;color:#344d3f}
+.reference-founder{display:flex;align-items:baseline;gap:11px;margin-top:14px}.reference-founder span{font-size:10px;color:#6a8074}.reference-founder strong{font-size:15px;font-weight:700}.reference-founder small{font-size:9px;color:#718376;font-family:'Inter',sans-serif}
+.reference-credential{display:block;font-size:9px;color:#738779;line-height:1.7;margin-top:9px}
+.reference-company{border-left:1px solid #d9e2db;padding-left:32px}.reference-company dl{margin:13px 0 0}.reference-company dl>div{display:grid;grid-template-columns:87px 1fr;gap:12px;border-bottom:1px solid #dfe7e0;padding:6px 0}.reference-company dt,.reference-company dd{font-size:10px;line-height:1.6}.reference-company dt{font-weight:700;color:#294335}.reference-company dd{margin:0}.reference-company dd small{font-size:9px;color:#708178}
+.reference-company .reference-text-link{margin-top:12px}
+.reference-bottom-contact{background:#173e2c;color:white;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:21px 4.5%}
+.reference-bottom-contact>div{display:flex;align-items:center;gap:35px}.reference-bottom-contact span{font:700 10px 'Inter',sans-serif;letter-spacing:.15em;color:#bdd6c6;border-right:1px solid #70937e;padding-right:30px}.reference-bottom-contact strong{font-size:15px;font-weight:600}
+.reference-bottom-contact>a{background:#fff;color:#153b29;border-radius:5px;padding:12px 20px;white-space:nowrap;font-size:12px;font-weight:700}
+.reference-bottom-contact>a:hover{color:#153b29;background:#e0efe5}
+/* Contact: correct the low-contrast inherited dark-theme rules */
+#contact.contact{background:#f0f6f1!important;color:#183c2d!important;padding:75px max(4.5%,calc((100vw - 1360px)/2))!important}
+#contact .section-index{color:#426551!important;border-color:#d3e3d7!important;max-width:none;margin-bottom:40px}
+#contact .section-index span:first-child{color:#426551!important}
+#contact .contact-grid{gap:8%;grid-template-columns:0.9fr 1.1fr}
+#contact .contact-grid h2{font-family:'Noto Sans JP',sans-serif;font-weight:700;letter-spacing:-.05em;color:#123b29!important;line-height:1.65;font-size:clamp(30px,3vw,42px)}
+#contact .prose{color:#385e49!important;font-size:13px;line-height:2.1}
+#contact .contact-email{color:#15563a!important;border-bottom-color:#a8c0ae;font-weight:600}
+#contact #fwrap{background:#fff;border:1px solid #dce9de;box-shadow:0 10px 35px #14412e11;border-radius:13px;padding:31px}
+#contact .fld label{color:#244f38;font-size:12px;font-weight:600}
+#contact .fld input,#contact .fld select,#contact .fld textarea{color:#183727!important;background:#fff!important;border:1px solid #b6c8bc!important;border-radius:6px!important;min-height:48px;padding:12px!important}
+#contact .fld select option{background:#fff;color:#183727}
+#contact .fld textarea::placeholder{color:#7a8c81}
+#contact .rq{color:#a34c2a}
+#contact .fbtn{border:0;border-radius:6px;background:#0f5b3c!important;color:#fff!important;font-weight:700;font-size:13px;letter-spacing:0}
+#contact .fbtn:hover{background:#0a412a!important;color:#fff!important}
+#contact .fnote{color:#65796d!important}#contact .fnote a{color:#135a3b!important}
+#contact .fstat{color:#a64626}
+#contact .locue-request-intro{background:#edf7f0;border-color:#cce6d4}
+#contact .fdone{color:#163b29;border-color:#c9dcca}
+.footer{background:#fff;color:#152e22;padding:31px 4.5% 22px}.footer .brand{font-size:23px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.035em}
+.footer .brand span{font-family:'Noto Sans JP',sans-serif;font-size:10px;font-weight:400;letter-spacing:0;color:#526b5b;margin-top:9px}
+.footer .footer-top{margin-bottom:25px}.footer .back-top{border-color:#c6dccc;color:#114e33;border-radius:5px}.footer .footer-bottom{border-color:#dbe5dc}
+@media(max-width:1150px){.ref-header .desktop-nav>a{padding:0 11px}.reference-business{grid-template-columns:1fr}.reference-business-intro{display:flex;align-items:center;gap:25px}.reference-business-intro h2{margin:0}.reference-business-intro p{display:none}.reference-strength{grid-template-columns:1fr}.reference-strength-title h2 br{display:none}.reference-strength-points{gap:10px}.reference-strength-point:first-child{border:0}}
+@media(max-width:760px){.header.ref-header{height:64px;padding:0 5%}.ref-header .brand{font-size:20px}.ref-brand-name{font-size:19px!important}.ref-brand-mark{font-size:26px!important;width:25px}.reference-hero{display:flex;flex-direction:column}.reference-hero-copy{padding:38px 6% 32px}.reference-eyebrow{font-size:8px}.reference-hero h1{font-size:clamp(38px,9.8vw,56px);line-height:1.5}.reference-hero-copy p{font-size:12px}.reference-hero-copy p br{display:none}.reference-hero-pictures{height:300px;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:1fr 1fr}.reference-primary-cta{margin-top:22px}.reference-business{display:block;padding:30px 5%}.reference-business-intro{display:block}.reference-business-intro h2{font-size:22px;margin:8px 0 18px}.reference-business-cards{grid-template-columns:1fr;gap:14px}.reference-service-card{grid-template-columns:1.15fr .85fr;min-height:180px}.reference-service-copy{padding:17px 12px}.reference-service-copy h3{font-size:18px}.reference-service-copy p{font-size:10px}.reference-strength{display:block;padding:26px 5%}.reference-strength-points{grid-template-columns:1fr;gap:0;margin-top:14px}.reference-strength-point{border-left:0;border-top:1px solid #cbded0!important;min-height:74px;padding:14px 0}.reference-strength-point h3{font-size:15px}.reference-about{display:block;padding:30px 5%}.reference-about-message{display:block}.reference-about-message h2{font-size:26px;margin-bottom:20px}.reference-company{border-left:0;border-top:1px solid #d9e2db;padding:22px 0 0;margin-top:26px}.reference-bottom-contact{flex-direction:column;align-items:stretch;padding:23px 5%;gap:14px}.reference-bottom-contact>div{display:block}.reference-bottom-contact span{display:block;border:0;padding:0;margin-bottom:9px}.reference-bottom-contact strong{font-size:13px;line-height:1.8}.reference-bottom-contact>a{text-align:center}#contact.contact{padding:47px 5%!important}#contact .contact-grid{display:block}#contact #fwrap{margin-top:32px;padding:22px 17px}#contact .contact-grid h2{font-size:29px}#contact .f2{display:grid;grid-template-columns:1fr;gap:0}.footer .footer-top{gap:15px}.footer .brand{font-size:19px}.footer{padding:28px 5% 22px}}
+@media(prefers-reduced-motion:reduce){.reference-primary-cta{transition:none}}
 </style></head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
-<header class="header" id="top">
-<a href="/" class="brand" aria-label="Vitality Design ホーム">VITALITY DESIGN<span>現場の仕事を、仕組みで前へ。</span></a>
-<nav class="desktop-nav" aria-label="メインナビゲーション"><a href="#business">事業紹介</a><a href="#strength">私たちの強み</a><a href="#about">会社概要</a><a class="nav-contact" href="#contact">お問い合わせ <span>↗</span></a></nav>
+
+<header class="header ref-header" id="top">
+<a href="/" class="brand" aria-label="Vitality Design ホーム"><span class="ref-brand-mark" aria-hidden="true">V</span><span class="ref-brand-name">VITALITY DESIGN</span></a>
+<nav class="desktop-nav" aria-label="メインナビゲーション"><a href="#about">私たちについて</a><a href="#business">事業・サービス</a><a href="#strength">私たちの強み</a><a href="#about">会社情報</a><a class="nav-contact" href="#contact">お問い合わせ <span>↗</span></a></nav>
 <button id="menu-toggle" class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button>
 </header>
-<nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション" hidden><a href="#business">事業紹介</a><a href="#strength">私たちの強み</a><a href="#approach">取り組み方</a><a href="#about">会社概要</a><a href="#contact">お問い合わせ ↗</a></nav>
+<nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション" hidden><a href="#about">私たちについて</a><a href="#business">事業・サービス</a><a href="#strength">私たちの強み</a><a href="#about">会社情報</a><a href="#contact">お問い合わせ ↗</a></nav>
 <main id="main">
-<section class="corp-hero photo-hero" aria-labelledby="hero-title"><div class="corp-hero-inner">
-<div class="corp-hero-kicker"><span>VITALITY DESIGN LLC</span><span>現場に根ざした事業づくり</span></div>
-<div class="photo-hero-grid">
-<div class="photo-hero-message"><p class="corp-overline">FIELD FIRST. OPERATIONS FORWARD.</p><h1 id="hero-title">現場の仕事を、<br><em>仕組みで前へ。</em></h1><p class="photo-hero-lead">ホテル・施設の運営、設備管理、協力会社との連携まで。現場に根ざした業務設計と運用の仕組みで、毎日の「やるべき仕事」を、もっと確実に、もっとシンプルに。</p><a class="corp-link-button" href="#business">私たちの事業を見る <span>↗</span></a></div>
-<div class="photo-hero-mosaic" aria-label="ホテルの客室、設備の確認、建物の施工現場を表す写真">
-<figure class="field-photo field-photo-hotel"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=82&auto=format&fit=crop" loading="eager" fetchpriority="high" alt="ホテル客室・宿泊施設のイメージ"><figcaption>HOTEL OPERATIONS</figcaption></figure>
-<figure class="field-photo field-photo-engineer"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=950&q=80&auto=format&fit=crop" loading="eager" alt="設備・技術の現場イメージ"><figcaption>FACILITY &amp; MAINTENANCE</figcaption></figure>
-<figure class="field-photo field-photo-team"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=950&q=80&auto=format&fit=crop" loading="lazy" alt="工事と設備の施工現場イメージ"><figcaption>FIELD EXECUTION</figcaption></figure>
+<section class="reference-hero" aria-labelledby="hero-title">
+<div class="reference-hero-copy">
+<span class="reference-eyebrow">VITALITY DESIGN LLC / FIELD &amp; OPERATIONS</span>
+<h1 id="hero-title">現場の仕事を、<br>仕組みで前へ。</h1>
+<span class="reference-accent-line"></span>
+<p>ホテル・施設の運営、設備管理、協力会社との連携まで。<br>現場に根ざした業務設計と運用の仕組みで、<br>日々の「やるべき仕事」を、もっと確実に、もっと効率的に。</p>
+<a class="reference-primary-cta" href="#business">事業・サービスを見る <span>↗</span></a>
 </div>
-</div><div class="photo-hero-foot"><span>現場を知る。</span><span>人と仕事をつなぐ。</span><span>自走できる仕組みをつくる。</span></div></div></section>
-<section class="corp-section corp-intro" id="vision"><div class="corp-container"><div class="corp-section-top"><span>01 / OUR PURPOSE</span><span>私たちが目指すこと</span></div><div class="corp-intro-layout"><h2>複雑な仕事を、<br>続けられる仕組みに。</h2><div><p class="corp-lead">日々の現場には、仕組みにできる仕事が、まだたくさんあります。</p><p>情報の伝達、関係者との調整、判断の引継ぎ。小さな手間が積み重なり、本来向き合うべき仕事の時間を奪っていく。</p><p>私たちは現場に入り、課題を捉え直し、人・業務・テクノロジーをつなぎます。誰かの頑張りに依存しない、続く仕組みをつくるために。</p></div></div></div></section>
+<div class="reference-hero-pictures" aria-label="ホテル・設備・施工などの現場をイメージした写真">
+<figure class="ref-mosaic-first"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1000&q=85&auto=format&fit=crop" alt="ホテル清掃・施設運営のイメージ" fetchpriority="high"></figure>
+<figure class="ref-mosaic-second"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&q=82&auto=format&fit=crop" alt="設備確認・技術作業のイメージ"></figure>
+<figure class="ref-mosaic-third"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=82&auto=format&fit=crop" alt="現場施工・工事のイメージ"></figure>
+<figure class="ref-mosaic-fourth"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=82&auto=format&fit=crop" alt="宿泊施設・客室のイメージ"></figure>
+<figure class="ref-mosaic-fifth"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=900&q=82&auto=format&fit=crop" alt="施設設備の保守のイメージ"></figure>
+</div>
+</section>
 
-<section class="corp-section corp-businesses" id="business"><div class="corp-container"><div class="corp-section-top"><span>02 / BUSINESSES</span><span>事業紹介</span></div><div class="corp-business-heading"><h2>現場から、事業をつくる。</h2><p>自社プロダクトの開発と、企業の業務設計・実装支援。現場から生まれた課題を、再現性のある仕組みへ変えていきます。</p></div>
-<div class="corp-business-list">
-<article class="corp-business-item corp-product"><div class="corp-business-meta"><span>01</span><span>PRODUCT / IN DEVELOPMENT</span></div><div class="corp-business-main"><div><span class="corp-business-tag">施設の設備・修繕管理</span><h3>トルツグ</h3><p class="corp-business-catch">「あの修繕、どうなった？」を減らす。</p><p>ホテル・旅館を起点に、不具合の発見・報告から、管理者の判断、協力業者への手配、修繕履歴までをシンプルにつなぐサービスを開発しています。</p><a class="corp-strong-link" href="/locue/">サービスサイトを見る <span>↗</span></a></div><div class="corp-product-art product-photo-art"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1100&q=80&auto=format&fit=crop" loading="lazy" alt="施設清掃・メンテナンスの現場イメージ"><span class="corp-art-photo-label">現場の気づきから、修繕完了まで。</span></div></div></article>
-<article class="corp-business-item"><div class="corp-business-meta"><span>02</span><span>BUSINESS / OPERATIONS</span></div><div class="corp-business-main"><div><span class="corp-business-tag">業務設計・実装支援</span><h3>オペレーションデザイン</h3><p class="corp-business-catch">業務を整え、現場が自走するところまで。</p><p>現場業務の可視化、オペレーションの標準化、外部パートナーを含む実行体制づくり、AI・デジタル技術の活用を支援します。個別のご相談内容に応じて取り組み方をご提案します。</p><a class="corp-strong-link" href="#contact">事業について相談する <span>↗</span></a></div><div class="corp-ops-art ops-photo-art"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1100&q=80&auto=format&fit=crop" loading="lazy" alt="現場での建築・施工業務のイメージ"><span class="corp-art-photo-label">関係者と一緒に、仕事の進め方を変える。</span></div></div></article>
-</div></div></section>
+<section class="reference-business" id="business" aria-labelledby="business-heading">
+<div class="reference-business-intro"><span class="ref-kicker">事業・サービス</span><h2 id="business-heading">現場の運営を支える、<br>2つのアプローチ。</h2><p>事業づくりから実装まで。<br>現場で使われる仕組みを、着実に育てます。</p></div>
+<div class="reference-business-cards">
+<article class="reference-service-card">
+<div class="reference-service-copy"><span class="ref-kicker">PRODUCT / 開発中</span><h3>トルツグ</h3><p>ホテル・旅館の不具合報告から、判断・業者手配・修繕履歴までを一つにつなぐ、設備・修繕管理サービス。</p><a href="/locue/" class="reference-text-link">トルツグを詳しく見る <span>↗</span></a></div>
+<div class="reference-card-photo"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&q=82&auto=format&fit=crop" loading="lazy" alt="設備保守の現場イメージ"></div>
+</article>
+<article class="reference-service-card">
+<div class="reference-service-copy"><span class="ref-kicker">OPERATIONS</span><h3>オペレーションデザイン</h3><p>現場の業務設計、運用改善、外部パートナー連携から標準化・DXまで。現場が自走できる形を目指します。</p><a href="#contact" class="reference-text-link">事業について相談する <span>↗</span></a></div>
+<div class="reference-card-photo"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=82&auto=format&fit=crop" loading="lazy" alt="施設の清掃・運営の現場イメージ"></div>
+</article>
+</div>
+</section>
 
-<section class="field-visual-strip" aria-label="実際の仕事をイメージする現場の写真"><div class="corp-container field-visual-inner"><div><p class="corp-mini-label">THE WORK BEHIND EVERY FACILITY</p><h2>施設を支えるのは、<br>日々の現場の仕事。</h2><p>施設を見て、報告を受け、判断して、業者につなぐ。<br>一つひとつの工程に向き合い、仕事が止まらない仕組みをつくります。</p></div><figure><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=82&auto=format&fit=crop" loading="lazy" alt="技術者による設備メンテナンス・点検のイメージ"></figure></div></section>
-<section class="corp-section corp-strength" id="strength"><div class="corp-container"><div class="corp-section-top"><span>03 / OUR STRENGTH</span><span>私たちの強み</span></div><div class="corp-strength-top"><h2>構想だけで終わらせない。</h2><p>多拠点の設備導入・現場DX・施工オペレーションに携わってきた経験を活かし、現場の実行まで踏み込むことを大切にしています。</p></div>
-<div class="corp-strength-grid"><div><span>01 / FIELD</span><h3>現場を理解する</h3><p>実際の業務に触れ、担当者や協力会社が何に時間を使っているかを捉えます。</p></div><div><span>02 / OPERATIONS</span><h3>人と業務をつなぐ</h3><p>報告・判断・手配・完了まで。関係者をまたぐ仕事を一連の流れとして設計します。</p></div><div><span>03 / SYSTEM</span><h3>自走できる仕組みに</h3><p>属人的な運用から、標準化とテクノロジーの活用へ。導入後も続く形を目指します。</p></div></div>
-<p class="corp-experience-note">※掲載写真は施設・施工現場のイメージです。当社や代表者が撮影・施工した現場を示すものではありません。設備導入・施工オペレーションなどの経験は、代表者が過去の勤務先で担当した業務に基づき、当社の受注実績を意味しません。</p>
-</div></section>
+<section class="reference-strength" id="strength" aria-labelledby="strength-heading">
+<div class="reference-strength-title"><span class="ref-kicker">VITALITY DESIGNの強み</span><h2 id="strength-heading">現場発想で、<br>運用を確かに変える。</h2></div>
+<div class="reference-strength-points">
+<div class="reference-strength-point"><span class="ref-strength-icon" aria-hidden="true">⌂</span><div><h3>現場を理解する</h3><p>施設・設備・工事の実務を知り、課題の起点を現場で捉える。</p></div></div>
+<div class="reference-strength-point"><span class="ref-strength-icon" aria-hidden="true">◎</span><div><h3>人と業務をつなぐ</h3><p>施設スタッフ・管理者・協力会社の連携を、一連の流れとして設計する。</p></div></div>
+<div class="reference-strength-point"><span class="ref-strength-icon" aria-hidden="true">⚙</span><div><h3>自走できる仕組みに</h3><p>導入して終わりにせず、現場で運用し続けられる仕組みを目指す。</p></div></div>
+</div>
+</section>
 
-<section class="corp-section corp-approach" id="approach"><div class="corp-container"><div class="corp-section-top"><span>04 / HOW WE WORK</span><span>取り組み方</span></div><div class="corp-approach-heading"><h2>深く入り、<br>続く仕組みを残す。</h2><p>導入前は、とことん現場へ。導入後は、できるだけお客様自身で。私たちは、個別対応を増やすのではなく、再現性のある業務の形をつくります。</p></div><div class="corp-step-row"><div><span>01</span><h3>現場を知る</h3><p>業務・関係者・課題を可視化</p></div><div><span>02</span><h3>業務を整える</h3><p>役割と運用ルールを設計</p></div><div><span>03</span><h3>小さく実装する</h3><p>現場で使いながら改善</p></div><div><span>04</span><h3>自走につなげる</h3><p>標準化し、運用を引き継ぐ</p></div></div></div></section>
+<section class="reference-about" id="about" aria-labelledby="about-heading">
+<div class="reference-about-message">
+<div><span class="ref-kicker">私たちについて</span><h2 id="about-heading">現場で培った経験を、<br>次の事業へ。</h2></div>
+<div class="reference-about-details">
+<p>多拠点の設備導入、IoT・ネットワークを伴う現場DX、施工パートナーとの連携、業務設計・標準化。そうした実務経験を、現場で使われ続けるサービスづくりへつなげていきます。</p>
+<p>仕組みをつくるだけでなく、現場が自分たちで動かせる状態まで。その実現に向けて、事業を育てていきます。</p>
+<div class="reference-founder"><span>代表社員</span><strong>山本 翔太</strong><small>SHOTA YAMAMOTO</small></div>
+<small class="reference-credential">※記載の経験は代表者個人が過去の勤務先で担当した業務に基づき、当社の受注実績を意味しません。</small>
+</div>
+</div>
+<div class="reference-company"><span class="ref-kicker">会社概要</span><dl>
+<div><dt>会社名</dt><dd>バイタリティデザイン合同会社<br><small>Vitality Design LLC</small></dd></div>
+<div><dt>代表</dt><dd>代表社員　山本 翔太</dd></div>
+<div><dt>所在地</dt><dd>〒153-0064 東京都目黒区下目黒一丁目1番14号 コノトラビル7F</dd></div>
+<div><dt>事業内容</dt><dd>設備・修繕管理サービスの企画・開発、業務設計・標準化・DX支援</dd></div>
+<div><dt>法人番号</dt><dd>1011003024109</dd></div>
+</dl><a class="reference-text-link" href="#contact">お問い合わせ <span>↗</span></a></div>
+</section>
 
-<section class="corp-section corp-about" id="about"><div class="corp-container"><div class="corp-section-top"><span>05 / COMPANY</span><span>会社概要</span></div><div class="corp-about-intro"><div><span class="corp-mini-label">MESSAGE FROM THE FOUNDER</span><h2>現場の経験を、<br>次の事業へ。</h2><div class="corp-founder"><small>代表社員</small><strong>山本 翔太</strong><span>SHOTA YAMAMOTO</span></div></div><div class="corp-about-prose"><p>法人営業、多拠点の設備導入、IoT・ネットワークを伴う現場DX、施工パートナーとの協業、業務設計・標準化に携わってきました。</p><p>現場で起きる課題は、ひとつの機能を加えるだけでは解決しません。人と人、会社と会社をつなぎ、仕事の進み方そのものを変える必要があります。</p><p>その経験を活かし、テクノロジーと現場の実行をつなぐ事業をつくっていきます。</p><small>※代表者個人の職務経験について記載しています。</small></div></div>
-<div class="corp-company"><p class="corp-mini-label">COMPANY PROFILE</p><dl><div><dt>会社名</dt><dd>バイタリティデザイン合同会社<br><small>Vitality Design LLC</small></dd></div><div><dt>代表</dt><dd>代表社員　山本 翔太</dd></div><div><dt>所在地</dt><dd>〒153-0064<br>東京都目黒区下目黒一丁目1番14号 コノトラビル7F</dd></div><div><dt>事業内容</dt><dd>施設の設備・修繕管理サービスの企画・開発<br>業務設計・標準化・DXの実装支援</dd></div><div><dt>法人番号</dt><dd>1011003024109</dd></div><div><dt>お問い合わせ</dt><dd><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></dd></div></dl></div>
-</div></section>
-<section class="contact section" id="contact"><div class="section-index"><span>06 — CONTACT</span><span>お問い合わせ</span></div><div class="contact-grid"><div><h2>現場の課題から、<br>話しませんか。</h2><div class="prose"><p>トルツグの導入・初期検証、業務改善やDXのご相談、事業提携や協業のご提案など、お気軽にお問い合わせください。</p><p>具体的な仕様が決まっていなくても構いません。課題の整理から一緒に考えます。</p></div><a class="contact-email" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp <span>↗</span></a></div><div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
+<section class="reference-bottom-contact"><div><span>CONTACT</span><strong>現場の課題や導入のご相談など、お気軽にお問い合わせください。</strong></div><a href="#contact">お問い合わせはこちら <span>↗</span></a></section>
+<section class="contact section" id="contact"><div class="section-index"><span>CONTACT</span><span>お問い合わせ</span></div><div class="contact-grid"><div><h2>現場の課題から、<br>話しませんか。</h2><div class="prose"><p>トルツグの導入・初期検証、業務改善やDXのご相談、事業提携や協業のご提案など、お気軽にお問い合わせください。</p><p>具体的な仕様が決まっていなくても構いません。課題の整理から一緒に考えます。</p></div><a class="contact-email" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp <span>↗</span></a></div><div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
           <input type="hidden" id="f-subject" name="_subject" value="コーポレートサイトからのお問い合わせ">
           <input type="hidden" id="f-source" name="source" value="コーポレートサイト">
           <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグについてのご相談</strong><p>会社名・お名前・メールアドレスの3項目をご入力ください。現在は初期検証段階ですので、詳細は個別にご案内します。</p></div>

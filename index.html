@@ -388,6 +388,38 @@ html{scroll-padding-top:71px}
  .ed-company-inner h2{font-size:20px}
 }
 
+
+/* Japan-to-world visual storytelling and pared-back contact */
+.ed-section-title{grid-template-columns:50px minmax(0,1fr)}.ed-section-title p{display:none}
+.ed-world{background:#082c34}
+.ed-world-scene{height:73svh;min-height:440px;max-height:850px;position:relative;overflow:hidden;isolation:isolate}
+.ed-world-scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.03)}
+.ed-world-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,29,35,.67),rgba(4,29,35,.19));z-index:1}
+.ed-world-content{height:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:relative;z-index:2;color:#fff}
+.ed-world-content span{font:700 12px 'Inter',sans-serif;letter-spacing:.16em;color:#c7e6df}
+.ed-world-content h2{font-size:clamp(38px,5.7vw,76px);letter-spacing:-.075em;line-height:1.42;font-weight:700;margin-top:15px}
+.ed-world-note{font-size:10px;color:#c6d9d6;padding:12px 30px;text-align:center}
+.ed-about-short{background:#f2f7f7;padding:48px 0}
+.ed-about-short-inner{display:flex;align-items:center;gap:24px}
+.ed-about-short h2{font-size:22px;letter-spacing:-.05em}
+.ed-about-short p{font-size:13px;color:#536b73;margin-left:auto}
+.ed-about-short .ed-textlink{margin-left:18px}
+.contact{padding:72px 0}
+.contact-top{margin-bottom:22px}
+.contact-content{grid-template-columns:.72fr 1.28fr;gap:7%}
+.contact-side p{font-size:13px;line-height:1.9}
+.cform{padding:26px}
+.fnote{margin-top:12px}
+@media(min-width:761px){.ed-world-scene img{position:sticky;top:0}}
+@media(max-width:760px){
+.ed-section-title{grid-template-columns:30px 1fr}
+.ed-world-scene{height:62svh;min-height:350px}
+.ed-world-content h2{font-size:clamp(33px,8vw,52px)}
+.ed-about-short-inner{align-items:flex-start;flex-direction:column;gap:9px}
+.ed-about-short p,.ed-about-short .ed-textlink{margin-left:0}
+.contact{padding:58px 0}
+}
+@media(max-width:450px){.ed-world-scene{min-height:310px;height:54svh}.ed-world-content h2{font-size:clamp(29px,8vw,40px)}.ed-world-note{font-size:9px;padding:12px 20px}.ed-about-short{padding:36px 0}.ed-about-short h2{font-size:20px}}
 </style>
 </head>
 <body>
@@ -411,7 +443,7 @@ html{scroll-padding-top:71px}
 
 <section class="ed-business" id="business" aria-labelledby="ed-business-title">
  <div class="container">
-  <div class="ed-section-title"><span>01</span><h2 id="ed-business-title">事業について</h2><p>自ら開発するサービスと、現場で培ってきた取り組み。</p></div>
+  <div class="ed-section-title"><span>01</span><h2 id="ed-business-title">事業紹介</h2></div>
   <article class="ed-primary-business">
    <div class="ed-primary-copy">
     <span class="ed-type">自社サービス / ホテル・旅館向け</span>
@@ -437,41 +469,28 @@ html{scroll-padding-top:71px}
  </div>
 </section>
 
-<section class="ed-philosophy" id="mission" aria-labelledby="ed-philosophy-title"><div class="container ed-philosophy-inner">
-  <div><span class="ed-section-index">02 / 私たちについて</span><h2 id="ed-philosophy-title">使われるものを、<br>つくり続ける。</h2></div>
-  <div><p>現場には、日々の仕事に埋もれた不便や、まだ活かされていない可能性があります。</p><p>私たちは、その声を聞き、必要な仕組みを自分たちでつくる。実際に使われ、役に立つかを確かめながら、事業として育てていきます。</p><a href="/about.html" class="ed-textlink">私たちについて <span aria-hidden="true">↗</span></a></div>
-</div></section>
 
-<section class="ed-company-strip"><div class="container ed-company-inner"><div><span class="ed-section-index">03 / 会社情報</span><h2>バイタリティデザイン合同会社</h2></div><a href="/company.html" class="ed-textlink">会社概要を見る <span aria-hidden="true">↗</span></a></div></section>
+<section class="ed-world" aria-label="日本から世界へ広がるビジョン">
+ <div class="ed-world-scene ed-world-japan"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=2000&q=84&auto=format&fit=crop" alt="日本の街並みのイメージ" loading="lazy"><div class="ed-world-shade"></div><div class="container ed-world-content"><span>JAPAN</span><h2>日本の現場から。</h2></div></div>
+ <div class="ed-world-scene ed-world-global"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=2000&q=84&auto=format&fit=crop" alt="世界の建築と街のイメージ" loading="lazy"><div class="ed-world-shade"></div><div class="container ed-world-content"><span>THE WORLD</span><h2>その可能性を、世界へ。</h2></div></div>
+ <p class="ed-world-note">※写真はビジョンを表現するイメージです。掲載場所での当社の活動実績を示すものではありません。</p>
+</section>
+<section class="ed-about-short" id="mission"><div class="container ed-about-short-inner"><h2>私たちについて</h2><p>現場から生まれるアイデアを、事業にする。</p><a href="/about.html" class="ed-textlink">もっと見る <span aria-hidden="true">↗</span></a></div></section>
 <section class="contact" id="contact"><div class="container">
-<div class="contact-top"><p class="section-label">CONTACT</p><h2 style="font-size:clamp(27px,2.7vw,37px);line-height:1.55;letter-spacing:-.06em;margin-top:14px">お問い合わせ</h2><p>トルツグの導入相談や資料請求、事業提携・協業についてはこちらからお問い合わせください。</p></div>
-<div class="contact-content"><div class="contact-side"><p>フォームからお問い合わせいただくか、メールにて直接ご連絡ください。</p><a class="contact-mail" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp ↗</a></div>
+<div class="contact-top"><p class="section-label">CONTACT</p><h2 style="font-size:clamp(27px,2.7vw,37px);line-height:1.55;letter-spacing:-.06em;margin-top:14px">お問い合わせ</h2></div>
+<div class="contact-content"><div class="contact-side"><p>事業・サービスについてのお問い合わせはこちらから。</p><a class="contact-mail" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp ↗</a></div>
 <div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
           <input type="hidden" id="f-subject" name="_subject" value="コーポレートサイトからのお問い合わせ">
           <input type="hidden" id="f-source" name="source" value="コーポレートサイト">
-          <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグについてのご相談</strong><p>会社名・お名前・メールアドレスの3項目をご入力ください。資料のご案内と導入のご相談について、担当者からご連絡します。</p></div>
+          <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグの資料請求</strong><p>会社名・お名前・メールアドレスをご入力ください。</p></div>
           <p class="fstat" id="fstat" role="alert"></p>
-          <div class="f2">
-            <div class="fld"><label for="f-topic">ご相談の種類</label>
+          <div class="fld"><label for="f-topic">お問い合わせの内容</label>
               <select id="f-topic" name="topic">
                 <option value="事業提携・協業">事業提携・協業</option>
-                <option value="業務設計・DXの相談">業務改善・運用設計の相談</option>
-                <option value="取材・その他">取材・その他</option>
-                <option value="トルツグ 資料請求">トルツグの資料請求・導入相談</option>
+                <option value="業務設計・DXの相談">業務改善について</option>
+                <option value="取材・その他">その他</option>
+                <option value="トルツグ 資料請求">トルツグ 資料請求・導入相談</option>
               </select></div>
-            <div class="fld"><label for="f-role">ご所属</label>
-              <select id="f-role" name="role">
-                <option value="">選んでください</option>
-                <option>ホテル・宿泊施設</option>
-                <option>施設運営・管理会社</option>
-                <option>住宅・不動産・建設会社</option>
-                <option>介護・福祉施設</option>
-                <option>製造・物流・小売</option>
-                <option>設備・工事・保守会社</option>
-                <option>テクノロジー企業</option>
-                <option>その他</option>
-              </select></div>
-          </div>
           <div class="f2">
             <div class="fld"><label for="f-company">会社名・団体名 <span class="rq">*</span></label>
               <input id="f-company" name="company" type="text" autocomplete="organization" required></div>
@@ -480,11 +499,11 @@ html{scroll-padding-top:71px}
           </div>
           <div class="fld"><label for="f-email">メールアドレス <span class="rq">*</span></label>
             <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
-          <div class="fld" id="f-message-wrap"><label for="f-message" id="f-message-label">お問い合わせ内容・ご相談事項（任意）</label>
+          <div class="fld" id="f-message-wrap"><label for="f-message" id="f-message-label">お問い合わせ内容（任意）</label>
             <textarea id="f-message" name="message"
               placeholder="例）客室の修繕依頼と業者の日程調整に時間がかかっています。導入方法や費用について知りたいです。" rows="5"></textarea></div>
           <button class="fbtn" id="fbtn" type="submit" data-cta="contact-submit">お問い合わせを送る</button>
-          <p class="fnote">必須は3つだけです。いただいた内容は、ご連絡と検討のためだけに使用します。取り扱いは<a href="/privacy.html">プライバシーポリシー</a>に従います。メールのほうが早ければ <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> まで直接どうぞ。</p>
+          <p class="fnote">ご入力いただいた情報は、お問い合わせへの対応に使用します。<a href="/privacy.html">プライバシーポリシー</a></p>
         </form><div class="fdone" role="status" tabindex="-1"><p>お問い合わせを受け付けました。</p><p>内容を確認して、メールでご連絡します。</p></div></div>
 </div></div></section>
 </main>
@@ -492,36 +511,4 @@ html{scroll-padding-top:71px}
 <script>window.VD_S={menuO:'メニューを開く',menuC:'メニューを閉じる',f1:'会社名・団体名',f2:'お名前',f3:'メールアドレス',sep:'、',eReq:'未入力の項目があります：',eMail:'メールアドレスの形式をご確認ください。',sending:'送信しています…',eSend:'送信できませんでした。お手数ですが contact@vitality-design.jp まで直接ご連絡ください。',submit:'お問い合わせを送る'};</script>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/vision.js" defer></script>
-<script>
-(function(){
- const section=document.querySelector('.world-journey');
- if(!section)return;
- const steps=Array.from(section.querySelectorAll('[data-scene-step]'));
- const scenes=Array.from(section.querySelectorAll('[data-scene]'));
- const bars=Array.from(section.querySelectorAll('.world-progress span'));
- const counter=document.getElementById('scene-count');
- if(!steps.length||!scenes.length)return;
- const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- let current=-1,queued=false;
- function update(){
-   queued=false;
-   const probe=window.innerHeight*.53;
-   let best=0,distance=Infinity;
-   steps.forEach((el,i)=>{const rect=el.getBoundingClientRect();const d=Math.abs((rect.top+rect.height*.5)-probe);if(d<distance){distance=d;best=i}});
-   if(best===current)return;
-   current=best;
-   scenes.forEach((el,i)=>el.classList.toggle('is-active',i===best));
-   bars.forEach((el,i)=>el.classList.toggle('is-active',i===best));
-   if(counter)counter.textContent=String(best+1).padStart(2,'0');
- }
- function onScroll(){if(!queued){queued=true;requestAnimationFrame(update)}}
- const io=new IntersectionObserver(entries=>{
-   if(entries.some(e=>e.isIntersecting)){window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
-   else{window.removeEventListener('scroll',onScroll)}
- },{rootMargin:'150px 0px 150px 0px'});
- io.observe(section);
- window.addEventListener('resize',onScroll,{passive:true});
- update();
- if(reduce){const imgs=document.querySelectorAll('.cinematic-hero-img');imgs.forEach((im,i)=>im.style.opacity=i===0?'1':'0')}
-})();
-</script></body></html>
+</body></html>

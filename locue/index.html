@@ -679,6 +679,11 @@ html{scroll-padding-top:90px}
 .hero-new .hero-explain strong{font-size:13px}
 .hero-new .hero-honesty{font-size:9px;line-height:1.6}
 }
+
+/* FAQ details links and validation note */
+.faq-list details p a{color:#147f71;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.faq-disclaimer{max-width:820px;margin:19px auto 0;font-size:11px;line-height:1.8;color:#7b9085;text-align:center}
+@media(max-width:700px){.faq-disclaimer{font-size:10px;text-align:left}}
 </style>
 </head>
 <body>
@@ -775,12 +780,21 @@ html{scroll-padding-top:90px}
 <a class="btn primary" href="https://www.vitality-design.jp/?request=torutsugu#contact">無料で資料請求 <span class="arr">→</span></a>
 <div class="price-foot">※月額5万円は完成形を想定した仮の価格です。現時点の開発・検証範囲は不具合の発見・報告です。記載した手配・点検・分析機能が提供済み、または全機能が同時提供されることを意味しません。提供範囲・価格条件は今後決定します。</div></div></div></section>
 
-<section class="section faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ</span><h2 class="section-title">よくあるご質問</h2></div><div class="faq-list">
-<details><summary>トルツグは現在利用できますか？</summary><p>現在は開発・顧客検証段階です。まず写真・動画から不具合を発見・報告する体験を検証し、判断・業者手配・日程調整などは段階的な実装を検討しています。掲載画面と価格は完成イメージです。</p></details>
-<details><summary>現場のスタッフや協力業者にも費用がかかりますか？</summary><p>現場の情報入力者には原則無料で利用いただく構想です。費用は、課題解決にトルツグを活用する企業・施設からいただくB2Bモデルを想定しています。</p></details>
-<details><summary>品質管理・顧客体験改善も月額5万円で使えますか？</summary><p>いいえ。月額5万円は設備管理・保全の予定価格です。品質管理（Quality）と顧客体験改善（Experience）は開発中で、提供時期・料金は未定です。</p></details>
-<details><summary>既存の管理システムと連携できますか？</summary><p>CSV等によるデータ移行や、既存システムとの連携を想定しています。対応範囲は今後の検証・開発で決定します。</p></details>
-</div></div></section>
+<section class="section faq" id="faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ</span><h2 class="section-title">よくあるご質問</h2><p class="section-copy">導入前の疑問や、現在の開発状況についてお答えします。</p></div><div class="faq-list">
+<details><summary>トルツグは、Excelや既存の設備管理SaaSと何が違いますか？</summary><p>情報を一か所に記録するだけでなく、報告の記入・タグ付け・転記・確認・業者への連絡など、現場の手作業そのものを減らすことを目指しています。写真・動画を入口に、必要な判断と次の業務へつなぐ設計思想が特徴です。現時点ではこの効果を実証済みという意味ではありません。</p></details>
+<details><summary>現場スタッフの入力や、管理者の確認作業が増えませんか？</summary><p>増やさないことを重要な設計原則にしています。客室・設備に紐づくQRなどから写真や動画で報告できる体験を検証し、長い入力フォームや重複記入を避けます。将来的には管理者へすべての報告を一律に見せるのではなく、承認・安全確認など判断が必要な案件だけ届けることを目指します。</p></details>
+<details><summary>どのような施設が対象ですか？</summary><p>まずはホテル・旅館などの宿泊施設を想定しています。客室の不具合報告や設備修繕を起点に、実際の課題を確認しています。将来的には商業施設・物流施設・工場などへの展開も構想していますが、施設の規模や設備構成に応じた適合性は個別に検証します。</p></details>
+<details><summary>現在利用できますか？無料トライアルやデモはありますか？</summary><p>現在は開発・顧客検証段階で、一般向けの正式提供や無料トライアルは開始していません。初期検証では写真・動画による不具合の発見・報告に集中します。画面イメージや実証についてのご相談は資料請求フォームから受け付けています。</p></details>
+<details><summary>パソコン・スマートフォンから使えますか？専用アプリは必要ですか？</summary><p>現場の写真・動画による報告はスマートフォン、施設管理はPCを中心とする利用体験を構想しています。QRからブラウザで報告できる方式を検討していますが、対応OS・ブラウザや専用アプリの要否は正式提供前に決定します。</p></details>
+<details><summary>現場スタッフや協力業者のアカウント登録は必要ですか？</summary><p>入力する人や業者の負担を最小限にするため、QRや専用URLなど、できるだけ少ない操作で参加できる仕組みを検討しています。利用者の権限管理や本人確認が必要な場面は残しつつ、アカウント要否・追加上限・運用方法は検証を通じて決定します。</p></details>
+<details><summary>既存の修繕業者にそのまま依頼できますか？見積もりや承認はどうなりますか？</summary><p>施設がすでに取引している協力業者を活かす想定です。将来構想では、定額で発注できる案件と都度見積もりが必要な案件を分け、施設側の承認、候補日回答、作業完了までを工程ごとにつなぎます。業者手配・日程調整は現時点で提供済みの機能ではありません。</p></details>
+<details><summary>設備台帳や点検計画、在庫管理まで対応していますか？</summary><p>設備台帳・点検計画・履歴・備品情報の可視化は将来の機能構想です。まずは不具合の発見・報告から検証し、実際の顧客課題に応じて段階的に開発する方針です。自社で在庫や倉庫を保有するサービスは想定していません。<a href="/locue/functions/">詳細機能と開発ロードマップを見る →</a></p></details>
+<details><summary>月額5万円は確定料金ですか？複数施設の場合はどうなりますか？</summary><p>月額5万円（1施設あたり・税抜）は完成形を想定した予定価格であり、正式な料金ではありません。複数施設の場合の割引、ユーザー数・データ容量の上限、初期費用、支払方法などは現時点で未定です。ご要望を伺いながら設計します。</p></details>
+<details><summary>既存のホテル管理システムや設備台帳と連携できますか？</summary><p>既存の設備台帳や管理システムの情報を活かすことを目指しています。CSV等を用いた移行や外部システム連携を構想していますが、連携先・実装方法・対応時期は未定です。現在の運用をヒアリングしたうえで、重複入力を生まない方法を検討します。</p></details>
+<details><summary>写真・動画や施設情報のセキュリティは大丈夫ですか？</summary><p>施設・客室・設備の情報を扱うため、アクセス権限、通信や保存データの保護、撮影対象のプライバシーに配慮した設計を前提に検討しています。ただし、認証方式・保存場所・保持期間・第三者認証などの具体仕様は未確定です。正式提供時には確認できる形でご案内します。</p></details>
+<details><summary>導入時の初期設定や、利用開始後のサポートはありますか？</summary><p>施設・客室・設備情報の準備や現場への定着が重要だと考えており、実証段階では導入方法や運用フローも一緒に検証します。初期設定支援・問い合わせ窓口・対応時間など正式なサポート条件は今後決定します。</p></details>
+<details><summary>品質管理や顧客体験の機能も月額5万円で使えますか？</summary><p>いいえ。月額5万円は設備管理・保全の完成形を想定した予定価格です。品質管理（Quality）と顧客体験改善（Experience）は将来構想で、提供時期・料金は未定です。</p></details>
+</div><p class="faq-disclaimer">※記載内容は2026年11月時点の開発・実証構想です。対応機能・料金・セキュリティ・サポート条件は正式提供時に改めてご案内します。</p></div></section>
 <section class="contact" id="contact"><div class="wrap"><span class="eyebrow">無料資料請求</span><h2>トルツグの仕組みと機能を、<br>もっと詳しく。</h2><p>設備の不具合報告から点検・修繕手配・業者との日程調整まで。トルツグ Businessの機能構想と料金をご案内します。資料をご希望の方はフォームからお申し込みください。</p><a class="btn white" href="https://www.vitality-design.jp/?request=torutsugu#contact">無料で資料請求 <span class="arr">→</span></a><div style="font-size:11px;color:#c5e9df;margin-top:21px">現在はサービス構想・実証準備中です。資料請求フォームから受け付けています。</div></div></section>
 </main><a class="mobile-sticky-cta" href="https://www.vitality-design.jp/?request=torutsugu#contact" aria-label="トルツグの資料を無料で請求する"><span>設備管理を月額5万円から <small>予定価格・税抜</small></span><strong>無料で資料請求 →</strong></a><footer class="wrap foot"><div>© 2026 VITALITY DESIGN LLC</div><div><a href="/">コーポレートサイト</a>　 /　 <a href="/privacy.html">プライバシーポリシー</a>　 /　 <a href="mailto:contact@vitality-design.jp">お問い合わせ</a></div></footer>
 </body></html>

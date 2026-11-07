@@ -742,6 +742,11 @@ html{scroll-padding-top:71px}
  #contact .f-purpose-choice strong{font-size:15px}
  #contact .f-purpose-choice small{font-size:12px}
 }
+
+/* General inquiry purpose should be immediately understandable and easy to tap. */
+#f-topic-wrap select{min-height:52px;cursor:pointer}
+#f-topic-wrap select:invalid{color:#718987}
+#f-topic-wrap select option{color:#173a3c}
 </style>
 </head>
 <body>
@@ -821,18 +826,20 @@ html{scroll-padding-top:71px}
 
 <section class="contact" id="contact"><div class="container">
 <div class="contact-top"><p class="section-label">CONTACT</p><h2 style="font-size:clamp(27px,2.7vw,37px);line-height:1.55;letter-spacing:-.06em;margin-top:14px">お問い合わせ</h2></div>
-<div class="contact-content"><div class="contact-side"><p>事業・サービスについてのお問い合わせはこちらから。</p><a class="contact-mail" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp ↗</a></div>
+<div class="contact-content"><div class="contact-side"><p>事業提携・協業、サービス、業務改善など、お気軽にお問い合わせください。</p><a class="contact-mail" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp ↗</a></div>
 <div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
           <input type="hidden" id="f-subject" name="_subject" value="コーポレートサイトからのお問い合わせ">
           <input type="hidden" id="f-source" name="source" value="コーポレートサイト">
           <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグの資料請求</strong><p>ご希望の内容を選んで、必要事項をご入力ください。</p></div>
           <p class="fstat" id="fstat" role="alert"></p>
-          <div class="fld" id="f-topic-wrap"><label for="f-topic">お問い合わせの内容</label>
-              <select id="f-topic" name="topic">
-                <option value="事業提携・協業">事業提携・協業</option>
-                <option value="業務設計・DXの相談">業務改善について</option>
-                <option value="取材・その他">その他</option>
-                <option value="トルツグ 資料請求">トルツグ 資料請求・導入相談</option>
+          <div class="fld" id="f-topic-wrap"><label for="f-topic">お問い合わせの種類 <span class="rq">*</span></label>
+              <select id="f-topic" name="topic" required>
+                <option value="" selected disabled>ご相談の種類をお選びください</option>
+                <option value="事業提携・協業">事業提携・協業のご相談</option>
+                <option value="業務設計・DXの相談">業務改善・オペレーション設計のご相談</option>
+                <option value="トルツグ 資料請求">トルツグに関するお問い合わせ</option>
+                <option value="取材・メディア">取材・メディアのご相談</option>
+                <option value="採用・その他">その他のお問い合わせ</option>
               </select></div>
           <div class="f2">
             <div class="fld"><label for="f-company">会社名・団体名 <span class="rq">*</span></label>

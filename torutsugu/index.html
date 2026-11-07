@@ -229,6 +229,121 @@ body{font-size:15px;line-height:1.75}
 .cta-band{padding:81px 20px}
 @media(max-width:850px){.hero-card{padding:40px 32px}.hero-media{transform:none}.feature-layout,.feature-layout.reverse{grid-template-columns:1fr;gap:25px}.feature-layout.reverse .feature-text,.feature-layout.reverse .feature-art{grid-column:1;grid-row:auto}.feature-layout.reverse .feature-text{padding-left:0}.feature-art{min-height:350px}.feature-strip{padding:62px 0}.feature-text{padding-right:0}.feature-intro{padding-bottom:30px}.feature-text h3{font-size:34px}.note-b{right:10%}}
 @media(max-width:600px){.hero{padding:16px 0 35px}.hero-card{padding:27px 19px 31px}.hero h1{font-size:clamp(31px,8vw,43px)}.hero-desc{font-size:12px}.hero-media{transform:none}.feature-story{padding-top:59px}.feature-intro .heading{font-size:28px}.feature-sub{font-size:12px}.feature-text h3{font-size:30px}.feature-text p{font-size:12px}.feature-strip{padding:49px 0}.feature-art{min-height:320px}.phone-device{transform:rotate(3deg) scale(.91)}.board-device{width:94%;transform:rotate(-2deg)}.timeline-device{width:91%}.note-a,.note-c{right:-2%;bottom:7%}.note-b{right:0;bottom:1%}.floating-note{padding:9px}.floating-note strong{font-size:10px}.floating-note small{font-size:8px}.floating-note .note-icon{width:25px;height:25px}.feature-chips{gap:6px}.feature-chips span{font-size:10px}.feature-disclaimer{font-size:9px}}
+
+/* 2026-11-07 responsive layout repair: prevent cascade conflicts from earlier mobile design */
+.hero-card,.hero-copy,.hero-media,.mock,.mock-content,.feature-layout,.feature-text,.feature-art{min-width:0}
+.hero-card{align-items:center}
+.hero-copy{color:#fff}
+.hero h1,.hero-lead{color:#fff}
+.hero-desc,.hero-note,.hero-demo-label{color:#edfffb}
+.hero-kicker{color:#fff;background:#087b76b8}
+.hero-copy h1,.hero-copy p{position:relative;z-index:2;overflow-wrap:break-word}
+.hero-media .mock,.hero-media .mock-phone{max-width:100%}
+.mock-content,.mock-row>div{min-width:0}
+.mock-row strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.feature-art,.feature-layout,.demo-view,.compare-col{min-width:0}
+@media (min-width:851px){
+ .hero-card{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:30px}
+ .hero-copy{grid-column:1;grid-row:1}
+ .hero-media{grid-column:2;grid-row:1}
+}
+@media (max-width:850px){
+ .hero{padding:18px 0 30px;background:#eef9f6}
+ .hero-card{display:flex;flex-direction:column;align-items:stretch;gap:29px;padding:34px 28px 37px;min-height:0;overflow:hidden;background:linear-gradient(135deg,#118e89,#25bca5 73%,#76dcb1);border-radius:23px}
+ .hero-card:before{display:block;top:40%;right:-360px}
+ .hero-copy{order:0!important;max-width:none;width:100%;padding:0!important;color:#fff!important}
+ .hero h1{color:#fff!important;font-size:clamp(32px,6vw,48px);line-height:1.4;letter-spacing:-.055em;margin:0;overflow-wrap:normal}
+ .hero-lead{color:#fff!important;font-size:15px;line-height:1.75;margin-top:18px}
+ .hero-desc{color:#effffb!important;font-size:13px;line-height:1.9;max-width:560px;margin-top:10px}
+ .hero-kicker{color:#fff!important;background:#077b76ad!important;font-size:10px;margin-bottom:18px}
+ .hero-note{color:#eefffb!important}
+ .hero-media{order:1!important;width:100%;max-width:610px;margin:0 auto;transform:none;padding:3px 12px 0 0;isolation:auto}
+ .hero-media:before{display:none!important}
+ .hero-media .mock{position:relative}
+ .hero-demo-label{color:#eafff9!important;text-align:center!important;white-space:normal}
+ .hero-actions{margin:22px 0 12px}
+ .hero-actions .button.white{border-radius:9px;max-width:100%;white-space:normal;text-align:center}
+ .field-context-head{display:block}
+ .field-context-head>p{max-width:680px;margin-top:13px}
+ .field-photos{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .feature-layout,.feature-layout.reverse{grid-template-columns:minmax(0,1fr)}
+ .feature-layout.reverse .feature-text,.feature-layout.reverse .feature-art{grid-column:1}
+ .feature-layout.reverse .feature-text{grid-row:1;padding-left:0}
+ .feature-layout.reverse .feature-art{grid-row:2}
+ .feature-text h3{overflow-wrap:anywhere}
+}
+@media (max-width:600px){
+ html,body{max-width:100%;overflow-x:clip}
+ .wrap{width:100%;max-width:100%;padding-left:18px;padding-right:18px}
+ .topbar-inner{min-height:65px;gap:12px}
+ .topbar .brand{font-size:23px;min-width:0}
+ .topbar .button{font-size:11px;padding:10px 14px;flex-shrink:0}
+ .hero{padding:12px 0 26px;background:#eef9f6}
+ .hero-card{padding:28px 19px 29px;border-radius:21px;gap:27px;overflow:hidden;min-height:0;background:linear-gradient(150deg,#0e8985 0%,#1eaa9a 65%,#6bd3a5 100%)}
+ .hero-card:before{display:block;right:-460px;top:38%}
+ .hero-copy{order:0!important;width:100%;padding:0!important;color:#fff!important}
+ .hero-kicker{color:#fff!important;background:#08746fb8!important;font-size:9px;line-height:1.4;margin-bottom:16px;padding:8px 12px;max-width:100%}
+ .hero h1{color:#fff!important;font-size:clamp(30px,8.3vw,39px)!important;line-height:1.42!important;letter-spacing:-.055em!important;font-weight:900;word-break:keep-all}
+ .hero-lead{color:#fff!important;font-size:13px;line-height:1.85;margin-top:15px}
+ .hero-desc{color:#eafff7!important;font-size:12px;line-height:1.8;margin-top:8px}
+ .hero-actions{margin:19px 0 13px}
+ .hero-actions .button.white{display:flex;width:100%;font-size:12px;padding:13px 12px;border:0;background:#fff;color:#0e6e63;box-shadow:none}
+ .hero-note{color:#e8fcf7!important;font-size:9px;line-height:1.65;margin-top:0}
+ .hero-media{order:1!important;position:relative;width:100%;max-width:100%;padding:0 8px 0 0;margin:0 auto;transform:none;isolation:auto}
+ .hero-media:before{display:none!important}
+ .hero-media .mock{width:100%;border:3px solid #194d49;border-radius:11px;overflow:hidden}
+ .hero-media .mock-main{height:188px;grid-template-columns:58px minmax(0,1fr)}
+ .hero-media .mock-side{padding:7px 3px;gap:5px}
+ .hero-media .mock-side span{font-size:7px;padding:6px 4px}
+ .hero-media .mock-content{padding:8px 7px}
+ .hero-media .mock-content h3{font-size:12px;margin:3px 0 7px}
+ .hero-media .mock-head{height:32px;padding:0 8px}
+ .hero-media .mock-head strong{font-size:11px}
+ .hero-media .mock-head span{font-size:7px}
+ .hero-media .mock-topline{gap:3px}
+ .hero-media .mock-topline p{font-size:7px}
+ .hero-media .mock-topline .tag{font-size:7px;white-space:nowrap;padding:2px 5px}
+ .hero-media .mock-row{padding:6px 5px;margin-top:5px;gap:5px}
+ .hero-media .mock-row .sq{width:19px;height:19px;font-size:10px}
+ .hero-media .mock-row strong{font-size:8px;white-space:nowrap}
+ .hero-media .mock-row small{font-size:7px;line-height:1.35}
+ .hero-media .mock-phone{width:94px;right:0;bottom:21px;border:3px solid #194b47;border-radius:14px}
+ .hero-media .phone-bar{font-size:8px;padding:7px 6px}
+ .hero-media .phone-body{padding:6px}
+ .hero-media .phone-body .room{font-size:6px}
+ .hero-media .phone-photo{height:42px}
+ .hero-media .phone-body .inputlike{font-size:6px;padding:4px}
+ .hero-media .phone-body .send{font-size:7px;padding:5px}
+ .hero-media .hero-demo-label{color:#eafff7!important;font-size:8px;text-align:center!important;margin:20px 0 0;padding:0 2px}
+ .field-context{padding-top:49px}
+ .field-photos{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .field-photos figure:last-child{display:none}
+ .field-photos figure{height:155px}
+ .field-context h2,.heading,.feature-intro .heading{font-size:clamp(25px,6.8vw,31px);line-height:1.5;overflow-wrap:anywhere}
+ .pain-grid{grid-template-columns:minmax(0,1fr)}
+ .demo-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+ .demo-tab{min-width:0;white-space:normal}
+ .demo-view{grid-template-columns:minmax(0,1fr);padding:16px}
+ .demo-right{padding:12px;min-width:0}
+ .app-window{max-width:100%;min-width:0}
+ .app-bar{gap:6px}
+ .app-bar small{font-size:8px}
+ .compare{grid-template-columns:minmax(0,1fr)}
+ .feature-art{max-width:100%;min-width:0}
+ .feature-device{max-width:95%}
+ .feature-chips{max-width:100%}
+ .floating-note{max-width:74%}
+ .floating-note strong,.floating-note small{white-space:normal}
+ .foot{padding-bottom:26px}
+}
+@media (max-width:390px){
+ .hero-card{padding:25px 16px 27px}
+ .hero h1{font-size:clamp(29px,8.2vw,33px)!important}
+ .hero-media .mock-main{height:175px;grid-template-columns:55px minmax(0,1fr)}
+ .hero-media .mock-phone{width:88px}
+ .hero-media .mock-row strong{font-size:7px}
+ .hero-media .mock-row small{font-size:6px}
+}
 </style>
 </head>
 <body>

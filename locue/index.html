@@ -573,6 +573,89 @@ html{scroll-padding-top:90px}
   body.has-sticky-cta{padding-bottom:68px}
 }
 @media(max-width:390px){.hero-right{height:236px}.hero-camera-mock{height:163px}.camera-mock-photo{height:59px}.hero-desktop-mock{top:18%}.hero-new h1{font-size:clamp(32px,8.2vw,36px)}}
+
+/* Coherent, aligned desktop + iPhone product UI. No overlapping copy. */
+.hero-product{position:relative;width:100%;height:440px;isolation:isolate;overflow:visible}
+.product-shape{position:absolute;inset:6% 0 7% 4%;background:#3dcf87;border-radius:48% 52% 45% 55% / 52% 42% 58% 48%;transform:rotate(-10deg);z-index:0}
+.product-desktop{position:absolute;left:0;top:12%;width:87%;height:72%;background:#fff;border:7px solid #173f3a;border-radius:15px;box-shadow:0 24px 45px #10463b2c;overflow:hidden;z-index:1;transform:none}
+.product-topbar{height:46px;display:flex;align-items:center;gap:15px;border-bottom:1px solid #dfece7;background:#f8fcfa;padding:0 16px}
+.product-brand{font:900 19px/1 "DM Sans",sans-serif;color:#195e52;letter-spacing:-.06em}.product-brand span{color:#23b6a0}
+.product-topbar-name{font-size:10px;font-weight:800;color:#48665d}.product-account{margin-left:auto;color:#81958d;font-size:9px}
+.product-workspace{display:grid;grid-template-columns:95px 1fr;height:calc(100% - 46px)}
+.product-side{background:#f2f9f5;border-right:1px solid #e1ece6;padding:17px 9px;display:flex;flex-direction:column;gap:7px}
+.product-side span{font-size:10px;color:#6f8880;font-weight:700;padding:8px 7px;border-radius:6px;white-space:nowrap}
+.product-side .selected{background:#d8f1e5;color:#188069}
+.product-main{padding:17px 19px;min-width:0}
+.product-main-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+.product-main-heading small{display:block;font-size:9px;color:#84988e}
+.product-main-heading strong{display:block;font-size:18px;color:#1c4f45;line-height:1.4}
+.product-filter{font-size:9px;font-weight:800;border-radius:6px;background:#e4f4eb;color:#258064;padding:6px 10px;white-space:nowrap}
+.product-columns{display:flex;justify-content:space-between;border-bottom:1px solid #dfece7;color:#84968d;font-size:9px;padding:0 5px 7px}
+.product-ticket{display:flex;align-items:center;gap:9px;min-height:53px;border-bottom:1px solid #e8efec;padding:8px 2px}
+.product-ticket-icon{width:30px;height:30px;display:grid;place-items:center;flex-shrink:0;border-radius:7px;background:#e5f6ef}
+.product-ticket-body{flex:1;min-width:0}
+.product-ticket-body strong{display:block;font-size:11px;color:#285448;line-height:1.5;font-weight:800}
+.product-ticket-body small{display:block;font-size:9px;color:#8b9d95;line-height:1.5}
+.product-status{font-size:8px;font-weight:800;font-style:normal;padding:5px 7px;border-radius:5px;white-space:nowrap}
+.product-status.pending{color:#af7432;background:#fff3dd}
+.product-status.review{color:#2d7f8a;background:#e6f5f5}
+.product-status.done{color:#268065;background:#e0f5e9}
+.product-mobile{position:absolute;right:0;top:24%;width:32%;height:66%;background:white;border:7px solid #173f3a;border-radius:26px;box-shadow:0 19px 30px #10463b40;z-index:2;overflow:hidden;transform:none}
+.product-mobile-notch{position:absolute;top:0;left:35%;width:30%;height:8px;border-radius:0 0 9px 9px;background:#173f3a;z-index:3}
+.product-mobile-head{background:#1eac92;color:white;height:75px;padding:17px 11px 10px}
+.product-mobile-head strong{display:block;font-size:16px;font-weight:900;letter-spacing:-.06em;line-height:1.2}
+.product-mobile-head small{font-size:8px;font-weight:600}
+.product-mobile-body{padding:10px;background:#fff}
+.product-location{font-size:9px;font-weight:800;color:#386358;display:block;margin-bottom:7px}
+.product-photo{height:94px;border-radius:7px;background:#d8e9e4 url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=440&q=78') center / cover}
+.product-photo-caption{font-size:8px;color:#658d7e;display:block;padding:7px 0}
+.product-send{font-size:9px;text-align:center;font-weight:900;color:white;background:#17a68c;border-radius:7px;padding:9px 2px}
+@media(min-width:701px){
+.hero-banner{grid-template-columns:minmax(0,1fr) minmax(0,1.07fr)}
+.hero-right{height:440px;min-width:0}
+.hero-right>.hero-product{display:block}
+.hero-left{align-self:center}
+.hero-left .hero-actions{margin-top:29px}
+.hero-left .hero-explain{max-width:520px}
+}
+@media(min-width:701px) and (max-width:1020px){
+.hero-product{height:380px}
+.product-desktop{height:76%}.product-mobile{height:69%}
+.product-workspace{grid-template-columns:70px 1fr}.product-side span{font-size:8px}
+.product-main{padding:13px}.product-ticket-body strong{font-size:9px}.product-ticket-body small{font-size:8px}
+.product-status{font-size:7px;padding:4px}.product-mobile{width:35%}
+}
+@media(max-width:700px){
+.hero-new .wrap.hero-banner{padding:0 22px 16px}
+.hero-right{height:282px;width:100%;margin:0 0 12px;overflow:visible}
+.hero-product{height:282px;width:100%}
+.product-shape{inset:8% 3% 9% 4%;border-radius:50% 50% 46% 54% / 54% 40% 60% 46%}
+.product-desktop{left:0;top:16%;width:85%;height:70%;border-width:5px;border-radius:10px;box-shadow:0 11px 24px #124c3c27}
+.product-topbar{height:30px;padding:0 8px;gap:6px}
+.product-brand{font-size:13px}.product-topbar-name{font-size:7px}.product-account{font-size:6px}
+.product-workspace{grid-template-columns:54px minmax(0,1fr);height:calc(100% - 30px)}
+.product-side{padding:9px 4px;gap:3px}.product-side span{font-size:7px;padding:5px 4px}
+.product-main{padding:10px 8px}
+.product-main-heading{margin-bottom:7px}.product-main-heading small{font-size:6px}.product-main-heading strong{font-size:12px}
+.product-filter{font-size:6px;padding:4px 5px}
+.product-columns{font-size:6px;padding:0 1px 4px}
+.product-ticket{gap:5px;min-height:35px;padding:5px 0}
+.product-ticket-icon{width:23px;height:23px;border-radius:5px}
+.product-ticket-icon svg{width:14px;height:14px}
+.product-ticket-body strong{font-size:8px}.product-ticket-body small{font-size:6px}
+.product-status{font-size:6px;padding:3px 4px}
+.product-mobile{right:-1%;top:30%;width:32%;height:61%;border-width:5px;border-radius:18px;box-shadow:0 10px 19px #10463b30}
+.product-mobile-notch{height:5px}
+.product-mobile-head{height:49px;padding:12px 7px 6px}.product-mobile-head strong{font-size:11px}.product-mobile-head small{font-size:6px}
+.product-mobile-body{padding:7px}.product-location{font-size:6px;margin-bottom:5px}.product-photo{height:63px;border-radius:4px}
+.product-photo-caption{font-size:6px;padding:5px 0}.product-send{font-size:6px;padding:6px 2px;border-radius:5px}
+.hero-new .hero-kicker{font-size:10px}
+.hero-new h1{margin:7px 0 12px;font-size:clamp(32px,8.25vw,43px)}
+.hero-new .hero-explain{font-size:13px;line-height:1.7;margin:0 0 10px}
+.hero-new .hero-actions{margin:14px 0 3px}
+.hero-new .hero-honesty{margin:7px 0 0}
+}
+@media(max-width:380px){.hero-right,.hero-product{height:245px}.product-mobile{top:30%;height:64%}.product-photo{height:52px}.product-main-heading strong{font-size:10px}.product-ticket-body strong{font-size:7px}}
 </style>
 </head>
 <body>
@@ -584,20 +667,40 @@ html{scroll-padding-top:90px}
 <main id="main">
 <section class="hero-new"><div class="wrap hero-banner">
 <div class="hero-left">
-<span class="hero-kicker">写真を撮るだけ。面倒な仕事は、次のステップへ。</span>
+<span class="hero-kicker">設備管理の仕事を、もっとシンプルに。</span>
 <h1>現場の一次情報を、<br><em>AIで価値に変換。</em></h1>
-
-<p class="hero-explain">写真を撮れば、報告・連絡・修繕手配まで。<br>現場に残る手作業を、ひとつずつなくす。</p>
+<p class="hero-explain">写真で報告するだけ。<br>修繕の依頼・日程調整まで、ひとつの流れに。</p>
 <div class="hero-actions"><a class="btn hero-request" href="https://www.vitality-design.jp/?request=locue#contact">無料で資料請求 <span class="arr">→</span></a><a class="btn hero-secondary" href="#how">仕組みを見る <span class="arr">→</span></a></div>
-<p class="hero-honesty">※サービス構想・実証準備中。資料請求はフォームから受け付けています。</p>
+<p class="hero-honesty">※開発・実証段階のサービス構想です。</p>
 </div>
-<div class="hero-right"><div class="hero-mobile-visual" aria-label="LOCUEの設備修繕ワークフローを表す画面イメージ"><div class="hero-mobile-blob"></div><div class="hero-desktop-mock"><div class="mock-bar"><span class="mock-dots"><i></i><i></i><i></i></span><b>locue.</b><small>設備管理ダッシュボード</small></div><div class="mock-dash"><div class="mock-dash-top"><span><small>施設A / 修繕管理</small><strong>今日の対応</strong></span><span class="mock-counter">要確認 <b>2件</b></span></div><div class="mock-dash-row"><span class="mock-swatch">📷</span><span><b>305号室 / 空調異常</b><small>写真から案件を作成</small></span><em>手配中</em></div><div class="mock-dash-row"><span class="mock-swatch">📅</span><span><b>業者の訪問日を調整</b><small>候補日を自動で集約</small></span><em>確認待ち</em></div><div class="mock-dash-row"><span class="mock-swatch">✓</span><span><b>210号室 / 修繕完了</b><small>履歴をまとめて記録</small></span><em class="done">完了</em></div></div></div><div class="hero-camera-mock"><div class="camera-mock-top">● locue. <span>現場から報告</span></div><div class="camera-mock-photo"></div><div class="camera-mock-label">305号室 / 空調設備</div><div class="camera-mock-action">写真を送信 →</div></div><span class="hero-float-label">✦ 撮影から修繕手配へ</span></div><div class="hero-swoosh one"></div><div class="hero-swoosh two"></div>
-<div class="showcase" role="img" aria-label="LOCUEの現場報告・修繕手配・日程調整のスマホ画面イメージ">
-<div class="phone left"><div class="phone-top">9:41<b>locue.</b>現場から報告</div><div class="phone-card"><b>305号室 / 設備</b><small>写真を撮って気づいたことを送信</small><div class="phone-photo"></div><div class="phone-button">撮影して報告 →</div></div></div>
-<div class="phone center"><div class="phone-top">9:41<b>locue.</b>今日の対応</div><div class="phone-card"><b>対応が必要なこと</b><small>報告から依頼までまとめて管理</small><div class="phone-a"><i>📷</i>写真を受信</div><div class="phone-a"><i>✦</i>設備・内容を案件化</div><div class="phone-a"><i>🔧</i>修繕手配を準備</div><div class="phone-button">確認して進める →</div></div></div>
-<div class="phone right"><div class="phone-top">9:41<b>locue.</b>業者への依頼</div><div class="phone-card"><b>訪問候補日時</b><small>305号室・空調設備の修繕</small><div class="phone-a"><i>✓</i>11/12 午前</div><div class="phone-a"><i>✓</i>11/13 午後</div><div class="phone-button">候補を回答 →</div></div></div>
-<div class="bubble l">📷 現場からすぐ報告</div><div class="bubble r">✦ 依頼・調整までつなぐ</div>
-</div></div>
+<div class="hero-right">
+<div class="hero-product" role="img" aria-label="LOCUEのPC設備管理画面とスマートフォンの現場報告画面のコンセプト">
+<div class="product-shape" aria-hidden="true"></div>
+<div class="product-desktop">
+  <div class="product-topbar"><span class="product-brand">locue<span>.</span></span><span class="product-topbar-name">設備管理</span><span class="product-account">施設A　管理者</span></div>
+  <div class="product-workspace">
+    <aside class="product-side"><span class="selected">案件一覧</span><span>点検予定</span><span>設備台帳</span><span>協力会社</span></aside>
+    <div class="product-main">
+      <div class="product-main-heading"><div><small>施設A / 設備管理</small><strong>修繕案件</strong></div><span class="product-filter">未完了 3件</span></div>
+      <div class="product-columns"><span>報告内容</span><span>状況</span></div>
+      <div class="product-ticket"><div class="product-ticket-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2b8275" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h5M8 16h6"/></svg></div><div class="product-ticket-body"><strong>305号室　空調の異常</strong><small>写真付き報告から案件を作成</small></div><em class="product-status pending">業者調整中</em></div>
+      <div class="product-ticket"><div class="product-ticket-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2b8275" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg></div><div class="product-ticket-body"><strong>共用部　点検予定</strong><small>担当会社の訪問日を確認</small></div><em class="product-status review">確認待ち</em></div>
+      <div class="product-ticket"><div class="product-ticket-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2b8275" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg></div><div class="product-ticket-body"><strong>210号室　水栓の修繕</strong><small>完了報告を履歴に記録</small></div><em class="product-status done">完了</em></div>
+    </div>
+  </div>
+</div>
+<div class="product-mobile">
+  <div class="product-mobile-notch"></div>
+  <div class="product-mobile-head"><strong>locue.</strong><small>設備の不具合を報告</small></div>
+  <div class="product-mobile-body">
+    <span class="product-location">施設A　305号室</span>
+    <div class="product-photo" aria-label="客室設備の写真イメージ"></div>
+    <span class="product-photo-caption">写真を1枚添付</span>
+    <div class="product-send">この内容で報告する</div>
+  </div>
+</div>
+</div>
+</div>
 </div></section>
 
 

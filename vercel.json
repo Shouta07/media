@@ -1,6 +1,26 @@
 {
   "redirects": [
     {
+      "source": "/locue",
+      "destination": "/torutsugu/",
+      "permanent": true
+    },
+    {
+      "source": "/locue/",
+      "destination": "/torutsugu/",
+      "permanent": true
+    },
+    {
+      "source": "/locue/functions",
+      "destination": "/torutsugu/functions/",
+      "permanent": true
+    },
+    {
+      "source": "/locue/functions/",
+      "destination": "/torutsugu/functions/",
+      "permanent": true
+    },
+    {
       "source": "/accord.html",
       "destination": "/",
       "permanent": true
@@ -93,12 +113,12 @@
   ],
   "rewrites": [
     {
-      "source": "/locue",
-      "destination": "/locue/index.html"
+      "source": "/torutsugu",
+      "destination": "/torutsugu/index.html"
     },
     {
-      "source": "/locue/",
-      "destination": "/locue/index.html"
+      "source": "/torutsugu/",
+      "destination": "/torutsugu/index.html"
     },
     {
       "source": "/service",

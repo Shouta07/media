@@ -39,10 +39,20 @@
 .problem-illus{background-position:center;background-size:cover}
 .problem-illus:after{content:"";position:absolute;inset:0;background:rgba(220,246,238,.32)}
 .problem-illus .illu-circle{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
-.problem-illus.p1{background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=850&q=82')}
-.problem-illus.p2{background-image:url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=850&q=82')}
-.problem-illus.p3{background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=850&q=82')}
+.problem-illus.p1{background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=850&q=82')}
+.problem-illus.p2{background-image:url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=850&q=82')}
+.problem-illus.p3{background-image:url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=850&q=82')}
 @media(max-width:700px){.hero-visual{min-height:410px;padding:26px 10px}.hero-photo-scene{inset:0 2% 0 0}.hero-visual .dashboard{width:90%;margin:0 0 32px -6px}.hero-visual .mini-phone{bottom:10px;right:-7px}.hero-visual .float-chip{bottom:9px;left:-4px}.hero-visual .dash-content{padding:10px}}
+
+/* Reduced duplicate visual decoration; editorial photo cards */
+.problem{padding-top:76px;padding-bottom:88px}
+.problem .section-copy{max-width:620px}
+.problem-illus{height:188px;display:block;background-position:center;background-size:cover}
+.problem-illus:after{background:linear-gradient(0deg,rgba(13,50,45,.13),transparent 72%)}
+.problem-card article{padding:23px 25px 28px}
+.problem-card h3{font-size:18px;margin-bottom:9px}
+.problem-card p{font-size:12px;line-height:1.85}
+@media(max-width:700px){.problem{padding-top:58px;padding-bottom:60px}.problem-illus{height:170px}}
 </style>
 </head>
 <body>
@@ -63,11 +73,11 @@
 <div class="mini-phone"><div class="phone-inner"><div class="phone-notch"></div><div class="phone-time">9:41</div><h4>気になる場所を<br>撮るだけ。</h4><div class="phone-text">写真や動画で現場の様子を伝えよう。<br>詳しい入力は必要ありません。</div><div class="camera-box"><div><div class="camera-symbol">▣</div><small>写真・動画を撮影</small></div></div><div class="phone-action">送信する →</div></div></div>
 <div class="float-chip"><strong>✦ AIが情報を整理</strong><small>次の対応までスムーズにつなぐ</small></div></div>
 </div></section>
-<div class="trustbar"><div class="wrap trustbar-inner"><b>LOCUEが目指す現場体験</b><span>✓ フォーム入力を最小限に</span><span>✓ AIが情報を整理</span><span>✓ 対応完了までつなぐ</span></div></div>
+
 <section class="section problem" id="problems"><div class="wrap"><div class="center"><span class="eyebrow">CHALLENGES</span><h2 class="section-title">こんな現場の「手間」、<br>当たり前になっていませんか？</h2><p class="section-copy">必要なのは、管理する仕事を増やすことではなく、<br>現場で起きたことが自然に解決へ進む仕組み。</p></div><div class="problem-grid">
-<div class="problem-card"><div class="problem-illus p1"><div class="illu-circle">📋</div></div><article><h3>報告するだけなのに、<br>入力が多い。</h3><p>場所や設備を選び、文章を書き、写真を添付する。小さな不具合ほど報告が後回しになりがちです。</p></article></div>
-<div class="problem-card"><div class="problem-illus p2"><div class="illu-circle">📞</div></div><article><h3>電話・チャット・メールが<br>行き交っている。</h3><p>担当者や業者への説明、候補日の確認、催促。情報を渡すだけで、何度も同じやり取りが発生します。</p></article></div>
-<div class="problem-card"><div class="problem-illus p3"><div class="illu-circle">⏳</div></div><article><h3>進捗を更新することが、<br>新たな仕事になっている。</h3><p>対応は進んでいるのに、ステータス更新や履歴入力が追いつかず、管理のための管理が生まれます。</p></article></div>
+<div class="problem-card"><div class="problem-illus p1"></div><article><h3>報告するだけなのに、<br>入力が多い。</h3><p>場所や設備を選び、文章を書き、写真を添付する。小さな不具合ほど報告が後回しになりがちです。</p></article></div>
+<div class="problem-card"><div class="problem-illus p2"></div><article><h3>電話・チャット・メールが<br>行き交っている。</h3><p>担当者や業者への説明、候補日の確認、催促。情報を渡すだけで、何度も同じやり取りが発生します。</p></article></div>
+<div class="problem-card"><div class="problem-illus p3"></div><article><h3>進捗を更新することが、<br>新たな仕事になっている。</h3><p>対応は進んでいるのに、ステータス更新や履歴入力が追いつかず、管理のための管理が生まれます。</p></article></div>
 </div></div></section>
 <section class="section engine" id="how"><div class="wrap"><div class="center"><span class="eyebrow">HOW LOCUE WORKS</span><h2 class="section-title">撮る。AIがつなぐ。<br>現場が動く。</h2><p class="section-copy">現場の一次情報を取得するシンプルなUIと、課題解決まで導くAIエンジン。<br>情報を集めるだけで終わらせません。</p></div><div class="steps">
 <div class="step"><span class="step-num">STEP 01 / INPUT</span><div class="step-icon">📷</div><h3>シンプルに入力<small>LOCUE Input</small></h3><p>写真・動画・音声・QRから、必要な現場情報を素早く取得。スタッフ、協力業者、一般利用者も使える入口へ。</p><div class="step-arrow">→</div></div>

@@ -310,6 +310,84 @@ html{scroll-padding-top:71px}
 @media(max-width:760px){.venture-hero{padding-top:38px}.venture-intro h1{font-size:clamp(36px,8.8vw,56px)}.venture-subheading{font-size:17px}.venture-deck{font-size:12px}.venture-hero-actions{gap:15px;margin-top:24px}.venture-art{min-height:360px;max-width:540px}.venture-product{width:95%}.venture-orbit-one{width:300px;height:300px;right:0}.venture-art-caption{right:3px;bottom:4px}.venture-mock-note{bottom:-14px}.venture-hero-foot{font-size:9px;padding-bottom:20px}.venture-business,.venture-reason,.venture-method{padding:64px 0}.venture-section-head{flex-direction:column;align-items:flex-start;gap:9px}.venture-featured-product{grid-template-columns:1fr}.venture-featured-visual{min-height:320px}.venture-second-business{align-items:flex-start;flex-direction:column;padding:25px}.venture-reason-grid{grid-template-columns:1fr;gap:18px}.venture-method-grid{grid-template-columns:1fr}.venture-method-grid>div,.venture-method-grid>div:first-child{padding:25px 0;border-right:0;border-bottom:1px solid #dbe9df}.venture-method-grid>div:last-child{border-bottom:0}.venture-about h2{font-size:22px}}
 @media(max-width:450px){.venture-hero{padding-top:29px}.venture-kicker{font-size:9px}.venture-intro h1{font-size:clamp(33px,8.8vw,42px);margin:17px 0 14px}.venture-subheading{font-size:15px}.venture-deck{font-size:11px;margin-top:14px}.venture-primary{padding:12px 15px;font-size:11px}.venture-secondary{font-size:11px}.venture-art{min-height:286px}.venture-product{width:100%}.venture-product-body{grid-template-columns:60px 1fr;min-height:205px}.venture-product-side{font-size:7px;padding:16px 5px;gap:10px}.venture-product-list{padding:12px 7px}.venture-list-heading{margin-bottom:9px}.venture-list-heading strong{font-size:11px}.venture-list-heading span{font-size:7px}.venture-ticket{padding:6px 5px;gap:5px}.venture-ticket-emoji{width:24px;height:24px;font-size:13px}.venture-ticket strong{font-size:8px}.venture-ticket small{font-size:7px;margin-top:2px}.venture-ticket i{font-size:7px;padding:3px}.venture-orbit-one{width:230px;height:230px}.venture-art-caption{padding:8px 10px;bottom:2px}.venture-art-caption b{font-size:9px}.venture-art-caption small{font-size:8px}.venture-art-icon{width:24px;height:24px;font-size:14px}.venture-mock-note{font-size:7px}.venture-hero-foot{gap:10px}.venture-featured-copy{padding:27px 20px}.venture-featured-copy h3{font-size:34px}.venture-featured-tagline{font-size:15px!important}.venture-featured-visual{padding:25px 19px;min-height:300px}.venture-diagram-card{padding:13px}.venture-diagram-card strong{font-size:11px}.venture-diagram-card small{font-size:9px}.venture-second-business{padding:23px 19px}.venture-second-business h3{font-size:20px}.venture-reason-lead{font-size:17px!important}.venture-about-actions{flex-direction:column;width:100%}.venture-about-actions a{text-align:center}}
 @media(prefers-reduced-motion:reduce){.venture-product{transform:none}}
+
+/* Editorial brand design shared with Torutsugu: restrained typography, teal and green */
+:root{--ink:#152d36;--green:#087f75;--muted:#546873;--border:#dce6e6;--light:#f2f7f7}
+.header{border-color:#e1e9e8}
+.brand{color:#073d48;letter-spacing:-.03em}
+.nav-contact,.btn,.fbtn{background:#087f75}
+.nav-contact:hover,.btn:hover,.fbtn:hover{background:#05766e}
+.ed-overline,.ed-type,.ed-section-index{font-size:11px;font-weight:700;letter-spacing:.02em;color:#087f75}
+.ed-textlink{font-size:12px;font-weight:700;color:#087f75;display:inline-flex;gap:18px;align-items:center;border-bottom:1px solid #8cbfb4;padding-bottom:7px;white-space:nowrap}
+.ed-textlink:hover{color:#045b53}
+.ed-hero{background:#fff;border-bottom:1px solid #e0e9e7}
+.ed-hero-inner{padding-top:126px;padding-bottom:90px}
+.ed-hero h1{font-size:clamp(48px,6.5vw,92px);line-height:1.42;letter-spacing:-.09em;color:#073d48;font-weight:700;margin:21px 0 55px}
+.ed-hero-bottom{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.ed-hero-bottom p{font-size:18px;font-weight:600;line-height:1.9;letter-spacing:-.035em;color:#324e56}
+.ed-business{padding:94px 0 98px}
+.ed-section-title{display:grid;grid-template-columns:50px minmax(0,1fr) minmax(0,.8fr);gap:20px;align-items:baseline;border-bottom:1px solid #cfdeda;padding-bottom:26px;margin-bottom:39px}
+.ed-section-title>span{font:600 12px 'Inter',sans-serif;color:#087f75}
+.ed-section-title h2{font-size:clamp(26px,3vw,35px);letter-spacing:-.065em;line-height:1.4}
+.ed-section-title p{font-size:12px;color:#667980;line-height:1.95}
+.ed-primary-business{display:grid;grid-template-columns:.91fr 1.09fr;gap:45px;align-items:stretch;padding:15px 0 62px}
+.ed-primary-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:20px 0}
+.ed-primary-copy h3{font-size:clamp(40px,4.1vw,56px);line-height:1.25;letter-spacing:-.08em;color:#073d48;margin:16px 0 14px}
+.ed-primary-lead{font-size:17px;line-height:1.75;font-weight:700;color:#183f49}
+.ed-primary-detail{font-size:13px;color:#536d76;line-height:2.15;margin:21px 0 26px;max-width:430px}
+.ed-product-cta{background:#e8ff4c;color:#073d48!important;border-radius:100px;display:inline-flex;gap:24px;align-items:center;font-size:12px;font-weight:800;padding:15px 22px;transition:background .2s}
+.ed-product-cta:hover{background:#d9f23b}
+.ed-primary-visual{background:#073d48;color:white!important;display:flex;flex-direction:column;justify-content:center;padding:30px;gap:28px;min-width:0;min-height:385px;overflow:hidden}
+.ed-real-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%}
+.ed-real-photos figure{height:235px;overflow:hidden;background:#276c6b}
+.ed-real-photos img{width:100%;height:100%;object-fit:cover;filter:saturate(.82)}
+.ed-visual-bottom{display:flex;justify-content:space-between;gap:10px}
+.ed-visual-bottom strong{font-size:12px;line-height:1.5;white-space:nowrap}
+.ed-primary-visual small{font-size:9px;line-height:1.6;color:#a8c9c7;display:block}
+.ed-secondary-business{border-top:1px solid #dce6e6;border-bottom:1px solid #dce6e6;padding:39px 0;display:flex;justify-content:space-between;align-items:center;gap:36px}
+.ed-secondary-business h3{font-size:24px;letter-spacing:-.06em;margin:10px 0}
+.ed-secondary-business p{font-size:12px;color:#536d76;max-width:650px;line-height:2}
+.ed-philosophy{background:#f2f7f7;padding:98px 0}
+.ed-philosophy-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:9%}
+.ed-philosophy h2{font-size:clamp(32px,3.6vw,48px);line-height:1.6;letter-spacing:-.07em;margin:17px 0;color:#073d48}
+.ed-philosophy-inner>div:last-child p{font-size:13px;line-height:2.25;color:#536b73}
+.ed-philosophy-inner>div:last-child p+p{margin-top:16px}
+.ed-philosophy .ed-textlink{margin-top:25px}
+.ed-company-strip{padding:51px 0;background:#fff;border-bottom:1px solid #dce6e6}
+.ed-company-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.ed-company-inner h2{font-size:23px;line-height:1.5;letter-spacing:-.05em;margin-top:6px}
+@media(max-width:900px){.ed-primary-business{gap:26px}.ed-real-photos figure{height:180px}.ed-primary-visual{padding:21px}.ed-visual-bottom strong{font-size:10px}}
+@media(max-width:760px){
+ .ed-hero-inner{padding-top:85px;padding-bottom:67px}
+ .ed-hero h1{font-size:clamp(41px,9vw,63px);margin:17px 0 37px}
+ .ed-hero-bottom p{font-size:15px}
+ .ed-business{padding:61px 0 67px}
+ .ed-section-title{grid-template-columns:30px 1fr;gap:8px 13px;margin-bottom:25px}
+ .ed-section-title p{grid-column:2}
+ .ed-primary-business{grid-template-columns:1fr;gap:18px;padding:0 0 38px}
+ .ed-primary-copy{padding:5px 0}
+ .ed-primary-visual{min-height:275px;padding:23px}
+ .ed-real-photos figure{height:180px}
+ .ed-secondary-business{flex-direction:column;align-items:flex-start;gap:16px;padding:30px 0}
+ .ed-philosophy{padding:67px 0}
+ .ed-philosophy-inner{grid-template-columns:1fr;gap:20px}
+ .ed-company-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:450px){
+ .ed-hero-inner{padding-top:70px;padding-bottom:55px}
+ .ed-hero h1{font-size:clamp(35px,9.4vw,44px);margin-bottom:28px}
+ .ed-hero-bottom{align-items:flex-start;flex-direction:column;gap:22px}
+ .ed-hero-bottom p{font-size:14px}
+ .ed-primary-copy h3{font-size:40px}
+ .ed-primary-lead{font-size:15px}
+ .ed-primary-detail{font-size:12px}
+ .ed-primary-visual{padding:17px;gap:20px;min-height:230px}
+ .ed-real-photos{gap:5px}
+ .ed-real-photos figure{height:145px}
+ .ed-visual-bottom strong{font-size:9px}
+ .ed-company-inner h2{font-size:20px}
+}
+
 </style>
 </head>
 <body>
@@ -322,66 +400,51 @@ html{scroll-padding-top:71px}
 <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション" hidden><a href="#business">事業紹介</a><a href="/about.html">私たちについて</a><a href="/company.html">会社概要</a><a href="#contact">お問い合わせ ↗</a></nav>
 <main id="main">
 
-<section class="venture-hero" aria-labelledby="venture-heading">
- <div class="container venture-hero-grid">
-  <div class="venture-intro">
-   <p class="venture-kicker"><span class="venture-dot"></span> VITALITY DESIGN / VENTURE COMPANY</p>
-   <h1 id="venture-heading">現場の可能性を、<br><em>世界へ。</em></h1>
-   <p class="venture-subheading">まだない仕組みを、自分たちの事業に。</p>
-   <p class="venture-deck">Vitality Designは、現場にある未解決の課題からプロダクトをつくり、育てる事業会社です。最初の一歩は、施設の修繕管理から。</p>
-   <div class="venture-hero-actions"><a href="#business" class="venture-primary">私たちの事業を見る <span aria-hidden="true">↗</span></a><a href="/company.html" class="venture-secondary">会社について <span aria-hidden="true">→</span></a></div>
-  </div>
-  <div class="venture-art" aria-label="トルツグの修繕管理画面の説明用モックアップ">
-   <div class="venture-orbit venture-orbit-one"></div><div class="venture-orbit venture-orbit-two"></div>
-   <div class="venture-product">
-    <div class="venture-product-top"><b>トルツグ</b><span>ホテルA｜修繕管理</span><span class="venture-product-dot">●</span></div>
-    <div class="venture-product-body"><div class="venture-product-side"><strong>案件管理</strong><span>修繕履歴</span><span>設備情報</span></div>
-    <div class="venture-product-list"><div class="venture-list-heading"><strong>修繕案件</strong><span>3件の案件</span></div>
-     <div class="venture-ticket"><span class="venture-ticket-emoji">❄️</span><div><strong>305号室｜エアコン異音</strong><small>設備主任が確認中</small></div><i>対応中</i></div>
-     <div class="venture-ticket"><span class="venture-ticket-emoji">💡</span><div><strong>2階廊下｜照明不点灯</strong><small>業者の日程回答待ち</small></div><i>回答待ち</i></div>
-     <div class="venture-ticket"><span class="venture-ticket-emoji">🚰</span><div><strong>210号室｜水栓の水漏れ</strong><small>修繕履歴を保存</small></div><i class="is-done">完了</i></div>
-    </div></div>
-   </div>
-   <div class="venture-art-caption"><span class="venture-art-icon">↗</span><div><b>現場の報告から、修繕完了まで。</b><small>施設運営の新しい仕組みを開発中</small></div></div>
-   <p class="venture-mock-note">※画面・施設・案件は説明用のイメージです。</p>
-  </div>
+
+<section class="ed-hero" aria-labelledby="ed-hero-title">
+ <div class="container ed-hero-inner">
+   <p class="ed-overline">VITALITY DESIGN</p>
+   <h1 id="ed-hero-title">現場の可能性を、<br>世界へ。</h1>
+   <div class="ed-hero-bottom"><p>現場で見つけた課題から、<br>自分たちの事業をつくる。</p><a href="#business" class="ed-textlink">事業を見る <span aria-hidden="true">↘</span></a></div>
  </div>
- <div class="container venture-hero-foot"><span>01 / BUSINESS</span><span>自社事業・プロダクトを紹介します <span aria-hidden="true">↓</span></span></div>
 </section>
 
-<section class="venture-business" id="business" aria-labelledby="venture-business-title">
+<section class="ed-business" id="business" aria-labelledby="ed-business-title">
  <div class="container">
-  <div class="venture-section-head"><div><p class="section-label">OUR BUSINESS</p><h2 id="venture-business-title">私たちがつくるもの。</h2></div><p>現場から着想し、自ら開発・運営するプロダクト。その原点にある実践と経験も紹介します。</p></div>
-  <article class="venture-featured-product">
-   <div class="venture-featured-copy"><div class="venture-featured-top"><span class="venture-number">01 / PRODUCT</span><span class="venture-status">自社プロダクト</span></div>
-     <h3>トルツグ</h3><p class="venture-featured-tagline">修繕の連絡も、進捗確認も。ひとつに。</p>
-     <p>ホテル・旅館で起こる設備の不具合。現場からの写真報告、管理者の判断、協力業者との調整、完了記録まで。分散しがちな修繕業務を、ひとつの流れにつなぐサービスを開発しています。</p>
-     <div class="venture-keywords"><span>ホテル・旅館向け</span><span>設備・修繕管理</span><span>現場DX</span></div>
-     <a href="/torutsugu/" class="venture-product-link">トルツグのサービスサイトへ <span aria-hidden="true">↗</span></a>
+  <div class="ed-section-title"><span>01</span><h2 id="ed-business-title">事業について</h2><p>自ら開発するサービスと、現場で培ってきた取り組み。</p></div>
+  <article class="ed-primary-business">
+   <div class="ed-primary-copy">
+    <span class="ed-type">自社サービス / ホテル・旅館向け</span>
+    <h3>トルツグ</h3>
+    <p class="ed-primary-lead">修繕の連絡も、進捗確認も。ひとつに。</p>
+    <p class="ed-primary-detail">客室や設備の不具合を、現場から報告。管理者の判断、修繕業者とのやり取り、完了記録までをひとつの流れにつなぐ、設備・修繕管理サービスを開発しています。</p>
+    <a class="ed-product-cta" href="/torutsugu/">トルツグのサービスサイト <span aria-hidden="true">↗</span></a>
    </div>
-   <a href="/torutsugu/" class="venture-featured-visual" aria-label="トルツグの製品ページを見る"><div class="venture-featured-image"><div class="venture-diagram-label">REPORT <span>→</span> MANAGE <span>→</span> COMPLETE</div><div class="venture-diagram-card"><span class="venture-diagram-icon">📷</span><div><strong>客室の不具合を報告</strong><small>写真・場所・症状をまとめる</small></div></div><div class="venture-diagram-card"><span class="venture-diagram-icon">☑</span><div><strong>担当者と進捗を共有</strong><small>回答待ち・依頼状況を確認</small></div></div><div class="venture-diagram-card"><span class="venture-diagram-icon">↺</span><div><strong>修繕履歴を残す</strong><small>次の対応判断に活用</small></div></div></div><span>SEE PRODUCT <span aria-hidden="true">↗</span></span></a>
+   <a href="/torutsugu/" class="ed-primary-visual" aria-label="トルツグのサービスサイトを見る">
+     <div class="ed-real-photos" aria-hidden="true">
+       <figure><img src="https://images.unsplash.com/photo-1759772238012-9d5ad59ae637?auto=format&fit=crop&w=700&h=650&q=80" alt="" loading="lazy"></figure>
+       <figure><img src="https://images.unsplash.com/photo-1544124488-80918322c89e?auto=format&fit=crop&w=700&h=650&q=80" alt="" loading="lazy"></figure>
+       <figure><img src="https://images.unsplash.com/photo-1610278764397-388d11c35ddb?auto=format&fit=crop&w=700&h=650&q=80" alt="" loading="lazy"></figure>
+     </div>
+     <div class="ed-visual-bottom"><strong>写真で報告。</strong><strong>状況を共有。</strong><strong>履歴を残す。</strong></div>
+     <small>※写真はサービス利用場面のイメージです。</small>
+   </a>
   </article>
-  <article class="venture-second-business">
-   <div><p class="venture-number">02 / OPERATIONS DESIGN</p><h3>オペレーションデザイン</h3><p>人材紹介会社の業務改善や標準化など、実際の事業運営の課題に向き合う取り組み。現場で仕事を動かしてきた経験は、自社プロダクトをつくる力にもなっています。</p><div class="venture-keywords"><span>人材紹介会社の業務改善</span><span>運用設計・標準化</span></div></div>
-   <a href="/operations.html">取り組み・実績を見る <span aria-hidden="true">↗</span></a>
+  <article class="ed-secondary-business">
+    <div><span class="ed-type">事業運営・業務改善</span><h3>オペレーションデザイン</h3><p>人材紹介会社の業務改善や標準化など、実際の現場に入り込み、仕事の流れを整えてきた取り組みです。</p></div>
+    <a href="/operations.html" class="ed-textlink">実績・取り組みを見る <span aria-hidden="true">↗</span></a>
   </article>
  </div>
 </section>
 
-<section class="venture-reason" id="mission" aria-labelledby="venture-reason-title">
- <div class="container venture-reason-grid"><div><p class="section-label">WHY WE BUILD</p><h2 id="venture-reason-title">なぜ、現場から<br>事業をつくるのか。</h2></div>
-  <div><p class="venture-reason-lead">現場には、まだ事業になっていない課題がある。</p><p>日々の仕事に埋もれた手間、つながらない情報、当たり前になってしまった不便。そこに足を運び、解くべき問題を見つけることから始めます。</p><p>私たちが目指すのは、提案で終わることではありません。自分たちで使われる仕組みをつくり、運営し、価値を確かめながら育てることです。</p><a href="/about.html" class="venture-inline-link">私たちについて <span aria-hidden="true">↗</span></a></div>
- </div>
-</section>
+<section class="ed-philosophy" id="mission" aria-labelledby="ed-philosophy-title"><div class="container ed-philosophy-inner">
+  <div><span class="ed-section-index">02 / 私たちについて</span><h2 id="ed-philosophy-title">使われるものを、<br>つくり続ける。</h2></div>
+  <div><p>現場には、日々の仕事に埋もれた不便や、まだ活かされていない可能性があります。</p><p>私たちは、その声を聞き、必要な仕組みを自分たちでつくる。実際に使われ、役に立つかを確かめながら、事業として育てていきます。</p><a href="/about.html" class="ed-textlink">私たちについて <span aria-hidden="true">↗</span></a></div>
+</div></section>
 
-<section class="venture-method" aria-labelledby="venture-method-title"><div class="container">
- <div class="venture-section-head"><div><p class="section-label">HOW WE WORK</p><h2 id="venture-method-title">つくり、使われ、育っていく。</h2></div><p>机上の理想ではなく、現場の一次情報と実行を起点に。</p></div>
- <div class="venture-method-grid"><div><span>01 / DISCOVER</span><h3>現場を見る。</h3><p>仕事の流れに入り込み、当事者の声と実態から課題をつかむ。</p></div><div><span>02 / BUILD</span><h3>自らつくる。</h3><p>テクノロジーと運用設計で、現場で使える製品・仕組みにする。</p></div><div><span>03 / GROW</span><h3>事業に育てる。</h3><p>顧客と向き合って磨き、業界や国境を越える可能性を追う。</p></div></div>
- </div></section>
-
-<section class="venture-about" aria-labelledby="venture-about-title"><div class="container venture-about-inner"><div><p class="section-label">ABOUT US</p><h2 id="venture-about-title">小さく始めて、大きく育てる。</h2><p>現場への理解と実行力を土台に、自社事業をつくり続ける。Vitality Designの会社情報と、事業に対する考え方をご紹介します。</p></div><div class="venture-about-actions"><a href="/company.html">会社概要を見る <span aria-hidden="true">↗</span></a><a href="/about.html">私たちの考え方 <span aria-hidden="true">→</span></a></div></div></section>
+<section class="ed-company-strip"><div class="container ed-company-inner"><div><span class="ed-section-index">03 / 会社情報</span><h2>バイタリティデザイン合同会社</h2></div><a href="/company.html" class="ed-textlink">会社概要を見る <span aria-hidden="true">↗</span></a></div></section>
 <section class="contact" id="contact"><div class="container">
-<div class="contact-top"><p class="section-label">CONTACT</p><h2 style="font-size:clamp(27px,2.7vw,37px);line-height:1.55;letter-spacing:-.06em;margin-top:14px">お問い合わせ</h2><p>事業についてのご相談、トルツグの導入・資料請求、協業のご提案など、お気軽にお問い合わせください。</p></div>
+<div class="contact-top"><p class="section-label">CONTACT</p><h2 style="font-size:clamp(27px,2.7vw,37px);line-height:1.55;letter-spacing:-.06em;margin-top:14px">お問い合わせ</h2><p>トルツグの導入相談や資料請求、事業提携・協業についてはこちらからお問い合わせください。</p></div>
 <div class="contact-content"><div class="contact-side"><p>フォームからお問い合わせいただくか、メールにて直接ご連絡ください。</p><a class="contact-mail" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp ↗</a></div>
 <div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
           <input type="hidden" id="f-subject" name="_subject" value="コーポレートサイトからのお問い合わせ">
@@ -391,8 +454,8 @@ html{scroll-padding-top:71px}
           <div class="f2">
             <div class="fld"><label for="f-topic">ご相談の種類</label>
               <select id="f-topic" name="topic">
-                <option value="業務設計・DXの相談">業務設計・DXの相談</option>
                 <option value="事業提携・協業">事業提携・協業</option>
+                <option value="業務設計・DXの相談">業務改善・運用設計の相談</option>
                 <option value="取材・その他">取材・その他</option>
                 <option value="トルツグ 資料請求">トルツグの資料請求・導入相談</option>
               </select></div>

@@ -62,6 +62,12 @@
         if(!el || !el.value.trim()) missing.push(REQ[i][1]);
       }
       if(missing.length){ stat.textContent = S.eReq + missing.join(S.sep); for(var k=0;k<REQ.length;k++){ var first=document.getElementById(REQ[k][0]); if(first&&!first.value.trim()){ first.focus(); break; } } return; }
+      if(form.classList.contains('locue-request') && !form.querySelector('input[name="purpose"]:checked')){
+        stat.textContent='お問い合わせの目的を選択してください。';
+        var firstPurpose=document.getElementById('f-purpose-info');
+        if(firstPurpose) firstPurpose.focus();
+        return;
+      }
       var mail = document.getElementById('f-email').value.trim();
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)){
         stat.textContent = S.eMail; document.getElementById('f-email').focus(); return;
@@ -98,7 +104,18 @@
     if(source) source.value='トルツグ サービスサイト';
     var intro=document.getElementById('locueRequestIntro');
     if(intro) intro.hidden=false;
+    var purpose=document.getElementById('f-purpose-wrap');
+    if(purpose) purpose.hidden=false;
     form.classList.add('locue-request');
+    [].forEach.call(form.querySelectorAll('input[name="purpose"]'),function(el){el.required=true;});
+    form.addEventListener('change',function(e){
+      if(e.target.name==='purpose'){
+        var subject=document.getElementById('f-subject');
+        if(subject) subject.value='トルツグ お問い合わせ｜'+e.target.value;
+        var stat=document.getElementById('fstat');
+        if(stat && stat.textContent==='お問い合わせの目的を選択してください。') stat.textContent='';
+      }
+    });
     var submit=document.getElementById('fbtn');
     if(submit) submit.textContent='無料で資料請求する';
     S.submit='無料で資料請求する';

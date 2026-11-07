@@ -480,6 +480,87 @@ html{scroll-padding-top:71px}
  .ed-hero-meta{bottom:17px;font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.ed-hero-slide{transition:none}}
+
+/* Same dashboard composition as the Torutsugu service-site hero. */
+.ed-mock-link{background:#f7fbf9!important;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:0;min-height:405px;padding:24px 14px!important;color:#152d36!important}
+.ed-mock-stage{position:relative;isolation:isolate;padding:24px 4px 43px;min-width:0}
+.ed-mock-green{position:absolute;z-index:-1;top:0;bottom:0;right:-12px;left:25%;background:#26c774;border-radius:45% 0 0 42%;transform:skewX(-8deg)}
+.ed-mock-stage .fd-screen{margin:0 auto}
+.ed-mock-stage .fd-screen-content h3{margin:8px 0 15px}
+.ed-mock-stage .fd-mobile-preview{right:-5px;bottom:0}
+.ed-mock-caption{font-size:9px;color:#6d8d83;text-align:center;line-height:1.6;margin-top:13px}
+.fd-screen{background:#fff;border:9px solid #f5f7f6;border-radius:18px;width:100%;max-width:590px;box-shadow:0 25px 57px #0b4b3e25;overflow:hidden;position:relative;z-index:1}
+.fd-screen-header{display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #e2eeea;padding:14px 17px;background:#fff}
+.fd-screen-header strong{font-size:15px;color:#134f49}.fd-screen-header span{font-size:9px;color:#7f9691}
+.fd-screen-body{display:grid;grid-template-columns:107px minmax(0,1fr);min-height:300px}
+.fd-sidebar{display:flex;flex-direction:column;gap:12px;background:#f2f8f6;padding:20px 11px;font-size:10px;color:#78928d;font-weight:800}
+.fd-sidebar b{padding:10px;border-radius:8px;background:#d9f1e5;color:#10735d;font-weight:900}
+.fd-sidebar span{padding:8px 10px}
+.fd-screen-content{min-width:0;padding:22px 16px 24px}
+.fd-screen-top{display:flex;align-items:center;justify-content:space-between;gap:9px;font-size:10px;color:#88a09a}
+.fd-screen-top i{font-style:normal;font-weight:900;color:#946c22;background:#fff0c8;padding:4px 9px;border-radius:18px;white-space:nowrap;font-size:9px}
+.fd-screen-content h3{font-size:20px;line-height:1.4;margin:8px 0 15px;color:#1b4245}
+.fd-issue{display:flex;align-items:center;gap:10px;border:1px solid #e1eeeb;border-radius:10px;padding:11px 9px;margin-top:8px}
+.fd-issue-icon{display:grid;place-items:center;flex:none;height:32px;width:32px;background:#def5ea;color:#078f79;border-radius:9px;font-weight:900}
+.fd-issue-icon.done{background:#e6f8ef}
+.fd-issue div{min-width:0}.fd-issue strong{display:block;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#21434a}.fd-issue small{display:block;font-size:9px;color:#849c98;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.fd-mobile-preview{position:absolute;right:-5px;bottom:34px;z-index:3;display:flex;align-items:center;gap:10px;background:#fff;padding:15px 18px;border:1px solid #dbeae2;box-shadow:0 15px 40px #0c4c3530;border-radius:13px;max-width:270px}
+.fd-mobile-avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:#0d986c;background:#e1f8e9;font-weight:900;flex:none}
+.fd-mobile-preview div{min-width:0}.fd-mobile-preview small,.fd-mobile-preview strong,.fd-mobile-preview div span{display:block;white-space:nowrap}
+.fd-mobile-preview small{font-size:9px;color:#619b83}.fd-mobile-preview strong{font-size:12px;color:#1c4c44}.fd-mobile-preview div span{font-size:9px;color:#8ca69c}
+
+.fd-issue-photo{display:grid;grid-template-columns:58px minmax(0,1fr) 28px;gap:11px;align-items:center;padding:7px 9px;min-width:0}
+.fd-issue-thumb{display:block;width:58px;height:58px;object-fit:cover;object-position:center;border-radius:8px;border:1px solid #dceae5;background:#e6f2ed}
+.fd-issue-text{min-width:0}
+.fd-issue-state{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#def5ea;color:#079479;font-size:14px;font-weight:900}
+.fd-issue-photo:last-child .fd-issue-state{background:#dff7e9;color:#0a9561}
+
+.fd-preview-thumb{width:44px;height:44px;object-fit:cover;object-position:center;flex:none;border-radius:8px;border:1px solid #dcebe6}
+.fd-mobile-preview{max-width:300px}
+
+.ed-mock-stage .fd-issue-thumb{flex:none}
+.ed-mock-stage .fd-issue-photo{display:grid;grid-template-columns:58px minmax(0,1fr) 28px}
+.ed-hero-meta{display:none!important}
+@media(max-width:1040px){
+ .ed-mock-link{padding:15px 10px!important;min-height:350px}
+ .ed-mock-stage .fd-screen{border-width:6px}
+ .ed-mock-stage .fd-screen-body{grid-template-columns:76px minmax(0,1fr);min-height:250px}
+ .ed-mock-stage .fd-sidebar{padding:17px 5px;font-size:8px}
+ .ed-mock-stage .fd-screen-content{padding:16px 8px}
+ .ed-mock-stage .fd-issue-photo{grid-template-columns:40px minmax(0,1fr) 22px;gap:6px;padding:7px}
+ .ed-mock-stage .fd-issue-thumb{width:40px;height:40px}
+ .ed-mock-stage .fd-issue-state{width:22px;height:22px}
+ .ed-mock-stage .fd-issue strong{font-size:9px}
+ .ed-mock-stage .fd-issue small{font-size:8px}
+ .ed-mock-stage .fd-screen-content h3{font-size:16px}
+ .ed-mock-stage .fd-mobile-preview{padding:9px;gap:7px}
+}
+@media(max-width:450px){
+ .ed-mock-link{min-height:260px;padding:11px 6px!important}
+ .ed-mock-stage{padding:15px 0 28px}
+ .ed-mock-stage .fd-screen-body{grid-template-columns:61px minmax(0,1fr);min-height:190px}
+ .ed-mock-stage .fd-screen-header{padding:9px}
+ .ed-mock-stage .fd-screen-header strong{font-size:12px}
+ .ed-mock-stage .fd-screen-header span{font-size:7px}
+ .ed-mock-stage .fd-sidebar{font-size:7px;gap:8px}
+ .ed-mock-stage .fd-sidebar b{padding:5px}
+ .ed-mock-stage .fd-sidebar span{padding:4px}
+ .ed-mock-stage .fd-screen-content{padding:9px 6px}
+ .ed-mock-stage .fd-screen-top{font-size:8px}
+ .ed-mock-stage .fd-screen-top i{font-size:7px;padding:3px}
+ .ed-mock-stage .fd-screen-content h3{font-size:14px;margin:6px 0 9px}
+ .ed-mock-stage .fd-issue-photo{grid-template-columns:32px minmax(0,1fr) 16px;padding:5px;gap:4px}
+ .ed-mock-stage .fd-issue-thumb{width:32px;height:32px}
+ .ed-mock-stage .fd-issue-state{width:16px;height:16px;font-size:10px}
+ .ed-mock-stage .fd-issue strong{font-size:8px}
+ .ed-mock-stage .fd-issue small{font-size:7px}
+ .ed-mock-stage .fd-mobile-preview{padding:5px 7px;bottom:0;right:0}
+ .ed-mock-stage .fd-mobile-preview img{width:29px;height:29px}
+ .ed-mock-stage .fd-mobile-preview small,.ed-mock-stage .fd-mobile-preview div span{font-size:7px}
+ .ed-mock-stage .fd-mobile-preview strong{font-size:8px}
+ .ed-mock-caption{font-size:8px;margin-top:5px}
+}
 </style>
 </head>
 <body>
@@ -499,11 +580,14 @@ html{scroll-padding-top:71px}
     <figure class="ed-hero-slide" data-hero-slide="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=2000&q=84" alt="日本の街並みと施設のイメージ" loading="lazy" decoding="async"><figcaption>日本の街</figcaption></figure>
     <figure class="ed-hero-slide" data-hero-slide="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=2000&q=84" alt="ホテル客室のイメージ" loading="lazy" decoding="async"><figcaption>ホテルの客室</figcaption></figure>
     <figure class="ed-hero-slide" data-hero-slide="3" aria-hidden="true"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=84" alt="建築・施設のイメージ" loading="lazy" decoding="async"><figcaption>施設と建築</figcaption></figure>
+    <figure class="ed-hero-slide" data-hero-slide="4" aria-hidden="true"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=2000&q=84" alt="ニューヨークの街並みの風景" loading="lazy" decoding="async"></figure>
+    <figure class="ed-hero-slide" data-hero-slide="5" aria-hidden="true"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2000&q=84" alt="パリの街並みの風景" loading="lazy" decoding="async"></figure>
+    <figure class="ed-hero-slide" data-hero-slide="6" aria-hidden="true"><img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=2000&q=84" alt="ヴェネツィアの街並みの風景" loading="lazy" decoding="async"></figure>
+    <figure class="ed-hero-slide" data-hero-slide="7" aria-hidden="true"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=2000&q=84" alt="地中海の建築と街並みの風景" loading="lazy" decoding="async"></figure>
     <div class="ed-hero-shade" aria-hidden="true"></div>
   </div>
   <div class="container ed-hero-inner"><div class="ed-hero-copy"><h1 id="ed-hero-title">現場の可能性を、<br>世界へ。</h1></div></div>
-  <div class="container ed-hero-meta"><span>VITALITY DESIGN</span><span class="ed-gallery-index" aria-hidden="true"><span id="ed-gallery-current">01</span> / 04</span></div>
-</section>
+  </section>
 
 <section class="ed-business" id="business" aria-labelledby="ed-business-title">
  <div class="container">
@@ -516,15 +600,17 @@ html{scroll-padding-top:71px}
     <p class="ed-primary-detail">客室や設備の不具合を、現場から報告。管理者の判断、修繕業者とのやり取り、完了記録までをひとつの流れにつなぐ、設備・修繕管理サービスを開発しています。</p>
     <a class="ed-product-cta" href="/torutsugu/">トルツグのサービスサイト <span aria-hidden="true">↗</span></a>
    </div>
-   <a href="/torutsugu/" class="ed-primary-visual" aria-label="トルツグのサービスサイトを見る">
-     <div class="ed-real-photos" aria-hidden="true">
-       <figure><img src="https://images.unsplash.com/photo-1759772238012-9d5ad59ae637?auto=format&fit=crop&w=700&h=650&q=80" alt="" loading="lazy"></figure>
-       <figure><img src="https://images.unsplash.com/photo-1544124488-80918322c89e?auto=format&fit=crop&w=700&h=650&q=80" alt="" loading="lazy"></figure>
-       <figure><img src="https://images.unsplash.com/photo-1610278764397-388d11c35ddb?auto=format&fit=crop&w=700&h=650&q=80" alt="" loading="lazy"></figure>
-     </div>
-     <div class="ed-visual-bottom"><strong>写真で報告。</strong><strong>状況を共有。</strong><strong>履歴を残す。</strong></div>
-     <small>※写真はサービス利用場面のイメージです。</small>
-   </a>
+   <a href="/torutsugu/" class="ed-primary-visual ed-mock-link" aria-label="トルツグのサービスサイトを見る">
+ <div class="ed-mock-stage"><div class="ed-mock-green" aria-hidden="true"></div><div class="fd-screen" role="img" aria-label="ホテルAの修繕案件一覧のデモ画面"><div class="fd-screen-header"><strong>トルツグ</strong><span>ホテルA / 設備管理</span></div>
+<div class="fd-screen-body"><div class="fd-sidebar"><b>案件一覧</b><span>回答待ち</span><span>設備台帳</span><span>修繕履歴</span></div><div class="fd-screen-content"><div class="fd-screen-top"><span>修繕管理 / 案件一覧</span><i>確認待ち 2件</i></div><h3>対応状況</h3>
+<div class="fd-issue fd-issue-photo"><img class="fd-issue-thumb" src="https://images.unsplash.com/photo-1759772238012-9d5ad59ae637?auto=format&fit=crop&w=320&h=240&q=80" alt="客室の壁掛けエアコンの参考写真" loading="lazy" decoding="async" width="64" height="64"><div class="fd-issue-text"><strong>305号室｜エアコン異音</strong><small>見積回答待ち / 担当：設備主任</small></div><span class="fd-issue-state" aria-hidden="true">!</span></div>
+<div class="fd-issue fd-issue-photo"><img class="fd-issue-thumb" src="https://images.unsplash.com/photo-1544124488-80918322c89e?auto=format&fit=crop&w=320&h=240&q=80" alt="廊下の照明設備の参考写真" loading="lazy" decoding="async" width="64" height="64"><div class="fd-issue-text"><strong>2階廊下｜照明不点灯</strong><small>日程回答待ち / 担当：協力業者</small></div><span class="fd-issue-state" aria-hidden="true">↗</span></div>
+<div class="fd-issue fd-issue-photo"><img class="fd-issue-thumb" src="https://images.unsplash.com/photo-1610278764397-388d11c35ddb?auto=format&fit=crop&w=320&h=240&q=80" alt="水滴が落ちる水栓の参考写真" loading="lazy" decoding="async" width="64" height="64"><div class="fd-issue-text"><strong>210号室｜水栓の水漏れ</strong><small>修繕完了 / 作業記録あり</small></div><span class="fd-issue-state" aria-hidden="true">✓</span></div>
+</div></div></div>
+<div class="fd-mobile-preview"><img class="fd-preview-thumb" src="https://images.unsplash.com/photo-1759772238012-9d5ad59ae637?auto=format&fit=crop&w=320&h=240&q=80" alt="エアコンの参考写真" loading="eager" decoding="async" width="44" height="44"><div><small>現場からの報告</small><strong>305号室｜エアコン異音</strong><span>写真と症状を共有済み</span></div></div>
+</div>
+ <p class="ed-mock-caption">※画面・案件・施設は説明用の架空サンプルです。</p>
+</a>
   </article>
   <article class="ed-secondary-business">
     <div><span class="ed-type">事業運営・業務改善</span><h3>オペレーションデザイン</h3><p>人材紹介会社の業務改善や標準化など、実際の現場に入り込み、仕事の流れを整えてきた取り組みです。</p></div>

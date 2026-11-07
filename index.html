@@ -576,6 +576,36 @@ html{scroll-padding-top:71px}
 @media(max-width:900px){.vd-conviction-layout{gap:6%}.vd-conviction-body{padding-top:40px}.ed-hero h1{font-size:clamp(43px,6.3vw,80px)}}
 @media(max-width:760px){.ed-hero h1{font-size:clamp(40px,8.3vw,67px);line-height:1.5}.vd-conviction{padding:77px 0 86px}.vd-conviction-layout{grid-template-columns:1fr;gap:34px}.vd-conviction h2{font-size:clamp(31px,6.3vw,43px)}.vd-conviction-body{padding-top:0}.vd-conviction-body p{font-size:13px;line-height:2.25}.vd-conviction-body .vd-conviction-lead{font-size:18px;margin-bottom:20px}.vd-conviction-body .vd-conviction-close{font-size:15px}}
 @media(max-width:450px){.ed-hero h1{font-size:clamp(36px,9.5vw,48px);line-height:1.45}.vd-conviction{padding:60px 0 70px}.vd-conviction h2{font-size:31px;line-height:1.6}.vd-conviction-label{margin-bottom:17px}}
+
+/* Responsive statement: single line on desktop, bold natural wrap on phones */
+@media(min-width:761px){
+ .ed-hero h1{font-size:clamp(35px,4.9vw,76px);max-width:none;width:max-content;white-space:nowrap;text-wrap:nowrap;line-height:1.3;letter-spacing:-.085em}
+ .ed-hero-copy{min-width:0;width:100%}
+}
+@media(max-width:760px){
+ .ed-hero{min-height:540px;height:calc(88svh - 65px);max-height:760px}
+ .ed-hero-inner{align-items:center}
+ .ed-hero h1{font-size:clamp(40px,10.1vw,72px);line-height:1.46;letter-spacing:-.07em;white-space:normal;text-wrap:wrap;max-width:100%;word-break:normal;overflow-wrap:anywhere}
+}
+@media(max-width:450px){
+ .ed-hero{min-height:500px;height:calc(87svh - 65px)}
+ .ed-hero h1{font-size:clamp(39px,10.3vw,48px);line-height:1.47}
+}
+@media(max-width:360px){
+ .ed-hero h1{font-size:clamp(36px,10.7vw,40px)}
+}
+.vd-conviction-body{max-width:580px;padding-top:48px}
+.vd-conviction-body p{font-size:15px;line-height:2.3}
+.vd-conviction-body p+p{margin-top:26px}
+.vd-conviction-body .vd-conviction-lead{font-size:22px;line-height:1.9;margin-bottom:33px}
+.vd-conviction-body .vd-conviction-close{margin-top:42px;line-height:1.95}
+@media(max-width:760px){
+ .vd-conviction-body{padding-top:0}
+ .vd-conviction-body p{font-size:14px;line-height:2.25}
+ .vd-conviction-body p+p{margin-top:22px}
+ .vd-conviction-body .vd-conviction-lead{font-size:19px;line-height:1.85;margin-bottom:25px}
+ .vd-conviction-body .vd-conviction-close{font-size:16px;margin-top:32px}
+}
 </style>
 </head>
 <body>
@@ -606,12 +636,17 @@ html{scroll-padding-top:71px}
 
 <section class="vd-conviction" id="approach" aria-labelledby="vd-conviction-title">
  <div class="container vd-conviction-layout">
-  <div class="vd-conviction-head"><p class="vd-conviction-label">私たちの姿勢</p><h2 id="vd-conviction-title">現場に行く。<br>自分の目で見る。<br>自分たちでつくる。</h2></div>
+  <div class="vd-conviction-head">
+   <p class="vd-conviction-label">私たちの姿勢</p>
+   <h2 id="vd-conviction-title">現場に行く。<br>自分の目で見る。<br>自分たちでつくる。</h2>
+  </div>
   <div class="vd-conviction-body">
-   <p class="vd-conviction-lead">答えは、会議室の中だけにはない。</p>
-   <p>現場に足を運び、働く人の話を聞く。何が起きているのかを自分の目で確かめ、当たり前になった不便を一つずつ拾い上げる。</p>
-   <p>考えるだけでは終わらない。小さくつくり、使ってもらい、うまくいかなければ直す。その繰り返しで、必要とされる仕組みを事業に育てていく。</p>
-   <p class="vd-conviction-close">地道に、愚直に。世界のどこであっても。</p>
+   <p class="vd-conviction-lead">世界を変える事業は、現場の小さな違和感から始まる。</p>
+   <p>どれだけ技術が進んでも、現場に行かなければ分からないことがある。資料には載らない仕事の流れ。誰もが仕方ないと諦めている手間。表には出てこない、働く人の本音。</p>
+   <p>だから私たちは、まず足を運ぶ。話を聞くだけで終わらせず、実際の仕事を見て、何度も問い直す。課題だと思っていたことが違えば、仮説を捨てて考え直す。答えを決めつけず、一次情報に向き合い続ける。</p>
+   <p>見つけた課題は、提案書にして終わりにしない。自分たちで手を動かし、小さくつくって試す。使われなければ理由を聞き、うまく動かなければ直す。必要ならやり方そのものを変える。地味な試行錯誤を積み重ねて、現場で本当に役立つ仕組みにする。</p>
+   <p>そして、一つの現場で生まれた価値を、一つの現場だけで終わらせない。誰かの頑張りだけに頼らず、続けられる仕組みに変え、事業として育てていく。日本から世界へ広げるだけでなく、世界のどこにいても現場から新しい事業を生み出せる会社を目指す。</p>
+   <p class="vd-conviction-close">大きなことを語る。だからこそ、目の前のことを愚直にやり切る。</p>
   </div>
  </div>
 </section>

@@ -398,6 +398,55 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
   .fd-hero-copy h1{font-size:clamp(29px,8.3vw,34px)}
   .mobile-cta-bar{padding-left:12px;padding-right:12px}
 }
+
+/* Mobile hero composition v3: laptop + phone, no stacked mini report card */
+.fd-mini-phone{display:none}
+@media(max-width:600px){
+ .fd-hero{padding-top:0}
+ .fd-hero-grid{gap:0}
+ .fd-hero-stage{height:350px;min-height:0!important;max-height:350px;padding:22px 10px 4px;display:block;position:relative;isolation:isolate}
+ .fd-green-shape{position:absolute;z-index:-1;inset:16px -5px 45px 10%;border-radius:48% 42% 46% 38%;background:#26c774;transform:rotate(-10deg)}
+ /* Compact laptop-style silhouette with a screen and base. */
+ .fd-screen{position:relative;width:93%;max-width:none;height:250px;overflow:hidden;border:7px solid #243338;border-radius:11px 11px 5px 5px;box-shadow:0 15px 25px rgba(10,45,36,.2);margin:37px 0 0 0;background:#fff}
+ .fd-screen:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#c7d5d0}
+ .fd-screen-header{padding:6px 7px;height:29px}
+ .fd-screen-header strong{font-size:10px}.fd-screen-header span{font-size:6px}
+ .fd-screen-body{grid-template-columns:43px minmax(0,1fr);height:210px;min-height:0}
+ .fd-sidebar{padding:8px 2px;gap:2px}
+ .fd-sidebar b,.fd-sidebar span{font-size:6px;padding:5px 2px}
+ .fd-screen-content{padding:8px 6px}
+ .fd-screen-top{font-size:6px}
+ .fd-screen-top i{font-size:6px;padding:2px 4px}
+ .fd-screen-content h3{font-size:12px;margin:5px 0 6px}
+ .fd-issue-photo{grid-template-columns:29px minmax(0,1fr) 14px;gap:4px;padding:3px;margin-top:4px;border-radius:6px}
+ .fd-issue-thumb{height:29px;width:29px;border-radius:4px}
+ .fd-issue-photo strong{font-size:7px}
+ .fd-issue-photo small{font-size:6px}
+ .fd-issue-state{height:14px;width:14px;font-size:8px;border-radius:4px}
+ .fd-mini-phone{display:flex;flex-direction:column;position:absolute;z-index:5;right:1%;top:112px;width:89px;height:190px;border:5px solid #172c2d;border-radius:15px;background:#fff;box-shadow:0 10px 18px rgba(0,50,40,.24);overflow:hidden;color:#17443d;text-align:center}
+ .fd-mini-phone-notch{height:7px;width:35px;background:#172c2d;border-radius:0 0 7px 7px;margin:0 auto 3px}
+ .fd-mini-phone-header{font-size:7px;font-weight:900;padding:4px 2px;background:#e6f7ec}
+ .fd-mini-phone img{width:100%;height:94px;object-fit:cover}
+ .fd-mini-phone-caption{font-size:6px;font-weight:800;line-height:1.3;padding:6px 2px}
+ .fd-mini-phone-submit{margin:2px 5px 0;background:#099577;color:#fff;font-weight:900;font-size:7px;padding:5px 2px;border-radius:5px}
+ .fd-mobile-preview{display:none!important}
+ .fd-mock-caption{display:none!important}
+ .fd-hero-copy{padding-top:0}
+ .fd-overline{margin-bottom:8px}
+ .fd-hero-copy h1{font-size:clamp(31px,8.3vw,39px);line-height:1.36;margin-bottom:11px}
+ .fd-hero-lead{font-size:12px;margin-bottom:10px}
+ .fd-hero-desc{font-size:11px;line-height:1.75}
+ .fd-hint{font-size:9px}
+ .fd-value-strip{margin-top:12px}
+}
+@media(max-width:380px){
+ .fd-hero-stage{height:315px;max-height:315px;padding:18px 7px 0}
+ .fd-screen{height:225px;margin-top:30px}
+ .fd-screen-body{height:190px}
+ .fd-mini-phone{top:99px;height:171px;width:80px}
+ .fd-mini-phone img{height:78px}
+ .fd-hero-copy h1{font-size:31px}
+}
 </style>
 </head>
 <body>
@@ -419,6 +468,7 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
 <div class="fd-issue fd-issue-photo"><img class="fd-issue-thumb" src="https://images.unsplash.com/photo-1544124488-80918322c89e?auto=format&fit=crop&w=320&h=240&q=80" alt="廊下の照明設備の参考写真" loading="eager" decoding="async" width="64" height="64"><div class="fd-issue-text"><strong>2階廊下｜照明不点灯</strong><small>日程回答待ち / 担当：協力業者</small></div><span class="fd-issue-state" aria-hidden="true">↗</span></div>
 <div class="fd-issue fd-issue-photo"><img class="fd-issue-thumb" src="https://images.unsplash.com/photo-1610278764397-388d11c35ddb?auto=format&fit=crop&w=320&h=240&q=80" alt="水滴が落ちる水栓の参考写真" loading="eager" decoding="async" width="64" height="64"><div class="fd-issue-text"><strong>210号室｜水栓の水漏れ</strong><small>修繕完了 / 作業記録あり</small></div><span class="fd-issue-state" aria-hidden="true">✓</span></div>
 </div></div></div>
+<div class="fd-mini-phone" aria-label="現場スタッフの写真報告画面イメージ"><div class="fd-mini-phone-notch"></div><div class="fd-mini-phone-header">不具合を報告</div><img src="https://images.unsplash.com/photo-1759772238012-9d5ad59ae637?auto=format&fit=crop&w=320&h=300&q=80" alt="エアコンの参考写真" width="140" height="145" decoding="async"><div class="fd-mini-phone-caption">305号室 / エアコン異音</div><div class="fd-mini-phone-submit">写真を報告</div></div>
 <div class="fd-mobile-preview"><img class="fd-preview-thumb" src="https://images.unsplash.com/photo-1759772238012-9d5ad59ae637?auto=format&fit=crop&w=320&h=240&q=80" alt="エアコンの参考写真" loading="eager" decoding="async" width="44" height="44"><div><small>現場からの報告</small><strong>305号室｜エアコン異音</strong><span>写真と症状を共有済み</span></div></div>
 <p class="fd-mock-caption">※画面・案件・施設は説明用の架空サンプルです。</p>
 </div></div>

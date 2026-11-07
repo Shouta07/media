@@ -61,10 +61,10 @@
         el = document.getElementById(REQ[i][0]);
         if(!el || !el.value.trim()) missing.push(REQ[i][1]);
       }
-      if(missing.length){ stat.textContent = S.eReq + missing.join(S.sep); return; }
+      if(missing.length){ stat.textContent = S.eReq + missing.join(S.sep); for(var k=0;k<REQ.length;k++){ var first=document.getElementById(REQ[k][0]); if(first&&!first.value.trim()){ first.focus(); break; } } return; }
       var mail = document.getElementById('f-email').value.trim();
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)){
-        stat.textContent = S.eMail; return;
+        stat.textContent = S.eMail; document.getElementById('f-email').focus(); return;
       }
       stat.textContent = ''; fbtn.disabled = true; fbtn.textContent = S.sending;
       fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })

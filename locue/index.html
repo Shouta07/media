@@ -297,13 +297,35 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 .firsthand-content>small{display:block;font-size:10px;color:#809189;line-height:1.9}
 @media(max-width:900px){.interface-grid{grid-template-columns:1fr 90px 1fr;gap:10px}.interface-card{padding:23px 17px}.engine-bridge{padding:18px 7px}.firsthand-content{padding:23px}}
 @media(max-width:700px){.interface-grid{grid-template-columns:1fr}.engine-bridge{min-height:95px;flex-direction:row;gap:11px;padding:15px}.engine-bridge .engine-arrow{transform:rotate(90deg)}.interface-card{padding:25px 20px}.firsthand-grid{grid-template-columns:1fr}.firsthand-photo{height:200px}.firsthand-content h3{font-size:21px}}
+
+/* Integrated function catalog and firsthand use cases inside output solution tabs */
+.panel-extra{margin-top:32px;padding-top:30px;border-top:1px solid #d9eae3}
+.panel-extra-heading h4,.panel-usecase-title h4{margin:8px 0 8px;font-size:clamp(19px,2vw,25px);line-height:1.5;letter-spacing:-.035em}
+.panel-extra-heading p,.panel-usecase-title p{margin:0;color:#657f76;font-size:12px;line-height:1.9}
+.panel-capability-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:22px}
+.panel-capability-preview .cap-screen{min-height:0;padding:15px}
+.panel-capability-preview .cap-app{max-width:700px;margin:auto;min-height:0}
+.panel-capability-preview .cap-app-body{min-height:310px}
+.panel-capability-list .cap-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0}
+.panel-capability-list .cap-group{padding:19px;border-radius:14px;background:#fff}
+.panel-capability-list .cap-group h4{font-size:14px}
+.panel-capability-list .cap-group p{font-size:11px}
+.panel-usecase-title{margin:32px 0 19px}
+.panel-usecase-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.panel-usecase-grid .firsthand-card{display:grid;grid-template-columns:.8fr 1.2fr;border-radius:18px;box-shadow:none}
+.panel-usecase-grid .firsthand-photo{height:100%;min-height:255px}
+.panel-usecase-grid .firsthand-content{padding:22px}
+.panel-usecase-grid .firsthand-content h3{font-size:19px}
+.panel-usecase-grid .firsthand-content p{font-size:12px}
+@media(max-width:850px){.panel-capability-list .cap-groups{grid-template-columns:repeat(2,1fr)}.panel-usecase-grid .firsthand-card{grid-template-columns:1fr}.panel-usecase-grid .firsthand-photo{height:195px;min-height:0}}
+@media(max-width:580px){.panel-capability-list .cap-groups{grid-template-columns:1fr}.panel-capability-preview .cap-screen{padding:10px}.panel-capability-preview .cap-app-body{min-height:260px}.panel-extra{margin-top:22px;padding-top:22px}}
 </style>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='10px'" onblur="this.style.left='-9999px'">本文へスキップ</a>
 <header class="site-header"><div class="wrap header-inner">
 <a href="/locue/" class="logo" aria-label="LOCUE トップ">locue<span class="logo-dot">.</span><small>FIELD INTELLIGENCE PLATFORM</small></a>
-<nav class="navlinks" aria-label="メインナビゲーション"><a href="#services">サービス</a><a href="#features">特徴</a><a href="#maintenance-functions">機能一覧</a><a href="#pricing">料金</a><a class="btn primary" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">資料請求 <span style="font-size:10px;background:#ddf648;border-radius:4px;color:#236959;padding:2px 5px">無料</span></a></nav>
+<nav class="navlinks" aria-label="メインナビゲーション"><a href="#services">サービス</a><a href="#features">特徴</a><a href="#services">機能一覧</a><a href="#pricing">料金</a><a class="btn primary" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">資料請求 <span style="font-size:10px;background:#ddf648;border-radius:4px;color:#236959;padding:2px 5px">無料</span></a></nav>
 </div></header>
 <main id="main">
 <section class="hero-new"><div class="wrap hero-banner">
@@ -348,7 +370,26 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 <ol class="workflow-steps"><li><b>撮るだけ</b>で設備・場所を紐づけて報告</li><li>AIが内容・優先度・依頼文を整理</li><li>条件に合う担当者・業者へ依頼</li><li>URLで業者が候補日を回答し自動照合</li><li>必要な発注・安全確認だけ承認</li><li>作業結果を受けて履歴へ自動反映</li></ol></div>
 </div><div class="solution-benefit"><strong>なくしたい業務</strong><div><span>報告内容の書き直し</span><span>関係者への転記</span><span>日程調整の電話往復</span><span>進捗の手動更新</span></div></div>
 <div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>不具合・修繕</b><small>写真・動画・音声報告、AI分類、案件別共有、修繕履歴</small></div><div><b>点検・設備台帳</b><small>点検チェック、周期・年間計画、施設・設備情報の管理</small></div><div><b>外注業者連携</b><small>依頼書作成、候補日の回答、日程照合、作業完了報告</small></div><div><b>費用・備品・分析</b><small>見積・費用記録、在庫管理、レポート、多拠点集計</small></div></div></div>
-<div class="solution-panel-bottom"><span>PoCでは、管理者工数・日程調整の往復回数・修繕完了時間を計測します。</span><a href="#maintenance-functions">設備管理の詳細機能を見る ↗</a></div>
+<div class="panel-extra">
+<div class="panel-extra-heading"><span class="eyebrow">MAINTENANCE / FUNCTION DETAIL</span><h4>点検から修繕・備品管理までの機能</h4><p>設備管理SaaSの基本業務をカバーし、LOCUEの入力・変換・実行フローで工数削減を狙います。</p></div>
+<div class="panel-capability-grid"><div class="panel-capability-preview"><div class="cap-screen" aria-label="LOCUE設備保全管理画面のコンセプトモックアップ">
+<div class="cap-app"><div class="cap-app-head"><span>✦ LOCUE Business</span><small>施設A ・ Maintenance</small></div><div class="cap-app-body"><div class="cap-side"><span class="active">⌂ 現場の状況</span><span>▤ 不具合・修繕</span><span>▣ 点検計画</span><span>▦ 設備台帳</span><span>◷ 外注手配</span><span>◇ 備品管理</span></div>
+<div class="cap-content"><div class="cap-eyebrow">本日の設備オペレーション</div><h3>判断が必要な案件</h3><div class="cap-metrics"><div class="cap-metric"><strong>2</strong><small>要確認</small></div><div class="cap-metric"><strong>5</strong><small>手配中</small></div><div class="cap-metric"><strong>12</strong><small>対応完了</small></div></div>
+<div class="cap-row">305号室 / 空調異常 <em>日程調整</em><small>写真・設備履歴を照合 → 協力会社へ候補日を確認</small></div>
+<div class="cap-row">共用部 / 消防設備点検 <em>点検予定</em><small>定期点検の実施予定と担当者を確認</small></div>
+<div class="cap-row">210号室 / 水栓修繕 <em>要承認</em><small>作業結果の確認後、修繕履歴へ反映</small></div>
+<div class="tiny">※デモ画面：掲載の件数・処理は架空の表示です。</div>
+</div></div></div></div>
+</div><div class="panel-capability-list"><div class="cap-groups">
+<article class="cap-group"><span class="tag">01 / REPAIR</span><h4>不具合・修繕管理</h4><p>現場報告、優先度の整理、担当者連携、チャット・添付、修繕費用と履歴を一元化。必要な確認だけを人に返す。</p></article>
+<article class="cap-group"><span class="tag">02 / INSPECTION</span><h4>点検・年間計画</h4><p>日常・定期・法定点検の項目、頻度、担当者、期限、記録、承認、年間予定を管理。HACCPなど用途別の記録も視野に。</p></article>
+<article class="cap-group"><span class="tag">03 / VENDOR</span><h4>外注手配・日程調整</h4><p>設備情報や写真をまとめて共有。業者は専用URLから訪問可能日を回答し、ホテル側の条件と照合して手配を支援。</p></article>
+<article class="cap-group"><span class="tag">04 / ASSETS</span><h4>設備・施設台帳</h4><p>施設、フロア、客室、設備を紐づけ、過去の修繕や点検結果を検索。既存CSV等からの移行も検討。</p></article>
+<article class="cap-group"><span class="tag">05 / INVENTORY</span><h4>備品・在庫管理</h4><p>消耗品の数量や保管場所、不足通知、発注判断を支援。共通の現場入力インターフェースから利用する構想。</p></article>
+<article class="cap-group"><span class="tag">06 / INSIGHTS</span><h4>レポート・多拠点管理</h4><p>修繕件数、対応時間、費用、点検実施状況を見える化。施設ごとの権限を守りながら本部で横断確認する。</p></article>
+</div></div></div>
+<div class="panel-usecase-title"><span class="eyebrow">FUTURE USE CASE</span><h4>宿泊者の一次情報を設備保全にも</h4><p>宿泊者が気づいた異常を任意で共有し、現場で確認すべき場所を絞り込む構想です。</p></div><div class="panel-usecase-grid"><article class="firsthand-card"><div class="firsthand-photo first-photo-a"><span class="firsthand-tag">設備保全 × 宿泊者参加</span></div><div class="firsthand-content"><h3>宿泊者の「気づき」が、<br>設備状態の早期把握につながる。</h3><p>設備業者やスタッフが毎回見に行かなくても、宿泊者が利用中に気づいた水漏れ・異音・破損を写真や動画で共有。LOCUEが設備と結びつけ、管理者が確認すべき箇所を整理します。</p><div class="firsthand-flow"><span>宿泊者の写真</span><b>→</b><span>AIで設備・状況を特定</span><b>→</b><span>確認・修繕手配</span></div><small>※任意参加の異常・状態共有を想定。法定点検や資格・専門判断が必要な点検を宿泊者が代行するものではありません。</small></div></article></div>
+</div><div class="solution-panel-bottom"><span>PoCでは、管理者工数・日程調整の往復回数・修繕完了時間を計測します。</span><a href="#contact">無料資料請求はこちら ↗</a></div>
 </section>
 <section class="solution-panel" id="panel-quality" role="tabpanel" aria-labelledby="tab-quality" tabindex="0" hidden>
 <div class="solution-panel-head"><div><span class="eyebrow">QUALITY / OPERATIONS</span><h3>清掃・品質チェックを、<br>確認作業ではなく改善へ。</h3><p>客室の清掃不備を発見した場面を例に、対応までの流れを比較します。</p></div><span class="solution-panel-flag future">展開構想</span></div>
@@ -360,7 +401,7 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 <div class="solution-panel-head"><div><span class="eyebrow">EXPERIENCE / OPERATIONS</span><h3>お客様の「困った」を、<br>現場の改善アクションへ。</h3><p>ホテルの案内表示が分かりにくい場面を例に、問い合わせから改善までを比較します。</p></div><span class="solution-panel-flag future">展開構想</span></div>
 <div class="workflow-compare"><div class="workflow-track old"><div class="workflow-track-heading"><span class="workflow-label">BEFORE</span><strong>現在の業務フロー</strong></div><ol class="workflow-steps"><li>お客様が案内の不備に気づく</li><li>フロントへ問い合わせ・口頭で説明</li><li>スタッフが案内してその場で対応</li><li>不便だった場所が記録に残らない</li><li>類似の問い合わせが繰り返される</li><li>改善案の整理・担当部署への共有が手作業</li></ol></div><div class="workflow-track new"><div class="workflow-track-heading"><span class="workflow-label">WITH LOCUE</span><strong>目指す業務フロー</strong></div><ol class="workflow-steps"><li>お客様が<b>QR・写真・音声</b>で簡単に共有</li><li>AIが場所・内容・言語を整理</li><li>必要ならすぐ案内・対応先につなぐ</li><li>同じ不便をまとめて傾向を把握</li><li>改善が必要な場所と対応候補を提示</li><li>案内更新・是正の実施結果を記録</li></ol></div></div>
 <div class="solution-benefit"><strong>なくしたい業務</strong><div><span>同じ問い合わせの反復</span><span>口頭情報の転記</span><span>声の個別集計</span><span>改善依頼の手動共有</span></div></div>
-<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>利用者向け入力UI</b><small>アプリ登録を前提としない簡単な報告窓口</small></div><div><b>AIによる課題整理</b><small>多言語の声・場所・画像の分類、重複の集約</small></div><div><b>改善アクション</b><small>問い合わせへの案内、担当部署への是正依頼</small></div><div><b>改善の可視化</b><small>発生場所・内容の傾向と改善履歴を確認</small></div></div></div><div class="solution-panel-bottom"><span>入力する利用者は無料、課題解決に活用する企業が契約するモデルです。</span><a href="#contact">体験改善の共同実証を相談する ↗</a></div>
+<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>利用者向け入力UI</b><small>アプリ登録を前提としない簡単な報告窓口</small></div><div><b>AIによる課題整理</b><small>多言語の声・場所・画像の分類、重複の集約</small></div><div><b>改善アクション</b><small>問い合わせへの案内、担当部署への是正依頼</small></div><div><b>改善の可視化</b><small>発生場所・内容の傾向と改善履歴を確認</small></div></div></div><div class="panel-extra"><div class="panel-usecase-title"><span class="eyebrow">FUTURE USE CASE</span><h4>文章だけでなく、写真・動画で伝わる体験情報へ</h4><p>利用者から届く一次情報を、次の人が実際の様子を判断できる情報に変換する構想です。</p></div><div class="panel-usecase-grid"><article class="firsthand-card"><div class="firsthand-photo first-photo-b"><span class="firsthand-tag">現地体験 × 写真・動画口コミ</span></div><div class="firsthand-content"><h3>文章だけの口コミから、<br>現場が伝わる体験情報へ。</h3><p>「よかった」「分かりにくい」という文章だけでなく、写真や短い映像で実際の様子を共有。AIが場所・設備・場面・時期などを整理し、次の利用者が判断に使いやすい情報として届けます。</p><div class="firsthand-flow"><span>現地の映像</span><b>→</b><span>AIが整理・要約</span><b>→</b><span>次の利用者へ</span></div><small>※写真・動画の公開には撮影者の許可とプライバシー保護が前提。情報の真偽や最新性も確認できる設計を目指します。</small></div></article></div></div><div class="solution-panel-bottom"><span>入力する利用者は無料、課題解決に活用する企業が契約するモデルです。</span><a href="#contact">体験改善の共同実証を相談する ↗</a></div>
 </section>
 <p class="solution-demo-note">※業務フローは業界で見られる運用の一例です。LOCUE導入後の動き・削減効果は開発構想であり、実証済みの成果ではありません。</p>
 </div></div></section><section class="story-band" id="features"><div class="wrap">
@@ -369,39 +410,7 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 <div class="story"><div class="story-copy"><span class="story-label">OUTPUT INTERFACE / ACTION & DISCOVERY</span><h3>解決する。改善する。<br>次の人に役立てる。</h3><p>企業向けには、修繕手配・点検確認・外注の日程調整・品質改善へ。利用者向けには、現地の写真や動画を整理した、次の人が参考にできる体験情報へ。同じ入力基盤から、異なる課題に応じた出口を設計します。</p><div class="story-points"><span>企業の実行フロー</span><span>次の利用者への情報</span><span>閲覧・公開の承認管理</span></div></div><div class="story-art peach"><div class="story-window"><div class="top">LOCUE Output <small>用途別に出力</small></div><div class="mock-item"><div class="mock-icon">🔧</div><div>設備の不具合 → 修繕手配<small>担当・業者・日程候補へ連携</small></div></div><div class="mock-item"><div class="mock-icon">✓</div><div>清掃品質の報告 → 是正確認<small>作業内容を関係者へ共有</small></div></div><div class="mock-item"><div class="mock-icon">🎞</div><div>旅行者の現地映像 → 体験ガイド<small>公開許可のある素材を整理</small></div></div></div><div class="story-callout">課題に応じた出口をつくる。</div></div></div>
 </div></section>
 
-<section class="section capability" id="maintenance-functions"><div class="wrap">
-<div class="cap-head"><span class="eyebrow">MAINTENANCE / FEATURE CONCEPT</span><h2 class="section-title">設備保全の基本業務を、<br>ひとつに。さらに、手間を減らす。</h2><p class="section-copy">不具合の発見から点検・修繕・外注手配・履歴管理まで。既存の設備管理業務を支える機能を土台に、LOCUEならではの自動化を重ねる構想です。</p></div>
-<div class="cap-intro"><span>設備・修繕管理</span><span>定期・法定点検</span><span>協力業者連携</span><span>備品・在庫管理</span></div>
-<div class="cap-layout">
-<div class="cap-screen" aria-label="LOCUE設備保全管理画面のコンセプトモックアップ">
-<div class="cap-app"><div class="cap-app-head"><span>✦ LOCUE Business</span><small>施設A ・ Maintenance</small></div><div class="cap-app-body"><div class="cap-side"><span class="active">⌂ 現場の状況</span><span>▤ 不具合・修繕</span><span>▣ 点検計画</span><span>▦ 設備台帳</span><span>◷ 外注手配</span><span>◇ 備品管理</span></div>
-<div class="cap-content"><div class="cap-eyebrow">本日の設備オペレーション</div><h3>判断が必要な案件</h3><div class="cap-metrics"><div class="cap-metric"><strong>2</strong><small>要確認</small></div><div class="cap-metric"><strong>5</strong><small>手配中</small></div><div class="cap-metric"><strong>12</strong><small>対応完了</small></div></div>
-<div class="cap-row">305号室 / 空調異常 <em>日程調整</em><small>写真・設備履歴を照合 → 協力会社へ候補日を確認</small></div>
-<div class="cap-row">共用部 / 消防設備点検 <em>点検予定</em><small>定期点検の実施予定と担当者を確認</small></div>
-<div class="cap-row">210号室 / 水栓修繕 <em>要承認</em><small>作業結果の確認後、修繕履歴へ反映</small></div>
-<div class="tiny">※デモ画面：掲載の件数・処理は架空の表示です。</div>
-</div></div></div></div>
-<div class="cap-info"><span class="eyebrow">ALL-IN-ONE FIELD OPERATIONS</span><h3>管理するための操作を、<br>できるだけなくす。</h3><p>設備台帳、点検予定、修繕記録をまとめるだけでは終わりません。現場で撮影した情報をAIが整理し、修繕依頼や外注業者との日程調整など、次の業務につなげる設計を目指します。</p>
-<div class="cap-features"><div>不具合の写真・動画報告</div><div>修繕履歴と対応記録</div><div>案件別の情報共有</div><div>施設・客室・設備台帳</div><div>点検項目・周期の設定</div><div>点検予定と通知</div><div>見積・ファイル・費用管理</div><div>備品在庫と不足通知</div></div>
-<div class="cap-highlight"><strong>LOCUEならではの差別化</strong><p>① 報告の入力工数を削減　② 情報整理と連絡をAIで省力化　③ 外注先との候補日調整・催促を減らし、修繕完了までつなぐ。</p></div></div>
-</div>
-<div class="cap-groups">
-<article class="cap-group"><span class="tag">01 / REPAIR</span><h4>不具合・修繕管理</h4><p>現場報告、優先度の整理、担当者連携、チャット・添付、修繕費用と履歴を一元化。必要な確認だけを人に返す。</p></article>
-<article class="cap-group"><span class="tag">02 / INSPECTION</span><h4>点検・年間計画</h4><p>日常・定期・法定点検の項目、頻度、担当者、期限、記録、承認、年間予定を管理。HACCPなど用途別の記録も視野に。</p></article>
-<article class="cap-group"><span class="tag">03 / VENDOR</span><h4>外注手配・日程調整</h4><p>設備情報や写真をまとめて共有。業者は専用URLから訪問可能日を回答し、ホテル側の条件と照合して手配を支援。</p></article>
-<article class="cap-group"><span class="tag">04 / ASSETS</span><h4>設備・施設台帳</h4><p>施設、フロア、客室、設備を紐づけ、過去の修繕や点検結果を検索。既存CSV等からの移行も検討。</p></article>
-<article class="cap-group"><span class="tag">05 / INVENTORY</span><h4>備品・在庫管理</h4><p>消耗品の数量や保管場所、不足通知、発注判断を支援。共通の現場入力インターフェースから利用する構想。</p></article>
-<article class="cap-group"><span class="tag">06 / INSIGHTS</span><h4>レポート・多拠点管理</h4><p>修繕件数、対応時間、費用、点検実施状況を見える化。施設ごとの権限を守りながら本部で横断確認する。</p></article>
-</div>
-<div class="cap-cta"><a class="btn primary" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">無料で資料請求 <span class="arr">→</span></a></div>
-<p class="tiny center" style="margin-top:18px">※上記はLOCUEの機能設計方針です。宿泊者による任意の異常報告は専門点検の代替ではありません。開発・検証段階のため、現在すべての機能が利用できるわけではありません。</p>
-</div></section>
-
-<section class="section firsthand-cases" id="firsthand-cases"><div class="wrap"><div class="center"><span class="eyebrow">FUTURE USE CASES</span><h2 class="section-title">現場の一次情報だからこそ、<br>生まれる新しい価値。</h2><p class="section-copy">企業のための情報も、次にそこを訪れる人のための情報も。<br>LOCUEが見据える2つの新しい活用例です。</p></div>
-<div class="firsthand-grid">
-<article class="firsthand-card"><div class="firsthand-photo first-photo-a"><span class="firsthand-tag">設備保全 × 宿泊者参加</span></div><div class="firsthand-content"><h3>宿泊者の「気づき」が、<br>設備状態の早期把握につながる。</h3><p>設備業者やスタッフが毎回見に行かなくても、宿泊者が利用中に気づいた水漏れ・異音・破損を写真や動画で共有。LOCUEが設備と結びつけ、管理者が確認すべき箇所を整理します。</p><div class="firsthand-flow"><span>宿泊者の写真</span><b>→</b><span>AIで設備・状況を特定</span><b>→</b><span>確認・修繕手配</span></div><small>※任意参加の異常・状態共有を想定。法定点検や資格・専門判断が必要な点検を宿泊者が代行するものではありません。</small></div></article>
-<article class="firsthand-card"><div class="firsthand-photo first-photo-b"><span class="firsthand-tag">現地体験 × 写真・動画口コミ</span></div><div class="firsthand-content"><h3>文章だけの口コミから、<br>現場が伝わる体験情報へ。</h3><p>「よかった」「分かりにくい」という文章だけでなく、写真や短い映像で実際の様子を共有。AIが場所・設備・場面・時期などを整理し、次の利用者が判断に使いやすい情報として届けます。</p><div class="firsthand-flow"><span>現地の映像</span><b>→</b><span>AIが整理・要約</span><b>→</b><span>次の利用者へ</span></div><small>※写真・動画の公開には撮影者の許可とプライバシー保護が前提。情報の真偽や最新性も確認できる設計を目指します。</small></div></article>
-</div></div></section><section class="section pricing" id="pricing"><div class="wrap"><div class="center"><span class="eyebrow">PRICING CONCEPT</span><h2 class="section-title">現場の課題解決を、<br>ひとつのプラットフォームで。</h2><p class="section-copy">複雑な機能別契約ではなく、現場で必要なソリューションをまとめて利用できる料金体系を検討しています。</p></div>
+<section class="section pricing" id="pricing"><div class="wrap"><div class="center"><span class="eyebrow">PRICING CONCEPT</span><h2 class="section-title">現場の課題解決を、<br>ひとつのプラットフォームで。</h2><p class="section-copy">複雑な機能別契約ではなく、現場で必要なソリューションをまとめて利用できる料金体系を検討しています。</p></div>
 <div class="pricebox"><div class="price-head"><div><span class="pill">料金プラン構想</span><h3 style="font-size:24px;margin:14px 0 0">LOCUE Business</h3></div><div><div class="price"><small>月額</small> ¥50,000</div><div class="tiny">1施設あたり / 税抜（仮説）</div></div></div><div class="price-features"><div>Maintenance（設備・点検・修繕）</div><div>Quality（品質管理）</div><div>Experience（体験改善）</div><div>LOCUE AI Core（共通基盤）</div><div>現地スタッフ・協力業者向け入力UI</div><div>外注手配・日程調整の構想</div></div><a class="btn primary" href="mailto:contact@vitality-design.jp?subject=LOCUE%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82&body=LOCUE%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%B3%87%E6%96%99%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A">無料で資料請求 <span class="arr">→</span></a><div class="price-foot">※正式提供前の料金案です。点検・備品管理を含めた提供範囲、初期導入費、AI利用量、外部連携費は今後の実証を経て決定します。</div></div>
 </div></section>
 <section class="section faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ</span><h2 class="section-title">よくあるご質問</h2></div><div class="faq-list">

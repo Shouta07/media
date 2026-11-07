@@ -84,6 +84,28 @@
     });
   }
 
+  /* ---------- LOCUE資料請求: サイト外からの流入 ---------- */
+  (function(){
+    var params=new URLSearchParams(window.location.search);
+    if(params.get('request')!=='locue') return;
+    var form=document.getElementById('vdForm');
+    if(!form) return;
+    var topic=document.getElementById('f-topic');
+    if(topic) topic.value='LOCUE 資料請求';
+    var subject=document.getElementById('f-subject');
+    if(subject) subject.value='LOCUE 無料資料請求';
+    var source=document.getElementById('f-source');
+    if(source) source.value='LOCUEサービスサイト';
+    var intro=document.getElementById('locueRequestIntro');
+    if(intro) intro.hidden=false;
+    form.classList.add('locue-request');
+    var submit=document.getElementById('fbtn');
+    if(submit) submit.textContent='無料で資料請求する';
+    S.submit='無料で資料請求する';
+    var stat=document.getElementById('fstat');
+    if(stat) stat.textContent='';
+  })();
+
   /* ---------- 相談種別のプリフィル ---------- */
   document.addEventListener('click', function(e){
     var a = e.target.closest('[data-topic]');

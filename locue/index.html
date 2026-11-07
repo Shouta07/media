@@ -356,13 +356,64 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 .how-disclaimer{font-size:10px;color:#789088;line-height:1.7;margin:13px 4px 0}
 @media(max-width:1000px){.how-flow{grid-template-columns:1fr;gap:12px}.how-connector{transform:rotate(90deg);height:20px}.how-stage>p{min-height:0}.how-visual{max-width:430px;width:100%;margin-left:auto;margin-right:auto;min-height:0}.how-bottom{flex-direction:column;align-items:flex-start}}
 @media(max-width:700px){.how-stage{padding:22px 19px}.how-stage h3{font-size:22px}.how-bottom{padding:21px}.how-bottom .btn{width:100%}}
-.maintenance-pricing{max-width:860px}.price-plan-name{font-size:25px;margin:13px 0 3px}.price-plan-sub{font-size:12px;color:#64847c;margin:0}.price-divider{height:1px;background:#dcebe7;margin:25px 0 23px}.price-included-heading{font-size:17px;margin:0 0 19px}.price-feature-categories{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 23px}.price-feature-category{background:#f5fbf9;border:1px solid #e0eee9;border-radius:14px;padding:18px 19px}.price-feature-category b{font-size:13px;color:#1c685c}.price-feature-category ul{margin:10px 0 0;padding:0 0 0 17px;color:#5c7770}.price-feature-category li{font-size:12px;line-height:2}.price-separate{padding:16px 18px;margin-bottom:23px;border-radius:11px;border:1px solid #e1ebe9;background:#f9fbfa}.price-separate b{font-size:12px;color:#4d6c63}.price-separate small{display:block;color:#778c84;font-size:10px;margin-top:5px}.solution-select .under-development{background:#ecf0f3;color:#6f7e84;padding:5px 10px;border-radius:100px}@media(max-width:700px){.price-feature-categories{grid-template-columns:1fr}.price-feature-category{padding:16px}}</style>
+.maintenance-pricing{max-width:860px}.price-plan-name{font-size:25px;margin:13px 0 3px}.price-plan-sub{font-size:12px;color:#64847c;margin:0}.price-divider{height:1px;background:#dcebe7;margin:25px 0 23px}.price-included-heading{font-size:17px;margin:0 0 19px}.price-feature-categories{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 23px}.price-feature-category{background:#f5fbf9;border:1px solid #e0eee9;border-radius:14px;padding:18px 19px}.price-feature-category b{font-size:13px;color:#1c685c}.price-feature-category ul{margin:10px 0 0;padding:0 0 0 17px;color:#5c7770}.price-feature-category li{font-size:12px;line-height:2}.price-separate{padding:16px 18px;margin-bottom:23px;border-radius:11px;border:1px solid #e1ebe9;background:#f9fbfa}.price-separate b{font-size:12px;color:#4d6c63}.price-separate small{display:block;color:#778c84;font-size:10px;margin-top:5px}.solution-select .under-development{background:#ecf0f3;color:#6f7e84;padding:5px 10px;border-radius:100px}@media(max-width:700px){.price-feature-categories{grid-template-columns:1fr}.price-feature-category{padding:16px}}
+/* Customer pains, distinct from the feature catalog */
+html{scroll-padding-top:90px}
+.pain-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:43px}
+.pain-card{display:flex;flex-direction:column;min-width:0;border:1px solid #e0ece7;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 10px 35px #194e400b}
+.pain-photo{height:190px;background-position:center;background-size:cover;position:relative}
+.maintenance-pain{background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=720&q=82')}
+.quality-pain{background-image:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=720&q=82')}
+.experience-pain{background-image:url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=720&q=82')}
+.pain-photo span{position:absolute;left:17px;bottom:15px;background:white;border-radius:30px;padding:6px 12px;font-size:11px;font-weight:900;color:#14796a}
+.pain-content{display:flex;flex-direction:column;flex:1;padding:24px 23px}
+.pain-status{align-self:flex-start;border-radius:40px;padding:5px 12px;font-size:10px;font-weight:900;background:#e2f7ef;color:#15836f}
+.pain-status.future{background:#eef0f3;color:#71818b}
+.pain-content h3{font-size:20px;line-height:1.55;letter-spacing:-.05em;margin:15px 0}
+.pain-list{list-style:none;padding:0;margin:0 0 18px}
+.pain-list li{position:relative;padding-left:18px;margin:8px 0;font-size:12px;line-height:1.8;color:#61796f}
+.pain-list li:before{content:"!";position:absolute;left:0;top:2px;width:13px;height:13px;border-radius:50%;display:grid;place-items:center;color:#fff;background:#8ea8a0;font-size:9px;font-weight:900}
+.pain-answer{margin-top:auto;background:#eef9f4;border-radius:13px;padding:16px}
+.pain-answer b{font-size:12px;color:#147968}.pain-answer p{margin:6px 0 0;color:#52766a;font-size:12px;line-height:1.85}
+.pain-link{display:flex;align-items:center;justify-content:space-between;font-weight:900;color:#118d7b;font-size:12px;margin-top:18px;padding:8px 0;border-bottom:1px solid #c9e7dc}
+.pain-link:hover{color:#075c51}
+.pain-future-note{color:#738782;font-size:11px;margin-top:18px}
+.pain-disclaimer{font-size:10px;line-height:1.9;color:#7e938a;margin-top:20px}
+/* Click-through plan / distinct functional list */
+.price-quick-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));list-style:none;gap:12px 19px;margin:0;padding:0}
+.price-quick-features li{font-size:13px;font-weight:700;color:#365e53;line-height:1.7;padding-left:26px;position:relative}
+.price-quick-features li:before{content:"✓";position:absolute;left:0;color:#1aa988;font-size:19px;top:-3px}
+.price-detail-link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;margin:22px 0 24px;background:#e9f8f2;border:1px solid #c2e9d8;border-radius:12px;color:#14796d;font-size:13px;font-weight:900}
+.price-detail-link:hover{background:#d9f3e7}.price-detail-link span{font-size:21px}
+.feature-catalog{background:#f6fbf9}
+.feature-catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:42px}
+.feature-catalog-item{background:#fff;border:1px solid #e0ece8;border-radius:18px;padding:25px}
+.feature-symbol{width:46px;height:46px;border-radius:13px;background:#e6f6ef;display:grid;place-items:center;font-size:22px}
+.feature-catalog-item h3{font-size:17px;margin:16px 0 9px;letter-spacing:-.035em}
+.feature-catalog-item p{color:#637c73;font-size:12px;line-height:1.9;margin:0}
+.feature-highlight{display:grid;grid-template-columns:1fr 1fr;gap:30px;background:#e4f5ee;border-radius:24px;padding:30px;align-items:center;margin-top:26px}
+.feature-app-ui{border:1px solid #dce9e4;background:#fff;border-radius:15px;padding:22px;box-shadow:0 15px 36px #194f4522}
+.feature-ui-header{display:flex;justify-content:space-between;border-bottom:1px solid #e8f0ec;padding-bottom:15px;gap:12px}
+.feature-ui-header b{font-size:14px}.feature-ui-header span{font-size:10px;color:#739085}
+.feature-ui-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}
+.feature-ui-metrics div{text-align:center;border-radius:9px;background:#f1faf6;padding:10px}
+.feature-ui-metrics strong{display:block;color:#158c7c;font-size:21px}.feature-ui-metrics small{display:block;color:#708e85;font-size:9px}
+.feature-ui-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid #e7efea;border-radius:9px;margin:7px 0;font-size:11px}
+.feature-ui-row b{color:#137e70;font-size:9px;white-space:nowrap}.feature-app-ui>small{font-size:9px;color:#849790}
+.feature-highlight-copy h3{font-size:27px;line-height:1.55;margin:10px 0}
+.feature-highlight-copy p{font-size:13px;color:#60796f;line-height:2;margin:0 0 20px}
+.feature-catalog-note{font-size:10px;color:#7d9189;margin-top:20px}
+/* Mobile-first refinements for iPhone and Android */
+@media(max-width:970px){.pain-cards{grid-template-columns:1fr 1fr}.pain-card:last-child{grid-column:1/-1}.feature-catalog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){html{scroll-padding-top:75px}body{overflow-x:hidden}.wrap{width:calc(100% - 28px)}.header-inner{gap:8px}.logo{font-size:23px}.logo small{font-size:7px}.navlinks{gap:7px}.navlinks .btn{padding:10px 12px;font-size:11px;min-height:43px}.navlinks>a:not(.btn){display:none}.hero-banner{padding-left:20px;padding-right:20px}.hero-new .hero-actions{flex-direction:column;align-items:stretch}.hero-new .hero-actions .btn{width:100%;min-height:48px;white-space:normal;text-align:center}.hero-banner .showcase .phone.left{left:-10%}.hero-banner .showcase .phone.right{right:-10%}.hero-right{overflow:hidden}.pain-cards,.feature-catalog-grid{grid-template-columns:1fr;gap:14px}.pain-card:last-child{grid-column:auto}.pain-photo{height:165px}.pain-content{padding:22px}.pain-content h3{font-size:21px}.price-quick-features{grid-template-columns:1fr}.feature-highlight{grid-template-columns:1fr;padding:15px;gap:18px}.feature-app-ui{padding:16px}.feature-highlight-copy{padding:8px}.feature-highlight-copy h3{font-size:23px}.feature-highlight-copy .btn{width:100%;white-space:normal}.pricebox{padding:25px 18px}.price-detail-link{min-height:50px}.price-head .price{font-size:35px}.section-copy{font-size:13px}}
+@media(max-width:390px){.hero-banner{padding-left:16px;padding-right:16px}.hero-new .hero-kicker{font-size:9px}.hero-new h1{font-size:30px}.hero-pills span{font-size:8px}.hero-right{height:315px}.hero-banner .showcase .phone.center{transform:rotate(7deg) scale(.9)}.hero-banner .showcase .phone.left,.hero-banner .showcase .phone.right{transform:scale(.62)}.feature-ui-header{flex-direction:column}}
+</style>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='10px'" onblur="this.style.left='-9999px'">本文へスキップ</a>
 <header class="site-header"><div class="wrap header-inner">
 <a href="/locue/" class="logo" aria-label="LOCUE トップ">locue<span class="logo-dot">.</span><small>FIELD INTELLIGENCE PLATFORM</small></a>
-<nav class="navlinks" aria-label="メインナビゲーション"><a href="#services">サービス</a><a href="#how">仕組み</a><a href="#services">機能一覧</a><a href="#pricing">料金</a><a class="btn primary" href="https://www.vitality-design.jp/?request=locue#contact">資料請求 <span style="font-size:10px;background:#ddf648;border-radius:4px;color:#236959;padding:2px 5px">無料</span></a></nav>
+<nav class="navlinks" aria-label="メインナビゲーション"><a href="#services">お困りごと</a><a href="#how">仕組み</a><a href="#pricing">料金</a><a href="#functions">機能一覧</a><a class="btn primary" href="https://www.vitality-design.jp/?request=locue#contact">資料請求 <span style="font-size:10px;background:#ddf648;border-radius:4px;color:#236959;padding:2px 5px">無料</span></a></nav>
 </div></header>
 <main id="main">
 <section class="hero-new"><div class="wrap hero-banner">
@@ -415,65 +466,36 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 <div class="how-bottom"><div><strong>例えば、宿泊者が設備の異常を撮影したら。</strong><p>現場の写真からAIが設備と状況を整理し、担当者への通知・外注手配・日程調整へ。どこまで人の工数を減らせるか、実際の現場で検証していきます。</p></div><a href="#services" class="btn primary">自社で使える機能を見る <span class="arr">→</span></a></div>
 <p class="how-disclaimer">※画面・機能・業務の省力化は開発構想を示すイメージです。法定点検や専門家による確認の代替を意味しません。</p>
 </div></section>
-<section class="section service-overview" id="services"><div class="wrap">
-<div class="center"><span class="eyebrow">提供領域・機能</span><h2 class="section-title">集まった一次情報を、<br>企業の課題解決へ。</h2><p class="overview-lead">共通の入力インターフェースとLOCUE Engineから、用途ごとに最適な業務フローへ。<br>カードを選ぶと、従来の業務とLOCUEによる改善構想を比較できます。</p></div>
-<div class="service-tiles" role="tablist" aria-label="ソリューション別の業務フロー">
-<button type="button" class="service-tile solution-select is-active" role="tab" id="tab-maintenance" aria-controls="panel-maintenance" aria-selected="true" tabindex="0" data-solution="maintenance"><span class="photo" role="img" aria-label="ホテル客室"></span><span class="body"><span class="eyebrow">01 / 設備管理・保全</span><strong class="tile-title">設備管理・保全</strong><span class="tile-desc">不具合報告、修繕手配、業者日程調整、点検・設備台帳まで。</span><span class="tile-footer"><span class="phase">先行開発・月額5万円（予定）</span><span class="tile-open">機能・業務フローを見る <span aria-hidden="true">↗</span></span></span></span></button>
-<button type="button" class="service-tile solution-select" role="tab" id="tab-quality" aria-controls="panel-quality" aria-selected="false" tabindex="-1" data-solution="quality"><span class="photo" role="img" aria-label="清掃スタッフによる施設管理"></span><span class="body"><span class="eyebrow">02 / 品質管理</span><strong class="tile-title">現場の品質管理</strong><span class="tile-desc">清掃・衛生の確認、再対応指示、完了確認を少ない操作で。</span><span class="tile-footer"><span class="phase under-development">開発中</span><span class="tile-open">機能・業務フローを見る <span aria-hidden="true">↗</span></span></span></span></button>
-<button type="button" class="service-tile solution-select" role="tab" id="tab-experience" aria-controls="panel-experience" aria-selected="false" tabindex="-1" data-solution="experience"><span class="photo" role="img" aria-label="観光地や施設案内"></span><span class="body"><span class="eyebrow">03 / 顧客体験改善</span><strong class="tile-title">顧客体験の改善</strong><span class="tile-desc">現場の写真・映像・声を、施設改善や次の人に役立つ情報へ。</span><span class="tile-footer"><span class="phase under-development">開発中</span><span class="tile-open">機能・業務フローを見る <span aria-hidden="true">↗</span></span></span></span></button>
-</div>
-<div class="solution-detail" id="solution-detail" aria-live="off">
-<section class="solution-panel" id="panel-maintenance" role="tabpanel" aria-labelledby="tab-maintenance" tabindex="0">
-<div class="solution-panel-head"><div><span class="eyebrow">設備管理・保全 ／ 業務フロー</span><h3>設備の発見・確認・修繕が、<br>一つの流れで進む。</h3><p>設備の不具合対応を例に、現場で行われる仕事を比較します。</p></div><span class="solution-panel-flag">先行開発中</span></div>
-<div class="workflow-compare">
-<div class="workflow-track old"><div class="workflow-track-heading"><span class="workflow-label">BEFORE</span><strong>現在の業務フロー</strong></div>
-<ol class="workflow-steps"><li>清掃スタッフが不具合を発見</li><li>電話・チャット・フォームで報告</li><li>管理者が内容を確認・転記</li><li>協力業者へ電話・メールで依頼</li><li>ホテルと業者で候補日を往復確認</li><li>完了後に状態と履歴を手動更新</li></ol></div>
-<div class="workflow-track new"><div class="workflow-track-heading"><span class="workflow-label">WITH LOCUE</span><strong>目指す業務フロー</strong></div>
-<ol class="workflow-steps"><li><b>撮るだけ</b>で設備・場所を紐づけて報告</li><li>AIが内容・優先度・依頼文を整理</li><li>条件に合う担当者・業者へ依頼</li><li>URLで業者が候補日を回答し自動照合</li><li>必要な発注・安全確認だけ承認</li><li>作業結果を受けて履歴へ自動反映</li></ol></div>
-</div><div class="solution-benefit"><strong>なくしたい業務</strong><div><span>報告内容の書き直し</span><span>関係者への転記</span><span>日程調整の電話往復</span><span>進捗の手動更新</span></div></div>
-<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>不具合・修繕</b><small>写真・動画・音声報告、AI分類、案件別共有、修繕履歴</small></div><div><b>点検・設備台帳</b><small>点検チェック、周期・年間計画、施設・設備情報の管理</small></div><div><b>外注業者連携</b><small>依頼書作成、候補日の回答、日程照合、作業完了報告</small></div><div><b>費用・備品・分析</b><small>見積・費用記録、在庫管理、レポート、多拠点集計</small></div></div></div>
-<div class="panel-extra">
-<div class="panel-extra-heading"><span class="eyebrow">設備管理・保全 ／ 詳細機能</span><h4>点検から修繕・備品管理までの機能</h4><p>設備管理SaaSの基本業務をカバーし、LOCUEの入力・変換・実行フローで工数削減を狙います。</p></div>
-<div class="panel-capability-grid"><div class="panel-capability-preview"><div class="cap-screen" aria-label="LOCUE設備保全管理画面のコンセプトモックアップ">
-<div class="cap-app"><div class="cap-app-head"><span>✦ LOCUE Business</span><small>施設A ・ Maintenance</small></div><div class="cap-app-body"><div class="cap-side"><span class="active">⌂ 現場の状況</span><span>▤ 不具合・修繕</span><span>▣ 点検計画</span><span>▦ 設備台帳</span><span>◷ 外注手配</span><span>◇ 備品管理</span></div>
-<div class="cap-content"><div class="cap-eyebrow">本日の設備オペレーション</div><h3>判断が必要な案件</h3><div class="cap-metrics"><div class="cap-metric"><strong>2</strong><small>要確認</small></div><div class="cap-metric"><strong>5</strong><small>手配中</small></div><div class="cap-metric"><strong>12</strong><small>対応完了</small></div></div>
-<div class="cap-row">305号室 / 空調異常 <em>日程調整</em><small>写真・設備履歴を照合 → 協力会社へ候補日を確認</small></div>
-<div class="cap-row">共用部 / 消防設備点検 <em>点検予定</em><small>定期点検の実施予定と担当者を確認</small></div>
-<div class="cap-row">210号室 / 水栓修繕 <em>要承認</em><small>作業結果の確認後、修繕履歴へ反映</small></div>
-<div class="tiny">※デモ画面：掲載の件数・処理は架空の表示です。</div>
-</div></div></div></div>
-</div><div class="panel-capability-list"><div class="cap-groups">
-<article class="cap-group"><span class="tag">01 / REPAIR</span><h4>不具合・修繕管理</h4><p>現場報告、優先度の整理、担当者連携、チャット・添付、修繕費用と履歴を一元化。必要な確認だけを人に返す。</p></article>
-<article class="cap-group"><span class="tag">02 / INSPECTION</span><h4>点検・年間計画</h4><p>日常・定期・法定点検の項目、頻度、担当者、期限、記録、承認、年間予定を管理。HACCPなど用途別の記録も視野に。</p></article>
-<article class="cap-group"><span class="tag">03 / VENDOR</span><h4>外注手配・日程調整</h4><p>設備情報や写真をまとめて共有。業者は専用URLから訪問可能日を回答し、ホテル側の条件と照合して手配を支援。</p></article>
-<article class="cap-group"><span class="tag">04 / ASSETS</span><h4>設備・施設台帳</h4><p>施設、フロア、客室、設備を紐づけ、過去の修繕や点検結果を検索。既存CSV等からの移行も検討。</p></article>
-<article class="cap-group"><span class="tag">05 / INVENTORY</span><h4>備品・在庫管理</h4><p>消耗品の数量や保管場所、不足通知、発注判断を支援。共通の現場入力インターフェースから利用する構想。</p></article>
-<article class="cap-group"><span class="tag">06 / INSIGHTS</span><h4>レポート・多拠点管理</h4><p>修繕件数、対応時間、費用、点検実施状況を見える化。施設ごとの権限を守りながら本部で横断確認する。</p></article>
-</div></div></div>
-<div class="panel-usecase-title"><span class="eyebrow">将来の活用構想</span><h4>宿泊者の一次情報を設備保全にも</h4><p>宿泊者が気づいた異常を任意で共有し、現場で確認すべき場所を絞り込む構想です。</p></div><div class="panel-usecase-grid"><article class="firsthand-card"><div class="firsthand-photo first-photo-a"><span class="firsthand-tag">設備保全 × 宿泊者参加</span></div><div class="firsthand-content"><h3>宿泊者の「気づき」が、<br>設備状態の早期把握につながる。</h3><p>設備業者やスタッフが毎回見に行かなくても、宿泊者が利用中に気づいた水漏れ・異音・破損を写真や動画で共有。LOCUEが設備と結びつけ、管理者が確認すべき箇所を整理します。</p><div class="firsthand-flow"><span>宿泊者の写真</span><b>→</b><span>AIで設備・状況を特定</span><b>→</b><span>確認・修繕手配</span></div><small>※任意参加の異常・状態共有を想定。法定点検や資格・専門判断が必要な点検を宿泊者が代行するものではありません。</small></div></article></div>
-</div><div class="solution-panel-bottom"><span>PoCでは、管理者工数・日程調整の往復回数・修繕完了時間を計測します。</span><a href="https://www.vitality-design.jp/?request=locue#contact">無料資料請求はこちら ↗</a></div>
-</section>
-<section class="solution-panel" id="panel-quality" role="tabpanel" aria-labelledby="tab-quality" tabindex="0" hidden>
-<div class="solution-panel-head"><div><span class="eyebrow">品質管理 ／ 開発中</span><h3>清掃・品質チェックを、<br>確認作業ではなく改善へ。</h3><p>客室の清掃不備を発見した場面を例に、対応までの流れを比較します。</p></div><span class="solution-panel-flag future">開発中</span></div>
-<div class="workflow-compare"><div class="workflow-track old"><div class="workflow-track-heading"><span class="workflow-label">BEFORE</span><strong>現在の業務フロー</strong></div><ol class="workflow-steps"><li>清掃・点検スタッフが状態を確認</li><li>チェックシートや写真を別々に入力</li><li>責任者が報告を読んで内容を仕分け</li><li>清掃担当へ電話・チャットで再依頼</li><li>再清掃後に再び現場を確認</li><li>報告書とチェック結果を更新</li></ol></div><div class="workflow-track new"><div class="workflow-track-heading"><span class="workflow-label">WITH LOCUE</span><strong>目指す業務フロー</strong></div><ol class="workflow-steps"><li><b>写真・音声</b>で不備の状況を素早く共有</li><li>AIが客室・内容・確認項目を整理</li><li>品質基準との照合を支援</li><li>再清掃の依頼と必要情報を自動共有</li><li>作業後の写真・記録から再確認を支援</li><li>対応履歴と品質傾向を集約</li></ol></div></div>
-<div class="solution-benefit"><strong>なくしたい業務</strong><div><span>紙チェックの転記</span><span>不備内容の説明し直し</span><span>再清掃の個別連絡</span><span>二重の完了入力</span></div></div>
-<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>品質の現地報告</b><small>写真・動画・音声、場所・客室の紐づけ</small></div><div><b>AIによる分類</b><small>清掃・衛生・備品不足、基準との照合補助</small></div><div><b>是正フロー</b><small>担当者への連携、再清掃、確認・完了記録</small></div><div><b>品質履歴</b><small>不備の発生傾向、施設別の改善状況の把握</small></div></div></div><div class="solution-panel-bottom"><span>品質判定や完了確認には、人の判断が必要な場面を残します。</span><a href="https://www.vitality-design.jp/?request=locue#contact">無料資料請求はこちら ↗</a></div>
-</section>
-<section class="solution-panel" id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" tabindex="0" hidden>
-<div class="solution-panel-head"><div><span class="eyebrow">顧客体験改善 ／ 開発中</span><h3>お客様の「困った」を、<br>現場の改善アクションへ。</h3><p>ホテルの案内表示が分かりにくい場面を例に、問い合わせから改善までを比較します。</p></div><span class="solution-panel-flag future">開発中</span></div>
-<div class="workflow-compare"><div class="workflow-track old"><div class="workflow-track-heading"><span class="workflow-label">BEFORE</span><strong>現在の業務フロー</strong></div><ol class="workflow-steps"><li>お客様が案内の不備に気づく</li><li>フロントへ問い合わせ・口頭で説明</li><li>スタッフが案内してその場で対応</li><li>不便だった場所が記録に残らない</li><li>類似の問い合わせが繰り返される</li><li>改善案の整理・担当部署への共有が手作業</li></ol></div><div class="workflow-track new"><div class="workflow-track-heading"><span class="workflow-label">WITH LOCUE</span><strong>目指す業務フロー</strong></div><ol class="workflow-steps"><li>お客様が<b>QR・写真・音声</b>で簡単に共有</li><li>AIが場所・内容・言語を整理</li><li>必要ならすぐ案内・対応先につなぐ</li><li>同じ不便をまとめて傾向を把握</li><li>改善が必要な場所と対応候補を提示</li><li>案内更新・是正の実施結果を記録</li></ol></div></div>
-<div class="solution-benefit"><strong>なくしたい業務</strong><div><span>同じ問い合わせの反復</span><span>口頭情報の転記</span><span>声の個別集計</span><span>改善依頼の手動共有</span></div></div>
-<div class="solution-function-block"><h4>搭載を目指す主な機能</h4><div class="solution-function-grid"><div><b>利用者向け入力UI</b><small>アプリ登録を前提としない簡単な報告窓口</small></div><div><b>AIによる課題整理</b><small>多言語の声・場所・画像の分類、重複の集約</small></div><div><b>改善アクション</b><small>問い合わせへの案内、担当部署への是正依頼</small></div><div><b>改善の可視化</b><small>発生場所・内容の傾向と改善履歴を確認</small></div></div></div><div class="panel-extra"><div class="panel-usecase-title"><span class="eyebrow">将来の活用構想</span><h4>文章だけでなく、写真・動画で伝わる体験情報へ</h4><p>利用者から届く一次情報を、次の人が実際の様子を判断できる情報に変換する構想です。</p></div><div class="panel-usecase-grid"><article class="firsthand-card"><div class="firsthand-photo first-photo-b"><span class="firsthand-tag">現地体験 × 写真・動画口コミ</span></div><div class="firsthand-content"><h3>文章だけの口コミから、<br>現場が伝わる体験情報へ。</h3><p>「よかった」「分かりにくい」という文章だけでなく、写真や短い映像で実際の様子を共有。AIが場所・設備・場面・時期などを整理し、次の利用者が判断に使いやすい情報として届けます。</p><div class="firsthand-flow"><span>現地の映像</span><b>→</b><span>AIが整理・要約</span><b>→</b><span>次の利用者へ</span></div><small>※写真・動画の公開には撮影者の許可とプライバシー保護が前提。情報の真偽や最新性も確認できる設計を目指します。</small></div></article></div></div><div class="solution-panel-bottom"><span>入力する利用者は無料、課題解決に活用する企業が契約するモデルです。</span><a href="https://www.vitality-design.jp/?request=locue#contact">無料資料請求はこちら ↗</a></div>
-</section>
-<p class="solution-demo-note">※業務フローは業界で見られる運用の一例です。LOCUE導入後の動き・削減効果は開発構想であり、実証済みの成果ではありません。</p>
-</div></div></section>
-
+<section class="section service-overview pains-section" id="services"><div class="wrap">
+<div class="center"><span class="eyebrow">こんなお困りごとはありませんか？</span><h2 class="section-title">現場のこんな「もったいない」を、<br>一次情報から変えていく。</h2><p class="overview-lead">現場に情報はあるのに、報告・共有・活用まで手が回らない。<br>LOCUEは3つの領域で、そんな悩みの解決を目指します。</p></div>
+<div class="pain-cards">
+<article class="pain-card"><div class="pain-photo maintenance-pain"><span>01 / 設備管理・保全</span></div><div class="pain-content"><div class="pain-status">先行開発中</div><h3>業者との日程調整に、<br>何度も電話していませんか？</h3><ul class="pain-list"><li>不具合の情報を何度も説明・転記している</li><li>業者・施設側の予定を電話やメールで往復確認</li><li>修繕・点検の進捗や履歴がバラバラ</li></ul><div class="pain-answer"><b>LOCUEが目指すこと</b><p>現場の写真からAIが状況を整理。修繕依頼・候補日の照合・完了記録までを省力化します。</p></div><a class="pain-link" href="#functions">設備管理の詳細機能を見る <span aria-hidden="true">→</span></a></div></article>
+<article class="pain-card"><div class="pain-photo quality-pain"><span>02 / 品質管理</span></div><div class="pain-content"><div class="pain-status future">開発中</div><h3>清掃や品質の確認が、<br>報告作業になっていませんか？</h3><ul class="pain-list"><li>清掃不備の報告が口頭・紙・チャットに分散</li><li>再清掃の依頼や確認に何度も連絡が必要</li><li>改善すべき傾向が蓄積されていない</li></ul><div class="pain-answer"><b>LOCUEが目指すこと</b><p>写真・動画で現場の状態を取得し、再対応の依頼と完了確認をつなげます。</p></div><span class="pain-future-note">品質管理機能は開発中です</span></div></article>
+<article class="pain-card"><div class="pain-photo experience-pain"><span>03 / 顧客体験改善</span></div><div class="pain-content"><div class="pain-status future">開発中</div><h3>口コミや現地の魅力を、<br>写真・動画で伝えきれていますか？</h3><ul class="pain-list"><li>文章だけでは施設や体験の魅力が伝わらない</li><li>宿泊者が撮った写真や映像がPRに活かせない</li><li>お客様の気づきが次の利用者に届かない</li></ul><div class="pain-answer"><b>LOCUEが目指すこと</b><p>許可を得た現地の写真・動画を整理し、次の旅行者が参考にできる体験情報やPR素材へ。</p></div><span class="pain-future-note">顧客体験改善機能は開発中です</span></div></article>
+</div><p class="pain-disclaimer">※上記の課題は想定例です。LOCUEの機能は開発・実証段階で、削減効果が実証済みという意味ではありません。写真・動画の公開は本人の許諾を前提とします。</p>
+</div></section>
 <section class="section pricing" id="pricing"><div class="wrap"><div class="center"><span class="eyebrow">料金プラン</span><h2 class="section-title">設備の点検・修繕・手配を、<br>月額5万円でひとつに。</h2><p class="section-copy">LOCUE Businessはまず設備管理・保全に特化。<br>現場の一次情報を起点に、報告から修繕完了までの手間を減らします。</p></div><div class="pricebox maintenance-pricing">
 <div class="price-head"><div><span class="pill">設備管理・保全 ／ 提供予定</span><h3 class="price-plan-name">LOCUE Business</h3><p class="price-plan-sub">不具合報告・点検・修繕・外注手配</p></div><div><div class="price"><small>月額</small> ¥50,000</div><div class="tiny">1施設あたり・税抜（予定価格）</div></div></div>
-<div class="price-divider"></div><h4 class="price-included-heading">プランに含める予定の機能</h4><div class="price-feature-categories"><div class="price-feature-category"><b>現場の入力・AI整理</b><ul><li>写真・動画・音声での不具合報告</li><li>設備・客室との紐づけ、AIによる内容整理・分類</li></ul></div><div class="price-feature-category"><b>修繕管理・外注手配</b><ul><li>修繕依頼、担当者・協力業者への共有</li><li>候補日収集・日程調整、進捗・完了履歴</li></ul></div><div class="price-feature-category"><b>点検・設備台帳</b><ul><li>日常・定期点検、年間計画、リマインド</li><li>施設・設備台帳、担当者と権限の管理</li></ul></div><div class="price-feature-category"><b>備品・費用・分析</b><ul><li>備品在庫・不足通知・発注支援</li><li>見積・修繕費用、拠点別のレポート</li></ul></div></div>
+<div class="price-divider"></div><h4 class="price-included-heading">主な機能</h4>
+<ul class="price-quick-features"><li>写真・動画・音声による不具合報告</li><li>AIによる一次情報の整理・分類</li><li>修繕依頼と業者の日程調整</li><li>点検計画・設備台帳・修繕履歴</li><li>備品在庫・費用・多拠点の管理</li></ul>
+<a class="price-detail-link" href="#functions">機能の詳細はこちら <span aria-hidden="true">→</span></a>
 <div class="price-separate"><b>品質管理・顧客体験改善は開発中</b><small>Quality・Experienceはこの設備管理プランの提供対象外です。提供時期・料金は未定です。</small></div>
 <a class="btn primary" href="https://www.vitality-design.jp/?request=locue#contact">無料で資料請求 <span class="arr">→</span></a>
 <div class="price-foot">※月額5万円は開発・実証段階での予定価格です。正式提供前であり、上記は実装済み機能を示しません。初期費用・AI利用枠・個別連携条件は今後決定します。</div></div></div></section>
+<section class="section feature-catalog" id="functions"><div class="wrap">
+<div class="center"><span class="eyebrow">LOCUE BUSINESS ／ 詳細機能</span><h2 class="section-title">設備管理に必要な機能を、<br>ひとつの画面へ。</h2><p class="section-copy">月額5万円の設備管理プランに含めることを目指す機能です。<br>入力から修繕・点検・外注手配までを一貫して扱います。</p></div>
+<div class="feature-catalog-grid">
+<article class="feature-catalog-item"><span class="feature-symbol">📷</span><h3>不具合・修繕管理</h3><p>写真・動画・音声での現地報告、AIによる内容整理、案件別の情報共有、修繕履歴の蓄積。</p></article>
+<article class="feature-catalog-item"><span class="feature-symbol">📅</span><h3>外注業者との日程調整</h3><p>設備情報や写真を添えて修繕を依頼。業者が候補日を回答し、条件の照合と予定確定を支援。</p></article>
+<article class="feature-catalog-item"><span class="feature-symbol">✅</span><h3>点検・年間計画</h3><p>日常・定期点検の項目、担当者、期限、実施履歴を管理。年間計画と通知に対応する構想。</p></article>
+<article class="feature-catalog-item"><span class="feature-symbol">🏢</span><h3>施設・設備台帳</h3><p>施設・フロア・客室・設備ごとに情報を整理。点検・故障・修繕の履歴を紐づけて確認。</p></article>
+<article class="feature-catalog-item"><span class="feature-symbol">📦</span><h3>備品・在庫管理</h3><p>消耗品の数量・保管場所、不足の通知、発注判断に必要な情報を共有。</p></article>
+<article class="feature-catalog-item"><span class="feature-symbol">📊</span><h3>費用分析・多拠点管理</h3><p>修繕費用・対応期間・点検状況を集計。管理者・本部が現場を横断して確認。</p></article>
+</div>
+<div class="feature-highlight"><div class="feature-app-ui"><div class="feature-ui-header"><b>✦ LOCUE Business</b><span>設備管理画面イメージ</span></div><div class="feature-ui-metrics"><div><strong>2</strong><small>要確認</small></div><div><strong>5</strong><small>手配中</small></div><div><strong>12</strong><small>完了</small></div></div><div class="feature-ui-row"><span>305号室／空調異常</span><b>日程調整中</b></div><div class="feature-ui-row"><span>共用部／定期点検</span><b>実施予定</b></div><div class="feature-ui-row"><span>210号室／水栓修繕</span><b>要確認</b></div><small>※数値は架空のデモ表示です</small></div>
+<div class="feature-highlight-copy"><span class="eyebrow">一次情報から、対応まで</span><h3>管理表を増やすのではなく、<br>現場の仕事を減らす。</h3><p>スタッフや宿泊者から届く写真・動画などの一次情報をAIが整理。情報の書き直し、電話の往復、履歴の転記を減らす仕組みを目指します。</p><a class="btn primary" href="https://www.vitality-design.jp/?request=locue#contact">無料で資料請求 <span class="arr">→</span></a></div></div>
+<p class="feature-catalog-note">※記載機能は開発構想です。正式な提供範囲・時期は未定です。専門資格を要する法定点検は適切な専門家が実施することを前提とします。</p>
+</div></section>
 <section class="section faq"><div class="wrap"><div class="center"><span class="eyebrow">FAQ</span><h2 class="section-title">よくあるご質問</h2></div><div class="faq-list">
 <details><summary>LOCUEは現在利用できますか？</summary><p>現在は開発・顧客検証段階です。設備管理・保全を中心に実証を進める予定で、記載の機能や月額料金は提供構想です。</p></details>
 <details><summary>現場のスタッフや協力業者にも費用がかかりますか？</summary><p>現場の情報入力者には原則無料で利用いただく構想です。費用は、課題解決にLOCUEを活用する企業・施設からいただくB2Bモデルを想定しています。</p></details>
@@ -482,40 +504,4 @@ body{font-family:"Noto Sans JP",sans-serif;letter-spacing:.012em}
 </div></div></section>
 <section class="contact" id="contact"><div class="wrap"><span class="eyebrow">無料資料請求</span><h2>LOCUEの仕組みと機能を、<br>もっと詳しく。</h2><p>設備の不具合報告から点検・修繕手配・業者との日程調整まで。LOCUE Businessの機能構想と料金をご案内します。資料をご希望の方はフォームからお申し込みください。</p><a class="btn white" href="https://www.vitality-design.jp/?request=locue#contact">無料で資料請求 <span class="arr">→</span></a><div style="font-size:11px;color:#c5e9df;margin-top:21px">現在はサービス構想・実証準備中です。資料請求フォームから受け付けています。</div></div></section>
 </main><footer class="wrap foot"><div>© 2026 VITALITY DESIGN LLC</div><div><a href="/">コーポレートサイト</a>　 /　 <a href="/privacy.html">プライバシーポリシー</a>　 /　 <a href="mailto:contact@vitality-design.jp">お問い合わせ</a></div></footer>
-<script>
-(function(){
-  const tabs=Array.from(document.querySelectorAll('[data-solution]'));
-  const ids=['maintenance','quality','experience'];
-  function selectSolution(name,focus){
-    if(!ids.includes(name)) return;
-    tabs.forEach(tab=>{
-      const selected=tab.dataset.solution===name;
-      tab.classList.toggle('is-active',selected);
-      tab.setAttribute('aria-selected',String(selected));
-      tab.tabIndex=selected?0:-1;
-      if(selected&&focus) tab.focus();
-    });
-    ids.forEach(id=>{
-      const panel=document.getElementById('panel-'+id);
-      if(panel) panel.hidden=id!==name;
-    });
-  }
-  tabs.forEach((tab,i)=>{
-    tab.addEventListener('click',()=>{
-      selectSolution(tab.dataset.solution,false);
-      const panel=document.getElementById('solution-detail');
-      if(panel) panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-    });
-    tab.addEventListener('keydown',event=>{
-      let next;
-      if(event.key==='ArrowRight') next=(i+1)%tabs.length;
-      if(event.key==='ArrowLeft') next=(i+tabs.length-1)%tabs.length;
-      if(event.key==='Home') next=0;
-      if(event.key==='End') next=tabs.length-1;
-      if(next!==undefined){event.preventDefault();selectSolution(tabs[next].dataset.solution,true);}
-    });
-  });
-  const hash=location.hash.replace('#','');
-  if(ids.includes(hash))selectSolution(hash,false);
-})();
-</script></body></html>
+</body></html>

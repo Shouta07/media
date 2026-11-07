@@ -49,7 +49,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "Organization", "name": "バイタリティデザイン合同会社", "alternateName": "Vitality Design LLC", "url": "https://www.vitality-design.jp/", "email": "contact@vitality-design.jp", "slogan": "そこでしかできない体験を創る。", "founder": {"@type": "Person", "name": "山本 翔太"}, "description": "宿泊・観光に取り組む事業開発会社。場所、人、文化、技術をつなぎ、新しい体験と事業をつくります。", "identifier": {"@type": "PropertyValue", "name": "法人番号", "value": "1011003024109"}, "address": {"@type": "PostalAddress", "postalCode": "153-0064", "addressRegion": "東京都", "addressLocality": "目黒区", "streetAddress": "下目黒一丁目1番14号 コノトラビル7F", "addressCountry": "JP"}}]}</script>
 <link rel="preload" as="image" href="/assets/images/kyoto.jpg" fetchpriority="high">
 <link rel="stylesheet" href="/assets/vision.css">
-</head>
+<style>.locue-request-intro{padding:18px 20px;margin:0 0 19px;background:#eef9f4;border:1px solid #cbe7db;border-radius:13px}.locue-request-intro[hidden]{display:none}.locue-request-intro strong{color:#236e5c;font-size:16px}.locue-request-intro p{color:#5f7f73;font-size:12px;line-height:1.8;margin:7px 0 0}#vdForm.locue-request #f-message-wrap{display:none}</style></head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
 <header class="header" id="top">
@@ -76,7 +76,9 @@
 <section class="about section" id="about"><div class="section-index"><span>05 — ABOUT US</span><span>会社について</span></div><div class="founder-grid"><div><p class="eyebrow">MESSAGE FROM THE FOUNDER</p><h2>想いを、<br>動く仕組みへ。</h2><div class="founder-name"><span>代表社員</span><p>山本 翔太</p><small>SHOTA YAMAMOTO</small></div></div><div class="prose"><p>国内各地と25カ国以上を旅する中で、人や場所との出会いが旅を豊かにすることを実感してきました。</p><p>仕事では、法人営業、新規事業の立ち上げ、設備導入、パートナー開拓、業務設計に従事。現場に入り、異なる専門性を持つ人たちと協力しながら、構想を実行に移す仕事に携わってきました。</p><p>旅で感じてきた可能性と、現場で培ってきた実行力をつなぎ、宿泊・観光の新しい価値づくりに取り組んでいます。</p></div></div>
 <div class="company-grid"><p class="eyebrow">COMPANY PROFILE</p><dl><div><dt>会社名</dt><dd>バイタリティデザイン合同会社<br><span>Vitality Design LLC</span></dd></div><div><dt>代表</dt><dd>代表社員　山本 翔太</dd></div><div><dt>所在地</dt><dd>〒153-0064<br>東京都目黒区下目黒一丁目1番14号<br class="mobile-only"> コノトラビル7F</dd></div><div><dt>事業内容</dt><dd>宿泊・観光領域における事業の企画・開発<br>体験・サービスの設計と実装</dd></div><div><dt>法人番号</dt><dd>1011003024109</dd></div><div><dt>お問い合わせ</dt><dd><a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></dd></div></dl></div></section>
 <section class="contact section" id="contact"><div class="section-index"><span>06 — LET’S TALK</span><span>お問い合わせ</span></div><div class="contact-grid"><div><h2>その場所の未来を、<br>ともにつくる。</h2><div class="prose"><p>宿を営む人。<br>地域の文化や技を受け継ぐ人。<br>食や体験を届ける人。<br>空間をつくる人。<br>技術や表現で可能性を広げる人。</p><p>それぞれの想いと強みを持ち寄り、<br>一緒に事業を育てていきたいと考えています。</p><p>宿や地域の可能性について、話してみませんか。</p></div><a class="contact-email" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp <span>↗</span></a></div><div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="コーポレートサイトからのお問い合わせ">
+          <input type="hidden" id="f-subject" name="_subject" value="コーポレートサイトからのお問い合わせ">
+          <input type="hidden" id="f-source" name="source" value="コーポレートサイト">
+          <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>LOCUEの資料請求（無料）</strong><p>会社名・お名前・メールアドレスの3項目をご入力ください。サービス資料についてメールでご案内します。</p></div>
           <p class="fstat" id="fstat" role="alert"></p>
           <div class="f2">
             <div class="fld"><label for="f-topic">ご相談の種類</label>
@@ -84,6 +86,7 @@
                 <option>体験づくりについて</option>
                 <option>共同での取り組みについて</option>
                 <option>取材・その他</option>
+                <option value="LOCUE 資料請求">LOCUE 資料請求（無料）</option>
               </select></div>
             <div class="fld"><label for="f-role">ご所属</label>
               <select id="f-role" name="role">
@@ -106,7 +109,7 @@
           </div>
           <div class="fld"><label for="f-email">メールアドレス <span class="rq">*</span></label>
             <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
-          <div class="fld"><label for="f-message">場所のことや、いま考えていること（任意）</label>
+          <div class="fld" id="f-message-wrap"><label for="f-message" id="f-message-label">場所のことや、いま考えていること（任意）</label>
             <textarea id="f-message" name="message"
               placeholder="施設や地域のこと、現場で感じていることなどをお聞かせください。"></textarea></div>
           <button class="fbtn" id="fbtn" type="submit" data-cta="contact-submit">お問い合わせを送る</button>

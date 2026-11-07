@@ -650,6 +650,83 @@ body{background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
   .fd-screen{margin-top:14px}
   .fd-mini-phone{top:78px}
 }
+
+/* DEVICE-RESPONSIVE FINAL LAYER — iOS Safari / Android Chrome / tablets
+   Defines explicit layout tiers after the older component styles. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-width:0}
+img,svg{max-width:100%}
+main,.fd-hero,.fd-problem,.feature-story,.fd-results,.cta-band,.faq{max-width:100%}
+.fd-hero-grid > *,.feature-layout > *,.fd-problem-grid > *{min-width:0}
+@media (min-width:601px) and (max-width:850px){
+  .fd-hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;min-height:0}
+  .fd-hero-copy{order:0;padding:0}
+  .fd-hero-stage{order:1;width:100%;max-width:610px;min-height:360px;margin:auto}
+  .fd-hero-copy h1{font-size:clamp(34px,5.5vw,48px)}
+}
+@media (max-width:600px){
+  .topbar{position:sticky;top:0}
+  .topbar-inner{min-height:64px;gap:8px}
+  .topbar .brand{font-size:clamp(21px,6vw,25px);flex:0 1 auto;white-space:nowrap}
+  .mobile-header-actions{gap:6px}
+  .mobile-header-request{min-height:40px;padding:8px 11px;font-size:11px;background:#dcfa4a}
+  .mobile-menu-toggle{width:40px;min-width:40px;height:44px;flex-shrink:0}
+  .fd-hero{padding:26px 0 36px}
+  .fd-hero-grid{display:flex;flex-direction:column;align-items:stretch;gap:12px;min-height:0}
+  .fd-hero-copy{order:0;width:100%;padding:0}
+  .fd-overline{font-size:11px;margin:0 0 13px}
+  .fd-hero-copy h1{font-size:clamp(27px,7.8vw,37px);line-height:1.4;letter-spacing:-.05em;margin:0 0 14px;overflow-wrap:normal}
+  .fd-hero-lead{font-size:clamp(12px,3.4vw,14px);line-height:1.7;margin-bottom:11px}
+  .fd-hero-desc{font-size:12px;line-height:1.85}
+  .fd-hint{font-size:10px;line-height:1.7;margin-top:12px}
+  .fd-hero-actions{display:none}
+  .fd-hero-stage{
+    order:1;display:block;width:100%;max-width:460px;
+    height:clamp(250px,73vw,325px);min-height:0!important;
+    max-height:none;margin:0 auto;padding:4px 4px 0;
+    position:relative;isolation:isolate
+  }
+  .fd-green-shape{
+    position:absolute;z-index:-1;inset:11px 0 29px 10%;
+    background:#26c774;border-radius:48% 43% 46% 38%;transform:rotate(-10deg)
+  }
+  .fd-hero-stage .fd-screen{
+    width:92%;max-width:none;height:clamp(190px,57vw,252px);
+    margin:22px 0 0;border:5px solid #233639;border-radius:12px;
+    overflow:hidden;background:#fff;box-shadow:0 13px 25px rgba(13,61,52,.12)
+  }
+  .fd-screen-header{height:28px;padding:6px 7px}
+  .fd-screen-body{height:calc(100% - 28px);min-height:0;grid-template-columns:clamp(38px,12vw,49px) minmax(0,1fr)}
+  .fd-screen-content{min-width:0;padding:7px 5px}
+  .fd-issue-photo{grid-template-columns:clamp(22px,7.5vw,32px) minmax(0,1fr) 14px;gap:4px}
+  .fd-issue-thumb{width:100%;height:auto;aspect-ratio:1}
+  .fd-issue-text{min-width:0}
+  .fd-issue-text strong,.fd-issue-text small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+  .fd-mini-phone{
+    display:flex;position:absolute;z-index:5;right:0;
+    top:clamp(70px,20vw,98px);width:clamp(72px,24vw,94px);
+    height:clamp(162px,48vw,194px);border-width:5px
+  }
+  .fd-mini-phone img{height:43%;object-fit:cover;max-width:100%}
+  .fd-mobile-preview,.fd-mock-caption{display:none!important}
+  .fd-value-strip{margin-top:7px;gap:7px;flex-wrap:wrap}
+  .fd-value-strip>span:not(.fd-arrow){font-size:10px;white-space:normal}
+  .mobile-cta-bar:not([hidden]){padding-left:max(12px,env(safe-area-inset-left));padding-right:max(50px,calc(38px + env(safe-area-inset-right)))}
+  .mobile-cta-link{font-size:clamp(12px,3.4vw,14px);min-height:50px}
+  .demo-nav{grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+  .demo-tab{min-width:0;white-space:normal}
+  .fd-benefits-grid,.fd-features-grid{grid-template-columns:minmax(0,1fr)}
+  .fd-benefit,.fd-feature-item,.fd-ux-item{min-width:0}
+  .feature-art{max-width:100%;overflow:hidden}
+}
+@media(max-width:359px){
+  .mobile-header-request{padding:7px 8px;font-size:10px}
+  .mobile-header-actions{gap:3px}
+  .fd-hero-copy h1{font-size:26px}
+  .fd-hero-stage{height:244px}
+  .fd-mini-phone{top:67px;width:70px;height:158px}
+  .fd-hero-stage .fd-screen{height:188px;margin-top:17px}
+}
 </style>
 </head>
 <body>

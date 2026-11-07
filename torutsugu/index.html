@@ -493,7 +493,7 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
   .mobile-cta-bar .mobile-cta-link{min-width:0}
   .mobile-cta-bar .mobile-cta-dismiss{right:12px}
   body:not(.mobile-cta-visible){padding-bottom:0}
-  body.mobile-cta-visible{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+  body.mobile-cta-visible{padding-bottom:calc(132px + env(safe-area-inset-bottom,0px))}
 }
 @media(min-width:601px){.mobile-cta-bar{display:none!important}}
 
@@ -813,35 +813,28 @@ body{background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
 (function(){
   const bar=document.querySelector('.mobile-cta-bar');
   const dismiss=bar?.querySelector('.mobile-cta-dismiss');
-  if(!bar||!dismiss)return;
+  const hero=document.querySelector('.fd-hero');
+  const mainCta=document.querySelector('.cta-band');
+  if(!bar||!dismiss||!hero)return;
   const storageKey='torutsugu-mobile-cta-dismissed';
   let dismissed=false;
   try{dismissed=sessionStorage.getItem(storageKey)==='1'}catch(e){}
-  if(dismissed)return;
-  const timer=window.setTimeout(()=>{
-    if(window.matchMedia('(max-width: 600px)').matches && !document.body.classList.contains('mobile-menu-open')){
-      bar.hidden=false;
-      bar.dataset.shown='true';
-      document.body.classList.add('mobile-cta-visible');
-    }
-  },5000);
+  function updateVisibility(){
+    const mobile=window.matchMedia('(max-width: 600px)').matches;
+    const heroPassed=hero.getBoundingClientRect().bottom<=76;
+    const ctaVisible=mainCta && mainCta.getBoundingClientRect().top<window.innerHeight && mainCta.getBoundingClientRect().bottom>76;
+    const show=mobile&&!dismissed&&heroPassed&&!ctaVisible&&!document.body.classList.contains('mobile-menu-open');
+    bar.hidden=!show;
+    document.body.classList.toggle('mobile-cta-visible',show);
+  }
   dismiss.addEventListener('click',()=>{
     dismissed=true;
-    window.clearTimeout(timer);
-    bar.hidden=true;
-    document.body.classList.remove('mobile-cta-visible');
     try{sessionStorage.setItem(storageKey,'1')}catch(e){}
+    updateVisibility();
   });
-  window.addEventListener('resize',()=>{
-    if(window.innerWidth>600){
-      bar.hidden=true;
-      document.body.classList.remove('mobile-cta-visible');
-    } else if(!dismissed && bar.dataset.shown==='true'){
-      bar.hidden=false;
-      document.body.classList.add('mobile-cta-visible');
-    }
-  });
-  // Allow the existing menu drawer to cover the CTA as already defined.
+  window.addEventListener('scroll',updateVisibility,{passive:true});
+  window.addEventListener('resize',updateVisibility);
+  updateVisibility();
 })();
 </script>
 </body>

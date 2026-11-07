@@ -106,7 +106,7 @@ img{max-width:100%;display:block}h1,h2,h3,p,figure{margin:0}
 .locue-request-intro[hidden]{display:none}
 .locue-request-intro strong{color:#1a6748;font-size:14px}
 .locue-request-intro p{font-size:11px;color:#527b60;margin-top:5px}
-#vdForm.locue-request #f-message-wrap{display:none}
+#vdForm.locue-request #f-message-wrap{display:block}
 .footer{border-top:1px solid var(--border);padding:31px 0}
 .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
 .footer-left{display:flex;flex-direction:column;gap:8px}
@@ -237,9 +237,9 @@ html{scroll-padding-top:71px}
           </div>
           <div class="fld"><label for="f-email">メールアドレス <span class="rq">*</span></label>
             <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
-          <div class="fld" id="f-message-wrap"><label for="f-message" id="f-message-label">ご相談内容（任意）</label>
+          <div class="fld" id="f-message-wrap"><label for="f-message" id="f-message-label">お問い合わせ内容・ご相談事項（任意）</label>
             <textarea id="f-message" name="message"
-              placeholder="現場でお困りのことや、ご相談内容をお聞かせください。"></textarea></div>
+              placeholder="例）客室の修繕依頼と業者の日程調整に時間がかかっています。導入方法や費用について知りたいです。" rows="5"></textarea></div>
           <button class="fbtn" id="fbtn" type="submit" data-cta="contact-submit">お問い合わせを送る</button>
           <p class="fnote">必須は3つだけです。いただいた内容は、ご連絡と検討のためだけに使用します。取り扱いは<a href="/privacy.html">プライバシーポリシー</a>に従います。メールのほうが早ければ <a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a> まで直接どうぞ。</p>
         </form><div class="fdone" role="status" tabindex="-1"><p>お問い合わせを受け付けました。</p><p>内容を確認して、メールでご連絡します。</p></div></div>

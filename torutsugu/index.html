@@ -447,11 +447,48 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
  .fd-mini-phone img{height:78px}
  .fd-hero-copy h1{font-size:31px}
 }
+
+/* Responsive mobile header with request action and accessible hamburger drawer */
+.mobile-header-actions{display:none}
+.mobile-menu-backdrop,.mobile-menu-panel{display:none}
+@media(max-width:850px){
+  .mobile-header-actions{display:flex;align-items:center;justify-content:flex-end;gap:13px;flex-shrink:0;margin-left:auto}
+  .topbar .nav{display:none!important}
+  .mobile-header-request{display:inline-flex;justify-content:center;align-items:center;min-height:37px;padding:7px 14px;border-radius:999px;background:#dcfa4a;color:#203d35;font-size:12px;font-weight:900;white-space:nowrap}
+  .mobile-menu-toggle{width:39px;height:42px;border:0;background:transparent;color:#173b40;padding:9px 7px;display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer}
+  .mobile-menu-toggle span{display:block;width:24px;height:2.5px;background:currentColor;border-radius:4px}
+  .mobile-menu-backdrop:not([hidden]){display:block;position:fixed;inset:0;z-index:100;background:rgba(12,30,30,.44)}
+  .mobile-menu-panel:not([hidden]){display:flex;flex-direction:column;position:fixed;z-index:101;top:18px;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:18px;right:18px;background:white;border-radius:24px;box-shadow:0 22px 85px #0c353635;overflow:hidden}
+  .mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:92px;padding:15px 26px}
+  .mobile-menu-logo{font-size:27px;font-weight:900;letter-spacing:-.055em;color:#15373d}
+  .mobile-menu-close{display:grid;place-items:center;width:40px;height:40px;border:0;background:transparent;color:#20ba75;font-size:38px;font-weight:300;line-height:1;cursor:pointer}
+  .mobile-menu-inner{overflow:auto;overscroll-behavior:contain;padding:20px 27px 35px}
+  .mobile-menu-primary,.mobile-menu-secondary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:55px;width:100%;padding:14px 20px;border-radius:100px;font-size:15px;font-weight:900;line-height:1.4}
+  .mobile-menu-primary{background:#24be73;color:white}
+  .mobile-menu-secondary{background:white;color:#24443f;border:1px solid #d5e2dc;margin-top:12px}
+  .mobile-menu-inner h2{font-size:17px;color:#243d3e;margin:34px 0 15px;font-weight:900}
+  .mobile-menu-inner nav{display:grid;gap:3px}
+  .mobile-menu-inner nav a{display:block;padding:12px 4px;color:#586d6b;font-size:15px;font-weight:700}
+  body.mobile-menu-open{overflow:hidden}
+  body.mobile-menu-open .mobile-cta-bar{visibility:hidden}
+}
+@media(max-width:600px){
+  .topbar-inner{min-height:65px}
+  .topbar .brand{font-size:23px}
+  .mobile-header-request{font-size:11px;padding:7px 12px;min-height:36px}
+  .mobile-header-actions{gap:8px}
+  .mobile-menu-panel:not([hidden]){top:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:12px;right:12px;border-radius:22px}
+  .mobile-menu-head{min-height:82px;padding:14px 23px}
+  .mobile-menu-inner{padding:12px 24px 27px}
+}
+@media(max-width:360px){.mobile-header-request{padding:6px 9px;font-size:10px}.mobile-header-actions{gap:3px}.mobile-menu-toggle{width:34px}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">本文へ移動</a>
-<header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="/torutsugu/" aria-label="トルツグ ホーム">トルツグ</a><nav class="nav" aria-label="メインナビゲーション"><a href="#pain">お悩み</a><a href="#demo">仕組み</a><a href="#why">選ばれる理由</a><a href="/torutsugu/faq/">よくある質問</a><a class="button teal" href="/?request=torutsugu#contact">資料請求 <span>→</span></a></nav></div></header>
+<header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="/torutsugu/" aria-label="トルツグ ホーム">トルツグ</a><nav class="nav" aria-label="メインナビゲーション"><a href="#pain">お悩み</a><a href="#demo">仕組み</a><a href="#why">選ばれる理由</a><a href="/torutsugu/faq/">よくある質問</a><a class="button teal" href="/?request=torutsugu#contact">資料請求 <span>→</span></a></nav><div class="mobile-header-actions"><a class="mobile-header-request" href="/?request=torutsugu#contact">資料請求</a><button type="button" class="mobile-menu-toggle" aria-controls="mobile-site-menu" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span><span></span></button></div></div></header>
+<div class="mobile-menu-backdrop" hidden></div>
+<div class="mobile-menu-panel" id="mobile-site-menu" role="dialog" aria-modal="true" aria-label="トルツグのメニュー" hidden><div class="mobile-menu-head"><a class="mobile-menu-logo" href="/torutsugu/">トルツグ</a><button class="mobile-menu-close" type="button" aria-label="メニューを閉じる">×</button></div><div class="mobile-menu-inner"><a href="/?request=torutsugu#contact" class="mobile-menu-primary">資料請求 <span aria-hidden="true">→</span></a><a href="/?request=torutsugu#contact" class="mobile-menu-secondary">お問い合わせ <span aria-hidden="true">→</span></a><h2>サービスについて</h2><nav aria-label="スマートフォン用ナビゲーション"><a href="/torutsugu/#pain">お悩み</a><a href="/torutsugu/#demo">使い方・デモ</a><a href="/torutsugu/#flow">業務の流れ</a><a href="/torutsugu/#why">導入で目指す効果</a><a href="/torutsugu/faq/">よくある質問</a></nav><h2>会社情報</h2><nav aria-label="会社情報"><a href="/">運営会社</a><a href="/privacy.html">プライバシーポリシー</a></nav></div></div>
 <main id="main">
 <section class="fd-hero" aria-labelledby="fd-hero-title"><div class="wrap fd-hero-grid">
 <div class="fd-hero-copy"><span class="fd-overline"><span class="fd-spark" aria-hidden="true"></span>ホテル・旅館の設備・修繕管理</span>
@@ -557,6 +594,40 @@ html{scroll-padding-top:68px}.wrap{padding:0 17px}
     t.addEventListener('click',()=>show(t.dataset.demo,false));
     t.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;show(tabs[next].dataset.demo,true)}});
   });
+})();
+
+(function(){
+  const toggle=document.querySelector('.mobile-menu-toggle');
+  const panel=document.querySelector('.mobile-menu-panel');
+  const backdrop=document.querySelector('.mobile-menu-backdrop');
+  const close=document.querySelector('.mobile-menu-close');
+  if(!toggle||!panel||!backdrop||!close)return;
+  let previousFocus=null;
+  const setOpen=open=>{
+    if(open)previousFocus=document.activeElement;
+    panel.hidden=!open;backdrop.hidden=!open;
+    toggle.setAttribute('aria-expanded',String(open));
+    toggle.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+    document.body.classList.toggle('mobile-menu-open',open);
+    if(open)close.focus();
+    else if(previousFocus&&previousFocus.focus)previousFocus.focus();
+  };
+  toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true'));
+  close.addEventListener('click',()=>setOpen(false));
+  backdrop.addEventListener('click',()=>setOpen(false));
+  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('keydown',e=>{
+    if(panel.hidden)return;
+    if(e.key==='Escape'){setOpen(false);return;}
+    if(e.key==='Tab'){
+      const focusables=[...panel.querySelectorAll('button,a[href]')].filter(el=>el.offsetParent!==null);
+      if(!focusables.length)return;
+      const first=focusables[0],last=focusables[focusables.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
+  window.addEventListener('resize',()=>{if(window.innerWidth>850&&!panel.hidden)setOpen(false)});
 })();
 </script>
 </body>

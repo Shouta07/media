@@ -718,6 +718,30 @@ html{scroll-padding-top:71px}
 }
 .ed-section-title-plain{display:block!important;grid-template-columns:none!important}
 .ed-section-title-plain h2{margin:0}
+
+/* Torutsugu request intent: three large mobile-friendly radio cards */
+.f-purpose[hidden]{display:none!important}
+.f-purpose{min-width:0;border:0;padding:0;margin:0 0 22px}
+.f-purpose legend{font-size:14px;font-weight:800;line-height:1.6;color:#173a3c;padding:0;margin-bottom:4px}
+.f-purpose .rq{font-size:11px;font-weight:700;margin-left:7px}
+.f-purpose-hint{font-size:12px;color:#647f7d;line-height:1.8;margin:0 0 11px}
+.f-purpose-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.f-purpose-choice{display:flex;align-items:stretch;cursor:pointer;min-width:0;position:relative}
+.f-purpose-choice input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.f-purpose-choice>span{display:flex;flex-direction:column;gap:5px;justify-content:center;width:100%;min-height:78px;padding:11px 12px;border:1.5px solid #c8dad5;border-radius:10px;background:#fff;color:#193f43;transition:border-color .15s,background .15s,box-shadow .15s}
+.f-purpose-choice strong{font-size:14px;line-height:1.5}
+.f-purpose-choice small{font-size:11px;line-height:1.55;font-weight:400;color:#647d7d}
+.f-purpose-choice input:checked+span{border-color:#087f75;background:#eaf8f4;box-shadow:inset 0 0 0 1px #087f75}
+.f-purpose-choice input:checked+span:before{content:"✓";font-weight:800;color:#087f75;position:absolute;right:10px;top:7px}
+.f-purpose-choice input:focus-visible+span{outline:3px solid #52bbae;outline-offset:3px}
+.locue-request #f-topic-wrap{display:none}
+@media(max-width:760px){
+ #contact .f-purpose{margin-bottom:20px}
+ #contact .f-purpose-options{grid-template-columns:1fr;gap:9px}
+ #contact .f-purpose-choice>span{min-height:68px;padding:12px 16px 12px 18px;gap:3px}
+ #contact .f-purpose-choice strong{font-size:15px}
+ #contact .f-purpose-choice small{font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -801,9 +825,9 @@ html{scroll-padding-top:71px}
 <div id="fwrap"><form class="cform" id="vdForm" action="https://formspree.io/f/xbdvobba" method="POST" novalidate>
           <input type="hidden" id="f-subject" name="_subject" value="コーポレートサイトからのお問い合わせ">
           <input type="hidden" id="f-source" name="source" value="コーポレートサイト">
-          <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグの資料請求</strong><p>会社名・お名前・メールアドレスをご入力ください。</p></div>
+          <div id="locueRequestIntro" class="locue-request-intro" hidden><strong>トルツグの資料請求</strong><p>ご希望の内容を選んで、必要事項をご入力ください。</p></div>
           <p class="fstat" id="fstat" role="alert"></p>
-          <div class="fld"><label for="f-topic">お問い合わせの内容</label>
+          <div class="fld" id="f-topic-wrap"><label for="f-topic">お問い合わせの内容</label>
               <select id="f-topic" name="topic">
                 <option value="事業提携・協業">事業提携・協業</option>
                 <option value="業務設計・DXの相談">業務改善について</option>
@@ -818,7 +842,16 @@ html{scroll-padding-top:71px}
           </div>
           <div class="fld"><label for="f-email">メールアドレス <span class="rq">*</span></label>
             <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" enterkeyhint="done" required></div>
-          <details class="f-optional" id="f-message-wrap"><summary>相談内容を追加する <span>任意</span></summary><div class="fld"><label for="f-message" id="f-message-label">お問い合わせ内容</label>
+          <fieldset class="f-purpose" id="f-purpose-wrap" hidden aria-describedby="f-purpose-hint">
+            <legend>お問い合わせの目的 <span class="rq">必須</span></legend>
+            <p class="f-purpose-hint" id="f-purpose-hint">今のご状況に近いものを1つお選びください。</p>
+            <div class="f-purpose-options">
+              <label class="f-purpose-choice"><input type="radio" name="purpose" value="情報収集" id="f-purpose-info"><span><strong>情報収集</strong><small>まずはサービスを知りたい</small></span></label>
+              <label class="f-purpose-choice"><input type="radio" name="purpose" value="導入検討" id="f-purpose-consider"><span><strong>導入検討</strong><small>自社での導入を検討したい</small></span></label>
+              <label class="f-purpose-choice"><input type="radio" name="purpose" value="打ち合わせ希望" id="f-purpose-meeting"><span><strong>打ち合わせ希望</strong><small>詳しく話を聞きたい</small></span></label>
+            </div>
+          </fieldset>
+          <details class="f-optional" id="f-message-wrap"><summary>補足事項を入力する <span>任意</span></summary><div class="fld"><label for="f-message" id="f-message-label">お問い合わせ内容</label>
             <textarea id="f-message" name="message"
               placeholder="ご相談したい内容があればご記入ください。" rows="4"></textarea></div></details>
           <button class="fbtn" id="fbtn" type="submit" data-cta="contact-submit">お問い合わせを送る</button>

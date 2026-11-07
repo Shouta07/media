@@ -48,101 +48,92 @@
     });
   });
 
-  /* ---------- form ---------- */
+  /* ---------- shared corporate inquiry / Torutsugu lead form ---------- */
   var form = document.getElementById('vdForm');
   if(form){
-    var stat = document.getElementById('fstat'), fbtn = document.getElementById('fbtn'),
-        wrap = document.getElementById('fwrap');
-    var REQ = [['f-company',S.f1],['f-name',S.f2],['f-email',S.f3]];
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var missing = [], el;
-      for(var i = 0; i < REQ.length; i++){
-        el = document.getElementById(REQ[i][0]);
-        if(!el || !el.value.trim()) missing.push(REQ[i][1]);
+    var stat=document.getElementById('fstat'), fbtn=document.getElementById('fbtn'),
+        wrap=document.getElementById('fwrap'), topic=document.getElementById('f-topic'),
+        intro=document.getElementById('locueRequestIntro'),
+        purposeWrap=document.getElementById('f-purpose-wrap'),
+        subject=document.getElementById('f-subject'),
+        source=document.getElementById('f-source');
+    var REQ=[['f-company',S.f1],['f-name',S.f2],['f-email',S.f3]];
+    var params=new URLSearchParams(window.location.search);
+    var referred=params.get('request')==='torutsugu'||params.get('request')==='locue';
+    if(referred && topic)topic.value='トルツグ 資料請求';
+
+    function updateContext(){
+      var torutsugu=topic && topic.value==='トルツグ 資料請求';
+      if(intro)intro.hidden=!torutsugu;
+      if(purposeWrap)purposeWrap.hidden=!torutsugu;
+      form.classList.toggle('locue-request',!!torutsugu);
+      var radios=form.querySelectorAll('input[name="purpose"]');
+      [].forEach.call(radios,function(radio){radio.required=!!torutsugu;radio.disabled=!torutsugu;});
+      var selected=form.querySelector('input[name="purpose"]:checked');
+      if(subject){
+        subject.value=torutsugu?'トルツグ お問い合わせ｜'+(selected?selected.value:'目的未選択'):
+          'Vitality Design お問い合わせ｜'+(topic&&topic.value?topic.value:'その他');
       }
-      if(missing.length){ stat.textContent = S.eReq + missing.join(S.sep); for(var k=0;k<REQ.length;k++){ var first=document.getElementById(REQ[k][0]); if(first&&!first.value.trim()){ first.focus(); break; } } return; }
-      var topic=document.getElementById('f-topic');
-      if(topic && !form.classList.contains('locue-request') && !topic.value){
-        stat.textContent='お問い合わせの種類を選択してください。';
-        topic.focus();
+      if(source)source.value=referred?'トルツグ サービスサイト':'コーポレートサイト';
+      var label=torutsugu?(selected&&selected.value==='情報収集'?'サービス資料を請求する':
+        selected&&selected.value==='打ち合わせ希望'?'打ち合わせを依頼する':
+        selected&&selected.value==='導入検討・有償PoC相談'?'導入・PoCについて相談する':
+        'お問い合わせを送る'):'お問い合わせを送る';
+      S.submit=label;
+      if(fbtn&&!fbtn.disabled)fbtn.textContent=label;
+      if(stat)stat.textContent='';
+    }
+    if(topic)topic.addEventListener('change',updateContext);
+    [].forEach.call(form.querySelectorAll('input[name="purpose"]'),function(radio){
+      radio.addEventListener('change',updateContext);
+    });
+    updateContext();
+
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var missing=[],el;
+      for(var i=0;i<REQ.length;i++){
+        el=document.getElementById(REQ[i][0]);
+        if(!el||!el.value.trim())missing.push(REQ[i][1]);
+      }
+      if(missing.length){
+        stat.textContent=S.eReq+missing.join(S.sep);
+        for(var k=0;k<REQ.length;k++){
+          var first=document.getElementById(REQ[k][0]);
+          if(first&&!first.value.trim()){first.focus();break;}
+        }
         return;
       }
-      if(form.classList.contains('locue-request') && !form.querySelector('input[name="purpose"]:checked')){
+      if(!topic||!topic.value){
+        stat.textContent='お問い合わせの種類を選択してください。';
+        if(topic)topic.focus();
+        return;
+      }
+      if(form.classList.contains('locue-request')&&!form.querySelector('input[name="purpose"]:checked')){
         stat.textContent='お問い合わせの目的を選択してください。';
         var firstPurpose=document.getElementById('f-purpose-info');
-        if(firstPurpose) firstPurpose.focus();
+        if(firstPurpose)firstPurpose.focus();
         return;
       }
-      var mail = document.getElementById('f-email').value.trim();
+      var mail=document.getElementById('f-email').value.trim();
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)){
-        stat.textContent = S.eMail; document.getElementById('f-email').focus(); return;
+        stat.textContent=S.eMail;document.getElementById('f-email').focus();return;
       }
-      stat.textContent = ''; fbtn.disabled = true; fbtn.textContent = S.sending;
-      fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
-        .then(function(r){
-          if(r.ok){
-            wrap.classList.add('sent');
-            if(window.gtag) gtag('event','generate_lead',{method:'contact_form'});
-          } else {
-            stat.textContent = S.eSend;
-            fbtn.disabled = false; fbtn.textContent = S.submit;
-          }
-        })
-        .catch(function(){
-          stat.textContent = S.eSend;
-          fbtn.disabled = false; fbtn.textContent = S.submit;
-        });
+      stat.textContent='';fbtn.disabled=true;fbtn.textContent=S.sending;
+      fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){
+          wrap.classList.add('sent');
+          if(window.gtag)gtag('event','generate_lead',{method:'contact_form',lead_type:topic.value});
+        }else{
+          stat.textContent=S.eSend;fbtn.disabled=false;fbtn.textContent=S.submit;
+        }
+      })
+      .catch(function(){
+        stat.textContent=S.eSend;fbtn.disabled=false;fbtn.textContent=S.submit;
+      });
     });
   }
-
-  /* ---------- トルツグ資料請求: サイト外からの流入（旧URLにも対応） ---------- */
-  (function(){
-    var params=new URLSearchParams(window.location.search);
-    if(params.get('request')!=='torutsugu' && params.get('request')!=='locue') return;
-    var form=document.getElementById('vdForm');
-    if(!form) return;
-    var topic=document.getElementById('f-topic');
-    if(topic) topic.value='トルツグ 資料請求';
-    var subject=document.getElementById('f-subject');
-    if(subject) subject.value='トルツグ 無料資料請求';
-    var source=document.getElementById('f-source');
-    if(source) source.value='トルツグ サービスサイト';
-    var intro=document.getElementById('locueRequestIntro');
-    if(intro) intro.hidden=false;
-    var purpose=document.getElementById('f-purpose-wrap');
-    if(purpose) purpose.hidden=false;
-    form.classList.add('locue-request');
-    [].forEach.call(form.querySelectorAll('input[name="purpose"]'),function(el){el.required=true;});
-    form.addEventListener('change',function(e){
-      if(e.target.name==='purpose'){
-        var subject=document.getElementById('f-subject');
-        if(subject) subject.value='トルツグ お問い合わせ｜'+e.target.value;
-        var stat=document.getElementById('fstat');
-        if(stat && stat.textContent==='お問い合わせの目的を選択してください。') stat.textContent='';
-      }
-    });
-    var submit=document.getElementById('fbtn');
-    if(submit) submit.textContent='無料で資料請求する';
-    S.submit='無料で資料請求する';
-    var stat=document.getElementById('fstat');
-    if(stat) stat.textContent='';
-  })();
-
-  /* ---------- 通常問い合わせの受信件名を相談種別別に整理 ---------- */
-  (function(){
-    var form=document.getElementById('vdForm');
-    if(!form) return;
-    var topic=document.getElementById('f-topic');
-    if(!topic) return;
-    topic.addEventListener('change',function(){
-      if(form.classList.contains('locue-request')) return;
-      var subject=document.getElementById('f-subject');
-      if(subject) subject.value='Vitality Design お問い合わせ｜'+topic.value;
-      var stat=document.getElementById('fstat');
-      if(stat && stat.textContent==='お問い合わせの種類を選択してください。')stat.textContent='';
-    });
-  })();
 
   /* ---------- 相談種別のプリフィル ---------- */
   document.addEventListener('click', function(e){

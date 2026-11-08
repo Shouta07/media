@@ -131,6 +131,21 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
 @supports(padding:max(0px)){footer{padding-bottom:max(40px,env(safe-area-inset-bottom))}}
 </style>
+<style>
+/* Contact is email-only: no form, no additional submission flow. */
+.contact .wrap{max-width:1160px}
+.contact-simple{max-width:850px;margin:0 auto;text-align:center}
+.contact-simple .contact-lead{max-width:660px;margin:0 auto 29px}
+.contact-direct{display:inline-flex;justify-content:center;align-items:center;gap:12px;max-width:100%;min-height:58px;padding:14px 23px;border-radius:12px;background:var(--green);color:#fff;font-size:clamp(15px,2.2vw,21px);font-weight:780;overflow-wrap:anywhere;box-shadow:0 8px 25px rgba(8,70,51,.14)}
+.contact-direct:hover{background:var(--green2);color:#fff}
+.contact-note{font-size:12px;color:var(--muted);margin-top:16px}
+@media(max-width:700px){
+ .contact-simple{text-align:left}
+ .contact-simple .contact-lead{margin-left:0}
+ .contact-direct{width:100%;font-size:clamp(14px,4vw,18px);padding:15px 10px;gap:6px}
+}
+@media(max-width:340px){.contact-direct{font-size:13px;letter-spacing:-.015em}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -139,7 +154,7 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 <nav class="nav" aria-label="Main navigation">
 <a href="#challenge">The Challenge</a><a href="#uses">What We Capture</a><a href="#why">Why PICRELAY</a><a href="#how">How It Works</a>
 </nav>
-<a class="button primary" href="#contact">Request a Quote <span aria-hidden="true">↗</span></a>
+<a class="button primary" href="mailto:contact@vitality-design.jp">Request a Quote <span aria-hidden="true">↗</span></a>
 </div></header>
 <main id="main">
 <section class="hero" id="top"><div class="wrap hero-grid">
@@ -147,7 +162,7 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 <div class="eyebrow"><span class="dot" aria-hidden="true"></span>Japan field photo collection</div>
 <h1>Your eyes on the ground in Japan.</h1>
 <p class="lead">Need up-to-date photos of specific locations in Japan? We arrange local photo capture, check the images, and deliver an organized photo set and documentation report. No local team or photographer management required on your side.</p>
-<div class="hero-cta"><a class="button primary" href="#contact">Request Photos in Japan <span aria-hidden="true">↗</span></a><a class="button outline" href="#how">See How It Works <span aria-hidden="true">↓</span></a></div>
+<div class="hero-cta"><a class="button primary" href="mailto:contact@vitality-design.jp">Request Photos in Japan <span aria-hidden="true">↗</span></a><a class="button outline" href="#how">See How It Works <span aria-hidden="true">↓</span></a></div>
 <p class="note">For international companies · Photography within Japan only · Project-based quotes</p>
 </div>
 <div class="hero-visual">
@@ -207,35 +222,17 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 <details><summary>Can a photo prove its own location and capture date?</summary><p>No. Photos and editable metadata alone cannot conclusively prove authenticity. We may use additional records to support checks, without guaranteeing absolute verification.</p></details>
 <details><summary>How much does it cost?</summary><p>We quote each project based on geography, number of sites, subjects and timing. Tell us what you need and we'll review feasibility.</p></details>
 </div></div></section>
-<section class="contact" id="contact"><div class="wrap contact-grid">
-<div><div class="kicker">Get in touch</div><h2>Where in Japan do you need photos?</h2><p class="contact-lead">Tell us the places and what you need to see. We'll review the request and discuss feasibility, scope and a project-specific quote. You don't need a team in Japan to get started.</p><a class="contact-email" href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></div>
-<form class="form" id="contactForm">
-<div class="form-row"><div class="field"><label for="company">Company *</label><input id="company" name="company" autocomplete="organization" required></div><div class="field"><label for="contactName">Contact name *</label><input id="contactName" name="person" autocomplete="name" required></div></div>
-<div class="form-row"><div class="field"><label for="email">Business email *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="country">Country / region</label><input id="country" name="country" autocomplete="country-name"></div></div>
-<div class="field"><label for="location">Locations in Japan *</label><input id="location" name="location" placeholder="e.g., 12 outdoor ads in Tokyo, Osaka and Fukuoka" required></div>
-<div class="field"><label for="details">What photos do you need? *</label><textarea id="details" name="need" placeholder="Locations, subjects, approximate number of sites, timing and any restrictions." required></textarea></div>
-<button class="button primary" type="submit">Prepare Email Inquiry <span aria-hidden="true">↗</span></button>
-<p class="form-note">This opens your email application with a prepared inquiry. Please review and send the message yourself. The form does not transmit or store your information on this website. See the <a href="https://www.vitality-design.jp/privacy.html" target="_blank" rel="noopener noreferrer">company privacy policy</a>.</p>
-</form></div></section>
+<section class="contact" id="contact"><div class="wrap">
+  <div class="contact-simple">
+    <div class="kicker">Get in touch</div>
+    <h2>Need photos from Japan?<br>Let's talk.</h2>
+    <p class="contact-lead">Tell us which locations in Japan you need photographed, what you'd like to see, and your preferred timeline. We'll discuss availability and provide a project-specific quote.</p>
+    <a class="contact-direct" href="mailto:contact@vitality-design.jp" aria-label="Email contact at vitality-design dot jp">contact@vitality-design.jp <span aria-hidden="true">↗</span></a>
+    <p class="contact-note">Email us directly. No web form or account required.</p>
+  </div>
+</div></section>
 </main>
-<footer><div class="wrap footer-in"><div><strong>PICRELAY</strong><br><small>On-the-ground photos from Japan.</small><br><small>Operated by Vitality Design LLC · © 2026</small></div><div class="footer-links"><a href="https://www.vitality-design.jp/en/">About the company</a><a href="https://www.vitality-design.jp/privacy.html">Privacy policy</a><a href="#contact">Contact</a></div></div></footer>
-<script>
-document.getElementById('contactForm').addEventListener('submit',function(event){
- event.preventDefault();
- const form=event.currentTarget;
- if(!form.reportValidity())return;
- const get=(name)=>form.elements.namedItem(name).value.trim();
- const fields=[
-  'Company: '+get('company'),
-  'Contact: '+get('person'),
-  'Email: '+get('email'),
-  'Country / Region: '+get('country'),
-  'Locations in Japan: '+get('location'),
-  'Photography requirements:\n'+get('need')
- ];
- const subject='PICRELAY — Japan Photo Collection Inquiry';
- window.location.href='mailto:contact@vitality-design.jp?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(fields.join('\n\n'));
-});
-</script>
+<footer><div class="wrap footer-in"><div><strong>PICRELAY</strong><br><small>On-the-ground photos from Japan.</small><br><small>Operated by Vitality Design LLC · © 2026</small></div><div class="footer-links"><a href="https://www.vitality-design.jp/en/">About the company</a><a href="https://www.vitality-design.jp/privacy.html">Privacy policy</a><a href="mailto:contact@vitality-design.jp">Contact</a></div></div></footer>
+
 </body>
 </html>

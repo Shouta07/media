@@ -113,6 +113,14 @@
   ],
   "rewrites": [
     {
+      "source": "/picrelay/",
+      "destination": "/picrelay/index.html"
+    },
+    {
+      "source": "/picrelay",
+      "destination": "/picrelay/index.html"
+    },
+    {
       "source": "/torutsugu",
       "destination": "/torutsugu/index.html"
     },

@@ -146,6 +146,41 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 }
 @media(max-width:340px){.contact-direct{font-size:13px;letter-spacing:-.015em}}
 </style>
+<style>
+/* Narrow-viewport layout: keep all content inside iPhone/Android viewport. */
+html,body{width:100%;min-width:0;max-width:100%;overflow-x:clip}
+main,.header,.trust,.section,.contact,footer{min-width:0;max-width:100%}
+.wrap,.hero-grid,.cards3,.compare,.steps,.delivery,.report,.figure,.use-tags,.contact-simple{min-width:0;max-width:100%}
+.wrap>*{min-width:0;max-width:100%}
+.figure,.hero-visual{contain:layout}
+.figure picture,.figure img,.hero-visual picture,.hero-visual img{display:block;width:100%;max-width:100%;min-width:0}
+.header-in>*{min-width:0}.header-email{flex:0 0 auto;white-space:nowrap}
+.cta-short{display:none}
+@media(max-width:900px){.header-in{gap:12px}.header-email{max-width:48%}}
+@media(max-width:700px){
+.wrap{width:calc(100% - 32px)}
+.header-in{height:64px;gap:10px}
+.header .brand{min-width:0;font-size:clamp(17px,5.2vw,21px);gap:7px}
+.header .brandmark{width:31px;height:31px;flex:0 0 31px}
+.header .header-email{max-width:none;flex-shrink:0;min-height:40px;padding:9px 12px;font-size:12px;gap:6px;border-radius:10px}
+.cta-long{display:none}.cta-short{display:inline}
+.hero{padding:42px 0 53px}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:25px}
+h1{font-size:clamp(34px,8.9vw,43px);line-height:1.12}
+.lead{line-height:1.75}.section,.contact{padding:58px 0}
+.section-head{margin-bottom:22px}.section-head p{font-size:15px;line-height:1.75}
+.cards3,.steps,.compare,.delivery{grid-template-columns:minmax(0,1fr)}
+.step{background:#fff;border:1px solid var(--line);border-left:4px solid #179c7d;border-radius:13px;padding:19px 20px}
+.step .index{margin-bottom:8px}.step h3{font-size:19px}.step p{font-size:14px}
+.workflow-figure{display:none}
+.figure img{height:auto!important;object-fit:contain}
+.figure figcaption{overflow-wrap:anywhere}
+.report{padding:14px}.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.report-grid img{min-width:0;max-width:100%;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.contact-direct{max-width:100%;overflow-wrap:anywhere}
+}
+@media(max-width:390px){.header-in{gap:6px}.header .brand{font-size:17px}.header .header-email{font-size:11px;padding:9px 10px}.wrap{width:calc(100% - 28px)}}
+@media(max-width:350px){.header .brand{font-size:15px}.header .brandmark{flex-basis:27px;width:27px;height:27px}.header .header-email{font-size:10px;padding:8px}.hero h1{font-size:32px}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -154,16 +189,14 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 <nav class="nav" aria-label="Main navigation">
 <a href="#challenge">The Challenge</a><a href="#uses">What We Capture</a><a href="#why">Why PICRELAY</a><a href="#how">How It Works</a>
 </nav>
-<a class="button primary" href="mailto:contact@vitality-design.jp">Request a Quote <span aria-hidden="true">↗</span></a>
+<a class="button primary header-email" href="mailto:contact@vitality-design.jp"><span class="cta-long">Email About a Project</span><span class="cta-short">Email Us</span><span aria-hidden="true">↗</span></a>
 </div></header>
 <main id="main">
 <section class="hero" id="top"><div class="wrap hero-grid">
 <div>
-<div class="eyebrow"><span class="dot" aria-hidden="true"></span>Japan field photo collection</div>
-<h1>Your eyes on the ground in Japan.</h1>
-<p class="lead">Need up-to-date photos of specific locations in Japan? We arrange local photo capture, check the images, and deliver an organized photo set and documentation report. No local team or photographer management required on your side.</p>
+<div class="eyebrow"><span class="dot" aria-hidden="true"></span>For international teams working with Japan</div><h1>Need photos from Japan?<br>Skip the local coordination.</h1><p class="lead">Your campaign launches in Japan. Your client asks for proof of placement. Or your research team needs current storefront photos. Instead of finding and managing photographers across cities, send us the locations. We coordinate local photo capture and deliver organized images with a clear documentation report.</p>
 <div class="hero-cta"><a class="button primary" href="mailto:contact@vitality-design.jp">Request Photos in Japan <span aria-hidden="true">↗</span></a><a class="button outline" href="#how">See How It Works <span aria-hidden="true">↓</span></a></div>
-<p class="note">For international companies · Photography within Japan only · Project-based quotes</p>
+<p class="note">For overseas agencies, research teams and brands · Japan locations only · Quote before work starts</p>
 </div>
 <div class="hero-visual">
 <picture><source media="(max-width:700px)" srcset="/picrelay/assets/network-mobile.svg"><img src="/picrelay/assets/network.svg" width="1200" height="675" loading="eager" fetchpriority="high" alt="Illustration of local smartphone photo capture at multiple sites across Japan"></picture>
@@ -172,40 +205,40 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 </div></div></section>
 <div class="trust"><div class="wrap"><span>One point of contact</span><span>Photo quality review</span><span>Organized photos + documentation</span></div></div>
 <section class="section" id="challenge"><div class="wrap">
-<div class="section-head"><div class="kicker">The challenge</div><h2>It's not the photo.<br>It's everything around it.</h2><p>For teams based outside Japan, finding and briefing photographers location by location can be a project of its own.</p></div>
+<div class="section-head"><div class="kicker">The challenge</div><h2>Your team needs visual evidence.<br>Not another country to coordinate.</h2><p>Finding someone nearby, explaining the exact shot, tracking deadlines and checking the result is harder when you are in another country and time zone.</p></div>
 <div class="cards3">
-<article class="card"><div class="index">01 / SOURCING</div><h3>Finding someone on the ground</h3><p>Each additional city can require a separate search, instruction set, and follow-up.</p></article>
-<article class="card"><div class="index">02 / QUALITY</div><h3>Knowing what you'll receive</h3><p>Wrong angles, blurred images, or the wrong subject can mean avoidable reshoots.</p></article>
-<article class="card"><div class="index">03 / ADMIN</div><h3>Managing the entire workflow</h3><p>Tracking assignments, collecting files, and assembling an internal report take time away from your actual decisions.</p></article>
+<article class="card"><div class="index">01 / SOURCING</div><h3>Who can shoot this location?</h3><p>Your agency needs a billboard or storefront photographed but has no local contributor on call.</p></article>
+<article class="card"><div class="index">02 / QUALITY</div><h3>Is that the right photo?</h3><p>Missed signage, wrong angles or blurred photos mean reshoots and more back-and-forth.</p></article>
+<article class="card"><div class="index">03 / ADMIN</div><h3>Why are we chasing photos?</h3><p>Multiple cities mean multiple people to brief, follow up with and organize — often across time zones.</p></article>
 </div></div></section>
 <section class="section band" id="uses"><div class="wrap">
-<div class="section-head"><div class="kicker">Use cases</div><h2>One simple task.<br>Many ways to use it.</h2><p>We focus on clearly specified places and subjects that local contributors can safely photograph with a smartphone.</p></div>
+<div class="section-head"><div class="kicker">Use cases</div><h2>See the location.<br>Without flying to Japan.</h2><p>For advertising agencies checking placements, research teams gathering storefront references and brands monitoring visible locations. We handle straightforward photography where access is permitted.</p></div>
 <figure class="figure"><picture><source media="(max-width:700px)" srcset="/picrelay/assets/use-cases-visual-mobile.svg"><img src="/picrelay/assets/use-cases-visual.svg" width="1250" height="570" loading="lazy" decoding="async" alt="Illustrations of outdoor advertising, retail storefronts, real estate buildings, parking sites, tourism areas and other locations"></picture><figcaption>Illustrative imagery. Not a portfolio of completed assignments.</figcaption></figure>
 <div class="use-tags" aria-label="Photo collection use cases"><span>Outdoor ads &amp; signage</span><span>Storefront exteriors</span><span>Real estate exteriors</span><span>Parking &amp; unstaffed sites</span><span>Streets &amp; tourism</span><span>Other specified locations</span></div>
 </div></section>
 <section class="section" id="why"><div class="wrap">
-<div class="section-head"><div class="kicker">Why PICRELAY</div><h2>One partner in Japan.<br>Not dozens of individual photographers.</h2><p>What you buy is not just a photo. It's a simpler way to get the on-the-ground information your team needs.</p></div>
-<div class="compare"><div class="compare-panel"><h3>Handling it yourself</h3><ul><li>Source people for each location</li><li>Brief and manage contributors individually</li><li>Chase deadlines, review images and request retakes</li><li>Collect files, organize folders and prepare summaries</li></ul></div>
-<div class="compare-panel highlight"><h3>With PICRELAY</h3><ul><li>One point of contact for multiple locations</li><li>Clear, standardized photo instructions</li><li>Photo collection, quality checks and issue coordination</li><li>Location-organized files and a documentation report</li></ul></div></div>
+<div class="section-head"><div class="kicker">Why PICRELAY</div><h2>One brief in.<br>Usable photos out.</h2><p>We manage the work between your location list and a consistent photo delivery — so your overseas team can focus on its campaign, research or operations.</p></div>
+<div class="compare"><div class="compare-panel"><h3>Managing photographers remotely</h3><ul><li>Source people for each location</li><li>Brief and manage contributors individually</li><li>Chase deadlines, review images and request retakes</li><li>Collect files, organize folders and prepare summaries</li></ul></div>
+<div class="compare-panel highlight"><h3>With PICRELAY as your Japan contact</h3><ul><li>One point of contact for multiple locations</li><li>Clear, standardized photo instructions</li><li>Photo collection, quality checks and issue coordination</li><li>Location-organized files and a documentation report</li></ul></div></div>
 </div></section>
 <section class="section band" id="how"><div class="wrap">
-<div class="section-head"><div class="kicker">How it works</div><h2>From your request to<br>ready-to-use photos.</h2></div>
+<div class="section-head"><div class="kicker">How it works</div><h2>A clear workflow.<br>From brief to delivery.</h2></div>
 <div class="steps">
 <div class="step"><div class="index">01 / REQUEST</div><h3>Tell us where</h3><p>Share locations in Japan, the subjects you need photographed, and your preferred deadline.</p></div>
 <div class="step"><div class="index">02 / ARRANGE</div><h3>We coordinate locally</h3><p>We confirm feasibility and a quote, then arrange suitable local contributors.</p></div>
 <div class="step"><div class="index">03 / REVIEW</div><h3>We check the images</h3><p>Images are checked for framing, sharpness, visible subject and other agreed requirements.</p></div>
 <div class="step"><div class="index">04 / DELIVER</div><h3>You receive the results</h3><p>Receive organized photo files and a clear documentation report.</p></div>
 </div>
-<figure class="figure"><picture><source media="(max-width:700px)" srcset="/picrelay/assets/workflow-mobile.svg"><img src="/picrelay/assets/workflow.svg" width="1200" height="405" loading="lazy" decoding="async" alt="Illustration showing a photo request, local smartphone capture, image checks and delivery"></picture><figcaption>Illustrative workflow. Actual fulfillment depends on the assignment.</figcaption></figure>
+<figure class="figure workflow-figure"><picture><source media="(max-width:700px)" srcset="/picrelay/assets/workflow-mobile.svg"><img src="/picrelay/assets/workflow.svg" width="1200" height="405" loading="lazy" decoding="async" alt="Illustration showing a photo request, local smartphone capture, image checks and delivery"></picture><figcaption>Illustrative workflow. Actual fulfillment depends on the assignment.</figcaption></figure>
 </div></section>
 <section class="section" id="deliverables"><div class="wrap delivery">
-<div><div class="kicker">Deliverables</div><h2>We collect photos.<br>You get clarity.</h2><p class="lead">Contributors focus on taking straightforward smartphone photos. Our team handles coordination, image review, organization and a photo documentation report covering what can be seen in the images.</p><p class="note" style="margin-top:18px">Photo content alone cannot conclusively establish when or where an image was taken. Supporting capture records may be checked when available. We do not provide technical inspections or expert assessments.</p></div>
+<div><div class="kicker">Deliverables</div><h2>Photos you can use.<br>Documentation you can share.</h2><p class="lead">Contributors focus on taking straightforward smartphone photos. Our team handles coordination, image review, organization and a photo documentation report covering what can be seen in the images.</p><p class="note" style="margin-top:18px">Photo content alone cannot conclusively establish when or where an image was taken. Supporting capture records may be checked when available. We do not provide technical inspections or expert assessments.</p></div>
 <div class="report"><div class="report-head"><span>PHOTO DOCUMENTATION / SAMPLE</span><span class="sample">ILLUSTRATIVE</span></div>
 <div class="report-grid"><img src="/picrelay/assets/report-photo.svg" alt="Illustrative storefront exterior photo example" loading="lazy"><img src="/picrelay/assets/network.svg" alt="Illustrative photo collection overview" loading="lazy"></div>
 <p class="report-meta"><strong>Location A</strong> · Subject: exterior and signage<br>Framing: reviewed · Image clarity: reviewed<br>Capture time and location: cross-checked against available records</p>
 </div></div></section>
 <section class="section dark" id="approach"><div class="wrap">
-<div class="section-head"><div class="kicker">Our approach</div><h2>Local execution.<br>One global-facing contact.</h2><p>Operational know-how, flexible local sourcing and practical technology applied to simple field photography.</p></div>
+<div class="section-head"><div class="kicker">Our approach</div><h2>Built for teams outside Japan.</h2><p>Clear English-language coordination, flexible local sourcing and standardized photo instructions. We confirm scope, permissions and timelines before work begins.</p></div>
 <div class="cards3">
 <article class="card"><div class="index">01 / OPERATIONS</div><h3>Field operations expertise</h3><p>Our operator's background includes multi-location field processes and coordination with external service partners.</p></article>
 <article class="card"><div class="index">02 / TECHNOLOGY</div><h3>AI-assisted workflows</h3><p>We work toward efficient checks for image clarity, requested subjects and duplicates, backed by manual review when needed.</p></article>
@@ -225,8 +258,8 @@ h1,h2,h3,p,li{overflow-wrap:break-word}
 <section class="contact" id="contact"><div class="wrap">
   <div class="contact-simple">
     <div class="kicker">Get in touch</div>
-    <h2>Need photos from Japan?<br>Let's talk.</h2>
-    <p class="contact-lead">Tell us which locations in Japan you need photographed, what you'd like to see, and your preferred timeline. We'll discuss availability and provide a project-specific quote.</p>
+    <h2>Have a location list in Japan?<br>Email it to us.</h2>
+    <p class="contact-lead">Email the locations, the photos you need and your deadline. We can discuss feasibility and a custom quote in English.</p>
     <a class="contact-direct" href="mailto:contact@vitality-design.jp" aria-label="Email contact at vitality-design dot jp">contact@vitality-design.jp <span aria-hidden="true">↗</span></a>
     <p class="contact-note">Email us directly. No web form or account required.</p>
   </div>

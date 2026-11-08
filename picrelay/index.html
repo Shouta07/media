@@ -105,6 +105,20 @@
   }
   @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
+<style>
+/* The illustrated six-use-case overview belongs inside the use-case section. */
+#service .usecase-visual{margin:0 0 30px;max-width:100%;background:#fff;border:1px solid #d9e6df;border-radius:22px;overflow:hidden;box-shadow:0 16px 42px rgba(12,48,39,.08)}
+#service .usecase-visual picture{display:block;width:100%;line-height:0}
+#service .usecase-visual img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;background:#edf6f1}
+#service .usecase-visual figcaption{padding:12px 20px;color:#61766e;font-size:12px;text-align:right;line-height:1.7;background:#fff}
+#service .tiles{position:relative}
+@media(max-width:700px){
+ #service .usecase-visual{margin-bottom:22px;border-radius:16px}
+ #service .usecase-visual img{width:100%;height:auto}
+ #service .usecase-visual figcaption{font-size:11px;padding:12px 14px;text-align:left}
+ #service .section-head{margin-bottom:24px}
+}
+</style>
 </head>
 <body>
   <header><div class="wrap header-in">
@@ -129,9 +143,16 @@
       <div class="problems"><div class="panel"><div class="num">01 / FIND</div><h3 data-i="problem1title">全国の撮影者を探すのが大変</h3><p data-i="problem1desc">対象が離れた地域にあるたびに、依頼先探しや日程調整が発生する。</p></div><div class="panel"><div class="num">02 / CHECK</div><h3 data-i="problem2title">写真の品質が揃わない</h3><p data-i="problem2desc">画角が違う、ピントが合っていない、対象が写っていない。撮り直しの連絡も負担に。</p></div><div class="panel"><div class="num">03 / DELIVER</div><h3 data-i="problem3title">回収・整理・報告が煩雑</h3><p data-i="problem3desc">複数人から届く写真を照合し、社内で使える資料にまとめる時間がかかる。</p></div></div>
     </div></section>
     <section class="section band" id="service"><div class="wrap"><div class="section-head"><div class="kicker" data-i="serviceKicker">WHAT WE COLLECT</div><h2 data-i="serviceTitle">撮るのは、写真だけ。<br>使い方は、さまざま。</h2><p data-i="serviceLead">一般の人がスマートフォンで安全に撮影できる、日本国内の指定地点を対象にしています。</p></div>
+      <figure class="usecase-visual" aria-label="PICRELAYで撮影できる主な用途">
+        <picture>
+          <source media="(max-width: 700px)" srcset="/picrelay/assets/use-cases-visual-mobile.svg">
+          <img src="/picrelay/assets/use-cases-visual.svg" width="1450" height="575" loading="eager" decoding="async" alt="スマートフォンで現地写真を撮影。屋外広告、店舗外観、不動産、駐車場・無人店舗、観光地、その他の地点という6つの活用例。">
+        </picture>
+        <figcaption data-i="figureNote">※画像はサービスの活用イメージです。実際の導入事例・納品実績ではありません。</figcaption>
+      </figure>
       <div class="tiles"><div class="tile"><div class="symbol">▤</div><h3 data-i="use1">屋外広告・看板</h3><p data-i="use1desc">看板・ポスター・屋外広告の掲出状況を写真で確認。</p></div><div class="tile"><div class="symbol">⌂</div><h3 data-i="use2">店舗・施設の外観</h3><p data-i="use2desc">店舗入口・看板・外観などを指定地点から撮影。</p></div><div class="tile"><div class="symbol">◫</div><h3 data-i="use3">不動産・建物</h3><p data-i="use3desc">建物外観や公開場所から見える周辺環境を記録。</p></div><div class="tile"><div class="symbol">◎</div><h3 data-i="use4">駐車場・無人店舗</h3><p data-i="use4desc">料金看板や案内表示など、撮影許可のある範囲を確認。</p></div><div class="tile"><div class="symbol">⌁</div><h3 data-i="use5">街・観光エリア</h3><p data-i="use5desc">案内表示・街並み・観光施設の外観を記録。</p></div><div class="tile"><div class="symbol">＋</div><h3 data-i="use6">その他の指定地点</h3><p data-i="use6desc">撮影場所と対象が明確な案件を個別にご相談。</p></div></div>
     </div></section>
-    <div class="wrap visual-showcase"><figure class="media-figure"><picture class="illustration"><source media="(max-width: 700px)" srcset="./assets/use-cases-mobile.svg"><img src="./assets/use-cases.svg" width="1200" height="680" alt="屋外広告、店舗、無人施設、駐車場などの撮影利用シーン" loading="lazy" decoding="async"></picture><figcaption data-i="figureNote">※画像はサービスの活用イメージです。実際の導入事例・納品実績ではありません。</figcaption></figure></div>
+
     <section class="section"><div class="wrap"><div class="section-head"><div class="kicker" data-i="compareKicker">WHY A SINGLE PARTNER?</div><h2 data-i="compareTitle">撮影者を直接探すより、<br>まとめて任せる。</h2><p data-i="compareLead">私たちが提供するのは、撮影者の紹介ではありません。写真取得に必要な業務を引き受け、企業の管理負担を減らします。</p></div>
       <div class="comparison"><div><h3 data-i="beforeTitle">個別に手配する場合</h3><ul><li data-i="before1">地域ごとに撮影者を募集する</li><li data-i="before2">一人ずつ撮影条件を説明する</li><li data-i="before3">進捗・不備・再撮影を個別管理する</li><li data-i="before4">写真を回収し報告資料を作る</li></ul></div><div class="better"><h3 data-i="afterTitle">PICRELAYに任せる場合</h3><ul><li data-i="after1">一つの窓口で複数地点を依頼</li><li data-i="after2">撮影指示を標準化</li><li data-i="after3">品質確認と不備対応を代行</li><li data-i="after4">写真と撮影結果レポートを納品</li></ul></div></div>
     </div></section>

@@ -129,6 +129,93 @@
 .report .report-grid{align-items:stretch}
 @media(max-width:700px){#service + .section{padding-top:64px}.report-grid .photo-sim{aspect-ratio:4/3}}
 </style>
+<style>
+/* iPhone / Android / tablet layout hardening */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{width:100%;min-width:0}
+header,main,footer{max-width:100%}
+main{overflow:clip}
+.wrap{max-width:1160px}
+.hero-grid,.deliver,.contact-grid,.comparison,.report-grid,.form-grid,.steps{min-width:0}
+.hero-grid>*,.deliver>*,.contact-grid>*,.comparison>*,.report-grid>*,.form-grid>*,.steps>*{min-width:0}
+.illustration,.usecase-visual picture,.media-figure picture{max-width:100%}
+.usecase-visual img,.media-figure img,.report-grid img{max-width:100%;display:block}
+.contact-form input,.contact-form textarea,.contact-form select{min-width:0;max-width:100%}
+.section-head h2,.report-meta{overflow-wrap:anywhere}
+@media(max-width:1024px){
+ .header-in{gap:12px}
+ .nav{gap:14px}
+ .header-actions{gap:7px}
+ .logo{flex-shrink:0}
+ .header-cta{padding:11px 13px;font-size:12px}
+ .hero-grid{gap:28px}
+}
+@media(max-width:850px){
+ .header-in{min-height:70px}
+ .nav{display:none}
+ .hero-grid,.deliver,.contact-grid{grid-template-columns:minmax(0,1fr)}
+ .hero{padding:54px 0 62px}
+ .hero-grid{gap:30px}
+ .hero-grid>div:first-child{max-width:690px}
+ .visual{width:100%;min-height:0}
+ .comparison{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .report{max-width:100%}
+}
+@media(max-width:700px){
+ .header-in{min-height:64px;gap:7px}
+ .header-actions{gap:5px}
+ .header-actions .header-cta{display:none}
+ .lang{min-width:40px;min-height:44px;padding:6px 8px}
+ .hero{padding:42px 0 52px}
+ .hero-cta{display:grid;grid-template-columns:1fr;gap:10px}
+ .hero-cta .btn{white-space:normal;text-align:center;padding:14px 18px;min-height:48px}
+ .section,.cta-section{padding:64px 0}
+ .comparison,.problems,.steps,.strengths,.form-grid{grid-template-columns:minmax(0,1fr)}
+ .report-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .report{padding:14px;border-radius:16px}
+ .report-top{gap:8px;flex-wrap:wrap}
+ .report-meta{font-size:11px;line-height:1.8}
+ .report-grid .photo-sim{min-width:0;aspect-ratio:4/3}
+ .field input,.field textarea,.field select{font-size:16px;min-height:48px}
+ .contact-form button{min-height:48px}
+ .visual{aspect-ratio:720/850}
+ .visual-caption{left:13px;right:13px;bottom:13px}
+ .visual-caption strong{font-size:clamp(15px,4vw,19px)}
+ .visual-caption small{font-size:11px}
+ .media-figure img,#service .usecase-visual img{height:auto}
+ .footer-links{gap:12px}
+}
+@media(max-width:420px){
+ .wrap{width:calc(100% - 28px)}
+ .header-in{gap:4px}
+ .logo{font-size:17px;gap:6px;letter-spacing:-.055em}
+ .mark{width:29px;height:29px;border-radius:8px}
+ .header-actions .lang{min-width:37px;padding:6px;font-size:10px}
+ h1{font-size:clamp(31px,8.4vw,39px)}
+ h2{font-size:clamp(25px,7vw,31px)}
+ .section-head p,.lead{font-size:14px}
+ .report-grid{gap:6px}
+ .report-grid .photo-sim{border-radius:7px}
+ .report-top{font-size:11px}
+ .report-tag{font-size:10px}
+ .panel,.step,.strength,.contact-form{padding:19px}
+}
+@media(max-width:340px){
+ .wrap{width:calc(100% - 20px)}
+ .header-in{gap:2px}
+ .logo{font-size:15px}
+ .mark{width:25px;height:25px}
+ .header-actions .lang{min-width:32px;min-height:40px;padding:4px;font-size:10px}
+ .hero{padding-top:30px}
+ h1{font-size:30px}
+}
+@media(orientation:landscape) and (max-height:480px){
+ header{position:relative}
+}
+@supports(padding:max(0px)){
+ footer{padding-bottom:max(45px,env(safe-area-inset-bottom))}
+}
+</style>
 </head>
 <body>
   <header><div class="wrap header-in">

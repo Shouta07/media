@@ -109,16 +109,31 @@
       "source": "/draft-lp.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/picrelay",
+      "destination": "/tenten/",
+      "permanent": true
+    },
+    {
+      "source": "/picrelay/",
+      "destination": "/tenten/",
+      "permanent": true
+    },
+    {
+      "source": "/picrelay/index.html",
+      "destination": "/tenten/",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
-      "source": "/picrelay/",
-      "destination": "/picrelay/index.html"
+      "source": "/tenten",
+      "destination": "/tenten/index.html"
     },
     {
-      "source": "/picrelay",
-      "destination": "/picrelay/index.html"
+      "source": "/tenten/",
+      "destination": "/tenten/index.html"
     },
     {
       "source": "/torutsugu",

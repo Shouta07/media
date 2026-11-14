@@ -1,290 +1,67 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#102923">
-<meta name="description" content="PICRELAY helps international businesses obtain location-specific photos across Japan. We coordinate local capture, review image quality, and deliver organized photos and documentation reports.">
-<title>PICRELAY | Your Eyes on the Ground in Japan</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高付加価値インバウンドのAI手配・業務改善 | Vitality Design</title>
+<meta name="description" content="ラグジュアリー訪日旅行・高級宿泊・コンシェルジュ向け。問い合わせ、仕入先照会、見積、変更対応をAIで効率化。スポット・月額ベーシック・プレミアム・全フロー最適化の4プラン。">
 <link rel="canonical" href="https://www.vitality-design.jp/picrelay/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="高付加価値な旅行・滞在を、もっと自由に。 | Vitality Design">
+<meta property="og:description" content="現場起点の業務設計とAIで、複雑な個別手配をシンプルに。">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="PICRELAY by Vitality Design">
-<meta property="og:title" content="PICRELAY | Your Eyes on the Ground in Japan">
-<meta property="og:description" content="Get the photos you need from locations across Japan, without sourcing and managing local photographers yourself.">
 <meta property="og:url" content="https://www.vitality-design.jp/picrelay/">
-<meta name="twitter:card" content="summary">
 <style>
-:root{--ink:#15362f;--muted:#5c716a;--line:#dae7df;--green:#147d65;--green2:#0e5f4d;--dark:#102923;--light:#f6f8f4;--mist:#eaf3ed;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{margin:0;color:var(--ink);background:var(--light);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:clip}
-a{color:inherit;text-decoration:none}a:hover{color:var(--green)}
-button,input,textarea{font:inherit}button{cursor:pointer}
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #16a789;outline-offset:3px}
-img{display:block;max-width:100%}h1,h2,h3,p,figure{margin:0}
-.skip{position:absolute;left:10px;top:-100px;background:white;padding:12px;z-index:90}.skip:focus{top:10px}
-.wrap{width:min(1160px,calc(100% - 48px));margin:0 auto;min-width:0}
-.header{position:sticky;top:0;z-index:40;background:rgba(246,248,244,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
-.header-in{height:80px;display:flex;justify-content:space-between;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;white-space:nowrap;font-size:25px;letter-spacing:-.055em;font-weight:850;line-height:1;color:var(--dark)}
-.brandmark{height:38px;width:38px;display:grid;place-items:center;color:white;background:var(--dark);border-radius:11px;font-size:20px;font-weight:650}
-.nav{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:700}
-.button{display:inline-flex;justify-content:center;align-items:center;text-align:center;gap:10px;border:1px solid transparent;border-radius:11px;padding:15px 23px;font-size:14px;line-height:1.35;font-weight:780;transition:background .15s,transform .15s}
-.button:hover{transform:translateY(-1px)}.button.primary{background:var(--green);color:white}.button.primary:hover{background:var(--green2);color:white}
-.button.outline{background:transparent;border-color:#bbd0c4;color:var(--ink)}
-.header .button{padding:12px 18px;white-space:nowrap;font-size:12px}
-.hero{padding:96px 0 91px}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:45px;align-items:center}
-.hero-grid>*{min-width:0}.eyebrow,.kicker{font-size:12px;letter-spacing:.15em;font-weight:850;text-transform:uppercase;color:var(--green)}
-.eyebrow{margin-bottom:22px;display:flex;align-items:center;gap:9px}
-.dot{width:8px;height:8px;border-radius:50%;background:#20a987}
-h1{font-size:clamp(44px,5.8vw,78px);letter-spacing:-.068em;line-height:1.13;font-weight:840;margin-bottom:25px}
-h2{font-size:clamp(29px,3.8vw,47px);letter-spacing:-.05em;line-height:1.22;font-weight:820;margin:13px 0 18px}
-h3{font-size:20px;line-height:1.4;letter-spacing:-.03em}
-.lead{font-size:17px;line-height:1.9;color:var(--muted)}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:29px 0 17px}
-.note{font-size:12px;color:var(--muted);line-height:1.65}
-.hero-visual{position:relative;overflow:hidden;border-radius:23px;background:#e5f2eb;aspect-ratio:1200/675;box-shadow:0 24px 52px #0d3e321d}
-.hero-visual picture,.hero-visual picture img{display:block;width:100%;height:100%}
-.hero-visual img{object-fit:contain}
-.hero-visual:after{content:"";position:absolute;inset:48% 0 0;background:linear-gradient(0deg,#0c292bcc,transparent);pointer-events:none}
-.hero-visual .chip{position:absolute;left:17px;top:17px;background:#ffffffec;color:var(--ink);border-radius:9px;font-weight:800;letter-spacing:.03em;padding:8px 12px;font-size:11px;z-index:2}
-.hero-visual .caption{position:absolute;bottom:21px;left:21px;right:21px;z-index:2;color:white}
-.hero-visual .caption strong{display:block;font-size:19px}.hero-visual .caption small{display:block;opacity:.83;font-size:12px}
-.trust{background:var(--dark);color:#e5f7ea;padding:19px 0}
-.trust .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;font-weight:700}
-.trust span:before{content:"✓";color:#75dabe;margin-right:11px}
-.section{padding:94px 0}
-.section-head{max-width:790px;margin-bottom:33px}.section-head p{font-size:16px;color:var(--muted)}
-.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.card{background:white;border:1px solid var(--line);border-radius:17px;padding:27px;min-width:0}
-.card .index{color:var(--green);font-size:12px;font-weight:850;letter-spacing:.11em;margin-bottom:19px}
-.card h3{margin-bottom:11px}.card p{font-size:14px;color:var(--muted)}
-.band{background:var(--mist)}
-.figure{border:1px solid #d7e8dd;background:white;border-radius:18px;overflow:hidden;box-shadow:0 14px 35px #0c3d3010}
-.figure picture,.figure img{width:100%;display:block}
-.figure img{height:auto;object-fit:contain}
-.figure figcaption{padding:11px 17px;font-size:12px;text-align:right;color:var(--muted)}
-.use-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
-.use-tags span{border:1px solid #cbded1;color:#24594a;background:#f9fdf9;padding:7px 13px;font-size:12px;font-weight:720;border-radius:100px}
-.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
-.compare-panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:28px}
-.compare-panel.highlight{color:#fff;background:var(--dark);border-color:var(--dark)}
-.compare-panel h3{margin-bottom:21px}
-.compare-panel ul{padding:0;margin:0;list-style:none;display:grid;gap:14px}
-.compare-panel li{font-size:14px;padding-left:25px;position:relative}
-.compare-panel li:before{content:"—";position:absolute;left:0;color:#8ba99c;font-weight:850}
-.compare-panel.highlight li:before{content:"✓";color:#70ddbc}
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:32px}
-.step{border-top:2px solid #adcbbe;padding:17px 6px 0;min-width:0}
-.step .index{font-size:12px;color:var(--green);font-weight:850;margin-bottom:15px}
-.step p{font-size:14px;color:var(--muted);margin-top:9px}
-.delivery{display:grid;grid-template-columns:.88fr 1.12fr;align-items:center;gap:43px}
-.delivery>*{min-width:0}
-.report{background:#fff;border:1px solid var(--line);border-radius:19px;padding:22px;box-shadow:0 15px 41px #0d372612}
-.report-head{display:flex;justify-content:space-between;align-items:center;gap:9px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:13px;font-size:13px;font-weight:830}
-.sample{border:1px solid #a7d6be;padding:4px 8px;border-radius:6px;color:var(--green);font-size:10px}
-.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:15px}
-.report-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:9px;background:#e6f1e9}
-.report-meta{font-size:12px;color:var(--muted);margin-top:13px}
-.report-meta strong{color:var(--ink)}
-.dark{background:var(--dark);color:#fff}.dark .kicker{color:#8ee5c8}.dark p{color:#cfe2d7}
-.dark .card{background:transparent;border-color:#466b5e}.dark .card h3{color:white}.dark .card p{color:#cde1d6}.dark .index{color:#91dbc2}
-.faq{max-width:880px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:18px 0}
-.faq summary{cursor:pointer;font-weight:760;list-style:none;padding-right:32px;position:relative}
-.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";position:absolute;right:3px;top:-6px;font-size:26px;color:var(--green)}
-.faq details[open] summary:after{content:"−"}.faq details p{margin-top:10px;color:var(--muted);font-size:14px}
-.contact{background:#e7f0e9;padding:96px 0}
-.contact-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:47px}
-.contact-grid>*{min-width:0}.contact-lead{font-size:16px;color:var(--muted);margin-bottom:25px}
-.contact-email{font-size:15px;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
-.form{background:white;padding:28px;border-radius:19px;border:1px solid var(--line);box-shadow:0 15px 42px #183d2910}
-.form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.field{display:grid;gap:6px;margin-bottom:16px;min-width:0}
-.field label{font-weight:740;font-size:12px}
-.field input,.field textarea{width:100%;min-width:0;max-width:100%;border:1px solid #c5d6c9;background:#fcfdfb;border-radius:8px;padding:11px 13px;color:var(--ink);font-size:16px}
-.field textarea{min-height:135px;resize:vertical}
-.form .button{width:100%;min-height:48px}
-.form-note{font-size:11px;color:var(--muted);margin-top:11px}
-.form-note a{text-decoration:underline;text-underline-offset:2px}
-footer{background:#081c17;color:#d5e8dd;padding:40px 0}
-.footer-in{display:flex;align-items:center;justify-content:space-between;gap:21px;flex-wrap:wrap}
-.footer-in small{font-size:12px;color:#a9c1b6}.footer-links{display:flex;flex-wrap:wrap;gap:19px;font-size:12px}
-h1,h2,h3,p,li{overflow-wrap:break-word}
-@media(max-width:1030px){.nav{gap:15px}.hero-grid{gap:29px}.header .button{padding:11px 13px}}
-@media(max-width:900px){.nav{display:none}.hero-grid,.delivery,.contact-grid{grid-template-columns:minmax(0,1fr)}.hero{padding:60px 0}.hero-visual{width:100%}.delivery{gap:26px}.cards3{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:700px){
- .wrap{width:calc(100% - 30px)}.header-in{height:66px}.brand{font-size:21px}.brandmark{width:33px;height:33px;font-size:16px}
- .header .button{font-size:12px;padding:10px 12px;min-height:42px}
- .hero{padding:42px 0 53px}h1{font-size:clamp(36px,9vw,54px)}h2{font-size:clamp(28px,7vw,39px)}.lead{font-size:15px}
- .hero-cta{display:grid;grid-template-columns:1fr}.hero-cta .button{width:100%;min-height:49px}
- .hero-visual{aspect-ratio:720/850}.hero-visual .caption strong{font-size:17px}.hero-visual .caption small{font-size:11px}
- .section,.contact{padding:63px 0}.section-head{margin-bottom:25px}.section-head p{font-size:14px}
- .trust .wrap{gap:8px}.trust span{width:100%}
- .cards3,.steps,.compare,.form-row{grid-template-columns:minmax(0,1fr)}
- .card{padding:23px}.compare-panel{padding:23px}
- .report{padding:16px}.report-head{font-size:11px}.report-grid{gap:8px}
- .figure figcaption{text-align:left;font-size:11px;padding:10px 12px}
- .form{padding:20px}.footer-links{gap:12px}
-}
-@media(max-width:390px){.wrap{width:calc(100% - 24px)}.brand{font-size:18px}.brandmark{height:30px;width:30px;font-size:14px}.header .button{font-size:11px;padding:10px 9px}h1{font-size:34px}.hero-visual .caption{bottom:12px;left:13px;right:13px}}
-@media(max-width:340px){.brand{font-size:16px}.header .button{font-size:10px;padding:9px 8px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
-@supports(padding:max(0px)){footer{padding-bottom:max(40px,env(safe-area-inset-bottom))}}
-</style>
-<style>
-/* Contact is email-only: no form, no additional submission flow. */
-.contact .wrap{max-width:1160px}
-.contact-simple{max-width:850px;margin:0 auto;text-align:center}
-.contact-simple .contact-lead{max-width:660px;margin:0 auto 29px}
-.contact-direct{display:inline-flex;justify-content:center;align-items:center;gap:12px;max-width:100%;min-height:58px;padding:14px 23px;border-radius:12px;background:var(--green);color:#fff;font-size:clamp(15px,2.2vw,21px);font-weight:780;overflow-wrap:anywhere;box-shadow:0 8px 25px rgba(8,70,51,.14)}
-.contact-direct:hover{background:var(--green2);color:#fff}
-.contact-note{font-size:12px;color:var(--muted);margin-top:16px}
-@media(max-width:700px){
- .contact-simple{text-align:left}
- .contact-simple .contact-lead{margin-left:0}
- .contact-direct{width:100%;font-size:clamp(14px,4vw,18px);padding:15px 10px;gap:6px}
-}
-@media(max-width:340px){.contact-direct{font-size:13px;letter-spacing:-.015em}}
-</style>
-<style>
-/* Narrow-viewport layout: keep all content inside iPhone/Android viewport. */
-html,body{width:100%;min-width:0;max-width:100%;overflow-x:clip}
-main,.header,.trust,.section,.contact,footer{min-width:0;max-width:100%}
-.wrap,.hero-grid,.cards3,.compare,.steps,.delivery,.report,.figure,.use-tags,.contact-simple{min-width:0;max-width:100%}
-.wrap>*{min-width:0;max-width:100%}
-.figure,.hero-visual{contain:layout}
-.figure picture,.figure img,.hero-visual picture,.hero-visual img{display:block;width:100%;max-width:100%;min-width:0}
-.header-in>*{min-width:0}.header-email{flex:0 0 auto;white-space:nowrap}
-.cta-short{display:none}
-@media(max-width:900px){.header-in{gap:12px}.header-email{max-width:48%}}
-@media(max-width:700px){
-.wrap{width:calc(100% - 32px)}
-.header-in{height:64px;gap:10px}
-.header .brand{min-width:0;font-size:clamp(17px,5.2vw,21px);gap:7px}
-.header .brandmark{width:31px;height:31px;flex:0 0 31px}
-.header .header-email{max-width:none;flex-shrink:0;min-height:40px;padding:9px 12px;font-size:12px;gap:6px;border-radius:10px}
-.cta-long{display:none}.cta-short{display:inline}
-.hero{padding:42px 0 53px}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:25px}
-h1{font-size:clamp(34px,8.9vw,43px);line-height:1.12}
-.lead{line-height:1.75}.section,.contact{padding:58px 0}
-.section-head{margin-bottom:22px}.section-head p{font-size:15px;line-height:1.75}
-.cards3,.steps,.compare,.delivery{grid-template-columns:minmax(0,1fr)}
-.step{background:#fff;border:1px solid var(--line);border-left:4px solid #179c7d;border-radius:13px;padding:19px 20px}
-.step .index{margin-bottom:8px}.step h3{font-size:19px}.step p{font-size:14px}
-.workflow-figure{display:none}
-.figure img{height:auto!important;object-fit:contain}
-.figure figcaption{overflow-wrap:anywhere}
-.report{padding:14px}.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-.report-grid img{min-width:0;max-width:100%;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.contact-direct{max-width:100%;overflow-wrap:anywhere}
-}
-@media(max-width:390px){.header-in{gap:6px}.header .brand{font-size:17px}.header .header-email{font-size:11px;padding:9px 10px}.wrap{width:calc(100% - 28px)}}
-@media(max-width:350px){.header .brand{font-size:15px}.header .brandmark{flex-basis:27px;width:27px;height:27px}.header .header-email{font-size:10px;padding:8px}.hero h1{font-size:32px}}
-</style>
-<style>
-/* B2B travel-location use case: compact, scoped to existing photography service */
-.tourism-opportunity{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:28px;padding:27px 30px;border:1px solid #c8dbce;border-radius:17px;background:#fff}
-.tourism-opportunity>div{min-width:0;max-width:690px}
-.tourism-opportunity .kicker{margin-bottom:8px}
-.tourism-opportunity h3{font-size:22px;margin-bottom:9px;line-height:1.35}
-.tourism-opportunity p{color:var(--muted);font-size:14px;line-height:1.75}
-.tourism-opportunity .button{max-width:275px;min-width:210px;white-space:normal;flex-shrink:0}
-@media(max-width:800px){.tourism-opportunity{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:22px}.tourism-opportunity .button{width:100%;min-width:0;max-width:100%}}
-@media(max-width:390px){.tourism-opportunity{padding:18px}.tourism-opportunity h3{font-size:19px}}
+:root{--navy:#10283b;--ink:#213a49;--teal:#097e77;--mint:#dff0ea;--muted:#607180;--line:#dbe5e8;--cloud:#f3f7f7;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;color:var(--ink);background:#fff;line-height:1.85}a{color:inherit}.wrap{width:min(1120px,calc(100% - 44px));margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}header .wrap{min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:20px}.logo{font-weight:900;font-size:21px;letter-spacing:.02em;text-decoration:none;color:var(--navy)}.logo em{font-style:normal;color:var(--teal)}nav{display:flex;gap:22px;align-items:center;font-size:13px;font-weight:700}nav a{text-decoration:none}nav a:hover{color:var(--teal)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-align:center;background:var(--teal);color:white;padding:13px 25px;border-radius:7px;text-decoration:none;font-weight:750;line-height:1.5;transition:transform .2s,background .2s}.btn:hover{background:#066b65;transform:translateY(-1px)}.btn.ghost{border:1px solid #aac5c3;background:#fff;color:var(--navy)}
+.hero{background:linear-gradient(128deg,#10283b,#164452 70%,#16776e);color:white;padding:100px 0 92px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin:0 0 13px}.hero .eyebrow{color:#a6e3d4}.hero h1{font-size:clamp(34px,4.4vw,59px);line-height:1.42;letter-spacing:-.04em;margin:0 0 22px}.hero .lead{font-size:17px;max-width:730px;color:#e2ebec;line-height:1.95}.hero .actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}.hero .ghost{background:transparent;border-color:#91b8b6;color:#fff}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}.chips span{border:1px solid #688e98;border-radius:30px;padding:5px 12px;color:#d8e7ea;font-size:12px}
+section{padding:83px 0}section.soft{background:var(--cloud)}section h2{font-size:clamp(27px,3vw,39px);color:var(--navy);line-height:1.5;margin:0 0 18px;letter-spacing:-.03em}.intro{color:var(--muted);max-width:750px;margin-bottom:32px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{background:white;border:1px solid var(--line);border-radius:12px;padding:27px;box-shadow:0 8px 26px rgba(17,49,62,.03)}.tile h3{font-size:18px;color:var(--navy);margin:4px 0 9px}.tile p{color:var(--muted);font-size:14px;margin:0}.num{font-weight:900;color:var(--teal);font-size:13px;letter-spacing:.06em}.feature{padding:28px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1.3fr;gap:42px}.feature:last-child{border-bottom:0}.feature h3{color:var(--navy);font-size:20px;margin:4px 0}.feature p{color:var(--muted);margin:5px 0}.feature ul{margin:2px 0;padding-left:20px;font-size:14px}.feature li{margin:6px 0}.pricing{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.plan{border:1px solid var(--line);background:white;border-radius:13px;padding:25px 20px;display:flex;flex-direction:column;gap:9px}.plan.featured{border:2px solid var(--teal);box-shadow:0 12px 32px rgba(9,126,119,.12)}.plan .kind{font-size:12px;font-weight:900;letter-spacing:.13em;color:var(--teal)}.plan h3{font-size:19px;color:var(--navy);margin:0}.price{font-weight:900;color:var(--navy);font-size:27px;line-height:1.4}.price small{font-weight:500;font-size:12px}.plan p{font-size:13px;color:var(--muted);min-height:60px;margin:0}.plan ul{padding-left:17px;font-size:13px;flex:1;margin:8px 0 18px}.plan li{margin:7px 0}.plan .btn{font-size:13px;padding:11px 8px}.note{color:var(--muted);font-size:12px;line-height:1.8;margin-top:20px}.highlight{background:#e7f3ef;border:1px solid #c7e3d9;border-radius:14px;padding:32px}.highlight p{margin:5px 0;color:#365b58}.highlight h3{margin:0;color:var(--navy)}.faq details{padding:20px 0;border-bottom:1px solid var(--line)}.faq summary{font-weight:700;cursor:pointer;color:var(--navy)}.faq p{color:var(--muted);font-size:14px}.contact{background:var(--navy);color:white;text-align:center}.contact h2{color:white}.contact p{color:#d9e6e8;max-width:700px;margin:0 auto 26px}.contact .btn{background:#1b9a8c}footer{padding:30px 0;color:var(--muted);font-size:12px}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:950px){.pricing{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{grid-template-columns:1fr;gap:7px}}@media(max-width:620px){header .wrap{min-height:66px}nav a:not(.btn){display:none}nav .btn{padding:9px 12px;font-size:12px}.logo{font-size:18px}.hero{padding:70px 0}.hero .lead{font-size:15px}section{padding:60px 0}.grid,.grid.two,.pricing{grid-template-columns:1fr}.plan p{min-height:0}.wrap{width:min(100% - 34px,1120px)}}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="header"><div class="wrap header-in">
-<a class="brand" href="#top" aria-label="PICRELAY home"><span class="brandmark" aria-hidden="true">▧</span>PICRELAY</a>
-<nav class="nav" aria-label="Main navigation">
-<a href="#challenge">The Challenge</a><a href="#uses">What We Capture</a><a href="#why">Why PICRELAY</a><a href="#how">How It Works</a>
-</nav>
-<a class="button primary header-email" href="mailto:contact@vitality-design.jp"><span class="cta-long">Email About a Project</span><span class="cta-short">Email Us</span><span aria-hidden="true">↗</span></a>
-</div></header>
-<main id="main">
-<section class="hero" id="top"><div class="wrap hero-grid">
-<div>
-<div class="eyebrow"><span class="dot" aria-hidden="true"></span>For international teams working with Japan</div><h1>Need photos from Japan?<br>Skip the local coordination.</h1><p class="lead">Your client needs photos of an ad placement in Tokyo. Your research team needs storefront images across several cities. Or your travel team needs to confirm what a hotel entrance and nearby signage actually look like. Send us the locations and photo requirements. Receive organized, quality-checked images and a clear photo report, without coordinating the work on the ground.</p>
-<div class="hero-cta"><a class="button primary" href="mailto:contact@vitality-design.jp">Request Photos in Japan <span aria-hidden="true">↗</span></a><a class="button outline" href="#how">See How It Works <span aria-hidden="true">↓</span></a></div>
-<p class="note">For international agencies, research and travel teams · Japan locations only · Custom quotes</p>
-</div>
-<div class="hero-visual">
-<picture><source media="(max-width:700px)" srcset="/picrelay/assets/network-mobile.svg"><img src="/picrelay/assets/network.svg" width="1200" height="675" loading="eager" fetchpriority="high" alt="Illustration of local smartphone photo capture at multiple sites across Japan"></picture>
-<span class="chip">JAPAN / ON-THE-GROUND</span>
-<div class="caption"><strong>See the locations that matter.</strong><small>Illustration only. Not actual client work.</small></div>
+<header><div class="wrap"><a class="logo" href="https://www.vitality-design.jp/">VITALITY <em>DESIGN</em></a><nav><a href="#challenges">課題</a><a href="#features">機能</a><a href="#why">選ばれる理由</a><a href="#plans">プラン</a><a class="btn" href="#contact">お問い合わせ</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap"><p class="eyebrow">Luxury Inbound × AI Operations</p><h1>高付加価値な旅行・滞在を、<br>もっと自由に。</h1><p class="lead">富裕層向けオーダーメイド訪日旅行やラグジュアリーな滞在サービスの、複雑な個別手配をシンプルに。現場起点の業務設計とAIで、少ない人員でも高品質な対応を続けられる仕組みを目指します。</p><div class="actions"><a class="btn" href="#contact">サービスについて相談する</a><a class="btn ghost" href="#plans">4つのプランを見る</a></div><div class="chips"><span>旅行会社・DMC</span><span>高級ホテル・旅館</span><span>高級ヴィラ・シャレー</span><span>VIPコンシェルジュ</span></div></div></div>
+<section id="challenges" class="soft"><div class="wrap"><p class="eyebrow">Challenges</p><h2>こんな課題はありませんか？</h2><p class="intro">高付加価値なサービスほど個別対応が増え、経験豊富な担当者の時間が調整業務に取られてしまいます。</p><div class="grid">
+<div class="tile"><span class="num">01</span><h3>個別手配に時間がかかる</h3><p>宿泊・送迎・ガイド・レストランなど、複数の取引先への照会や回答確認が煩雑。</p></div>
+<div class="tile"><span class="num">02</span><h3>見積や変更が複雑</h3><p>日程や人数が変わるたびに、再見積・再確認・原価更新が発生する。</p></div>
+<div class="tile"><span class="num">03</span><h3>案件が増えると人手が足りない</h3><p>既存案件の処理に追われ、新しい提案やゲスト対応に時間を割けない。</p></div>
+<div class="tile"><span class="num">04</span><h3>高付加価値化したい</h3><p>富裕層向けのサービスを強化したいが、手配体制・情報管理が追いつかない。</p></div>
+<div class="tile"><span class="num">05</span><h3>海外との接点を増やしたい</h3><p>海外の旅行会社への提案や、外国語の案件受付・調整に課題がある。</p></div>
+<div class="tile"><span class="num">06</span><h3>非公開情報を守りたい</h3><p>取引先・契約条件・VIPの要望を、必要な担当者だけで安全に扱いたい。</p></div>
 </div></div></section>
-<div class="trust"><div class="wrap"><span>One point of contact</span><span>Photo quality review</span><span>Organized photos + documentation</span></div></div>
-<section class="section" id="challenge"><div class="wrap">
-<div class="section-head"><div class="kicker">The challenge</div><h2>Your team needs visual evidence.<br>Not another country to coordinate.</h2><p>Finding someone nearby, explaining the exact shot, tracking deadlines and checking the result is harder when you are in another country and time zone.</p></div>
-<div class="cards3">
-<article class="card"><div class="index">01 / SOURCING</div><h3>Who can shoot this location?</h3><p>You need a current photo of an ad, storefront or location in Japan — but your team is based overseas.</p></article>
-<article class="card"><div class="index">02 / QUALITY</div><h3>Is that the right photo?</h3><p>Missed signage, wrong angles or blurred photos mean reshoots and more back-and-forth.</p></article>
-<article class="card"><div class="index">03 / ADMIN</div><h3>Why are we chasing photos?</h3><p>Multiple sites bring deadlines, file requests and status updates — while your team has other priorities.</p></article>
+<section id="features"><div class="wrap"><p class="eyebrow">Features</p><h2>業務を整え、AIで動かす。</h2><p class="intro">問い合わせから手配完了までを、必要なところから段階的に仕組み化します。以下は開発・提供を目指す機能です。</p>
+<div class="feature"><div><span class="num">01 / WORKFLOW</span><h3>業務プロセス設計</h3><p>現状の仕事を理解し、人の判断を残す部分とAIで支援する部分を整理。</p></div><ul><li>業務フローの可視化と課題整理</li><li>役割・承認・例外対応の整理</li><li>改善対象の優先順位付け</li></ul></div>
+<div class="feature"><div><span class="num">02 / REQUEST</span><h3>AI問い合わせ・案件管理</h3><p>英文などの依頼から日程・人数・要望・予算を構造化。</p></div><ul><li>メール・フォームの要件抽出</li><li>確認事項や不足情報の整理</li><li>返信文案の作成</li></ul></div>
+<div class="feature"><div><span class="num">03 / COORDINATE</span><h3>仕入先・手配管理</h3><p>複数事業者への照会から回答、未確定事項の追跡までを一元化。</p></div><ul><li>非公開の取引先・対応条件管理</li><li>AI照会文案・回答内容の整理</li><li>未回答・未確定事項の検出</li></ul></div>
+<div class="feature"><div><span class="num">04 / QUOTE</span><h3>見積・原価管理</h3><p>高単価・個別案件でも利益を把握しながら迅速に提案。</p></div><ul><li>仕入見積・販売価格の整理</li><li>案件別原価・粗利益の集計</li><li>見積と変更履歴の管理</li></ul></div>
+<div class="feature"><div><span class="num">05 / CHANGE</span><h3>変更・再手配管理</h3><p>変更の影響先を把握し、確認漏れを防ぐ。</p></div><ul><li>日程・人数・内容変更の記録</li><li>影響先と再照会事項の整理</li><li>担当者の承認・進捗確認</li></ul></div>
+<div class="feature"><div><span class="num">06 / INTEGRATE</span><h3>全工程の連携</h3><p>既存のメールや業務システムを活かし、受注から完了までをつなぐ。</p></div><ul><li>既存ツールとの連携検討</li><li>部門・拠点をまたぐ業務設計</li><li>請求・精算・確認の連携支援</li></ul></div>
+</div></section>
+<section id="why" class="soft"><div class="wrap"><p class="eyebrow">Why Vitality Design</p><h2>なぜ、バイタリティデザインなのか。</h2><div class="grid two">
+<div class="tile"><span class="num">01 / FIELD FIRST</span><h3>現場起点で、仕事そのものを見直す</h3><p>画面や機能を増やす前に、実際の業務・役割・承認の流れを理解。不要な手間を減らし、使われる仕組みを設計します。</p></div>
+<div class="tile"><span class="num">02 / BUILD & IMPROVE</span><h3>業務設計から開発まで、一貫対応</h3><p>課題整理だけで終わらず、エンジニアリングまで一体で進めます。まず一つの業務で効果を検証し、再現性のある仕組みへ。</p></div>
+<div class="tile"><span class="num">03 / PRIVATE BY DESIGN</span><h3>非公開の価値を尊重する</h3><p>仕入先との関係、契約料金、VIP情報は事業者の大切な資産。企業ごとの情報分離とアクセス制御を重視します。</p></div>
+<div class="tile"><span class="num">04 / GROWTH ORIENTED</span><h3>効率化の先の事業成長を見据える</h3><p>人を増やさず対応能力を高め、将来的には海外バイヤーとの接続を通じた新しい取引機会の創出を目指します。</p></div>
 </div></div></section>
-<section class="section band" id="uses"><div class="wrap">
-<div class="section-head"><div class="kicker">Use cases</div><h2>See the location.<br>Without flying to Japan.</h2><p>From ad placements and storefronts to hotel entrances and visitor-facing signs, get photos of the specific places your overseas team needs to see. We focus on straightforward photography in permitted areas.</p></div>
-<figure class="figure"><picture><source media="(max-width:700px)" srcset="/picrelay/assets/use-cases-visual-mobile.svg"><img src="/picrelay/assets/use-cases-visual.svg" width="1250" height="570" loading="lazy" decoding="async" alt="Illustrations of outdoor advertising, retail storefronts, real estate buildings, parking sites, tourism areas and other locations"></picture><figcaption>Illustrative imagery. Not a portfolio of completed assignments.</figcaption></figure>
-<div class="use-tags" aria-label="Photo collection use cases"><span>Ad placements &amp; signage</span><span>Storefront exteriors</span><span>Hotel entrances &amp; exteriors</span><span>Tourist-area wayfinding signs</span><span>Property &amp; site exteriors</span><span>Other permitted locations</span></div>
-<div class="tourism-opportunity">
-  <div>
-    <div class="kicker">For travel businesses</div>
-    <h3>Planning or selling a Japan itinerary without seeing every location?</h3>
-    <p>Need current views of hotel entrances, meeting points, visitor-facing signage or the surroundings of an itinerary stop? Request location-specific photos so your team can review and share what is visible on site. No travel promotion, booking management or professional property inspection included.</p>
-  </div>
-  <a class="button primary" href="mailto:contact@vitality-design.jp?subject=PICRELAY%20%7C%20Japan%20travel%20location%20photos">Ask About Travel Location Photos <span aria-hidden="true">↗</span></a>
-</div>
+<section id="plans"><div class="wrap"><p class="eyebrow">Plans</p><h2>課題に合わせた4つのプラン。</h2><p class="intro">小さな業務改善から、全工程を横断した最適化まで。料金と提供範囲は現時点の参考案です。</p><div class="pricing">
+<article class="plan"><span class="kind">SPOT</span><h3>単発業務改善</h3><div class="price">30万円〜<small> / 案件</small></div><p>まず一つの業務から試したい企業へ。</p><ul><li>業務ヒアリング・診断</li><li>業務プロセスの可視化</li><li>改善対象の特定</li><li>AI活用設計</li><li>対象業務の試作・導入支援</li></ul><a class="btn ghost" href="#contact">相談する</a></article>
+<article class="plan"><span class="kind">BASIC</span><h3>業務管理</h3><div class="price">5万円〜<small> / 月</small></div><p>問い合わせと手配情報をまとめたい企業へ。</p><ul><li>問い合わせ・案件管理</li><li>仕入先・取引先管理</li><li>AIによる依頼内容整理</li><li>照会・回答状況管理</li><li>業務履歴の保存</li></ul><a class="btn ghost" href="#contact">相談する</a></article>
+<article class="plan featured"><span class="kind">PREMIUM / 主力プラン</span><h3>AI手配自動化</h3><div class="price">15万円〜<small> / 月</small></div><p>複雑な個別手配の対応力を高めたい企業へ。</p><ul><li>BASICの全機能</li><li>AIによる照会文案作成</li><li>回答の自動整理</li><li>見積・原価管理</li><li>変更・再手配の進捗管理</li><li>AI業務フローの設定</li></ul><a class="btn" href="#contact">相談する</a></article>
+<article class="plan"><span class="kind">END-TO-END</span><h3>全フロー最適化</h3><div class="price">30万円〜<small> / 月・個別見積</small></div><p>受注から手配完了まで、全体をつなぎたい企業へ。</p><ul><li>PREMIUMの全機能</li><li>全体業務フローの設計</li><li>複数部門・拠点への対応</li><li>既存システムとの連携</li><li>承認・請求・精算の連携支援</li><li>継続的な業務改善</li></ul><a class="btn ghost" href="#contact">相談する</a></article>
+</div><p class="note">※ 価格・機能はサービス検証中の参考プランです。初期設定費、AI処理量、人数、外部システム連携、支援内容に応じて正式にお見積りします。END-TO-ENDは業務基盤の提供であり、当社が旅行手配そのものを受託するサービスではありません。</p></div></section>
+<section class="soft"><div class="wrap"><div class="highlight"><p class="eyebrow">Future Network / 構想中</p><h3>業務の効率化から、世界との新しい取引へ。</h3><p>海外のラグジュアリー旅行会社・トラベルアドバイザーと、日本の旅行・滞在事業者をつなぐ非公開B2Bネットワークを構想しています。各社が持つ独自の仕入先や取引関係を守りながら、世界から新しい案件を獲得できる環境を目指します。</p><p class="note">※ 現在の月額プランには含まれません。海外からの送客・成約を保証するものではありません。</p></div></div></section>
+<section class="faq"><div class="wrap"><p class="eyebrow">FAQ</p><h2>よくあるご質問</h2>
+<details><summary>旅行会社以外も対象ですか？</summary><p>はい。高級ホテル・旅館、ヴィラ運営会社、コンシェルジュ企業など、個別依頼と外部事業者への手配が多い企業を想定しています。</p></details>
+<details><summary>高付加価値旅行への参入を検討中でも相談できますか？</summary><p>はい。富裕層向けの旅行や滞在サービスを強化するための業務体制づくりからご相談いただけます。</p></details>
+<details><summary>今使っているメールやExcelを使い続けられますか？</summary><p>既存の業務環境を活かす方針です。具体的な連携可否は現状のシステム・運用を確認のうえ判断します。</p></details>
+<details><summary>非公開の顧客・取引先情報はどう管理しますか？</summary><p>企業単位の情報分離・アクセス制御を重視して設計します。具体的なセキュリティ条件は導入前に確認・合意します。</p></details>
+<details><summary>AIが勝手に予約や発注を確定しますか？</summary><p>いいえ。重要な発注、予約変更、金額確定には担当者の確認・承認を設ける方針です。</p></details>
 </div></section>
-<section class="section" id="why"><div class="wrap">
-<div class="section-head"><div class="kicker">Why PICRELAY</div><h2>One brief in.<br>Usable photos out.</h2><p>Send one brief covering the locations and required views. Receive photos organized by site, with image-quality checks and a concise report. Fewer handoffs, clearer deliverables.</p></div>
-<div class="compare"><div class="compare-panel"><h3>Without PICRELAY</h3><ul><li>Coordinate different locations separately</li><li>Repeat briefs and photo requirements</li><li>Chase progress and review inconsistent images</li><li>Compile photo folders and reporting yourself</li></ul></div>
-<div class="compare-panel highlight"><h3>With PICRELAY</h3><ul><li>One request for multiple Japan locations</li><li>Agreed photo requirements before work begins</li><li>Image-quality review and issue follow-up</li><li>Organized photos with a documentation report</li></ul></div></div>
-</div></section>
-<section class="section band" id="how"><div class="wrap">
-<div class="section-head"><div class="kicker">How it works</div><h2>A clear workflow.<br>From brief to delivery.</h2></div>
-<div class="steps">
-<div class="step"><div class="index">01 / REQUEST</div><h3>Tell us where</h3><p>Share locations in Japan, the subjects you need photographed, and your preferred deadline.</p></div>
-<div class="step"><div class="index">02 / ARRANGE</div><h3>We coordinate locally</h3><p>We confirm scope, timing and pricing before the work begins.</p></div>
-<div class="step"><div class="index">03 / REVIEW</div><h3>Images are reviewed</h3><p>We check framing, clarity and whether the agreed subjects are visible.</p></div>
-<div class="step"><div class="index">04 / DELIVER</div><h3>You receive the results</h3><p>Receive organized photo files and a clear documentation report.</p></div>
-</div>
-<figure class="figure workflow-figure"><picture><source media="(max-width:700px)" srcset="/picrelay/assets/workflow-mobile.svg"><img src="/picrelay/assets/workflow.svg" width="1200" height="405" loading="lazy" decoding="async" alt="Illustration showing a photo request, local smartphone capture, image checks and delivery"></picture><figcaption>Illustrative workflow. Actual fulfillment depends on the assignment.</figcaption></figure>
-</div></section>
-<section class="section" id="deliverables"><div class="wrap delivery">
-<div><div class="kicker">Deliverables</div><h2>Photos you can use.<br>Documentation you can share.</h2><p class="lead">Receive location-organized photo files, a review of image clarity and required subjects, and a concise documentation report. Everything is prepared for your team to reference and share.</p><p class="note" style="margin-top:18px">Photo content alone cannot conclusively establish when or where an image was taken. Supporting capture records may be checked when available. We do not provide technical inspections or expert assessments.</p></div>
-<div class="report"><div class="report-head"><span>PHOTO DOCUMENTATION / SAMPLE</span><span class="sample">ILLUSTRATIVE</span></div>
-<div class="report-grid"><img src="/picrelay/assets/report-photo.svg" alt="Illustrative storefront exterior photo example" loading="lazy"><img src="/picrelay/assets/network.svg" alt="Illustrative photo collection overview" loading="lazy"></div>
-<p class="report-meta"><strong>Location A</strong> · Subject: exterior and signage<br>Framing: reviewed · Image clarity: reviewed<br>Capture time and location: cross-checked against available records</p>
-</div></div></section>
-<section class="section dark" id="approach"><div class="wrap">
-<div class="section-head"><div class="kicker">Made for international business teams</div><h2>The Japan photos you need.<br>For the work you already do.</h2><p>Whether you are documenting campaign placements, reviewing store exteriors or preparing a Japan travel itinerary, request the specific location photos your team needs through one contact.</p></div>
-<div class="cards3">
-<article class="card"><div class="index">ADVERTISING AGENCIES</div><h3>Document campaign placements</h3><p>Request photos of publicly visible billboards, posters and signs, organized by location for client reporting.</p></article>
-<article class="card"><div class="index">MARKET RESEARCH TEAMS</div><h3>Collect location references</h3><p>Get current storefront and exterior views for desk research and market observation — without conducting an on-site visit.</p></article>
-<article class="card"><div class="index">TRAVEL COMPANIES &amp; DMCs</div><h3>Review Japan itinerary locations</h3><p>Request photos of hotel entrances, public meeting points, approach routes and visitor signage before sharing location details with your clients.</p></article>
-</div><p class="note" style="color:#b9d2c6;margin-top:20px">Photography and image-based documentation only. No guarantee of coverage at every location; access and project feasibility are assessed before acceptance.</p>
-</div></section>
-<section class="section" id="faq"><div class="wrap">
-<div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto"><div class="kicker">FAQ</div><h2>Questions? Answered.</h2></div>
-<div class="faq">
-<details><summary>Can we order if our company is based outside Japan?</summary><p>Yes. PICRELAY is designed for international businesses that need photos of specific places within Japan.</p></details>
-<details><summary>Can you photograph any location in Japan?</summary><p>We accept requests for locations across Japan, but feasibility depends on local contributor availability, access, permission and scheduling.</p></details>
-<details><summary>What will we receive?</summary><p>Photo files organized by location and a documentation report with image-based observations and relevant capture details. No video or professional inspection is included.</p></details>
-<details><summary>Can you photograph inside a store or unstaffed business?</summary><p>Only where the appropriate permission is in place. We confirm access arrangements, privacy rules and photography restrictions before accepting an assignment.</p></details>
-<details><summary>Can a photo prove its own location and capture date?</summary><p>No. Photos and editable metadata alone cannot conclusively prove authenticity. We may use additional records to support checks, without guaranteeing absolute verification.</p></details>
-<details><summary>How much does it cost?</summary><p>We quote each project based on geography, number of sites, subjects and timing. Tell us what you need and we'll review feasibility.</p></details>
-</div></div></section>
-<section class="contact" id="contact"><div class="wrap">
-  <div class="contact-simple">
-    <div class="kicker">Get in touch</div>
-    <h2>Tell us what you need to see in Japan.</h2>
-    <p class="contact-lead">Email your locations, the views you need and your timeline. We will review the scope and discuss a tailored quote in English — with no platform to learn or form to complete.</p>
-    <a class="contact-direct" href="mailto:contact@vitality-design.jp" aria-label="Email contact at vitality-design dot jp">contact@vitality-design.jp <span aria-hidden="true">↗</span></a>
-    <p class="contact-note">Email us directly. No web form or account required.</p>
-  </div>
-</div></section>
+<section id="contact" class="contact"><div class="wrap"><p class="eyebrow" style="color:#9be0d1">Contact</p><h2>高付加価値な旅行・滞在を、<br>次のステージへ。</h2><p>現在、サービス内容の検証・実証にご協力いただける企業様を募集しています。業務課題の整理からお気軽にご相談ください。</p><a class="btn" href="mailto:contact@vitality-design.jp?subject=%E9%AB%98%E4%BB%98%E5%8A%A0%E4%BE%A1%E5%80%A4%E3%82%A4%E3%83%B3%E3%83%90%E3%82%A6%E3%83%B3%E3%83%89%E6%A5%AD%E5%8B%99%E6%94%AF%E6%8F%B4%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">メールで相談する</a><p style="font-size:13px;margin-top:18px">contact@vitality-design.jp</p></div></section>
 </main>
-<footer><div class="wrap footer-in"><div><strong>PICRELAY</strong><br><small>On-the-ground photos from Japan.</small><br><small>Operated by Vitality Design LLC · © 2026</small></div><div class="footer-links"><a href="https://www.vitality-design.jp/en/">About the company</a><a href="https://www.vitality-design.jp/privacy.html">Privacy policy</a><a href="mailto:contact@vitality-design.jp">Contact</a></div></div></footer>
-
+<footer><div class="wrap"><span>© Vitality Design LLC</span><span>バイタリティデザイン合同会社 ｜ 世界の現場から、世界を変える。</span></div></footer>
 </body>
 </html>

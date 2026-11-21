@@ -128,6 +128,14 @@
   ],
   "rewrites": [
     {
+      "source": "/demo/:name",
+      "destination": "/demo/:name/index.html"
+    },
+    {
+      "source": "/demo/:name/",
+      "destination": "/demo/:name/index.html"
+    },
+    {
       "source": "/tenten",
       "destination": "/tenten/index.html"
     },
@@ -170,6 +178,17 @@
     {
       "source": "/handover",
       "destination": "/handover.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/demo/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

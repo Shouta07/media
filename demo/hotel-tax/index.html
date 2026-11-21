@@ -150,7 +150,7 @@ td .sub{font-size:12px}
 .callout{border-left:3px solid var(--ok);padding:2px 0 2px 14px}
 /* PDF用：画面のテーマに関係なく白い紙で出力する */
 .pdf-doc{--paper:#ffffff;--ink:#1e2226;--sub:#555c64;--faint:#8b929a;--line:#d9dce0;--bg:#f2f3f5;--ok:#2c7a4e;--warn:#9c5700;
-  width:760px;border:none;border-radius:0;padding:4px 6px;background:#ffffff;color:#1e2226;font-family:var(--font);font-size:13px}
+  width:auto;max-width:100%;border:none;border-radius:0;padding:4px 2px;background:#ffffff;color:#1e2226;font-family:var(--font);font-size:13px}
 .pdf-doc details summary::before{content:""}
 .pdf-doc .basis-item,.pdf-doc tr{break-inside:avoid}
 details{border-top:1px solid var(--line)}
@@ -325,7 +325,7 @@ const PROPS=[],PMAP={};
       if(rnd()<.05){const ks=Object.keys(chs); chs[ks[ks.length-1]]='unset';}
       const R=RULES[A.key];
       const c=ri(A.pp[0],A.pp[1]);
-      const p={id:'P'+String(i+1).padStart(3,'0'),name:`${sp}${pick(WORDS)} ${ri(1,9)}0${ri(1,6)}`,area:A.key,ward,owner,
+      const p={id:'P'+String(i+1).padStart(3,'0'),name:`${sp[i%sp.length]}${pick(WORDS)} ${ri(1,9)}0${ri(1,6)}`,area:A.key,ward,owner,
         filer:(isOverseas(owner)?rnd()<.6:rnd()<.18)?'op':'owner',src,chs,pp:[Math.round(c*.78),Math.round(c*1.2)],cap:ri(2,6),
         clean:rnd()<.8?ri(3,8)*1000:0,deemed:null,sepFlat:null};
       if(R.type==='tier'&&Object.values(chs).includes('inc')&&rnd()<.5){ const u=unitAt(R,c); p.deemed=rnd()<.6?u:Math.max(...R.tiers.map(t=>t[1]).filter(x=>x<u),u); }

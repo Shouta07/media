@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>宿泊税クラウド</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* Layout: 上部に細いヘッダーとタブ。本文は1カラム、表と文字だけで組み、色は「要確認」にだけ使う */
+:root{
+  --bg:#f4f5f6; --paper:#ffffff; --ink:#1e2226; --sub:#646b73; --faint:#8b929a; --line:#e3e5e8; --hover:#f7f8f9;
+  --accent:#1f4f8f; --accent-weak:#edf2f9; --on-accent:#ffffff;
+  --warn:#9c5700; --warn-weak:#fdf3e3; --ok:#2c7a4e; --ng:#b33a3a;
+  --font:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131619; --paper:#1b1f23; --ink:#e6e8eb; --sub:#a2a9b1; --faint:#7c848d; --line:#2d3238; --hover:#22272c;
+  --accent:#7aa7e6; --accent-weak:#1f2a3a; --on-accent:#0e1520;
+  --warn:#e8a54a; --warn-weak:#33270f; --ok:#5fc08a; --ng:#ee7d7d; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#131619; --paper:#1b1f23; --ink:#e6e8eb; --sub:#a2a9b1; --faint:#7c848d; --line:#2d3238; --hover:#22272c;
+  --accent:#7aa7e6; --accent-weak:#1f2a3a; --on-accent:#0e1520;
+  --warn:#e8a54a; --warn-weak:#33270f; --ok:#5fc08a; --ng:#ee7d7d; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.7;margin:0;font-variant-numeric:tabular-nums}
+h1,h2,h3{margin:0;line-height:1.4;text-wrap:balance}
+h1{font-size:20px;font-weight:700}
+h2{font-size:15px;font-weight:700}
+h3{font-size:14px;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sub{color:var(--sub)}
+.small{font-size:12.5px}
+.warn{color:var(--warn)}
+.r{text-align:right}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.top-in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:24px;min-height:54px}
+.logo{font-weight:700;font-size:15px;white-space:nowrap}
+.logo span{font-weight:400;color:var(--faint);font-size:12px;margin-left:8px}
+nav{display:flex;gap:2px;overflow-x:auto;flex:1;align-self:stretch}
+nav a{display:flex;align-items:center;gap:6px;padding:0 12px;color:var(--sub);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;font-size:13.5px}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+nav a .n{background:var(--warn);color:var(--paper);font-size:11px;border-radius:9px;padding:0 6px;line-height:17px;font-weight:700}
+
+.wrap{max-width:1080px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+.ph{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.ph p{color:var(--sub);margin-top:4px}
+.due{font-size:13px;color:var(--sub);text-align:right}
+.due b{color:var(--ink);font-size:15px}
+
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:8px;min-width:0}
+.pad{padding:20px 22px}
+.sec{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+
+/* home: steps */
+.steps{list-style:none;margin:0;padding:0}
+.steps li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 22px;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:none}
+.mk{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;border:1.5px solid var(--line);color:var(--faint)}
+.steps .done .mk{background:var(--ok);border-color:var(--ok);color:var(--paper)}
+.steps .now{background:var(--accent-weak)}
+.steps .now .mk{border-color:var(--accent);color:var(--accent);font-weight:700}
+.steps .t{font-weight:500}
+.steps .done .t{color:var(--sub)}
+.steps .wait .t{color:var(--sub)}
+.steps .d{font-size:12.5px;color:var(--sub)}
+
+.stats{display:grid;grid-template-columns:1.4fr 1fr 1fr;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.stat{padding:18px 22px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat .l{font-size:12.5px;color:var(--sub)}
+.stat .v{font-size:26px;font-weight:700;letter-spacing:.01em}
+.stat .v small{font-size:14px;font-weight:500;margin-left:2px}
+.stat .s{font-size:12px;color:var(--sub)}
+
+/* buttons, inputs */
+.btn{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:7px 14px;cursor:pointer;font-size:13px;white-space:nowrap}
+.btn:hover{background:var(--hover)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:500}
+.btn.pri:hover{filter:brightness(1.08)}
+.btn.sm{padding:4px 10px;font-size:12.5px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{border-color:transparent;background:none;color:var(--accent);padding-inline:6px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filters input,.filters select,select.in,input.in{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:7px 10px;font-size:13px;max-width:100%}
+.filters input[type=search]{flex:1 1 240px;min-width:0}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{border:none;background:none;padding:8px 12px;cursor:pointer;color:var(--sub);border-bottom:2px solid transparent;white-space:nowrap}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+
+/* table */
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{font-weight:500;color:var(--sub);font-size:12.5px;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right;white-space:nowrap}
+td.nw{white-space:nowrap}
+tr.click{cursor:pointer}
+tr.click:hover td{background:var(--hover)}
+td .sub{font-size:12px}
+.st-warn{color:var(--warn);font-weight:500;white-space:nowrap}
+.st-ok{color:var(--sub);white-space:nowrap}
+.st-ok::before{content:"✓ ";color:var(--ok)}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--sub);padding:10px 14px;border-top:1px solid var(--line);flex-wrap:wrap}
+.group-h td{background:var(--bg);font-weight:500;font-size:12.5px;color:var(--sub);padding-block:7px}
+
+/* review */
+.rv{display:grid;grid-template-columns:320px minmax(0,1fr);gap:20px;align-items:start}
+.rv-list{max-height:calc(100vh - 220px);overflow:auto}
+.rv-item{display:block;width:100%;text-align:left;border:none;background:none;padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.rv-item:hover{background:var(--hover)}
+.rv-item.on{background:var(--accent-weak);box-shadow:inset 3px 0 0 var(--accent)}
+.rv-item .nm{font-weight:500;display:block}
+.rv-item .why{font-size:12.5px;color:var(--warn)}
+.rv-item .meta{font-size:12px;color:var(--sub)}
+.rv-item.done .why{color:var(--sub)}
+.q{display:flex;flex-direction:column;gap:10px;padding:18px 0;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:none;padding-top:4px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:6px;padding:10px 12px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-weak)}
+.opt input{margin-top:5px}
+.opt .ex{display:block;font-size:12.5px;color:var(--sub)}
+.result{background:var(--bg);border-radius:6px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.result b{font-size:20px}
+.nights{font-size:12.5px;color:var(--sub)}
+
+/* statement */
+.doc{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:36px 40px;display:flex;flex-direction:column;gap:24px}
+.doc-h{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:16px;border-bottom:2px solid var(--ink)}
+.doc-h h2{font-size:19px}
+.doc-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:4px 0 14px;border-bottom:1px solid var(--line)}
+.doc-total b{font-size:28px}
+.callout{border-left:3px solid var(--ok);padding:2px 0 2px 14px}
+details{border-top:1px solid var(--line)}
+details summary{cursor:pointer;padding:10px 0;display:flex;justify-content:space-between;gap:10px;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"＋";color:var(--faint);margin-right:8px}
+details[open] summary::before{content:"－"}
+details summary span:first-child{flex:1}
+.basis{display:flex;flex-direction:column;gap:10px;padding:0 0 14px 22px;font-size:13px}
+.ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.tag{font-size:11.5px;border:1px solid var(--warn);color:var(--warn);border-radius:4px;padding:0 6px;white-space:nowrap}
+
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;font-size:13.5px;margin:0}
+.kv dt{color:var(--sub)}
+.kv dd{margin:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:none;background:var(--paper);padding:6px 12px;cursor:pointer;font-size:13px}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--accent);color:var(--on-accent)}
+.prog{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.prog li::before{content:"○ ";color:var(--faint)}
+.prog li.ok::before{content:"✓ ";color:var(--ok)}
+.prog li.run::before{content:"… ";color:var(--accent)}
+
+.modal-bg{position:fixed;inset:0;background:rgba(10,14,20,.45);display:grid;place-items:center;z-index:50;padding:16px}
+.modal{background:var(--paper);border-radius:8px;width:min(720px,100%);max-height:88vh;overflow:auto;padding:24px;display:flex;flex-direction:column;gap:16px;border:1px solid var(--line)}
+.modal-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.modal-f{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.x{background:none;border:none;font-size:22px;line-height:1;cursor:pointer;color:var(--faint)}
+textarea{width:100%;min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--bg);color:var(--ink)}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:6px;font-size:13px;z-index:60;max-width:calc(100% - 32px)}
+.foot{max-width:1080px;margin:0 auto;padding-block:0 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:11.5px;color:var(--faint);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot button{background:none;border:none;color:var(--faint);text-decoration:underline;cursor:pointer;font-size:11.5px;padding:0}
+
+@media (max-width:860px){
+  .top-in{flex-direction:column;align-items:stretch;gap:0;padding-top:10px}
+  nav{margin:0 -12px}
+  nav a{padding:10px 12px}
+  .stats{grid-template-columns:minmax(0,1fr)}
+  .stat+.stat{border-left:none;border-top:1px solid var(--line)}
+  .rv{grid-template-columns:minmax(0,1fr)}
+  .rv-list{max-height:280px}
+  .grid2{grid-template-columns:minmax(0,1fr)}
+  .doc{padding:22px 18px}
+  .steps li{padding:14px 16px;grid-template-columns:28px minmax(0,1fr)}
+  .steps li>:last-child:not(:nth-child(2)){grid-column:2}
+  .pad{padding:16px}
+}
+</style>
+
+<header class="top"><div class="top-in">
+  <div class="logo">宿泊税クラウド<span>画面イメージ</span></div>
+  <nav id="nav"></nav>
+</div></header>
+<main class="wrap" id="view"></main>
+<footer class="foot">
+  <span>※ データ・物件・オーナーはすべて架空です。税率と区分はデモ用の値です。<br>※ 申告・納入は特別徴収義務者の名義で行います。本サービスは集計と申告準備の支援で、税務代理は行いません。</span>
+  <button type="button" data-act="reset">デモを最初の状態に戻す</button>
+</footer>
+
+<script>
+/* ================= 基本 ================= */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=n=>Math.round(n).toLocaleString('ja-JP');
+const yen=n=>n==null?'—':num(n)+'円';
+const sum=(a,f)=>a.reduce((s,x)=>s+f(x),0);
+
+const NOW=new Date();
+const TY=NOW.getMonth()===0?NOW.getFullYear()-1:NOW.getFullYear();
+const TM=(NOW.getMonth()+11)%12;               // 対象月（0始まり）＝前月
+const DAYS=new Date(TY,TM+1,0).getDate();
+const DUE=new Date(NOW.getFullYear(),NOW.getMonth()+1,0);  // 翌月末
+const TODAY0=new Date(NOW.getFullYear(),NOW.getMonth(),NOW.getDate());
+const LEFT=Math.round((DUE-TODAY0)/864e5);
+const MLABEL=`${TY}年${TM+1}月分`;
+const md=d=>`${d.getMonth()+1}/${d.getDate()}`;
+const WD='日月火水木金土';
+const mdw=d=>`${md(d)}（${WD[d.getDay()]}）`;
+const dayLabel=day=>`${TM+1}/${day}`;
+const remind=[7,3,1].map(k=>{const d=new Date(DUE);d.setDate(d.getDate()-k);return d;});
+
+let seed=20261021;
+const rnd=()=>{seed=(seed*16807)%2147483647;return (seed-1)/2147483646;};
+const ri=(a,b)=>a+Math.floor(rnd()*(b-a+1));
+const pick=a=>a[Math.floor(rnd()*a.length)];
+
+/* ================= 自治体ルール（デモ用の値） ================= */
+const INF=Infinity;
+const RULES={
+  sapporo :{name:'札幌市',  pref:'北海道', type:'tier',tiers:[[20000,200],[50000,500],[INF,1000]],color:'#5b8def'},
+  kutchan :{name:'倶知安町',pref:'北海道', type:'pct', pct:0.02, color:'#7a6ff0',memo:'宿泊料金の2%'},
+  tokyo   :{name:'東京都',  pref:'東京都', type:'tier',tiers:[[10000,0],[15000,100],[INF,200]],color:'#d06aa8',memo:'2027年4月1日以降の宿泊分から料金の3%に変わる予定（デモ表示）'},
+  kanazawa:{name:'金沢市',  pref:'石川県', type:'tier',tiers:[[20000,200],[INF,500]],color:'#c9883a'},
+  kyoto   :{name:'京都市',  pref:'京都府', type:'tier',tiers:[[6000,200],[20000,400],[50000,1000],[100000,4000],[INF,10000]],color:'#b5544a'},
+  osaka   :{name:'大阪府',  pref:'大阪府', type:'tier',tiers:[[5000,0],[15000,200],[20000,400],[INF,500]],color:'#2f7fd1',cleanPending:true},
+  fukuoka :{name:'福岡市',  pref:'福岡県', type:'tier',tiers:[[20000,200],[INF,500]],color:'#2c9c8a'},
+  nagasaki:{name:'長崎市',  pref:'長崎県', type:'tier',tiers:[[10000,100],[20000,200],[INF,500]],color:'#6aa040'},
+  okinawa :{name:'沖縄県',  pref:'沖縄県', type:'pct', pct:0.02, cap:2000, color:'#e0a020',memo:'宿泊料金の2%（1人1泊 2,000円が上限）'},
+};
+const AREA_ORDER=Object.keys(RULES);
+const unitAt=(R,x)=>{for(const [lim,u] of R.tiers) if(x<lim) return u;};
+function tierLabel(R,i){
+  const lo=i===0?0:R.tiers[i-1][0], hi=R.tiers[i][0];
+  if(i===0) return `${num(hi)}円未満`;
+  if(hi===INF) return `${num(lo)}円以上`;
+  return `${num(lo)}円以上 ${num(hi)}円未満`;
+}
+
+/* 1人1泊の判定。税込み(inc)のときは税額を引いてから区分を決める */
+function judgeNight(R,raw,mode){
+  if(R.type==='pct'){
+    const ex=mode==='inc'?raw/(1+R.pct):raw;
+    let t=Math.floor(ex*R.pct); if(R.cap) t=Math.min(t,R.cap);
+    return {unit:t,base:Math.round(ex)};
+  }
+  if(mode!=='inc') return {unit:unitAt(R,raw),base:raw};
+  const units=[...new Set(R.tiers.map(t=>t[1]))];
+  const sols=units.filter(t=>unitAt(R,raw-t)===t);
+  if(sols.length===1) return {unit:sols[0],base:raw-sols[0]};
+  const opts=sols.length>1?sols:[...new Set([unitAt(R,raw-unitAt(R,raw)),unitAt(R,raw)])].sort((a,b)=>a-b);
+  return {border:true,opts,base:raw};
+}
+const BANDS={};
+function bands(key){
+  if(BANDS[key]) return BANDS[key];
+  const R=RULES[key]; if(R.type==='pct') return BANDS[key]=[];
+  const max=R.tiers[R.tiers.length-2][0]+12000, out=[]; let st=null;
+  for(let x=1;x<=max;x++){
+    const b=judgeNight(R,x,'inc').border;
+    if(b&&st==null) st=x; else if(!b&&st!=null){out.push([st,x-1]);st=null;}
+  }
+  return BANDS[key]=out;
+}
+
+/* ================= 架空データ ================= */
+const OWNERS=['株式会社なにわステイ','合同会社ミナミ不動産','株式会社北浜ホールディングス','株式会社ルームクラフト','合同会社京町家リビング','株式会社サクラレジデンス','株式会社ベイエリア開発','合同会社トラベルネスト','株式会社北斗リゾート','株式会社エメラルド沖縄','合同会社博多ゲストワークス','株式会社あおば管理','株式会社金沢町家','合同会社ひらふアルパイン','株式会社みらい住宅',
+'山本 和也','中村 美咲','小林 健太','加藤 由美','吉田 拓海','山田 恵子','松本 大輔','井上 彩','木村 誠','林 直子','清水 翔','森 理恵','池田 隆','橋本 真由','石川 浩二','前田 愛','藤田 一郎','岡田 さくら','後藤 亮','長谷川 綾',
+'Chen Wei','Lin Mei-hua','Lee Min-jun','Park Ji-yeon','Nguyen Thi Lan','Wong Ka-ho','Sarah Mitchell','David Tan','Olivia Brown','Lucas Martin','Harbor View Pte. Ltd.'];
+const isOverseas=o=>/^[A-Za-z]/.test(o);
+const AREAS=[
+  {key:'osaka',n:80,pp:[6500,19000],spots:[['大阪市中央区',['難波','心斎橋','日本橋','谷町']],['大阪市浪速区',['なんば','新今宮','桜川']],['大阪市西成区',['天下茶屋','岸里']],['大阪市北区',['梅田','中崎町','天満']],['大阪市天王寺区',['天王寺','上本町']],['大阪市生野区',['鶴橋','桃谷']],['大阪市西区',['九条','北堀江']],['大阪市福島区',['福島','野田']]]},
+  {key:'kyoto',n:18,pp:[7000,28000],spots:[['京都市東山区',['祇園','清水']],['京都市下京区',['四条','京都駅前']],['京都市中京区',['二条','烏丸']]]},
+  {key:'tokyo',n:16,pp:[8000,20000],spots:[['東京都台東区',['浅草','上野']],['東京都新宿区',['新宿','大久保']],['東京都墨田区',['錦糸町','押上']]]},
+  {key:'sapporo',n:6,pp:[9000,28000],spots:[['札幌市中央区',['すすきの','大通']]]},
+  {key:'kutchan',n:3,pp:[20000,55000],spots:[['北海道倶知安町',['ひらふ']]]},
+  {key:'kanazawa',n:4,pp:[9000,25000],spots:[['石川県金沢市',['東山','近江町']]]},
+  {key:'fukuoka',n:8,pp:[7000,23000],spots:[['福岡市博多区',['博多','中洲']],['福岡市中央区',['天神','大名']]]},
+  {key:'nagasaki',n:3,pp:[7000,19000],spots:[['長崎県長崎市',['大浦','新地']]]},
+  {key:'okinawa',n:6,pp:[9000,28000],spots:[['沖縄県那覇市',['国際通り','壺川']],['沖縄県北谷町',['美浜']]]},
+];
+const WORDS=['ステイ','ハウス','レジデンス','テラス','ロフト','イン','ベース','ルーム','ヴィラ'];
+const CH_B24=['Airbnb','Booking.com','Expedia','Agoda','自社サイト'];
+const CH_TMI=['Booking.com','楽天トラベル','じゃらん','Expedia','自社サイト'];
+const SRC_NAME={beds24:'Beds24',tema:'手間いらず'};
+
+const PROPS=[],PMAP={};
+(function genProps(){
+  const perm=OWNERS.map((o,i)=>i).sort(()=>rnd()-.5);
+  let i=0;
+  for(const A of AREAS){
+    for(let k=0;k<A.n;k++,i++){
+      const [ward,sp]=pick(A.spots);
+      const owner=i<perm.length?OWNERS[perm[i]]:OWNERS[rnd()<.6?ri(0,14):ri(15,OWNERS.length-1)];
+      const src=rnd()<.75?'beds24':'tema';
+      const pool=src==='beds24'?CH_B24:CH_TMI;
+      const chs={};
+      if(src==='beds24'&&rnd()<.88) chs['Airbnb']=rnd()<.45?'inc':'sep';
+      const want=ri(2,4);
+      for(const c of [...pool].sort(()=>rnd()-.5)){ if(Object.keys(chs).length>=want) break; if(!chs[c]) chs[c]=(c==='楽天トラベル'||c==='じゃらん')&&rnd()<.2?'inc':'sep'; }
+      if(rnd()<.05){const ks=Object.keys(chs); chs[ks[ks.length-1]]='unset';}
+      const R=RULES[A.key];
+      const c=ri(A.pp[0],A.pp[1]);
+      const p={id:'P'+String(i+1).padStart(3,'0'),name:`${sp}${pick(WORDS)} ${ri(1,9)}0${ri(1,6)}`,area:A.key,ward,owner,
+        filer:(isOverseas(owner)?rnd()<.6:rnd()<.18)?'op':'owner',src,chs,pp:[Math.round(c*.78),Math.round(c*1.2)],cap:ri(2,6),
+        clean:rnd()<.8?ri(3,8)*1000:0,deemed:null,sepFlat:null};
+      if(R.type==='tier'&&Object.values(chs).includes('inc')&&rnd()<.5){ const u=unitAt(R,c); p.deemed=rnd()<.6?u:Math.max(...R.tiers.map(t=>t[1]).filter(x=>x<u),u); }
+      if((A.key==='osaka'||A.key==='kyoto')&&rnd()<.15) p.sepFlat=200;
+      PROPS.push(p);PMAP[p.id]=p;
+    }
+  }
+})();
+
+const RES=[],RMAP={};
+(function genRes(){
+  for(const p of PROPS){
+    let d=ri(1,3);
+    while(true){
+      const n=pick([1,2,2,2,3,3,4,5,6]);
+      if(d+n-1>DAYS) break;
+      const ch=pick(Object.keys(p.chs)), pax=ri(1,p.cap), pp=ri(p.pp[0],p.pp[1]);
+      const nights=[];
+      for(let k=0;k<n;k++){const day=d+k,wd=new Date(TY,TM,day).getDay(),f=(wd===5||wd===6)?1.22:1;
+        nights.push({day,cal:Math.round(pp*pax*f*(0.94+rnd()*.12)/100)*100});}
+      const sumCal=sum(nights,x=>x.cal);
+      const calFill=p.src==='beds24'&&ch==='Airbnb'&&n>=2;
+      const mismatch=calFill&&rnd()<.09;
+      const r={id:(p.src==='beds24'?'B24-':'TMI-')+String(ri(1000000,9999999)),pid:p.id,ch,pax,nights,calFill,mismatch,
+        total:mismatch?Math.round(sumCal*(0.84+rnd()*.08)/100)*100:sumCal,
+        clean:p.clean,other:p.src==='tema'&&rnd()<.06?pick([1500,2000,3000]):0,taxLine:rnd()<.85};
+      RES.push(r);RMAP[r.id]=r;
+      d+=n+ri(0,3);
+    }
+  }
+})();
+
+/* ================= 状態（このブラウザだけに保存） ================= */
+const KEY='stax2-state';
+const def=()=>({fix:{},ov:{},filer:{},clean:'split',closed:false,filed:false});
+let state=def();
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s) state=Object.assign(def(),s);}catch(e){}
+let J=null;
+function save(){J=null;try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+
+const effMode=(p,ch)=>state.ov[p.id+'|'+ch]||p.chs[ch];
+const filerOf=p=>state.filer[p.id]||p.filer;
+const filerName=p=>filerOf(p)==='op'?'貴社':p.owner;
+const MODE_L={sep:'別途徴収',inc:'税込み',unset:'未設定'};
+const SRC_L={data:'予約データ',cal:'料金カレンダーで補完',mis:'合計と合わない'};
+const REASON={mismatch:'合計不一致',border:'境目の金額',other:'清掃料の扱い',unset:'税込み/別途が未設定'};
+
+function prorate(cal,total){const s=sum(cal,x=>x);let acc=0;return cal.map((c,i)=>{if(i===cal.length-1) return total-acc;const v=Math.round(c*total/s/10)*10;acc+=v;return v;});}
+
+function judgeRes(r,o={}){
+  const p=PMAP[r.pid],R=RULES[p.area],f=(o.fix!==undefined?o.fix:state.fix[r.id])||{};
+  const issues=[];
+  let mode=effMode(p,r.ch);
+  if(mode==='unset'){issues.push('unset');mode=f.mode||'sep';}
+  let prices=r.nights.map(n=>n.cal);
+  if(r.mismatch){issues.push('mismatch');const m=f.mis||'prorate';
+    if(m==='prorate') prices=prorate(prices,r.total); else if(m==='manual'&&f.manual) prices=f.manual.slice();}
+  let cleanTotal=r.clean;
+  if(r.other){issues.push('other'); if((f.other||'exclude')==='clean') cleanTotal+=r.other;}
+  const cm=R.cleanPending?(o.clean||state.clean):'split';
+  let tax=0,border=false;
+  const lines=prices.map((price,i)=>{
+    const alloc=cm==='split'?cleanTotal/prices.length:(i===0?cleanTotal:0);
+    const raw=Math.floor((price+alloc)/r.pax);
+    const j=judgeNight(R,raw,mode);
+    let unit=j.unit,picked=false;
+    if(j.border){border=true;const b=f.border&&f.border[i];if(b!=null){unit=b;picked=true;}else unit=j.opts[j.opts.length-1];}
+    tax+=unit*r.pax;
+    return {i,day:r.nights[i].day,price,alloc,raw,unit,border:!!j.border,opts:j.opts,base:j.border?raw-unit:j.base,picked};
+  });
+  if(border) issues.push('border');
+  const status=f.done?'fixed':(issues.length?'pending':'auto');
+  let collected=null;
+  if(mode==='sep'&&r.taxLine) collected=p.sepFlat?p.sepFlat*r.pax*r.nights.length:tax;
+  else if(mode==='inc'&&p.deemed!=null) collected=p.deemed*r.pax*r.nights.length;
+  return {r,p,R,mode,lines,tax,issues,status,collected,src:r.mismatch?'mis':(r.calFill?'cal':'data'),cm,cleanTotal,pn:r.pax*r.nights.length};
+}
+const ALL=()=>J||(J=RES.map(r=>judgeRes(r)));
+const CONF=()=>ALL().filter(x=>x.status!=='pending');
+const PEND=()=>ALL().filter(x=>x.status==='pending');
+
+function groups(){
+  const m=new Map();
+  for(const x of ALL()){
+    const name=filerName(x.p),k=name+'|'+x.p.area;
+    if(!m.has(k)) m.set(k,{k,name,filer:filerOf(x.p),area:x.p.area,props:new Set(),rows:[]});
+    const g=m.get(k);g.props.add(x.p.id);g.rows.push(x);
+  }
+  for(const p of PROPS){const k=filerName(p)+'|'+p.area;if(!m.has(k)) m.set(k,{k,name:filerName(p),filer:filerOf(p),area:p.area,props:new Set([p.id]),rows:[]});else m.get(k).props.add(p.id);}
+  return [...m.values()].sort((a,b)=>AREA_ORDER.indexOf(a.area)-AREA_ORDER.indexOf(b.area)||(a.filer===b.filer?a.name.localeCompare(b.name,'ja'):a.filer==='op'?-1:1));
+}
+
+
+/* ================= 表示の部品 ================= */
+const ISSUE_TEXT={mismatch:'料金の合計が合わない',border:'区分の境目の金額',other:'清掃料かどうか不明な料金',unset:'税込みか別途か未設定'};
+const st=x=>x.status==='pending'?'<span class="st-warn">要確認</span>':'<span class="st-ok">確定</span>';
+const stay=r=>`${dayLabel(r.nights[0].day)}から${r.nights.length}泊・${r.pax}人`;
+function nightsText(x){return x.lines.map(l=>`${dayLabel(l.day)} ${num(l.base)}円 → ${num(l.unit)}円`).join(' ／ ')+` ／ 合計 ${yen(x.tax)}（${x.r.pax}人）`;}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2600);}
+function modal(html){closeModal();const bg=document.createElement('div');bg.className='modal-bg';bg.id='mbg';bg.innerHTML=`<div class="modal" role="dialog" aria-modal="true">${html}</div>`;bg.addEventListener('click',e=>{if(e.target===bg) closeModal();});document.body.appendChild(bg);}
+function closeModal(){const m=$('#mbg');if(m) m.remove();}
+function copyText(t,btn){
+  const fb=()=>{const ta=btn&&btn.closest('.modal')?.querySelector('textarea');if(ta){ta.focus();ta.select();toast('選択しました。⌘+C（Ctrl+C）でコピーしてください');}else toast('コピーできませんでした');};
+  try{navigator.clipboard.writeText(t).then(()=>toast('コピーしました'),fb);}catch(e){fb();}
+}
+function csvModal(title,rows){
+  const csv=rows.map(r=>r.map(v=>{v=String(v??'');return /[",\n]/.test(v)?`"${v.replace(/"/g,'""')}"`:v;}).join(',')).join('\n');
+  modal(`<div class="modal-h"><div><h2>${esc(title)}</h2><p class="sub small">画面イメージではファイルを保存できないため、中身を表示しています。</p></div><button class="x" data-act="close" aria-label="閉じる">×</button></div>
+  <textarea id="csv-out" readonly>${esc(csv)}</textarea>
+  <div class="modal-f"><button class="btn" data-act="close">閉じる</button><button class="btn pri" data-act="copy-csv">コピー</button></div>`);
+}
+const pageHead=(t,p)=>`<div class="ph"><div><h1>${t}</h1>${p?`<p>${p}</p>`:''}</div><div class="due">${MLABEL}・申告期限 <b>${mdw(DUE)}</b></div></div>`;
+
+/* ================= 画面 ================= */
+const ROUTES=[['home','ホーム'],['review','要確認'],['reservations','予約'],['statement','オーナー明細'],['filing','申告'],['setup','設定']];
+const UI={sel:null,res:{q:'',area:'',st:'',page:0},prop:{q:'',area:'',owner:'',filer:''},owner:'',filing:{q:'',area:''},tab:'props',imp:null};
+const views={},hooks={};
+
+/* ---- ホーム ---- */
+views.home=()=>{
+  const A=ALL(),C=CONF(),P=PEND();
+  const total=sum(C,x=>x.tax),wc=C.filter(x=>x.collected!=null),diff=sum(wc,x=>x.tax-x.collected);
+  const step=(s,t,d,act)=>`<li class="${s}"><span class="mk">${s==='done'?'✓':''}</span><div><div class="t">${t}</div><div class="d">${d}</div></div>${act||''}</li>`;
+  const pend=P.length;
+  return `${pageHead(`${TM+1}月分の宿泊税`,'予約を1泊ずつ判定しました。自動で決められなかった予約だけ確認してください。')}
+  <section class="panel"><ol class="steps">
+    ${step('done','予約データの取り込み',`Beds24・手間いらずから ${num(RES.length)}件`)}
+    ${step('done','1泊ごとの判定',`${num(sum(A,x=>x.r.nights.length))}泊分を自治体のルールで判定`)}
+    ${step(pend?'now':'done','要確認の確認',pend?`あと ${pend}件。確定した予約だけが集計に入ります`:'すべて確認しました',pend?'<a class="btn pri" href="#review">確認をはじめる</a>':'')}
+    ${step(state.closed?'done':pend?'wait':'now','今月分の確定・オーナー明細の送付',state.closed?'確定しました。明細を代行明細書に添付できます':'代行明細書（毎月20日ごろ）に添付します',state.closed?'<a class="btn" href="#statement">明細を見る</a>':`<button class="btn ${pend?'':'pri'}" data-act="close-month" ${pend?'disabled':''}>今月分を確定</button>`)}
+    ${step(state.filed?'done':state.closed?'now':'wait','申告',state.filed?'申告用の集計表を出力しました':`期限 ${mdw(DUE)}（あと${LEFT}日）`,state.closed&&!state.filed?'<a class="btn pri" href="#filing">申告の準備へ</a>':'')}
+  </ol></section>
+  <section class="stats">
+    <div class="stat"><span class="l">本来預かるべき宿泊税（確定分）</span><span class="v">${num(total)}<small>円</small></span>
+      <span class="s">預かった額との差 ${diff>0?'+':''}${yen(diff)}（データで確認できた ${num(wc.length)}件のみ）</span></div>
+    <div class="stat"><span class="l">要確認</span><span class="v ${pend?'warn':''}">${pend}<small>件</small></span><span class="s">${pend?'まだ集計に入っていません':'残りはありません'}</span></div>
+    <div class="stat"><span class="l">申告期限まで</span><span class="v">${LEFT}<small>日</small></span><span class="s">${remind.map(md).join('・')} にメールでお知らせ</span></div>
+  </section>`;
+};
+
+/* ---- 要確認 ---- */
+let draft=null;
+views.review=()=>{
+  const L=ALL().filter(x=>x.issues.length||x.status==='fixed').sort((a,b)=>(a.status==='pending'?0:1)-(b.status==='pending'?0:1));
+  const P=L.filter(x=>x.status==='pending');
+  if(!UI.sel||!RMAP[UI.sel]) UI.sel=(P[0]||L[0])?.r.id||null;
+  return `${pageHead('要確認',P.length?`${P.length}件あります。内容を選んで確定すると、集計に入ります。`:'すべて確定しました。')}
+  <div class="rv">
+    <section class="panel"><div class="rv-list">${L.map(x=>`<button class="rv-item ${x.r.id===UI.sel?'on':''} ${x.status!=='pending'?'done':''}" data-act="sel" data-id="${x.r.id}">
+      <span class="nm">${esc(x.p.name)}</span><span class="why">${x.status==='pending'?x.issues.map(i=>ISSUE_TEXT[i]).join('、'):'確定済み'}</span><br><span class="meta">${RULES[x.p.area].name}・${stay(x.r)}</span></button>`).join('')}</div>
+      ${P.length?`<div class="pager"><span>デモ用</span><button class="btn ghost" data-act="bulk-fix">残りをおすすめの内容で確定</button></div>`:''}
+    </section>
+    <section class="panel pad" id="rv-detail"></section>
+  </div>`;
+};
+hooks.review=()=>{if(UI.sel) openReview(UI.sel); else $('#rv-detail').innerHTML='<p class="sub">要確認はありません。</p>';};
+function openReview(id){
+  const r=RMAP[id],p=PMAP[r.pid];
+  const f=state.fix[id]||{};
+  draft={mis:f.mis||'prorate',manual:f.manual||prorate(r.nights.map(n=>n.cal),r.total),other:f.other||'exclude',border:Object.assign({},f.border||{}),mode:f.mode||(p.chs[r.ch]==='unset'?'sep':undefined)};
+  const base=judgeRes(r,{fix:{}});
+  const sumCal=sum(r.nights,n=>n.cal);
+  const opt=(name,v,on,title,ex)=>`<label class="opt"><input type="radio" name="${name}" value="${v}" ${on?'checked':''}><span>${title}${ex?`<span class="ex">${ex}</span>`:''}</span></label>`;
+  let h=`<div class="sec-h"><div><h2>${esc(p.name)}</h2><p class="sub small">${esc(p.owner)}・${RULES[p.area].name}・${r.ch}・${stay(r)}</p></div><span class="sub small">${r.id}</span></div><div>`;
+  if(base.issues.includes('unset')||f.mode) h+=`<div class="q"><h3>${r.ch} の料金に宿泊税は含まれていますか？</h3><p class="sub small">この物件の ${r.ch} は、まだ設定がありません。選んだ内容は同じチャネルの予約すべてに使います。</p>
+    <div class="opts">${opt('mode','sep',draft.mode==='sep','含まれていない（別途で受け取っている）')}${opt('mode','inc',draft.mode==='inc','含まれている（税込み）','料金から税額を引いてから区分を判定します')}</div></div>`;
+  if(r.mismatch) h+=`<div class="q"><h3>1泊ごとの料金が、予約の合計と合いません</h3><p class="sub small">料金カレンダーの合計 ${yen(sumCal)} ／ 予約の合計 ${yen(r.total)}。連泊割引などが考えられます。</p>
+    <div class="opts">${opt('mis','prorate',draft.mis==='prorate','予約の合計を、カレンダーの料金の比率で分ける（おすすめ）',prorate(r.nights.map(n=>n.cal),r.total).map((v,i)=>`${dayLabel(r.nights[i].day)} ${num(v)}円`).join(' ／ '))}
+    ${opt('mis','calendar',draft.mis==='calendar','カレンダーの料金をそのまま使う',r.nights.map(n=>`${dayLabel(n.day)} ${num(n.cal)}円`).join(' ／ '))}
+    ${opt('mis','manual',draft.mis==='manual','1泊ごとの料金を入力する')}</div>
+    <div class="filters" id="manual-box" ${draft.mis==='manual'?'':'hidden'}>${r.nights.map((n,i)=>`<label class="small">${dayLabel(n.day)}<br><input class="in" type="number" id="man-${i}" data-man="${i}" value="${draft.manual[i]}" step="100" min="0" style="width:120px"></label>`).join('')}</div></div>`;
+  if(r.other) h+=`<div class="q"><h3>「追加料金 ${yen(r.other)}」は清掃料ですか？</h3><p class="sub small">手間いらずのデータで、清掃料（${yen(r.clean)}）とは別に計上されています。</p>
+    <div class="opts">${opt('other','clean',draft.other==='clean','清掃料として宿泊料金に含める')}${opt('other','exclude',draft.other==='exclude','含めない','リネン追加など、宿泊料金ではないもの')}</div></div>`;
+  h+=`<div id="rv-border"></div></div><div id="rv-result"></div>
+  <div class="modal-f" style="margin-top:14px"><button class="btn pri" data-act="confirm-review" data-id="${id}">確定して次へ</button></div>`;
+  $('#rv-detail').innerHTML=h;
+  refreshReview(id);
+}
+function refreshReview(id){
+  const r=RMAP[id],x=judgeRes(r,{fix:Object.assign({},draft,{done:false})});
+  const bl=x.lines.filter(l=>l.border);
+  $('#rv-border').innerHTML=bl.map(l=>{const cur=draft.border[l.i]??l.opts[l.opts.length-1];return `<div class="q"><h3>${dayLabel(l.day)} の1人1泊の税額はどちらですか？</h3>
+    <p class="sub small">税込みで1人1泊 ${num(l.raw)}円。税額を引くと区分の境目にかかるため、自動では決められません。</p>
+    <div class="seg">${l.opts.map(o=>`<button type="button" class="${cur===o?'on':''}" data-act="pick-border" data-i="${l.i}" data-v="${o}">${num(o)}円${o===l.opts[l.opts.length-1]?'（おすすめ）':''}</button>`).join('')}</div></div>`;}).join('');
+  $('#rv-result').innerHTML=`<div class="result"><span>この内容で確定すると</span><b>宿泊税 ${yen(x.tax)}</b><div class="nights" style="flex-basis:100%">${nightsText(x)}</div></div>`;
+}
+function confirmReview(id){
+  const r=RMAP[id],p=PMAP[r.pid],x=judgeRes(r,{fix:Object.assign({},draft)});
+  const border={};x.lines.forEach(l=>{if(l.border) border[l.i]=draft.border[l.i]??l.opts[l.opts.length-1];});
+  if(draft.mode&&p.chs[r.ch]==='unset') state.ov[p.id+'|'+r.ch]=draft.mode;
+  state.fix[id]={mis:draft.mis,manual:draft.manual,other:draft.other,border,mode:draft.mode,done:true};
+  save();
+  const next=PEND()[0];UI.sel=next?next.r.id:id;
+  render();toast(next?'確定しました。次の予約です':'すべて確定しました');
+}
+function bulkFix(){
+  for(const x of PEND()) if(x.issues.includes('unset')) state.ov[x.p.id+'|'+x.r.ch]='sep';
+  J=null;
+  for(const x of PEND()){const border={};x.lines.forEach(l=>{if(l.border) border[l.i]=l.opts[l.opts.length-1];});state.fix[x.r.id]={mis:'prorate',other:'exclude',border,done:true};}
+  save();render();toast('残りをおすすめの内容で確定しました');
+}
+
+/* ---- 予約 ---- */
+const areaOpts=v=>`<option value="">すべての自治体</option>${AREA_ORDER.map(k=>`<option value="${k}" ${v===k?'selected':''}>${RULES[k].name}</option>`).join('')}`;
+views.reservations=()=>`${pageHead('予約','行を押すと、1泊ごとの計算を確認できます。')}
+  <div class="filters">
+    <input type="search" id="res-q" data-f="res.q" placeholder="物件名・オーナー・予約IDで検索" value="${esc(UI.res.q)}">
+    <select id="res-area" data-f="res.area">${areaOpts(UI.res.area)}</select>
+    <select id="res-st" data-f="res.st"><option value="">すべての状態</option><option value="pending" ${UI.res.st==='pending'?'selected':''}>要確認</option><option value="ok" ${UI.res.st==='ok'?'selected':''}>確定</option></select>
+  </div>
+  <section class="panel" id="res-list"></section>`;
+hooks.reservations=()=>{
+  const u=UI.res,q=u.q.trim().toLowerCase();
+  const A=ALL().filter(x=>(!u.area||x.p.area===u.area)&&(!u.st||(u.st==='pending')===(x.status==='pending'))&&(!q||(x.r.id+x.p.name+x.p.owner).toLowerCase().includes(q)));
+  const per=50,pages=Math.max(1,Math.ceil(A.length/per));if(u.page>=pages) u.page=pages-1;
+  $('#res-list').innerHTML=`<div class="tw"><table><thead><tr><th>物件</th><th>自治体</th><th>宿泊</th><th class="r">宿泊税</th><th>状態</th></tr></thead><tbody>
+  ${A.slice(u.page*per,u.page*per+per).map(x=>`<tr class="click" data-act="basis" data-id="${x.r.id}"><td>${esc(x.p.name)}<br><span class="sub">${esc(x.p.owner)}</span></td><td class="nw">${RULES[x.p.area].name}</td><td class="nw">${stay(x.r)}<br><span class="sub">${x.r.ch}</span></td><td class="r">${x.status==='pending'?'<span class="sub">―</span>':yen(x.tax)}</td><td>${st(x)}</td></tr>`).join('')}
+  </tbody></table></div>
+  <div class="pager"><span>${num(A.length)}件</span><span class="filters"><button class="btn sm" data-act="page" data-d="-1" ${u.page===0?'disabled':''}>前へ</button><span>${u.page+1} / ${pages}</span><button class="btn sm" data-act="page" data-d="1" ${u.page>=pages-1?'disabled':''}>次へ</button></span></div>`;
+};
+function showBasis(id){
+  const x=judgeRes(RMAP[id]),r=x.r,p=x.p,R=x.R;
+  modal(`<div class="modal-h"><div><h2>${esc(p.name)}</h2><p class="sub small">${esc(p.owner)}・${R.name}・${r.ch}・${stay(r)}</p></div><button class="x" data-act="close" aria-label="閉じる">×</button></div>
+  <div class="tw"><table><thead><tr><th>宿泊日</th><th class="r">1人1泊の金額</th><th class="r">1人1泊の税額</th><th class="r">${r.pax}人分</th></tr></thead><tbody>
+  ${x.lines.map(l=>`<tr><td>${dayLabel(l.day)}（${WD[new Date(TY,TM,l.day).getDay()]}）</td><td class="r">${yen(l.base)}</td><td class="r">${yen(l.unit)}${l.border&&x.status==='pending'?' <span class="tag">境目</span>':''}</td><td class="r">${yen(l.unit*r.pax)}</td></tr>`).join('')}
+  <tr><td colspan="3"><b>合計</b></td><td class="r"><b>${yen(x.tax)}</b></td></tr></tbody></table></div>
+  <dl class="kv small">
+    <dt>1泊の料金</dt><dd>${SRC_L[x.src]==='予約データ'?'予約データの料金':x.src==='cal'?'合計金額しかないため、料金カレンダーの料金で分けました':'カレンダーの料金の合計が予約の合計と合わないため、要確認です'}</dd>
+    <dt>清掃料</dt><dd>${x.cleanTotal?`${yen(x.cleanTotal)} を${x.cm==='split'?'泊数で按分':'初泊に計上'}して1人1泊の金額に含めています${R.cleanPending?'（府税事務所に確認中）':''}`:'なし'}</dd>
+    <dt>税込み／別途</dt><dd>${MODE_L[x.mode]}${x.mode==='inc'?'。料金から税額を引いた金額で区分を判定しています':''}</dd>
+    <dt>預かった額</dt><dd>${x.collected==null?'データで確認できないため、差は出していません':`${yen(x.collected)}（差 ${x.tax-x.collected>0?'+':''}${yen(x.tax-x.collected)}）`}</dd>
+  </dl>
+  <div class="modal-f">${x.status==='pending'?`<a class="btn pri" href="#review" data-act="goto-review" data-id="${id}">確認する</a>`:''}<button class="btn" data-act="close">閉じる</button></div>`);
+}
+
+/* ---- オーナー明細 ---- */
+function ownerList(){const m={};for(const p of PROPS)(m[p.owner]=m[p.owner]||[]).push(p);return Object.entries(m).sort((a,b)=>b[1].length-a[1].length);}
+views.statement=()=>{
+  const OL=ownerList();if(!UI.owner) UI.owner=OL[0][0];
+  const o=UI.owner,props=PROPS.filter(p=>p.owner===o),ids=new Set(props.map(p=>p.id));
+  const A=ALL().filter(x=>ids.has(x.p.id)),C=A.filter(x=>x.status!=='pending'),P=A.length-C.length;
+  const modes=[];for(const p of props) for(const c of Object.keys(p.chs)){const m=effMode(p,c);if(m==='inc') modes.push(c);}
+  const incCh=[...new Set(modes)];
+  return `${pageHead('オーナー明細','代行明細書（毎月20日ごろ送付）に添付する宿泊税の明細です。')}
+  <div class="filters"><select class="in" id="own" data-f="owner" aria-label="オーナー">${OL.map(([n,ps])=>`<option value="${esc(n)}" ${n===o?'selected':''}>${esc(n)}（${ps.length}物件）</option>`).join('')}</select>
+    <span style="margin-left:auto" class="filters"><button class="btn" data-act="owner-csv">CSV</button><button class="btn" data-act="owner-pdf">PDF</button></span></div>
+  ${P?`<p class="warn small">この方の物件に要確認が ${P}件 あります。確定するまで明細には入りません。</p>`:''}
+  <article class="doc">
+    <div class="doc-h"><div><p class="sub small">代行明細書 添付</p><h2>宿泊税明細　${MLABEL}</h2><p style="margin-top:6px">${esc(o)} 様</p></div>
+      <p class="small sub" style="text-align:right">発行　貴社<br>集計日　${md(NOW)}<br>申告期限　${mdw(DUE)}</p></div>
+    <div class="callout"><b>宿泊税の計算は済ませています。オーナー様ご自身での計算は不要です。</b></div>
+    <div class="doc-total"><span>本来預かるべき宿泊税<br><span class="sub small">${props.length}物件・${C.length}件・${num(sum(C,x=>x.pn))}人泊</span></span><b>${yen(sum(C,x=>x.tax))}</b></div>
+    <div class="tw"><table><thead><tr><th>物件</th><th>自治体</th><th>申告名義</th><th class="r">人泊</th><th class="r">宿泊税</th></tr></thead><tbody>
+    ${props.map(p=>{const c=C.filter(x=>x.p.id===p.id);return `<tr><td>${esc(p.name)}</td><td>${RULES[p.area].name}</td><td>${filerOf(p)==='op'?'貴社':'オーナー様'}</td><td class="r">${num(sum(c,x=>x.pn))}</td><td class="r">${yen(sum(c,x=>x.tax))}</td></tr>`;}).join('')}
+    </tbody></table></div>
+    <div class="sec"><h3>1泊ごとの根拠</h3><div>
+    ${props.map(p=>{const c=C.filter(x=>x.p.id===p.id);return `<details><summary><span>${esc(p.name)}</span><span>${c.length}件・${yen(sum(c,x=>x.tax))}</span></summary><div class="basis">${c.length?c.map(x=>`<div><span class="sub small">${stay(x.r)}・${x.r.ch}</span><br>${nightsText(x)}</div>`).join(''):'<span class="sub">確定した予約はありません</span>'}</div></details>`;}).join('')}
+    </div></div>
+    <div class="sec"><h3>計算の前提</h3><ul class="ul small">
+      <li>1人1泊の金額 ＝（1泊の料金 ＋ 清掃料）÷ 人数。この金額で1泊ずつ区分を判定し、合計しています。</li>
+      <li>清掃料は${state.clean==='split'?'泊数で按分':'初泊に計上'}しています。${props.some(p=>p.area==='osaka')?'<span class="tag">大阪府は府税事務所に確認中</span>':''}</li>
+      <li>${incCh.length?`${incCh.join('・')} は税込みのため、料金から税額を引いて判定しています。そのほかは別途徴収です。`:'すべてのチャネルで宿泊税を別途徴収しています。'}</li>
+      <li>合計金額しかない予約（Airbnb など）は、料金カレンダーの料金で1泊ごとに分けています。</li>
+    </ul></div>
+    <p class="small sub">申告内容の最終確認は、特別徴収義務者（申告名義の方）が行います。本明細は集計と申告準備の支援で、税務代理は行いません。</p>
+  </article>`;
+};
+function ownerCSV(){
+  const o=UI.owner,ids=new Set(PROPS.filter(p=>p.owner===o).map(p=>p.id));
+  const rows=[['物件ID','物件名','自治体','申告名義','予約ID','チャネル','税込み/別途','宿泊日','人数','1泊の料金','清掃料の割り当て','1人1泊の金額','1人1泊の税額','宿泊税']];
+  for(const x of CONF().filter(x=>ids.has(x.p.id))) for(const l of x.lines)
+    rows.push([x.p.id,x.p.name,x.R.name,filerName(x.p),x.r.id,x.r.ch,MODE_L[x.mode],`${TY}/${TM+1}/${l.day}`,x.r.pax,l.price,Math.round(l.alloc),l.base,l.unit,l.unit*x.r.pax]);
+  csvModal(`${o} 様　宿泊税明細（${MLABEL}）`,rows);
+}
+
+/* ---- 申告 ---- */
+views.filing=()=>`${pageHead('申告','申告名義と自治体の組み合わせごとに、申告書へ写す数字をまとめます。')}
+  ${state.closed?'':'<p class="warn small">今月分がまだ確定していません。要確認の予約は集計に入っていません。</p>'}
+  <div class="filters">
+    <input type="search" id="fil-q" data-f="filing.q" placeholder="申告名義で検索" value="${esc(UI.filing.q)}">
+    <select id="fil-area" data-f="filing.area">${areaOpts(UI.filing.area)}</select>
+    <span style="margin-left:auto">${state.filed?'<span class="st-ok">集計表を出力済み</span>':`<button class="btn pri" data-act="mark-filed" ${state.closed?'':'disabled'}>集計表を出力済みにする</button>`}</span>
+  </div>
+  <section class="panel" id="fil-list"></section>`;
+hooks.filing=()=>{
+  const u=UI.filing,q=u.q.trim().toLowerCase();
+  const G=groups().filter(g=>(!u.area||g.area===u.area)&&(!q||g.name.toLowerCase().includes(q)));
+  let rows='';
+  for(const k of AREA_ORDER){const gs=G.filter(g=>g.area===k);if(!gs.length) continue;
+    rows+=`<tr class="group-h"><td colspan="4">${RULES[k].pref} ${RULES[k].name}　${gs.length}件</td></tr>`;
+    rows+=gs.map(g=>{const c=g.rows.filter(x=>x.status!=='pending'),p=g.rows.length-c.length;return `<tr class="click" data-act="filing-detail" data-k="${esc(g.k)}"><td>${g.filer==='op'?'<b>貴社</b>':esc(g.name)}</td><td class="r">${g.props.size}物件</td><td class="r">${yen(sum(c,x=>x.tax))}</td><td>${p?`<span class="st-warn">要確認 ${p}件</span>`:'<span class="st-ok">そろっています</span>'}</td></tr>`;}).join('');}
+  $('#fil-list').innerHTML=`<div class="tw"><table><thead><tr><th>申告名義</th><th class="r">物件</th><th class="r">宿泊税（確定分）</th><th>状態</th></tr></thead><tbody>${rows}</tbody></table></div><div class="pager"><span>${G.length}件の申告・期限はすべて ${mdw(DUE)}</span></div>`;
+};
+function filingDetail(k){
+  const g=groups().find(x=>x.k===k),R=RULES[g.area],c=g.rows.filter(x=>x.status!=='pending');
+  let body;
+  if(R.type==='tier'){
+    const t=R.tiers.map((tr,i)=>({lab:tierLabel(R,i),u:tr[1],pn:0}));
+    for(const x of c) for(const l of x.lines){const e=t.find(z=>z.u===l.unit);if(e) e.pn+=x.r.pax;}
+    body=`<table><thead><tr><th>1人1泊の金額</th><th class="r">税額</th><th class="r">人泊数</th><th class="r">税額の計</th></tr></thead><tbody>${t.map(z=>`<tr><td>${z.lab}</td><td class="r">${num(z.u)}円</td><td class="r">${num(z.pn)}</td><td class="r">${yen(z.u*z.pn)}</td></tr>`).join('')}</tbody></table>`;
+  }else{
+    body=`<table><tbody><tr><td>宿泊料金の合計（税抜き）</td><td class="r">${yen(sum(c,x=>sum(x.lines,l=>l.base*x.r.pax)))}</td></tr><tr><td>人泊数</td><td class="r">${num(sum(c,x=>x.pn))}</td></tr></tbody></table><p class="sub small">${R.memo}</p>`;
+  }
+  const total=sum(c,x=>x.tax),pend=g.rows.length-c.length;
+  modal(`<div class="modal-h"><div><h2>申告用の集計表</h2><p class="sub small">${esc(g.filer==='op'?'貴社':g.name+' 様')}・${R.pref} ${R.name}・${MLABEL}・期限 ${mdw(DUE)}</p></div><button class="x" data-act="close" aria-label="閉じる">×</button></div>
+  ${pend?`<p class="warn small">要確認が ${pend}件 残っています。確定するまでこの集計には入りません。</p>`:''}
+  <div class="tw">${body}</div>
+  <div class="result"><span>納入する宿泊税</span><b>${yen(total)}</b><button class="btn sm" data-act="copy" data-v="${total}">金額をコピー</button></div>
+  <p class="sub small">対象：${[...g.props].map(id=>esc(PMAP[id].name)).join('、')}</p>
+  <p class="sub small">申告書の作成・提出は申告名義の方（特別徴収義務者）が行います。</p>`);
+}
+
+/* ---- 設定 ---- */
+views.setup=()=>{
+  const T=[['props',`物件（${PROPS.length}）`],['rules','自治体のルール'],['import','データの取り込み']];
+  return `${pageHead('設定','')}
+  <div class="tabs">${T.map(([k,l])=>`<button class="${UI.tab===k?'on':''}" data-act="tab" data-k="${k}">${l}</button>`).join('')}</div>
+  <div id="tab-body" class="sec" style="gap:18px">${UI.tab==='props'?propsTab():UI.tab==='rules'?rulesTab():importTab()}</div>`;
+};
+hooks.setup=()=>{if(UI.tab==='props') fillProps();};
+function propsTab(){
+  const owners=[...new Set(PROPS.map(p=>p.owner))].sort((a,b)=>a.localeCompare(b,'ja'));
+  return `<div class="filters">
+    <input type="search" id="prop-q" data-f="prop.q" placeholder="物件名・所在地・オーナーで検索" value="${esc(UI.prop.q)}">
+    <select id="prop-area" data-f="prop.area">${areaOpts(UI.prop.area)}</select>
+    <select id="prop-owner" data-f="prop.owner"><option value="">すべてのオーナー</option>${owners.map(o=>`<option ${UI.prop.owner===o?'selected':''}>${esc(o)}</option>`).join('')}</select>
+    <select id="prop-filer" data-f="prop.filer"><option value="">申告名義</option><option value="owner" ${UI.prop.filer==='owner'?'selected':''}>オーナー様</option><option value="op" ${UI.prop.filer==='op'?'selected':''}>貴社</option></select>
+  </div><section class="panel" id="prop-list"></section>`;
+}
+function fillProps(){
+  const u=UI.prop,q=u.q.trim().toLowerCase();
+  const L=PROPS.filter(p=>(!u.area||p.area===u.area)&&(!u.owner||p.owner===u.owner)&&(!u.filer||filerOf(p)===u.filer)&&(!q||(p.name+p.ward+p.owner).toLowerCase().includes(q)));
+  const chText=p=>{const ks=Object.keys(p.chs),inc=ks.filter(c=>effMode(p,c)==='inc'),un=ks.filter(c=>effMode(p,c)==='unset');
+    return [inc.length?`${inc.join('・')} は税込み`:'すべて別途',un.length?`<span class="warn">${un.join('・')} 未設定</span>`:''].filter(Boolean).join('<br>');};
+  $('#prop-list').innerHTML=`<div class="tw"><table><thead><tr><th>物件</th><th>オーナー</th><th>申告名義</th><th>宿泊税の受け取り方</th><th>取込元</th></tr></thead><tbody>
+  ${L.map(p=>`<tr class="click" data-act="edit-prop" data-id="${p.id}"><td>${esc(p.name)}<br><span class="sub">${esc(p.ward)}</span></td><td>${esc(p.owner)}</td><td class="nw">${filerOf(p)==='op'?'貴社':'オーナー様'}</td><td>${chText(p)}</td><td class="nw">${SRC_NAME[p.src]}</td></tr>`).join('')}
+  </tbody></table></div><div class="pager"><span>${L.length}物件</span></div>`;
+}
+function editProp(id){
+  const p=PMAP[id];
+  modal(`<div class="modal-h"><div><h2>${esc(p.name)}</h2><p class="sub small">${esc(p.ward)}・${esc(p.owner)}・${SRC_NAME[p.src]}</p></div><button class="x" data-act="close" aria-label="閉じる">×</button></div>
+  <label class="sec" style="gap:6px"><b>申告名義</b><select class="in" id="ep-filer"><option value="owner" ${filerOf(p)==='owner'?'selected':''}>オーナー様（${esc(p.owner)}）</option><option value="op" ${filerOf(p)==='op'?'selected':''}>貴社</option></select></label>
+  <div class="sec" style="gap:6px"><b>チャネルごとの宿泊税</b>
+    <table><tbody>${Object.keys(p.chs).map(c=>`<tr><td>${c}</td><td class="r"><select class="in" id="ep-ch-${p.id}-${Object.keys(p.chs).indexOf(c)}" data-ch="${esc(c)}">${['sep','inc','unset'].map(v=>`<option value="${v}" ${effMode(p,c)===v?'selected':''}>${MODE_L[v]}</option>`).join('')}</select></td></tr>`).join('')}</tbody></table>
+    <p class="sub small">税込みのチャネルは、料金から税額を引いてから区分を判定します。</p></div>
+  <div class="modal-f"><button class="btn" data-act="close">キャンセル</button><button class="btn pri" data-act="save-prop" data-id="${id}">保存</button></div>`);
+}
+function rulesTab(){
+  const os=RES.filter(r=>PMAP[r.pid].area==='osaka'&&r.clean>0&&r.nights.length>1);
+  const ch=os.filter(r=>judgeRes(r,{clean:'split'}).tax!==judgeRes(r,{clean:'first'}).tax).length;
+  return `<section class="panel pad sec">
+    <div class="sec-h"><h2>清掃料の扱い（大阪府）</h2><span class="tag">府税事務所に確認中</span></div>
+    <p class="sub small">連泊のとき、清掃料をどの泊に含めるかで区分が変わることがあります。回答が出るまでは、ここで選んだ方法で計算します。</p>
+    <div class="opts" style="max-width:560px">
+      <label class="opt"><input type="radio" name="clean" value="split" ${state.clean==='split'?'checked':''}><span>泊数で按分<span class="ex">清掃料 6,000円・3泊なら、各泊に 2,000円ずつ</span></span></label>
+      <label class="opt"><input type="radio" name="clean" value="first" ${state.clean==='first'?'checked':''}><span>初泊に計上<span class="ex">清掃料 6,000円・3泊なら、1泊目に 6,000円</span></span></label>
+    </div>
+    <p class="small">切り替えると、大阪府の連泊予約 ${os.length}件のうち <b>${ch}件</b> で宿泊税が変わります。</p>
+  </section>
+  <section class="panel"><div class="tw"><table><thead><tr><th>自治体</th><th>1人1泊の税額</th><th>税込み予約で要確認になる金額</th><th class="r">物件</th></tr></thead><tbody>
+  ${AREA_ORDER.map(k=>{const R=RULES[k];return `<tr><td class="nw">${R.name}<br><span class="sub">${R.pref}</span></td>
+    <td class="small">${R.type==='tier'?R.tiers.map((t,i)=>`${tierLabel(R,i)}：${num(t[1])}円`).join('<br>'):R.memo}${R.memo&&R.type==='tier'?`<br><span class="warn">${R.memo}</span>`:''}</td>
+    <td class="small">${R.type==='tier'?bands(k).map(b=>`${num(b[0])}〜${num(b[1])}円`).join('<br>'):'なし（料金から割り戻して計算）'}</td><td class="r">${PROPS.filter(p=>p.area===k).length}</td></tr>`;}).join('')}
+  </tbody></table></div><div class="pager"><span>税率と区分はデモ用の値です。申告期限はいずれも翌月末。</span></div></section>`;
+}
+function importTab(){
+  const A=ALL(),c={data:0,cal:0,mis:0};for(const x of A) c[x.src]++;
+  const n=s=>PROPS.filter(p=>p.src===s).length;
+  const L=['予約データを取得','1泊ごとの料金に分ける','合計しかない予約は料金カレンダーで補う','自治体のルールで判定','決められない予約を要確認に回す'];
+  return `<div class="grid2">
+    <section class="panel pad sec"><div class="sec-h"><h2>Beds24</h2><span class="small sub">API・CSV</span></div><dl class="kv"><dt>物件</dt><dd>${n('beds24')}物件</dd><dt>取り込み</dt><dd>毎朝6:00に自動（CSVでも可）</dd></dl></section>
+    <section class="panel pad sec"><div class="sec-h"><h2>手間いらず</h2><span class="small sub">CSV</span></div><dl class="kv"><dt>物件</dt><dd>${n('tema')}物件</dd><dt>取り込み</dt><dd>予約一覧のCSVをアップロード</dd></dl></section>
+  </div>
+  <section class="panel pad sec"><div class="sec-h"><h2>${TM+1}月分の取り込み</h2><button class="btn" data-act="run-import" ${UI.imp!=null?'disabled':''}>もう一度取り込む</button></div>
+    <ul class="prog">${L.map((s,i)=>`<li class="${UI.imp==null||i<UI.imp?'ok':i===UI.imp?'run':''}">${s}</li>`).join('')}</ul>
+    <dl class="kv small"><dt>1泊の料金の出どころ</dt><dd>予約データ ${num(c.data)}件 ／ 料金カレンダーで補完 ${num(c.cal)}件 ／ 合計と合わず要確認 ${num(c.mis)}件</dd>
+    <dt>取り込む項目</dt><dd>予約ID、物件、宿泊日、人数、チャネル、料金、清掃料、宿泊税の明細</dd>
+    <dt>取り込まない項目</dt><dd>ゲストの氏名・連絡先</dd></dl>
+  </section>`;
+}
+
+/* ================= 描画とイベント ================= */
+function render(){
+  const h=location.hash.slice(1),v=views[h]?h:'home',pend=PEND().length;
+  $('#nav').innerHTML=ROUTES.map(([k,l])=>`<a href="#${k}" class="${k===v?'on':''}">${l}${k==='review'&&pend?`<span class="n">${pend}</span>`:''}</a>`).join('');
+  $('#view').innerHTML=views[v]();
+  hooks[v]&&hooks[v]();
+}
+window.addEventListener('hashchange',()=>{closeModal();render();window.scrollTo(0,0);});
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-act]');if(!el) return;
+  const a=el.dataset.act,id=el.dataset.id;
+  if(a==='close') closeModal();
+  else if(a==='reset'){state=def();save();UI.sel=null;UI.owner='';render();toast('最初の状態に戻しました');}
+  else if(a==='close-month'){state.closed=true;save();render();toast('今月分を確定しました');}
+  else if(a==='mark-filed'){state.filed=true;save();render();toast('集計表を出力済みにしました');}
+  else if(a==='sel'){UI.sel=id;render();if(innerWidth<860) $('#rv-detail').scrollIntoView({behavior:'smooth'});}
+  else if(a==='pick-border'){draft.border[+el.dataset.i]=+el.dataset.v;refreshReview(UI.sel);}
+  else if(a==='confirm-review') confirmReview(id);
+  else if(a==='bulk-fix') bulkFix();
+  else if(a==='basis') showBasis(id);
+  else if(a==='goto-review'){UI.sel=id;closeModal();}
+  else if(a==='page'){UI.res.page+=+el.dataset.d;hooks.reservations();}
+  else if(a==='tab'){UI.tab=el.dataset.k;render();}
+  else if(a==='edit-prop') editProp(id);
+  else if(a==='save-prop'){
+    const p=PMAP[id],fv=$('#ep-filer').value;
+    if(fv===p.filer) delete state.filer[id]; else state.filer[id]=fv;
+    document.querySelectorAll('#mbg [data-ch]').forEach(s=>{const c=s.dataset.ch;if(s.value===p.chs[c]) delete state.ov[id+'|'+c]; else state.ov[id+'|'+c]=s.value;});
+    save();closeModal();render();toast('保存しました');
+  }
+  else if(a==='owner-csv') ownerCSV();
+  else if(a==='owner-pdf') toast('PDFを作成しました（画面イメージのため実際のファイルは作られません）');
+  else if(a==='copy-csv') copyText($('#csv-out').value,el);
+  else if(a==='copy') copyText(el.dataset.v,el);
+  else if(a==='filing-detail') filingDetail(el.dataset.k);
+  else if(a==='run-import'){
+    UI.imp=0;render();
+    const tick=()=>{UI.imp++;if(UI.imp>=5){UI.imp=null;render();toast(`${num(RES.length)}件を取り込みました`);return;}render();setTimeout(tick,600);};
+    setTimeout(tick,600);
+  }
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.name==='clean'){state.clean=t.value;save();render();toast(t.value==='split'?'泊数で按分にしました':'初泊に計上にしました');return;}
+  if(draft&&t.closest('#rv-detail')){
+    if(t.name==='mode') draft.mode=t.value;
+    else if(t.name==='mis'){draft.mis=t.value;$('#manual-box').hidden=t.value!=='manual';}
+    else if(t.name==='other') draft.other=t.value;
+    else if(t.dataset.man!=null) draft.manual[+t.dataset.man]=Math.max(0,+t.value||0);
+    refreshReview(UI.sel);return;
+  }
+  if(t.dataset.f&&t.tagName==='SELECT') setFilter(t);
+});
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset.f&&t.tagName==='INPUT') setFilter(t);});
+function setFilter(t){
+  const [g,k]=t.dataset.f.split('.');
+  if(k) UI[g][k]=t.value; else UI[g]=t.value;
+  if(g==='res') UI.res.page=0;
+  if(g==='owner'){render();return;}
+  ({res:hooks.reservations,prop:fillProps,filing:hooks.filing})[g]();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
+render();
+</script>
+
+</body>
+</html>

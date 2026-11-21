@@ -93,6 +93,14 @@
   ],
   "rewrites": [
     {
+      "source": "/demo/:name",
+      "destination": "/demo/:name/index.html"
+    },
+    {
+      "source": "/demo/:name/",
+      "destination": "/demo/:name/index.html"
+    },
+    {
       "source": "/locue",
       "destination": "/locue/index.html"
     },
@@ -127,6 +135,17 @@
     {
       "source": "/handover",
       "destination": "/handover.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/demo/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

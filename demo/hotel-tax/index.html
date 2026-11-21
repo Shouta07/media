@@ -148,6 +148,11 @@ td .sub{font-size:12px}
 .doc-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:4px 0 14px;border-bottom:1px solid var(--line)}
 .doc-total b{font-size:28px}
 .callout{border-left:3px solid var(--ok);padding:2px 0 2px 14px}
+/* PDF用：画面のテーマに関係なく白い紙で出力する */
+.pdf-doc{--paper:#ffffff;--ink:#1e2226;--sub:#555c64;--faint:#8b929a;--line:#d9dce0;--bg:#f2f3f5;--ok:#2c7a4e;--warn:#9c5700;
+  width:760px;border:none;border-radius:0;padding:4px 6px;background:#ffffff;color:#1e2226;font-family:var(--font);font-size:13px}
+.pdf-doc details summary::before{content:""}
+.pdf-doc .basis-item,.pdf-doc tr{break-inside:avoid}
 details{border-top:1px solid var(--line)}
 details summary{cursor:pointer;padding:10px 0;display:flex;justify-content:space-between;gap:10px;list-style:none}
 details summary::-webkit-details-marker{display:none}
@@ -560,15 +565,20 @@ function showBasis(id){
 function ownerList(){const m={};for(const p of PROPS)(m[p.owner]=m[p.owner]||[]).push(p);return Object.entries(m).sort((a,b)=>b[1].length-a[1].length);}
 views.statement=()=>{
   const OL=ownerList();if(!UI.owner) UI.owner=OL[0][0];
-  const o=UI.owner,props=PROPS.filter(p=>p.owner===o),ids=new Set(props.map(p=>p.id));
-  const A=ALL().filter(x=>ids.has(x.p.id)),C=A.filter(x=>x.status!=='pending'),P=A.length-C.length;
-  const modes=[];for(const p of props) for(const c of Object.keys(p.chs)){const m=effMode(p,c);if(m==='inc') modes.push(c);}
-  const incCh=[...new Set(modes)];
+  const o=UI.owner,ids=new Set(PROPS.filter(p=>p.owner===o).map(p=>p.id));
+  const P=ALL().filter(x=>ids.has(x.p.id)&&x.status==='pending').length;
   return `${pageHead('オーナー明細','代行明細書（毎月20日ごろ送付）に添付する宿泊税の明細です。')}
   <div class="filters"><select class="in" id="own" data-f="owner" aria-label="オーナー">${OL.map(([n,ps])=>`<option value="${esc(n)}" ${n===o?'selected':''}>${esc(n)}（${ps.length}物件）</option>`).join('')}</select>
-    <span style="margin-left:auto" class="filters"><button class="btn" data-act="owner-csv">CSV</button><button class="btn" data-act="owner-pdf">PDF</button></span></div>
+    <span style="margin-left:auto" class="filters"><button class="btn" data-act="owner-csv">CSV</button><button class="btn pri" data-act="owner-pdf">PDFをダウンロード</button></span></div>
   ${P?`<p class="warn small">この方の物件に要確認が ${P}件 あります。確定するまで明細には入りません。</p>`:''}
-  <article class="doc">
+  ${statementDoc(o,false)}`;
+};
+function statementDoc(o,pdf){
+  const props=PROPS.filter(p=>p.owner===o),ids=new Set(props.map(p=>p.id));
+  const C=ALL().filter(x=>ids.has(x.p.id)&&x.status!=='pending');
+  const modes=[];for(const p of props) for(const c of Object.keys(p.chs)){const m=effMode(p,c);if(m==='inc') modes.push(c);}
+  const incCh=[...new Set(modes)];
+  return `<article class="doc${pdf?' pdf-doc':''}">
     <div class="doc-h"><div><p class="sub small">代行明細書 添付</p><h2>宿泊税明細　${MLABEL}</h2><p style="margin-top:6px">${esc(o)} 様</p></div>
       <p class="small sub" style="text-align:right">発行　貴社<br>集計日　${md(NOW)}<br>申告期限　${mdw(DUE)}</p></div>
     <div class="callout"><b>宿泊税の計算は済ませています。オーナー様ご自身での計算は不要です。</b></div>
@@ -577,7 +587,7 @@ views.statement=()=>{
     ${props.map(p=>{const c=C.filter(x=>x.p.id===p.id);return `<tr><td>${esc(p.name)}</td><td>${RULES[p.area].name}</td><td>${filerOf(p)==='op'?'貴社':'オーナー様'}</td><td class="r">${num(sum(c,x=>x.pn))}</td><td class="r">${yen(sum(c,x=>x.tax))}</td></tr>`;}).join('')}
     </tbody></table></div>
     <div class="sec"><h3>1泊ごとの根拠</h3><div>
-    ${props.map(p=>{const c=C.filter(x=>x.p.id===p.id);return `<details><summary><span>${esc(p.name)}</span><span>${c.length}件・${yen(sum(c,x=>x.tax))}</span></summary><div class="basis">${c.length?c.map(x=>`<div><span class="sub small">${stay(x.r)}・${x.r.ch}</span><br>${nightsText(x)}</div>`).join(''):'<span class="sub">確定した予約はありません</span>'}</div></details>`;}).join('')}
+    ${props.map(p=>{const c=C.filter(x=>x.p.id===p.id);return `<details${pdf?' open':''}><summary><span>${esc(p.name)}</span><span>${c.length}件・${yen(sum(c,x=>x.tax))}</span></summary><div class="basis">${c.length?c.map(x=>`<div class="basis-item"><span class="sub small">${stay(x.r)}・${x.r.ch}</span><br>${nightsText(x)}</div>`).join(''):'<span class="sub">確定した予約はありません</span>'}</div></details>`;}).join('')}
     </div></div>
     <div class="sec"><h3>計算の前提</h3><ul class="ul small">
       <li>1人1泊の金額 ＝（1泊の料金 ＋ 清掃料）÷ 人数。この金額で1泊ずつ区分を判定し、合計しています。</li>
@@ -587,7 +597,34 @@ views.statement=()=>{
     </ul></div>
     <p class="small sub">申告内容の最終確認は、特別徴収義務者（申告名義の方）が行います。本明細は集計と申告準備の支援で、税務代理は行いません。</p>
   </article>`;
-};
+}
+
+let h2pLoad=null;
+function loadPDFLib(){
+  if(window.html2pdf) return Promise.resolve();
+  return h2pLoad||(h2pLoad=new Promise((res,rej)=>{const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+    s.onload=res;s.onerror=()=>{h2pLoad=null;rej(new Error('load'));};document.head.appendChild(s);}));
+}
+async function ownerPDF(btn){
+  const o=UI.owner,label=btn.textContent;
+  btn.disabled=true;btn.textContent='作成中…';
+  try{
+    await loadPDFLib();
+    if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    const box=document.createElement('div');box.innerHTML=statementDoc(o,true);
+    const safe=o.replace(/[\\/:*?"<>|\s]+/g,'_');
+    await html2pdf().set({
+      margin:[12,12,14,12],filename:`宿泊税明細_${TY}-${String(TM+1).padStart(2,'0')}_${safe}.pdf`,
+      image:{type:'jpeg',quality:0.95},
+      html2canvas:{scale:2,backgroundColor:'#ffffff'},
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+      pagebreak:{mode:['css','legacy'],avoid:['tr','.basis-item','.doc-total','.callout','.doc-h','h3']}
+    }).from(box.firstElementChild).save();
+    toast('PDFをダウンロードしました');
+  }catch(e){toast('PDFを作成できませんでした。通信状況を確認して、もう一度お試しください');}
+  finally{btn.disabled=false;btn.textContent=label;}
+}
 function ownerCSV(){
   const o=UI.owner,ids=new Set(PROPS.filter(p=>p.owner===o).map(p=>p.id));
   const rows=[['物件ID','物件名','自治体','申告名義','予約ID','チャネル','税込み/別途','宿泊日','人数','1泊の料金','清掃料の割り当て','1人1泊の金額','1人1泊の税額','宿泊税']];
@@ -733,7 +770,7 @@ document.addEventListener('click',e=>{
     save();closeModal();render();toast('保存しました');
   }
   else if(a==='owner-csv') ownerCSV();
-  else if(a==='owner-pdf') toast('PDFを作成しました（画面イメージのため実際のファイルは作られません）');
+  else if(a==='owner-pdf') ownerPDF(el);
   else if(a==='copy-csv') copyText($('#csv-out').value,el);
   else if(a==='copy') copyText(el.dataset.v,el);
   else if(a==='filing-detail') filingDetail(el.dataset.k);

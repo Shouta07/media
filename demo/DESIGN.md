@@ -79,29 +79,37 @@
 
 ### 色
 
-会社サイト（vitality-design.jp）の配色に合わせます。サイトと同じく**白を基調にした明るい画面だけ**を作り、ダークモードは作りません（見る人の端末がダークモードでも白い画面のままにします）。サイトの基本色は次のとおりです。
+会社サイト（vitality-design.jp）の配色に合わせます。**ふだんは白を基調にした明るい画面**にし、見る人の端末がダークモードのときだけ、柔らかい暗い配色に切り替えます。サイトの基本色は次のとおりです。
 
 | サイトの色 | 値 | デモでの役割 |
 | --- | --- | --- |
 | 文字（深い青緑） | `#152d36` | `--ink` 本文・見出し |
 | アクセント（ティール） | `#087f75` | `--accent` 主ボタン、選択中、完了の ✓ |
 | 濃い帯 | `#073d48` | `--deep` 帳票の表題の下線など、ごく一部 |
-| 白 | `#ffffff` | `--paper` ページの地、表や入力欄の面 |
+| 白 | `#ffffff` | `--page` ページの地、`--paper` 表や入力欄の面 |
 | 薄い背景 | `#f2f7f7` | `--bg` 合計の枠、表の区切り行など一部の面 |
 | 補足の文字 | `#546873` | `--sub` |
 | 線 | `#dce6e6` | `--line` |
+| 明るいティール | `#5cc4b7` | ダークモードのアクセント |
 
 このまま `:root` に貼ってください。
 
 ```css
 :root{
   color-scheme:light;
-  --bg:#f2f7f7; --paper:#ffffff; --ink:#152d36; --sub:#546873; --faint:#71858c; --line:#dce6e6; --hover:#f7faf9;
+  --page:#ffffff; --bg:#f2f7f7; --paper:#ffffff; --ink:#152d36; --sub:#546873; --faint:#71858c; --line:#dce6e6; --hover:#f7faf9;
   --accent:#087f75; --accent-weak:#e3f3f0; --on-accent:#ffffff; --deep:#073d48; --scrim:rgba(7,40,48,.45);
   --warn:#a35a00; --warn-weak:#fdf2e2; --ok:#087f75; --ng:#b8432f;
   --font:"Inter","Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
 }
-body{ background:var(--paper); }   /* ページの地は白 */
+/* ダークモード：真っ黒にせず、青緑がかった暗い色にする */
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --page:#12232a; --bg:#203840; --paper:#1a2f35; --ink:#e6f0f0; --sub:#a7bcc1; --faint:#7d969c; --line:#2c464d; --hover:#223b42;
+  --accent:#5cc4b7; --accent-weak:#17423f; --on-accent:#05221f; --deep:#8fb5bb; --scrim:rgba(0,0,0,.55);
+  --warn:#eab15c; --warn-weak:#3a2d14; --ok:#5cc4b7; --ng:#f39484; color-scheme:dark;
+}}
+/* 同じ値を :root[data-theme="dark"]{ … } にも書く */
+body{ background:var(--page); }
 ```
 
 - ティール（`--accent`）は、主ボタン、選択中のタブ・項目、完了の ✓ だけに使います。面を塗りつぶす使い方はしません
@@ -183,7 +191,7 @@ body{ background:var(--paper); }   /* ページの地は白 */
 - 外部の読み込みは Google Fonts だけにします。ライブラリ（例：PDF作成）は、ボタンを押したときに cdnjs から読み込みます
 - 画面の切り替えは `#home` のような URL の `#` で行い、リンクで特定の画面を送れるようにします
 - 操作の結果は `localStorage` に保存し、読み書きは try/catch で囲みます。フッターに「デモを最初の状態に戻す」を置きます
-- スマホ幅（約400px）で崩れないこと。ダークモード用の配色は書かない（`prefers-color-scheme: dark` を使わない）
+- スマホ幅（約400px）とダークモードで崩れないこと
 - `<meta name="robots" content="noindex, nofollow">` を必ず入れます
 - `alert()` や `confirm()` は使わず、通知（toast）とページ内の確認で済ませます
 
@@ -208,6 +216,6 @@ body{ background:var(--paper); }   /* ページの地は白 */
 - [ ] 色が付いているのは「要確認」「未設定」と主ボタン、選択中の所だけ
 - [ ] 色の値を直接書いていない（`.pdf-doc` を除く）
 - [ ] 実在の名前やお客様の名前が入っていない
-- [ ] スマホで崩れない。端末をダークモードにしても白い画面のまま
+- [ ] スマホとダークモードで崩れない（ダークモードでも文字が読みやすい）
 - [ ] 帳票のPDFを実際にダウンロードして、右端まで入っている
 - [ ] 「デモを最初の状態に戻す」を押してから商談に入る

@@ -47,12 +47,12 @@ export function updateBlogIndex(a, iso) {
   if (!html.includes(cardAnchor)) throw new Error('blog/index.html: card anchor not found');
   html = html.replace(
     cardAnchor,
-    `<div class="cards" id="cards">\n${blogCard(a, iso)}    <a class="post reveal"`
+    () => `<div class="cards" id="cards">\n${blogCard(a, iso)}    <a class="post reveal"`
   );
 
   const ldAnchor = '      "blogPost":[\n';
   if (!html.includes(ldAnchor)) throw new Error('blog/index.html: blogPost anchor not found');
-  html = html.replace(ldAnchor, ldAnchor + blogPostLd(a, iso));
+  html = html.replace(ldAnchor, () => ldAnchor + blogPostLd(a, iso));
 
   fs.writeFileSync(p, html);
 }
@@ -61,7 +61,7 @@ export function updateSitemap(a, iso) {
   const p = path.join(ROOT, 'sitemap.xml');
   let xml = fs.readFileSync(p, 'utf8');
   if (!xml.includes('</urlset>')) throw new Error('sitemap.xml: </urlset> not found');
-  xml = xml.replace('</urlset>', sitemapEntry(a, iso) + '</urlset>');
+  xml = xml.replace('</urlset>', () => sitemapEntry(a, iso) + '</urlset>');
   fs.writeFileSync(p, xml);
 }
 
@@ -71,7 +71,7 @@ export function updateLlms(a) {
   // Append after the last blog entry line in the ブログ section.
   const marker = '\n## よくある質問';
   if (txt.includes(marker)) {
-    txt = txt.replace(marker, llmsEntry(a) + marker);
+    txt = txt.replace(marker, () => llmsEntry(a) + marker);
   } else {
     txt += '\n' + llmsEntry(a);
   }

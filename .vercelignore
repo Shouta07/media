@@ -1,0 +1,6 @@
+# 公開サイトとして配信する必要のない、開発用のファイルを除外する
+/.github
+/scripts
+/tools
+*.md
+!CREDITS.md

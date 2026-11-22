@@ -793,6 +793,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const afilter=document.getElementById('afilter');
   const q=document.getElementById('q');
   const state={q:'',cat:'*',tag:''};
+  // innerHTML に入れる値は必ず通す（検索語は利用者の入力そのもの）
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let page=1;
 
   // 検索対象は見出し・要約・主題タグ・方法に限る（著者名や読了時間は含めない）
@@ -818,7 +820,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     const tags=[...document.querySelectorAll('.side .tagb')].slice(0,14).map(b=>b.dataset.tag);
     noresult.innerHTML='該当する記事が見つかりませんでした。主題から探せます。'+
       '<div class="tagcloud" style="justify-content:center;margin-top:16px;">'+
-      tags.map(t=>'<button class="tagb" data-tag="'+t+'">'+t+'</button>').join('')+'</div>';
+      tags.map(t=>'<button class="tagb" data-tag="'+esc(t)+'">'+esc(t)+'</button>').join('')+'</div>';
     noresult.querySelectorAll('.tagb').forEach(b=>b.addEventListener('click',()=>{
       state.q='';q.value='';state.tag=b.dataset.tag;state.cat='*';page=1;syncActive();render();
       document.querySelector('.blogmain').scrollIntoView({behavior:'smooth'});
@@ -842,9 +844,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     }
     // active filter label
     const parts=[];
-    if(state.cat!=='*')parts.push('カテゴリー「<b>'+state.cat+'</b>」');
-    if(state.tag)parts.push('タグ「<b>'+state.tag+'</b>」');
-    if(state.q)parts.push('「<b>'+state.q+'</b>」で検索');
+    if(state.cat!=='*')parts.push('カテゴリー「<b>'+esc(state.cat)+'</b>」');
+    if(state.tag)parts.push('タグ「<b>'+esc(state.tag)+'</b>」');
+    if(state.q)parts.push('「<b>'+esc(state.q)+'</b>」で検索');
     if(parts.length){afilter.hidden=false;afilter.innerHTML=parts.join(' ・ ')+'<button id="clr">クリア</button>';document.getElementById('clr').addEventListener('click',clearAll);}
     else afilter.hidden=true;
   }

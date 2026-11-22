@@ -15,6 +15,7 @@ import {
 } from './lib/site.mjs';
 import { validateFile } from './lib/validate.mjs';
 import fs from 'node:fs';
+import { randomUUID } from 'node:crypto';
 
 // ---- args -------------------------------------------------------------------
 const argv = process.argv.slice(2);
@@ -177,13 +178,14 @@ console.log('\n✅ 検証OK');
 if (process.env.GITHUB_OUTPUT) {
   const out = [
     `slug=${a.slug}`,
-    `title=${a.title.replace(/\n/g, ' ')}`,
+    `title=${a.title.replace(/[\r\n]+/g, ' ')}`,
     `warnings=${warnings.length}`,
   ].join('\n');
   fs.appendFileSync(process.env.GITHUB_OUTPUT, out + '\n');
-  // Multi-line warning body for the PR.
+  // Multi-line warning body for the PR. Random delimiter so content can't end it early.
+  const eof = `EOF_${randomUUID()}`;
   fs.appendFileSync(
     process.env.GITHUB_OUTPUT,
-    `warnings_body<<EOF\n${warnings.map((w) => `- ${w}`).join('\n') || '(なし)'}\nEOF\n`
+    `warnings_body<<${eof}\n${warnings.map((w) => `- ${w}`).join('\n') || '(なし)'}\n${eof}\n`
   );
 }

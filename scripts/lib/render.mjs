@@ -16,25 +16,73 @@ const ALLOWED = new Set([
   'p', 'ul', 'ol', 'li', 'h3', 'h4', 'strong', 'em', 'a', 'br', 'blockquote',
   'table', 'thead', 'tbody', 'tr', 'th', 'td', 'div', 'span',
 ]);
-function sanitizeHtml(html = '') {
-  // Drop any tag not in the allowlist (keeps its text). Strip on* handlers and
-  // disallowed href schemes on <a>.
-  return String(html)
-    .replace(/<\/?([a-zA-Z0-9]+)([^>]*)>/g, (m, tag, rest) => {
-      const t = tag.toLowerCase();
-      if (!ALLOWED.has(t)) return '';
-      if (t === 'a') {
-        const href = (rest.match(/href\s*=\s*"([^"]*)"/i) || [])[1] || '';
-        const safe = /^(\/|https?:\/\/|#|mailto:)/i.test(href) ? href : '#';
-        const ext = /^https?:\/\//i.test(safe) && !safe.startsWith(SITE);
-        return m.startsWith('</')
-          ? '</a>'
-          : `<a href="${attr(safe)}"${ext ? ' target="_blank" rel="noopener"' : ''}>`;
-      }
-      return m.replace(/\son\w+\s*=\s*"[^"]*"/gi, '');
-    })
-    .replace(/<script[\s\S]*?<\/script>/gi, '');
+// Rebuilds every tag from scratch: only allowlisted tag names survive, and the
+// only attributes ever emitted are a vetted href on <a> and KEEP_ATTRS elsewhere.
+// Any "<" that is not part of an allowlisted tag is escaped, so unterminated or
+// nested tags ("<img onerror=…", "<scr<script>ipt>") cannot become markup.
+const TAG_RE = /<(\/?)([a-zA-Z][a-zA-Z0-9]*)((?:[\s/]+(?:"[^"]*"|'[^']*'|[^"'<>])*)?)>/g;
+// Elements whose content is never prose: drop the content too.
+const DROP_RE = /<(script|style|iframe|object|template|noscript|svg|math)\b[^>]*>[\s\S]*?<\/\1\s*>/gi;
+
+const KEEP_ATTRS = {
+  class: /^[\w -]+$/,
+  id: /^[a-zA-Z][\w-]*$/,
+  colspan: /^\d{1,2}$/,
+  rowspan: /^\d{1,2}$/,
+};
+
+// Bare "&" is escaped; existing character references are left as they are.
+const escText = (s) =>
+  s
+    .replace(/&(?!(?:[a-zA-Z][a-zA-Z0-9]*|#\d+|#[xX][0-9a-fA-F]+);)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+function getAttr(rest, name) {
+  const m = rest.match(new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, 'i'));
+  return m ? (m[1] ?? m[2]) : '';
 }
+
+// Site-relative (not protocol-relative), http(s), mailto and fragment links only.
+// Control characters and backslashes are rejected because browsers strip or
+// normalise them ("/\t/evil.example" and "/\evil.example" both leave the site).
+function safeHref(href) {
+  const h = href.trim().replace(/&amp;/g, '&');
+  if (/[\x00-\x20\\]/.test(h)) return '#';
+  return /^(?:\/(?!\/)|https?:\/\/|#|mailto:)/i.test(h) ? h : '#';
+}
+
+function sanitizeHtml(html = '') {
+  const src = String(html)
+    .replace(/<!--[\s\S]*?(?:-->|$)/g, '')
+    .replace(DROP_RE, '');
+  let out = '';
+  let last = 0;
+  for (const m of src.matchAll(TAG_RE)) {
+    out += escText(src.slice(last, m.index));
+    last = m.index + m[0].length;
+    const t = m[2].toLowerCase();
+    if (!ALLOWED.has(t)) continue;
+    if (m[1]) {
+      if (t !== 'br') out += `</${t}>`;
+    } else if (t === 'a') {
+      const safe = safeHref(getAttr(m[3], 'href'));
+      const ext = /^https?:\/\//i.test(safe) && safe !== SITE && !safe.startsWith(`${SITE}/`);
+      out += `<a href="${attr(safe)}"${ext ? ' target="_blank" rel="noopener"' : ''}>`;
+    } else {
+      let kept = '';
+      for (const [name, re] of Object.entries(KEEP_ATTRS)) {
+        const val = getAttr(m[3], name);
+        if (re.test(val)) kept += ` ${name}="${val}"`;
+      }
+      out += `<${t}${kept}>`;
+    }
+  }
+  return out + escText(src.slice(last));
+}
+
+// JSON inside <script>: "<" must not be able to close the element.
+const jsonForScript = (v, indent) => JSON.stringify(v, null, indent).replace(/</g, '\\u003c');
 
 // ---- head / JSON-LD ---------------------------------------------------------
 function jsonLd(a, url, iso) {
@@ -88,7 +136,7 @@ function jsonLd(a, url, iso) {
       })),
     },
   ];
-  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
+  return jsonForScript({ '@context': 'https://schema.org', '@graph': graph }, 2);
 }
 
 // ---- full page --------------------------------------------------------------
@@ -328,7 +376,7 @@ export function blogCard(a, isoDate) {
 }
 
 export function blogPostLd(a, isoDate) {
-  return `        {"@type":"BlogPosting","headline":${JSON.stringify(
+  return `        {"@type":"BlogPosting","headline":${jsonForScript(
     stripTags(a.title)
   )},"url":"${SITE}/blog/${a.slug}.html","datePublished":"${isoDate}","author":{"@id":"${SITE}/#org"}},\n`;
 }

@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>旅行見積システム</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* Layout: 上部に細いヘッダーと4つのタブ（案件一覧 → 要望・条件 → 明細・積算 → 見積書）。明細画面は表を広く取り、合計は下部に固定 */
+:root{
+  --bg:#f2f7f7; --paper:#ffffff; --ink:#152d36; --sub:#546873; --faint:#71858c; --line:#dce6e6; --hover:#f7faf9;
+  --accent:#087f75; --accent-weak:#e3f3f0; --on-accent:#ffffff; --deep:#073d48; --scrim:rgba(7,40,48,.45);
+  --warn:#a35a00; --warn-weak:#fdf2e2; --ok:#087f75; --ng:#b8432f; --ng-weak:#fbecea;
+  --font:"Inter","Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1a1e; --paper:#12252a; --ink:#e2eeee; --sub:#9db3b8; --faint:#6f878d; --line:#22393f; --hover:#173036;
+  --accent:#52bbae; --accent-weak:#113a37; --on-accent:#05221f; --deep:#05262d; --scrim:rgba(0,0,0,.6);
+  --warn:#e6a64c; --warn-weak:#33270f; --ok:#52bbae; --ng:#f08a78; --ng-weak:#3a1c18; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0c1a1e; --paper:#12252a; --ink:#e2eeee; --sub:#9db3b8; --faint:#6f878d; --line:#22393f; --hover:#173036;
+  --accent:#52bbae; --accent-weak:#113a37; --on-accent:#05221f; --deep:#05262d; --scrim:rgba(0,0,0,.6);
+  --warn:#e6a64c; --warn-weak:#33270f; --ok:#52bbae; --ng:#f08a78; --ng-weak:#3a1c18; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.7;margin:0;font-variant-numeric:tabular-nums}
+h1,h2,h3{margin:0;line-height:1.4;text-wrap:balance}
+h1{font-size:20px;font-weight:700}
+h2{font-size:15px;font-weight:700}
+p{margin:0}
+button,select,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sub{color:var(--sub)}
+.small{font-size:12.5px}
+.r{text-align:right}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.top-in{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:24px;min-height:54px}
+.logo{font-weight:700;font-size:15px;white-space:nowrap}
+.logo span{font-weight:400;color:var(--faint);font-size:12px;margin-left:8px}
+nav{display:flex;gap:2px;overflow-x:auto;flex:1;align-self:stretch}
+nav a{display:flex;align-items:center;padding:0 12px;color:var(--sub);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;font-size:13.5px}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+nav a.off{color:var(--faint);pointer-events:none;opacity:.6}
+.cur{font-size:12.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:280px}
+
+.wrap{max-width:1320px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+.wrap.narrow{max-width:1080px}
+.ph{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.ph p{color:var(--sub);margin-top:4px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:8px;min-width:0}
+.pad{padding:20px 22px}
+
+.btn{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:7px 14px;cursor:pointer;font-size:13px;white-space:nowrap;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--hover)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:500}
+.btn.pri:hover{filter:brightness(1.08)}
+.btn.sm{padding:3px 9px;font-size:12.5px}
+.btn.ghost{border-color:transparent;background:none;color:var(--accent);padding-inline:6px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sp{margin-left:auto}
+
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{font-weight:500;color:var(--sub);font-size:12.5px;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right;white-space:nowrap}
+td.nw{white-space:nowrap}
+tr.click{cursor:pointer}
+tr.click:hover td{background:var(--hover)}
+.st-warn{color:var(--warn);font-weight:500;white-space:nowrap}
+.st-ok{color:var(--sub);white-space:nowrap}
+.st-ok::before{content:"✓ ";color:var(--ok)}
+
+/* form */
+.form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px;align-items:start}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.f{display:flex;flex-direction:column;gap:4px;font-size:13px;min-width:0}
+.f.wide{grid-column:1/-1}
+.f label{color:var(--sub);font-size:12.5px}
+.f input,.f select,.f textarea,.search{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:8px 10px;font-size:14px;width:100%}
+.f textarea{resize:vertical;min-height:72px}
+.f textarea.mail{min-height:220px}
+.f .err{color:var(--ng);font-size:12px}
+.f.bad input{border-color:var(--ng);background:var(--ng-weak)}
+.note{font-size:12.5px;color:var(--sub);border-left:3px solid var(--line);padding:2px 0 2px 10px}
+.note.ok{border-color:var(--accent)}
+.banner{border-radius:6px;padding:10px 14px;font-size:13px;background:var(--warn-weak);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.banner.info{background:var(--accent-weak)}
+.banner ul{margin:0;padding-left:1.1em}
+
+/* 明細 */
+.cond{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:flex-end}
+.cond .k{font-size:12px;color:var(--sub);display:block}
+.cond .v{font-weight:500}
+.cond input,.cond select{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:5px 8px;font-size:14px}
+.cond input{width:84px;text-align:right}
+.cond .bad input{border-color:var(--ng);background:var(--ng-weak)}
+.cond .err{color:var(--ng);font-size:12px;display:block}
+table.items{font-size:13px;min-width:1240px}
+table.items th,table.items td{padding:6px 6px}
+table.items td{vertical-align:top}
+table.items th:first-child,table.items td:first-child{padding-left:12px}
+.ci{width:100%;border:1px solid transparent;background:transparent;border-radius:4px;padding:6px 7px;font-size:13px}
+.ci:hover{border-color:var(--line)}
+.ci:focus{border-color:var(--accent);background:var(--paper);outline:none}
+.ci.num{text-align:right}
+.ci.bad{border-color:var(--ng);background:var(--ng-weak)}
+.em{display:block;color:var(--ng);font-size:11.5px;text-align:right;padding-right:6px}
+.lk{display:flex;gap:4px;align-items:center;justify-content:flex-end;font-size:11.5px;color:var(--sub);padding-right:6px;white-space:nowrap;cursor:pointer}
+.lk.on{color:var(--accent);font-weight:500}
+td.calc{text-align:right;white-space:nowrap;padding-top:12px !important}
+tr.err td.calc{color:var(--faint)}
+.chk{border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:4px 8px;font-size:12px;cursor:pointer;white-space:nowrap}
+.chk.ng{border-color:var(--warn);color:var(--warn);font-weight:500;background:var(--warn-weak)}
+.chk.ok{color:var(--sub)}
+.chk.ok::before{content:"✓ ";color:var(--ok)}
+.flag{display:block;font-size:11px;color:var(--warn);margin-top:2px;white-space:nowrap}
+.ops{white-space:nowrap}
+@keyframes flash{from{background:var(--accent-weak)}to{background:transparent}}
+.flash{animation:flash 1.4s ease-out}
+@media (prefers-reduced-motion: reduce){.flash{animation:none}}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bar-in{max-width:1320px;margin:0 auto;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:14px 28px;align-items:center;flex-wrap:wrap}
+.tot{display:flex;flex-direction:column;min-width:0}
+.tot .k{font-size:12px;color:var(--sub)}
+.tot .v{font-size:19px;font-weight:700;white-space:nowrap;border-radius:4px;padding:0 2px;margin:0 -2px}
+.tot .v.minus{color:var(--ng)}
+.alerts{display:flex;flex-direction:column;gap:2px;font-size:12.5px}
+.alerts .w{color:var(--warn);font-weight:500}
+.alerts .e{color:var(--ng);font-weight:500}
+.last{font-size:12px;color:var(--sub);flex-basis:100%;margin-top:-4px}
+.pad-bar{height:110px}
+
+/* 見積書 */
+.doc{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:36px 40px;display:flex;flex-direction:column;gap:22px;position:relative}
+.sample{border:1.5px solid var(--warn);color:var(--warn);font-weight:700;font-size:12.5px;padding:3px 10px;border-radius:4px;align-self:flex-start;letter-spacing:.04em}
+.doc-h{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--deep)}
+.doc-h h2{font-size:22px;letter-spacing:.2em}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 22px;margin:0;font-size:14px}
+.kv dt{color:var(--sub)}
+.kv dd{margin:0}
+.doc-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.doc-total b{font-size:26px}
+.ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:3px;font-size:13px}
+.notimpl{border:1px dashed var(--ng);color:var(--ink);background:var(--ng-weak);border-radius:6px;padding:10px 14px;font-size:13px}
+
+.toast{position:fixed;bottom:calc(120px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:6px;font-size:13px;z-index:60;max-width:calc(100% - 32px)}
+.foot{max-width:1320px;margin:0 auto;padding-block:0 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:11.5px;color:var(--sub);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot button{background:none;border:none;color:var(--sub);text-decoration:underline;cursor:pointer;font-size:11.5px;padding:0}
+
+@media (max-width:860px){
+  .top-in{flex-direction:column;align-items:stretch;gap:0;padding-top:10px}
+  nav{margin:0 -12px}
+  nav a{padding:10px 12px}
+  .cur{display:none}
+  .form{grid-template-columns:minmax(0,1fr)}
+  .fields{grid-template-columns:minmax(0,1fr)}
+  .doc{padding:22px 18px}
+  .tot .v{font-size:16px}
+  .pad-bar{height:180px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <div class="logo">旅行見積システム<span>画面イメージ</span></div>
+  <nav id="nav"></nav>
+  <span class="cur" id="cur"></span>
+</div></header>
+<main id="view"></main>
+<div id="barbox"></div>
+<footer class="foot" id="foot">
+  <span>※ 案件・顧客・料金はすべて架空です。税・手数料・部屋割りは計算していません。<br>※ 操作確認用の画面イメージです。保存・外部の料金検索・ファイル出力は行いません。</span>
+  <button type="button" data-act="reset">デモを最初の状態に戻す</button>
+</footer>
+
+<script>
+/* ================= 基本 ================= */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>Math.round(n).toLocaleString('ja-JP');
+const yen=n=>fmt(n)+'円';
+const sgn=n=>(n>0?'+':n<0?'−':'±')+fmt(Math.abs(n))+'円';
+const WD='日月火水木金土';
+const pd=s=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||'');return m?new Date(+m[1],+m[2]-1,+m[3]):null;};
+const jd=d=>`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${WD[d.getDay()]}）`;
+const stamp=d=>`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+
+/* ================= 計算（仕様書 5章） ================= */
+const NUMF=['cost','price','qty','times'];
+const NUML={cost:'原価単価',price:'販売単価',qty:'数量',times:'回数'};
+const clean=v=>String(v??'').replace(/[,，\s]/g,'');
+const isInt=v=>/^\d+$/.test(clean(v));            // 0以上の整数のみ。負数・文字・空欄は不可
+const toInt=v=>parseInt(clean(v),10);
+function rowCalc(it){
+  const bad=NUMF.filter(f=>!isInt(it[f]));
+  if(bad.length) return {bad};
+  const q=toInt(it.qty),t=toInt(it.times);
+  return {bad:[],cost:toInt(it.cost)*q*t,sale:toInt(it.price)*q*t};
+}
+function totals(items){
+  let cost=0,sale=0,err=0,pend=0;
+  for(const it of items){const r=rowCalc(it);if(r.bad.length) err++; else {cost+=r.cost;sale+=r.sale;} if(!it.ok) pend++;}
+  const gp=sale-cost;
+  return {cost,sale,gp,rate:sale?(gp/sale*100).toFixed(2):null,err,pend};
+}
+const rateText=t=>t.rate==null?'—':`${t.rate}%`;
+
+/* ================= ダミーデータ（仕様書 4章） ================= */
+let uidN=0;const uid=()=>'r'+(++uidN);
+const row=(cat,desc,cost,price,qty,times,linked,ok,rel,memo='')=>({uid:uid(),cat,desc,cost:String(cost),price:String(price),qty:String(qty),times:String(times),linked,ok,rel,memo,flag:''});
+const DEMO={
+  name:'東京観光 団体旅行',customer:'サンプル旅行会社御中',from:'大阪',to:'東京方面',dep:'2027-01-15',ret:'2027-01-17',pax:'20',kind:'概算',
+  mail:'大阪から20名で東京へ2泊3日の団体旅行を検討しています。新幹線、ホテル、現地移動、観光施設の入場、ガイドを含む見積をお願いします。',
+  stay:'ホテル 2泊',move:'新幹線（大阪〜東京）、現地は貸切バス',sight:'観光施設の入場、ガイド付き',note:''
+};
+const demoRows=pax=>[
+  row('新幹線','新大阪〜東京',15000,18000,pax,1,true,true,['date']),
+  row('ホテル','都内ホテル',12000,15000,pax,2,true,false,['date','stay'],'料金は仮。部屋割り未定'),
+  row('観光施設入場料','都内観光施設',2500,3000,pax,1,true,true,[]),
+  row('ガイド','観光ガイド 1名',40000,50000,1,2,false,true,['date']),
+  row('貸切バス','大型バス 1台',90000,110000,1,2,false,false,['date'],'台数・利用時間は要確認'),
+];
+let cases=[],seq=0,cur=null;
+function makeCase(o){seq++;return Object.assign({id:'DEMO-'+String(seq).padStart(3,'0'),name:'',customer:'',from:'',to:'',dep:'',ret:'',pax:'',kind:'概算',mail:'',stay:'',move:'',sight:'',note:'',status:'作成中',updated:new Date(),items:[],hist:[],sync:null,draft:false,demoNote:false},o);}
+const syncOf=c=>({pax:c.pax,dep:c.dep,ret:c.ret,stay:c.stay});
+function init(){
+  uidN=0;seq=0;cur=null;
+  const a=makeCase(Object.assign({},DEMO,{updated:new Date(2026,10,21,18,30)}));a.items=demoRows(20);a.sync=syncOf(a);
+  const b=makeCase({name:'京都 研修旅行',customer:'サンプル商事御中',from:'大阪',to:'京都',dep:'2027-02-19',ret:'2027-02-20',pax:'35',kind:'正式',status:'要確認',updated:new Date(2026,10,20,11,5),
+    mail:'新入社員35名の研修旅行（1泊2日）です。体験プログラムと旅館での宿泊を含めてください。',stay:'旅館 1泊',move:'貸切バス',sight:'伝統工芸の体験'});
+  b.items=[row('貸切バス','大型バス 1台',85000,100000,1,2,false,true,['date']),row('旅館','京都市内の旅館',14000,17000,35,1,true,false,['date','stay'],'2部屋の空き確認中'),
+    row('体験プログラム','伝統工芸の体験',3000,3800,35,1,true,true,[]),row('昼食','団体昼食',1800,2300,35,2,true,true,[])];b.sync=syncOf(b);
+  const c=makeCase({name:'北海道 社員旅行',customer:'サンプル工業御中',from:'大阪',to:'札幌',dep:'2027-03-04',ret:'2027-03-06',pax:'12',kind:'概算',status:'プレビュー済',updated:new Date(2026,10,18,16,40),
+    mail:'社員12名で札幌へ2泊3日。航空券とホテル、現地の移動をお願いします。',stay:'ホテル 2泊',move:'航空機、現地は貸切バス',sight:'市内観光'});
+  c.items=[row('航空券','伊丹〜新千歳',24000,28000,12,1,true,true,['date']),row('ホテル','札幌市内ホテル',11000,13500,12,2,true,true,['date','stay']),
+    row('貸切バス','中型バス 1台',70000,85000,1,2,false,true,['date']),row('夕食','団体夕食',5000,6500,12,2,true,true,[])];c.sync=syncOf(c);
+  cases=[a,b,c];
+}
+init();
+
+/* ================= 操作（画面から呼ぶ。受け入れテストでも同じ関数を使う） ================= */
+const snap=c=>JSON.stringify({items:c.items,pax:c.pax});
+function pushHist(c,s){c.hist.push(s);if(c.hist.length>40) c.hist.shift();}
+function touch(c){c.updated=new Date();if(c.status==='プレビュー済') c.status='作成中';}
+function undo(c){const s=c.hist.pop();if(!s) return false;const o=JSON.parse(s);c.items=o.items;c.pax=o.pax;c.sync.pax=o.pax;touch(c);return true;}
+function addRow(c){pushHist(c,snap(c));c.items.push(row('','',0,0,1,1,false,false,[]));touch(c);}
+function delRow(c,id){pushHist(c,snap(c));c.items=c.items.filter(i=>i.uid!==id);touch(c);}
+function dupRow(c,id){pushHist(c,snap(c));const i=c.items.findIndex(x=>x.uid===id);const cp=Object.assign({},c.items[i],{uid:uid(),rel:[...c.items[i].rel]});c.items.splice(i+1,0,cp);touch(c);}
+function toggleOk(c,id){pushHist(c,snap(c));const it=c.items.find(x=>x.uid===id);it.ok=!it.ok;if(it.ok) it.flag='';touch(c);}
+function setField(c,id,f,v){const it=c.items.find(x=>x.uid===id);it[f]=v;touch(c);}
+function setLinked(c,id,on){pushHist(c,snap(c));const it=c.items.find(x=>x.uid===id);it.linked=on;if(on&&isInt(c.pax)) it.qty=String(toInt(c.pax));touch(c);}
+/* 人数変更：人数連動の行の数量だけを人数にそろえる */
+function setPax(c,n,record=true){
+  if(record) pushHist(c,snap(c));
+  c.pax=String(n);let k=0;
+  for(const it of c.items) if(it.linked){it.qty=String(n);k++;}
+  if(c.sync) c.sync.pax=c.pax;touch(c);return k;
+}
+/* 条件が変わったら関連する明細を要確認にする（料金の自動取得はしない） */
+function applyCondChanges(c){
+  const s=c.sync,msgs=[];if(!s){c.sync=syncOf(c);return msgs;}
+  let rec=false;const rec1=()=>{if(!rec){pushHist(c,snap(c));rec=true;}};
+  if(s.pax!==c.pax&&isInt(c.pax)&&toInt(c.pax)>=1){rec1();const old=s.pax;const k=setPax(c,toInt(c.pax),false);msgs.push(`人数を ${old}名 → ${c.pax}名 に変更しました。人数連動の ${k}行の数量を ${c.pax} にしました。`);}
+  const mark=(key,label)=>{const t=c.items.filter(i=>i.rel.includes(key));if(!t.length) return;rec1();t.forEach(i=>{i.ok=false;i.flag=label;});msgs.push(`${label}ため、${t.map(i=>i.cat||'（費目なし）').join('・')} を要確認にしました。単価と回数を見直してください。`);};
+  if(s.dep!==c.dep||s.ret!==c.ret) mark('date','日程を変更した');
+  if(s.stay!==c.stay) mark('stay','宿泊希望を変更した');
+  c.sync=syncOf(c);if(msgs.length) touch(c);
+  return msgs;
+}
+function cloneCase(c){
+  const n=makeCase(JSON.parse(JSON.stringify(Object.assign({},c,{hist:[]}))));
+  seq;n.id='DEMO-'+String(seq).padStart(3,'0');n.name=c.name+'（コピー）';n.status='作成中';n.updated=new Date();n.hist=[];n.draft=false;
+  n.items.forEach(i=>i.uid=uid());
+  cases.splice(cases.indexOf(c)+1,0,n);return n;
+}
+function validate(c){
+  const e={};
+  if(!c.customer.trim()) e.customer='顧客名を入力してください';
+  if(!c.name.trim()) e.name='案件名を入力してください';
+  if(!pd(c.dep)) e.dep='出発日を入力してください';
+  if(!pd(c.ret)) e.ret='帰着日を入力してください';
+  if(pd(c.dep)&&pd(c.ret)&&pd(c.ret)<pd(c.dep)) e.ret='帰着日は出発日と同じ日か、それより後にしてください';
+  if(!isInt(c.pax)||toInt(c.pax)<1) e.pax='人数は1以上の整数で入力してください';
+  return e;
+}
+const nights=c=>{const a=pd(c.dep),b=pd(c.ret);if(!a||!b) return null;return Math.round((b-a)/864e5);};
+const tripText=c=>{const a=pd(c.dep),b=pd(c.ret),n=nights(c);if(!a||!b) return '日程未定';return `${jd(a)} 〜 ${jd(b)}　${n}泊${n+1}日`;};
+const dateShort=c=>{const a=pd(c.dep),b=pd(c.ret);if(!a) return '未定';return `${a.getFullYear()}/${a.getMonth()+1}/${a.getDate()}${b?`〜${b.getMonth()+1}/${b.getDate()}`:''}`;};
+
+/* ================= 画面 ================= */
+const UI={q:'',errs:{},banner:[],last:'',notimpl:'',paxErr:''};
+const views={};
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2600);}
+const ph=(t,p,right='')=>`<div class="ph"><div><h1>${t}</h1>${p?`<p>${p}</p>`:''}</div>${right}</div>`;
+const stBadge=s=>s==='要確認'?`<span class="st-warn">要確認</span>`:s==='プレビュー済'?`<span class="st-ok">プレビュー済</span>`:`<span class="sub">作成中</span>`;
+
+/* ---- A 案件一覧 ---- */
+views.list=()=>`<div class="wrap narrow">
+  ${ph('案件一覧','作成中の見積を開くか、新しい見積を始めます。','<button class="btn pri" data-act="new">新規見積</button>')}
+  <input type="search" class="search" id="q" placeholder="案件名・顧客名で検索" value="${esc(UI.q)}" style="max-width:420px">
+  <section class="panel" id="list"></section></div>`;
+function fillList(){
+  const q=UI.q.trim();const L=cases.filter(c=>!c.draft&&(!q||(c.name+c.customer).includes(q)));
+  $('#list').innerHTML=L.length?`<div class="tw"><table><thead><tr><th>案件</th><th>旅行日・人数</th><th>見積区分</th><th>状態</th><th>更新日</th><th></th></tr></thead><tbody>
+  ${L.map(c=>`<tr class="click" data-act="edit" data-id="${c.id}"><td><b>${esc(c.name||'（案件名なし）')}</b><br><span class="sub small">${esc(c.customer)}・${c.id}</span></td><td class="nw">${dateShort(c)}<br><span class="sub small">${isInt(c.pax)?toInt(c.pax)+'名':'人数未定'}</span></td><td class="nw">${c.kind}</td><td>${stBadge(c.status)}</td><td class="nw sub">${stamp(c.updated)}</td>
+  <td class="nw r"><button class="btn sm" data-act="edit" data-id="${c.id}">編集</button> <button class="btn sm" data-act="clone" data-id="${c.id}">複製</button></td></tr>`).join('')}
+  </tbody></table></div>`:`<p class="pad sub">該当する案件はありません。</p>`;
+}
+
+/* ---- B 要望・条件入力 ---- */
+const F=(k,label,type='text',wide=false,extra='')=>{const e=UI.errs[k];const v=cur[k];
+  const ctl=type==='textarea'?`<textarea id="b-${k}" data-b="${k}" ${extra}>${esc(v)}</textarea>`:type==='select'?`<select id="b-${k}" data-b="${k}">${['概算','正式'].map(o=>`<option ${v===o?'selected':''}>${o}</option>`).join('')}</select>`:`<input id="b-${k}" data-b="${k}" type="${type}" value="${esc(v)}" ${extra}>`;
+  return `<div class="f ${wide?'wide':''} ${e?'bad':''}"><label for="b-${k}">${label}</label>${ctl}${e?`<span class="err">${e}</span>`:''}</div>`;};
+views.request=()=>{
+  const has=cur.items.length>0;
+  return `<div class="wrap narrow">
+  ${ph('要望・条件',has?'条件を変えて明細へ進むと、関係する明細を要確認にします。':'依頼の内容を入力して、見積項目を作成します。')}
+  <div class="form">
+    <section class="panel pad" style="display:flex;flex-direction:column;gap:12px">
+      <div class="row"><h2>依頼メール</h2><button class="btn sm sp" data-act="load-demo">デモ案件を読み込む</button></div>
+      ${F('mail','依頼メールの本文','textarea',true,'class="mail" placeholder="顧客からの依頼文を貼り付けます"')}
+      ${cur.demoNote?'<p class="note ok">デモ用の固定値を右の欄に入れました。依頼文を自動で読み取ってはいません。</p>':'<p class="note">このデモでは、依頼文から条件を自動で読み取りません。</p>'}
+    </section>
+    <section class="panel pad" style="display:flex;flex-direction:column;gap:14px">
+      <h2>見積の条件</h2>
+      <div class="fields">
+        ${F('customer','顧客名')}${F('name','案件名')}
+        ${F('from','出発地')}${F('to','目的地')}
+        ${F('dep','出発日','date')}${F('ret','帰着日','date')}
+        ${F('pax','人数','text',false,'inputmode="numeric"')}${F('kind','見積区分','select')}
+        ${F('stay','宿泊希望','text',true)}${F('move','移動希望','text',true)}${F('sight','観光希望','text',true)}
+        ${F('note','備考','textarea',true)}
+      </div>
+    </section>
+  </div>
+  <div class="row"><button class="btn" data-act="back">戻る</button><button class="btn pri sp" data-act="make-items">${has?'明細へ進む':'見積項目を作成'}</button></div></div>`;
+};
+
+/* ---- C 明細・積算 ---- */
+function rowHTML(it){
+  const r=rowCalc(it),bad=new Set(r.bad);
+  const num=(f)=>`<td><input class="ci num ${bad.has(f)?'bad':''}" id="${it.uid}-${f}" data-f="${f}" inputmode="numeric" value="${esc(it[f])}" aria-label="${NUML[f]}">${bad.has(f)?'<span class="em">0以上の整数</span>':''}${f==='qty'?`<label class="lk ${it.linked?'on':''}"><input type="checkbox" data-f="linked" ${it.linked?'checked':''}>人数連動</label>`:''}</td>`;
+  return `<tr data-uid="${it.uid}" class="${r.bad.length?'err':''}">
+    <td><input class="ci" id="${it.uid}-cat" data-f="cat" value="${esc(it.cat)}" placeholder="費目" aria-label="費目"></td>
+    <td><input class="ci" id="${it.uid}-desc" data-f="desc" value="${esc(it.desc)}" placeholder="内容" aria-label="内容"></td>
+    ${num('cost')}${num('price')}${num('qty')}${num('times')}
+    <td class="calc" data-o="cost">${r.bad.length?'—':yen(r.cost)}</td>
+    <td class="calc" data-o="sale">${r.bad.length?'—':yen(r.sale)}</td>
+    <td><button class="chk ${it.ok?'ok':'ng'}" data-act="toggle">${it.ok?'確認済':'要確認'}</button>${it.flag&&!it.ok?`<span class="flag">${it.flag}</span>`:''}</td>
+    <td><input class="ci" id="${it.uid}-memo" data-f="memo" value="${esc(it.memo)}" placeholder="社内メモ" aria-label="備考（社内）"></td>
+    <td class="ops"><button class="btn ghost sm" data-act="dup">複製</button><button class="btn ghost sm" data-act="del">削除</button></td></tr>`;
+}
+views.items=()=>{
+  const c=cur;
+  return `<div class="wrap">
+  ${ph(esc(c.name||'（案件名なし）'),esc(c.customer)+'・'+c.id,`<div class="row"><button class="btn" data-act="go" data-v="list">案件一覧</button><button class="btn" data-act="go" data-v="request">条件を変更</button></div>`)}
+  <section class="panel pad cond">
+    <div><span class="k">日程</span><span class="v">${tripText(c)}</span></div>
+    <div><span class="k">行き先</span><span class="v">${esc(c.from||'—')} → ${esc(c.to||'—')}</span></div>
+    <div class="${UI.paxErr?'bad':''}"><label class="k" for="pax-c">人数</label><input id="pax-c" inputmode="numeric" value="${esc(c.pax)}"> 名${UI.paxErr?`<span class="err">${UI.paxErr}</span>`:''}</div>
+    <div><label class="k" for="kind-c">見積区分</label><select id="kind-c">${['概算','正式'].map(o=>`<option ${c.kind===o?'selected':''}>${o}</option>`).join('')}</select></div>
+  </section>
+  ${UI.banner.length?`<div class="banner ${UI.bannerInfo?'info':''}"><ul>${UI.banner.map(m=>`<li>${esc(m)}</li>`).join('')}</ul><button class="btn ghost sm" data-act="close-banner">閉じる</button></div>`:''}
+  <section class="panel">
+    <div class="row pad" style="padding-block:12px"><h2>明細</h2><span class="small sub">人数連動の行は、人数を変えると数量も変わります。Enterで下の行へ移動します。</span>
+      <span class="sp row"><button class="btn sm" data-act="undo" ${c.hist.length?'':'disabled'}>元に戻す</button><button class="btn sm" data-act="add">行を追加</button></span></div>
+    <div class="tw"><table class="items"><thead><tr><th style="width:130px">費目</th><th>内容</th><th class="r" style="width:112px">原価単価</th><th class="r" style="width:112px">販売単価</th><th class="r" style="width:100px">数量</th><th class="r" style="width:72px">回数</th><th class="r" style="width:118px">原価小計</th><th class="r" style="width:118px">販売小計</th><th style="width:104px">確認</th><th style="width:170px">備考（社内）</th><th style="width:96px"></th></tr></thead>
+    <tbody id="rows">${c.items.map(rowHTML).join('')}</tbody></table></div>
+    ${c.items.length?'':'<p class="pad sub">明細がありません。「行を追加」から入力してください。</p>'}
+  </section>
+  <div class="pad-bar"></div></div>`;
+};
+function barHTML(){
+  const t=totals(cur.items);
+  return `<div class="bar"><div class="bar-in">
+    <div class="tot"><span class="k">原価合計</span><span class="v" id="t-cost">${yen(t.cost)}</span></div>
+    <div class="tot"><span class="k">販売合計</span><span class="v" id="t-sale">${yen(t.sale)}</span></div>
+    <div class="tot"><span class="k">粗利額</span><span class="v ${t.gp<0?'minus':''}" id="t-gp">${yen(t.gp)}</span></div>
+    <div class="tot"><span class="k">粗利率</span><span class="v ${t.gp<0?'minus':''}" id="t-rate">${rateText(t)}</span></div>
+    <div class="alerts" id="t-alerts">${alertsHTML(t)}</div>
+    <button class="btn pri sp" data-act="go" data-v="preview">プレビュー</button>
+    <div class="last" id="t-last">${esc(UI.last)}</div>
+  </div></div>`;
+}
+function alertsHTML(t){
+  const a=[];
+  if(t.pend) a.push(`<span class="w">要確認 ${t.pend}行（未確定の料金があります）</span>`);
+  if(t.err) a.push(`<span class="e">入力エラー ${t.err}行（合計に含めていません）</span>`);
+  if(t.gp<0) a.push(`<span class="e">粗利がマイナスです</span>`);
+  return a.join('')||'<span class="sub">すべて確認済みです</span>';
+}
+function setText(el,txt){if(el.textContent!==txt){el.textContent=txt;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}}
+function refreshRow(tr){
+  const it=cur.items.find(i=>i.uid===tr.dataset.uid),r=rowCalc(it),bad=new Set(r.bad);
+  tr.classList.toggle('err',r.bad.length>0);
+  for(const f of NUMF){const inp=tr.querySelector(`[data-f="${f}"]`);inp.classList.toggle('bad',bad.has(f));
+    let em=inp.nextElementSibling&&inp.nextElementSibling.classList.contains('em')?inp.nextElementSibling:null;
+    if(bad.has(f)&&!em){em=document.createElement('span');em.className='em';em.textContent='0以上の整数';inp.after(em);} else if(!bad.has(f)&&em) em.remove();}
+  setText(tr.querySelector('[data-o="cost"]'),r.bad.length?'—':yen(r.cost));
+  setText(tr.querySelector('[data-o="sale"]'),r.bad.length?'—':yen(r.sale));
+}
+function refreshTotals(){
+  const t=totals(cur.items);
+  setText($('#t-cost'),yen(t.cost));setText($('#t-sale'),yen(t.sale));setText($('#t-gp'),yen(t.gp));setText($('#t-rate'),rateText(t));
+  $('#t-gp').classList.toggle('minus',t.gp<0);$('#t-rate').classList.toggle('minus',t.gp<0);
+  $('#t-alerts').innerHTML=alertsHTML(t);$('#t-last').textContent=UI.last;
+  const u=$('[data-act="undo"]');if(u) u.disabled=!cur.hist.length;
+}
+
+/* ---- D 見積書プレビュー ---- */
+views.preview=()=>{
+  const c=cur,t=totals(c.items),ok=c.items.filter(i=>!rowCalc(i).bad.length);
+  return `<div class="wrap narrow">
+  ${ph('見積書プレビュー','顧客に出す内容だけを表示しています。原価・粗利・社内メモは出ません。',`<div class="row"><button class="btn pri" data-act="go" data-v="items">見積を修正</button></div>`)}
+  ${t.pend?`<div class="banner">未確定の料金があります（要確認 ${t.pend}行）。提出前に明細で確認してください。</div>`:''}
+  ${t.err?`<div class="banner">入力エラーの ${t.err}行は、見積書に含めていません。</div>`:''}
+  <div class="row"><span class="small sub">出力</span><button class="btn" data-act="out" data-v="PDF出力">PDF出力</button><button class="btn" data-act="out" data-v="Excel出力">Excel出力</button><button class="btn" data-act="out" data-v="指定書式出力">指定書式出力</button></div>
+  ${UI.notimpl?`<div class="notimpl" role="status"><b>${UI.notimpl}はデモ版のため未実装です。</b>ファイルは作成されていません。</div>`:''}
+  <article class="doc">
+    <span class="sample">サンプル見積｜正式提出不可</span>
+    <div class="doc-h"><div><h2>御見積書</h2><p style="margin-top:10px;font-size:16px">${esc(c.customer)}</p></div><p class="small sub" style="text-align:right">見積番号　${c.id}<br>見積区分　${c.kind}</p></div>
+    <dl class="kv">
+      <dt>件名</dt><dd>${esc(c.name)}</dd>
+      <dt>旅程</dt><dd>${esc(c.from)} → ${esc(c.to)}<br>${tripText(c)}</dd>
+      <dt>人数</dt><dd>${isInt(c.pax)?toInt(c.pax)+'名':'—'}</dd>
+    </dl>
+    <div class="tw"><table><thead><tr><th>明細</th><th class="r">数量</th><th class="r">回数</th><th class="r">単価</th><th class="r">金額</th></tr></thead><tbody>
+    ${ok.map(i=>{const r=rowCalc(i);return `<tr><td>${esc(i.cat)}${i.desc?`<br><span class="sub small">${esc(i.desc)}</span>`:''}</td><td class="r">${fmt(toInt(i.qty))}</td><td class="r">${fmt(toInt(i.times))}</td><td class="r">${yen(toInt(i.price))}</td><td class="r">${yen(r.sale)}</td></tr>`;}).join('')}
+    </tbody></table></div>
+    <div class="doc-total"><span>合計金額</span><b>${yen(t.sale)}</b></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><b>見積条件（サンプル文言）</b><ul class="ul">
+      <li>本見積は${c.kind}です。手配状況により金額が変わる場合があります。</li>
+      <li>税・手数料の扱いは別途ご案内します（このデモでは計算していません）。</li>
+      ${c.note?`<li>ご要望：${esc(c.note)}</li>`:''}
+    </ul></div>
+  </article></div>`;
+};
+
+/* ================= 描画とイベント ================= */
+const ROUTES=[['list','案件一覧'],['request','要望・条件'],['items','明細・積算'],['preview','見積書']];
+function route(){
+  let v=location.hash.slice(1);if(!views[v]) v='list';
+  if(v!=='list'&&!cur) v='list';
+  if((v==='items'||v==='preview')&&!cur.items.length) v='request';
+  return v;
+}
+function go(v){if(location.hash==='#'+v) render(); else location.hash=v;}
+function render(){
+  const v=route();
+  if(v==='items'){const m=applyCondChanges(cur);if(m.length){UI.banner=m;UI.bannerInfo=false;}}
+  if(v==='preview'){cur.status='プレビュー済';}
+  $('#nav').innerHTML=ROUTES.map(([k,l])=>{const off=k!=='list'&&(!cur||((k==='items'||k==='preview')&&!cur.items.length));return `<a href="#${k}" class="${k===v?'on':''} ${off?'off':''}">${l}</a>`;}).join('');
+  $('#cur').textContent=cur&&v!=='list'?`${cur.name||'（案件名なし）'}・${cur.id}`:'';
+  $('#view').innerHTML=views[v]();
+  $('#barbox').innerHTML=v==='items'?barHTML():'';
+  $('#foot').style.paddingBottom=v==='items'?'120px':'';
+  if(v==='list') fillList();
+  if(v==='preview') UI.notimpl='';
+}
+window.addEventListener('hashchange',()=>{render();window.scrollTo(0,0);});
+
+let pre=null;
+document.addEventListener('focusin',e=>{if(e.target.classList&&e.target.classList.contains('ci')) pre={s:snap(cur),t:totals(cur.items),v:e.target.value};});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.id==='q'){UI.q=t.value;fillList();return;}
+  if(t.dataset.b&&cur){cur[t.dataset.b]=t.value;touch(cur);if(UI.errs[t.dataset.b]){delete UI.errs[t.dataset.b];const w=t.closest('.f');w.classList.remove('bad');w.querySelector('.err')?.remove();}return;}
+  if(t.classList.contains('ci')){const tr=t.closest('tr');setField(cur,tr.dataset.uid,t.dataset.f,t.value);if(NUMF.includes(t.dataset.f)){refreshRow(tr);refreshTotals();}}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.classList.contains('ci')&&pre&&pre.v!==t.value){
+    pushHist(cur,pre.s);
+    if(NUMF.includes(t.dataset.f)){const it=cur.items.find(i=>i.uid===t.closest('tr').dataset.uid),a=totals(cur.items);
+      UI.last=isInt(t.value)?`直前の変更：${it.cat||'（費目なし）'}の${NUML[t.dataset.f]}を ${pre.v} → ${t.value}。販売合計 ${sgn(a.sale-pre.t.sale)}、粗利 ${sgn(a.gp-pre.t.gp)}`:`直前の変更：${it.cat||'（費目なし）'}の${NUML[t.dataset.f]}が正しくありません。この行は合計に含めていません`;}
+    pre={s:snap(cur),t:totals(cur.items),v:t.value};refreshTotals();
+  }
+  if(t.dataset.f==='linked'){setLinked(cur,t.closest('tr').dataset.uid,t.checked);render();}
+  if(t.id==='pax-c'){
+    if(!isInt(t.value)||toInt(t.value)<1){UI.paxErr='1以上の整数で入力してください';render();return;}
+    UI.paxErr='';const before=cur.pax,a=totals(cur.items).sale;const k=setPax(cur,toInt(t.value));const b=totals(cur.items).sale;
+    UI.last=`直前の変更：人数を ${before}名 → ${cur.pax}名。人数連動の ${k}行の数量を ${cur.pax} にしました。販売合計 ${sgn(b-a)}`;render();
+  }
+  if(t.id==='kind-c'){cur.kind=t.value;touch(cur);}
+});
+document.addEventListener('keydown',e=>{
+  const t=e.target;if(e.key!=='Enter'||!t.classList||!t.classList.contains('ci')) return;
+  e.preventDefault();const tr=t.closest('tr'),n=e.shiftKey?tr.previousElementSibling:tr.nextElementSibling;
+  if(n) n.querySelector(`[data-f="${t.dataset.f}"]`)?.focus(); else t.blur();
+});
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-act]');if(!el) return;
+  const a=el.dataset.act,id=el.dataset.id;
+  if(a==='reset'){init();UI.q='';UI.errs={};UI.banner=[];UI.last='';go('list');toast('最初の状態に戻しました');}
+  else if(a==='new'){cur=makeCase({draft:true});cases.push(cur);UI.errs={};go('request');}
+  else if(a==='edit'){e.stopPropagation();cur=cases.find(c=>c.id===id);UI.errs={};UI.banner=[];UI.last='';go(cur.items.length&&!Object.keys(validate(cur)).length?'items':'request');}
+  else if(a==='clone'){e.stopPropagation();const n=cloneCase(cases.find(c=>c.id===id));render();toast(`${n.id} として複製しました。元の案件は変わりません`);}
+  else if(a==='load-demo'){Object.assign(cur,DEMO);cur.demoNote=true;UI.errs={};touch(cur);render();toast('デモ案件の内容を読み込みました');}
+  else if(a==='back'){if(cur.draft&&!cur.items.length&&!['name','customer','mail','dep','ret','pax'].some(k=>String(cur[k]).trim())) cases=cases.filter(c=>c!==cur); else cur.draft=false;go('list');}
+  else if(a==='make-items'){
+    UI.errs=validate(cur);
+    if(Object.keys(UI.errs).length){render();const k=Object.keys(UI.errs)[0];$('#b-'+k)?.focus();toast('入力内容を確認してください');return;}
+    cur.draft=false;UI.last='';
+    if(!cur.items.length){cur.items=demoRows(toInt(cur.pax));cur.sync=syncOf(cur);UI.banner=['デモ用の固定明細5行を読み込みました。依頼内容から自動で作ったものではありません。'];UI.bannerInfo=true;}
+    else UI.banner=[];
+    go('items');
+  }
+  else if(a==='go'){go(el.dataset.v);}
+  else if(a==='close-banner'){UI.banner=[];render();}
+  else if(a==='add'){addRow(cur);UI.last='直前の変更：行を追加しました';render();$('#rows tr:last-child [data-f="cat"]')?.focus();}
+  else if(a==='del'){const tr=el.closest('tr'),it=cur.items.find(i=>i.uid===tr.dataset.uid),s=totals(cur.items).sale;delRow(cur,tr.dataset.uid);UI.last=`直前の変更：${it.cat||'（費目なし）'}の行を削除しました。販売合計 ${sgn(totals(cur.items).sale-s)}（「元に戻す」で取り消せます）`;render();}
+  else if(a==='dup'){const tr=el.closest('tr'),s=totals(cur.items).sale;dupRow(cur,tr.dataset.uid);UI.last=`直前の変更：行を複製しました。販売合計 ${sgn(totals(cur.items).sale-s)}`;render();}
+  else if(a==='toggle'){const tr=el.closest('tr');toggleOk(cur,tr.dataset.uid);render();}
+  else if(a==='undo'){if(undo(cur)){UI.last='直前の変更を取り消しました';render();}}
+  else if(a==='out'){UI.notimpl=el.dataset.v;const v=views.preview();$('#view').innerHTML=v;UI.notimpl=el.dataset.v;}
+});
+render();
+</script>
+</body>
+</html>

@@ -12,23 +12,14 @@
 <style>
 /* Layout: 上部に細いヘッダーと4つのタブ（案件一覧 → 要望・条件 → 明細・積算 → 見積書）。明細画面は表を広く取り、合計は下部に固定 */
 :root{
+  color-scheme:light;
   --bg:#f2f7f7; --paper:#ffffff; --ink:#152d36; --sub:#546873; --faint:#71858c; --line:#dce6e6; --hover:#f7faf9;
   --accent:#087f75; --accent-weak:#e3f3f0; --on-accent:#ffffff; --deep:#073d48; --scrim:rgba(7,40,48,.45);
   --warn:#a35a00; --warn-weak:#fdf2e2; --ok:#087f75; --ng:#b8432f; --ng-weak:#fbecea;
   --font:"Inter","Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0c1a1e; --paper:#12252a; --ink:#e2eeee; --sub:#9db3b8; --faint:#6f878d; --line:#22393f; --hover:#173036;
-  --accent:#52bbae; --accent-weak:#113a37; --on-accent:#05221f; --deep:#05262d; --scrim:rgba(0,0,0,.6);
-  --warn:#e6a64c; --warn-weak:#33270f; --ok:#52bbae; --ng:#f08a78; --ng-weak:#3a1c18; color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --bg:#0c1a1e; --paper:#12252a; --ink:#e2eeee; --sub:#9db3b8; --faint:#6f878d; --line:#22393f; --hover:#173036;
-  --accent:#52bbae; --accent-weak:#113a37; --on-accent:#05221f; --deep:#05262d; --scrim:rgba(0,0,0,.6);
-  --warn:#e6a64c; --warn-weak:#33270f; --ok:#52bbae; --ng:#f08a78; --ng-weak:#3a1c18; color-scheme:dark;
-}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.7;margin:0;font-variant-numeric:tabular-nums}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.7;margin:0;font-variant-numeric:tabular-nums}
 h1,h2,h3{margin:0;line-height:1.4;text-wrap:balance}
 h1{font-size:20px;font-weight:700}
 h2{font-size:15px;font-weight:700}

@@ -207,6 +207,15 @@
       ]
     },
     {
+      "source": "/slides/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/demo/(.*)",
       "headers": [
         {

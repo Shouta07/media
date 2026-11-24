@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>スライドひな形 16:9</title>
+<!--
+  Vitality Design スライドひな形（16:9）
+  ルールは slides/FORMAT.md。ページの型は .s-cover / .s-key / .s-table / .s-flow / .s-stats / .s-shot / .s-plan / .s-next / .s-notes
+  使い方：このファイルをコピー → 使わない <section> を消す → 文字を差し替える → Chrome で印刷して PDF に保存（余白なし・背景のグラフィックあり）
+  サンプルの中身は demo/hotel-tax（宿泊税クラウドの画面イメージ）。数字はすべてデモの架空データです。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFAF8; --ink:#121211; --sub:#56564F; --faint:#8E8E86;
+  --line:#DADAD4; --tint:#EFEFEB;
+  --dark:#0E0E0D; --on-dark:#F5F5F1; --on-dark-2:#B9B9B2;
+  /* 資料ごとに1色だけ変える（FORMAT.md 6節） */
+  --accent:#087F75; --accent-on-dark:#5CC4B7;
+  --backdrop:#D9D9D4;
+  --font:"Inter","Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --u:calc(100cqi / 1920); /* 1920px 幅を基準にした 1px */
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--backdrop);color:var(--ink);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+.deck{width:min(100% - 32px,1280px);margin:32px auto;display:grid;gap:24px}
+
+/* ---------- 1枚の器 ---------- */
+.slide{container-type:inline-size;aspect-ratio:16/9;width:100%;background:var(--paper);overflow:hidden;position:relative}
+.in{position:absolute;inset:0;padding:calc(var(--u)*96) calc(var(--u)*120) calc(var(--u)*80);
+  display:flex;flex-direction:column;font-size:calc(var(--u)*25);line-height:1.8}
+.brand{font-size:calc(var(--u)*18);font-weight:700;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
+.label{margin-top:calc(var(--u)*28);font-size:calc(var(--u)*20);font-weight:500;color:var(--sub);letter-spacing:.04em}
+h2{margin-top:calc(var(--u)*12);font-size:calc(var(--u)*56);line-height:1.4;font-weight:700;letter-spacing:-.01em}
+.lead{margin-top:calc(var(--u)*24);font-size:calc(var(--u)*28);color:var(--sub);max-width:calc(var(--u)*1400)}
+.lead b,.after b{color:var(--ink);font-weight:700}
+.body{margin-top:calc(var(--u)*56);flex:1;min-height:0}
+.after{margin-top:calc(var(--u)*28);color:var(--sub);max-width:calc(var(--u)*1500)}
+.note{margin-top:auto;padding-top:calc(var(--u)*20);border-top:1px solid var(--line);font-size:calc(var(--u)*18);color:var(--sub);line-height:1.7}
+.pno{position:absolute;right:calc(var(--u)*120);bottom:calc(var(--u)*40);font-size:calc(var(--u)*18);color:var(--faint);font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- 表紙 ---------- */
+.s-cover{background:var(--dark);color:var(--on-dark)}
+.s-cover .brand{color:var(--on-dark-2)}
+.s-cover .rule{width:calc(var(--u)*120);height:calc(var(--u)*3);background:var(--accent-on-dark);margin-top:auto}
+.s-cover h1{margin-top:calc(var(--u)*40);font-size:calc(var(--u)*96);line-height:1.35;font-weight:700;letter-spacing:-.02em}
+.s-cover h1 em{font-style:normal;color:var(--accent-on-dark)}
+.s-cover .sub{margin-top:calc(var(--u)*36);font-size:calc(var(--u)*28);color:var(--on-dark-2);line-height:1.8}
+.s-cover .co{margin-top:auto;font-size:calc(var(--u)*20);color:var(--on-dark-2);line-height:1.8}
+.s-cover .co strong{display:block;color:var(--on-dark);font-weight:700;letter-spacing:.16em;font-size:calc(var(--u)*22)}
+
+/* ---------- 結論 ---------- */
+.s-key .body{display:flex;flex-direction:column;justify-content:center;margin-top:0}
+.s-key .big{font-size:calc(var(--u)*72);line-height:1.45;font-weight:700;letter-spacing:-.01em;max-width:calc(var(--u)*1500)}
+.s-key .big + p{margin-top:calc(var(--u)*40);font-size:calc(var(--u)*28);color:var(--sub);max-width:calc(var(--u)*1300)}
+
+/* ---------- 表 ---------- */
+table{width:100%;border-collapse:collapse}
+th{font-size:calc(var(--u)*19);font-weight:500;color:var(--sub);text-align:left;padding:0 calc(var(--u)*24) calc(var(--u)*16) 0;border-bottom:1px solid var(--ink)}
+td{padding:calc(var(--u)*22) calc(var(--u)*24) calc(var(--u)*22) 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+td:first-child{font-weight:700;white-space:nowrap}
+
+/* ---------- 流れ ---------- */
+.flow{display:grid;grid-template-columns:repeat(var(--n,4),1fr);gap:calc(var(--u)*32);list-style:none;counter-reset:f}
+.flow li{counter-increment:f;border-top:calc(var(--u)*3) solid var(--line);padding-top:calc(var(--u)*24)}
+.flow li::before{content:counter(f,decimal-leading-zero);display:block;font-size:calc(var(--u)*20);font-weight:700;color:var(--faint);letter-spacing:.08em}
+.flow li.now{border-top-color:var(--accent)}
+.flow li.now::before{color:var(--accent)}
+.flow h3{margin-top:calc(var(--u)*10);font-size:calc(var(--u)*30);font-weight:700;line-height:1.5}
+.flow p{margin-top:calc(var(--u)*12);color:var(--sub);font-size:calc(var(--u)*23);line-height:1.7}
+
+/* ---------- 数字 ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*48)}
+.stats div{border-top:1px solid var(--ink);padding-top:calc(var(--u)*28)}
+.stats .v{font-size:calc(var(--u)*120);font-weight:700;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats .v small{font-size:calc(var(--u)*36);margin-left:calc(var(--u)*6);letter-spacing:0}
+.stats p{margin-top:calc(var(--u)*20);color:var(--sub)}
+
+/* ---------- 画面 ---------- */
+.s-shot .body{display:grid;grid-template-columns:1.55fr 1fr;gap:calc(var(--u)*64);align-items:start}
+.shot{border:1px solid var(--line);border-radius:calc(var(--u)*8);background:#fff;aspect-ratio:16/10;overflow:hidden;display:block;width:100%}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.points{list-style:none;display:grid;gap:calc(var(--u)*32)}
+.points li{border-top:1px solid var(--line);padding-top:calc(var(--u)*18)}
+.points b{display:block;font-size:calc(var(--u)*27)}
+.points span{display:block;margin-top:calc(var(--u)*6);color:var(--sub);font-size:calc(var(--u)*23);line-height:1.7}
+
+/* ---------- プラン ---------- */
+.plan td,.plan th{text-align:center}
+.plan td:first-child,.plan th:first-child{text-align:left}
+.plan .rec{background:var(--tint)}
+.plan .dot{color:var(--accent)}
+.plan .no{color:var(--faint)}
+
+/* ---------- 次の一歩 ---------- */
+.s-next .body{display:flex;flex-direction:column;justify-content:center;margin-top:0}
+.s-next .ask{font-size:calc(var(--u)*64);font-weight:700;line-height:1.45}
+.s-next .how{margin-top:calc(var(--u)*36);font-size:calc(var(--u)*28);color:var(--sub)}
+.s-next .contact{margin-top:calc(var(--u)*64);padding-top:calc(var(--u)*28);border-top:1px solid var(--line);font-size:calc(var(--u)*22);color:var(--sub);line-height:1.8}
+.s-next .contact strong{display:block;color:var(--ink);letter-spacing:.16em;font-size:calc(var(--u)*22)}
+
+/* ---------- 前提と注記 ---------- */
+.notes{list-style:none;display:grid;gap:calc(var(--u)*18);max-width:calc(var(--u)*1500);font-size:calc(var(--u)*23);color:var(--sub)}
+.notes li{padding-left:1.2em;text-indent:-1.2em}
+.notes li::before{content:"・"}
+
+/* ---------- 印刷（PDF） ---------- */
+@page{size:297mm 167.0625mm;margin:0}
+@media print{
+  body{background:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .deck{width:297mm;margin:0;gap:0;display:block}
+  .slide{width:297mm;height:167.0625mm;aspect-ratio:auto;break-after:page;page-break-after:always}
+  .slide:last-child{break-after:auto}
+}
+</style>
+</head>
+<body>
+<main class="deck">
+
+<!-- ========== 表紙 .s-cover ========== -->
+<section class="slide s-cover"><div class="in">
+  <div class="brand">VITALITY DESIGN ／ 民泊運営代行会社向け</div>
+  <span class="rule" aria-hidden="true"></span>
+  <h1>宿泊税の月末作業を、<br><em>確認するだけに。</em></h1>
+  <p class="sub">宿泊税クラウド　画面イメージのご説明</p>
+  <p class="co"><strong>VITALITY DESIGN LLC</strong>バイタリティデザイン合同会社<br>vitality-design.jp ・ contact@vitality-design.jp</p>
+</div></section>
+
+<!-- ========== 結論 .s-key ========== -->
+<section class="slide s-key"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <div class="body">
+    <p class="big">貴社が手を動かすのは、<br>自動で決められない予約だけです。</p>
+    <p>予約を1泊ごとに分けて税額を決め、迷う予約だけを質問の形でお見せします。デモのデータでは933件中54件です。</p>
+  </div>
+  <span class="pno">2</span>
+</div></section>
+
+<!-- ========== 表 .s-table（4列×5行まで） ========== -->
+<section class="slide s-table"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <p class="label">01 ／ 手間がかかっている所</p>
+  <h2>手間は、4種類の予約に集まっています。</h2>
+  <p class="lead">大半の予約は機械的に計算できます。<b>時間を取られるのは、判断が要る予約</b>です。</p>
+  <div class="body">
+    <table>
+      <thead><tr><th>予約の種類</th><th>いま起きていること</th><th>こちらがすること</th></tr></thead>
+      <tbody>
+        <tr><td>料金の合計が合わない</td><td>1泊ごとの料金が分からず、手で按分している</td><td>料金カレンダーで補い、合わない分だけ確認する</td></tr>
+        <tr><td>区分の境目の金額</td><td>税込みの扱いで区分が変わり、毎回調べている</td><td>どちらの税額にするかを選ぶだけにする</td></tr>
+        <tr><td>清掃料かどうか不明</td><td>「追加料金」を含めるか、物件ごとに迷う</td><td>質問の形で聞き、答えを次回から使う</td></tr>
+        <tr><td>税込みか別途か未設定</td><td>チャネルごとの扱いが決まっていない</td><td>1回決めれば同じチャネルの全予約に反映する</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <span class="pno">3</span>
+</div></section>
+
+<!-- ========== 流れ .s-flow（3〜5個。--n に個数） ========== -->
+<section class="slide s-flow"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <p class="label">02 ／ 月の流れ</p>
+  <h2>毎月の作業は、5つの順番で終わります。</h2>
+  <p class="lead">ホーム画面で、今月どこまで進んだかがいつでも分かります。</p>
+  <div class="body">
+    <ol class="flow" style="--n:5">
+      <li><h3>取込</h3><p>前月分の予約を取り込む</p></li>
+      <li><h3>判定</h3><p>1泊ごとに税額を決める</p></li>
+      <li class="now"><h3>要確認</h3><p>決められない予約だけを確認する</p></li>
+      <li><h3>確定・明細</h3><p>オーナー様に明細を送る</p></li>
+      <li><h3>申告</h3><p>自治体ごとの集計表を出す</p></li>
+    </ol>
+  </div>
+  <span class="pno">4</span>
+</div></section>
+
+<!-- ========== 数字 .s-stats（3つまで。出典を必ず書く） ========== -->
+<section class="slide s-stats"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <p class="label">03 ／ デモの規模</p>
+  <h2>実際の運営代行会社と同じ規模で、お見せします。</h2>
+  <div class="body">
+    <div class="stats">
+      <div><p class="v">144<small>物件</small></p><p>9つの自治体にまたがる物件</p></div>
+      <div><p class="v">933<small>件</small></p><p>1か月分の予約</p></div>
+      <div><p class="v">54<small>件</small></p><p>確認が必要な予約</p></div>
+    </div>
+  </div>
+  <p class="note">数字はすべてデモ用の架空データです（demo/hotel-tax、2026年10月分として表示したとき）。</p>
+  <span class="pno">5</span>
+</div></section>
+
+<!-- ========== 画面 .s-shot（画像1枚＋要点3つまで） ========== -->
+<section class="slide s-shot"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <p class="label">04 ／ 要確認の画面</p>
+  <h2>迷う予約は、質問に答えるだけで確定できます。</h2>
+  <div class="body">
+    <!-- 画面のスクリーンショットに差し替える：<span class="shot"><img src="..." alt="要確認の画面"></span> -->
+    <span class="shot" role="img" aria-label="画面のスクリーンショットを入れる場所">
+      <svg viewBox="0 0 1600 1000" width="100%" height="100%" aria-hidden="true">
+        <rect width="1600" height="1000" fill="#fff"/>
+        <rect x="0" y="0" width="1600" height="72" fill="#F2F2EE"/>
+        <rect x="40" y="120" width="560" height="840" fill="none" stroke="#DADAD4"/>
+        <rect x="640" y="120" width="920" height="840" fill="none" stroke="#DADAD4"/>
+        <text x="800" y="540" text-anchor="middle" font-size="40" fill="#8E8E86" font-family="sans-serif">スクリーンショット（16:10）</text>
+      </svg>
+    </span>
+    <ul class="points">
+      <li><b>左に一覧、右に1件分</b><span>上から順に処理すれば終わります。</span></li>
+      <li><b>項目は質問の形</b><span>「『追加料金 2,000円』は清掃料ですか？」</span></li>
+      <li><b>結果をその場で表示</b><span>選ぶと、確定後の税額がすぐ分かります。</span></li>
+    </ul>
+  </div>
+  <p class="note">画面イメージです。データはすべて架空です。</p>
+  <span class="pno">6</span>
+</div></section>
+
+<!-- ========== プラン .s-plan（3案まで。おすすめ1列だけ .rec） ========== -->
+<section class="slide s-plan"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <p class="label">05 ／ 進め方</p>
+  <h2>まずは、貴社のデータで1か月分を試せます。</h2>
+  <div class="body">
+    <table class="plan">
+      <thead><tr><th></th><th>確認だけ</th><th class="rec">1か月試す</th><th>運用まで</th></tr></thead>
+      <tbody>
+        <tr><td>向いている方</td><td>画面を見て判断したい</td><td class="rec">自社のデータで確かめたい</td><td>毎月の作業を任せたい</td></tr>
+        <tr><td>デモでの確認</td><td class="dot">●</td><td class="rec dot">●</td><td class="dot">●</td></tr>
+        <tr><td>貴社データでの試算</td><td class="no">—</td><td class="rec dot">●</td><td class="dot">●</td></tr>
+        <tr><td>毎月の運用</td><td class="no">—</td><td class="rec no">—</td><td class="dot">●</td></tr>
+        <tr><td>費用</td><td>無料</td><td class="rec">個別見積</td><td>個別見積</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">費用は物件数・取込元に応じて個別に見積もります。税務代理は行いません。</p>
+  <span class="pno">7</span>
+</div></section>
+
+<!-- ========== 次の一歩 .s-next（してほしいことを1つだけ） ========== -->
+<section class="slide s-next"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <div class="body">
+    <p class="ask">15分、画面を一緒に<br>操作してみませんか。</p>
+    <p class="how">ご都合のよい日時をメールでお知らせください。オンラインで画面を共有します。</p>
+    <p class="contact"><strong>VITALITY DESIGN LLC</strong>バイタリティデザイン合同会社　contact@vitality-design.jp</p>
+  </div>
+  <span class="pno">8</span>
+</div></section>
+
+<!-- ========== 前提と注記 .s-notes ========== -->
+<section class="slide s-notes"><div class="in">
+  <div class="brand">宿泊税クラウド</div>
+  <p class="label">前提と注記</p>
+  <div class="body">
+    <ul class="notes">
+      <li>本資料の画面は画面イメージです。データ・物件・オーナーはすべて架空です。</li>
+      <li>税率と区分はデモ用の値で、実際の条例とは異なります。</li>
+      <li>本サービスは集計と申告準備の支援であり、税務代理は行いません。申告・納入は特別徴収義務者の名義で行います。</li>
+      <li>作業時間の変化は見込みであり、成果を保証するものではありません。</li>
+    </ul>
+  </div>
+  <span class="pno">9</span>
+</div></section>
+
+</main>
+</body>
+</html>

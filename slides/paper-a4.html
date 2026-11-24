@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>A4資料ひな形</title>
+<!--
+  Vitality Design A4縦の資料ひな形（FIELD CX のサービス紹介資料と同じ型）
+  ルールは slides/FORMAT.md。ページの型は .p-cover / .p-table / .p-flow / .p-plan / .p-next
+  使い方：このファイルをコピー → 使わない <section> を消す → 文字を差し替える → Chrome で印刷して PDF に保存（用紙 A4・余白なし・背景のグラフィックあり）
+  サンプルの中身は構成の例です。数字・実績は入れていません。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF; --ink:#121211; --sub:#56564F; --faint:#8E8E86;
+  --line:#DADAD4; --tint:#EFEFEB;
+  --dark:#10201B; --on-dark:#F5F5F1; --on-dark-2:#B9B9B2;
+  /* 資料ごとに1色だけ変える（FORMAT.md 6節）。ここでは FIELD CX の緑 */
+  --accent:#1F6B4F; --accent-on-dark:#7FD6A4;
+  --backdrop:#D9D9D4;
+  --font:"Inter","Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mm:calc(100cqi / 210); /* 1mm */
+  --pt:calc(var(--mm) * .3528); /* 1pt */
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--backdrop);color:var(--ink);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+.book{width:min(100% - 32px,794px);margin:32px auto;display:grid;gap:24px}
+
+.page{container-type:inline-size;aspect-ratio:210/297;width:100%;background:var(--paper);overflow:hidden;position:relative}
+.in{position:absolute;inset:0;padding:calc(var(--mm)*16) calc(var(--mm)*18) calc(var(--mm)*14);
+  display:flex;flex-direction:column;font-size:calc(var(--pt)*9.5);line-height:1.9}
+.brand{font-size:calc(var(--pt)*7.5);font-weight:700;letter-spacing:.16em;color:var(--sub);text-transform:uppercase}
+.label{margin-top:calc(var(--mm)*7);font-size:calc(var(--pt)*8);font-weight:500;color:var(--sub);letter-spacing:.04em}
+h2{margin-top:calc(var(--mm)*2.5);font-size:calc(var(--pt)*20);line-height:1.45;font-weight:700;letter-spacing:-.01em}
+.lead{margin-top:calc(var(--mm)*5);font-size:calc(var(--pt)*10.5);color:var(--sub);max-width:calc(var(--mm)*150)}
+.lead b,.after b{color:var(--ink);font-weight:700}
+.body{margin-top:calc(var(--mm)*12)}
+.after{margin-top:calc(var(--mm)*7);color:var(--sub)}
+.note{margin-top:auto;padding-top:calc(var(--mm)*4);border-top:1px solid var(--line);font-size:calc(var(--pt)*7.5);color:var(--sub);line-height:1.8}
+.pno{position:absolute;right:calc(var(--mm)*18);bottom:calc(var(--mm)*7);font-size:calc(var(--pt)*7.5);color:var(--faint);font-variant-numeric:tabular-nums}
+
+/* 表紙 */
+.p-cover{background:var(--dark);color:var(--on-dark)}
+.p-cover .brand{color:var(--on-dark-2)}
+.p-cover .rule{display:block;width:calc(var(--mm)*20);height:calc(var(--mm)*.5);background:var(--accent-on-dark);margin-top:auto}
+.p-cover h1{margin-top:calc(var(--mm)*8);font-size:calc(var(--pt)*30);line-height:1.5;font-weight:700;letter-spacing:-.01em}
+.p-cover h1 em{font-style:normal;color:var(--accent-on-dark)}
+.p-cover .sub{margin-top:calc(var(--mm)*8);font-size:calc(var(--pt)*10);color:var(--on-dark-2);line-height:1.9}
+.p-cover .co{margin-top:auto;font-size:calc(var(--pt)*8);color:var(--on-dark-2);line-height:1.9}
+
+/* 表 */
+table{width:100%;border-collapse:collapse}
+th{font-size:calc(var(--pt)*8);font-weight:500;color:var(--sub);text-align:left;padding:0 calc(var(--mm)*3) calc(var(--mm)*3) 0;border-bottom:1px solid var(--ink)}
+td{padding:calc(var(--mm)*4) calc(var(--mm)*3) calc(var(--mm)*4) 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+td:first-child{font-weight:700;white-space:nowrap}
+
+/* 流れ（縦） */
+.flow{list-style:none;counter-reset:f}
+.flow li{counter-increment:f;display:grid;grid-template-columns:calc(var(--mm)*14) 1fr;padding:calc(var(--mm)*5) 0;border-bottom:1px solid var(--line)}
+.flow li::before{content:counter(f,decimal-leading-zero);font-weight:700;color:var(--faint)}
+.flow li.now::before{color:var(--accent)}
+.flow h3{font-size:calc(var(--pt)*11);font-weight:700}
+.flow p{grid-column:2;color:var(--sub)}
+
+/* プラン */
+.plan td,.plan th{text-align:center}
+.plan td:first-child,.plan th:first-child{text-align:left}
+.plan .rec{background:var(--tint)}
+.plan .dot{color:var(--accent)}
+.plan .no{color:var(--faint)}
+
+/* 最終ページ */
+.p-next .ask{margin-top:calc(var(--mm)*40);font-size:calc(var(--pt)*20);font-weight:700;line-height:1.6}
+.p-next .how{margin-top:calc(var(--mm)*6);color:var(--sub)}
+.corp{margin-top:auto;border-top:1px solid var(--ink);padding-top:calc(var(--mm)*5)}
+.corp dl{display:grid;grid-template-columns:calc(var(--mm)*28) 1fr;row-gap:calc(var(--mm)*2.5);font-size:calc(var(--pt)*8.5)}
+.corp dt{color:var(--sub)}
+
+@page{size:A4;margin:0}
+@media print{
+  body{background:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .book{width:210mm;margin:0;gap:0;display:block}
+  .page{width:210mm;height:297mm;aspect-ratio:auto;break-after:page;page-break-after:always}
+  .page:last-child{break-after:auto}
+}
+</style>
+</head>
+<body>
+<main class="book">
+
+<!-- ========== 表紙 .p-cover ========== -->
+<section class="page p-cover"><div class="in">
+  <div class="brand">{資料名} ｜ by Vitality Design</div>
+  <span class="rule" aria-hidden="true"></span>
+  <h1>{結論のコピー1行目}、<br><em>{2行目}。</em></h1>
+  <p class="sub">{何をする／何が分かる資料か、1行}<br>{資料の種類：例 サービス紹介資料}</p>
+  <p class="co">バイタリティデザイン合同会社 ／ Vitality Design LLC<br>vitality-design.jp ・ contact@vitality-design.jp</p>
+</div></section>
+
+<!-- ========== 表 .p-table（FIELD CX 2ページ目の型） ========== -->
+<section class="page p-table"><div class="in">
+  <div class="brand">{資料名}</div>
+  <p class="label">01 ／ {章名：例 設計対象}</p>
+  <h2>{結論の1文：例 継続は、4つの瞬間で切れます。}</h2>
+  <p class="lead">{リード1文目。}<b>{いちばん大事な所}</b>{なので、〜します。}</p>
+  <div class="body">
+    <table>
+      <thead><tr><th>タイミング</th><th>そこで起きていること</th><th>設計すること</th></tr></thead>
+      <tbody>
+        <tr><td>{場面1}</td><td>{相手の状態}</td><td>{こちらがすること}</td></tr>
+        <tr><td>{場面2}</td><td>{相手の状態}</td><td>{こちらがすること}</td></tr>
+        <tr><td>{場面3}</td><td>{相手の状態}</td><td>{こちらがすること}</td></tr>
+        <tr><td>{場面4}</td><td>{相手の状態}</td><td>{こちらがすること}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="after">{補足を1段落。}<b>{太字は1か所まで}</b>{。}</p>
+  <span class="pno">2</span>
+</div></section>
+
+<!-- ========== 流れ .p-flow（A4では縦に並べる） ========== -->
+<section class="page p-flow"><div class="in">
+  <div class="brand">{資料名}</div>
+  <p class="label">02 ／ {章名：例 進め方}</p>
+  <h2>{結論の1文：例 最初の3週間で、切れている所が分かります。}</h2>
+  <p class="lead">{リード。期間と、相手に用意してもらうものを書く。}</p>
+  <div class="body">
+    <ol class="flow">
+      <li><h3>{ステップ名}</h3><p>{何をするか。期間の目安}</p></li>
+      <li class="now"><h3>{ステップ名}</h3><p>{何をするか。期間の目安}</p></li>
+      <li><h3>{ステップ名}</h3><p>{何をするか。期間の目安}</p></li>
+      <li><h3>{ステップ名}</h3><p>{何をするか。期間の目安}</p></li>
+    </ol>
+  </div>
+  <span class="pno">3</span>
+</div></section>
+
+<!-- ========== プラン .p-plan（FIELD CX 5ページ目の型） ========== -->
+<section class="page p-plan"><div class="in">
+  <div class="brand">{資料名}</div>
+  <p class="label">03 ／ プラン</p>
+  <h2>どこまで一緒にやるかを、3つから選べます。</h2>
+  <p class="lead">いきなり全部は必要ありません。<b>{例：診断だけで終える判断も、こちらからお伝えします。}</b></p>
+  <div class="body">
+    <table class="plan">
+      <thead><tr><th></th><th>ライト</th><th class="rec">スタンダード</th><th>プレミアム</th></tr></thead>
+      <tbody>
+        <tr><td>向いている方</td><td>{}</td><td class="rec">{}</td><td>{}</td></tr>
+        <tr><td>期間の目安</td><td>{}</td><td class="rec">{}</td><td>{}</td></tr>
+        <tr><td>{提供すること1}</td><td class="dot">●</td><td class="rec dot">●</td><td class="dot">●</td></tr>
+        <tr><td>{提供すること2}</td><td class="no">—</td><td class="rec dot">●</td><td class="dot">●</td></tr>
+        <tr><td>費用</td><td>個別見積</td><td class="rec">個別見積</td><td>個別見積</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">費用は、{何で決まるか}に応じて個別に見積もります。成果の保証は行いません。</p>
+  <span class="pno">4</span>
+</div></section>
+
+<!-- ========== 最終ページ .p-next（次の一歩＋会社情報。llms.txt と同じ内容） ========== -->
+<section class="page p-next"><div class="in">
+  <div class="brand">{資料名}</div>
+  <p class="ask">{してほしいことを1つ：例 まずは30分、いまの流れを聞かせてください。}</p>
+  <p class="how">{連絡の方法：例 ご都合のよい日時を contact@vitality-design.jp までお知らせください。}</p>
+  <div class="corp">
+    <dl>
+      <dt>会社名</dt><dd>バイタリティデザイン合同会社（Vitality Design LLC）</dd>
+      <dt>所在地</dt><dd>〒153-0064 東京都目黒区下目黒一丁目1番14号 コノトラビル7F</dd>
+      <dt>Web</dt><dd>vitality-design.jp</dd>
+      <dt>連絡先</dt><dd>contact@vitality-design.jp</dd>
+    </dl>
+  </div>
+  <span class="pno">5</span>
+</div></section>
+
+</main>
+</body>
+</html>

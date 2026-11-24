@@ -184,6 +184,14 @@ details summary span:first-child{flex:1}
 .x{background:none;border:none;font-size:22px;line-height:1;cursor:pointer;color:var(--faint)}
 textarea{width:100%;min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--bg);color:var(--ink)}
 .toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:6px;font-size:13px;z-index:60;max-width:calc(100% - 32px)}
+.drop{border:1.5px dashed var(--line);border-radius:8px;padding:26px 16px;text-align:center;display:flex;flex-direction:column;gap:4px;align-items:center;color:var(--sub);cursor:pointer}
+.drop b{color:var(--ink)}
+.drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-weak)}
+.drop u{color:var(--accent)}
+.files{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:6px}
+.files li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap}
+.files li+li{border-top:1px solid var(--line)}
+.next{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;background:var(--accent-weak);border-color:var(--accent-weak)}
 .foot{max-width:1080px;margin:0 auto;padding-block:0 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:11.5px;color:var(--sub);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .foot button{background:none;border:none;color:var(--faint);text-decoration:underline;cursor:pointer;font-size:11.5px;padding:0}
 
@@ -360,8 +368,8 @@ const RES=[],RMAP={};
 })();
 
 /* ================= 状態（このブラウザだけに保存） ================= */
-const KEY='stax2-state';
-const def=()=>({fix:{},ov:{},filer:{},clean:'split',closed:false,filed:false});
+const KEY='stax3-state';
+const def=()=>({fix:{},ov:{},filer:{},clean:'split',imported:false,closed:false,sent:false,filed:false});
 let state=def();
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s) state=Object.assign(def(),s);}catch(e){}
 let J=null;
@@ -432,8 +440,15 @@ function copyText(t,btn){
   const fb=()=>{const ta=btn&&btn.closest('.modal')?.querySelector('textarea');if(ta){ta.focus();ta.select();toast('選択しました。⌘+C（Ctrl+C）でコピーしてください');}else toast('コピーできませんでした');};
   try{navigator.clipboard.writeText(t).then(()=>toast('コピーしました'),fb);}catch(e){fb();}
 }
+const toCSV=rows=>rows.map(r=>r.map(v=>{v=String(v??'');return /[",\n]/.test(v)?`"${v.replace(/"/g,'""')}"`:v;}).join(',')).join('\n');
+function downloadCSV(name,rows){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['﻿'+toCSV(rows)],{type:'text/csv;charset=utf-8'}));
+  a.download=name;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+}
 function csvModal(title,rows){
-  const csv=rows.map(r=>r.map(v=>{v=String(v??'');return /[",\n]/.test(v)?`"${v.replace(/"/g,'""')}"`:v;}).join(',')).join('\n');
+  const csv=toCSV(rows);
   modal(`<div class="modal-h"><div><h2>${esc(title)}</h2><p class="sub small">画面イメージではファイルを保存できないため、中身を表示しています。</p></div><button class="x" data-act="close" aria-label="閉じる">×</button></div>
   <textarea id="csv-out" readonly>${esc(csv)}</textarea>
   <div class="modal-f"><button class="btn" data-act="close">閉じる</button><button class="btn pri" data-act="copy-csv">コピー</button></div>`);
@@ -447,25 +462,123 @@ const views={},hooks={};
 
 /* ---- ホーム ---- */
 views.home=()=>{
+  const step=(s,t,d,act)=>`<li class="${s}"><span class="mk">${s==='done'?'✓':''}</span><div><div class="t">${t}</div><div class="d">${d}</div></div>${act||''}</li>`;
+  const dueStat=`<div class="stat"><span class="l">申告期限まで</span><span class="v">${LEFT}<small>日</small></span><span class="s">${remind.map(md).join('・')} にメールでお知らせ</span></div>`;
+  if(!state.imported) return `${pageHead(`${TM+1}月分の宿泊税`,'前月分の予約データを取り込むところから始めます。')}
+  <section class="panel"><ol class="steps">
+    ${step('now','予約データの取り込み','Beds24・手間いらずから書き出した予約CSVを取り込みます','<button class="btn pri" data-act="open-import">CSVを取り込む</button>')}
+    ${step('wait','1泊ごとの判定','取り込むと、自治体のルールで自動判定します')}
+    ${step('wait','要確認の確認','自動で決められなかった予約だけ確認します')}
+    ${step('wait','今月分の確定・オーナー明細の送付','代行明細書（毎月20日ごろ）に添付します')}
+    ${step('wait','申告',`期限 ${mdw(DUE)}（あと${LEFT}日）`)}
+  </ol></section>
+  <section class="stats">
+    <div class="stat"><span class="l">本来預かるべき宿泊税（確定分）</span><span class="v">—</span><span class="s">取り込み後に表示します</span></div>
+    <div class="stat"><span class="l">要確認</span><span class="v">—</span><span class="s">取り込み後に表示します</span></div>
+    ${dueStat}
+  </section>`;
   const A=ALL(),C=CONF(),P=PEND();
   const total=sum(C,x=>x.tax),wc=C.filter(x=>x.collected!=null),diff=sum(wc,x=>x.tax-x.collected);
-  const step=(s,t,d,act)=>`<li class="${s}"><span class="mk">${s==='done'?'✓':''}</span><div><div class="t">${t}</div><div class="d">${d}</div></div>${act||''}</li>`;
-  const pend=P.length;
-  return `${pageHead(`${TM+1}月分の宿泊税`,'予約を1泊ずつ判定しました。自動で決められなかった予約だけ確認してください。')}
+  const pend=P.length,own=ownerList().length;
+  const lead=state.filed?`${TM+1}月分の作業はすべて終わりました。申告・納入は各名義で期限までに行います。`
+    :'予約を1泊ずつ判定しました。自動で決められなかった予約だけ確認してください。';
+  return `${pageHead(`${TM+1}月分の宿泊税`,lead)}
   <section class="panel"><ol class="steps">
     ${step('done','予約データの取り込み',`Beds24・手間いらずから ${num(RES.length)}件`)}
     ${step('done','1泊ごとの判定',`${num(sum(A,x=>x.r.nights.length))}泊分を自治体のルールで判定`)}
     ${step(pend?'now':'done','要確認の確認',pend?`あと ${pend}件。確定した予約だけが集計に入ります`:'すべて確認しました',pend?'<a class="btn pri" href="#review">確認をはじめる</a>':'')}
-    ${step(state.closed?'done':pend?'wait':'now','今月分の確定・オーナー明細の送付',state.closed?'確定しました。明細を代行明細書に添付できます':'代行明細書（毎月20日ごろ）に添付します',state.closed?'<a class="btn" href="#statement">明細を見る</a>':`<button class="btn ${pend?'':'pri'}" data-act="close-month" ${pend?'disabled':''}>今月分を確定</button>`)}
-    ${step(state.filed?'done':state.closed?'now':'wait','申告',state.filed?'申告用の集計表を出力しました':`期限 ${mdw(DUE)}（あと${LEFT}日）`,state.closed&&!state.filed?'<a class="btn pri" href="#filing">申告の準備へ</a>':'')}
+    ${step(state.sent?'done':state.closed||!pend?'now':'wait','今月分の確定・オーナー明細の送付',
+      state.sent?`${own}名のオーナー様に送付しました`:state.closed?'確定しました。オーナー様に明細を送付してください':'代行明細書（毎月20日ごろ）に添付します',
+      state.sent?'<a class="btn" href="#statement">明細を見る</a>':state.closed?'<a class="btn pri" href="#statement">明細を送付する</a>':`<button class="btn ${pend?'':'pri'}" data-act="close-month" ${pend?'disabled':''}>今月分を確定</button>`)}
+    ${step(state.filed?'done':state.sent?'now':'wait','申告',state.filed?`申告用の集計表を出力しました。期限 ${mdw(DUE)}`:`期限 ${mdw(DUE)}（あと${LEFT}日）`,state.sent&&!state.filed?'<a class="btn pri" href="#filing">申告の準備へ</a>':'')}
   </ol></section>
   <section class="stats">
     <div class="stat"><span class="l">本来預かるべき宿泊税（確定分）</span><span class="v">${num(total)}<small>円</small></span>
       <span class="s">預かった額との差 ${diff>0?'+':''}${yen(diff)}（データで確認できた ${num(wc.length)}件のみ）</span></div>
     <div class="stat"><span class="l">要確認</span><span class="v ${pend?'warn':''}">${pend}<small>件</small></span><span class="s">${pend?'まだ集計に入っていません':'残りはありません'}</span></div>
-    <div class="stat"><span class="l">申告期限まで</span><span class="v">${LEFT}<small>日</small></span><span class="s">${remind.map(md).join('・')} にメールでお知らせ</span></div>
+    ${dueStat}
   </section>`;
 };
+
+/* ---- CSVの取り込み（モーダル） ---- */
+const MM=String(TM+1).padStart(2,'0');
+const iso=day=>{const d=new Date(TY,TM,day);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
+const SRC_HEAD={beds24:'bookId',tema:'予約番号'};
+const SAMPLE_FILE={beds24:`beds24_bookings_${TY}${MM}.csv`,tema:`temairazu_yoyaku_${TY}${MM}.csv`};
+const resOf=src=>RES.filter(r=>PMAP[r.pid].src===src);
+function sampleRows(src){
+  const out=n=>iso(n[n.length-1].day+1);
+  if(src==='beds24') return [['bookId','propertyId','propertyName','arrival','departure','numAdult','referer','price','cleaningFee','cityTax'],
+    ...resOf(src).map(r=>{const p=PMAP[r.pid],c=judgeRes(r,{fix:{}}).collected;return [r.id.slice(4),p.id,p.name,iso(r.nights[0].day),out(r.nights),r.pax,r.ch,r.total,r.clean,r.taxLine&&c!=null?c:''];})];
+  return [['予約番号','施設名','チェックイン','チェックアウト','人数','予約サイト','宿泊料金','清掃料','追加料金'],
+    ...resOf(src).map(r=>{const p=PMAP[r.pid];return [r.id.slice(4),p.name,iso(r.nights[0].day),out(r.nights),r.pax,r.ch,r.total,r.clean,r.other||''];})];
+}
+const IMP_STEPS=['予約データを読み込む','1泊ごとの料金に分ける','合計しかない予約は料金カレンダーで補う','自治体のルールで判定','決められない予約を要確認に回す'];
+const IMP={files:{beds24:null,tema:null},phase:'pick',step:0,err:''};
+function openImport(){if(IMP.phase!=='run'){IMP.phase='pick';IMP.err='';}drawImport();}
+function drawImport(){
+  const head=(t,sub,x=true)=>`<div class="modal-h"><div><h2>${t}</h2><p class="sub small">${sub}</p></div>${x?'<button class="x" data-act="close" aria-label="閉じる">×</button>':''}</div>`;
+  let h;
+  if(IMP.phase==='pick'){
+    const row=s=>{const f=IMP.files[s];return `<li><span><b>${SRC_NAME[s]}</b><br><span class="small ${f?'':'sub'}">${f?`✓ ${esc(f.name)}・${num(f.rows)}件`:'まだ選んでいません'}</span></span>
+      ${f?`<button class="btn ghost sm" data-act="up-clear" data-src="${s}">取り消す</button>`:`<button class="btn sm" data-act="up-sample" data-src="${s}">サンプルを使う</button>`}</li>`;};
+    const ready=IMP.files.beds24&&IMP.files.tema;
+    h=`${head(`${TM+1}月分の予約を取り込む`,'Beds24 と手間いらずから書き出した予約一覧のCSVを選んでください。ゲストの氏名・連絡先は取り込みません。')}
+    <label class="drop" id="drop"><b>CSVファイルをここにドロップ</b><span class="small">または <u>ファイルを選ぶ</u>（2つまとめて選べます）</span><input type="file" id="up-in" accept=".csv,text/csv" multiple hidden></label>
+    ${IMP.err?`<p class="warn small">${esc(IMP.err)}</p>`:''}
+    <ul class="files">${row('beds24')}${row('tema')}</ul>
+    <div class="modal-f" style="justify-content:space-between;align-items:center"><span class="small sub">サンプルCSVをダウンロード：<button class="btn ghost sm" data-act="dl-sample" data-src="beds24">Beds24</button><button class="btn ghost sm" data-act="dl-sample" data-src="tema">手間いらず</button></span>
+      <button class="btn pri" data-act="run-import" ${ready?'':'disabled'}>取り込む</button></div>`;
+  }else if(IMP.phase==='run'){
+    const n=(IMP.files.beds24?.rows||0)+(IMP.files.tema?.rows||0);
+    h=`${head('取り込んでいます',`${num(n)}件の予約を1泊ずつ判定しています`,false)}
+    <ul class="prog">${IMP_STEPS.map((s,i)=>`<li class="${i<IMP.step?'ok':i===IMP.step?'run':''}">${s}</li>`).join('')}</ul>`;
+  }else{
+    const A=ALL(),P=PEND(),b=resOf('beds24').length,c={data:0,cal:0,mis:0};for(const x of A) c[x.src]++;
+    h=`${head('取り込みが終わりました',`${MLABEL}・${md(NOW)} 取り込み`)}
+    <dl class="kv"><dt>予約</dt><dd>${num(RES.length)}件（Beds24 ${num(b)}件・手間いらず ${num(RES.length-b)}件）</dd>
+      <dt>判定</dt><dd>${num(sum(A,x=>x.r.nights.length))}泊分を自治体のルールで判定</dd>
+      <dt>1泊の料金</dt><dd>予約データ ${num(c.data)}件 ／ 料金カレンダーで補完 ${num(c.cal)}件 ／ 合計と合わない ${num(c.mis)}件</dd>
+      <dt>自動で確定</dt><dd>${num(A.length-P.length)}件</dd>
+      <dt>要確認</dt><dd class="${P.length?'warn':''}">${P.length}件</dd></dl>
+    <div class="result"><span>${P.length?`自動で決められなかった ${P.length}件 だけ確認してください。`:'確認が必要な予約はありません。'}</span></div>
+    <div class="modal-f"><button class="btn" data-act="close">閉じる</button>${P.length?'<a class="btn pri" href="#review" data-act="close">要確認の確認へ</a>':'<a class="btn pri" href="#home" data-act="close">ホームへ</a>'}</div>`;
+  }
+  modal(h);$('#mbg').dataset.imp='1';
+}
+async function takeFiles(list){
+  IMP.err='';
+  for(const f of list){
+    if(!/\.csv$/i.test(f.name)){IMP.err=`${f.name} はCSVファイルではありません`;continue;}
+    const buf=await f.arrayBuffer();let t;
+    try{t=new TextDecoder('utf-8',{fatal:true}).decode(buf);}catch(e){t=new TextDecoder('shift_jis').decode(buf);}
+    const lines=t.replace(/^﻿/,'').split(/\r?\n/).filter(l=>l.trim());
+    const hd=lines[0]||'',src=hd.includes(SRC_HEAD.beds24)?'beds24':hd.includes(SRC_HEAD.tema)?'tema':null;
+    if(!src){IMP.err=`${f.name} は、Beds24・手間いらずの予約CSVの形ではないようです。1行目の列名を確認してください`;continue;}
+    if(lines.length<2){IMP.err=`${f.name} に予約が入っていません`;continue;}
+    IMP.files[src]={name:f.name,rows:lines.length-1};
+  }
+  if($('#drop')) drawImport();
+}
+function runImport(){
+  IMP.phase='run';IMP.step=0;drawImport();
+  const tick=()=>{
+    IMP.step++;
+    const open=$('#mbg')?.dataset.imp;
+    if(IMP.step>=IMP_STEPS.length){
+      IMP.phase='done';state.imported=true;save();render();
+      if(open) drawImport(); else toast(`${num(RES.length)}件を取り込みました`);
+      return;
+    }
+    if(open) drawImport();
+    setTimeout(tick,650);
+  };
+  setTimeout(tick,650);
+}
+const needImport=t=>`${pageHead(t,'')}
+  <section class="panel pad sec" style="align-items:flex-start"><h2>${TM+1}月分の予約をまだ取り込んでいません</h2>
+  <p class="sub">Beds24・手間いらずの予約CSVを取り込むと、ここに表示されます。</p>
+  <button class="btn pri" data-act="open-import">CSVを取り込む</button></section>`;
 
 /* ---- 要確認 ---- */
 let draft=null;
@@ -473,7 +586,11 @@ views.review=()=>{
   const L=ALL().filter(x=>x.issues.length||x.status==='fixed').sort((a,b)=>(a.status==='pending'?0:1)-(b.status==='pending'?0:1));
   const P=L.filter(x=>x.status==='pending');
   if(!UI.sel||!RMAP[UI.sel]) UI.sel=(P[0]||L[0])?.r.id||null;
+  const nx=P.length?'':state.closed
+    ?`<section class="panel next"><span>${MLABEL}は確定済みです。</span><a class="btn" href="#statement">オーナー明細へ</a></section>`
+    :`<section class="panel next"><span>すべて確定しました。今月分を確定すると、オーナー明細の送付と申告に進めます。</span><button class="btn pri" data-act="close-month">今月分を確定</button></section>`;
   return `${pageHead('要確認',P.length?`${P.length}件あります。内容を選んで確定すると、集計に入ります。`:'すべて確定しました。')}
+  ${nx}
   <div class="rv">
     <section class="panel"><div class="rv-list">${L.map(x=>`<button class="rv-item ${x.r.id===UI.sel?'on':''} ${x.status!=='pending'?'done':''}" data-act="sel" data-id="${x.r.id}">
       <span class="nm">${esc(x.p.name)}</span><span class="why">${x.status==='pending'?x.issues.map(i=>ISSUE_TEXT[i]).join('、'):'確定済み'}</span><br><span class="meta">${RULES[x.p.area].name}・${stay(x.r)}</span></button>`).join('')}</div>
@@ -501,7 +618,7 @@ function openReview(id){
   if(r.other) h+=`<div class="q"><h3>「追加料金 ${yen(r.other)}」は清掃料ですか？</h3><p class="sub small">手間いらずのデータで、清掃料（${yen(r.clean)}）とは別に計上されています。</p>
     <div class="opts">${opt('other','clean',draft.other==='clean','清掃料として宿泊料金に含める')}${opt('other','exclude',draft.other==='exclude','含めない','リネン追加など、宿泊料金ではないもの')}</div></div>`;
   h+=`<div id="rv-border"></div></div><div id="rv-result"></div>
-  <div class="modal-f" style="margin-top:14px"><button class="btn pri" data-act="confirm-review" data-id="${id}">確定して次へ</button></div>`;
+  <div class="modal-f" style="margin-top:14px"><button class="btn ${PEND().length?'pri':''}" data-act="confirm-review" data-id="${id}">確定して次へ</button></div>`;
   $('#rv-detail').innerHTML=h;
   refreshReview(id);
 }
@@ -568,9 +685,13 @@ views.statement=()=>{
   const OL=ownerList();if(!UI.owner) UI.owner=OL[0][0];
   const o=UI.owner,ids=new Set(PROPS.filter(p=>p.owner===o).map(p=>p.id));
   const P=ALL().filter(x=>ids.has(x.p.id)&&x.status==='pending').length;
+  const nx=!state.closed?`<p class="warn small">今月分がまだ確定していません。要確認をすべて確定し、今月分を確定するとオーナー様に送付できます。</p>`
+    :!state.sent?`<section class="panel next"><span>${MLABEL}を確定しました。${OL.length}名のオーナー様に明細を送付します。</span><button class="btn pri" data-act="send-all">明細を送付（${OL.length}名）</button></section>`
+    :`<section class="panel next"><span><span class="st-ok">${OL.length}名のオーナー様に送付しました</span></span><a class="btn pri" href="#filing">申告の準備へ</a></section>`;
   return `${pageHead('オーナー明細','代行明細書（毎月20日ごろ送付）に添付する宿泊税の明細です。')}
+  ${nx}
   <div class="filters"><select class="in" id="own" data-f="owner" aria-label="オーナー">${OL.map(([n,ps])=>`<option value="${esc(n)}" ${n===o?'selected':''}>${esc(n)}（${ps.length}物件）</option>`).join('')}</select>
-    <span style="margin-left:auto" class="filters"><button class="btn" data-act="owner-csv">CSV</button><button class="btn pri" data-act="owner-pdf">PDFをダウンロード</button></span></div>
+    <span style="margin-left:auto" class="filters"><button class="btn" data-act="owner-csv">CSV</button><button class="btn ${state.closed?'':'pri'}" data-act="owner-pdf">PDFをダウンロード</button></span></div>
   ${P?`<p class="warn small">この方の物件に要確認が ${P}件 あります。確定するまで明細には入りません。</p>`:''}
   ${statementDoc(o,false)}`;
 };
@@ -633,14 +754,23 @@ function ownerCSV(){
     rows.push([x.p.id,x.p.name,x.R.name,filerName(x.p),x.r.id,x.r.ch,MODE_L[x.mode],`${TY}/${TM+1}/${l.day}`,x.r.pax,l.price,Math.round(l.alloc),l.base,l.unit,l.unit*x.r.pax]);
   csvModal(`${o} 様　宿泊税明細（${MLABEL}）`,rows);
 }
+function sendModal(){
+  const OL=ownerList(),C=CONF();
+  modal(`<div class="modal-h"><div><h2>オーナー明細を送付します</h2><p class="sub small">${MLABEL}・代行明細書の添付として送ります</p></div><button class="x" data-act="close" aria-label="閉じる">×</button></div>
+  <dl class="kv"><dt>送付先</dt><dd>${OL.length}名のオーナー様（メール）</dd><dt>添付</dt><dd>宿泊税明細（PDF）を1名につき1通</dd>
+    <dt>物件</dt><dd>${PROPS.length}物件・${num(C.length)}件の予約</dd><dt>宿泊税の合計</dt><dd><b>${yen(sum(C,x=>x.tax))}</b></dd></dl>
+  <p class="sub small">オーナー様は計算不要です。申告名義が貴社の物件は、明細の中で「申告名義：貴社」と表示されます。</p>
+  <div class="modal-f"><button class="btn" data-act="close">キャンセル</button><button class="btn pri" data-act="confirm-send">送付する</button></div>`);
+}
 
 /* ---- 申告 ---- */
 views.filing=()=>`${pageHead('申告','申告名義と自治体の組み合わせごとに、申告書へ写す数字をまとめます。')}
   ${state.closed?'':'<p class="warn small">今月分がまだ確定していません。要確認の予約は集計に入っていません。</p>'}
+  ${state.filed?`<section class="panel next"><span><span class="st-ok">${MLABEL}の作業はすべて終わりました。</span>申告・納入は各名義で ${mdw(DUE)} までに行います。</span><a class="btn" href="#home">ホームへ</a></section>`:''}
   <div class="filters">
     <input type="search" id="fil-q" data-f="filing.q" placeholder="申告名義で検索" value="${esc(UI.filing.q)}">
     <select id="fil-area" data-f="filing.area">${areaOpts(UI.filing.area)}</select>
-    <span style="margin-left:auto">${state.filed?'<span class="st-ok">集計表を出力済み</span>':`<button class="btn pri" data-act="mark-filed" ${state.closed?'':'disabled'}>集計表を出力済みにする</button>`}</span>
+    <span style="margin-left:auto">${state.filed?'<button class="btn" data-act="export-filing">集計表をもう一度出力</button>':`<button class="btn pri" data-act="export-filing" ${state.closed?'':'disabled'}>申告用の集計表を出力</button>`}</span>
   </div>
   <section class="panel" id="fil-list"></section>`;
 hooks.filing=()=>{
@@ -669,6 +799,14 @@ function filingDetail(k){
   <div class="result"><span>納入する宿泊税</span><b>${yen(total)}</b><button class="btn sm" data-act="copy" data-v="${total}">金額をコピー</button></div>
   <p class="sub small">対象：${[...g.props].map(id=>esc(PMAP[id].name)).join('、')}</p>
   <p class="sub small">申告書の作成・提出は申告名義の方（特別徴収義務者）が行います。</p>`);
+}
+function exportFiling(){
+  const d=`${DUE.getFullYear()}/${DUE.getMonth()+1}/${DUE.getDate()}`;
+  const rows=[['申告名義','都道府県','自治体','物件数','人泊','宿泊税（確定分）','申告期限']];
+  for(const g of groups()){const c=g.rows.filter(x=>x.status!=='pending');rows.push([g.filer==='op'?'貴社':g.name,RULES[g.area].pref,RULES[g.area].name,g.props.size,sum(c,x=>x.pn),sum(c,x=>x.tax),d]);}
+  const first=!state.filed;state.filed=true;save();render();
+  csvModal(`申告用の集計表（${MLABEL}・${rows.length-1}件）`,rows);
+  if(first) toast('申告用の集計表を出力しました');
 }
 
 /* ---- 設定 ---- */
@@ -726,14 +864,12 @@ function rulesTab(){
 function importTab(){
   const A=ALL(),c={data:0,cal:0,mis:0};for(const x of A) c[x.src]++;
   const n=s=>PROPS.filter(p=>p.src===s).length;
-  const L=['予約データを取得','1泊ごとの料金に分ける','合計しかない予約は料金カレンダーで補う','自治体のルールで判定','決められない予約を要確認に回す'];
   return `<div class="grid2">
     <section class="panel pad sec"><div class="sec-h"><h2>Beds24</h2><span class="small sub">API・CSV</span></div><dl class="kv"><dt>物件</dt><dd>${n('beds24')}物件</dd><dt>取り込み</dt><dd>毎朝6:00に自動（CSVでも可）</dd></dl></section>
     <section class="panel pad sec"><div class="sec-h"><h2>手間いらず</h2><span class="small sub">CSV</span></div><dl class="kv"><dt>物件</dt><dd>${n('tema')}物件</dd><dt>取り込み</dt><dd>予約一覧のCSVをアップロード</dd></dl></section>
   </div>
-  <section class="panel pad sec"><div class="sec-h"><h2>${TM+1}月分の取り込み</h2><button class="btn" data-act="run-import" ${UI.imp!=null?'disabled':''}>もう一度取り込む</button></div>
-    <ul class="prog">${L.map((s,i)=>`<li class="${UI.imp==null||i<UI.imp?'ok':i===UI.imp?'run':''}">${s}</li>`).join('')}</ul>
-    <dl class="kv small"><dt>1泊の料金の出どころ</dt><dd>予約データ ${num(c.data)}件 ／ 料金カレンダーで補完 ${num(c.cal)}件 ／ 合計と合わず要確認 ${num(c.mis)}件</dd>
+  <section class="panel pad sec"><div class="sec-h"><h2>${TM+1}月分の取り込み</h2><button class="btn ${state.imported?'':'pri'}" data-act="open-import">${state.imported?'もう一度取り込む':'CSVを取り込む'}</button></div>
+    <dl class="kv small">${state.imported?`<dt>取り込んだ予約</dt><dd>${num(RES.length)}件</dd><dt>1泊の料金の出どころ</dt><dd>予約データ ${num(c.data)}件 ／ 料金カレンダーで補完 ${num(c.cal)}件 ／ 合計と合わず要確認 ${num(c.mis)}件</dd>`:'<dt>取り込んだ予約</dt><dd>まだありません</dd>'}
     <dt>取り込む項目</dt><dd>予約ID、物件、宿泊日、人数、予約サイト、料金、清掃料、宿泊税の明細</dd>
     <dt>取り込まない項目</dt><dd>ゲストの氏名・連絡先</dd></dl>
   </section>`;
@@ -741,19 +877,29 @@ function importTab(){
 
 /* ================= 描画とイベント ================= */
 function render(){
-  const h=location.hash.slice(1),v=views[h]?h:'home',pend=PEND().length;
+  const h=location.hash.slice(1),v=views[h]?h:'home',pend=state.imported?PEND().length:0;
   $('#nav').innerHTML=ROUTES.map(([k,l])=>`<a href="#${k}" class="${k===v?'on':''}">${l}${k==='review'&&pend?`<span class="n">${pend}</span>`:''}</a>`).join('');
+  if(!state.imported&&GATED.has(v)){$('#view').innerHTML=needImport(ROUTES.find(r=>r[0]===v)[1]);return;}
   $('#view').innerHTML=views[v]();
   hooks[v]&&hooks[v]();
 }
+const GATED=new Set(['review','reservations','statement','filing']);
+const go=hash=>{if(location.hash==='#'+hash) render(); else location.hash='#'+hash;};
 window.addEventListener('hashchange',()=>{closeModal();render();window.scrollTo(0,0);});
 document.addEventListener('click',e=>{
   const el=e.target.closest('[data-act]');if(!el) return;
   const a=el.dataset.act,id=el.dataset.id;
   if(a==='close') closeModal();
-  else if(a==='reset'){state=def();save();UI.sel=null;UI.owner='';render();toast('最初の状態に戻しました');}
-  else if(a==='close-month'){state.closed=true;save();render();toast('今月分を確定しました');}
-  else if(a==='mark-filed'){state.filed=true;save();render();toast('集計表を出力済みにしました');}
+  else if(a==='reset'){state=def();save();UI.sel=null;UI.owner='';Object.assign(IMP,{files:{beds24:null,tema:null},phase:'pick',step:0,err:''});closeModal();go('home');toast('最初の状態に戻しました');}
+  else if(a==='close-month'){state.closed=true;save();go('statement');toast('今月分を確定しました。オーナー明細を送付できます');}
+  else if(a==='send-all') sendModal();
+  else if(a==='confirm-send'){state.sent=true;save();closeModal();render();toast(`${ownerList().length}名のオーナー様に明細を送付しました`);}
+  else if(a==='export-filing') exportFiling();
+  else if(a==='open-import') openImport();
+  else if(a==='up-sample'){const s=el.dataset.src;IMP.files[s]={name:SAMPLE_FILE[s],rows:resOf(s).length};IMP.err='';drawImport();}
+  else if(a==='up-clear'){IMP.files[el.dataset.src]=null;drawImport();}
+  else if(a==='dl-sample'){const s=el.dataset.src;downloadCSV(SAMPLE_FILE[s],sampleRows(s));}
+  else if(a==='run-import') runImport();
   else if(a==='sel'){UI.sel=id;render();if(innerWidth<860) $('#rv-detail').scrollIntoView({behavior:'smooth'});}
   else if(a==='pick-border'){draft.border[+el.dataset.i]=+el.dataset.v;refreshReview(UI.sel);}
   else if(a==='confirm-review') confirmReview(id);
@@ -774,14 +920,18 @@ document.addEventListener('click',e=>{
   else if(a==='copy-csv') copyText($('#csv-out').value,el);
   else if(a==='copy') copyText(el.dataset.v,el);
   else if(a==='filing-detail') filingDetail(el.dataset.k);
-  else if(a==='run-import'){
-    UI.imp=0;render();
-    const tick=()=>{UI.imp++;if(UI.imp>=5){UI.imp=null;render();toast(`${num(RES.length)}件を取り込みました`);return;}render();setTimeout(tick,600);};
-    setTimeout(tick,600);
-  }
+});
+document.addEventListener('dragover',e=>{
+  if(!e.dataTransfer||![...e.dataTransfer.types].includes('Files')) return;
+  e.preventDefault();const d=$('#drop');if(d) d.classList.toggle('over',!!e.target.closest?.('#drop'));
+});
+document.addEventListener('drop',e=>{
+  if(!e.dataTransfer||!e.dataTransfer.files.length) return;
+  e.preventDefault();const d=$('#drop');if(d){d.classList.remove('over');takeFiles([...e.dataTransfer.files]);}
 });
 document.addEventListener('change',e=>{
   const t=e.target;
+  if(t.id==='up-in'){takeFiles([...t.files]);return;}
   if(t.name==='clean'){state.clean=t.value;save();render();toast(t.value==='split'?'泊数で按分にしました':'初泊に計上にしました');return;}
   if(draft&&t.closest('#rv-detail')){
     if(t.name==='mode') draft.mode=t.value;

@@ -15,26 +15,29 @@
 /* Layout: 上部に細いヘッダーとタブ。本文は1カラム、表と文字だけで組み、色は「要確認」にだけ使う */
 :root{
   color-scheme:light;
-  --page:#ffffff; --bg:#f2f7f7; --paper:#ffffff; --ink:#152d36; --sub:#546873; --faint:#71858c; --line:#dce6e6; --hover:#f7faf9;
-  --accent:#087f75; --accent-weak:#e3f3f0; --on-accent:#ffffff; --deep:#073d48; --scrim:rgba(7,40,48,.45);
-  --warn:#a35a00; --warn-weak:#fdf2e2; --ok:#087f75; --ng:#b8432f;
+  --page:#ffffff; --bg:#f6f8fa; --paper:#ffffff; --ink:#1f2933; --sub:#5b6773; --faint:#77838f; --line:#d8dee4; --hover:#f3f6f8;
+  --accent:#0b7a7c; --accent-weak:#e3f3f3; --on-accent:#ffffff; --deep:#14304f; --scrim:rgba(20,48,79,.45);
+  --primary:#14304f; --on-primary:#ffffff;
+  --warn:#9a4a12; --warn-weak:#fdf0e6; --ok:#0b7a7c; --ng:#b8432f;
   --font:"Inter","Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --page:#12232a; --bg:#203840; --paper:#1a2f35; --ink:#e6f0f0; --sub:#a7bcc1; --faint:#7d969c; --line:#2c464d; --hover:#223b42;
-  --accent:#5cc4b7; --accent-weak:#17423f; --on-accent:#05221f; --deep:#8fb5bb; --scrim:rgba(0,0,0,.55);
-  --warn:#eab15c; --warn-weak:#3a2d14; --ok:#5cc4b7; --ng:#f39484; color-scheme:dark;
+  --page:#0f1e2e; --bg:#1a2c40; --paper:#152638; --ink:#e6edf3; --sub:#a9b6c3; --faint:#7f8e9c; --line:#2a3d52; --hover:#1c3046;
+  --accent:#5cc8c9; --accent-weak:#173f47; --on-accent:#06222a; --deep:#9db4cc; --scrim:rgba(0,0,0,.55);
+  --primary:#7fd3d4; --on-primary:#0b1c2b;
+  --warn:#f0a066; --warn-weak:#3d2614; --ok:#5cc8c9; --ng:#f39484; color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --page:#12232a; --bg:#203840; --paper:#1a2f35; --ink:#e6f0f0; --sub:#a7bcc1; --faint:#7d969c; --line:#2c464d; --hover:#223b42;
-  --accent:#5cc4b7; --accent-weak:#17423f; --on-accent:#05221f; --deep:#8fb5bb; --scrim:rgba(0,0,0,.55);
-  --warn:#eab15c; --warn-weak:#3a2d14; --ok:#5cc4b7; --ng:#f39484; color-scheme:dark;
+  --page:#0f1e2e; --bg:#1a2c40; --paper:#152638; --ink:#e6edf3; --sub:#a9b6c3; --faint:#7f8e9c; --line:#2a3d52; --hover:#1c3046;
+  --accent:#5cc8c9; --accent-weak:#173f47; --on-accent:#06222a; --deep:#9db4cc; --scrim:rgba(0,0,0,.55);
+  --primary:#7fd3d4; --on-primary:#0b1c2b;
+  --warn:#f0a066; --warn-weak:#3d2614; --ok:#5cc8c9; --ng:#f39484; color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--page);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.7;margin:0;font-variant-numeric:tabular-nums}
 h1,h2,h3{margin:0;line-height:1.4;text-wrap:balance}
-h1{font-size:20px;font-weight:700}
-h2{font-size:15px;font-weight:700}
+h1{font-size:20px;font-weight:700;color:var(--deep)}
+h2{font-size:15px;font-weight:700;color:var(--deep)}
 h3{font-size:14px;font-weight:700}
 p{margin:0}
 a{color:var(--accent)}
@@ -92,7 +95,7 @@ nav a .n{background:var(--warn);color:var(--paper);font-size:11px;border-radius:
 /* buttons, inputs */
 .btn{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:7px 14px;cursor:pointer;font-size:13px;white-space:nowrap}
 .btn:hover{background:var(--hover)}
-.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:500}
+.btn.pri{background:var(--primary);border-color:var(--primary);color:var(--on-primary);font-weight:500}
 .btn.pri:hover{filter:brightness(1.08)}
 .btn.sm{padding:4px 10px;font-size:12.5px}
 .btn:disabled{opacity:.45;cursor:not-allowed}
@@ -150,8 +153,8 @@ td .sub{font-size:12px}
 .doc-total b{font-size:28px}
 .callout{border-left:3px solid var(--ok);padding:2px 0 2px 14px}
 /* PDF用：画面のテーマに関係なく白い紙で出力する */
-.pdf-doc{--paper:#ffffff;--ink:#152d36;--sub:#546873;--faint:#71858c;--line:#dce6e6;--bg:#f2f7f7;--ok:#087f75;--warn:#a35a00;
-  width:auto;max-width:100%;border:none;border-radius:0;padding:4px 2px;background:#ffffff;color:#152d36;font-family:var(--font);font-size:13px}
+.pdf-doc{--paper:#ffffff;--ink:#1f2933;--sub:#5b6773;--faint:#77838f;--line:#d8dee4;--bg:#f6f8fa;--ok:#0b7a7c;--warn:#9a4a12;--deep:#14304f;
+  width:auto;max-width:100%;border:none;border-radius:0;padding:4px 2px;background:#ffffff;color:#1f2933;font-family:var(--font);font-size:13px}
 .pdf-doc details summary::before{content:""}
 .pdf-doc .basis-item,.pdf-doc tr{break-inside:avoid}
 details{border-top:1px solid var(--line)}
@@ -171,7 +174,7 @@ details summary span:first-child{flex:1}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;flex-wrap:wrap}
 .seg button{border:none;background:var(--paper);padding:6px 12px;cursor:pointer;font-size:13px}
 .seg button+button{border-left:1px solid var(--line)}
-.seg button.on{background:var(--accent);color:var(--on-accent)}
+.seg button.on{background:var(--primary);color:var(--on-primary)}
 .prog{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px}
 .prog li::before{content:"○ ";color:var(--faint)}
 .prog li.ok::before{content:"✓ ";color:var(--ok)}

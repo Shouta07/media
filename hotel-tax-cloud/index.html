@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>宿泊税クラウド｜民泊・簡易宿所の宿泊税を、予約データから1泊ごとに判定・集計｜バイタリティデザイン</title>
+<meta name="description" content="宿泊税クラウドは、民泊・簡易宿所・ホテルの運営代行会社向けに、予約データから宿泊税を1人1泊ごとに判定し、施設別・オーナー様別の明細と自治体別の申告用データを作るサービスです。京都市・大阪府・東京都・沖縄県・北海道など、地域ごとに違う宿泊税と、Beds24・手間いらずなど複数のPMSに対応します。">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#14304f">
+<link rel="canonical" href="https://www.vitality-design.jp/hotel-tax-cloud/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="バイタリティデザイン合同会社">
+<meta property="og:title" content="宿泊税クラウド｜宿泊税を、予約データから1泊ごとに判定・集計">
+<meta property="og:description" content="予約データを取り込むだけで、施設別・オーナー様別の宿泊税明細と、自治体別の申告用データを作ります。人が見るのは自動で決められない予約だけです。">
+<meta property="og:url" content="https://www.vitality-design.jp/hotel-tax-cloud/">
+<meta property="og:image" content="https://www.vitality-design.jp/og.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.vitality-design.jp/#org",
+      "name": "バイタリティデザイン合同会社",
+      "alternateName": "Vitality Design LLC",
+      "url": "https://www.vitality-design.jp/",
+      "email": "contact@vitality-design.jp",
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "153-0064",
+        "addressRegion": "東京都",
+        "addressLocality": "目黒区",
+        "streetAddress": "下目黒1-1-14 コノトラビル7F",
+        "addressCountry": "JP"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.vitality-design.jp/hotel-tax-cloud/#app",
+      "name": "宿泊税クラウド",
+      "alternateName": "Hotel Tax Cloud",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.vitality-design.jp/hotel-tax-cloud/",
+      "description": "民泊・簡易宿所・ホテルの運営代行会社向けに、予約データから宿泊税を1人1泊ごとに判定し、施設別・オーナー様別の明細と自治体別の申告用データを作るクラウドサービス。複数の自治体の宿泊税と複数のPMS（Beds24・手間いらずなど）に対応。申告・納入は特別徴収義務者が行い、本サービスは集計と申告準備を支援する。",
+      "featureList": [
+        "予約を1人1泊ごとに分けて宿泊税の区分・税額を判定",
+        "施設の所在地から自治体の宿泊税ルールを自動で選択",
+        "清掃料・割引・税込み料金の扱いをルール化",
+        "合計金額と照合できない予約は自動で確定せず「要確認」に分ける",
+        "施設別・オーナー様別の宿泊税明細（判定の根拠つき）",
+        "申告名義×自治体ごとの申告用集計データ",
+        "Beds24（CSV・API）・手間いらず（CSV）などの予約データ取り込み"
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "民泊・簡易宿所・ホテルの運営代行会社、複数施設を運営する事業者、PMS提供会社"
+      },
+      "provider": { "@id": "https://www.vitality-design.jp/#org" },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.vitality-design.jp/" },
+        { "@type": "ListItem", "position": 2, "name": "宿泊税クラウド", "item": "https://www.vitality-design.jp/hotel-tax-cloud/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "宿泊税クラウドとは何ですか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "予約データから宿泊税を1人1泊ごとに判定し、施設別・オーナー様別の明細と、自治体別の申告用データを作るクラウドサービスです。民泊・簡易宿所・ホテルの運営代行会社など、複数の施設・オーナー様の宿泊税をまとめて扱う事業者向けです。バイタリティデザイン合同会社が提供しています。" } },
+        { "@type": "Question", "name": "どの自治体の宿泊税に対応していますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "京都市（5段階の区分）、大阪府（3区分）、東京都（2027年4月からの定率3%）、沖縄県（2027年2月からの定率2%）、北海道（道と市町村の宿泊税）など、税率・免除・申告先が違う地域を同じ仕組みで判定します。制度が変わったときは当社がルールを更新します。対応する自治体は順次広げています。" } },
+        { "@type": "Question", "name": "どの予約システム（PMS）のデータを使えますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "Beds24（CSV・API）と手間いらず（CSV）に対応しています。ほかのPMSやOTAの予約CSVも、形式をそろえて取り込めるよう個別に対応します。PMSを置き換える必要はありません。" } },
+        { "@type": "Question", "name": "宿泊税の申告や納入も代行してもらえますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "いいえ。申告・納入は特別徴収義務者（施設の運営者またはオーナー様）の名義で行っていただきます。宿泊税クラウドは税額の集計と申告準備の支援で、申告の代理や税務上の判断の代行は行いません。" } },
+        { "@type": "Question", "name": "連泊で料金が日によって違う予約や、清掃料がある予約はどう判定しますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "1泊の料金がデータにあればその日の料金で、合計金額しかない予約は料金カレンダーや泊数・人数で分けて、1人1泊ごとに区分を判定します。清掃料・割引・税込み料金の扱いは自治体の考え方に沿ってルール化しています。合計金額と照合できない予約や、区分の境目にあたる予約は自動で確定せず「要確認」として一覧にします。" } },
+        { "@type": "Question", "name": "ゲストの個人情報は必要ですか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "必要ありません。宿泊税の判定に使うのは料金・泊数・人数・施設などで、ゲストの氏名・連絡先は取り込みません。" } },
+        { "@type": "Question", "name": "すぐに使い始められますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "現在は、運営代行会社などの実務に合わせて機能を作り込みながら、先行導入のご相談を受け付けている段階です。まずは予約データ1か月分で試算し、明細の形と取り込みの方法を一緒に決めるところから始めます。" } },
+        { "@type": "Question", "name": "画面を試すことはできますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "はい。https://www.vitality-design.jp/demo/hotel-tax で、CSVの取り込みから要確認の処理、オーナー明細、申告用の集計までを架空のデータで操作できます。税率はデモ用の値です。" } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --paper:#ffffff; --navy:#14304f; --teal:#0f8b8d; --teal-ink:#0b7a7c; --orange:#e8833a; --orange-ink:#9a4a12;
+  --ink:#1f2933; --sub:#5b6773; --faint:#77838f; --line:#d8dee4; --tint:#f6f8fa;
+  --tint-teal:#e3f3f3; --tint-orange:#fdf0e6; --on-dark:#ffffff; --on-dark-2:#d5e2ec;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1e2e; --navy:#9db4cc; --teal:#5cc8c9; --teal-ink:#5cc8c9; --orange:#f0a066; --orange-ink:#f0a066;
+    --ink:#e6edf3; --sub:#a9b6c3; --faint:#7f8e9c; --line:#2a3d52; --tint:#152638;
+    --tint-teal:#173f47; --tint-orange:#3d2614; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1e2e; --navy:#9db4cc; --teal:#5cc8c9; --teal-ink:#5cc8c9; --orange:#f0a066; --orange-ink:#f0a066;
+  --ink:#e6edf3; --sub:#a9b6c3; --faint:#7f8e9c; --line:#2a3d52; --tint:#152638;
+  --tint-teal:#173f47; --tint-orange:#3d2614; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.85 "Noto Sans JP",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:var(--teal-ink)}
+h1,h2,h3,p,dl,dd,figure{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:10px}.skip:focus{left:0;z-index:99}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.brand{font-weight:900;color:var(--navy);text-decoration:none;font-size:18px;letter-spacing:-.02em}
+.brand small{display:block;font-size:10px;font-weight:500;color:var(--sub);letter-spacing:0;line-height:1.3}
+.top nav{display:flex;gap:18px;align-items:center;font-size:14px}
+.top nav a{color:var(--ink);text-decoration:none}
+.top nav a.btn{color:#fff}
+@media (max-width:760px){.top nav a:not(.btn){display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;line-height:1.4}
+.btn.pri{background:#14304f;color:#fff}
+.btn.pri:hover{background:#0f2540}
+.btn.sec{border:1.5px solid currentColor;color:var(--navy)}
+.top .btn{padding:8px 14px;font-size:13px}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#14304f 0%,#1a4566 55%,#0f8b8d 100%);color:var(--on-dark);padding:72px 0 80px}
+.hero .crumb{font-size:13px;color:var(--on-dark-2)}
+.hero .crumb a{color:var(--on-dark-2)}
+.hero h1{font-size:clamp(34px,5vw,54px);font-weight:900;letter-spacing:-.03em;line-height:1.3;margin:14px 0 6px}
+.hero .sub{font-size:clamp(19px,2.4vw,26px);font-weight:700;line-height:1.6}
+.hero .sub em{font-style:normal;color:#ffb27a}
+.hero .rule{width:56px;height:4px;background:var(--orange);margin:24px 0}
+.hero .lead{max-width:720px;color:var(--on-dark-2);font-size:16px}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .btn.pri{background:#fff;color:#14304f}
+.hero .btn.sec{color:#fff}
+.hero .note{font-size:13px;color:var(--on-dark-2);margin-top:16px}
+
+/* sections */
+section.s{padding:72px 0;border-bottom:1px solid var(--line)}
+section.s.tint{background:var(--tint)}
+.label{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--sub);letter-spacing:.04em}
+.label .no{display:inline-block;background:var(--teal-ink);color:#fff;border-radius:4px;padding:1px 8px;font-size:12px}
+:root[data-theme="dark"] .label .no{color:#06222a}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .label .no{color:#06222a}}
+h2{font-size:clamp(24px,3.2vw,34px);font-weight:900;color:var(--navy);line-height:1.5;letter-spacing:-.02em;margin:12px 0 14px}
+h2 em{font-style:normal;color:var(--orange-ink)}
+.intro{color:var(--sub);max-width:760px}
+h3{font-size:18px;color:var(--navy);line-height:1.55}
+
+.def{margin-top:26px;border-left:4px solid var(--teal);background:var(--tint-teal);padding:20px 24px;border-radius:0 8px 8px 0;font-size:17px}
+.def strong{color:var(--navy)}
+
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
+.card{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:22px}
+.card.key{border-top-color:var(--orange)}
+.card p{color:var(--sub);font-size:15px;margin-top:8px}
+@media (max-width:820px){.cards{grid-template-columns:1fr}}
+
+.tbl{overflow-x:auto;margin-top:28px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th{background:#14304f;color:#fff;text-align:left;font-weight:700;padding:12px 14px;white-space:nowrap}
+td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top;background:var(--paper)}
+td:first-child{font-weight:700;color:var(--navy);white-space:nowrap}
+.src{font-size:13px;color:var(--faint);margin-top:10px}
+.src a{color:var(--sub)}
+
+.flow{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:f}
+.flow li{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px}
+.flow li b{display:block;color:var(--teal-ink);font-size:13px}
+.flow li h3{margin:4px 0 6px}
+.flow li p{color:var(--sub);font-size:14px}
+.flow li.now{border-color:var(--orange);background:var(--tint-orange)}
+.flow li.now b{color:var(--orange-ink)}
+@media (max-width:860px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.flow{grid-template-columns:1fr}}
+
+.outs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.out{background:var(--tint-teal);border-radius:8px;padding:18px 20px}
+.out h3{font-size:17px}
+.out p{font-size:14px;color:var(--sub);margin-top:4px}
+@media (max-width:820px){.outs{grid-template-columns:1fr}}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.box{border:1px solid var(--line);border-radius:8px;padding:22px;background:var(--paper)}
+.box ul{margin:10px 0 0;padding-left:1.2em;color:var(--ink)}
+.box li{margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;background:var(--tint)}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+
+.callout{margin-top:26px;background:var(--tint-orange);border-radius:8px;padding:18px 22px;font-size:15px}
+.callout strong{color:var(--orange-ink)}
+
+.faq{margin-top:26px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;padding:18px 36px 18px 0;font-weight:700;color:var(--navy);position:relative;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:12px;font-size:24px;color:var(--teal-ink)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 0 18px;color:var(--ink)}
+
+.cta{background:#14304f;color:#fff;padding:64px 0;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:var(--on-dark-2);max-width:680px;margin:0 auto}
+.cta .acts{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px}
+.cta .btn.pri{background:#fff;color:#14304f}
+.cta .btn.sec{color:#fff}
+.cta .who{margin-top:24px;font-size:14px;color:var(--on-dark-2)}
+.cta .who a{color:#fff}
+
+footer{padding:28px 0;font-size:13px;color:var(--sub)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--sub)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/hotel-tax-cloud/">宿泊税クラウド<small>バイタリティデザイン合同会社</small></a>
+    <nav aria-label="ページ内">
+      <a href="#about">特長</a>
+      <a href="#rules">対応地域</a>
+      <a href="#how">仕組み</a>
+      <a href="#faq">よくある質問</a>
+      <a class="btn pri" href="#contact">相談する</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/">バイタリティデザイン</a> ／ 提供サービス</p>
+    <h1>宿泊税クラウド</h1>
+    <p class="sub">民泊・簡易宿所の宿泊税を、<br>予約データから<em>1泊ごと</em>に判定・集計。</p>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="lead">予約データを取り込むだけで、施設別・オーナー様別の宿泊税明細と、自治体別の申告用データを作ります。地域もPMSも混在したまま、ひとつの手順で月次の宿泊税業務を進められます。人が見るのは、自動で決められない予約だけです。</p>
+    <div class="acts">
+      <a class="btn pri" href="#contact">無料試算を相談する</a>
+      <a class="btn sec" href="/demo/hotel-tax">画面のデモを触る ↗</a>
+    </div>
+    <p class="note">運営代行会社・複数施設を運営する事業者・PMS提供会社向け／先行導入のご相談を受け付けています</p>
+  </div>
+</section>
+
+<section class="s" id="about">
+  <div class="wrap">
+    <p class="label"><span class="no">01</span>宿泊税クラウドとは</p>
+    <h2>毎月の宿泊税業務を、<em>予約データから</em>終わらせる仕組みです。</h2>
+    <p class="def"><strong>宿泊税クラウド</strong>は、民泊・簡易宿所・ホテルの予約データから宿泊税を<strong>1人1泊ごと</strong>に判定し、<strong>施設別・オーナー様別の明細</strong>と<strong>自治体別の申告用データ</strong>を作るクラウドサービスです。複数の自治体の宿泊税と、複数の予約システム（PMS）に対応します。提供はバイタリティデザイン合同会社（東京都目黒区）です。</p>
+    <div class="cards">
+      <div class="card">
+        <h3>判定・明細・申告データを自動で作成</h3>
+        <p>予約1件・1泊ずつの税額判定から、施設別・オーナー様別の明細、申告名義×自治体ごとの集計までを一度に作ります。</p>
+      </div>
+      <div class="card">
+        <h3>地域もPMSも、ひとつの仕組みで</h3>
+        <p>税率・免除・申告先が違う地域を同じ手順で判定。Beds24・手間いらずなど形式の違う予約データも、そろえてから計算します。</p>
+      </div>
+      <div class="card key">
+        <h3>「要確認」だけを人が確定</h3>
+        <p>合計金額と照合できない予約や、区分の境目の予約は自動で確定しません。判定の根拠は予約ごとに記録します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s tint" id="rules">
+  <div class="wrap">
+    <p class="label"><span class="no">02</span>背景と対応地域</p>
+    <h2>宿泊税は「定額・一律」から、<em>予約ごとの判定</em>へ。</h2>
+    <p class="intro">2025〜2027年にかけて各地で制度が変わり、1人1泊の料金で区分を決めたり、定率で計算したりする必要が出ています。施設が複数の地域にあるほど、手作業での対応は難しくなります。</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th scope="col">地域</th><th scope="col">開始・改正</th><th scope="col">課税のしかた（1人1泊あたり）</th><th scope="col">増える作業</th></tr></thead>
+        <tbody>
+          <tr><td>京都市</td><td>2026年3月1日〜</td><td>宿泊料金に応じた5段階（200円・400円・1,000円・4,000円・10,000円）</td><td>1泊ごとに区分を判定し、区分ごとに集計</td></tr>
+          <tr><td>大阪府</td><td>2025年9月1日〜</td><td>5,000円以上が課税。200円・400円・500円の3区分</td><td>清掃料を宿泊料金に含めて判定、税込み料金からの逆算</td></tr>
+          <tr><td>東京都</td><td>2027年4月1日宿泊分〜</td><td>宿泊料金の3%の定率。13,000円未満は課税しない。民泊・簡易宿所も対象に</td><td>免除の判定と定率の計算、新たな申告</td></tr>
+          <tr><td>沖縄県</td><td>2027年2月1日〜（予定）</td><td>定率2%（上限2,000円）。市町村も課税する地域は県0.8%・市町村1.2%</td><td>申告先の振り分け</td></tr>
+          <tr><td>北海道</td><td>実施中</td><td>道の宿泊税に加え、市町村の宿泊税がある地域がある</td><td>道と市町村の二重の申告</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">2026年11月時点。詳細は各自治体の公式情報をご確認ください：<a href="https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html" rel="noopener">京都市</a>／<a href="https://www.tax.metro.tokyo.lg.jp/kazei/leisure/shuk" rel="noopener">東京都主税局</a>／<a href="https://www.pref.okinawa.jp/kurashikankyo/zeikin/1003660/1036559/1036550.html" rel="noopener">沖縄県</a></p>
+    <p class="callout"><strong>制度が変わったら、ルールは当社が更新します。</strong>施設の所在地から当てはまる自治体のルールを自動で選ぶので、利用する側で税率表を管理する必要はありません。</p>
+  </div>
+</section>
+
+<section class="s" id="how">
+  <div class="wrap">
+    <p class="label"><span class="no">03</span>仕組みと月の流れ</p>
+    <h2>予約データを入れるだけで、<em>3つの明細</em>ができます。</h2>
+    <ol class="flow">
+      <li><b>STEP 1</b><h3>取り込む</h3><p>Beds24（API・CSV）や手間いらず（CSV）から前月分の予約を取り込みます。</p></li>
+      <li><b>STEP 2</b><h3>1泊ごとに判定</h3><p>予約を1人1泊に分け、清掃料・割引・税込み料金も含めて区分と税額を決めます。</p></li>
+      <li class="now"><b>STEP 3</b><h3>要確認だけ確定</h3><p>合計と合わない・境目の金額・設定が未定の予約だけを、理由つきで確認します。</p></li>
+      <li><b>STEP 4</b><h3>明細・申告データ</h3><p>確定した予約だけを集計し、明細の送付と申告の準備に進みます。</p></li>
+    </ol>
+    <div class="outs">
+      <div class="out"><h3>施設別の明細</h3><p>どの料金にどの区分を当てたか、判定の根拠つき。</p></div>
+      <div class="out"><h3>オーナー様別の明細</h3><p>月次の代行明細書に添付できる形。CSV・PDFで出力。</p></div>
+      <div class="out"><h3>自治体別の申告用データ</h3><p>申告名義×自治体ごとの集計表。期限前にお知らせ。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s tint" id="fit">
+  <div class="wrap">
+    <p class="label"><span class="no">04</span>対象と役割</p>
+    <h2>複数の施設・オーナー様の宿泊税を<br>まとめて扱う事業者向けです。</h2>
+    <div class="two">
+      <div class="box">
+        <h3>こんな事業者に向いています</h3>
+        <ul>
+          <li>民泊・簡易宿所の運営代行会社</li>
+          <li>複数の地域で施設を運営している事業者</li>
+          <li>オーナー様ごとに宿泊税の明細を出している会社</li>
+          <li>利用者から宿泊税の相談を受けているPMS提供会社</li>
+        </ul>
+        <div class="chips" aria-label="取り込める予約データ"><span>Beds24（CSV・API）</span><span>手間いらず（CSV）</span><span>ほかのPMS・OTAのCSV（個別対応）</span></div>
+      </div>
+      <div class="box">
+        <h3>役割の線引き</h3>
+        <ul>
+          <li><b>宿泊税クラウド：</b>予約データの取り込み、1泊ごとの判定、集計、明細と申告用データの作成</li>
+          <li><b>運営代行会社など：</b>要確認の確認・確定、明細の承認・送付</li>
+          <li><b>特別徴収義務者（施設・オーナー様）：</b>自治体への申告・納入</li>
+        </ul>
+        <p class="src">申告の代理や、税務上の判断の代行は行いません。ゲストの氏名・連絡先は取り込みません。</p>
+      </div>
+    </div>
+    <p class="callout"><strong>大阪府への確認：</strong>公開されている情報をもとにシステムで宿泊料金や税額を計算することは問題ないとの回答を、大阪府の宿泊税担当窓口からいただいています（2026年11月25日、電話で確認）。清掃料の合算、割引の扱い、税込み料金からの逆算なども、府の考え方に沿ってルール化しています。</p>
+  </div>
+</section>
+
+<section class="s" id="start">
+  <div class="wrap">
+    <p class="label"><span class="no">05</span>始め方</p>
+    <h2>まずは<em>1か月分の予約データ</em>で試算します。</h2>
+    <p class="intro">実務に合わせて機能を作り込みながら、先行導入のご相談を受け付けています。</p>
+    <ol class="flow">
+      <li><b>1</b><h3>オンラインで15〜30分</h3><p>お使いのPMS、施設の地域、明細の出し方を伺います。</p></li>
+      <li class="now"><b>2</b><h3>無料で試算</h3><p>予約CSV（1か月分・数施設）から明細を作ってお返しし、足りない項目もご報告します。</p></li>
+      <li><b>3</b><h3>取り込みの形を決める</h3><p>CSVから始めるか、APIでつなぐかを決めます。</p></li>
+      <li><b>4</b><h3>月次の運用へ</h3><p>毎月の判定・明細・申告準備を宿泊税クラウドで進めます。</p></li>
+    </ol>
+    <p class="src">試算用のCSVは、ゲストの氏名・連絡先を削除したものでかまいません。導入の条件は、お打ち合わせのうえでご相談します。</p>
+  </div>
+</section>
+
+<section class="s tint" id="faq">
+  <div class="wrap">
+    <p class="label"><span class="no">06</span>よくある質問</p>
+    <h2>宿泊税クラウドについて、よくいただく質問</h2>
+    <div class="faq">
+      <details open><summary>宿泊税クラウドとは何ですか？</summary><p>予約データから宿泊税を1人1泊ごとに判定し、施設別・オーナー様別の明細と、自治体別の申告用データを作るクラウドサービスです。民泊・簡易宿所・ホテルの運営代行会社など、複数の施設・オーナー様の宿泊税をまとめて扱う事業者向けです。バイタリティデザイン合同会社が提供しています。</p></details>
+      <details><summary>どの自治体の宿泊税に対応していますか？</summary><p>京都市（5段階の区分）、大阪府（3区分）、東京都（2027年4月からの定率3%）、沖縄県（2027年2月からの定率2%）、北海道（道と市町村の宿泊税）など、税率・免除・申告先が違う地域を同じ仕組みで判定します。制度が変わったときは当社がルールを更新します。対応する自治体は順次広げています。</p></details>
+      <details><summary>どの予約システム（PMS）のデータを使えますか？</summary><p>Beds24（CSV・API）と手間いらず（CSV）に対応しています。ほかのPMSやOTAの予約CSVも、形式をそろえて取り込めるよう個別に対応します。PMSを置き換える必要はありません。</p></details>
+      <details><summary>宿泊税の申告や納入も代行してもらえますか？</summary><p>いいえ。申告・納入は特別徴収義務者（施設の運営者またはオーナー様）の名義で行っていただきます。宿泊税クラウドは税額の集計と申告準備の支援で、申告の代理や税務上の判断の代行は行いません。</p></details>
+      <details><summary>連泊で料金が日によって違う予約や、清掃料がある予約はどう判定しますか？</summary><p>1泊の料金がデータにあればその日の料金で、合計金額しかない予約は料金カレンダーや泊数・人数で分けて、1人1泊ごとに区分を判定します。清掃料・割引・税込み料金の扱いは自治体の考え方に沿ってルール化しています。合計金額と照合できない予約や、区分の境目にあたる予約は自動で確定せず「要確認」として一覧にします。</p></details>
+      <details><summary>ゲストの個人情報は必要ですか？</summary><p>必要ありません。宿泊税の判定に使うのは料金・泊数・人数・施設などで、ゲストの氏名・連絡先は取り込みません。</p></details>
+      <details><summary>すぐに使い始められますか？</summary><p>現在は、運営代行会社などの実務に合わせて機能を作り込みながら、先行導入のご相談を受け付けている段階です。まずは予約データ1か月分で試算し、明細の形と取り込みの方法を一緒に決めるところから始めます。</p></details>
+      <details><summary>画面を試すことはできますか？</summary><p>はい。<a href="/demo/hotel-tax">画面のデモ</a>で、CSVの取り込みから要確認の処理、オーナー明細、申告用の集計までを架空のデータで操作できます。税率はデモ用の値です。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>宿泊税の月次業務を、<br>仕組みに任せませんか。</h2>
+    <p>お使いのPMSと施設の地域を教えてください。1か月分の予約データで、明細の試算をお返しします。</p>
+    <div class="acts">
+      <a class="btn pri" href="mailto:contact@vitality-design.jp?subject=%E5%AE%BF%E6%B3%8A%E7%A8%8E%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%AE%E7%84%A1%E6%96%99%E8%A9%A6%E7%AE%97%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談する</a>
+      <a class="btn sec" href="/#contact">お問い合わせフォーム</a>
+    </div>
+    <p class="who">バイタリティデザイン合同会社　開発責任者 伊東公平<br>〒153-0064 東京都目黒区下目黒1-1-14 コノトラビル7F／<a href="mailto:contact@vitality-design.jp">contact@vitality-design.jp</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© バイタリティデザイン合同会社</span>
+    <span><a href="/">ホーム</a>　<a href="/company.html">会社概要</a>　<a href="/torutsugu/">トルツグ</a>　<a href="/privacy.html">プライバシーポリシー</a></span>
+  </div>
+</footer>
+</body>
+</html>

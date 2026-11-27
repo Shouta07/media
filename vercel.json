@@ -124,6 +124,11 @@
       "source": "/picrelay/index.html",
       "destination": "/tenten/",
       "permanent": true
+    },
+    {
+      "source": "/hotel-tax",
+      "destination": "/hotel-tax-cloud/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -142,6 +147,14 @@
     {
       "source": "/tenten/",
       "destination": "/tenten/index.html"
+    },
+    {
+      "source": "/hotel-tax-cloud",
+      "destination": "/hotel-tax-cloud/index.html"
+    },
+    {
+      "source": "/hotel-tax-cloud/",
+      "destination": "/hotel-tax-cloud/index.html"
     },
     {
       "source": "/torutsugu",
